@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  climate
-%global packver   1.0.5
+%global packname  shinyStorePlus
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Download Meteorological (and Hydrological) Datasets
+Summary:          Secure in-Browser Storage for 'Shiny' Inputs and Variables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
+Requires:         R-CRAN-htmltools 
 
 %description
-Automatize downloading of meteorological and hydrological data from
-publicly available repositories: OGIMET
-(<http://ogimet.com/index.phtml.en>), University of Wyoming - atmospheric
-vertical profiling data (<http://weather.uwyo.edu/upperair/>), Polish
-Institute of Meterology and Water Management - National Research Institute
-(<https://danepubliczne.imgw.pl>), and National Oceanic & Atmospheric
-Administration (NOAA). This package also allows for searching geographical
-coordinates for each observation and calculate distances to the nearest
-stations.
+Store persistent and synchronized data from 'Shiny' inputs within the
+browser in a secure format. Refresh 'Shiny' applications and preserve
+user-inputs over multiple sessions. A database-like storage format is
+implemented using 'Dexie.js' <https://dexie.org>, a minimal wrapper for
+'IndexedDB'.
 
 %prep
 %setup -q -c -n %{packname}

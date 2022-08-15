@@ -1,38 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gcdnet
-%global packver   1.0.6
+%global packname  gmwmx
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The (Adaptive) LASSO and Elastic Net Penalized Least Squares, Logistic Regression, Hybrid Huberized Support Vector Machines, Squared Hinge Loss Support Vector Machines and Expectile Regression using a Fast Generalized Coordinate Descent Algorithm
+Summary:          Estimate Functional and Stochastic Parameters of Linear Models with Correlated Residuals
 
-License:          GPL (>= 2)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-wv 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-longmemo 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-wv 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-longmemo 
+Requires:         R-CRAN-rjson 
 
 %description
-Implements a generalized coordinate descent (GCD) algorithm for computing
-the solution paths of the hybrid Huberized support vector machine (HHSVM)
-and its generalizations. Supported models include the (adaptive) LASSO and
-elastic net penalized least squares, logistic regression, HHSVM, squared
-hinge loss SVM and expectile regression.
+Implements the Generalized Method of Wavelet Moments with Exogenous Inputs
+estimator (GMWMX) presented in Cucci, D. A., Voirol, L., Kermarrec, G.,
+Montillet, J. P., and Guerrier, S. (2022) <arXiv:2206.09668>. The GMWMX
+estimator allows to estimate functional and stochastic parameters of
+linear models with correlated residuals. The 'gmwmx' package provides
+functions to estimate, compare and analyze models, utilities to load and
+work with Global Navigation Satellite System (GNSS) data as well as
+methods to compare results with the Maximum Likelihood Estimator (MLE)
+implemented in Hector.
 
 %prep
 %setup -q -c -n %{packname}

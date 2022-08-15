@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rodam
-%global packver   0.1.14
+%global __requires_exclude ^libmpi
+%global packname  rTensor2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.14
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper Functions for 'ODAM' (Open Data for Access and Mining) Web Services
+Summary:          MultiLinear Algebra
 
-License:          LGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-wavethresh 
+BuildRequires:    R-CRAN-gsignal 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixcalc 
 Requires:         R-methods 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-wavethresh 
+Requires:         R-CRAN-gsignal 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixcalc 
 
 %description
-'ODAM' (Open Data for Access and Mining) is a framework that implements a
-simple way to make research data broadly accessible and fully available
-for reuse, including by a script language such as R. The main purpose is
-to make a data set accessible online with a minimal effort from the data
-provider, and to allow any scientists or bioinformaticians to be able to
-explore the data set and then extract a subpart or the totality of the
-data according to their needs. The Rodam package has only one class,
-'odamws', that provides methods to allow you to retrieve online data using
-'ODAM' Web Services. This obviously requires that data are implemented
-according the 'ODAM' approach , namely that the data subsets were
-deposited in the suitable data repository in the form of TSV files
-associated with their metadata also described in TSV files. See
-<https://inrae.github.io/ODAM/>.
+A set of tools for basic tensor operators.  A tensor in the context of
+data analysis in a multidimensional array. The tools in this package rely
+on using any discrete transformation (e.g. Fast Fourier Transform (FFT)).
+Standard tools included are the Eigenvalue decomposition of a tensor, the
+QR decomposition and LU decomposition.  Other functionality includes the
+inverse of a tensor and the transpose of a symmetric tensor. Functionality
+in the package is outlined in Kernfeld et al. (2015)
+<https://www.sciencedirect.com/science/article/pii/S0024379515004358>.
 
 %prep
 %setup -q -c -n %{packname}

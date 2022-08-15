@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gcdnet
-%global packver   1.0.6
+%global packname  dispeRse
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The (Adaptive) LASSO and Elastic Net Penalized Least Squares, Logistic Regression, Hybrid Huberized Support Vector Machines, Squared Hinge Loss Support Vector Machines and Expectile Regression using a Fast Generalized Coordinate Descent Algorithm
+Summary:          Simulation of Demic Diffusion with Environmental Constraints
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgdal 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgdal 
 
 %description
-Implements a generalized coordinate descent (GCD) algorithm for computing
-the solution paths of the hybrid Huberized support vector machine (HHSVM)
-and its generalizations. Supported models include the (adaptive) LASSO and
-elastic net penalized least squares, logistic regression, HHSVM, squared
-hinge loss SVM and expectile regression.
+Simulates demic diffusion building on models previously developed for the
+expansion of Neolithic and other food-producing economies during the
+Holocene (Fort et al. (2012) <doi:10.7183/0002-7316.77.2.203>, Souza et
+al. (2021) <doi:10.1098/rsif.2021.0499>). Growth and emigration are
+modelled as density-dependent processes using logistic growth and an
+asymptotic threshold model. Environmental and terrain layers, which can
+change over time, affect carrying capacity, growth and mobility. Multiple
+centres of origin with their respective starting times can be specified.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  soundgen
-%global packver   2.5.1
+%global packver   2.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          2.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sound Synthesis and Acoustic Analysis
 
@@ -23,7 +24,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-dtw 
 BuildRequires:    R-CRAN-phonTools 
@@ -39,7 +39,6 @@ Requires:         R-graphics
 Requires:         R-utils 
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-dtw 
 Requires:         R-CRAN-phonTools 

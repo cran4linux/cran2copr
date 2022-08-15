@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bizicount
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bivariate Zero-Inflated Count Models Using Copulas
 
@@ -43,8 +44,9 @@ non-inflated) Poisson and negative binomial count models. Supports Frank
 and Gaussian copulas. Allows for mixed margins (e.g., one margin Poisson,
 the other zero-inflated negative binomial), and several marginal link
 functions. Built-in methods for publication-quality tables using 'texreg',
-and post-estimation diagnostics using 'DHARMa'. For information on copula
-regression for count data, see Genest and Nešlehová (2007)
+post-estimation diagnostics using 'DHARMa', and testing for marginal
+zero-modification via <doi:10.1177/0962280217749991>. For information on
+copula regression for count data, see Genest and Nešlehová (2007)
 <doi:10.1017/S0515036100014963> as well as Nikoloulopoulos (2013)
 <doi:10.1007/978-3-642-35407-6_11>. For information on zero-inflated count
 regression generally, see Lambert (1992)

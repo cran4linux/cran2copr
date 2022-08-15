@@ -1,38 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gcdnet
-%global packver   1.0.6
+%global packname  VAJointSurv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The (Adaptive) LASSO and Elastic Net Penalized Least Squares, Logistic Regression, Hybrid Huberized Support Vector Machines, Squared Hinge Loss Support Vector Machines and Expectile Regression using a Fast Generalized Coordinate Descent Algorithm
+Summary:          Variational Approximation for Joint Survival and Marker Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-psqn >= 0.3.0
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-splines 
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-SimSurvNMarker 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-splines 
+Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-methods 
+Requires:         R-CRAN-SimSurvNMarker 
+Requires:         R-CRAN-psqn >= 0.3.0
 Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-lme4 
 
 %description
-Implements a generalized coordinate descent (GCD) algorithm for computing
-the solution paths of the hybrid Huberized support vector machine (HHSVM)
-and its generalizations. Supported models include the (adaptive) LASSO and
-elastic net penalized least squares, logistic regression, HHSVM, squared
-hinge loss SVM and expectile regression.
+Estimates joint marker (longitudinal) and and survival (time-to-event)
+outcomes using variational approximations. The package supports
+multivariate markers allowing for correlated error terms and multiple
+types of survival outcomes which may be left-truncated, right-censored,
+and recurrent. Time-varying fixed and random covariate effects are
+supported along with non-proportional hazards.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ecce
-%global packver   1.0.9
+%global __requires_exclude ^libmpi
+%global packname  SPB
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate English Words into Chinese, or Translate Chinese Words into English
+Summary:          Simple Progress Bars for Procedural Coding
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-knitr 
 
 %description
-If translate English words into Chinese, there is a faster way for R user.
-'RYoudaoTranslate' package provides interface to 'Youdao'
-<http://youdao.com/> translation open API for R user. 'entcn' package also
-provides similar features. But it does not support Chinese words
-translation into English, I have made some improvements on the basis of
-this software. You can pass in a words or a vector consisting of multiple
-words, ecce package support both English and Chinese translation. It also
-support browse translation results in website.
+Provides a simple progress bar to use for basic and advanced users that
+suits all those who prefer procedural programming. It is especially useful
+for integration into markdown files thanks to the progress bar's
+customisable appearance.
 
 %prep
 %setup -q -c -n %{packname}

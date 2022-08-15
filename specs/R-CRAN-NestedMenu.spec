@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  istacr
-%global packver   0.1.3
+%global __requires_exclude ^libmpi
+%global packname  NestedMenu
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Obtaining Open Data from Instituto Canario De Estadistica (ISTAC) API
+Summary:          A Nested Menu Widget for 'Shiny' Applications
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-fontawesome 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jquerylib 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-fontawesome 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jquerylib 
+Requires:         R-CRAN-shiny 
 
 %description
-You can access to open data published in Instituto Canario De Estadistica
-(ISTAC) APIs at <https://datos.canarias.es/api/estadisticas/>.
+Provides a nested menu widget for usage in 'Shiny' applications. This is
+useful for hierarchical choices (e.g. continent, country, city).
 
 %prep
 %setup -q -c -n %{packname}
@@ -33,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

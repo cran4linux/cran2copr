@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  waveslim
-%global packver   1.8.3
+%global packver   1.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.3
+Version:          1.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Wavelet Routines for One-, Two-, and Three-Dimensional Signal Processing
 
@@ -30,7 +31,7 @@ analysis.  The code provided here is based on wavelet methodology
 developed in Percival and Walden (2000); Gencay, Selcuk and Whitcher
 (2001); the dual-tree complex wavelet transform (DTCWT) from Kingsbury
 (1999, 2001) as implemented by Selesnick; and Hilbert wavelet pairs
-(Selesnick 2001, 2002).  All figures in chapters 4-7 of GSW (2001) are
+(Selesnick 2001, 2002). All figures in chapters 4-7 of GSW (2001) are
 reproducible using this package and R code available at the book
 website(s) below.
 

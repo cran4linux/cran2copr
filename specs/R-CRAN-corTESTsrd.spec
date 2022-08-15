@@ -1,40 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fixedincome
-%global packver   0.0.2
+%global __requires_exclude ^libmpi
+%global packname  corTESTsrd
+%global packver   0.9-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fixed Income Models, Calculations, Data Structures and Instruments
+Summary:          Significance Testing of Rank Cross-Correlations under SRD
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bizdays >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-bizdays >= 1.0.0
-Requires:         R-methods 
-Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-utils 
 
 %description
-Fixed income mathematics made easy. A rich set of functions that helps
-with calculations of interest rates and fixed income. It has objects that
-abstract interest rates, compounding factors, day count rules, forward
-rates and term structure of interest rates. Many interpolation methods and
-parametric curve models commonly used by practitioners are implemented.
+Significance test of Spearman's Rho or Kendall's Tau between short-range
+dependent random variables.
 
 %prep
 %setup -q -c -n %{packname}

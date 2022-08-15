@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggh4x
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hacks for 'ggplot2'
 
@@ -22,12 +23,18 @@ BuildRequires:    R-CRAN-gtable
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-stats 
+Requires:         R-CRAN-cli 
 
 %description
 A 'ggplot2' extension that does a variety of little helpful things.  The

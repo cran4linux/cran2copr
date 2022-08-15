@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ccdrAlgorithm
-%global packver   0.0.6
+%global __requires_exclude ^libmpi
+%global packname  dyntaper
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          CCDr Algorithm for Learning Sparse Gaussian Bayesian Networks
+Summary:          Dynamic Stem Profile Models, AKA Tree Taper Equations
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-sparsebnUtils >= 0.0.5
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-sparsebnUtils >= 0.0.5
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Implementation of the CCDr (Concave penalized Coordinate Descent with
-reparametrization) structure learning algorithm as described in Aragam and
-Zhou (2015) <https://www.jmlr.org/papers/v16/aragam15a.html>. This is a
-fast, score-based method for learning Bayesian networks that uses sparse
-regularization and block-cyclic coordinate descent.
+Performs calculations with tree taper (or stem profile) equations,
+including model fitting. The package implements the methods from García,
+O. (2015) "Dynamic modelling of tree form"
+<http://mcfns.net/index.php/Journal/article/view/MCFNS7.1_2>. The models
+are parsimonious, describe well the tree bole shape over its full length,
+and are consistent with wood formation mechanisms through time.
 
 %prep
 %setup -q -c -n %{packname}
