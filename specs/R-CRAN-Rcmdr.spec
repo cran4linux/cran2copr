@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Rcmdr
-%global packver   2.7-2
+%global packver   2.8-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.2
+Version:          2.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander
 
@@ -18,7 +19,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-effects >= 4.0.3
-BuildRequires:    R-CRAN-car >= 3.0.8
+BuildRequires:    R-CRAN-car >= 3.1.0
 BuildRequires:    R-CRAN-RcmdrMisc >= 2.7.1
 BuildRequires:    R-CRAN-tcltk2 >= 1.2.6
 BuildRequires:    R-CRAN-relimp >= 1.0.5
@@ -31,8 +32,9 @@ BuildRequires:    R-splines
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-effects >= 4.0.3
-Requires:         R-CRAN-car >= 3.0.8
+Requires:         R-CRAN-car >= 3.1.0
 Requires:         R-CRAN-RcmdrMisc >= 2.7.1
 Requires:         R-CRAN-tcltk2 >= 1.2.6
 Requires:         R-CRAN-relimp >= 1.0.5
@@ -45,6 +47,7 @@ Requires:         R-splines
 Requires:         R-tcltk 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-lme4 
+Requires:         R-tools 
 
 %description
 A platform-independent basic-statistics GUI (graphical user interface) for

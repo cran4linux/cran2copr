@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readsparse
-%global packver   0.1.5-2
+%global packver   0.1.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5.2
+Version:          0.1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write Sparse Matrices in 'SVMLight' and 'LibSVM' Formats
 

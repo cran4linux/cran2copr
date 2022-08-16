@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IRexamples
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Practical Institutional Research Examples and Tutorials
 
@@ -26,6 +27,12 @@ BuildRequires:    R-CRAN-RSelenium
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-DisImpact 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-tidygeocoder 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-geodist 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tigris 
+BuildRequires:    R-CRAN-tidycensus 
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-twang 
 Requires:         R-CRAN-survey 
@@ -36,6 +43,12 @@ Requires:         R-CRAN-RSelenium
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-DisImpact 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-tidygeocoder 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-geodist 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tigris 
+Requires:         R-CRAN-tidycensus 
 
 %description
 Provides examples of code for analyzing data or accomplishing tasks that

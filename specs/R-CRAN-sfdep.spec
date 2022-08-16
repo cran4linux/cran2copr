@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sfdep
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Dependence for Simple Features
 
@@ -19,13 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-CRAN-rlang 
 

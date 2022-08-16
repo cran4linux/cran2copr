@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  secr
-%global packver   4.5.5
+%global packver   4.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.5
+Version:          4.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Explicit Capture-Recapture
 
@@ -24,17 +25,17 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-utils 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppNumerical 
-BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-RcppParallel >= 5.1.1
 Requires:         R-CRAN-raster >= 3.5.15
 Requires:         R-CRAN-terra >= 1.5.12
@@ -44,15 +45,15 @@ Requires:         R-CRAN-abind
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
-Requires:         R-utils 
-Requires:         R-parallel 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-nlme 
+Requires:         R-parallel 
 Requires:         R-CRAN-RcppNumerical 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Functions to estimate the density and size of a spatially distributed

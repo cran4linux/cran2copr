@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ndi
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neighborhood Deprivation Indices
 
@@ -19,27 +19,42 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidycensus 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-psych 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidycensus 
 Requires:         R-CRAN-tidyr 
 
 %description
-Compute various neighborhood deprivation indices (NDI), including: (1)
-based on Messer et al. (2006) <doi:10.1007/s11524-006-9094-x> and (2)
-based on Andrews et al. (2020) <doi:10.1080/17445647.2020.1750066> and
-Slotman et al. (2022) <doi:10.1016/j.dib.2022.108002> who uses variables
-chosen by Roux and Mair (2010) <doi:10.1111/j.1749-6632.2009.05333.x>.
-Both are a decomposition of multiple demographic characteristics from the
-U.S. Census Bureau American Community Survey 5-year estimates.
+Computes various metrics of socio-economic deprivation and disparity in
+the United States. Some metrics are considered "spatial" because they
+consider the values of neighboring (i.e., adjacent) census geographies in
+their computation, while other metrics are "aspatial" because they only
+consider the value within each census geography. Two types of aspatial
+neighborhood deprivation indices (NDI) are available: including: (1) based
+on Messer et al. (2006) <doi:10.1007/s11524-006-9094-x> and (2) based on
+Andrews et al. (2020) <doi:10.1080/17445647.2020.1750066> and Slotman et
+al. (2022) <doi:10.1016/j.dib.2022.108002> who use variables chosen by
+Roux and Mair (2010) <doi:10.1111/j.1749-6632.2009.05333.x>. Both are a
+decomposition of multiple demographic characteristics from the U.S. Census
+Bureau American Community Survey 5-year estimates (ACS-5; 2010-2020).
+Using data from the ACS-5 (2009-2020), the package can also (1) compute
+the spatial Racial Isolation Index (RI) based on Anthopolos et al. (2011)
+<doi:10.1016/j.sste.2011.06.002>s, (2) compute spatial the Educational
+Isolation Index (EI) based on Bravo et al. (2021)
+<doi:10.3390/ijerph18179384>,and (3) retrieve the aspatial Gini Index
+based on Gini (1921) <doi:10.2307/2223319>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RaceID
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identification of Cell Types and Inference of Lineage Trees from Single-Cell RNA-Seq Data
 
@@ -23,9 +24,11 @@ BuildRequires:    R-CRAN-FNN
 BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-harmony 
 BuildRequires:    R-CRAN-ica 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-leiden 
 BuildRequires:    R-CRAN-locfit 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
@@ -36,6 +39,7 @@ BuildRequires:    R-CRAN-pheatmap
 BuildRequires:    R-CRAN-propr 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-runner 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-umap 
@@ -47,9 +51,11 @@ Requires:         R-CRAN-FNN
 Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
+Requires:         R-CRAN-harmony 
 Requires:         R-CRAN-ica 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-leiden 
 Requires:         R-CRAN-locfit 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
@@ -60,6 +66,7 @@ Requires:         R-CRAN-pheatmap
 Requires:         R-CRAN-propr 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-runner 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-Rtsne 

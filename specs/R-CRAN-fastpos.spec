@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastpos
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Finds the Critical Sequential Point of Stability for a Pearson Correlation
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-pbmcapply 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-Rcpp 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-tibble 
 Requires:         R-stats 
-Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-pbmcapply 
 
 %description
 Finds the critical sample size ("critical point of stability") for a

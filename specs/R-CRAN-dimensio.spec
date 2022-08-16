@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dimensio
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Data Analysis
 
@@ -17,9 +18,11 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 
@@ -28,8 +31,9 @@ Simple Principal Components Analysis (PCA) and Correspondence Analysis
 (CA) based on the Singular Value Decomposition (SVD). This package
 provides S4 classes and methods to compute, extract, summarize and
 visualize results of multivariate data analysis. It also includes methods
-for partial bootstrap validation described in Greenacre (1984) <isbn:
-978-0-12-299050-2> and Lebart et al. (2006) <isbn: 978-2-10-049616-7>.
+for partial bootstrap validation described in Greenacre (1984)
+<isbn:978-0-12-299050-2> and Lebart et al. (2006)
+<isbn:978-2-10-049616-7>.
 
 %prep
 %setup -q -c -n %{packname}

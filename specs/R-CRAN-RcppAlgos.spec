@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RcppAlgos
-%global packver   2.5.3
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.3
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance Tools for Combinatorics and Computational Mathematics
 
@@ -13,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
+BuildRequires:    gmp-devel
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-gmp 
@@ -28,20 +29,20 @@ implemented in C++ for solving problems in combinatorics and computational
 mathematics. Utilizes the RMatrix class from 'RcppParallel' for thread
 safety. There are combination/permutation functions with constraint
 parameters that allow for generation of all results of a vector meeting
-specific criteria (e.g. generating integer partitions or finding all
-combinations such that the sum is between two bounds). Capable of
-generating specific combinations/permutations (e.g. retrieve only the nth
-lexicographical result) which sets up nicely for parallelization as well
-as random sampling. Gmp support permits exploration where the total number
-of results is large (e.g. comboSample(10000, 500, n = 4)). Additionally,
-there are several high performance number theoretic functions that are
-useful for problems common in computational mathematics. Some of these
-functions make use of the fast integer division library 'libdivide'. The
-primeSieve function is based on the segmented sieve of Eratosthenes
-implementation by Kim Walisch. It is also efficient for large numbers by
-using the cache friendly improvements originally developed by Tomás
-Oliveira. Finally, there is a prime counting function that implements
-Legendre's formula based on the work of Kim Walisch.
+specific criteria (e.g. generating integer partitions/compositions or
+finding all combinations such that the sum is between two bounds). Capable
+of generating specific combinations/permutations (e.g. retrieve only the
+nth lexicographical result) which sets up nicely for parallelization as
+well as random sampling. Gmp support permits exploration where the total
+number of results is large (e.g. comboSample(10000, 500, n = 4)).
+Additionally, there are several high performance number theoretic
+functions that are useful for problems common in computational
+mathematics. Some of these functions make use of the fast integer division
+library 'libdivide'. The primeSieve function is based on the segmented
+sieve of Eratosthenes implementation by Kim Walisch. It is also efficient
+for large numbers by using the cache friendly improvements originally
+developed by Tomás Oliveira. Finally, there is a prime counting function
+that implements Legendre's formula based on the work of Kim Walisch.
 
 %prep
 %setup -q -c -n %{packname}

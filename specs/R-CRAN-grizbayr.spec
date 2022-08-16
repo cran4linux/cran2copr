@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  grizbayr
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference for A|B and Bandit Marketing Tests
 
@@ -36,7 +37,7 @@ over the baseline for various marketing objectives. References: Fink,
 Daniel (1997) "A Compendium of Conjugate Priors"
 <https://www.johndcook.com/CompendiumOfConjugatePriors.pdf>. Stucchio,
 Chris (2015) "Bayesian A/B Testing at VWO"
-<http://cdn2.hubspot.net/hubfs/310840/VWO_SmartStats_technical_whitepaper.pdf>.
+<https://cdn2.hubspot.net/hubfs/310840/VWO_SmartStats_technical_whitepaper.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

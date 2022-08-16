@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sharp
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stability-enHanced Approaches using Resampling Procedures
 
@@ -18,6 +19,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 2.4.0
 BuildRequires:    R-CRAN-glassoFast >= 1.0
+BuildRequires:    R-CRAN-fake 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-huge 
@@ -28,6 +30,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-withr >= 2.4.0
 Requires:         R-CRAN-glassoFast >= 1.0
+Requires:         R-CRAN-fake 
 Requires:         R-CRAN-glmnet 
 Requires:         R-grDevices 
 Requires:         R-CRAN-huge 
@@ -45,8 +48,7 @@ P Bühlmann (2010) <doi:10.1111/j.1467-9868.2010.00740.x>). Calibration of
 the hyper-parameters is done via maximisation of a stability score
 measuring the likelihood of informative (non-uniform) selection (B
 Bodinier, S Filippi, TH Nost, J Chiquet, M Chadeau-Hyam (2021)
-<arXiv:2106.02521>). This package also includes tools to simulate
-multivariate Normal data with different (partial) correlation structures.
+<arXiv:2106.02521>).
 
 %prep
 %setup -q -c -n %{packname}

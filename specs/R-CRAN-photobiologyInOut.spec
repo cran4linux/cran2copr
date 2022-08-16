@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  photobiologyInOut
-%global packver   0.4.24
+%global packver   0.4.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.24
+Version:          0.4.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Spectral and Logged Data from Foreign Files
 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-photobiology >= 0.10.9
 BuildRequires:    R-methods 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -44,6 +46,7 @@ Requires:         R-CRAN-photobiology >= 0.10.9
 Requires:         R-methods 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-stats 
 
 %description
 Functions for reading, and in some cases writing, foreign files containing

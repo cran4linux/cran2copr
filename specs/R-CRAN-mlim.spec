@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlim
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Missing Data Imputation with Automated Machine Learning
+Summary:          Multiple Imputation with Automated Machine Learning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-h2o 
-BuildRequires:    R-CRAN-VIM 
+BuildRequires:    R-CRAN-h2o >= 3.34.0.0
+BuildRequires:    R-CRAN-md.log >= 0.2.0
+BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-missRanger 
 BuildRequires:    R-CRAN-memuse 
-BuildRequires:    R-CRAN-md.log 
-Requires:         R-CRAN-h2o 
-Requires:         R-CRAN-VIM 
+Requires:         R-CRAN-h2o >= 3.34.0.0
+Requires:         R-CRAN-md.log >= 0.2.0
+Requires:         R-CRAN-mice 
 Requires:         R-CRAN-missRanger 
 Requires:         R-CRAN-memuse 
-Requires:         R-CRAN-md.log 
 
 %description
 Using automated machine learning, the package fine-tunes an Elastic Net or

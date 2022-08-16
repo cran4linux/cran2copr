@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mlt.docreg
-%global packver   1.1-5
+%global packver   1.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Most Likely Transformations: Documentation and Regression Tests
 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-lattice
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-truncreg 
-BuildRequires:    R-CRAN-np 
 Requires:         R-CRAN-multcomp >= 1.4.4
 Requires:         R-CRAN-mlt >= 1.3.2
 Requires:         R-CRAN-numDeriv 
@@ -35,7 +35,6 @@ Requires:         R-CRAN-lattice
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-truncreg 
-Requires:         R-CRAN-np 
 
 %description
 Additional documentation, a package vignette and regression tests for

@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  insiderTrades
-%global packver   0.0.1
+%global __requires_exclude ^libmpi
+%global packname  WrensBookshelf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Download Insider Transactions and Holdings
+Summary:          A Collection of Palettes and Some Functions to Help Use Them
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-RCurl >= 1.98.1.3
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-RCurl >= 1.98.1.3
-Requires:         R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Download insider trading transactions and insider holdings from a public
-NoSQL SEC database (<https://www.sec.gov/Archives/edgar/full-index/>)
-using keyword criteria and generate a relational dataframe.
+A collection of color palettes that were extracted from various books on
+my sons(Wren) bookshelf. Also included are a number of functions and
+wrappers to utilize them, as well as to subset the palettes to desired
+number/specific colors.
 
 %prep
 %setup -q -c -n %{packname}

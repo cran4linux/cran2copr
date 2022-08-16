@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  posterior
-%global packver   1.2.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Working with Posterior Distributions
 
@@ -18,6 +19,7 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.7
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-stats 
@@ -29,6 +31,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-matrixStats 
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-rlang >= 0.4.7
+Requires:         R-methods 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-checkmate 
 Requires:         R-stats 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MHCtools
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of MHC Data in Non-Model Species
 
@@ -43,7 +44,7 @@ as estimation of MHC supertypes. The BootKmeans() function is a wrapper
 for the kmeans() function of the 'stats' package, which allows for
 bootstrapping. Bootstrapping k-estimates may be desirable in data sets,
 where e.g. BIC- vs. k-values do not produce clear inflection points
-("elbows"). BootKmeans() performs multiple runs of kmeans() and estimates
+("elbows""). BootKmeans() performs multiple runs of kmeans() and estimates
 optimal k-values based on a user-defined threshold of BIC reduction. The
 method is an automated and bootstrapped version of visually inspecting
 elbow plots of BIC- vs. k-values. The ClusterMatch() function is a tool

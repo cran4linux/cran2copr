@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Bergm
-%global packver   5.0.3
+%global packver   5.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.3
+Version:          5.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Exponential Random Graph Models
 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-statnet.common 
+BuildRequires:    R-CRAN-Rglpk 
 Requires:         R-CRAN-ergm 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-coda 
@@ -32,6 +34,7 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-statnet.common 
+Requires:         R-CRAN-Rglpk 
 
 %description
 Bayesian analysis for exponential random graph models using advanced
@@ -46,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
