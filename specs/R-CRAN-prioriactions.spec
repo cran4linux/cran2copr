@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  prioriactions
-%global packver   0.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Action Conservation Planning
 
@@ -20,7 +21,6 @@ BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.1.0.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-proto 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Rsymphony 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Rcpp 
@@ -30,7 +30,6 @@ Requires:         R-CRAN-assertthat >= 0.2.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-proto 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Rsymphony 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Rcpp 
@@ -43,11 +42,15 @@ find an optimal combination of management actions that abate threats, in
 an efficient way while accounting for spatial aspects. Thus, optimizing
 the connectivity and conservation effectiveness of the prioritized units
 and of the deployed actions. The package is capable of handling different
-commercial (gurobi) and non-commercial (symphony) MIP solvers. Gurobi
-optimization solver can be installed using comprehensive instructions in
-the gurobi installation vignette of the prioritizr package (available in
-<https://prioritizr.net/articles/gurobi_installation_guide.html>). Methods
-used in the package refers to Salgado-Rojas et al. (2020)
+commercial (gurobi, CPLEX) and non-commercial (symphony) MIP solvers.
+Gurobi optimization solver can be installed using comprehensive
+instructions in the gurobi installation vignette of the prioritizr package
+(available in
+<https://prioritizr.net/articles/gurobi_installation_guide.html>).
+Instead, CPLEX optimization solver can be obtain from IBM CPLEX web page
+(available here
+<https://www.ibm.com/es-es/products/ilog-cplex-optimization-studio>).
+Methods used in the package refers to Salgado-Rojas et al. (2020)
 <doi:10.1016/j.ecolmodel.2019.108901>, Beyer et al. (2016)
 <doi:10.1016/j.ecolmodel.2016.02.005>, Cattarino et al. (2015)
 <doi:10.1371/journal.pone.0128027> and Watts et al. (2009)

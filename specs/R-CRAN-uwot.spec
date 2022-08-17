@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  uwot
-%global packver   0.1.11
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Uniform Manifold Approximation and Projection (UMAP) Method for Dimensionality Reduction
 
@@ -20,7 +21,6 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-dqrng 
@@ -29,7 +29,6 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
 Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-irlba 
 
 %description

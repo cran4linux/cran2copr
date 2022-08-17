@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sparklyr
-%global packver   1.7.7
+%global packver   1.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.7
+Version:          1.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Apache Spark
 
@@ -13,24 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
+Requires:         R-java
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.1.1
+BuildRequires:    R-CRAN-dbplyr >= 2.2.1
 BuildRequires:    R-CRAN-jsonlite >= 1.4
 BuildRequires:    R-CRAN-httr >= 1.2.1
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.9
+BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-openssl >= 0.8
-BuildRequires:    R-CRAN-dplyr >= 0.7.2
-BuildRequires:    R-CRAN-DBI >= 0.6.1
 BuildRequires:    R-CRAN-config >= 0.2
 BuildRequires:    R-CRAN-rstudioapi >= 0.10
 BuildRequires:    R-CRAN-rlang >= 0.1.4
 BuildRequires:    R-CRAN-ellipsis >= 0.1.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-blob 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-forge 
 BuildRequires:    R-CRAN-generics 
@@ -47,20 +47,19 @@ BuildRequires:    R-CRAN-uuid
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dbplyr >= 2.1.1
+Requires:         R-CRAN-dbplyr >= 2.2.1
 Requires:         R-CRAN-jsonlite >= 1.4
 Requires:         R-CRAN-httr >= 1.2.1
 Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.0.9
+Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-openssl >= 0.8
-Requires:         R-CRAN-dplyr >= 0.7.2
-Requires:         R-CRAN-DBI >= 0.6.1
 Requires:         R-CRAN-config >= 0.2
 Requires:         R-CRAN-rstudioapi >= 0.10
 Requires:         R-CRAN-rlang >= 0.1.4
 Requires:         R-CRAN-ellipsis >= 0.1.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-blob 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-forge 
 Requires:         R-CRAN-generics 

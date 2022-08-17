@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SSBtools
-%global packver   1.3.4
+%global packname  gglgbtq
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics Norway's Miscellaneous Tools
+Summary:          Show Pride on 'ggplot2' Plots
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Functions used by other packages from Statistics Norway are gathered.
-General data manipulation functions, and functions for hierarchical
-computations are included (Langsrud, 2020)
-<doi:10.13140/RG.2.2.27313.61283>. The hierarchy specification functions
-are useful within statistical disclosure control.
+Provides multiple palettes based on pride flags with tailored themes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sparseHessianFD
-%global packver   0.3.3.5
+%global packver   0.3.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3.5
+Version:          0.3.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Numerical Estimation of Sparse Hessians
 
@@ -13,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Matrix >= 1.3
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Matrix >= 1.4
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix >= 1.3
+Requires:         R-CRAN-Matrix >= 1.4
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-methods 
 

@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nlsr
-%global packver   2021.8.19
+%global packver   2022.8.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2021.8.19
+Version:          2022.8.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Nonlinear Least Squares Solutions
+Summary:          Functions for Nonlinear Least Squares Solutions - Updated 2022
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-digest 
 
 %description
-Provides tools for working with nonlinear least squares problems. It is
-intended to eventually supersede the 'nls()' function in the R
-distribution. For example, 'nls()' specifically does NOT deal with small
-or zero residual problems as its Gauss-Newton method frequently stops with
-'singular gradient' messages. 'nlsr' is based on the now-deprecated
-package 'nlmrt', and has refactored functions and R-language symbolic
-derivative features.
+Provides tools for working with nonlinear least squares problems. For the
+estimation of models reliable and robust tools than nls(), where the the
+Gauss-Newton method frequently stops with 'singular gradient' messages.
+This is accomplished by using, where possible, analytic derivatives to
+compute the matrix of derivatives and a stabilization of the solution of
+the estimation equations. Tools for approximate or externally supplied
+derivative matrices are included. Bounds and masks on parameters are
+handled properly.
 
 %prep
 %setup -q -c -n %{packname}

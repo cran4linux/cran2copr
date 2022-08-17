@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SSBtools
-%global packver   1.3.4
+%global packname  mvLSWimpute
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics Norway's Miscellaneous Tools
+Summary:          Imputation Methods for Multivariate Locally Stationary Time Series
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-wavethresh 
+BuildRequires:    R-CRAN-mvLSW 
+BuildRequires:    R-CRAN-binhf 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-imputeTS 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-wavethresh 
+Requires:         R-CRAN-mvLSW 
+Requires:         R-CRAN-binhf 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-imputeTS 
+Requires:         R-utils 
 
 %description
-Functions used by other packages from Statistics Norway are gathered.
-General data manipulation functions, and functions for hierarchical
-computations are included (Langsrud, 2020)
-<doi:10.13140/RG.2.2.27313.61283>. The hierarchy specification functions
-are useful within statistical disclosure control.
+Implementation of imputation techniques based on locally stationary
+wavelet time series forecasting methods from Wilson, R. E. et al. (2021)
+<doi:10.1007/s11222-021-09998-2>.
 
 %prep
 %setup -q -c -n %{packname}

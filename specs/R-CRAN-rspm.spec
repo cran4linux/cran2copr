@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SSBtools
-%global packver   1.3.4
+%global packname  rspm
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics Norway's Miscellaneous Tools
+Summary:          'RStudio' Package Manager
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL-2 | GPL-3 | MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
-Requires:         R-CRAN-MASS 
 
 %description
-Functions used by other packages from Statistics Norway are gathered.
-General data manipulation functions, and functions for hierarchical
-computations are included (Langsrud, 2020)
-<doi:10.13140/RG.2.2.27313.61283>. The hierarchy specification functions
-are useful within statistical disclosure control.
+Enables binary package installations on Linux distributions. Provides
+access to 'RStudio' public repositories at
+<https://packagemanager.rstudio.com>, and transparent management of system
+requirements without administrative privileges. Currently supported
+distributions are 'CentOS' / 'RHEL' 7 and 8, and several 'RHEL'
+derivatives ('Rocky Linux' 8, 'AlmaLinux' 8, 'Oracle Linux' 7 and 8,
+'Amazon Linux' 2), 'openSUSE' / 'SLES' 15.3, and 'Ubuntu' 18.04, 20.04 and
+22.04.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rUM
-%global packver   0.3.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Templates from the University of Miami
 
@@ -18,14 +19,18 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-CRAN-conflicted 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-table1 
 BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-usethis 
 Requires:         R-CRAN-bookdown 
 Requires:         R-CRAN-conflicted 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-table1 
 Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-usethis 
 
 %description
 This holds some r markdown templates and a template to create a research

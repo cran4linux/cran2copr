@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  arules
-%global packver   1.7-3
+%global packver   1.7-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mining Association Rules and Frequent Itemsets
 
@@ -15,13 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Matrix >= 1.2.0
+BuildRequires:    R-CRAN-Matrix >= 1.4.0
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Matrix >= 1.2.0
+Requires:         R-CRAN-Matrix >= 1.4.0
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-generics 

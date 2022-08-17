@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SSBtools
-%global packver   1.3.4
+%global packname  mr.pivw
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics Norway's Miscellaneous Tools
+Summary:          Penalized Inverse-Variance Weighted Estimator for Mendelian Randomization
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
-Requires:         R-CRAN-MASS 
 
 %description
-Functions used by other packages from Statistics Norway are gathered.
-General data manipulation functions, and functions for hierarchical
-computations are included (Langsrud, 2020)
-<doi:10.13140/RG.2.2.27313.61283>. The hierarchy specification functions
-are useful within statistical disclosure control.
+The penalized inverse-variance weighted (pIVW) estimator is a Mendelian
+randomization method for estimating the causal effect of an exposure
+variable on an outcome of interest based on summary-level GWAS data. The
+pIVW estimator accounts for weak instruments and balanced horizontal
+pleiotropy simultaneously. See Xu S., Wang P., Fung W.K. and Liu Z. (2022)
+<doi:10.1111/biom.13732>.
 
 %prep
 %setup -q -c -n %{packname}

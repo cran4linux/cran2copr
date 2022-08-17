@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hwep
-%global packver   0.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hardy-Weinberg Equilibrium in Polyploids
 
@@ -13,23 +14,41 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstantools >= 2.2.0
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-tensr 
-BuildRequires:    R-CRAN-doRNG 
-Requires:         R-CRAN-future 
+BuildRequires:    R-CRAN-updog 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstantools >= 2.2.0
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-bridgesampling 
 Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-iterators 
+Requires:         R-methods 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-tensr 
-Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-updog 
+Requires:         R-CRAN-rstantools
 
 %description
 Inference concerning equilibrium and random mating in autopolyploids.
@@ -43,8 +62,9 @@ function is hwefit(). This material is based upon work supported by the
 National Science Foundation under Grant No. 2132247. The opinions,
 findings, and conclusions or recommendations expressed are those of the
 author and do not necessarily reflect the views of the National Science
-Foundation. For details of these methods, see Gerard (2021)
-<doi:10.1101/2021.09.24.461731>.
+Foundation. For details of these methods, see Gerard (2022a)
+<doi:10.1111/biom.13722> and Gerard (2022b)
+<doi:10.1101/2022.08.11.503635>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  plm
-%global packver   2.6-1
+%global packver   2.6-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.1
+Version:          2.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Models for Panel Data
 
@@ -16,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-collapse >= 1.6.0
+BuildRequires:    R-CRAN-collapse >= 1.8.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-bdsmatrix 
 BuildRequires:    R-CRAN-zoo 
@@ -28,7 +29,7 @@ BuildRequires:    R-CRAN-maxLik
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-collapse >= 1.6.0
+Requires:         R-CRAN-collapse >= 1.8.0
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-bdsmatrix 
 Requires:         R-CRAN-zoo 
@@ -52,10 +53,10 @@ estimators with common factors, variable coefficients and limited
 dependent variables models. Test functions include model specification,
 serial correlation, cross-sectional dependence, panel unit root and panel
 Granger (non-)causality. Typical references are general econometrics text
-books such as Baltagi (2021), Econometric Analysis of Panel Data,
-ISBN-13:978-3-030-53952-8, Hsiao (2014), Analysis of Panel Data
-<doi:10.1017/CBO9781139839327>, and Croissant and Millo (2018), Panel Data
-Econometrics with R, ISBN-13:978-1-118-94918-4.
+books such as Baltagi (2021), Econometric Analysis of Panel Data
+(<doi:10.1007/978-3-030-53953-5>), Hsiao (2014), Analysis of Panel Data
+(<doi:10.1017/CBO9781139839327>), and Croissant and Millo (2018), Panel
+Data Econometrics with R (<doi:10.1002/9781119504641>).
 
 %prep
 %setup -q -c -n %{packname}

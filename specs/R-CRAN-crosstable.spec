@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  crosstable
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Crosstables for Descriptive Analyses
 
@@ -19,11 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-flextable >= 0.5.8
 BuildRequires:    R-CRAN-rlang >= 0.4.7
+BuildRequires:    R-CRAN-officer >= 0.4
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
@@ -33,11 +35,12 @@ BuildRequires:    R-CRAN-tidyselect
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-flextable >= 0.5.8
 Requires:         R-CRAN-rlang >= 0.4.7
+Requires:         R-CRAN-officer >= 0.4
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-officer 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 

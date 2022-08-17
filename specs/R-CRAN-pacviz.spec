@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pacviz
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pac-Man Visualization Package
 
@@ -34,7 +35,7 @@ Provides a broad-view perspective on data via linear mapping of data onto
 a radial coordinate system. The package contains functions to visualize
 the residual values of linear regression and Cartesian data in the defined
 radial scheme. See the 'pacviz' documentation page for more information:
-<https://spencerriley.me/pacviz/book/>.
+<https://pacviz.sriley.dev/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

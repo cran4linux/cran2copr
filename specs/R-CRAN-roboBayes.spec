@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SSBtools
-%global packver   1.3.4
+%global packname  roboBayes
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics Norway's Miscellaneous Tools
+Summary:          Robust Online Bayesian Monitoring
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-methods 
-Requires:         R-CRAN-MASS 
 
 %description
-Functions used by other packages from Statistics Norway are gathered.
-General data manipulation functions, and functions for hierarchical
-computations are included (Langsrud, 2020)
-<doi:10.13140/RG.2.2.27313.61283>. The hierarchy specification functions
-are useful within statistical disclosure control.
+An implementation of Bayesian online changepoint detection (Adams and
+MacKay (2007) <arXiv:0710.3742>) with an option for probability based
+outlier detection and removal (Wendelberger et. al. (2021)
+<arXiv:2112.12899>). Building on the independent multivariate constant
+mean model implemented in the 'R' package 'ocp', this package models
+multivariate data as multivariate normal about a linear trend, defined by
+user input covariates, with an unstructured error covariance. Changepoints
+are identified based on a probability threshold for windows of points.
 
 %prep
 %setup -q -c -n %{packname}
