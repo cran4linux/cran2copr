@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  UComp
-%global packver   2.2.2
+%global packver   2.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Unobserved Components Models
 
@@ -23,7 +24,8 @@ Requires:         R-stats
 
 %description
 Comprehensive analysis and forecasting of univariate time series using
-automatic unobserved components models and algorithms. Harvey, AC (1989)
+automatic unobserved components models and algorithms. Pedregal, DJ (2022)
+<doi:10.18637/jss.v103.i09>, Harvey, AC (1989)
 <doi:10.1017/CBO9781107049994>. Pedregal, DJ and Young PC (2002)
 <doi:10.1002/9780470996430>. Durbin J and Koopman SJ (2012)
 <doi:10.1093/acprof:oso/9780199641178.001.0001>.
@@ -36,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

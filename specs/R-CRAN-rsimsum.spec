@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rsimsum
-%global packver   0.11.2
+%global packver   0.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          0.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Simulation Studies Including Monte Carlo Error
 
@@ -40,7 +41,7 @@ Summarise results from simulation studies and compute Monte Carlo standard
 errors of commonly used summary statistics. This package is modelled on
 the 'simsum' user-written command in 'Stata' (White I.R., 2010
 <https://www.stata-journal.com/article.html?article=st0200>), further
-extending it with additional functionality.
+extending it with additional performance measures and functionality.
 
 %prep
 %setup -q -c -n %{packname}

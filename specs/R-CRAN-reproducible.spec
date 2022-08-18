@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  reproducible
-%global packver   1.2.8
+%global packver   1.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Set of Tools that Enhance Reproducibility Beyond Package Management
 
@@ -13,34 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+Requires:         /usr/bin/unrar
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-raster >= 3.5.15
 BuildRequires:    R-CRAN-sp >= 1.4.2
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-fpCompare 
-BuildRequires:    R-CRAN-gdalUtilities 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lobstr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Require 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-raster >= 3.5.15
 Requires:         R-CRAN-sp >= 1.4.2
 Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-fpCompare 
-Requires:         R-CRAN-gdalUtilities 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lobstr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-Require 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datawizard
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Data Wrangling and Statistical Transformations
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.18.0
+BuildRequires:    R-CRAN-insight >= 0.18.2
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.18.0
+Requires:         R-CRAN-insight >= 0.18.2
 Requires:         R-stats 
 Requires:         R-utils 
 

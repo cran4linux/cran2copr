@@ -1,50 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  visR
-%global packver   0.3.1
+%global packname  countland
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Graphs and Tables Adhering to Graphical Principles
+Summary:          Analysis of Biological Count Data, Especially from Single-Cell RNA-Seq
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 3.4.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-broom >= 0.7.11
-BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-survival >= 3.4.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-broom >= 0.7.11
-Requires:         R-CRAN-cowplot 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-kableExtra 
 
 %description
-To enable fit-for-purpose, reusable clinical and medical research focused
-visualizations and tables with sensible defaults and based on graphical
-principles as described in: "Vandemeulebroecke et al. (2018)"
-<doi:10.1002/pst.1912>, "Vandemeulebroecke et al. (2019)"
-<doi:10.1002/psp4.12455>, and "Morris et al. (2019)"
-<doi:10.1136/bmjopen-2019-030215>.
+A set of functions for applying a restricted linear algebra to the
+analysis of count-based data. See the accompanying preprint manuscript:
+"Normalizing need not be the norm: count-based math for analyzing
+single-cell data" Church et al (2022) <doi:10.1101/2022.06.01.494334> This
+tool is specifically designed to analyze count matrices from single cell
+RNA sequencing assays. The tools implement several count-based approaches
+for standard steps in single-cell RNA-seq analysis, including scoring
+genes and cells, comparing cells and clustering, calculating differential
+gene expression, and several methods for rank reduction. There are many
+opportunities for further optimization that may prove useful in the
+analysis of other data. We provide the source code freely available at
+<https://github.com/shchurch/countland> and encourage users and developers
+to fork the code for their own purposes.
 
 %prep
 %setup -q -c -n %{packname}

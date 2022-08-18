@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RABR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulations for Response Adaptive Block Randomization Design
 
@@ -41,8 +42,8 @@ Requires:         R-CRAN-survival
 Conduct simulations of the Response Adaptive Block Randomization (RABR)
 design to evaluate its type I error rate, power and operating
 characteristics for binary and continuous endpoints. For more details of
-the proposed method, please refer to Zhan et al. (2020)
-<arXiv:2004.07356>.
+the proposed method, please refer to Zhan et al. (2021)
+<doi:10.1002/sim.9104>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

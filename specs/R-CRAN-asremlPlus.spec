@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  asremlPlus
-%global packver   4.3-31
+%global packver   4.3.36
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.31
+Version:          4.3.36
 Release:          1%{?dist}%{?buildtag}
 Summary:          Augments 'ASReml-R' in Fitting Mixed Models and Packages Generally in Exploring Prediction Differences
 
@@ -21,7 +22,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-sticky 
@@ -36,7 +37,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-sticky 
@@ -63,8 +64,8 @@ hierarchy or marginality principle and for displaying predictions for
 significant terms in tables and graphs. The 'asreml' package provides a
 computationally efficient algorithm for fitting mixed models using
 Residual Maximum Likelihood. It is a commercial package that can be
-purchased from 'VSNi' <https://www.vsni.co.uk/> as 'asreml-R', who will
-supply a zip file for local installation/updating (see
+purchased from 'VSNi' <https://vsni.co.uk/> as 'asreml-R', who will supply
+a zip file for local installation/updating (see
 <https://asreml.kb.vsni.co.uk/>). It is not needed for functions that are
 methods for 'alldiffs' and 'data.frame' objects. The package 'asremPlus'
 can also be installed from <http://chris.brien.name/rpackages/>.

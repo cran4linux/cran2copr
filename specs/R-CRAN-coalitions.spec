@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  coalitions
-%global packver   0.6.23
+%global packver   0.6.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.23
+Version:          0.6.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian "Now-Cast" Estimation of Event Probabilities in Multi-Party Democracies
 

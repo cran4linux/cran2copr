@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  optimLanduse
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Land-Use Optimization
 
@@ -33,7 +34,7 @@ possible trade-off under uncertainty. optimLanduse includes the actual
 optimization procedure as described by Knoke et al. (2016)
 <doi:10.1038/ncomms11877> and the post-hoc calculation of the portfolio
 performance as presented by Gosling et al. (2020)
-<doi:10.1007/s10457-020-00519-0>.
+<doi:10.1016/j.jenvman.2020.110248>.
 
 %prep
 %setup -q -c -n %{packname}

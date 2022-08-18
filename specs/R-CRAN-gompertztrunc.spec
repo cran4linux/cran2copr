@@ -1,41 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clam
-%global packver   2.5.0
+%global packname  gompertztrunc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical Age-Depth Modelling of Cores from Deposits
+Summary:          Conducting Maximum Likelihood Estimation with Truncated Mortality Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rintcal >= 0.4.1
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggsci 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-modelr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rintcal >= 0.4.1
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggsci 
+Requires:         R-grid 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-modelr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Performs 'classical' age-depth modelling of dated sediment deposits -
-prior to applying more sophisticated techniques such as Bayesian age-depth
-modelling. Any radiocarbon dated depths are calibrated. Age-depth models
-are constructed by sampling repeatedly from the dated levels, each time
-drawing age-depth curves. Model types include linear interpolation, linear
-or polynomial regression, and a range of splines. See Blaauw (2010).
-<doi:10.1016/j.quageo.2010.01.002>.
+Estimates hazard ratios and mortality differentials for doubly-truncated
+data without population denominators.
 
 %prep
 %setup -q -c -n %{packname}

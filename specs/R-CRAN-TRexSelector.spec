@@ -1,41 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clam
-%global packver   2.5.0
+%global packname  TRexSelector
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical Age-Depth Modelling of Cores from Deposits
+Summary:          T-Rex Selector: High-Dimensional Variable Selection & FDR Control
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rintcal >= 0.4.1
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rintcal >= 0.4.1
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-tlars 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-tlars 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doRNG 
+Requires:         R-methods 
+Requires:         R-CRAN-glmnet 
 
 %description
-Performs 'classical' age-depth modelling of dated sediment deposits -
-prior to applying more sophisticated techniques such as Bayesian age-depth
-modelling. Any radiocarbon dated depths are calibrated. Age-depth models
-are constructed by sampling repeatedly from the dated levels, each time
-drawing age-depth curves. Model types include linear interpolation, linear
-or polynomial regression, and a range of splines. See Blaauw (2010).
-<doi:10.1016/j.quageo.2010.01.002>.
+Performs fast variable selection in high-dimensional settings while
+controlling the false discovery rate (FDR) at a user-defined target level.
+The package is based on the paper Machkour, Muma, and Palomar (2021)
+<arXiv:2110.06048>.
 
 %prep
 %setup -q -c -n %{packname}

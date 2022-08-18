@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cornet
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elastic Net with Dichotomised Outcomes
 
@@ -23,7 +24,7 @@ Requires:         R-CRAN-palasso
 
 %description
 Implements lasso and ridge regression for dichotomised outcomes
-(Rauschenberger et al. 2021). Such outcomes are not naturally but
+(Rauschenberger et al. 2022). Such outcomes are not naturally but
 artificially binary. They indicate whether an underlying measurement is
 greater than a threshold.
 
@@ -35,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

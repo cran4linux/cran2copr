@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NetLogoR
-%global packver   0.3.10
+%global packver   0.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.3.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build and Run Spatially Explicit Agent-Based Models
 
@@ -24,10 +25,10 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-SpaDES.tools 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgeos 
 Requires:         R-CRAN-quickPlot >= 0.1.2
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-abind 
@@ -36,10 +37,10 @@ Requires:         R-CRAN-data.table
 Requires:         R-grDevices 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-methods 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-SpaDES.tools 
 Requires:         R-stats 
-Requires:         R-CRAN-rgeos 
 
 %description
 Build and run spatially explicit agent-based models using only the R

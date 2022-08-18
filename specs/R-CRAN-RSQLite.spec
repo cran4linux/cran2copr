@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RSQLite
-%global packver   2.2.15
+%global packver   2.2.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.15
+Version:          2.2.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          SQLite Interface for R
 

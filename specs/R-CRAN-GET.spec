@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GET
-%global packver   0.2-5
+%global packver   0.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Envelopes
 
@@ -46,14 +47,16 @@ functional or multivariate data (e.g. outlier detection, functional
 boxplot) and for global confidence and prediction bands (e.g. confidence
 band in polynomial regression, Bayesian posterior prediction). See
 Myllymäki and Mrkvička (2020) <arXiv:1911.06583>, Myllymäki et al. (2017)
-<doi: 10.1111/rssb.12172>, Mrkvička et al. (2017) <doi:
+<doi: 10.1111/rssb.12172>, Mrkvička and Myllymäki (2022)
+<arXiv:2008.10108>, Mrkvička et al. (2017) <doi:
 10.1007/s11222-016-9683-9>, Mrkvička et al. (2020) <doi:
 10.14736/kyb-2020-3-0432>, Mrkvička et al. (2021) <doi:
 10.1007/s11009-019-09756-y>, Mrkvička et al. (2022) <doi:
 10.1002/sim.9236>, Mrkvička et al. (2016) <doi:
 10.1016/j.spasta.2016.04.005>, Myllymäki et al. (2021) <doi:
-10.1016/j.spasta.2020.100436>, and Dai et al. (2022) <doi:
-10.5772/intechopen.100124>.
+10.1016/j.spasta.2020.100436>, Dai et al. (2022) <doi:
+10.5772/intechopen.100124>, and Dvořák and Mrkvička (2022) <doi:
+10.1007/s00180-021-01134-y>.
 
 %prep
 %setup -q -c -n %{packname}

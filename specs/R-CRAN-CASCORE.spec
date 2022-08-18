@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clam
-%global packver   2.5.0
+%global packname  CASCORE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical Age-Depth Modelling of Cores from Deposits
+Summary:          Covariate Assisted Spectral Clustering on Ratios of Eigenvectors
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rintcal >= 0.4.1
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rintcal >= 0.4.1
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-igraph 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-igraph 
 
 %description
-Performs 'classical' age-depth modelling of dated sediment deposits -
-prior to applying more sophisticated techniques such as Bayesian age-depth
-modelling. Any radiocarbon dated depths are calibrated. Age-depth models
-are constructed by sampling repeatedly from the dated levels, each time
-drawing age-depth curves. Model types include linear interpolation, linear
-or polynomial regression, and a range of splines. See Blaauw (2010).
-<doi:10.1016/j.quageo.2010.01.002>.
+Functions for the novel algorithm CASCORE, proposed to detect the latent
+community structure in graphs with node covariates. The models we can
+handle include covariate assisted degree corrected stochastic block model
+(CADCSBM). CASCORE allows for the disagreement between the community
+structure revealed in the adjacency information and the community
+structure revealed in the covariate information. More details are in the
+reference paper: Yaofang Hu and Wanjie Wang (2022) <arXiv:2208.00257>.
+This package also includes other classical community detection algorithms
+that are compared to CASCORE in our paper, such as Spectral Clustering On
+Ratios-of Eigenvectors (SCORE), normalized PCA, ordinary PCA and
+covariate-assisted spectral clustering (CASC).
 
 %prep
 %setup -q -c -n %{packname}

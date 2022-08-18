@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clam
-%global packver   2.5.0
+%global packname  tLagInterim
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical Age-Depth Modelling of Cores from Deposits
+Summary:          Interim Monitoring of Clinical Trials with Time-Lagged Outcome
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rintcal >= 0.4.1
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rintcal >= 0.4.1
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-R.utils 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-R.utils 
 
 %description
-Performs 'classical' age-depth modelling of dated sediment deposits -
-prior to applying more sophisticated techniques such as Bayesian age-depth
-modelling. Any radiocarbon dated depths are calibrated. Age-depth models
-are constructed by sampling repeatedly from the dated levels, each time
-drawing age-depth curves. Model types include linear interpolation, linear
-or polynomial regression, and a range of splines. See Blaauw (2010).
-<doi:10.1016/j.quageo.2010.01.002>.
+Implements inverse and augmented inverse probability weighted estimators
+for common treatment effect parameters at an interim analysis with
+time-lagged outcome that may not be available for all enrolled subjects.
+Produces estimators, standard errors, and information that can be used to
+compute stopping boundaries using software that assumes that the
+estimators/test statistics have independent increments. Tsiatis, A. A. and
+Davidian, M., (2022) <arXiv:2204.10739> .
 
 %prep
 %setup -q -c -n %{packname}

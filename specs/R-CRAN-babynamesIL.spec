@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clam
-%global packver   2.5.0
+%global packname  babynamesIL
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical Age-Depth Modelling of Cores from Deposits
+Summary:          Israel Baby Names 1948-2021
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rintcal >= 0.4.1
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rintcal >= 0.4.1
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-Performs 'classical' age-depth modelling of dated sediment deposits -
-prior to applying more sophisticated techniques such as Bayesian age-depth
-modelling. Any radiocarbon dated depths are calibrated. Age-depth models
-are constructed by sampling repeatedly from the dated levels, each time
-drawing age-depth curves. Model types include linear interpolation, linear
-or polynomial regression, and a range of splines. See Blaauw (2010).
-<doi:10.1016/j.quageo.2010.01.002>.
+Israeli baby names provided by Israel's Central Bureau of Statistics. The
+package contains only names used for at least 5 children in at least one
+gender and sector ("Jewish", "Muslim", "Christian", "Druze" and "Other").
+Data was downloaded from:
+<https://www.cbs.gov.il/he/publications/LochutTlushim/2020/%%D7%%A9%%D7%%9E%%D7%%95%%D7%%AA-%%D7%%A4%%D7%%A8%%D7%%98%%D7%%99%%D7%%99%%D7%%9D.xlsx>.
 
 %prep
 %setup -q -c -n %{packname}

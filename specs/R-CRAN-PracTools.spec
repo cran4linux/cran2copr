@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PracTools
-%global packver   1.2.7
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Designing and Weighting Survey Samples
 
@@ -21,9 +22,10 @@ BuildArch:        noarch
 Functions and datasets to support Valliant, Dever, and Kreuter, Practical
 Tools for Designing and Weighting Survey Samples (2nd edition, 2018).
 Contains functions for sample size calculation for survey samples using
-stratified or clustered one-, two-, and three-stage sample designs. Other
-functions compute variance components for multistage designs and sample
-sizes in two-phase designs. A number of example data sets are included.
+stratified or clustered one-, two-, and three-stage sample designs, and
+single-stage audit sample designs. Other functions compute variance
+components for multistage designs and sample sizes in two-phase designs. A
+number of example data sets are included.
 
 %prep
 %setup -q -c -n %{packname}
