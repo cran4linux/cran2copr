@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geosapi
-%global packver   0.6-4
+%global packname  vistla
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          GeoServer REST API R Interface
+Summary:          Detecting Influence Paths with Information Theory
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Provides an R interface to the GeoServer REST API, allowing to upload and
-publish data in a GeoServer web-application and expose data to OGC
-Web-Services. The package currently supports all CRUD
-(Create,Read,Update,Delete) operations on GeoServer workspaces,
-namespaces, datastores (stores of vector data), featuretypes, layers,
-styles, as well as vector data upload operations. For more information
-about the GeoServer REST API, see
-<https://docs.geoserver.org/stable/en/user/rest/>.
+Traces information spread through interactions between features, utilising
+information theory measures and a higher-order generalisation of the
+concept of widest paths in graphs. In particular, 'vistla' can be used to
+better understand the results of high-throughput biomedical experiments,
+by organising the effects of the investigated intervention in a tree-like
+hierarchy from direct to indirect ones, following the plausible
+information relay circuits. Due to its higher-order nature, 'vistla' can
+handle multi-modality and assign multiple roles to a single feature.
 
 %prep
 %setup -q -c -n %{packname}

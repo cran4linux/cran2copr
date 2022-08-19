@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RcppArmadillo
-%global packver   0.11.2.0.0
+%global packver   0.11.2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2.0.0
+Version:          0.11.2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra Library
 
@@ -37,7 +38,6 @@ on, 'Armadillo' is licensed under Apache License 2; previous releases were
 under licensed as MPL 2.0 from version 3.800.0 onwards and LGPL-3 prior to
 that; 'RcppArmadillo' (the 'Rcpp' bindings/bridge to Armadillo) is
 licensed under the GNU GPL version 2 or later, as is the rest of 'Rcpp'.
-Armadillo requires a C++11 compiler.
 
 %prep
 %setup -q -c -n %{packname}

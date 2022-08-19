@@ -1,44 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geosapi
-%global packver   0.6-4
+%global packname  rmzqc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          GeoServer REST API R Interface
+Summary:          Creation, Reading and Validation of 'mzqc' Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ontologyIndex 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-R6P 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-knitr 
+Requires:         R-methods 
+Requires:         R-CRAN-ontologyIndex 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-R6P 
+Requires:         R-CRAN-testthat 
+Requires:         R-tools 
 
 %description
-Provides an R interface to the GeoServer REST API, allowing to upload and
-publish data in a GeoServer web-application and expose data to OGC
-Web-Services. The package currently supports all CRUD
-(Create,Read,Update,Delete) operations on GeoServer workspaces,
-namespaces, datastores (stores of vector data), featuretypes, layers,
-styles, as well as vector data upload operations. For more information
-about the GeoServer REST API, see
-<https://docs.geoserver.org/stable/en/user/rest/>.
+Reads, writes and validates 'mzQC' files. The 'mzQC' format is a
+standardized file format for the exchange, transmission, and archiving of
+quality metrics derived from biological mass spectrometry data, as defined
+by the HUPO-PSI (Human Proteome Organisation - Proteomics Standards
+Initiative) Quality Control working group. See
+<https://hupo-psi.github.io/mzQC/> for details.
 
 %prep
 %setup -q -c -n %{packname}

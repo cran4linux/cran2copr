@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  libbib
-%global packver   1.6.2
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Utilities for Library Science/Assessment and Cataloging
 
@@ -19,12 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-data.table 
 Requires:         R-utils 
 Requires:         R-CRAN-curl 
+Requires:         R-methods 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xml2 

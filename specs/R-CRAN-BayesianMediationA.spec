@@ -1,44 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geosapi
-%global packver   0.6-4
+%global packname  BayesianMediationA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          GeoServer REST API R Interface
+Summary:          Bayesian Mediation Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.14.1
+Requires:         R-core >= 2.14.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-splines 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-R2jags 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-lattice 
+Requires:         R-splines 
+Requires:         R-methods 
 
 %description
-Provides an R interface to the GeoServer REST API, allowing to upload and
-publish data in a GeoServer web-application and expose data to OGC
-Web-Services. The package currently supports all CRUD
-(Create,Read,Update,Delete) operations on GeoServer workspaces,
-namespaces, datastores (stores of vector data), featuretypes, layers,
-styles, as well as vector data upload operations. For more information
-about the GeoServer REST API, see
-<https://docs.geoserver.org/stable/en/user/rest/>.
+We perform general mediation analysis in the Bayesian setting using the
+methods described in Yu and Li (2022, ISBN:9780367365479). With the
+package, the mediation analysis can be performed on different types of
+outcomes (e.g., continuous, binary, categorical, or time-to-event), with
+default or user-defined priors and predictive models. The Bayesian
+estimates and credible sets of mediation effects are reported as analytic
+results.
 
 %prep
 %setup -q -c -n %{packname}

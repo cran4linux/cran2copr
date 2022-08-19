@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  brpop
-%global packver   0.1.0
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Brazilian Population Estimatives
 
@@ -17,10 +18,14 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-multidplyr 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-multidplyr 
 Requires:         R-CRAN-rlang 
 
 %description

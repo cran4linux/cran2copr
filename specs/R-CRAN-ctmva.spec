@@ -1,44 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geosapi
-%global packver   0.6-4
+%global packname  ctmva
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          GeoServer REST API R Interface
+Summary:          Continuous-Time Multivariate Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-polynom 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-polynom 
 
 %description
-Provides an R interface to the GeoServer REST API, allowing to upload and
-publish data in a GeoServer web-application and expose data to OGC
-Web-Services. The package currently supports all CRUD
-(Create,Read,Update,Delete) operations on GeoServer workspaces,
-namespaces, datastores (stores of vector data), featuretypes, layers,
-styles, as well as vector data upload operations. For more information
-about the GeoServer REST API, see
-<https://docs.geoserver.org/stable/en/user/rest/>.
+Implements a basis function or functional data analysis framework for
+several techniques of multivariate analysis in continuous-time setting.
+Specifically, we introduced continuous-time analogues of several classical
+techniques of multivariate analysis, such as principal component analysis,
+canonical correlation analysis, Fisher linear discriminant analysis,
+K-means clustering, and so on. Details are in Philip T Reiss and Biplab
+Paul (2022) "Continuous-time multivariate analysis"; James O Ramsay,
+Bernard W Silverman (2005) <ISBN:978-0-387-22751-1> "Functional Data
+Analysis"; James O Ramsay, Giles Hooker and Spencer Graves (2009)
+<ISBN:978-0-387-98185-7> "Functional Data Analysis with R and MATLAB".
 
 %prep
 %setup -q -c -n %{packname}

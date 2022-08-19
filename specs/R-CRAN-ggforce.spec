@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggforce
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerating 'ggplot2'
 
@@ -29,6 +30,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.2
@@ -44,6 +46,7 @@ Requires:         R-grDevices
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-withr 
 Requires:         R-utils 
+Requires:         R-CRAN-lifecycle 
 
 %description
 The aim of 'ggplot2' is to aid in visual data investigations. This focus
@@ -60,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

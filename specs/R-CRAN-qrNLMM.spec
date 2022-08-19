@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geosapi
-%global packver   0.6-4
+%global packname  qrNLMM
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          GeoServer REST API R Interface
+Summary:          Quantile Regression for Nonlinear Mixed-Effects Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-lqr 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-ald 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-lqr 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-ald 
+Requires:         R-CRAN-progress 
 
 %description
-Provides an R interface to the GeoServer REST API, allowing to upload and
-publish data in a GeoServer web-application and expose data to OGC
-Web-Services. The package currently supports all CRUD
-(Create,Read,Update,Delete) operations on GeoServer workspaces,
-namespaces, datastores (stores of vector data), featuretypes, layers,
-styles, as well as vector data upload operations. For more information
-about the GeoServer REST API, see
-<https://docs.geoserver.org/stable/en/user/rest/>.
+Quantile regression (QR) for Nonlinear Mixed-Effects Models via the
+asymmetric Laplace distribution (ALD). It uses the Stochastic
+Approximation of the EM (SAEM) algorithm for deriving exact maximum
+likelihood estimates and full inference results for the fixed-effects and
+variance components. It also provides prediction and graphical summaries
+for assessing the algorithm convergence and fitting results.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  scDHA
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single-Cell Decomposition using Hierarchical Autoencoder
 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-RcppParallel
 BuildRequires:    R-CRAN-RcppAnnoy 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RhpcBLASctl 
+BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-torch >= 0.3.0
 Requires:         R-CRAN-matrixStats 
@@ -44,6 +46,7 @@ Requires:         R-CRAN-RcppParallel
 Requires:         R-CRAN-RcppAnnoy 
 Requires:         R-methods 
 Requires:         R-CRAN-RhpcBLASctl 
+Requires:         R-CRAN-coro 
 
 %description
 Provides a fast and accurate pipeline for single-cell analyses. The

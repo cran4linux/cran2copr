@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  synthACS
-%global packver   1.6.2
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthetic Microdata and Spatial MicroSimulation Modeling for ACS Data
 
@@ -18,9 +19,11 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-acs >= 2.1
 BuildRequires:    R-CRAN-data.table >= 1.9.6
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-retry 
 Requires:         R-CRAN-acs >= 2.1
 Requires:         R-CRAN-data.table >= 1.9.6
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-retry 
 
 %description
 Provides access to curated American Community Survey (ACS) base tables via

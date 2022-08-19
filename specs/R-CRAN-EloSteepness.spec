@@ -1,27 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HDCurves
-%global packver   0.1.1
+%global packname  EloSteepness
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Derivative Curve Estimation
+Summary:          Bayesian Dominance Hierarchy Steepness via Elo Rating and David's Scores
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstantools >= 2.1.1
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-EloRating 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-aniDom 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstantools >= 2.1.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-EloRating 
+Requires:         R-methods 
+Requires:         R-CRAN-aniDom 
+Requires:         R-CRAN-rstantools
 
 %description
-A procedure that fits derivative curves based on a sequence of quotient
-differences.  In a hierarchical setting the package produces estimates of
-subject-specific and group-specific derivative curves.  In a
-non-hierarchical setting the package produces a single derivative curve.
+Obtain Bayesian posterior distributions of dominance hierarchy steepness
+(Neumann and Fischer (2022) <doi:10.1101/2022.01.28.478016>). Steepness
+estimation is based on Bayesian implementations of either Elo-rating or
+David's scores.
 
 %prep
 %setup -q -c -n %{packname}

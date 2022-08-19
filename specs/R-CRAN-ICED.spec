@@ -1,44 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geosapi
-%global packver   0.6-4
+%global packname  ICED
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          GeoServer REST API R Interface
+Summary:          IntraClass Effect Decomposition
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides an R interface to the GeoServer REST API, allowing to upload and
-publish data in a GeoServer web-application and expose data to OGC
-Web-Services. The package currently supports all CRUD
-(Create,Read,Update,Delete) operations on GeoServer workspaces,
-namespaces, datastores (stores of vector data), featuretypes, layers,
-styles, as well as vector data upload operations. For more information
-about the GeoServer REST API, see
-<https://docs.geoserver.org/stable/en/user/rest/>.
+Estimate test-retest reliability for complex sampling strategies and
+extract variances using IntraClass Effect Decomposition. Developed by
+Brandmaier et al. (2018) "Assessing reliability in neuroimaging research
+through intra-class effect decomposition (ICED)" <doi:10.7554/eLife.35718>
+Also includes functions to simulate data based on sampling strategy.
+Unofficial version release name: "Good work squirrels".
 
 %prep
 %setup -q -c -n %{packname}

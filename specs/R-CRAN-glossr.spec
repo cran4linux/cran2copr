@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  glossr
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Interlinear Glosses in R Markdown
 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-knitr 
@@ -34,6 +36,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
 
 %description
 Read examples with interlinear glosses from files or from text and print

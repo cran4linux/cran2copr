@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mlr3spatial
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Support for Spatial Objects Within the 'mlr3' Ecosystem
 
@@ -18,21 +19,23 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.5.0
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-terra >= 1.5.12
+BuildRequires:    R-CRAN-terra >= 1.6.3
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-lgr >= 0.4.2
-BuildRequires:    R-CRAN-mlr3 >= 0.12.0
+BuildRequires:    R-CRAN-mlr3 >= 0.14.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mlr3misc 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-R6 >= 2.5.0
 Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-terra >= 1.5.12
+Requires:         R-CRAN-terra >= 1.6.3
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-lgr >= 0.4.2
-Requires:         R-CRAN-mlr3 >= 0.12.0
+Requires:         R-CRAN-mlr3 >= 0.14.0
 Requires:         R-methods 
 Requires:         R-CRAN-mlr3misc 
+Requires:         R-CRAN-sf 
 Requires:         R-utils 
 
 %description

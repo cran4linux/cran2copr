@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  multid
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Difference Between Two Groups
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-quantreg >= 5.88
 BuildRequires:    R-CRAN-glmnet >= 4.1.2
 BuildRequires:    R-stats >= 4.0.2
 BuildRequires:    R-CRAN-emmeans >= 1.6.3
@@ -23,6 +25,7 @@ BuildRequires:    R-CRAN-pROC >= 1.18.0
 BuildRequires:    R-CRAN-lme4 >= 1.1.27.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-lavaan >= 0.6.9
+Requires:         R-CRAN-quantreg >= 5.88
 Requires:         R-CRAN-glmnet >= 4.1.2
 Requires:         R-stats >= 4.0.2
 Requires:         R-CRAN-emmeans >= 1.6.3
