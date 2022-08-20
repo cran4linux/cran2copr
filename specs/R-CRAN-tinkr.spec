@@ -1,55 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  torch
-%global packver   0.8.1
+%global packname  tinkr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tensors and Neural Networks with 'GPU' Acceleration
+Summary:          Cast '(R)Markdown' Files to 'XML' and Back Again
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-coro >= 1.0.2
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bit64 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-commonmark >= 1.6
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ellipsis 
-Requires:         R-CRAN-coro >= 1.0.2
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-bit64 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-xslt 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-commonmark >= 1.6
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
-Requires:         R-tools 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-xslt 
+Requires:         R-CRAN-yaml 
 
 %description
-Provides functionality to define and train neural networks similar to
-'PyTorch' by Paszke et al (2019) <arXiv:1912.01703> but written entirely
-in R using the 'libtorch' library. Also supports low-level tensor
-operations and 'GPU' acceleration.
+Parsing '(R)Markdown' files with numerous regular expressions can be
+fraught with peril, but it does not have to be this way. Converting
+'(R)Markdown' files to 'XML' using the 'commonmark' package allows
+in-memory editing via of 'markdown' elements via 'XPath' through the
+extensible 'R6' class called 'yarn'. These modified 'XML' representations
+can be written to '(R)Markdown' documents via an 'xslt' stylesheet which
+implements an extended version of 'GitHub'-flavoured 'markdown' so that
+you can tinker to your hearts content.
 
 %prep
 %setup -q -c -n %{packname}

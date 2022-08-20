@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  autostats
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Auto Stats
 
@@ -26,9 +27,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-broom.mixed 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggeasy 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-jtools 
@@ -41,15 +40,12 @@ BuildRequires:    R-CRAN-flextable
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-CRAN-hardhat 
 BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-workflows 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-framecleaner 
 BuildRequires:    R-CRAN-presenter 
 BuildRequires:    R-CRAN-yardstick 
-BuildRequires:    R-CRAN-BBmisc 
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-lubridate 
@@ -58,9 +54,9 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-FOCI 
 BuildRequires:    R-CRAN-XICOR 
 BuildRequires:    R-CRAN-agtboost 
-BuildRequires:    R-CRAN-Ckmeans.1d.dp 
-BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-recosystem 
+BuildRequires:    R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyselect 
@@ -71,9 +67,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-stats 
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-broom.mixed 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ggeasy 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-jtools 
@@ -86,15 +80,12 @@ Requires:         R-CRAN-flextable
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-rsample 
-Requires:         R-CRAN-hardhat 
 Requires:         R-CRAN-tune 
 Requires:         R-CRAN-workflows 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-framecleaner 
 Requires:         R-CRAN-presenter 
 Requires:         R-CRAN-yardstick 
-Requires:         R-CRAN-BBmisc 
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-lubridate 
@@ -103,9 +94,9 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-FOCI 
 Requires:         R-CRAN-XICOR 
 Requires:         R-CRAN-agtboost 
-Requires:         R-CRAN-Ckmeans.1d.dp 
-Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-recosystem 
+Requires:         R-CRAN-doParallel 
 
 %description
 Automatically do statistical exploration. Create formulas using

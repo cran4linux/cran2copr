@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SpaDES.addins
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Development Tools for 'SpaDES' and 'SpaDES' Modules
 
@@ -13,14 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringi >= 1.1.3
 BuildRequires:    R-CRAN-rstudioapi >= 0.5
 BuildRequires:    R-CRAN-shiny >= 0.13
 BuildRequires:    R-CRAN-miniUI >= 0.1.1
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-reproducible 
 BuildRequires:    R-CRAN-SpaDES.core 
@@ -28,7 +28,6 @@ Requires:         R-CRAN-stringi >= 1.1.3
 Requires:         R-CRAN-rstudioapi >= 0.5
 Requires:         R-CRAN-shiny >= 0.13
 Requires:         R-CRAN-miniUI >= 0.1.1
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-reproducible 
 Requires:         R-CRAN-SpaDES.core 
@@ -45,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

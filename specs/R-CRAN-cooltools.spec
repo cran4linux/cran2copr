@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cooltools
-%global packver   1.7
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Practical Tools for Scientific Computations and Visualizations
 
@@ -15,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-magicaxis 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-celestial 
 BuildRequires:    R-CRAN-data.table 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-magicaxis 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-celestial 
 Requires:         R-CRAN-data.table 
@@ -46,14 +45,14 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Collection of routines for efficient scientific computations in physics
-and astrophysics. These routines include utility functions, advanced
+and astrophysics. These routines include utility functions, numerical
 computation tools, as well as visualisation tools. They can be used, for
 example, for generating random numbers from spherical and custom
 distributions, information and entropy analysis, special Fourier
 transforms, two-point correlation estimation (e.g. as in Landy & Szalay
 (1993) <doi:10.1086/172900>), binning & gridding of point sets, 2D
 interpolation, Monte Carlo integration, vector arithmetic and coordinate
-transformations. Also included are a non-exhaustive list of important
+transformations. Also included is a non-exhaustive list of important
 constants and cosmological conversion functions. The graphics routines can
 be used to produce and export publication-ready scientific plots and
 movies, e.g. as used in Obreschkow et al. (2020)

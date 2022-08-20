@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  document
-%global packver   3.3.3
+%global packver   3.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          3.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run 'roxygen2' on (Chunks of) Single Code Files
 
@@ -19,17 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-fritools 
 BuildRequires:    R-CRAN-rcmdcheck 
 BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-desc 
+Requires:         R-CRAN-fritools 
 Requires:         R-CRAN-rcmdcheck 
 Requires:         R-CRAN-roxygen2 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-withr 
 
 %description
 Have you ever been tempted to create 'roxygen2'-style documentation

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cancensus
-%global packver   0.5.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access, Retrieve, and Work with Canadian Census Data and Geography
 
@@ -35,8 +36,8 @@ well as convenience functions for working with Census variables, variable
 hierarchies, and region selection. API keys are freely available with free
 registration at <https://censusmapper.ca/api>. Census data and boundary
 geometries are reproduced and distributed on an "as is" basis with the
-permission of Statistics Canada (Statistics Canada 2001; 2006; 2011;
-2016).
+permission of Statistics Canada (Statistics Canada 2001; 2006; 2011; 2016;
+2021).
 
 %prep
 %setup -q -c -n %{packname}

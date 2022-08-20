@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RaceID
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identification of Cell Types and Inference of Lineage Trees from Single-Cell RNA-Seq Data
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-princurve 
 BuildRequires:    R-CRAN-propr 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-randomForest 
@@ -63,6 +64,7 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-matrixStats 
 Requires:         R-parallel 
 Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-princurve 
 Requires:         R-CRAN-propr 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-randomForest 

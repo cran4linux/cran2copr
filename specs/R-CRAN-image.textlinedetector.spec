@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  image.textlinedetector
-%global packver   0.1.5
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Segment Images in Text Lines and Words
 
@@ -33,7 +34,11 @@ segmentation technique to detect words in text lines as described in the
 paper 'Scale Space Technique for Word Segmentation in Handwritten
 Documents' by Manmatha R. and Srimal N. (1999) paper at
 <doi:10.1007/3-540-48236-9_3>, wrapper for code available at
-<https://github.com/arthurflor23/text-segmentation>.
+<https://github.com/arthurflor23/text-segmentation>. Provides as well
+functionality to put cursive text in images upright using the approach
+defined in the paper 'A new normalization technique for cursive
+handwritten words' by Vinciarelli A. and Luettin J. (2001)
+<doi:10.1016/S0167-8655(01)00042-3>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SpaDES.core
-%global packver   1.0.10
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Utilities for Developing and Running Spatially Explicit Discrete Event Models
 
@@ -17,7 +18,7 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster >= 2.5.8
-BuildRequires:    R-CRAN-reproducible >= 1.2.7
+BuildRequires:    R-CRAN-reproducible >= 1.2.9
 BuildRequires:    R-CRAN-data.table >= 1.11.0
 BuildRequires:    R-CRAN-igraph >= 1.0.1
 BuildRequires:    R-CRAN-qs >= 0.21.1
@@ -25,12 +26,13 @@ BuildRequires:    R-CRAN-quickPlot >= 0.1.4
 BuildRequires:    R-CRAN-Require >= 0.0.7
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-fastdigest 
+BuildRequires:    R-CRAN-lobstr 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-whisker 
 Requires:         R-CRAN-raster >= 2.5.8
-Requires:         R-CRAN-reproducible >= 1.2.7
+Requires:         R-CRAN-reproducible >= 1.2.9
 Requires:         R-CRAN-data.table >= 1.11.0
 Requires:         R-CRAN-igraph >= 1.0.1
 Requires:         R-CRAN-qs >= 0.21.1
@@ -38,6 +40,7 @@ Requires:         R-CRAN-quickPlot >= 0.1.4
 Requires:         R-CRAN-Require >= 0.0.7
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-fastdigest 
+Requires:         R-CRAN-lobstr 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -51,7 +54,9 @@ additional functionality by running user-built modules. Includes
 conditional scheduling, restart after interruption, packaging of reusable
 modules, tools for developing arbitrary automated workflows, automated
 interweaving of modules of different temporal resolution, and tools for
-visualizing and understanding the DES project.
+visualizing and understanding the DES project. The suggested package
+'NLMR' can be installed with 'install.packages("NLMR", repos =
+"https://PredictiveEcology.r-universe.dev")'.
 
 %prep
 %setup -q -c -n %{packname}

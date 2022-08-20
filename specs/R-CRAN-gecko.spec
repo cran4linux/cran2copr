@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geonapi
-%global packver   0.6-1
+%global packname  gecko
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'GeoNetwork' API R Interface
+Summary:          Geographical Ecology and Conservation Knowledge Online
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geometa 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-geometa 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-gdistance 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-gdistance 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-geosphere 
+Requires:         R-methods 
 
 %description
-Provides an R interface to the 'GeoNetwork' API
-(<https://geonetwork-opensource.org/#api>) allowing to upload and publish
-metadata in a 'GeoNetwork' web-application and expose it to OGC CSW.
+Includes a collection of geographical analysis functions aimed primarily
+at ecology and conservation science studies, allowing processing of both
+point and raster data. Future versions will integrate species threat
+datasets developed by the authors.
 
 %prep
 %setup -q -c -n %{packname}

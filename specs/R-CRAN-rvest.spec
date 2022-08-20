@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rvest
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Harvest (Scrape) Web Pages
 
@@ -18,18 +19,24 @@ Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xml2 >= 1.3
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-httr >= 0.5
-BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-selectr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-xml2 >= 1.3
 Requires:         R-CRAN-lifecycle >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-httr >= 0.5
-Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-selectr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
 
 %description
 Wrappers around the 'xml2' and 'httr' packages to make it easy to

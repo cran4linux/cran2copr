@@ -1,55 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  torch
-%global packver   0.8.1
+%global packname  stenR
+%global packver   0.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.6.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tensors and Neural Networks with 'GPU' Acceleration
+Summary:          Standardization of Raw Discrete Questionnaire Scores
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-coro >= 1.0.2
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ellipsis 
-Requires:         R-CRAN-coro >= 1.0.2
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-magrittr 
-Requires:         R-tools 
-Requires:         R-CRAN-callr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-R6 
+Requires:         R-stats 
 
 %description
-Provides functionality to define and train neural networks similar to
-'PyTorch' by Paszke et al (2019) <arXiv:1912.01703> but written entirely
-in R using the 'libtorch' library. Also supports low-level tensor
-operations and 'GPU' acceleration.
+An user-friendly framework to preprocess raw item scores of questionnaires
+into factors or scores and standardize them. Standardization can be made
+either by their normalization in representative sample, or by import of
+premade scoring table.
 
 %prep
 %setup -q -c -n %{packname}

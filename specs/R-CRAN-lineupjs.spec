@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geonapi
-%global packver   0.6-1
+%global packname  lineupjs
+%global packver   4.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          4.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'GeoNetwork' API R Interface
+Summary:          'HTMLWidget' Wrapper of 'LineUp' for Visual Analysis of Multi-Attribute Rankings
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geometa 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-geometa 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Provides an R interface to the 'GeoNetwork' API
-(<https://geonetwork-opensource.org/#api>) allowing to upload and publish
-metadata in a 'GeoNetwork' web-application and expose it to OGC CSW.
+'LineUp' is an interactive technique designed to create, visualize and
+explore rankings of items based on a set of heterogeneous attributes. This
+is a 'htmlwidget' wrapper around the JavaScript library 'LineUp.js'. It is
+designed to be used in 'R Shiny' apps and 'R Markddown' files. Due to an
+outdated 'webkit' version of 'RStudio' it won't work in the integrated
+viewer.
 
 %prep
 %setup -q -c -n %{packname}

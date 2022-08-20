@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  arulesCBA
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification Based on Association Rules
 
@@ -13,23 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+Requires:         R-java
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-glmnet >= 3.0.0
-BuildRequires:    R-CRAN-arules >= 1.6.5
-BuildRequires:    R-CRAN-Matrix >= 1.2.0
+BuildRequires:    R-CRAN-arules >= 1.7.4
+BuildRequires:    R-CRAN-Matrix >= 1.4.0
 BuildRequires:    R-CRAN-discretization >= 1.0.1
 BuildRequires:    R-methods 
 Requires:         R-CRAN-glmnet >= 3.0.0
-Requires:         R-CRAN-arules >= 1.6.5
-Requires:         R-CRAN-Matrix >= 1.2.0
+Requires:         R-CRAN-arules >= 1.7.4
+Requires:         R-CRAN-Matrix >= 1.4.0
 Requires:         R-CRAN-discretization >= 1.0.1
 Requires:         R-methods 
 
 %description
 Provides the infrastructure for association rule-based classification
 including the algorithms CBA, CMAR, CPAR, C4.5, FOIL, PART, PRM, RCAR, and
-RIPPER to build associative classifiers.
+RIPPER to build associative classifiers. Hahsler et al (2019)
+<doi:10.32614/RJ-2019-048>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  toprdata
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gene and Exon Data from Ensembl
 
@@ -18,8 +19,8 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Gene and exon information from Ensembl (build GRCh38.p13) to use with the
-topr package.
+Gene and exon information from Ensembl genome builds GRCh38.p13 (104) and
+GRCh37 (v40) to use with the 'topr' package.
 
 %prep
 %setup -q -c -n %{packname}

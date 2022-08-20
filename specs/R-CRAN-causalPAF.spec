@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  causalPAF
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Effect for Population Attributable Fractions (PAF)
 
@@ -52,10 +53,10 @@ Calculates population attributable fraction causal effects. The
 'causalPAF' package contains a suite of functions for causal analysis
 calculations of population attributable fractions (PAF) given a causal
 diagram which apply both: Pathway-specific population attributable
-fractions (PS-PAFs) O’Connell and Ferguson (2020)
-<doi:10.1101/2020.10.15.20212845> and Sequential population attributable
-fractions Ferguson, O’Connell, and O’Donnell (2020)
-<doi:10.1186/s13690-020-00442-x>. Results are presentable in both table
+fractions (PS-PAFs) O’Connell and Ferguson (2022)
+<doi:10.1093/ije/dyac079> and Sequential population attributable fractions
+Ferguson, O’Connell, and O’Donnell (2020)
+<doi:10.1186/s13690-020-00442-x>.  Results are presentable in both table
 and plot format.
 
 %prep

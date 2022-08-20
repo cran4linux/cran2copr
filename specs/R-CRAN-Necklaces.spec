@@ -1,39 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geonapi
-%global packver   0.6-1
+%global packname  Necklaces
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'GeoNetwork' API R Interface
+Summary:          Necklaces and Bracelets
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geometa 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-geometa 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-kStatistics 
+Requires:         R-CRAN-kStatistics 
 
 %description
-Provides an R interface to the 'GeoNetwork' API
-(<https://geonetwork-opensource.org/#api>) allowing to upload and publish
-metadata in a 'GeoNetwork' web-application and expose it to OGC CSW.
+Tools to generate Necklaces, Bracelets, Lyndon words and de Bruijn
+sequences. The generation relies on integer partitions and uses the
+'KStatistics' package. Methods used in the package refers to E. Di Nardo
+and G. Guarino (2022) <arXiv:2208.06855>.
 
 %prep
 %setup -q -c -n %{packname}

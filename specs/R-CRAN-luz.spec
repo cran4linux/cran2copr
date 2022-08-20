@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  luz
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Higher Level 'API' for 'torch'
 
@@ -51,7 +52,7 @@ amount of code needed for common tasks, abstract away torch details and
 make the same code work on both the 'CPU' and 'GPU'. It's flexible enough
 to support expressing a large range of models. It's heavily inspired by
 'fastai' by Howard et al. (2020) <arXiv:2002.04688>, 'Keras' by Chollet et
-al. (2015) and 'Pytorch Lightning' by Falcon et al. (2019)
+al. (2015) and 'PyTorch Lightning' by Falcon et al. (2019)
 <doi:10.5281/zenodo.3828935>.
 
 %prep

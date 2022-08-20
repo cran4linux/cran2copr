@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tgp
-%global packver   2.4-18
+%global packver   2.4-19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.18
+Version:          2.4.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Treed Gaussian Process Models
 

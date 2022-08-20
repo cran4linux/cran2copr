@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geonapi
-%global packver   0.6-1
+%global packname  RobustIV
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          'GeoNetwork' API R Interface
+Summary:          Robust Instrumental Variable Methods in Linear Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geometa 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-geometa 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-intervals 
+BuildRequires:    R-CRAN-CVXR 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-intervals 
+Requires:         R-CRAN-CVXR 
 
 %description
-Provides an R interface to the 'GeoNetwork' API
-(<https://geonetwork-opensource.org/#api>) allowing to upload and publish
-metadata in a 'GeoNetwork' web-application and expose it to OGC CSW.
+Inference for the treatment effect with possibly invalid instrumental
+variables via TSHT('Guo et al.' (2016) <arXiv:1603.05224>) and
+SearchingSampling('Guo' (2021) <arXiv:2104.06911>), which are effective
+for both low- and high-dimensional covariates and instrumental variables;
+test of endogeneity in high dimensions ('Guo et al.' (2016)
+<arXiv:1609.06713>).
 
 %prep
 %setup -q -c -n %{packname}

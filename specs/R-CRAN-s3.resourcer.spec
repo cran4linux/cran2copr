@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  s3.resourcer
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          S3 Resource Resolver
 
@@ -28,9 +29,10 @@ Requires:         R-CRAN-aws.s3
 Requires:         R-CRAN-sparklyr 
 
 %description
-Resources are files in tidy or R data format stored in a S3 compatible
-system, such as Amazon Web Services S3 or Minio object stores. Resources
-can also be Parquet files, accessed through an Apache Spark service.
+A S3 resource is provided by Amazon Web Services S3 or a S3-compatible
+object store (such as Minio). The resource can be a tidy file to be
+downloaded from the object store, or a data lake (such as Delta Lake)
+Parquet file to be read by Apache Spark.
 
 %prep
 %setup -q -c -n %{packname}

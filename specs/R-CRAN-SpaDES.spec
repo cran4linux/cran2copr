@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SpaDES
-%global packver   2.0.8
+%global packver   2.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.8
+Version:          2.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Develop and Run Spatially Explicit Discrete Event Simulation Models
 
@@ -16,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reproducible >= 1.2.1.9007
+BuildRequires:    R-CRAN-reproducible >= 1.2.2
 BuildRequires:    R-CRAN-SpaDES.core >= 1.0.4
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-quickPlot 
 BuildRequires:    R-CRAN-SpaDES.tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-reproducible >= 1.2.1.9007
+Requires:         R-CRAN-reproducible >= 1.2.2
 Requires:         R-CRAN-SpaDES.core >= 1.0.4
 Requires:         R-methods 
 Requires:         R-CRAN-quickPlot 
