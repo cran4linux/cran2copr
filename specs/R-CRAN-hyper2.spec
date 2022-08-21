@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hyper2
-%global packver   2.0-3
+%global packver   3.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Hyperdirichlet Distribution, Mark 2
 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-partitions
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-CRAN-calibrator 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-disordR >= 0.0.9
 Requires:         R-methods 
@@ -33,10 +35,11 @@ Requires:         R-CRAN-partitions
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-alabama 
 Requires:         R-CRAN-calibrator 
+Requires:         R-CRAN-Rdpack 
 
 %description
 A suite of routines for the hyperdirichlet distribution; supersedes the
-'hyperdirichlet' package.
+'hyperdirichlet' package.  Uses 'disordR' discipline.
 
 %prep
 %setup -q -c -n %{packname}

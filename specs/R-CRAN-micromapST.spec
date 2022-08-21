@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  micromapST
-%global packver   1.1.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linked Micromap Plots for U. S. and Other Geographic Areas
 
@@ -13,23 +14,49 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-tools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-labeling 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-labeling 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-rmapshaper 
+BuildRequires:    R-CRAN-cleangeo 
+BuildRequires:    R-CRAN-pbapply 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-tools 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-labeling 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-labeling 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-rmapshaper 
+Requires:         R-CRAN-cleangeo 
+Requires:         R-CRAN-pbapply 
 
 %description
 Provides the users with the ability to quickly create linked micromap

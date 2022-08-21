@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ctrdata
-%global packver   1.10.1
+%global packver   1.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.1
+Version:          1.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -45,7 +46,7 @@ registers, the 'European Union Clinical Trials Register' ('EUCTR',
 <https://clinicaltrials.gov/>) and the 'ISRCTN'
 (<http://www.isrctn.com/>). Trial information is downloaded, converted and
 stored in a database ('PostgreSQL', 'SQLite' or 'MongoDB'; via package
-'nodbi'). Functions are included to identify de-duplicated records, to
+'nodbi'). Functions are included to identify deduplicated records, to
 easily find and extract variables (fields) of interest even from complex
 nesting as used by the registers, and to update previous queries. The
 package can be used for meta-analysis and trend-analysis of the design and

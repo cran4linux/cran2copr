@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sctransform
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variance Stabilizing Transformations for Single Cell UMI Data
 
@@ -48,8 +49,8 @@ stabilizing transformation. The transformation is based on a negative
 binomial regression model with regularized parameters. As part of the same
 regression framework, this package also provides functions for batch
 correction, and data correction. See Hafemeister and Satija (2019)
-<doi:10.1186/s13059-019-1874-1>, and Choudhary and Satija (2021)
-<doi:10.1101/2021.07.07.451498> for more details.
+<doi:10.1186/s13059-019-1874-1>, and Choudhary and Satija (2022)
+<doi:10.1186/s13059-021-02584-9> for more details.
 
 %prep
 %setup -q -c -n %{packname}
