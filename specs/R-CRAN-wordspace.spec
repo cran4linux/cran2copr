@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  wordspace
-%global packver   0.2-7
+%global packver   0.2-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributional Semantic Models in R
 
@@ -15,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-Matrix >= 1.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-sparsesvd 
 BuildRequires:    R-CRAN-iotools 
 BuildRequires:    R-methods 
@@ -26,8 +27,8 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-Matrix >= 1.3.0
 Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-sparsesvd 
 Requires:         R-CRAN-iotools 
 Requires:         R-methods 

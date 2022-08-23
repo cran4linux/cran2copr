@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spatialfusion
-%global packver   0.6-5
+%global packver   0.6-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Analysis of Spatial Data Using a Unifying Spatial Fusion Framework
 
@@ -24,6 +25,9 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-deldir 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
@@ -33,6 +37,9 @@ Requires:         R-utils
 Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-fields 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-spam 
+Requires:         R-CRAN-deldir 
 Requires:         R-CRAN-rstantools
 
 %description

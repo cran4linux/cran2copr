@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cpss
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Change-Point Detection by Sample-Splitting Methods
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
@@ -47,8 +48,9 @@ frequently considered parametric change-point models. In particular, it
 integrates a criterion proposed by Zou, Wang and Li (2020)
 <doi:10.1214/19-AOS1814> to select the number of change-points in a
 data-driven fashion. Moreover, it also provides interfaces for
-users-customized change-point models with their own cost function and
-estimation routines.
+user-customized change-point models with one's own cost function and
+parameter estimation routine. It is easy to get started with the cpss.*
+set of functions by accessing their documentation pages (e.g., ?cpss).
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

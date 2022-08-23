@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  surveil
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Models for Disease Surveillance
 
@@ -59,9 +60,8 @@ The models are appropriate for count data such as disease incidence and
 mortality data, employing a Poisson or binomial likelihood and the
 first-difference (random-walk) prior for unknown risk. Optionally add a
 covariance matrix for multiple, correlated time series models. References:
-Brandt and Williams (2007, ISBN:978-1-4129-0656-2); Clayton (1996,
-ISBN-13:978-0-412-05551-5); Stan Development Team (2021)
-<https://mc-stan.org>; Theil (1972, ISBN:0-444-10378-3).
+Donegan, Hughes, and Lee (2022) <doi:10.2196/34589>; Stan Development Team
+(2021) <https://mc-stan.org>; Theil (1972, ISBN:0-444-10378-3).
 
 %prep
 %setup -q -c -n %{packname}

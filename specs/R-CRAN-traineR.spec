@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  traineR
-%global packver   1.7.4
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predictive Models Homologator
+Summary:          Predictive (Classification and Regression) Models Homologator
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,10 +31,8 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
 BuildRequires:    R-CRAN-adabag 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rpart.plot 
 Requires:         R-CRAN-MASS >= 7.3.53
 Requires:         R-CRAN-nnet >= 7.3.12
 Requires:         R-CRAN-randomForest >= 4.6.14
@@ -48,18 +47,17 @@ Requires:         R-CRAN-dplyr >= 0.8.0.1
 Requires:         R-CRAN-adabag 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rpart.plot 
 
 %description
 Methods to unify the different ways of creating predictive models and
-their different predictive formats. It includes methods such as K-Nearest
-Neighbors Schliep, K. P. (2004) <doi:10.5282/ubm/epub.1769>, Decision
-Trees Leo Breiman, Jerome H. Friedman, Richard A. Olshen, Charles J. Stone
-(2017) <doi:10.1201/9781315139470>, ADA Boosting Esteban Alfaro, Matias
-Gamez, Noelia García (2013) <doi:10.18637/jss.v054.i02>, Extreme Gradient
+their different predictive formats for classification and regression. It
+includes methods such as K-Nearest Neighbors Schliep, K. P. (2004)
+<doi:10.5282/ubm/epub.1769>, Decision Trees Leo Breiman, Jerome H.
+Friedman, Richard A. Olshen, Charles J. Stone (2017)
+<doi:10.1201/9781315139470>, ADA Boosting Esteban Alfaro, Matias Gamez,
+Noelia García (2013) <doi:10.18637/jss.v054.i02>, Extreme Gradient
 Boosting Chen & Guestrin (2016) <doi:10.1145/2939672.2939785>, Random
 Forest Breiman (2001) <doi:10.1023/A:1010933404324>, Neural Networks
 Venables, W. N., & Ripley, B. D. (2002) <ISBN:0-387-95457-0>, Support

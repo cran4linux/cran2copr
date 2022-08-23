@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  statgenMPP
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          QTL Mapping for Multi Parent Populations
 
@@ -19,17 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-statgenGWAS >= 1.0.8
 BuildRequires:    R-CRAN-statgenIBD >= 1.0.4
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-LMMsolver 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-statgenGWAS >= 1.0.8
 Requires:         R-CRAN-statgenIBD >= 1.0.4
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-LMMsolver 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-spam 
+Requires:         R-CRAN-stringi 
 
 %description
 For Multi Parent Populations (MPP) Identity By Descend (IBD) probabilities

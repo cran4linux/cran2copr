@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  semEff
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Calculation of Effects for Piecewise Structural Equation Models
 
@@ -32,8 +33,8 @@ Requires:         R-utils
 %description
 Automatically calculate direct, indirect, and total effects for piecewise
 structural equation models, comprising lists of fitted models representing
-structured equations (Lefcheck 2016 <doi:10/f8s8rb>). Confidence intervals
-are provided via bootstrapping.
+structured equations (Lefcheck, 2016 <doi:10/f8s8rb>). Confidence
+intervals are provided via bootstrapping.
 
 %prep
 %setup -q -c -n %{packname}

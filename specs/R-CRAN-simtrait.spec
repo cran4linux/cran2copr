@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  simtrait
-%global packver   1.0.21
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.21
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Complex Traits from Genotypes
 
@@ -26,10 +27,11 @@ ancestral allele frequencies used to generate the genotypes or the mean
 kinship for a real dataset).  Emphasis on avoiding common biases due to
 the use of estimated allele frequencies.  The code selects random loci to
 be causal, constructs coefficients for these loci and random independent
-non-genetic effects.  Traits can follow three models: random coefficients,
-fixed effect sizes, and infinitesimal (multivariate normal).  GWAS method
-benchmarking functions are also provided.  Partially described in Yao and
-Ochoa (2019) <doi:10.1101/858399>.
+non-genetic effects, and can optionally generate random group effects.
+Traits can follow three models: random coefficients, fixed effect sizes,
+and infinitesimal (multivariate normal).  GWAS method benchmarking
+functions are also provided.  Described in Yao and Ochoa (2022)
+<doi:10.1101/2022.03.25.485885>.
 
 %prep
 %setup -q -c -n %{packname}

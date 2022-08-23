@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pathviewr
-%global packver   1.0.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrangle, Analyze, and Visualize Animal Movement Data
 
@@ -28,6 +29,8 @@ BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-R.matlab 
 BuildRequires:    R-CRAN-fANCOVA 
 BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-anomalize 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-tibble >= 3.0.1
 Requires:         R-CRAN-magrittr >= 1.5
@@ -40,6 +43,8 @@ Requires:         R-CRAN-purrr >= 0.3.3
 Requires:         R-CRAN-R.matlab 
 Requires:         R-CRAN-fANCOVA 
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-anomalize 
+Requires:         R-CRAN-lubridate 
 
 %description
 Tools to import, clean, and visualize movement data, particularly from
@@ -59,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

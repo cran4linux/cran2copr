@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qmd
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantification of Multivariate Dependence
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-CRAN-qad 
 Requires:         R-CRAN-ggplot2 
