@@ -310,6 +310,9 @@ pkg_exceptions <- function(tpl, pkg, path) {
       "Source1:          https://s3.amazonaws.com/h2o-release/h2o/",
       readLines(file.path(path, "inst/branch.txt")), "/",
       readLines(file.path(path, "inst/buildnum.txt")), "/Rjar/h2o.jar"),
+    RcppCGAL = paste0(
+      "Source1:          https://github.com/CGAL/cgal/releases/download/v",
+      v <- readLines(file.path(path, "inst/VERSION")), "/CGAL-", v, "-library.tar.xz"),
     rscala = paste0(
       "Source1:          https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.tgz\n",
       "Source2:          https://github.com/sbt/sbt/releases/download/v1.2.8/sbt-1.2.8.tgz")
@@ -339,6 +342,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
       "%{packname}/man/checkFuncs.Rd"),
     rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
     h2o = "cp %{SOURCE1} %{packname}/inst/java",
+    RcppCGAL = "tar xf %{SOURCE1} -C %{packname}/inst */include --strip-components=1",
     nws=,OpenMx=,irace=,configr=,goldi=,RWebLogo=,rSymPy=,ndl=,scrobbler=,
     chromoR=,SoilR=,dynwrap=,RcppRedis=,protViz=,PRISMA=paste(
       "find %{packname} -type f -exec",

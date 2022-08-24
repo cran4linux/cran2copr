@@ -1,4 +1,5 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RcppCGAL
 %global packver   5.4.1
 %global rlibdir   /usr/local/lib/R/library
@@ -11,7 +12,7 @@ Summary:          Rcpp Integration for CGAL
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
-
+Source1:          https://github.com/CGAL/cgal/releases/download/v5.4/CGAL-5.4-library.tar.xz
 
 BuildRequires:    R-devel
 Requires:         R-core
@@ -32,7 +33,7 @@ at <https://www.cgal.org>. Currently includes the CGAL 5.4 stable release.
 
 %prep
 %setup -q -c -n %{packname}
-
+tar xf %{SOURCE1} -C %{packname}/inst */include --strip-components=1
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
