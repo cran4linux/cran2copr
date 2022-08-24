@@ -18,9 +18,10 @@ cran$SystemRequirements <- cran$SystemRequirements |>
   trimws() |>
   creplace("", NA)
 
-cran <- x <- na.omit(cran) |>
+cran <- na.omit(cran) |>
   merge(deps[, c("pkg", "revised", "comment")], by.x="Package", by.y="pkg", all=TRUE) |>
-  transform(revised = is.na(SystemRequirements) | (revised & SystemRequirements == comment)) |>
+  transform(revised = is.na(SystemRequirements) | (
+    !is.na(revised) & revised & SystemRequirements == comment)) |>
   transform(comment = SystemRequirements) |>
   transform(SystemRequirements = NULL)
 

@@ -186,7 +186,6 @@ EpiSignalDetection,,,TRUE,pandoc
 eplusr,,,TRUE,EnergyPlus (optional) (<https://energyplus.net>);udunits2
 ergm,,,TRUE,OpenMPI
 eseis,,,TRUE,gipptools dataselect
-EvidenceSynthesis,,,TRUE,Java versionor higher (https://www.java.com/)
 EviewsR,,,TRUE,EViews
 exactextractr,geos-devel,,TRUE,GEOS
 excerptr,,,TRUE,Python
@@ -194,7 +193,7 @@ exifr,/usr/bin/exiftool,/usr/bin/exiftool,TRUE,Perl
 exiftoolr,/usr/bin/exiftool,/usr/bin/exiftool,TRUE,Perl
 extRatum,,,TRUE,"GDAL, GEOS, PROJ"
 ezknitr,,,TRUE,pandoc with https support
-factset.protobuf.stachextensions,,protobuf-devel,TRUE,"ProtoBuf libraries and compiler versionorlater; On Debian/Ubuntu these can be installed aslibprotoc-dev, libprotobuf-dev and protobuf-compiler, while onFedora/CentOS protobuf-devel and protobuf-compiler are needed."
+fastGLCM,,,TRUE,"apt-get-pip: apt-get install -y python3-pip (deb),python3-pip: python3 -m pip install -U pip (deb), numpy: pip3install -U numpy (deb), cv2: pip3 install -U opencv-python(deb), libarmadillo: apt-get install -y libarmadillo-dev (deb),libblas: apt-get install -y libblas-dev (deb), liblapack:apt-get install -y liblapack-dev (deb), libarpack++2: apt-getinstall -y libarpack++2-dev (deb), : apt-get install -y (deb)"
 fastText,,,TRUE,"Generally, fastText builds on modern Mac OS andLinux distributions. Since it uses some  features, itrequires a compiler with good  support. These include a(g++-4.7.2 or newer) or a (-3.3 or newer)."
 FCPS,,pandoc,TRUE,Pandoc
 feamiR,,,TRUE,Python sreformat patman
@@ -209,7 +208,6 @@ findInGit,,grep git,TRUE,"grep, git"
 FishResp,,,TRUE,Display resolutionx800; RAMGB
 fitbitViz,,,TRUE,update: apt-get -y update (deb)
 flan,gsl-devel,,TRUE,GNU GSL
-flimo,,,TRUE,Julia
 fmf,,,TRUE,"libarmadillo: apt-get install -y libarmadillo-dev(deb), libblas: apt-get install -y libblas-dev (deb),liblapack: apt-get install -y liblapack-dev (deb),libarpack++2: apt-get install -y libarpack++2-dev (deb),: apt-get install -y  (deb)"
 foieGras,,pandoc,TRUE,"GDAL, GEOS, PROJ,pandoc"
 footBayes,,pandoc,TRUE,"pandoc, pandoc-citeproc"
@@ -394,6 +392,7 @@ mdendro,,java,TRUE,
 MDSGUI,,bwidget,TRUE,"windows, 'BWidget', 'Tktable'"
 meltt,,,TRUE,Python
 memoiR,,,TRUE,pandoc
+MeshesOperations,gmp-devel mpfr-devel,,TRUE,"C++, gmp, mpfr"
 metagear,,,TRUE,Tcl/Tk toolkit (X11 Quarts for Mac)
 metaMix,,,TRUE,Open MPI
 metapost,,/usr/bin/mpost,TRUE,mpost
@@ -577,8 +576,10 @@ rCBA,,,TRUE,Java
 RCBR,,,TRUE,"MOSEK (http://www.mosek.com) and MOSEK License foruse of Rmosek,"
 rcdd,gmp-devel,,TRUE,GMP (GNU MP bignum library from<https://gmplib.org/>)
 rcdk,,,TRUE,Java JDKor higher
+RCDT,,,TRUE,C++
 rchallenge,,,TRUE,pandoc -http://johnmacfarlane.net/pandoc
 rchie,,,TRUE,"V8 <=: libv8-3.14-dev (deb), v8-314-devel(rpm), v8-3.14 (arch), v8@3.15 (homebrew)"
+RclusTool,,,TRUE,XQuartz (on OSX)
 Rcmdr,xorg-x11-server-Xvfb,,TRUE,
 RcmdrMisc,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.aRnova,xorg-x11-server-Xvfb,,TRUE,
@@ -592,7 +593,6 @@ RcmdrPlugin.EZR,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.FactoMineR,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.GWRM,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.HH,xorg-x11-server-Xvfb,,TRUE,
-RcmdrPlugin.IPSUR,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.KMggplot2,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.MA,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.MPAStats,xorg-x11-server-Xvfb,,TRUE,
@@ -766,6 +766,7 @@ sarsop,,,TRUE,"mallinfo, hence Linux, MacOS or Windows"
 SASmarkdown,,,TRUE,SAS
 SBRect,,,TRUE,java
 scaffolder,,,TRUE,Python
+scatteR,,,TRUE,Javaor higher
 scModels,gmp-devel mpfr-devel,,TRUE,"gmp, mpfr"
 sdcTable,glpk-devel,,TRUE,"GLPK library, including -dev or -devel part"
 sdmApp,,R-java,TRUE,Java
@@ -773,6 +774,7 @@ SDMtune,,R-java,TRUE,Java and maxent.jarto use Maxent
 seewave,,,TRUE,LIBSNDFILE
 SemiCompRisks,gsl-devel,,TRUE,
 sen2r,,,TRUE,"GDAL, PROJ, GEOS,Cairo, Curl, NetCDF, jq, Protocol Buffers, V8, OpenSSL,Libxml2."
+sendigR,,,TRUE,Python(>=3.9.6)
 seqinr,zlib-devel,,TRUE,zlib headers and library.
 seqminer,zlib-devel,,TRUE,"zlib headers and libraries, optionally also bzip2 and POSIX-compliant regex functions."
 sequenza,,pandoc,TRUE,pandoc
@@ -791,6 +793,7 @@ simhelpers,,,TRUE,RStudio
 SimInf,gsl-devel,,TRUE,GNU Scientific Library (GSL)
 simplermarkdown,,pandoc,TRUE,Pandoc (http://pandoc.org) needs to installed andavailable in the search path.
 simplexreg,gsl-devel,,TRUE,GNU Scientific Library version
+slendr,,,TRUE,'SLiM' is a forward simulation software forpopulation genetics and evolutionary biology. See<https://messerlab.org/slim/> for installation instructions andfurther information. The 'Python' coalescent framework'msprime' and the 'tskit' module can by installed by followingthe instructions at <https://tskit.dev/>.
 slowraker,,R-java,TRUE,Java
 smam,gsl-devel,,TRUE,"GNU GSL,"
 smile,,,TRUE,"GDAL, GEOS, PROJ"
@@ -811,6 +814,7 @@ spcosa,,,TRUE,Java
 specklestar,fftw-devel,,TRUE,fftw3
 spherepc,,,TRUE,XQuartz (on MacOS)
 spongecake,,ffmpeg-free,TRUE,FFmpeg (http://ffmpeg.org)
+sportyR,,,TRUE,"pandoc, pandoc-citeproc"
 SqlRender,,,TRUE,Java versionor higher (https://www.java.com/)
 ssh,libssh-devel,,TRUE,"libssh(the original, not libssh2)"
 SSHAARP,,gmt ghostscript,TRUE,"GMTor, Ghostscript"
@@ -829,7 +833,6 @@ streambugs,,,TRUE,C99
 streamMOA,,,TRUE,Java
 string2path,cargo,,TRUE,Cargo (rustc package manager)
 stringi,libicu-devel,,TRUE,"ICU4C, optional)"
-strm,,,TRUE,"GDAL, GEOS, PROJ"
 subspace,,,TRUE,Java
 sudachir,,,TRUE,Python
 SuperGauss,fftw-devel,,TRUE,fftw3
@@ -882,10 +885,10 @@ TMB,,gcc-c++,TRUE,
 TooManyCellsR,,,TRUE,'TooManyCells'(https://github.com/GregorySchwartz/too-many-cells)
 topicmodels,gsl-devel,,TRUE,"GNU Scientific Library version,"
 topicmodels.etm,,,TRUE,LibTorch (https://pytorch.org/)
-torch,,,TRUE,LibTorch (https://pytorch.org/)
+torch,,,TRUE,LibTorch (https://pytorch.org/); Only x86_64platforms are currently supported.
 trackdem,,python3 ffmpeg-free /usr/bin/exiftool,TRUE,"Python, Libav, ExifTool"
 trackter,,ffmpeg-free,TRUE,FFmpeg
-TreeBUGS,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
+TreeBUGS,,,TRUE,JAGS (https://mcmc-jags.sourceforge.io/)
 tsapp,,,TRUE,"under Linux, fftwtools needs libfftw3-dev"
 TTAinterfaceTrendAnalysis,xorg-x11-server-Xvfb,,TRUE,
 tutorial,,,TRUE,pandoc -http://johnmacfarlane.net/pandoc
