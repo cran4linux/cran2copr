@@ -312,24 +312,13 @@ pkg_exceptions <- function(tpl, pkg, path) {
       readLines(file.path(path, "inst/buildnum.txt")), "/Rjar/h2o.jar"),
     RcppCGAL = paste0(
       "Source1:          https://github.com/CGAL/cgal/releases/download/v",
-      v <- readLines(file.path(path, "inst/VERSION")), "/CGAL-", v, "-library.tar.xz"),
-    rscala = paste0(
-      "Source1:          https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.tgz\n",
-      "Source2:          https://github.com/sbt/sbt/releases/download/v1.2.8/sbt-1.2.8.tgz")
+      v <- readLines(file.path(path, "inst/VERSION")), "/CGAL-", v, "-library.tar.xz")
   ))
 
   # setup
   setup <- grep("%setup", tpl)
-  tpl[setup] <- paste0(tpl[setup], switch(
-    pkg,
-    rscala = " -a 1 -a 2"
-  ))
   tpl[setup] <- paste0(tpl[setup], "\n", switch(
     pkg,
-    rscala = paste(
-      "mkdir %{packname}/inst/dependencies",
-      "mv scala* %{packname}/inst/dependencies/scala",
-      "mv sbt* %{packname}/inst/dependencies/sbt", sep="\n"),
     tcltk2 = paste(
       "sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g'",
       "%{packname}/inst/tklibs/ctext3.2/function_finder.tcl"),
