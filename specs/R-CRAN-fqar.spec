@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sparsesvd
-%global packver   0.2-1
+%global packname  fqar
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Truncated Singular Value Decomposition (from 'SVDLIBC')
+Summary:          Floristic Quality Assessment Tools for R
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-Matrix >= 1.3
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix >= 1.3
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
-Wrapper around the 'SVDLIBC' library for (truncated) singular value
-decomposition of a sparse matrix. Currently, only sparse real matrices in
-Matrix package format are supported.
+Tools for downloading and analyzing floristic quality assessment data. See
+Freyman et al. (2015) <doi:10.1111/2041-210X.12491> for more information
+about floristic quality assessment and the associated database.
 
 %prep
 %setup -q -c -n %{packname}

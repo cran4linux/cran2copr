@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  anndata
-%global packver   0.7.5.3
+%global packver   0.7.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5.3
+Version:          0.7.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'anndata' for R
 

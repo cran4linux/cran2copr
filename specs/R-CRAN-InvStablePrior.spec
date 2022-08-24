@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ChainLadder
-%global packver   0.2.16
+%global packname  InvStablePrior
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods and Models for Claims Reserving in General Insurance
+Summary:          Inverse Stable Prior for Widely-Used Exponential Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cplm >= 0.7.3
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-systemfit 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-cplm >= 0.7.3
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-actuar 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-fdrtool 
+BuildRequires:    R-CRAN-nimble 
 Requires:         R-stats 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-CRAN-tweedie 
-Requires:         R-utils 
-Requires:         R-CRAN-systemfit 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-fdrtool 
+Requires:         R-CRAN-nimble 
 
 %description
-Various statistical methods and models which are typically used for the
-estimation of outstanding claims reserves in general insurance, including
-those to estimate the claims development result as required under Solvency
-II.
+Contains functions that allow Bayesian inference on a parameter of some
+widely-used exponential models. The functions can generate independent
+samples from the closed-form posterior distribution using the inverse
+stable prior. Inverse stable is a non-conjugate prior for a parameter of
+an exponential subclass of discrete and continuous data distributions
+(e.g. Poisson, exponential, inverse gamma, double exponential (Laplace),
+half-normal/half-Gaussian, etc.). The prior class provides flexibility in
+capturing a wide array of prior beliefs (right-skewed and left-skewed) as
+modulated by a parameter that is bounded in (0,1). The generated samples
+can be used to simulate the prior and posterior predictive distributions.
+More details can be found in Cahoy and Sedransk (2019)
+<doi:10.1007/s42519-018-0027-2>. The package can also be used as a
+teaching demo for introductory Bayesian courses.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  arakno
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          ARAchnid KNowledge Online
 
@@ -16,17 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-rgbif 
 BuildRequires:    R-CRAN-rworldmap 
 BuildRequires:    R-CRAN-rworldxtra 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-ape 
 Requires:         R-graphics 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-rgbif 
 Requires:         R-CRAN-rworldmap 
 Requires:         R-CRAN-rworldxtra 

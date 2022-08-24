@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bbknnR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Batch Balanced KNN in R
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-uwot >= 0.1.14
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dplyr 
@@ -27,7 +29,7 @@ BuildRequires:    R-CRAN-Rtsne
 BuildRequires:    R-CRAN-Seurat 
 BuildRequires:    R-CRAN-SeuratObject 
 BuildRequires:    R-CRAN-tidytable 
-BuildRequires:    R-CRAN-uwot 
+Requires:         R-CRAN-uwot >= 0.1.14
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
@@ -40,7 +42,6 @@ Requires:         R-CRAN-Rtsne
 Requires:         R-CRAN-Seurat 
 Requires:         R-CRAN-SeuratObject 
 Requires:         R-CRAN-tidytable 
-Requires:         R-CRAN-uwot 
 
 %description
 A fast and intuitive batch effect removal tool for single-cell data. BBKNN

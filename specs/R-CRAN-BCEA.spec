@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BCEA
-%global packver   2.4.1
+%global packver   2.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          2.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Cost Effectiveness Analysis
 
@@ -16,31 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.3.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GrassmannOptim 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-cli >= 3.3.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GrassmannOptim 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
 Produces an economic evaluation of a sample of suitable variables of cost
 and effectiveness / utility for two or more interventions, e.g. from a
 Bayesian model in the form of MCMC simulations. This package computes the
 most cost-effective alternative and produces graphical summaries and
-probabilistic sensitivity analysis.
+probabilistic sensitivity analysis, see Baio et al (2017)
+<doi:10.1007/978-3-319-55718-2>.
 
 %prep
 %setup -q -c -n %{packname}

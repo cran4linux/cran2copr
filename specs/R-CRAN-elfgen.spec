@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ChainLadder
-%global packver   0.2.16
+%global packname  elfgen
+%global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.16
+Version:          2.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods and Models for Claims Reserving in General Insurance
+Summary:          Ecological Limit Function Model Generation and Analysis Toolkit
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cplm >= 0.7.3
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-tweedie 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-systemfit 
-BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-cplm >= 0.7.3
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-actuar 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-CRAN-tweedie 
+BuildRequires:    R-CRAN-testit 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-sbtools 
+BuildRequires:    R-CRAN-nhdplusTools 
 Requires:         R-utils 
-Requires:         R-CRAN-systemfit 
-Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-quantreg 
+Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-testit 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sqldf 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-sbtools 
+Requires:         R-CRAN-nhdplusTools 
 
 %description
-Various statistical methods and models which are typically used for the
-estimation of outstanding claims reserves in general insurance, including
-those to estimate the claims development result as required under Solvency
-II.
+A toolset for generating Ecological Limit Function (ELF) models and
+evaluating potential species loss resulting from flow change, based on the
+'elfgen' framework. ELFs describe the relation between aquatic species
+richness (fish or benthic macroinvertebrates) and stream size
+characteristics (streamflow or drainage area). Journal publications are
+available outlining framework methodology (Kleiner et al. (2020)
+<doi:10.1111/1752-1688.12876>) and application (Rapp et al. (2020)
+<doi:10.1111/1752-1688.12877>).
 
 %prep
 %setup -q -c -n %{packname}

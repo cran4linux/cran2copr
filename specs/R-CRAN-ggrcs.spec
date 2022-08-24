@@ -1,54 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ChainLadder
-%global packver   0.2.16
+%global packname  ggrcs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods and Models for Claims Reserving in General Insurance
+Summary:          Draw Histograms and Restricted Cubic Splines (RCS)
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cplm >= 0.7.3
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-systemfit 
-BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-cplm >= 0.7.3
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-actuar 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-CRAN-tweedie 
-Requires:         R-utils 
-Requires:         R-CRAN-systemfit 
-Requires:         R-CRAN-statmod 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-rms 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-scales 
 
 %description
-Various statistical methods and models which are typically used for the
-estimation of outstanding claims reserves in general insurance, including
-those to estimate the claims development result as required under Solvency
-II.
+You can use this function to easily draw a combined histogram and
+restricted cubic spline. The function draws the graph through 'ggplot2'.
+RCS fitting requires the use of the rcs() function of the 'rms' package.
+Can fit cox regression, logistic regression. This method was described by
+Per Kragh (2003) <doi:10.1002/sim.1497>.
 
 %prep
 %setup -q -c -n %{packname}

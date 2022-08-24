@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sparsesvd
-%global packver   0.2-1
+%global packname  tinytiger
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Truncated Singular Value Decomposition (from 'SVDLIBC')
+Summary:          Lightweight Interface to TIGER/Line Shapefiles
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-Matrix >= 1.3
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix >= 1.3
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-sf 
 
 %description
-Wrapper around the 'SVDLIBC' library for (truncated) singular value
-decomposition of a sparse matrix. Currently, only sparse real matrices in
-Matrix package format are supported.
+Download geographic shapes from the United States Census Bureau TIGER/Line
+Shapefiles
+<https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html>.
+Functions support downloading and reading in geographic boundary data. All
+downloads can be set up with a cache to avoid multiple downloads. Data is
+available back to 2000 for most geographies.
 
 %prep
 %setup -q -c -n %{packname}

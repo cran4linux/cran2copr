@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cpop
-%global packver   1.0.0
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detection of Multiple Changes in Slope in Univariate Time-Series
 
@@ -22,6 +23,7 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-crops 
 Requires:         R-CRAN-pacman 
@@ -29,6 +31,7 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-pracma 
 
 %description
 Detects multiple changes in slope using the CPOP dynamic programming

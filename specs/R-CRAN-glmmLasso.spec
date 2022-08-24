@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  glmmLasso
-%global packver   1.6.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Selection for Generalized Linear Mixed Models by L1-Penalized Estimation
 
@@ -31,7 +32,10 @@ Requires:         R-CRAN-GMMBoost
 
 %description
 A variable selection approach for generalized linear mixed models by
-L1-penalized estimation is provided.
+L1-penalized estimation is provided, see Groll and Tutz (2014)
+<doi:10.1007/s11222-012-9359-z>. See also Groll and Tutz (2017)
+<doi:10.1007/s10985-016-9359-y> for discrete survival models including
+heterogeneity.
 
 %prep
 %setup -q -c -n %{packname}

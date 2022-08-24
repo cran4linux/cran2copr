@@ -1,54 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ChainLadder
-%global packver   0.2.16
+%global packname  controlfunctionIV
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods and Models for Claims Reserving in General Insurance
+Summary:          Control Function Methods with Possibly Invalid Instrumental Variables
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cplm >= 0.7.3
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dr 
+BuildRequires:    R-CRAN-orthoDr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-systemfit 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-cplm >= 0.7.3
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-actuar 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-Formula 
+Requires:         R-CRAN-dr 
+Requires:         R-CRAN-orthoDr 
 Requires:         R-stats 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-CRAN-tweedie 
-Requires:         R-utils 
-Requires:         R-CRAN-systemfit 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-AER 
+Requires:         R-CRAN-Formula 
 
 %description
-Various statistical methods and models which are typically used for the
-estimation of outstanding claims reserves in general insurance, including
-those to estimate the claims development result as required under Solvency
-II.
+Inference with control function methods for nonlinear outcome models when
+the model is known ('Guo and Small' (2016) <arXiv:1602.01051>) and when
+unknown but semiparametric ('Li and Guo' (2021) <arXiv:2010.09922>).
 
 %prep
 %setup -q -c -n %{packname}

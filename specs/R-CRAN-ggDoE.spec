@@ -1,54 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ChainLadder
-%global packver   0.2.16
+%global packname  ggDoE
+%global packver   0.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.16
+Version:          0.7.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods and Models for Claims Reserving in General Insurance
+Summary:          Modern Graphs for Design of Experiments with 'ggplot2'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cplm >= 0.7.3
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-systemfit 
-BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-cplm >= 0.7.3
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-actuar 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-CRAN-tweedie 
-Requires:         R-utils 
-Requires:         R-CRAN-systemfit 
-Requires:         R-CRAN-statmod 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-insight 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-insight 
 
 %description
-Various statistical methods and models which are typically used for the
-estimation of outstanding claims reserves in general insurance, including
-those to estimate the claims development result as required under Solvency
-II.
+Generate commonly used plots in the field of design of experiments using
+'ggplot2'. 'ggDoE' currently supports the following plots: alias matrix,
+box cox transformation, boxplots, lambda plot, regression diagnostic
+plots,half normal plots, main and interaction effect plots for factorial
+designs, contour plots for response surface methodology, pareto plot, and
+two dimensional projections of a latin hypercube design.
 
 %prep
 %setup -q -c -n %{packname}

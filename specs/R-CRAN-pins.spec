@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pins
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pin, Discover and Share Resources
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-withr >= 2.4.3
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
@@ -33,9 +35,9 @@ BuildRequires:    R-CRAN-openssl
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-whisker 
-BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-withr >= 2.4.3
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-cli 
@@ -53,7 +55,6 @@ Requires:         R-CRAN-openssl
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-whisker 
-Requires:         R-CRAN-withr 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-zip 
 

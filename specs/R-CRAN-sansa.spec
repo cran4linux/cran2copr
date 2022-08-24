@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ChainLadder
-%global packver   0.2.16
+%global packname  sansa
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.16
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods and Models for Claims Reserving in General Insurance
+Summary:          Synthetic Data Generation for Imbalanced Learning in 'R'
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cplm >= 0.7.3
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-systemfit 
-BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-cplm >= 0.7.3
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-actuar 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-CRAN-tweedie 
-Requires:         R-utils 
-Requires:         R-CRAN-systemfit 
-Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
 
 %description
-Various statistical methods and models which are typically used for the
-estimation of outstanding claims reserves in general insurance, including
-those to estimate the claims development result as required under Solvency
-II.
+Machine learning is widely used in information-systems design. Yet,
+training algorithms on imbalanced datasets may severely affect performance
+on unseen data. For example, in some cases in healthcare, financial, or
+internet-security contexts, certain sub-classes are difficult to learn
+because they are underrepresented in training data. This 'R' package
+offers a flexible and efficient solution based on a new synthetic average
+neighborhood sampling algorithm ('SANSA'), which, in contrast to other
+solutions, introduces a novel “placement” parameter that can be tuned to
+adapt to each datasets unique manifestation of the imbalance. More
+information about the algorithm's parameters can be found at Nasir et al.
+(2022) <https://murtaza.cc/SANSA/>.
 
 %prep
 %setup -q -c -n %{packname}

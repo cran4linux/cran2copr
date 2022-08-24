@@ -1,30 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sparsesvd
-%global packver   0.2-1
+%global packname  optimizeR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Truncated Singular Value Decomposition (from 'SVDLIBC')
+Summary:          Unified Framework for Numerical Optimizer
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-Matrix >= 1.3
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix >= 1.3
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Wrapper around the 'SVDLIBC' library for (truncated) singular value
-decomposition of a sparse matrix. Currently, only sparse real matrices in
-Matrix package format are supported.
+Provides a unified framework for numerical optimizer, particularly for
+inputs and outputs.
 
 %prep
 %setup -q -c -n %{packname}

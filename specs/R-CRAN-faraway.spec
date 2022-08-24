@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  faraway
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.8
+Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Datasets for Books by Julian Faraway
 
 License:          GPL
@@ -13,26 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-nlme 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-lme4 
-Requires:         R-nlme 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-nlme 
 Requires:         R-methods 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-nlme 
 
 %description
-Books are "Practical Regression and ANOVA in R" on CRAN, "Linear Models
-with R" published 1st Ed. August 2004, 2nd Ed. July 2014 by CRC press,
-ISBN 9781439887332, and "Extending the Linear Model with R" published by
-CRC press in 1st Ed. December 2005 and 2nd Ed. March 2016, ISBN
-9781584884248.
+Books are "Linear Models with R" published 1st Ed. August 2004, 2nd Ed.
+July 2014 by CRC press, ISBN 9781439887332, and "Extending the Linear
+Model with R" published by CRC press in 1st Ed. December 2005 and 2nd Ed.
+March 2016, ISBN 9781584884248 and "Practical Regression and ANOVA in R"
+contributed documentation on CRAN (now very dated).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,14 +52,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
