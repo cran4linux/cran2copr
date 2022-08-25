@@ -1,33 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EpiInvert
-%global packver   0.2.0
+%global packname  neurobase
+%global packver   1.32.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.32.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Time Varying Reproduction Numbers and Restored Incidence Curves Using Variational Techniques
+Summary:          'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
-Requires:         R-CRAN-Rcpp >= 1.0.8.3
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-oro.nifti >= 0.11.3
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RNifti 
+Requires:         R-CRAN-oro.nifti >= 0.11.3
+Requires:         R-methods 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-R.utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-CRAN-RNifti 
 
 %description
-Estimation, by inverting a renewal equation, of time-varying reproduction
-numbers and restored incidence curves with festive days and weekly biases
-corrected as described in Alvarez et al. (2021)
-<doi:10.1073/pnas.2105112118> and Alvarez et al. (2022)
-<doi:10.3390/biology11040540>. EpiInvert can manage daily incidence data
-and weekly aggregated incidence data. This version of the package also
-includes EpiInvertForecast, a learning method for the short time forecast
-of the restored incidence curve.
+Base package for 'Neuroconductor', which includes many helper functions
+that interact with objects of class 'nifti', implemented by package
+'oro.nifti', for reading/writing and also other manipulation functions.
 
 %prep
 %setup -q -c -n %{packname}

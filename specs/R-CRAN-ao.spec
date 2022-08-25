@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ao
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternating Optimization
 
@@ -13,21 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-optimizeR 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-optimx 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-optimizeR 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
 
 %description
 Alternating optimization of (high-dimensional) functions is an iterative
-procedure for minimizing (or maximizing) jointly over all parameters by
-alternately optimizing parameter subsets. For a reference, see Bezdek and
-Hathaway (2002) "Some Notes on Alternating Optimization"
+procedure for optimizing jointly over all parameters by alternately
+optimizing parameter subsets. For a reference on the method, see Bezdek
+and Hathaway (2002) "Some Notes on Alternating Optimization"
 <doi:10.1007/3-540-45631-7_39>.
 
 %prep

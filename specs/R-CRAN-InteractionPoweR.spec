@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sbm
-%global packver   0.4.4
+%global packname  InteractionPoweR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stochastic Blockmodels
+Summary:          Power Analyses for Interaction Effects in Cross-Sectional Regressions
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,44 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-alluvial 
-BuildRequires:    R-CRAN-magrittr 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-blockmodels 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GREMLINS 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-polynom 
+BuildRequires:    R-CRAN-chngpt 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-prodlim 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-alluvial 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-blockmodels 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GREMLINS 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-polynom 
+Requires:         R-CRAN-chngpt 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-prodlim 
+Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
+Requires:         R-CRAN-ggbeeswarm 
 
 %description
-A collection of tools and functions to adjust a variety of stochastic
-blockmodels (SBM). Supports at the moment Simple, Bipartite,
-'Multipartite' and Multiplex SBM (undirected or directed with Bernoulli,
-Poisson or Gaussian emission laws on the edges, and possibly covariate for
-Simple and Bipartite SBM). See Léger (2016) <arxiv:1602.07587>, 'Barbillon
-et al.' (2020) <doi:10.1111/rssa.12193> and 'Bar-Hen et al.' (2020)
-<arxiv:1807.10138>.
+Power analysis for regression models which test the interaction of two
+independent variables on a single dependent variable. Includes options for
+continuous, binary, and/or skewed variables, as well as correlated
+interacting variables. Also includes options to specify variable
+reliability. Power analyses can be done either analytically or via
+simulation.  Includes tools for simulating single data sets and
+visualizing power analysis results. The primary functions are
+power_interaction_r2() and power_interaction(). Please cite as: Baranger
+DAA, Finsaas MC, Goldstein BL, Vize CE, Lynam DR, Olino TM (2022).
+"Tutorial: Power analyses for interaction effects in cross-sectional
+regressions." <doi:10.31234/osf.io/5ptd7>.
 
 %prep
 %setup -q -c -n %{packname}

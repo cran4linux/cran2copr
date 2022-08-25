@@ -1,57 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SSDL
-%global packver   1.1
+%global __requires_exclude ^libmpi
+%global packname  covdepGE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sketched Stochastic Dictionary Learning
+Summary:          Covariate Dependent Graph Estimation
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-bigstatsr >= 1.2.3
-BuildRequires:    R-CRAN-chickn >= 1.2.3
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-rmio 
-Requires:         R-CRAN-bigstatsr >= 1.2.3
-Requires:         R-CRAN-chickn >= 1.2.3
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-glmnet 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-Rdpack 
 
 %description
-Toolbox for learning a dictionary from large-scale data collection using
-the Sketched Stochastic Dictionary Learning method (see Permiakova O,
-Burger T. "Sketched Stochastic Dictionary Learning for large-scale data
-and application to large-scale mass spectrometry data", 2021). It includes
-the routines for the dictionary initialization.
+A covariate-dependent approach to Gaussian graphical modeling as described
+in Dasgupta et al. (2022). Employs a novel weighted pseudo-likelihood
+approach to model the conditional dependence structure of data as a
+continuous function of an extraneous covariate. The main function,
+covdepGE::covdepGE(), estimates a graphical representation of the
+conditional dependence structure via a block mean-field variational
+approximation, while several auxiliary functions (inclusionCurve(),
+matViz(), and plot.covdepGE()) are included for visualizing the resulting
+estimates.
 
 %prep
 %setup -q -c -n %{packname}
@@ -61,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

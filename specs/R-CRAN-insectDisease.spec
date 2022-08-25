@@ -1,50 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  powerHaDeX
-%global packver   1.0
+%global __requires_exclude ^libmpi
+%global packname  insectDisease
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Simulation of HDX-MS Data and Tools for the Statistical Analysis
+Summary:          Ecological Database of the World's Insect Pathogens
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-lmerTest 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nlme 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-signal 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-lmerTest 
-Requires:         R-methods 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-taxize 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-signal 
+Requires:         R-CRAN-taxize 
 
 %description
-Facilitates simulating and analyzing data coming from HDX-MS experiments
-along with the possibility of comparing the power of the tests verifying
-differences in the levels of deuterium uptake. The simulation of mass
-spectra is a fast version of <https://github.com/kanzy/HX-MS-Simulations>.
+David Onstad provided us with this insect disease database, sometimes
+referred to as the 'Ecological Database of the Worlds Insect Pathogens' or
+EDWIP. Files have been converted from 'SQL' to csv, and ported into 'R'
+for easy exploration and analysis. Thanks to the Macroecology of
+Infectious Disease Research Coordination Network (RCN) for funding and
+support. Data are also served online in a static format at
+<https://edwip.ecology.uga.edu/>.
 
 %prep
 %setup -q -c -n %{packname}

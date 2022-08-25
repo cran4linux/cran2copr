@@ -1,34 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lrstat
-%global packver   0.1.6
+%global packname  goldfish
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power and Sample Size Calculation for Non-Proportional Hazards
+Summary:          Statistical Network Models for Dynamic Network Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-Requires:         R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-changepoint 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-changepoint 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
 
 %description
-Performs power and sample size calculation for non-proportional hazards
-model using the Fleming-Harrington family of weighted log-rank tests. The
-sequentially calculated log-rank test score statistics are assumed to have
-independent increments as characterized in Anastasios A. Tsiatis (1982)
-<doi:10.1080/01621459.1982.10477898>. The mean and variance of log-rank
-test score statistics are calculated based on Kaifeng Lu (2021)
-<doi:10.1002/pst.2069>. The boundary crossing probabilities are calculated
-using the recursive integration algorithm described in Christopher
-Jennison and Bruce W. Turnbull (2000, ISBN:0849303168).
+Tools for fitting statistical network models to dynamic network data. Can
+be used for fitting both dynamic network actor models ('DyNAMs') and
+relational event models ('REMs'). Stadtfeld, Hollway, and Block (2017a)
+<doi:10.1177/0081175017709295>, Stadtfeld, Hollway, and Block (2017b)
+<doi:10.1177/0081175017733457>, Stadtfeld and Block (2017)
+<doi:10.15195/v4.a14>, Hoffman et al. (2020) <doi:10.1017/nws.2020.3>.
 
 %prep
 %setup -q -c -n %{packname}

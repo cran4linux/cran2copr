@@ -1,20 +1,21 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  influxdbclient
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          InfluxDB 2.x Client for R
+Summary:          'InfluxDB' 2.x Client
 
 License:          MIT License + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nanotime >= 0.3.0
 BuildRequires:    R-CRAN-R6 
@@ -30,7 +31,7 @@ Requires:         R-CRAN-bit64
 Requires:         R-CRAN-plyr 
 
 %description
-InfluxDB 2.x time-series database client. Supports both InfluxDB OSS
+'InfluxDB' 2.x time-series database client. Supports both 'InfluxDB' OSS
 (<https://portal.influxdata.com/downloads/>) and Cloud
 (<https://cloud2.influxdata.com/>) version.
 

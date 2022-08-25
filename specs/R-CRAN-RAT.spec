@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RAT
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Research Assessment Tools
 
@@ -31,8 +32,10 @@ Requires:         R-utils
 
 %description
 Includes algorithms to assess research productivity and patterns, such as
-the h-index and i-index. Cardoso et al. (subm.) Quantifying the
-international collaboration of researchers and research institutions.
+the h-index and i-index. Cardoso et al. (2022) Cardoso, P., Fukushima,
+C.S. & Mammola, S. (2022) Quantifying the internationalization and
+representativeness in research. Trends in Ecology and Evolution, 37:
+725-728.
 
 %prep
 %setup -q -c -n %{packname}

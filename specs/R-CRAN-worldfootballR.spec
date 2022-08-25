@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  worldfootballR
-%global packver   0.5.7
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract and Clean World Football (Soccer) Data
 
@@ -30,9 +31,11 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-qdapRegex 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xml2 
@@ -52,9 +55,11 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-qdapRegex 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-stats 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-xml2 

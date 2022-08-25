@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  accSDA
-%global packver   1.1.1
+%global __requires_exclude ^libmpi
+%global packname  ROCSI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accelerated Sparse Discriminant Analysis
+Summary:          Receiver Operating Characteristic Based Signature Identification
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.45
-BuildRequires:    R-grid >= 3.2.2
-BuildRequires:    R-CRAN-ggthemes >= 3.2.0
-BuildRequires:    R-CRAN-gridExtra >= 2.2
-BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
-Requires:         R-CRAN-MASS >= 7.3.45
-Requires:         R-grid >= 3.2.2
-Requires:         R-CRAN-ggthemes >= 3.2.0
-Requires:         R-CRAN-gridExtra >= 2.2
-Requires:         R-CRAN-ggplot2 >= 2.1.0
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
 
 %description
-Implementation of sparse linear discriminant analysis, which is a
-supervised classification method for multiple classes. Various novel
-optimization approaches to this problem are implemented including
-alternating direction method of multipliers (ADMM), proximal gradient (PG)
-and accelerated proximal gradient (APG) (See Atkins et al.
-<arXiv:1705.07194>). Functions for performing cross validation are also
-supplied along with basic prediction and plotting functions. Sparse zero
-variance discriminant analysis (SZVD) is also included in the package (See
-Ames and Hong, <arXiv:1401.5492>). See the github wiki for a more extended
-description.
+Optimal linear combination predictive signatures for maximizing the area
+between two Receiver Operating Characteristic (ROC) curves (treatment vs.
+control).
 
 %prep
 %setup -q -c -n %{packname}

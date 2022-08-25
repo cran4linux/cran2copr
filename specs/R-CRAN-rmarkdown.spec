@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmarkdown
-%global packver   2.15
+%global packver   2.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.15
+Version:          2.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Documents for R
 
@@ -21,9 +21,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-yaml >= 2.1.19
 BuildRequires:    R-CRAN-knitr >= 1.22
 BuildRequires:    R-CRAN-stringr >= 1.2.0
+BuildRequires:    R-CRAN-htmltools >= 0.5.1
 BuildRequires:    R-CRAN-tinytex >= 0.31
 BuildRequires:    R-CRAN-xfun >= 0.30
-BuildRequires:    R-CRAN-htmltools >= 0.3.5
 BuildRequires:    R-CRAN-bslib >= 0.2.5.1
 BuildRequires:    R-CRAN-evaluate >= 0.13
 BuildRequires:    R-CRAN-jquerylib 
@@ -34,9 +34,9 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-yaml >= 2.1.19
 Requires:         R-CRAN-knitr >= 1.22
 Requires:         R-CRAN-stringr >= 1.2.0
+Requires:         R-CRAN-htmltools >= 0.5.1
 Requires:         R-CRAN-tinytex >= 0.31
 Requires:         R-CRAN-xfun >= 0.30
-Requires:         R-CRAN-htmltools >= 0.3.5
 Requires:         R-CRAN-bslib >= 0.2.5.1
 Requires:         R-CRAN-evaluate >= 0.13
 Requires:         R-CRAN-jquerylib 
