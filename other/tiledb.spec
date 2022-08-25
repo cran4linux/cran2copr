@@ -2,7 +2,7 @@
 %global cname TileDB
 %global major 2
 %global minor 11
-%global patch 0
+%global patch 1
 
 Name:           tiledb
 Version:        %{major}.%{minor}.%{patch}
@@ -12,7 +12,7 @@ Summary:        The Universal Storage Engine
 License:        MIT
 URL:            https://github.com/%{cname}-Inc/%{cname}
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
-Source1:        %{url}/pull/3270.patch
+Source1:        https://raw.githubusercontent.com/TileDB-Inc/TileDB/bc235a65a25757f93fc4da7fd0d82c70e47bff70/cmake/Modules/FindMagic_EP.cmake
 
 BuildRequires:  gcc-g++, cmake
 BuildRequires:  clang-tools-extra
@@ -48,7 +48,7 @@ This package contains the development headers and libraries.
 
 %prep
 %autosetup -p1 -n %{cname}-%{version}
-patch -p1 < %{SOURCE1}
+mv %{SOURCE1} cmake/Modules/
 
 %build
 %cmake \
