@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  threeBrain
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Brain Visualization
 
@@ -50,16 +51,14 @@ A fast, interactive cross-platform, and easy to share 'WebGL'-based 3D
 brain viewer that visualizes 'FreeSurfer' and/or 'AFNI/SUMA' surfaces. The
 viewer widget can be either standalone or embedded into 'R-shiny'
 applications. The standalone version only require a web browser with
-'WebGL2' support (for example, 'Chrome', 'Firefox', 'Safari'). It can be
-inserted into any websites; see
-<https://dipterix.org/project/threebrain/>) as an example. The 'R-shiny'
-support allows the 3D viewer to be dynamically generated from reactive
-user inputs. This feature has been fully adopted by 'RAVE'
-<https://openwetware.org/wiki/RAVE>, an interactive toolbox to analyze
-'iEEG' data. Documentation about 'threeBrain' is provided by
-<https://dipterix.org/threeBrain/> and several vignettes included in this
-package. To cite the package, please check our 'NeuroImage' paper by
-Magnotti, Wang, and Beauchamp (2020,
+'WebGL2' support (for example, 'Chrome', 'Firefox', 'Safari'), and can be
+inserted into any websites. The 'R-shiny' support allows the 3D viewer to
+be dynamically generated from reactive user inputs. This feature has been
+fully adopted by 'RAVE' <https://openwetware.org/wiki/RAVE>, an
+interactive toolbox to analyze 'iEEG' data. Documentation about
+'threeBrain' is provided by <https://dipterix.org/threeBrain/> and several
+vignettes included in this package. To cite the package, please check our
+'NeuroImage' paper by Magnotti, Wang, and Beauchamp (2020,
 <doi:10.1016/j.neuroimage.2020.117341>), or see 'citation("threeBrain")'
 for details.
 

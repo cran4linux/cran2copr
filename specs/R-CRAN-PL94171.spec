@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PL94171
-%global packver   1.0.2
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tabulate P.L. 94-171 Redistricting Data Summary Files
 
@@ -17,16 +18,18 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tigris 
+BuildRequires:    R-CRAN-tinytiger 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tigris 
+Requires:         R-CRAN-tinytiger 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-httr 

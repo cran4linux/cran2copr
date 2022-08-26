@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  designmatch
-%global packver   0.3.1
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          3%{?dist}%{?buildtag}
+Version:          0.4.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Matched Samples that are Balanced and Representative by Design
 
 License:          GPL-2 | GPL-3
@@ -16,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-lattice 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-Rglpk 
-Requires:         R-lattice 
-Requires:         R-MASS 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-slam 
 Requires:         R-CRAN-Rglpk 
 
@@ -36,14 +37,23 @@ randomization.  By default, 'designmatch' uses the 'GLPK' optimization
 solver, but its performance is greatly enhanced by the 'Gurobi'
 optimization solver and its associated R interface.  For their
 installation, please follow the instructions at
-<http://user.gurobi.com/download/gurobi-optimizer> and
-<http://www.gurobi.com/documentation/7.0/refman/r_api_overview.html>.  We
+<https://www.gurobi.com/documentation/quickstart.html> and
+<https://www.gurobi.com/documentation/7.0/refman/r_api_overview.html>.  We
 have also included directions in the gurobi_installation file in the inst
 folder.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -53,16 +63,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/gurobi_installation.txt
-%doc %{rlibdir}/%{packname}/symphony_installation.txt
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

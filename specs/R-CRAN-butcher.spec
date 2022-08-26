@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  butcher
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Butcher
 
@@ -18,7 +19,7 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.3.0
 BuildRequires:    R-CRAN-tibble >= 3.1.7
-BuildRequires:    R-CRAN-lobstr >= 1.1.1
+BuildRequires:    R-CRAN-lobstr >= 1.1.2
 BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-vctrs >= 0.4.1
 BuildRequires:    R-CRAN-purrr >= 0.3.4
@@ -26,7 +27,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.3.0
 Requires:         R-CRAN-tibble >= 3.1.7
-Requires:         R-CRAN-lobstr >= 1.1.1
+Requires:         R-CRAN-lobstr >= 1.1.2
 Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-vctrs >= 0.4.1
 Requires:         R-CRAN-purrr >= 0.3.4

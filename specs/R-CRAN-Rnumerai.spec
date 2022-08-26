@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Rnumerai
-%global packver   2.1.4
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the Numerai Machine Learning Tournament API
 
@@ -13,32 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ghql 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-ghql 
 
 %description
 Routines to interact with the Numerai Machine Learning Tournament API
 <https://numer.ai>. The functionality includes the ability to
 automatically download the current tournament data, submit predictions,
-and to get information for your user. General 'GraphQL' queries can also
-be executed.
+and to get information for your user.
 
 %prep
 %setup -q -c -n %{packname}

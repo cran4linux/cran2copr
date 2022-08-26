@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  iccde
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of the Double-Entry Intraclass Correlation
 
@@ -27,9 +28,8 @@ according to the Fisher z-transformation before the double-entry
 intraclass correlation is calculated. If the profiles comprise scores such
 as sum scores from various personality scales, it is recommended to
 standardize each individual score before entering into the function
-(McCrae, 2008). In case of missing values, the function will automatically
-use pairwise deletion. See Furr (2010) <doi:10.1080/00223890903379134> or
-McCrae (2008) <doi:10.1080/00223890701845104> for details.
+(McCrae, 2008). See Furr (2010) <doi:10.1080/00223890903379134> or McCrae
+(2008) <doi:10.1080/00223890701845104> for details.
 
 %prep
 %setup -q -c -n %{packname}

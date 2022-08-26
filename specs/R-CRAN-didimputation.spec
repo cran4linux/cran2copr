@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  didimputation
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imputation Estimator from Borusyak, Jaravel, and Spiess (2021)
 
@@ -15,27 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-fixest >= 0.9.0
+BuildRequires:    R-CRAN-data.table >= 1.10.0
+BuildRequires:    R-CRAN-fixest >= 0.10.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-fixest >= 0.9.0
+Requires:         R-CRAN-data.table >= 1.10.0
+Requires:         R-CRAN-fixest >= 0.10.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
 
 %description
 Estimates Two-way Fixed Effects difference-in-differences/event-study

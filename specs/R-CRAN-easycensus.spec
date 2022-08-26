@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  easycensus
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quickly Extract and Marginalize U.S. Census Tables
+Summary:          Quickly Find, Extract, and Marginalize U.S. Census Tables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,14 +18,20 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidycensus 
+BuildRequires:    R-CRAN-censusapi 
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidycensus 
+Requires:         R-CRAN-censusapi 
 Requires:         R-CRAN-cli 
 
 %description

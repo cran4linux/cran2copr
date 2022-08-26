@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netseg
-%global packver   1.0-1
+%global packname  ALS
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measures of Network Segregation and Homophily
+Summary:          Multivariate Curve Resolution Alternating Least Squares (MCR-ALS)
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph >= 0.6.0
-Requires:         R-CRAN-igraph >= 0.6.0
+BuildRequires:    R-CRAN-nnls >= 1.1
+BuildRequires:    R-CRAN-Iso 
+Requires:         R-CRAN-nnls >= 1.1
+Requires:         R-CRAN-Iso 
 
 %description
-Segregation is a network-level property such that edges between predefined
-groups of vertices are relatively less likely. Network homophily is a
-individual-level tendency to form relations with people who are similar on
-some attribute (e.g. gender, music taste, social status, etc.). In general
-homophily leads to segregation, but segregation might arise without
-homophily. This package implements descriptive indices measuring
-homophily/segregation. It is a computational companion to Bojanowski &
-Corten (2014) <doi:10.1016/j.socnet.2014.04.001>.
+Alternating least squares is often used to resolve components contributing
+to data with a bilinear structure; the basic technique may be extended to
+alternating constrained least squares.  Commonly applied constraints
+include unimodality, non-negativity, and normalization of components.
+Several data matrices may be decomposed simultaneously by assuming that
+one of the two matrices in the bilinear decomposition is shared between
+datasets.
 
 %prep
 %setup -q -c -n %{packname}

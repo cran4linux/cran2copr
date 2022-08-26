@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggpointless
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Small Collection of New Geometries, and Stats for 'ggplot2'
+Summary:          A Small Collection of Geometries, and Stats for 'ggplot2'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 
 %description
-A collection of new geometries and stats for 'ggplot2'. geom_pointless()
-adds minimal emphasis to your plots making it easy to highlight some
-observations. This layer provides additional context. Or just some visual
-sugar. geom_lexis() draws a 45° lifeline of an event that mimics lexis
-diagrams.
+A collection of geometries and stats for 'ggplot2'. Currently it supports
+geom_pointless() which adds minimal emphasis to your plots. Or just some
+visual sugar. geom_lexis() draws a 45° lifeline of an event that mimics
+lexis diagrams. geom_chaikin() applies Chaikin's corner cutting algorithm
+to a path.
 
 %prep
 %setup -q -c -n %{packname}

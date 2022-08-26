@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nftbart
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Failure Time Bayesian Additive Regression Trees
 
@@ -27,7 +28,7 @@ Nonparametric Failure Time (NFT) Bayesian Additive Regression Trees
 (BART): Time-to-event Machine Learning with Heteroskedastic Bayesian
 Additive Regression Trees (HBART) and Low Information Omnibus (LIO)
 Dirichlet Process Mixtures (DPM). An NFT BART model is of the form Y = mu
-+ f(x) + s(x) E where functions f and s have BART and HBART priors,
++ f(x) + sd(x) E where functions f and sd have BART and HBART priors,
 respectively, while E is a nonparametric error distribution due to a DPM
 LIO prior hierarchy. See the following for a technical description of the
 model

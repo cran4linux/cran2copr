@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mlr3tuning
-%global packver   0.13.1
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tuning for 'mlr3'
 
@@ -19,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-paradox >= 0.7.0
 BuildRequires:    R-CRAN-bbotk >= 0.5.2
-BuildRequires:    R-CRAN-mlr3 >= 0.13.1
+BuildRequires:    R-CRAN-mlr3 >= 0.14.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.10.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
@@ -27,7 +28,7 @@ BuildRequires:    R-CRAN-R6
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-paradox >= 0.7.0
 Requires:         R-CRAN-bbotk >= 0.5.2
-Requires:         R-CRAN-mlr3 >= 0.13.1
+Requires:         R-CRAN-mlr3 >= 0.14.0
 Requires:         R-CRAN-mlr3misc >= 0.10.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 
