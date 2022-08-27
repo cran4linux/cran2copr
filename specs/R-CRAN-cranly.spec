@@ -1,42 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  success
-%global packver   0.1.1
+%global packname  cranly
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Survival Control Charts Estimation Software
+Summary:          Package Directives and Collaboration Networks in CRAN
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-wordcloud 
+BuildRequires:    R-CRAN-tm 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-wordcloud 
+Requires:         R-CRAN-tm 
 
 %description
-Quality control charts for survival outcomes. Allows users to construct
-the Continuous Time Generalized Rapid Response CUSUM (CGR-CUSUM)
-<doi:10.48550/ARXIV.2205.07618>, the Biswas & Kalbfleisch (2008)
-<doi:10.1002/sim.3216> CUSUM, the Bernoulli CUSUM and the risk-adjusted
-funnel plot for survival data. These procedures can be used to monitor
-survival processes for a change in the failure rate.
+Core visualizations and summaries for the CRAN package database. The
+package provides comprehensive methods for cleaning up and organizing the
+information in the CRAN package database, for building package directives
+networks (depends, imports, suggests, enhances, linking to) and
+collaboration networks, producing package dependence trees, and for
+computing useful summaries and producing interactive visualizations from
+the resulting networks and summaries. The resulting networks can be
+coerced to 'igraph' <https://CRAN.R-project.org/package=igraph> objects
+for further analyses and modelling.
 
 %prep
 %setup -q -c -n %{packname}

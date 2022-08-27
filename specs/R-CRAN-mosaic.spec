@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mosaic
-%global packver   1.8.3
+%global packver   1.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.3
+Version:          1.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Project MOSAIC Statistics and Mathematics Teaching Utilities
 
@@ -24,22 +25,12 @@ BuildRequires:    R-CRAN-ggformula
 BuildRequires:    R-CRAN-mosaicData 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggstance 
-BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-latticeExtra 
-BuildRequires:    R-CRAN-ggdendro 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-leaflet 
 Requires:         R-CRAN-mosaicCore >= 0.7.0
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-lattice >= 0.20.21
@@ -48,22 +39,12 @@ Requires:         R-CRAN-ggformula
 Requires:         R-CRAN-mosaicData 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggstance 
-Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-MASS 
 Requires:         R-grid 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-readr 
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-splines 
-Requires:         R-CRAN-latticeExtra 
-Requires:         R-CRAN-ggdendro 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-leaflet 
 
 %description
 Data sets and utilities from Project MOSAIC (<http://www.mosaic-web.org>)
@@ -81,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

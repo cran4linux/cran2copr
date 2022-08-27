@@ -1,35 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chk
-%global packver   0.8.1
+%global packname  admiraldev
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check User-Supplied Function Arguments
+Summary:          Development Tools for the Admiral Package Family
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-tools 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-lifecycle 
 
 %description
-For developers to check user-supplied function arguments.  It is designed
-to be simple, fast and customizable.  Error messages follow the tidyverse
-style guide.
+Utility functions to check data, variables and conditions for functions
+used in 'admiral' and 'admiral' extension packages.  Additional utility
+helper functions to to assist developers with maintaining documentation,
+testing and general upkeep of 'admiral' and 'admiral' extension packages.
 
 %prep
 %setup -q -c -n %{packname}

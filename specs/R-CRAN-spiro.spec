@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chk
-%global packver   0.8.1
+%global packname  spiro
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check User-Supplied Function Arguments
+Summary:          Manage Data from Cardiopulmonary Exercise Testing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-signal 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-signal 
 
 %description
-For developers to check user-supplied function arguments.  It is designed
-to be simple, fast and customizable.  Error messages follow the tidyverse
-style guide.
+Import, process, summarize and visualize raw data from metabolic carts.
+See Robergs, Dwyer, and Astorino (2010)
+<doi:10.2165/11319670-000000000-00000> for more details on data
+processing.
 
 %prep
 %setup -q -c -n %{packname}

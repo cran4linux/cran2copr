@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chk
-%global packver   0.8.1
+%global packname  AutoWeatherIndices
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check User-Supplied Function Arguments
+Summary:          Calculating Weather Indices
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-gtools 
 
 %description
-For developers to check user-supplied function arguments.  It is designed
-to be simple, fast and customizable.  Error messages follow the tidyverse
-style guide.
+Weather indices are formed from weather variables in this package. The
+users can input any number of weather variables recorded over any number
+of weeks. This package has no restriction on the number of weeks and
+weather variables to be taken as input.The details of the method can be
+seen (i)'Joint effects of weather variables on rice yields' by R. Agrawal,
+R. C. Jain and M. P. Jha in Mausam, vol. 34, pp. 189-194,
+1983,<doi:10.54302/mausam.v34i2.2392>,(ii)'Improved weather indices based
+Bayesian regression model for forecasting crop yield' by M. Yeasin, K. N.
+Singh, A. Lama and B. Gurung in Mausam, vol. 72, pp.879-886,
+2021,<doi:10.54302/mausam.v72i4.670>.
 
 %prep
 %setup -q -c -n %{packname}

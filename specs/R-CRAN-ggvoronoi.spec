@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chk
-%global packver   0.8.1
+%global packname  ggvoronoi
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check User-Supplied Function Arguments
+Summary:          Voronoi Diagrams and Heatmaps with 'ggplot2'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
+BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 >= 2.2.0
+Requires:         R-CRAN-deldir 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-raster 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-tools 
 
 %description
-For developers to check user-supplied function arguments.  It is designed
-to be simple, fast and customizable.  Error messages follow the tidyverse
-style guide.
+Easy creation and manipulation of Voronoi diagrams using 'deldir' with
+visualization in 'ggplot2'. Convenient functions are provided to create
+nearest neighbor diagrams and heatmaps. Diagrams are computed with
+'deldir' and processed to work with the 'sp' framework. Results are
+provided in a convenient spatial data structure and displayed with
+'ggplot2'. An outline can be provided by the user to specify the spatial
+domain of interest.
 
 %prep
 %setup -q -c -n %{packname}

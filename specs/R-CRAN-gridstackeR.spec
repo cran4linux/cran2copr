@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chk
-%global packver   0.8.1
+%global packname  gridstackeR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check User-Supplied Function Arguments
+Summary:          Wrapper for 'gridstack.js'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-checkmate 
 
 %description
-For developers to check user-supplied function arguments.  It is designed
-to be simple, fast and customizable.  Error messages follow the tidyverse
-style guide.
+An easy way to create responsive layouts with just a few lines of code.
+You can create boxes that are draggable and resizable and load predefined
+Layouts. The package serves as a wrapper to allow for easy integration of
+the 'gridstack.js' functionalities
+<https://github.com/gridstack/gridstack.js>.
 
 %prep
 %setup -q -c -n %{packname}

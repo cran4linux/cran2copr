@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  success
-%global packver   0.1.1
+%global packname  snSMART
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Survival Control Charts Estimation Software
+Summary:          Small N Sequential Multiple Assignment Randomized Trial Methods
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-bayestestR 
+BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-truncdist 
+BuildRequires:    R-CRAN-condMVNorm 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-EnvStats 
+Requires:         R-CRAN-bayestestR 
+Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-truncdist 
+Requires:         R-CRAN-condMVNorm 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-EnvStats 
 
 %description
-Quality control charts for survival outcomes. Allows users to construct
-the Continuous Time Generalized Rapid Response CUSUM (CGR-CUSUM)
-<doi:10.48550/ARXIV.2205.07618>, the Biswas & Kalbfleisch (2008)
-<doi:10.1002/sim.3216> CUSUM, the Bernoulli CUSUM and the risk-adjusted
-funnel plot for survival data. These procedures can be used to monitor
-survival processes for a change in the failure rate.
+Consolidated data simulation, sample size calculation and analysis
+functions for several snSMART (small sample sequential, multiple
+assignment, randomized trial) designs under one library. See Wei, B.,
+Braun, T.M., Tamura, R.N. and Kidwell, K.M. "A Bayesian analysis of small
+n sequential multiple assignment randomized trials (snSMARTs)." (2018)
+Statistics in medicine, 37(26), pp.3723-3732 <doi:10.1002/sim.7900>.
 
 %prep
 %setup -q -c -n %{packname}

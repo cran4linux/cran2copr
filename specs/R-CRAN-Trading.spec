@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Trading
-%global packver   2.2
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          CCR, Entropy-Based Correlation Estimates & Dynamic Beta
+Summary:          CCR, Advanced Correlation & Beta Estimates, Betting Strategies
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-PerformanceAnalytics 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-methods 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-PerformanceAnalytics 
+Requires:         R-CRAN-data.table 
 
 %description
 Contains performance analysis metrics of track records including
@@ -33,9 +36,10 @@ separate stream, trades from the five major assets classes and also
 functionality to use pricing curves, rating tables, CSAs and add-on
 tables. The implementation follows an object oriented logic whereby each
 trade inherits from more abstract classes while also the curves/tables are
-objects. There is a lot of functionality focusing on the counterparty
-credit risk calculations however the package can be used for trading
-applications in general.
+objects. Furthermore, odds calculators and P&L back-testing functionality
+has been implemented for the most widely used betting/trading strategies
+including martingale, DAlembert, Labouchere and Fibonacci. Some basic
+functionality about climate risk was also added in the latest version.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

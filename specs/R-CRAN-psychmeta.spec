@@ -1,49 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidytransit
-%global packver   1.4
+%global packname  psychmeta
+%global packver   2.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          2.6.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read, Validate, Analyze, and Map GTFS Feeds
+Summary:          Psychometric Meta-Analysis Toolkit
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.8
-BuildRequires:    R-CRAN-gtfsio >= 0.1.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-geodist 
-Requires:         R-CRAN-data.table >= 1.12.8
-Requires:         R-CRAN-gtfsio >= 0.1.0
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-stats 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-geodist 
+Requires:         R-CRAN-purrr 
 
 %description
-Read General Transit Feed Specification (GTFS) zipfiles into a list of R
-dataframes. Perform validation of the data structure against the
-specification. Analyze the headways and frequencies at routes and stops.
-Create maps and perform spatial analysis on the routes and stops. Please
-see the GTFS documentation here for more detail: <https://gtfs.org/>.
+Tools for computing bare-bones and psychometric meta-analyses and for
+generating psychometric data for use in meta-analysis simulations.
+Supports bare-bones, individual-correction, and artifact-distribution
+methods for meta-analyzing correlations and d values. Includes tools for
+converting effect sizes, computing sporadic artifact corrections,
+reshaping meta-analytic databases, computing multivariate corrections for
+range variation, and more. Bugs can be reported to
+<https://github.com/psychmeta/psychmeta/issues> or <issues@psychmeta.com>.
 
 %prep
 %setup -q -c -n %{packname}

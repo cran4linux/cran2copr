@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bartMachine
-%global packver   1.2.7
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Additive Regression Trees
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bartMachineJARs >= 1.0
+BuildRequires:    R-CRAN-bartMachineJARs >= 1.2
 BuildRequires:    R-CRAN-rJava >= 0.9.8
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-missForest 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-bartMachineJARs >= 1.0
+Requires:         R-CRAN-bartMachineJARs >= 1.2
 Requires:         R-CRAN-rJava >= 0.9.8
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-missForest 
