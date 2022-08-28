@@ -1,31 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  comFuncs
-%global packver   0.0.6
+%global packname  ggsurvfit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Commonly Used Functions for R Shiny Applications
+Summary:          Easy and Flexible Time-to-Event Figures
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-stats >= 4.0.3
-BuildRequires:    R-CRAN-shiny >= 1.3.2
-Requires:         R-stats >= 4.0.3
-Requires:         R-CRAN-shiny >= 1.3.2
+BuildRequires:    R-CRAN-survival >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-broom >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-CRAN-survival >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-broom >= 1.0.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-patchwork 
 
 %description
-A set of common functions to be used for displaying messages, checking
-variables, finding absolute paths, starting applications, etc. More
-functions will be added later.
+Ease the creation of time-to-event (i.e. survival) endpoint figures. The
+modular functions create figures ready for publication. Each of the
+functions that add to or modify the figure are written as proper 'ggplot2'
+geoms or stat methods, allowing the functions from this package to be
+combined with any function or customization from 'ggplot2' and other
+'ggplot2' extension packages.
 
 %prep
 %setup -q -c -n %{packname}

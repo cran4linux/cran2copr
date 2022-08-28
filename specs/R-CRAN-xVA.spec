@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  xVA
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates Credit Risk Valuation Adjustments
 
@@ -19,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-SACCR 
 BuildRequires:    R-CRAN-Trading 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-methods 
 Requires:         R-CRAN-SACCR 
 Requires:         R-CRAN-Trading 
+Requires:         R-CRAN-data.table 
 
 %description
 Calculates a number of valuation adjustments including CVA, DVA, FBA, FCA,
@@ -30,7 +33,8 @@ calculation three regulatory frameworks are supported: CEM, (simplified)
 SA-CCR, OEM and IMM. The probability of default is implied through the
 credit spreads curve. The package supports an exposure calculation based
 on SA-CCR which includes several trade types and a simulated path which is
-currently available only for IRSwaps.
+currently available only for IRSwaps. The latest regulatory capital charge
+methodologies have been implementing including BA-CVA & SA-CVA.
 
 %prep
 %setup -q -c -n %{packname}

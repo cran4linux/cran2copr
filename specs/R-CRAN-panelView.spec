@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  panelView
-%global packver   1.1.9
+%global packver   1.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Panel Data
 
@@ -19,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 >= 2.1.0
 Requires:         R-CRAN-gridExtra 
 Requires:         R-grid 
+Requires:         R-CRAN-dplyr 
 
 %description
 Visualizes panel data. It has three main functionalities: (1) it
