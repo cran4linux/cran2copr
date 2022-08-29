@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SamplingStrata
-%global packver   1.5-2
+%global packver   1.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Stratification of Sampling Frames for Multipurpose Sampling Surveys
 
@@ -21,11 +22,13 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-SamplingBigData 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-SamplingBigData 
 Requires:         R-CRAN-glue 
+Requires:         R-methods 
 
 %description
 In the field of stratified sampling design, this package offers an

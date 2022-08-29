@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  namedropR
-%global packver   2.3.3
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Visual Citations for Presentation Slides
+Summary:          Create Visual Citations for Presentations and Posters
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,35 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-qrcode 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-webshot 
+BuildRequires:    R-CRAN-qrcode >= 0.1.4
 BuildRequires:    R-CRAN-bib2df 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-qrcode 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-webshot 
+BuildRequires:    R-CRAN-webshot 
+Requires:         R-CRAN-qrcode >= 0.1.4
 Requires:         R-CRAN-bib2df 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-webshot 
 
 %description
 Provides 'visual citations' containing the metadata of a scientific paper
-and a 'QR' code. A 'visual citation' is a banner containing title,
-authors, journal and year of a publication. This package can create such
-banners based on 'BibTeX' and 'BibLaTeX' references and includes a QR code
-pointing to the 'DOI'. The resulting HTML object or PNG image can be
-included in a presentation to point the audience to good resources for
-further reading. Styling is possible via predefined designs or via custom
-'CSS'. This package is not intended as replacement for proper reference
-manager packages, but a tool to enrich scientific presentation slides.
+and a 'QR' code.  A 'visual citation' is a banner containing title,
+authors, journal and year of a publication.  This package can create such
+banners based on 'BibTeX' and 'BibLaTeX' references or call the reference
+metadata from 'Crossref'-API. The banners include a QR code pointing to
+the 'DOI'.  The resulting HTML object or PNG image can be included in a
+presentation to point the audience to good resources for further reading.
+Styling is possible via predefined designs or via custom 'CSS'.  This
+package is not intended as replacement for proper reference manager
+packages, but a tool to enrich scientific presentation slides and
+conference posters.
 
 %prep
 %setup -q -c -n %{packname}
