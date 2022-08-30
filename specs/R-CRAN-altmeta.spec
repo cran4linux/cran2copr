@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  altmeta
-%global packver   4.0
+%global packver   4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternative Meta-Analysis Methods
 
@@ -41,8 +42,9 @@ Requires:         R-utils
 Provides alternative statistical methods for meta-analysis, including: -
 bivariate generalized linear mixed models for synthesizing odds ratios,
 relative risks, and risk differences (Chu et al., 2012
-<doi:10.1177/0962280210393712>) - heterogeneity tests and measures that
-are robust to outliers (Lin et al., 2017 <doi:10.1111/biom.12543>); -
+<doi:10.1177/0962280210393712>) - heterogeneity tests and measures and
+penalization methods that are robust to outliers (Lin et al., 2017
+<doi:10.1111/biom.12543>; Wang et al., 2022 <doi:10.1002/sim.9261>); -
 measures, tests, and visualization tools for publication bias or
 small-study effects (Lin and Chu, 2018 <doi:10.1111/biom.12817>; Lin, 2019
 <doi:10.1002/jrsm.1340>; Lin, 2020 <doi:10.1177/0962280220910172>; Shi et

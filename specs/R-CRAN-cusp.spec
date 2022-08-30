@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kmed
-%global packver   0.4.2
+%global packname  cusp
+%global packver   2.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          2.3.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance-Based k-Medoids
+Summary:          Cusp-Catastrophe Model Fitting Using Maximum Likelihood
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-utils 
 
 %description
-Algorithms of distance-based k-medoids clustering: simple and fast
-k-medoids, ranked k-medoids, and increasing number of clusters in
-k-medoids. Calculate distances for mixed variable data such as Gower,
-Podani, Wishart, Huang, Harikumar-PV, and Ahmad-Dey. Cluster validation
-applies internal and relative criteria. The internal criteria includes
-silhouette index and shadow values. The relative criterium applies
-bootstrap procedure producing a heatmap with a flexible reordering matrix
-algorithm such as complete, ward, or average linkages. The cluster result
-can be plotted in a marked barplot or pca biplot.
+Cobb's maximum likelihood method for cusp-catastrophe modeling (Grasman,
+van der Maas, and Wagenmakers (2009) <doi:10.18637/jss.v032.i08>; Cobb
+(1981), Behavioral Science, 26(1), 75-78). Includes a cusp() function for
+model fitting, and several utility functions for plotting, and for
+comparing the model to linear regression and logistic curve models.
 
 %prep
 %setup -q -c -n %{packname}

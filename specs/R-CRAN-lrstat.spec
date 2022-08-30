@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kmed
-%global packver   0.4.2
+%global packname  lrstat
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance-Based k-Medoids
+Summary:          Power and Sample Size Calculation for Non-Proportional Hazards
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-Rcpp >= 1.0.9
 
 %description
-Algorithms of distance-based k-medoids clustering: simple and fast
-k-medoids, ranked k-medoids, and increasing number of clusters in
-k-medoids. Calculate distances for mixed variable data such as Gower,
-Podani, Wishart, Huang, Harikumar-PV, and Ahmad-Dey. Cluster validation
-applies internal and relative criteria. The internal criteria includes
-silhouette index and shadow values. The relative criterium applies
-bootstrap procedure producing a heatmap with a flexible reordering matrix
-algorithm such as complete, ward, or average linkages. The cluster result
-can be plotted in a marked barplot or pca biplot.
+Performs power and sample size calculation for non-proportional hazards
+model using the Fleming-Harrington family of weighted log-rank tests. The
+sequentially calculated log-rank test score statistics are assumed to have
+independent increments as characterized in Anastasios A. Tsiatis (1982)
+<doi:10.1080/01621459.1982.10477898>. The mean and variance of log-rank
+test score statistics are calculated based on Kaifeng Lu (2021)
+<doi:10.1002/pst.2069>. The boundary crossing probabilities are calculated
+using the recursive integration algorithm described in Christopher
+Jennison and Bruce W. Turnbull (2000, ISBN:0849303168).
 
 %prep
 %setup -q -c -n %{packname}

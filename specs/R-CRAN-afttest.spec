@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kmed
-%global packver   0.4.2
+%global packname  afttest
+%global packver   4.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          4.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance-Based k-Medoids
+Summary:          Model Diagnostics for Accelerated Failure Time Models
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-aftgee 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-aftgee 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Algorithms of distance-based k-medoids clustering: simple and fast
-k-medoids, ranked k-medoids, and increasing number of clusters in
-k-medoids. Calculate distances for mixed variable data such as Gower,
-Podani, Wishart, Huang, Harikumar-PV, and Ahmad-Dey. Cluster validation
-applies internal and relative criteria. The internal criteria includes
-silhouette index and shadow values. The relative criterium applies
-bootstrap procedure producing a heatmap with a flexible reordering matrix
-algorithm such as complete, ward, or average linkages. The cluster result
-can be plotted in a marked barplot or pca biplot.
+A collection of model checking methods for semiparametric accelerated
+failure time (AFT) models under the rank-based approach. For the
+(computational) efficiency, Gehan's weight is used. It provides functions
+to verify whether the observed data fit the specific model assumptions
+such as a functional form of each covariate, a link function, and an
+omnibus test. The p-value offered in this package is based on the
+Kolmogorov-type supremum test and the variance of the proposed test
+statistics is estimated through the re-sampling method. Furthermore, a
+graphical technique to compare the shape of the observed residual to a
+number of the approximated realizations is provided.
 
 %prep
 %setup -q -c -n %{packname}

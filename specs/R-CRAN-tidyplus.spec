@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kmed
-%global packver   0.4.2
+%global packname  tidyplus
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance-Based k-Medoids
+Summary:          Additional 'tidyverse' Functions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-chk 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-vctrs 
 
 %description
-Algorithms of distance-based k-medoids clustering: simple and fast
-k-medoids, ranked k-medoids, and increasing number of clusters in
-k-medoids. Calculate distances for mixed variable data such as Gower,
-Podani, Wishart, Huang, Harikumar-PV, and Ahmad-Dey. Cluster validation
-applies internal and relative criteria. The internal criteria includes
-silhouette index and shadow values. The relative criterium applies
-bootstrap procedure producing a heatmap with a flexible reordering matrix
-algorithm such as complete, ward, or average linkages. The cluster result
-can be plotted in a marked barplot or pca biplot.
+Provides functions such as str_crush(), add_missing_column(),
+coalesce_data() and drop_na_all() that complement 'tidyverse'
+functionality or functions that provide alternative behaviors such as
+if_else2() and str_detect2().
 
 %prep
 %setup -q -c -n %{packname}

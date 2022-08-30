@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  datos
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Traduce al Español Varios Conjuntos de Datos de Práctica
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-modeldata >= 1.0.0
 BuildRequires:    R-CRAN-babynames 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
@@ -30,6 +32,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-modeldata >= 1.0.0
 Requires:         R-CRAN-babynames 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
@@ -48,12 +51,12 @@ Requires:         R-CRAN-yaml
 %description
 Provee una versión traducida de los siguientes conjuntos de datos:
 'airlines', 'airports', 'AwardsManagers', 'babynames', 'Batting',
-'diamonds', 'faithful', 'fueleconomy', 'Fielding', 'flights', 'gapminder',
-'gss_cat', 'iris', 'Managers', 'mpg', 'mtcars', 'atmos', 'palmerpenguins',
-'People, 'Pitching', 'planes', 'presidential', 'table1', 'table2',
-'table3', 'table4a', 'table4b', 'table5', 'vehicles', 'weather', 'who'.
-English: It provides a Spanish translated version of the datasets listed
-above.
+'credit_data', 'diamonds', 'faithful', 'fueleconomy', 'Fielding',
+'flights', 'gapminder', 'gss_cat', 'iris', 'Managers', 'mpg', 'mtcars',
+'atmos', 'palmerpenguins', 'People, 'Pitching', 'planes', 'presidential',
+'table1', 'table2', 'table3', 'table4a', 'table4b', 'table5', 'vehicles',
+'weather', 'who'.  English: It provides a Spanish translated version of
+the datasets listed above.
 
 %prep
 %setup -q -c -n %{packname}

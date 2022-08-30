@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kmed
-%global packver   0.4.2
+%global packname  autonewsmd
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance-Based k-Medoids
+Summary:          Auto-Generate Changelog using Conventional Commits
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-git2r 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-git2r 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Algorithms of distance-based k-medoids clustering: simple and fast
-k-medoids, ranked k-medoids, and increasing number of clusters in
-k-medoids. Calculate distances for mixed variable data such as Gower,
-Podani, Wishart, Huang, Harikumar-PV, and Ahmad-Dey. Cluster validation
-applies internal and relative criteria. The internal criteria includes
-silhouette index and shadow values. The relative criterium applies
-bootstrap procedure producing a heatmap with a flexible reordering matrix
-algorithm such as complete, ward, or average linkages. The cluster result
-can be plotted in a marked barplot or pca biplot.
+Automatically generate a changelog file (NEWS.md / CHANGELOG.md) from the
+git history using conventional commit messages
+(<https://www.conventionalcommits.org/en/v1.0.0/>).
 
 %prep
 %setup -q -c -n %{packname}

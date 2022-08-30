@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  POSSA
-%global packver   0.5.5
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Simulation for Sequential Analysis and Multiple Hypotheses
+Summary:          Power Simulation for Sequential Analyses and Multiple Hypotheses
 
 License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,9 +23,9 @@ Requires:         R-CRAN-data.table
 Requires:         R-methods 
 
 %description
-Calculates, via simulation, power and appropriate "stopping" alpha
-boundaries (and/or futility bounds) for sequential analyses (i.e., "group
-sequential design") as well as for multiple hypotheses (multiple tests
+Calculates, via simulation, power and appropriate stopping alpha
+boundaries (and/or futility bounds) for sequential analyses (i.e., group
+sequential design) as well as for multiple hypotheses (multiple tests
 included in an analysis), given any specified global error rate. This
 enables the sequential use of practically any significance test, as long
 as the underlying data can be simulated in advance to a reasonable

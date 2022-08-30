@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iNEXT
-%global packver   3.0.0
+%global packname  qris
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpolation and Extrapolation for Species Diversity
+Summary:          Quantile Regression Model for Residual Lifetime Using an Induced Smoothing Approach
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Provides simple functions to compute and plot two types (sample-size- and
-coverage-based) rarefaction and extrapolation curves for species diversity
-(Hill numbers) based on individual-based abundance data or sampling-unit-
-based incidence data; see Chao and others (2014, Ecological Monographs)
-for pertinent theory and methodologies, and Hsieh, Ma and Chao (2016,
-Methods in Ecology and Evolution) for an introduction of the R package.
+A collection of functions to fit quantiles regression models for censored
+residual lifetimes. It provides various options for regression parameters
+estimation: the induced smoothing approach (smooth), and L1-minimization
+(non-smooth).  It also implements the estimation methods for standard
+errors of the regression parameters estimates based on an efficient
+partial multiplier bootstrap method and robust sandwich estimator.
+Furthermore, a simultaneous procedure of estimating regression parameters
+and their standard errors via an iterative updating procedure is
+implemented (iterative). See Kim, K. (2022) "Smoothed quantile regression
+for censored residual life", <arXiv:2205.00413>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MagmaClustR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering and Prediction using Multi-Task Gaussian Processes with Common Mean
 
@@ -21,7 +22,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-optimr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
@@ -34,7 +34,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-optimr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

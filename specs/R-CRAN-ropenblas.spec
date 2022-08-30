@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ropenblas
-%global packver   0.2.10
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download, Compile and Link 'OpenBLAS' Library with R
 
@@ -56,8 +57,8 @@ latest version of the 'OpenBLAS' library even the repositories of the
 'GNU/Linux' distribution used do not include the latest versions of
 'OpenBLAS'. If of interest, older versions of the 'OpenBLAS' library may
 be considered. Linking R with an optimized version of 'BLAS'
-(<http://www.netlib.org/blas/>) may improve the computational performance
-of R code. The 'OpenBLAS' library is an optimized implementation of 'BLAS'
+(<https://netlib.org/blas/>) may improve the computational performance of
+R code. The 'OpenBLAS' library is an optimized implementation of 'BLAS'
 that can be easily linked to R with the 'ropenblas' package.
 
 %prep
@@ -68,6 +69,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

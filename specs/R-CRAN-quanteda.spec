@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quanteda
-%global packver   3.2.2
+%global packver   3.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Analysis of Textual Data
 
@@ -43,8 +43,8 @@ Requires:         R-CRAN-yaml
 %description
 A fast, flexible, and comprehensive framework for quantitative text
 analysis in R.  Provides functionality for corpus management, creating and
-manipulating tokens and ngrams, exploring keywords in context, forming and
-manipulating sparse matrices of documents by features and feature
+manipulating tokens and n-grams, exploring keywords in context, forming
+and manipulating sparse matrices of documents by features and feature
 co-occurrences, analyzing keywords, computing feature similarities and
 distances, applying content dictionaries, applying supervised and
 unsupervised machine learning, visually representing text and text
