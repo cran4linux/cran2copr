@@ -1,30 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moult
-%global packver   2.3.1
+%global packname  highs
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Analysing Moult in Birds
+Summary:          'HiGHS' Optimization Solver
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-checkmate 
 
 %description
-Functions to estimate start and duration of moult from moult data, based
-on models developed in Underhill and Zucchini (1988, 1990).
+R interface to 'HiGHS', an optimization solver for solving mixed integer
+optimization problems with quadratic or linear objective and linear
+constraints.
 
 %prep
 %setup -q -c -n %{packname}

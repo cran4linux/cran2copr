@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moult
-%global packver   2.3.1
+%global packname  mSigTools
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Analysing Moult in Birds
+Summary:          Mutational Signature Analysis Tools
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-philentropy 
+Requires:         R-CRAN-clue 
+Requires:         R-CRAN-philentropy 
 
 %description
-Functions to estimate start and duration of moult from moult data, based
-on models developed in Underhill and Zucchini (1988, 1990).
+Utility functions for mutational signature analysis. This package provides
+two groups of functions. One is for dealing with mutational signature
+"exposures" (i.e. the counts of mutations in a sample that are due to each
+mutational signature). The other group of functions is for matching two
+sets of mutational signatures. The match minimizes the total distance
+between paired signatures by using the "Hungarian algorithm" described in
+: Kuhn, H. W. (1955) <doi:10.1002/nav.3800020109>. 'mSigTools' stands for
+mutational Signature analysis Tools.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MAnorm2
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Normalizing and Comparing ChIP-seq Samples
 
@@ -39,8 +40,8 @@ or groups of samples. It also designs a self-contained system of
 statistical models for calling differential ChIP-seq signals between two
 or more biological conditions as well as for calling hypervariable
 ChIP-seq signals across samples. Refer to Tu et al. (2021)
-<doi:10.1101/gr.262675.120> and Chen et al. (2021)
-<doi:10.1101/2021.07.27.453915> for associated statistical details.
+<doi:10.1101/gr.262675.120> and Chen et al. (2022)
+<doi:10.1186/s13059-022-02627-9> for associated statistical details.
 
 %prep
 %setup -q -c -n %{packname}

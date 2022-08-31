@@ -1,39 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geomtextpath
-%global packver   0.1.1
+%global packname  gMCPLite
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Curved Text in 'ggplot2'
+Summary:          Lightweight Graph Based Multiple Comparison Procedures
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-systemfonts 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-textshaping 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-systemfonts 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-textshaping 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A 'ggplot2' extension that allows text to follow curved paths. Curved text
-makes it easier to directly label paths or neatly annotate in polar
-co-ordinates.
+A lightweight fork of 'gMCP' with functions for graphical described
+multiple test procedures introduced in Bretz et al. (2009)
+<doi:10.1002/sim.3495> and Bretz et al. (2011)
+<doi:10.1002/bimj.201000239>. Implements a flexible function using
+'ggplot2' to create multiplicity graph visualizations. Contains
+instructions of multiplicity graph and graphical testing for group
+sequential design, described in Maurer and Bretz (2013)
+<doi:10.1080/19466315.2013.807748>, with necessary unit testing using
+'testthat'.
 
 %prep
 %setup -q -c -n %{packname}

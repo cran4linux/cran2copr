@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  crestr
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Probabilistic Approach to Reconstruct Past Climates Using Palaeoecological Datasets
 
@@ -19,11 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringr 
@@ -31,11 +35,14 @@ BuildRequires:    R-CRAN-viridis
 Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-DBI 
 Requires:         R-methods 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringr 

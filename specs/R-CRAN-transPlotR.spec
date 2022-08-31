@@ -1,30 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moult
-%global packver   2.3.1
+%global packname  transPlotR
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Analysing Moult in Birds
+Summary:          Visualize Transcript Structures in Elegant Way
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggarchery 
+BuildRequires:    R-CRAN-geomtextpath 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggarchery 
+Requires:         R-CRAN-geomtextpath 
+Requires:         R-stats 
 
 %description
-Functions to estimate start and duration of moult from moult data, based
-on models developed in Underhill and Zucchini (1988, 1990).
+To visualize the gene structure with multiple isoforms better, I developed
+this package to draw different transcript structures easily.
 
 %prep
 %setup -q -c -n %{packname}

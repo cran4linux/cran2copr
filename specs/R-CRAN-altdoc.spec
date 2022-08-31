@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qrandom
-%global packver   1.2.6
+%global packname  altdoc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          True Random Numbers using the ANU Quantum Random Numbers Server
+Summary:          Use 'Docsify.js', 'Docute', or 'Mkdocs' to Generate a Package Documentation
 
-License:          GPL-2 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-commonmark 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-servr 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-xslt 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-commonmark 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-servr 
+Requires:         R-tools 
+Requires:         R-CRAN-usethis 
 Requires:         R-utils 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-xslt 
+Requires:         R-CRAN-yaml 
 
 %description
-The ANU Quantum Random Number Generator provided by the Australian
-National University generates true random numbers in real-time by
-measuring the quantum fluctuations of the vacuum. This package offers an
-interface using their API. The electromagnetic field of the vacuum
-exhibits random fluctuations in phase and amplitude at all frequencies. By
-carefully measuring these fluctuations, one is able to generate ultra-high
-bandwidth random numbers. The quantum Random Number Generator is based on
-the papers by Symul et al., (2011) <doi:10.1063/1.3597793> and Haw, et al.
-(2015) <doi:10.1103/PhysRevApplied.3.054004>. The package offers functions
-to retrieve a sequence of random integers or hexadecimals and true random
-samples from a normal or uniform distribution.
+Most developers use 'pkgdown' to create a website for their packages.
+Other documentation generators exist, such as 'Docute', 'Docsify.js', or
+'Mkdocs'. The aim of 'altdoc' is to provide helpers to create, populate,
+update, and preview websites made with these tools.
 
 %prep
 %setup -q -c -n %{packname}

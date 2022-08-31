@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moult
-%global packver   2.3.1
+%global packname  PPTcirc
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Analysing Moult in Birds
+Summary:          Projected Polya Tree for Circular Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-circular 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-progress 
+Requires:         R-methods 
 
 %description
-Functions to estimate start and duration of moult from moult data, based
-on models developed in Underhill and Zucchini (1988, 1990).
+Provides functionality for the prior and posterior projected Polya tree
+for the analysis of circular data (Nieto-Barajas and Nunez-Antonio (2019)
+<arXiv:1902.06020>).
 
 %prep
 %setup -q -c -n %{packname}

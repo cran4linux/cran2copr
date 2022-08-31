@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  vapour
-%global packver   0.8.5
+%global packver   0.8.81
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.81
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightweight Access to the 'Geospatial Data Abstraction Library' ('GDAL')
+Summary:          Access to the 'Geospatial Data Abstraction Library' ('GDAL')
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 2.0.0
-BuildRequires:    proj-devel >= 4.8.0
+BuildRequires:    gdal-devel
+BuildRequires:    proj-devel
 BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-utils 
 
 %description
-Provides low-level access to 'GDAL' functionality for R packages. 'GDAL'
-is the 'Geospatial Data Abstraction Library' a translator for raster and
-vector geospatial data formats that presents a single raster abstract data
-model and single vector abstract data model to the calling application for
-all supported formats <https://gdal.org/>.
+Provides low-level access to 'GDAL' functionality. 'GDAL' is the
+'Geospatial Data Abstraction Library' a translator for raster and vector
+geospatial data formats that presents a single raster abstract data model
+and single vector abstract data model to the calling application for all
+supported formats <https://gdal.org/>. This package is focussed on
+providing exactly and only what GDAL does, to enable developing further
+tools.
 
 %prep
 %setup -q -c -n %{packname}

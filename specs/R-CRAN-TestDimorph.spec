@@ -1,24 +1,23 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TestDimorph
-%global packver   0.4.1
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis Of The Interpopulation Difference In Degree of Sexual Dimorphism Using Summary Statistics
+Summary:          Analysis of the Interpopulation Difference in Degree of Sexual Dimorphism Using Summary Statistics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-cutpointr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Morpho 
@@ -28,9 +27,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tmvtnorm 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-caret 
 Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-cutpointr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Morpho 
@@ -46,7 +43,8 @@ Offers a solution for the unavailability of raw data in most
 anthropological studies by facilitating the calculations of several sexual
 dimorphism related analyses using the published summary statistics of
 metric data (mean, standard deviation and sex specific sample size) as
-illustrated by the works of Greene, D. L. (1989)
+illustrated by the works of Relethford, J. H., & Hodges, D. C. (1985)
+<doi:10.1002/ajpa.1330660105>, Greene, D. L. (1989)
 <doi:10.1002/ajpa.1330790113> and Konigsberg, L. W. (1991)
 <doi:10.1002/ajpa.1330840110>.
 
@@ -58,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

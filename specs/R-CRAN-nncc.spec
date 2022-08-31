@@ -1,30 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moult
-%global packver   2.3.1
+%global packname  nncc
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Analysing Moult in Birds
+Summary:          Nearest Neighbors Matching of Case-Control Data
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.3.2
+Requires:         R-core >= 3.3.2
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-mice 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-mgcv 
+Requires:         R-stats 
+Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-mice 
 
 %description
-Functions to estimate start and duration of moult from moult data, based
-on models developed in Underhill and Zucchini (1988, 1990).
+Provides nearest-neighbors matching and analysis of case-control data.
+Cui, Z., Marder, E. P., Click, E. S., Hoekstra, R. M., & Bruce, B. B.
+(2022) <doi:10.1097/EDE.0000000000001504>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geomtextpath
-%global packver   0.1.1
+%global packname  rgho
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Curved Text in 'ggplot2'
+Summary:          Access WHO Global Health Observatory Data from R
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-systemfonts 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-textshaping 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-systemfonts 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-textshaping 
+BuildRequires:    R-CRAN-curl >= 4.3.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+BuildRequires:    R-CRAN-ODataQuery >= 0.5.3
+Requires:         R-CRAN-curl >= 4.3.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-lifecycle >= 1.0.0
+Requires:         R-CRAN-ODataQuery >= 0.5.3
 
 %description
-A 'ggplot2' extension that allows text to follow curved paths. Curved text
-makes it easier to directly label paths or neatly annotate in polar
-co-ordinates.
+Access WHO Global Health Observatory (<https://www.who.int/data/gho/>)
+data from R via the `OData` API
+(<https://www.who.int/data/gho/info/gho-odata-api>), an application
+program interface providing a simple query interface to the World Health
+Organization's data and statistics content.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  envi
-%global packver   0.1.13
+%global packver   0.1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.13
+Version:          0.1.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Environmental Interpolation using Spatial Kernel Density Estimation
 
@@ -26,7 +27,6 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgeos 
@@ -45,7 +45,6 @@ Requires:         R-CRAN-future
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-iterators 
-Requires:         R-methods 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgeos 
@@ -62,7 +61,7 @@ presence and absence data, the 'envi' package uses the spatial relative
 risk function that is estimated using the 'sparr' package. Details about
 the 'sparr' package methods can be found in the tutorial: Davies et al.
 (2018) <doi:10.1002/sim.7577>. Details about kernel density estimation can
-be found in J. F. Bithell (1990) <doi:10.1002/sim.4780090616>.  More
+be found in J. F. Bithell (1990) <doi:10.1002/sim.4780090616>. More
 information about relative risk functions using kernel density estimation
 can be found in J. F. Bithell (1991) <doi:10.1002/sim.4780101112>.
 
