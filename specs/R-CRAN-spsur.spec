@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spsur
-%global packver   1.0.2.2
+%global packver   1.0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2.2
+Version:          1.0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Seemingly Unrelated Regression Models
 
@@ -17,35 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.54
+BuildRequires:    R-CRAN-MASS >= 7.3.56
 BuildRequires:    R-methods >= 4.1
 BuildRequires:    R-stats >= 4.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
+BuildRequires:    R-CRAN-Rdpack >= 2.4
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-gmodels >= 2.18.1
-BuildRequires:    R-CRAN-Rdpack >= 2.1
-BuildRequires:    R-CRAN-Matrix >= 1.3.4
+BuildRequires:    R-CRAN-sphet >= 2.0
+BuildRequires:    R-CRAN-Matrix >= 1.4.1
+BuildRequires:    R-CRAN-spatialreg >= 1.2.5
+BuildRequires:    R-CRAN-spdep >= 1.2.5
 BuildRequires:    R-CRAN-Formula >= 1.2.4
 BuildRequires:    R-CRAN-minqa >= 1.2.4
-BuildRequires:    R-CRAN-spatialreg >= 1.2.1
-BuildRequires:    R-CRAN-spdep >= 1.1.12
-BuildRequires:    R-CRAN-rlang >= 0.4.12
+BuildRequires:    R-CRAN-rlang >= 1.0.4
 BuildRequires:    R-CRAN-sparseMVN >= 0.2.2
-Requires:         R-CRAN-MASS >= 7.3.54
+Requires:         R-CRAN-MASS >= 7.3.56
 Requires:         R-methods >= 4.1
 Requires:         R-stats >= 4.1
-Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-ggplot2 >= 3.3.6
 Requires:         R-CRAN-numDeriv >= 2016.8.1.1
+Requires:         R-CRAN-Rdpack >= 2.4
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-gmodels >= 2.18.1
-Requires:         R-CRAN-Rdpack >= 2.1
-Requires:         R-CRAN-Matrix >= 1.3.4
+Requires:         R-CRAN-sphet >= 2.0
+Requires:         R-CRAN-Matrix >= 1.4.1
+Requires:         R-CRAN-spatialreg >= 1.2.5
+Requires:         R-CRAN-spdep >= 1.2.5
 Requires:         R-CRAN-Formula >= 1.2.4
 Requires:         R-CRAN-minqa >= 1.2.4
-Requires:         R-CRAN-spatialreg >= 1.2.1
-Requires:         R-CRAN-spdep >= 1.1.12
-Requires:         R-CRAN-rlang >= 0.4.12
+Requires:         R-CRAN-rlang >= 1.0.4
 Requires:         R-CRAN-sparseMVN >= 0.2.2
 
 %description

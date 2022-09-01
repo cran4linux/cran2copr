@@ -1,45 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CNAIM
-%global packver   2.1.4
+%global packname  SAMUR
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common Network Asset Indices Methodology (CNAIM)
+Summary:          Stochastic Augmentation of Matched Data Using Restriction Methods
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-r2d3 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-r2d3 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-Matching 
+Requires:         R-CRAN-Matching 
 
 %description
-Implementation of the CNAIM standard in R. Contains a series of algorithms
-which determine the probability of failure, consequences of failure and
-monetary risk associated with electricity distribution companies' assets
-such as transformers and cables. Results are visualized in an
-easy-to-understand risk matrix.
+Augmenting a matched data set by generating multiple stochastic, matched
+samples from the data using a multi-dimensional histogram constructed from
+dropping the input matched data into a multi-dimensional grid built on the
+full data set. The resulting stochastic, matched sets will likely provide
+a collectively higher coverage of the full data set compared to the single
+matched set. Each stochastic match is without duplication, thus allowing
+downstream validation techniques such as cross-validation to be applied to
+each set without concern for overfitting.
 
 %prep
 %setup -q -c -n %{packname}

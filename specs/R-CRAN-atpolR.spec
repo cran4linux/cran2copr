@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CNAIM
-%global packver   2.1.4
+%global packname  atpolR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common Network Asset Indices Methodology (CNAIM)
+Summary:          ATPOL Grid Implementation
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-r2d3 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-r2d3 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-terra 
 
 %description
-Implementation of the CNAIM standard in R. Contains a series of algorithms
-which determine the probability of failure, consequences of failure and
-monetary risk associated with electricity distribution companies' assets
-such as transformers and cables. Results are visualized in an
-easy-to-understand risk matrix.
+ATPOL is a rectangular grid system used for botanical studies in Poland.
+The ATPOL grid was developed in Institute of Botany, Jagiellonian
+University, Krakow, Poland in '70; Zając (1978) <doi:10.2307/1219899>.
+Since then it is widely used to represent distribution of plants in
+Poland. 'atpolR' provides functions to translate geographic coordinates to
+the grid and vice versa. It also allows to create a choreograph map.
 
 %prep
 %setup -q -c -n %{packname}

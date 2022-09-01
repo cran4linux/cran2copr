@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FFTrees
-%global packver   1.6.6
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate, Visualise, and Evaluate Fast-and-Frugal Decision Trees
 
@@ -16,42 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-rpart 
-Requires:         R-graphics 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
+Requires:         R-graphics 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-caret 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 
 %description
 Create, visualize, and test fast-and-frugal decision trees (FFTs) using
-methods described in Phillips, Neth, Woike & Gaissmaier. (2017). FFTs are
-very simple decision trees for binary classification problems. FFTs can be
-preferable to more complex algorithms because they are easy to
-communicate, require very little information, and are robust against
-overfitting.
+the algorithms and methods described in Phillips, Neth, Woike & Gaissmaier
+(2017). FFTs are simple and transparent decision trees for solving binary
+classification problems. FFTs can be preferable to more complex algorithms
+because they require very little information, are easy to communicate, and
+are robust against overfitting.
 
 %prep
 %setup -q -c -n %{packname}

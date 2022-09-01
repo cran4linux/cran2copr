@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dataquieR
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality in Epidemiological Research
 
@@ -48,10 +49,15 @@ Requires:         R-CRAN-robustbase
 Requires:         R-utils 
 
 %description
-A set of functions to assess data quality issues in studies. See 'TMF'
-<https://www.tmf-ev.de/EnglishSite/Home.aspx> guideline and 'DFG'
-<https://www.dfg.de/en/index.jsp> project at
-<https://dataquality.ship-med.uni-greifswald.de>.
+Data quality assessments guided by a 'data quality framework introduced by
+Schmidt and colleagues 2021' <doi:10.1186/s12874-021-01252-7> target the
+data quality dimensions integrity, completeness, consistency, and
+accuracy. The scope of applicable functions rests on the availability of
+extensive metadata which can be provided in spreadsheet tables. Either
+standardized (e.g. as 'html5' reports) or individually tailored reports
+can be generated. For an introduction into the specification of
+corresponding metadata, please refer to the 'package web site'
+<https://dataquality.ship-med.uni-greifswald.de/Annotation_of_Metadata.html>.
 
 %prep
 %setup -q -c -n %{packname}

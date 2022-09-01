@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dual
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
-Release:          3%{?dist}%{?buildtag}
+Version:          0.0.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Differentiation with Dual Numbers
 
 License:          GPL-3
@@ -28,11 +29,20 @@ Automatic differentiation is achieved by using dual numbers without
 providing hand-coded gradient functions. The output value of a
 mathematical function is returned with the values of its exact first
 derivative (or gradient). For more details see Baydin, Pearlmutter, Radul,
-and Siskind (2018) <http://jmlr.org/papers/volume18/17-468/17-468.pdf>.
+and Siskind (2018) <https://jmlr.org/papers/volume18/17-468/17-468.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -40,17 +50,10 @@ and Siskind (2018) <http://jmlr.org/papers/volume18/17-468/17-468.pdf>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/INSTALL.md
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

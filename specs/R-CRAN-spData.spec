@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spData
-%global packver   2.0.1
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datasets for Spatial Analysis
 
@@ -17,9 +18,7 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
 
 %description
 Diverse spatial datasets for demonstrating, benchmarking and teaching

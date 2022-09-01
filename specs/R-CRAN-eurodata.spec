@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  eurodata
-%global packver   1.4.2
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Easy Eurostat Data Import and Search
 
@@ -23,7 +24,7 @@ BuildRequires:    R-CRAN-R.utils
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-magrittr 
@@ -32,7 +33,7 @@ Requires:         R-CRAN-R.utils
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
 
 %description
 Interface to Eurostat’s Bulk Download Facility with fast data.table-based

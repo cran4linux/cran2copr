@@ -1,45 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CNAIM
-%global packver   2.1.4
+%global packname  once
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common Network Asset Indices Methodology (CNAIM)
+Summary:          Execute Expensive Operations Only Once
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-r2d3 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-r2d3 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-magrittr >= 2.0.3
 
 %description
-Implementation of the CNAIM standard in R. Contains a series of algorithms
-which determine the probability of failure, consequences of failure and
-monetary risk associated with electricity distribution companies' assets
-such as transformers and cables. Results are visualized in an
-easy-to-understand risk matrix.
+Allows you to easily execute expensive compute operations only once, and
+save the resulting object to disk.
 
 %prep
 %setup -q -c -n %{packname}

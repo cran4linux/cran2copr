@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  quadmesh
-%global packver   0.5.0
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quadrangle Mesh
 
@@ -19,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-reproj >= 0.4.0
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-gridBase 
-BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-geometry 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-palr
 Requires:         R-CRAN-reproj >= 0.4.0
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-gridBase 
-Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-geometry 
@@ -53,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

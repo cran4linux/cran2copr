@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sketching
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sketching of Data via Random Subspace Embeddings
 
@@ -28,10 +29,10 @@ Requires:         R-CRAN-MASS
 Construct sketches of data via random subspace embeddings. For more
 details, see the following papers. Lee, S. and Ng, S. (2022). "Least
 Squares Estimation Using Sketched Data with Heteroskedastic Errors,"
-<arXiv:2007.07781>, accepted for presentation at the Thirty-ninth
-International Conference on Machine Learning (ICML 2022). Lee, S. and Ng,
-S. (2020). "An Econometric Perspective on Algorithmic Subsampling," Annual
-Review of Economics, 12(1): 45–80.
+Proceedings of the 39th International Conference on Machine Learning
+(ICML22), 162:12498-12520. Lee, S. and Ng, S. (2020). "An Econometric
+Perspective on Algorithmic Subsampling," Annual Review of Economics,
+12(1): 45–80.
 
 %prep
 %setup -q -c -n %{packname}

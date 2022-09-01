@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autonewsmd
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Auto-Generate Changelog using Conventional Commits
 
@@ -14,19 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-git2r 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-git2r 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-utils 
 
 %description
 Automatically generate a changelog file (NEWS.md / CHANGELOG.md) from the

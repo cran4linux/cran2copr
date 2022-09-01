@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  synthpop
-%global packver   1.7-0
+%global packver   1.8-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generating Synthetic Versions of Sensitive Microdata for Statistical Disclosure Control
 
@@ -36,6 +37,8 @@ BuildRequires:    R-CRAN-classInt
 BuildRequires:    R-CRAN-mipfp 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rmutil 
+BuildRequires:    R-CRAN-broman 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
@@ -56,6 +59,8 @@ Requires:         R-CRAN-classInt
 Requires:         R-CRAN-mipfp 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rmutil 
+Requires:         R-CRAN-broman 
 
 %description
 A tool for producing synthetic versions of microdata containing

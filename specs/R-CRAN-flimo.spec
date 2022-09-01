@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CNAIM
-%global packver   2.1.4
+%global packname  flimo
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common Network Asset Indices Methodology (CNAIM)
+Summary:          Fixed Landscape Inference Method
 
-License:          MIT + file LICENSE
+License:          CeCILL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-r2d3 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-r2d3 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-JuliaConnectoR 
+BuildRequires:    R-CRAN-latex2exp 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-JuliaConnectoR 
+Requires:         R-CRAN-latex2exp 
 
 %description
-Implementation of the CNAIM standard in R. Contains a series of algorithms
-which determine the probability of failure, consequences of failure and
-monetary risk associated with electricity distribution companies' assets
-such as transformers and cables. Results are visualized in an
-easy-to-understand risk matrix.
+Likelihood-free inference method for stochastic models. Uses a
+deterministic optimizer on simple simulations of the model that are
+performed with a prior drawn randomness by applying the inverse transform
+method. Is designed to work on its own and also by using the Julia package
+'Jflimo' available on the git page of the project:
+<https://metabarcoding.org/flimo>.
 
 %prep
 %setup -q -c -n %{packname}

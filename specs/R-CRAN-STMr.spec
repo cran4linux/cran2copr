@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  STMr
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Strength Training Manual R-Language Functions
 
@@ -17,16 +18,16 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggfittext 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggfittext 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-quantreg 

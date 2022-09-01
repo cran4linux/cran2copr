@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cccrm
-%global packver   2.0.3
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Concordance Correlation Coefficient for Repeated (and Non-Repeated) Measures
 
@@ -32,8 +33,8 @@ measures (replicates) and longitudinal repeated measures. It also includes
 the estimation of the one-way intraclass correlation coefficient also
 known as reliability index. The estimation approaches implemented are
 variance components and U-statistics approaches. Description of methods
-can be found in Fleiss (1986) <doi:10.1002/9781118032923.ch1> and Carrasco
-et al. (2013) <doi:10.1016/j.cmpb.2012.09.002>.
+can be found in Fleiss (1986) <doi:10.1002/9781118032923> and Carrasco et
+al. (2013) <doi:10.1016/j.cmpb.2012.09.002>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
