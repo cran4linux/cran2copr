@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  feasts
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Extraction and Statistics for Time Series
 
@@ -30,6 +31,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-slider 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-gtable 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-tibble >= 1.4.1
 Requires:         R-CRAN-scales >= 1.1.0
@@ -44,6 +46,7 @@ Requires:         R-grid
 Requires:         R-CRAN-slider 
 Requires:         R-utils 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-gtable 
 
 %description
 Provides a collection of features, decomposition methods, statistical
@@ -59,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

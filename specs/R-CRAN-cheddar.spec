@@ -1,39 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  influxdbclient
-%global packver   0.1.2
+%global packname  cheddar
+%global packver   0.1-638
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.638
 Release:          1%{?dist}%{?buildtag}
-Summary:          'InfluxDB' 2.x Client
+Summary:          Analysis and Visualisation of Ecological Communities
 
-License:          MIT License + file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
-BuildRequires:    R-CRAN-nanotime >= 0.3.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-nanotime >= 0.3.0
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-'InfluxDB' 2.x time-series database client. Supports both 'InfluxDB' OSS
-(<https://portal.influxdata.com/downloads/>) and Cloud
-(<https://cloud2.influxdata.com/>) version.
+Provides a flexible, extendable representation of an ecological community
+and a range of functions for analysis and visualisation, focusing on food
+web, body mass and numerical abundance data. Allows inter-web comparisons
+such as examining changes in community structure over environmental,
+temporal or spatial gradients.
 
 %prep
 %setup -q -c -n %{packname}

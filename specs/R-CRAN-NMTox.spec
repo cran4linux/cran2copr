@@ -1,50 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  priceR
-%global packver   0.1.64
+%global packname  NMTox
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.64
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Economics and Pricing Tools
+Summary:          Dose-Response Relationship Analysis of Nanomaterial Toxicity
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gsubfn 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Iso 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-forcats 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gsubfn 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Iso 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-forcats 
 
 %description
-Functions to aid in micro and macro economic analysis and handling of
-price and currency data. Includes extraction of relevant inflation and
-exchange rate data from World Bank API, data cleaning/parsing, and
-standardisation. Inflation adjustment calculations as found in Principles
-of Macroeconomics by Gregory Mankiw et al (2014). Current and historical
-end of day exchange rates for 171 currencies from the European Central
-Bank Statistical Data Warehouse (2020)
-<https://sdw.ecb.europa.eu/curConverter.do>.
+Perform an exploration and a preliminary analysis on the dose- response
+relationship of nanomaterial toxicity. Several functions are provided for
+data exploration, including functions for creating a subset of dataset,
+frequency tables and plots. Inference for order restricted dose- response
+data is performed by testing the significance of monotonic dose-response
+relationship, using Williams, Marcus, M, Modified M and Likelihood ratio
+tests. Several methods of multiplicity adjustment are also provided.
+Description of the methods can be found in
+<https://github.com/rahmasarina/dose-response-analysis/blob/main/Methodology.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tsibbledata
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diverse Datasets for 'tsibble'
 
@@ -17,9 +18,11 @@ BuildRequires:    R-devel >= 3.1.3
 Requires:         R-core >= 3.1.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tsibble >= 0.9.0
+BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tsibble >= 0.9.0
+Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-utils 
 

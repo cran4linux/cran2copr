@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  influxdbclient
-%global packver   0.1.2
+%global packname  nphRCT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'InfluxDB' 2.x Client
+Summary:          Non-Proportional Hazards in Randomized Controlled Trials
 
-License:          MIT License + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanotime >= 0.3.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-nanotime >= 0.3.0
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-survival 
 
 %description
-'InfluxDB' 2.x time-series database client. Supports both 'InfluxDB' OSS
-(<https://portal.influxdata.com/downloads/>) and Cloud
-(<https://cloud2.influxdata.com/>) version.
+Perform a stratified weighted log-rank test in a randomized controlled
+trial. Tests can be visualized as a difference in average score on the two
+treatment arms. These methods are described in Magirr and Burman (2018)
+<arXiv:1807.11097v1>, Magirr (2020) <arXiv:2007.04767v1>, and Magirr and
+Jimenez (2022) <arXiv:2201.10445v1>.
 
 %prep
 %setup -q -c -n %{packname}

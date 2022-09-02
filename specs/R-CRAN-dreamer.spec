@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dreamer
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dose Response Models for Bayesian Model Averaging
 
@@ -21,6 +22,7 @@ BuildRequires:    R-CRAN-tidyselect >= 1.1
 BuildRequires:    R-CRAN-tidyr >= 1.0.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-ellipsis >= 0.3
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
@@ -32,6 +34,7 @@ Requires:         R-CRAN-tidyselect >= 1.1
 Requires:         R-CRAN-tidyr >= 1.0.2
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-ellipsis >= 0.3
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 

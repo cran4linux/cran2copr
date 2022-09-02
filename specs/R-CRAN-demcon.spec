@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  influxdbclient
-%global packver   0.1.2
+%global packname  demcon
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'InfluxDB' 2.x Client
+Summary:          Interfacing with Popular Polity, Institutional, and Constitutional Datasets
 
-License:          MIT License + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanotime >= 0.3.0
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-nanotime >= 0.3.0
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-'InfluxDB' 2.x time-series database client. Supports both 'InfluxDB' OSS
-(<https://portal.influxdata.com/downloads/>) and Cloud
-(<https://cloud2.influxdata.com/>) version.
+An open-source toolkit developed by ISciences, LLC and the DANTE Project
+that is intended for learning, accessing, pre-processing, and visualizing
+popular political, institutional, and constitutional datasets. ‘demcon'
+aims to reduce barriers to entry in political science research by
+automating common acquisition and pre-processing procedures. This package
+particularly focuses on the V-Dem dataset
+(<https://www.v-dem.net/vdemds.html>), and provides adaptations of methods
+presented in Fjelde, H., Knutsen, C. H. & Nygård, H. M. 2021,
+<doi:10.1093/isq/sqaa076>.
 
 %prep
 %setup -q -c -n %{packname}

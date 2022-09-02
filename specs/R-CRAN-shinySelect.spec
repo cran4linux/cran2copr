@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  shinySelect
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper of the 'react-select' Library
 
@@ -16,18 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fontawesome 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-reactR 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fontawesome 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-fontawesome 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-reactR 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
-Requires:         R-CRAN-fontawesome 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Provides a select control widget for 'Shiny'. It is easily customizable,

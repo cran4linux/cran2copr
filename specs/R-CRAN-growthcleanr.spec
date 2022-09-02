@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  influxdbclient
-%global packver   0.1.2
+%global packname  growthcleanr
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'InfluxDB' 2.x Client
+Summary:          Data Cleaner for Anthropometric Measurements
 
-License:          MIT License + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanotime >= 0.3.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-nanotime >= 0.3.0
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-labelled >= 2.5.0
+BuildRequires:    R-CRAN-R.utils >= 2.11.0
+BuildRequires:    R-CRAN-plyr >= 1.8.6
+BuildRequires:    R-CRAN-foreach >= 1.5.0
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-data.table >= 1.13.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-doParallel >= 1.0.15
+BuildRequires:    R-CRAN-dplyr >= 1.0.1
+Requires:         R-CRAN-labelled >= 2.5.0
+Requires:         R-CRAN-R.utils >= 2.11.0
+Requires:         R-CRAN-plyr >= 1.8.6
+Requires:         R-CRAN-foreach >= 1.5.0
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-data.table >= 1.13.0
+Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-doParallel >= 1.0.15
+Requires:         R-CRAN-dplyr >= 1.0.1
 
 %description
-'InfluxDB' 2.x time-series database client. Supports both 'InfluxDB' OSS
-(<https://portal.influxdata.com/downloads/>) and Cloud
-(<https://cloud2.influxdata.com/>) version.
+Identifies implausible anthropometric (e.g., height, weight) measurements
+in irregularly spaced longitudinal datasets, such as those from electronic
+health records.
 
 %prep
 %setup -q -c -n %{packname}
