@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  stream
-%global packver   1.5-1
+%global packver   2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infrastructure for Data Stream Mining
 
@@ -19,6 +20,7 @@ BuildRequires:    R-CRAN-dbscan >= 1.0.0
 BuildRequires:    R-CRAN-proxy >= 0.4.7
 BuildRequires:    R-CRAN-Rcpp >= 0.11.4
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-clusterGeneration 
@@ -34,6 +36,7 @@ Requires:         R-CRAN-dbscan >= 1.0.0
 Requires:         R-CRAN-proxy >= 0.4.7
 Requires:         R-CRAN-Rcpp >= 0.11.4
 Requires:         R-methods 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-clue 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-clusterGeneration 
@@ -48,8 +51,8 @@ Requires:         R-utils
 %description
 A framework for data stream modeling and associated data mining tasks such
 as clustering and classification. The development of this package was
-supported in part by NSF IIS-0948893 and NIH R21HG005912. Hahsler et al
-(2017) <doi:10.18637/jss.v076.i14>.
+supported in part by NSF IIS-0948893, NSF CMMI 1728612, and NIH
+R21HG005912. Hahsler et al (2017) <doi:10.18637/jss.v076.i14>.
 
 %prep
 %setup -q -c -n %{packname}

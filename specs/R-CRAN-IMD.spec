@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IMD
-%global packver   1.0.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Index of Multiple Deprivation Data for the UK
 
@@ -16,28 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-readODS 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-readODS 
 
 %description
 Index of Multiple Deprivation for UK nations at various geographical

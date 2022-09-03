@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tipmap
-%global packver   0.1.7
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tipping Point Analysis for Bayesian Dynamic Borrowing
 
@@ -19,17 +20,23 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RBesT 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-RBesT 
+Requires:         R-CRAN-purrr 
 
 %description
 Tipping point analysis for clinical trials that employ Bayesian dynamic
 borrowing via robust meta-analytic predictive (MAP) priors. Mainly an
 implementation of an approach proposed by Best and colleagues (2021) is
-provided <doi:10.1002/pst.2093>. Intended use is the planning, analysis
-and interpretation of extrapolation studies in pediatric drug development,
-but applicability is generally wider.
+provided <doi:10.1002/pst.2093>. Further functions facilitate the
+specification of the robust MAP prior via expert elicitation (using the
+roulette method) and computation of the posterior distribution of the
+treatment effect with either fixed or stochastic expert-elicited weights.
+Intended use is the planning, analysis and interpretation of extrapolation
+studies in pediatric drug development, but applicability is generally
+wider.
 
 %prep
 %setup -q -c -n %{packname}

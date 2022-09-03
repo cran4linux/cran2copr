@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  progressr
-%global packver   0.10.1
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Inclusive, Unifying API for Progress Updates
 
@@ -30,7 +31,7 @@ The end user has full control of how, where, and when to render these
 progress updates, e.g. in the terminal using utils::txtProgressBar() or
 progress::progress_bar(), in a graphical user interface using
 utils::winProgressBar(), tcltk::tkProgressBar() or shiny::withProgress(),
-via the speakers using beep::beepr(), or on a file system via the size of
+via the speakers using beepr::beep(), or on a file system via the size of
 a file. Anyone can add additional, customized, progression handlers. The
 'progressr' package uses R's condition framework for signaling progress
 updated. Because of this, progress can be reported from almost anywhere in

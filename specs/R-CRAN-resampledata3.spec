@@ -1,29 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ensembleBMA
-%global packver   5.1.8
+%global packname  resampledata3
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.8
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilistic Forecasting using Ensembles and Bayesian Model Averaging
+Summary:          Data Sets for "Mathematical Statistics with Resampling and R" (3rd Ed)
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chron 
-Requires:         R-CRAN-chron 
 
 %description
-Bayesian Model Averaging to create probabilistic forecasts from ensemble
-forecasts and weather observations
-<https://stat.uw.edu/sites/default/files/files/reports/2007/tr516.pdf>.
+Data sets for Chihara and Hesterberg (2022, ISBN: 978-1-119-87404-1)
+"Mathematical Statistics with Resampling in R" (3rd Ed).
 
 %prep
 %setup -q -c -n %{packname}

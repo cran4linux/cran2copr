@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  loadings
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Loadings for Principal Component Analysis and Partial Least Squares
 
@@ -16,12 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-geigen 
+Requires:         R-CRAN-geigen 
 
 %description
-Computing principal component (Yamamoto, H. et al. (2014)
+Computing principal component loading (Yamamoto, H. et al. (2014)
 <doi:10.1186/1471-2105-15-51> and Yamamoto, H. et al. (2021)
-<doi:10.3390/metabo11030149>) and partial least squares loading (Yamamoto,
-H. (2017) <doi:10.1002/cem.2883>) and its statistical hypothesis testing.
+<doi:10.3390/metabo11030149>), partial least squares loading (Yamamoto, H.
+(2017) <doi:10.1002/cem.2883> and Yamamoto, H. (2022)
+<doi:10.1101/2022.08.30.505949>) and their statistical hypothesis testing.
 
 %prep
 %setup -q -c -n %{packname}

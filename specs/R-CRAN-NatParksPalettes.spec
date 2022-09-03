@@ -1,29 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ensembleBMA
-%global packver   5.1.8
+%global packname  NatParksPalettes
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.8
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilistic Forecasting using Ensembles and Bayesian Model Averaging
+Summary:          Color Palettes Inspired by National Parks
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chron 
-Requires:         R-CRAN-chron 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Bayesian Model Averaging to create probabilistic forecasts from ensemble
-forecasts and weather observations
-<https://stat.uw.edu/sites/default/files/files/reports/2007/tr516.pdf>.
+Color palettes for data visualization inspired by National Parks.
+Currently contains 15 color schemes and checks for colorblind-friendliness
+of palettes.
 
 %prep
 %setup -q -c -n %{packname}

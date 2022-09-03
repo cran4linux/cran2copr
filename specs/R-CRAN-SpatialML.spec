@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SpatialML
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Machine Learning
 
@@ -25,7 +26,8 @@ Requires:         R-CRAN-caret
 Implements a spatial extension of the random forest algorithm (Georganos
 et al. (2019) <doi:10.1080/10106049.2019.1595177>). Allows for a
 geographically weighted random forest regression including a function to
-find the optical bandwidth.
+find the optical bandwidth. (Georganos and Kalogirou (2022)
+<https://www.mdpi.com/2220-9964/11/9/471>).
 
 %prep
 %setup -q -c -n %{packname}

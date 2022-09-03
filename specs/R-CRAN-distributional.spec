@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  distributional
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vectorised Probability Distributions
 
@@ -19,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.4.5
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-ggplot2 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-lifecycle
 Requires:         R-CRAN-rlang >= 0.4.5
 Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-stats 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-ggplot2 

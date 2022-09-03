@@ -1,29 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ensembleBMA
-%global packver   5.1.8
+%global packname  voice
+%global packver   0.4.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.8
+Version:          0.4.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilistic Forecasting using Ensembles and Bayesian Model Averaging
+Summary:          Tools for Voice Analysis, Speaker Recognition and Mood Inference
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chron 
-Requires:         R-CRAN-chron 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-wrassp 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-wrassp 
+Requires:         R-CRAN-zoo 
 
 %description
-Bayesian Model Averaging to create probabilistic forecasts from ensemble
-forecasts and weather observations
-<https://stat.uw.edu/sites/default/files/files/reports/2007/tr516.pdf>.
+General purpose tools for voice analysis, speaker recognition and mood
+inference. Gathers 'R' and 'Python' tools to solve problems concerning
+voice and audio in general.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.common
-%global packver   0.5.0
+%global packname  multiview
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Paws Low-Level Amazon Web Services API
+Summary:          Cooperative Learning for Multi-View Analysis
 
-License:          Apache License (>= 2.0)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-utils 
 
 %description
-Functions for making low-level API requests to Amazon Web Services
-<https://aws.amazon.com>. The functions handle building, signing, and
-sending requests, and receiving responses. They are designed to help build
-higher-level interfaces to individual services, such as Simple Storage
-Service (S3).
+Cooperative learning combines the usual squared error loss of predictions
+with an agreement penalty to encourage the predictions from different data
+views to agree. By varying the weight of the agreement penalty, we get a
+continuum of solutions that include the well-known early and late fusion
+approaches. Cooperative learning chooses the degree of agreement (or
+fusion) in an adaptive manner, using a validation set or cross-validation
+to estimate test set prediction error. In the setting of cooperative
+regularized linear regression, the method combines the lasso penalty with
+the agreement penalty (Ding, D., Li, S., Narasimhan, B., Tibshirani, R.
+(2021) <arXiv:2112.12337>).
 
 %prep
 %setup -q -c -n %{packname}

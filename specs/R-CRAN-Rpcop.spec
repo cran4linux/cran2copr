@@ -1,29 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ensembleBMA
-%global packver   5.1.8
+%global packname  Rpcop
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.8
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilistic Forecasting using Ensembles and Bayesian Model Averaging
+Summary:          Principal Curves of Oriented Points
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-chron 
-Requires:         R-CRAN-chron 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-princurve 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-princurve 
 
 %description
-Bayesian Model Averaging to create probabilistic forecasts from ensemble
-forecasts and weather observations
-<https://stat.uw.edu/sites/default/files/files/reports/2007/tr516.pdf>.
+Principal curves generalize the notion of a first principal component to
+the case in which it is a non linear smooth curve. This package provides a
+function pcop(X) to compute principal curves with the algorithm defined in
+Delicado (2001) <doi:10.1006/jmva.2000.1917> from a data matrix X.
 
 %prep
 %setup -q -c -n %{packname}

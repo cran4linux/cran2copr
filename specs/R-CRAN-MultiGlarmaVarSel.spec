@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ensembleBMA
-%global packver   5.1.8
+%global packname  MultiGlarmaVarSel
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.8
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilistic Forecasting using Ensembles and Bayesian Model Averaging
+Summary:          Variable Selection in Sparse Multivariate GLARMA Models
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chron 
-Requires:         R-CRAN-chron 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-glmnet 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Bayesian Model Averaging to create probabilistic forecasts from ensemble
-forecasts and weather observations
-<https://stat.uw.edu/sites/default/files/files/reports/2007/tr516.pdf>.
+Performs variable selection in high-dimensional sparse GLARMA models. For
+further details we refer the reader to the paper Gomtsyan et al. (2022),
+<arXiv:2208.14721>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  kfa
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          K-Fold Cross Validation for Factor Analysis
 
@@ -44,15 +45,16 @@ Requires:         R-CRAN-semPlot
 Requires:         R-CRAN-simstandard 
 
 %description
-Provides functions to explore possible factor structures for a set of
-variables and helps identify plausible and replicable structures via
-k-fold cross validation. The process combines the exploratory and
-confirmatory factor analytic approach to scale development (Flora & Flake,
-2017) <doi:10.1037/cbs0000069> with a cross validation technique that
-maximizes the available data. Also available are functions to determine k
-by drawing on power analytic techniques for covariance structures
-(MacCallum, Browne, & Sugawara, 1996) <doi:10.1037/1082-989X.1.2.130>,
-generate model syntax, and summarize results in a report.
+Provides functions to identify plausible and replicable factor structures
+for a set of variables via k-fold cross validation. The process combines
+the exploratory and confirmatory factor analytic approach to scale
+development (Flora & Flake, 2017) <doi:10.1037/cbs0000069> with a cross
+validation technique that maximizes the available data (Hastie,
+Tibshirani, & Friedman, 2009) <isbn:978-0-387-21606-5>. Also available are
+functions to determine k by drawing on power analytic techniques for
+covariance structures (MacCallum, Browne, & Sugawara, 1996)
+<doi:10.1037/1082-989X.1.2.130>, generate model syntax, and summarize
+results in a report.
 
 %prep
 %setup -q -c -n %{packname}
