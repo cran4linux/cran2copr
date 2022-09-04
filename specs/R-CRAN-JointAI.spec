@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  JointAI
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Analysis and Imputation of Incomplete Data
 
@@ -21,7 +22,6 @@ BuildRequires:    R-CRAN-mcmcse
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-MASS 
@@ -30,7 +30,6 @@ Requires:         R-CRAN-mcmcse
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-future 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-MASS 

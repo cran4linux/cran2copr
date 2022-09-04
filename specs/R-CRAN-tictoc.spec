@@ -1,31 +1,33 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tictoc
-%global packver   1.0.1
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Timing R Scripts, as Well as Implementations of Stack and List Structures
+Summary:          Functions for Timing R Scripts, as Well as Implementations of "Stack" and "List" Structures
 
 License:          Apache License (== 2.0) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.3
-Requires:         R-core >= 3.0.3
+BuildRequires:    R-devel >= 2.15
+Requires:         R-core >= 2.15
 BuildArch:        noarch
 BuildRequires:    R-methods 
 Requires:         R-methods 
 
 %description
-Provides the timing functions 'tic' and 'toc' that can be nested. One can
-record all timings while a complex script is running, and examine the
+Code execution timing functions 'tic' and 'toc' that can be nested. One
+can record all timings while a complex script is running, and examine the
 values later. It is also possible to instrument the timing calls with
 custom callbacks. In addition, this package provides class 'Stack',
 implemented as a vector, and class 'List', implemented as a list, both of
-which support operations 'push', 'pop', 'first', 'last' and 'clear'.
+which support operations 'push', 'pop', 'first_element', 'last_element'
+and 'clear'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

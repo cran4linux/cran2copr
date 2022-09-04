@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fgeo.tool
-%global packver   1.2.7
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import and Manipulate 'ForestGEO' Data
 
@@ -21,7 +22,7 @@ BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-glue >= 1.3.1
 BuildRequires:    R-CRAN-readr >= 1.3.1
 BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
-BuildRequires:    R-CRAN-rlang >= 0.3.4
+BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-tidyselect >= 0.2.5
 Requires:         R-CRAN-tibble >= 2.1.1
@@ -29,7 +30,7 @@ Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-glue >= 1.3.1
 Requires:         R-CRAN-readr >= 1.3.1
 Requires:         R-CRAN-dplyr >= 0.8.0.1
-Requires:         R-CRAN-rlang >= 0.3.4
+Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-tidyselect >= 0.2.5
 
@@ -48,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

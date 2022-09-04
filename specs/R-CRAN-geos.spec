@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  geos
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Source Geometry Engine ('GEOS') R API
 
@@ -22,11 +23,11 @@ Requires:         R-CRAN-wk >= 0.4.1
 
 %description
 Provides an R API to the Open Source Geometry Engine ('GEOS') library
-(<https://trac.osgeo.org/geos/>) and a vector format with which to
-efficiently store 'GEOS' geometries. High-performance functions to extract
-information from, calculate relationships between, and transform
-geometries are provided. Finally, facilities to import and export geometry
-vectors to other spatial formats are provided.
+(<https://libgeos.org/>) and a vector format with which to efficiently
+store 'GEOS' geometries. High-performance functions to extract information
+from, calculate relationships between, and transform geometries are
+provided. Finally, facilities to import and export geometry vectors to
+other spatial formats are provided.
 
 %prep
 %setup -q -c -n %{packname}
