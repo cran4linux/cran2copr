@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  changepoints
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Change-Point Detection Methods
 
@@ -33,18 +34,19 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Performs a series of offline and/or online change-point detection
-algorithms for 1) univariate mean; 2) univariate polynomials; 3)
-univariate and multivariate nonparametric settings; 4) high-dimensional
-covariances; 5) high-dimensional networks with and without missing values;
-6) high-dimensional linear regression models; 7) high-dimensional vector
-autoregressive models; 8) high-dimensional self exciting point processes;
-9) dependent dynamic nonparametric random dot product graphs; 10)
-univariate mean against adversarial attacks. For more informations, see
-<arXiv:1810.09498>; <arXiv:2006.03283>; <arXiv:2007.09910>;
-<arXiv:1905.10019>; <arXiv:1910.13289>; <arXiv:1712.09912>;
-<arXiv:1809.09602>; <arXiv:1911.07494>; <arXiv:2101.05477>;
-<arXiv:2010.10410>; <arXiv:1909.06359>; <arXiv:2006.03572>;
-<arXiv:2110.06450>; <arXiv:2105.10417>.
+algorithms for 1) univariate mean: <doi:10.1214/20-EJS1710>,
+<arXiv:2006.03283>; 2) univariate polynomials: <doi:10.1214/21-EJS1963>;
+3) univariate and multivariate nonparametric settings:
+<doi:10.1214/21-EJS1809>, <doi:10.1109/TIT.2021.3130330>; 4)
+high-dimensional covariances: <doi:10.3150/20-BEJ1249>; 5)
+high-dimensional networks with and without missing values:
+<doi:10.1214/20-AOS1953>, <arXiv:2101.05477>, <arXiv:2110.06450>; 6)
+high-dimensional linear regression models: <arXiv:2010.10410>,
+<arXiv:2207.12453>; 7) high-dimensional vector autoregressive models:
+<arXiv:1909.06359>; 8) high-dimensional self exciting point processes:
+<arXiv:2006.03572>; 9) dependent dynamic nonparametric random dot product
+graphs: <arXiv:1911.07494>; 10) univariate mean against adversarial
+attacks: <arXiv:2105.10417>.
 
 %prep
 %setup -q -c -n %{packname}

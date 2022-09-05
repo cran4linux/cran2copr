@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  casen
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metodos De Estimacion Con Disenio Probabilistico y Estratificado en Encuesta CASEN (Estimation Methods with Probabilistic Stratified Sampling in CASEN Survey)
 

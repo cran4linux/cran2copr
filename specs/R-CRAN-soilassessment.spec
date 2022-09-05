@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  soilassessment
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessment Models for Agriculture Soil Conditions and Crop Suitability
 
@@ -27,13 +28,12 @@ BuildRequires:    R-CRAN-Hmisc
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-quantregForest 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-qrnn 
+BuildRequires:    R-CRAN-quantregForest 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-soiltexture 
 BuildRequires:    R-CRAN-sp 
@@ -49,13 +49,12 @@ Requires:         R-CRAN-Hmisc
 Requires:         R-CRAN-kernlab 
 Requires:         R-methods 
 Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-quantregForest 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-qrnn 
+Requires:         R-CRAN-quantregForest 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-soiltexture 
 Requires:         R-CRAN-sp 
@@ -66,10 +65,10 @@ Soil assessment builds information for improved decision in soil
 management. It analyzes soil conditions with regard to agriculture crop
 suitability requirements [such as those given by FAO
 <https://www.fao.org/land-water/databases-and-software/crop-information/en/>]
-soil fertility classes, soil erosion models and soil salinity
-classification. Suitability requirements are for crops grouped into cereal
-crops, nuts, legumes, fruits, vegetables, industrial crops, and root
-crops.
+soil fertility classes, soil erosion, and soil salinity classification
+[<doi:10.1002/ldr.4211>]. Suitability requirements are for crops grouped
+into cereal crops, nuts, legumes, fruits, vegetables, industrial crops,
+and root crops.
 
 %prep
 %setup -q -c -n %{packname}

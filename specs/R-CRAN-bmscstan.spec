@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bmscstan
-%global packver   1.1.0
+%global packver   1.2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Multilevel Single Case Models using 'Stan'
 
@@ -17,18 +18,18 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-CRAN-logspline 
-BuildRequires:    R-CRAN-bayesplot 
-BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-logspline 
+BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan 
-Requires:         R-CRAN-logspline 
-Requires:         R-CRAN-bayesplot 
-Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-coda 
+Requires:         R-CRAN-bayesplot 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-logspline 
+Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-rstantools
 
 %description
@@ -37,7 +38,8 @@ provide a flexible, with good power and low first type error approach that
 can manage at the same time controls' and patient's data. The use of
 Bayesian statistics allows to test both the alternative and null
 hypothesis. Scandola, M., & Romano, D. (2020, August 3).
-<doi:10.31234/osf.io/sajdq>.
+<doi:10.31234/osf.io/sajdq> Scandola, M., & Romano, D. (2021).
+<doi:10.1016/j.neuropsychologia.2021.107834>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

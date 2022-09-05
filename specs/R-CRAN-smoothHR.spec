@@ -1,20 +1,21 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  smoothHR
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Smooth Hazard Ratio Curves Taking a Reference Value
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.12.0
+Requires:         R-core >= 2.12.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-splines 
