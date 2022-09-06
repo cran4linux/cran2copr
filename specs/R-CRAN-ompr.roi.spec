@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ompr.roi
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Solver for 'ompr' that Uses the R Optimization Infrastructure ('ROI')
 
@@ -16,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ompr >= 1.0.0
+BuildRequires:    R-CRAN-ompr >= 1.0.1
 BuildRequires:    R-CRAN-ROI >= 0.3.0
 BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-ompr >= 1.0.0
+Requires:         R-CRAN-ompr >= 1.0.1
 Requires:         R-CRAN-ROI >= 0.3.0
 Requires:         R-CRAN-slam 
 Requires:         R-methods 

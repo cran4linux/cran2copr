@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FactoMineR
-%global packver   2.4
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Exploratory Data Analysis and Data Mining
 
@@ -13,19 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-flashClust 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-leaps 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -35,12 +37,14 @@ Requires:         R-CRAN-car
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ellipse 
+Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-flashClust 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-leaps 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -65,6 +69,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

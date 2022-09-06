@@ -1,45 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kernelshap
-%global packver   0.2.0
+%global packname  accSDA
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel SHAP
+Summary:          Accelerated Sparse Discriminant Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-MASS >= 7.3.45
+BuildRequires:    R-grid >= 3.2.2
+BuildRequires:    R-CRAN-ggthemes >= 3.2.0
+BuildRequires:    R-CRAN-gridExtra >= 2.2
+BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
+Requires:         R-CRAN-MASS >= 7.3.45
+Requires:         R-grid >= 3.2.2
+Requires:         R-CRAN-ggthemes >= 3.2.0
+Requires:         R-CRAN-gridExtra >= 2.2
+Requires:         R-CRAN-ggplot2 >= 2.1.0
 
 %description
-Multidimensional version of the iterative Kernel SHAP algorithm described
-in Ian Covert and Su-In Lee (2021)
-<http://proceedings.mlr.press/v130/covert21a>.  SHAP values are calculated
-iteratively until convergence, along with approximate standard errors.
-The package allows to work with any model that provides numeric
-predictions of dimension one or higher.  Examples include linear
-regression, logistic regression (logit or probability scale), other
-generalized linear models, generalized additive models, and neural
-networks.  The package plays well together with meta-learning packages
-like 'tidymodels', 'caret' or 'mlr3'. Visualizations can be done using the
-R package 'shapviz'.
+Implementation of sparse linear discriminant analysis, which is a
+supervised classification method for multiple classes. Various novel
+optimization approaches to this problem are implemented including
+alternating direction method of multipliers ('ADMM'), proximal gradient
+(PG) and accelerated proximal gradient ('APG') (See Atkins 'et al'.
+<arXiv:1705.07194>). Functions for performing cross validation are also
+supplied along with basic prediction and plotting functions. Sparse zero
+variance discriminant analysis ('SZVD') is also included in the package
+(See Ames and Hong, <arXiv:1401.5492>). See the 'github' wiki for a more
+extended description.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SPOTMisc
-%global packver   1.19.50
+%global packver   1.19.52
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.19.50
+Version:          1.19.52
 Release:          1%{?dist}%{?buildtag}
 Summary:          Misc Extensions for the 'SPOT' Package
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-keras
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mlr 
 BuildRequires:    R-CRAN-Metrics 
-BuildRequires:    R-CRAN-OpenML 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reticulate 
@@ -51,7 +50,6 @@ Requires:         R-CRAN-keras
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mlr 
 Requires:         R-CRAN-Metrics 
-Requires:         R-CRAN-OpenML 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reticulate 

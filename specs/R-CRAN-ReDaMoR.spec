@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ReDaMoR
-%global packver   0.6.3
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relational Data Modeler
 
@@ -29,7 +30,6 @@ BuildRequires:    R-CRAN-rintrojs
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
@@ -47,7 +47,6 @@ Requires:         R-CRAN-rintrojs
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-igraph 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-stats 

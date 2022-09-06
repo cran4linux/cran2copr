@@ -1,60 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NADA2
-%global packver   1.1.0
+%global packname  HYPEtools
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Analysis for Censored Environmental Data
+Summary:          Tools for Processing and Analysing Files from the Hydrological Catchment Model HYPE
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-EnvStats >= 2.4
+BuildRequires:    R-CRAN-data.table >= 1.9.8
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-hydroGOF 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-CRAN-Kendall 
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-NADA 
-BuildRequires:    R-CRAN-perm 
-BuildRequires:    R-CRAN-survminer 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-cenGAM 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-coin 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-EnvStats >= 2.4
+Requires:         R-CRAN-data.table >= 1.9.8
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-CRAN-hydroGOF 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
-Requires:         R-CRAN-fitdistrplus 
-Requires:         R-CRAN-Kendall 
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-NADA 
-Requires:         R-CRAN-perm 
-Requires:         R-CRAN-survminer 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-cenGAM 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-coin 
-Requires:         R-CRAN-survival 
 
 %description
-Contains methods described by Dennis Helsel in his book "Statistics for
-Censored Environmental Data using Minitab and R" (2011) and courses and
-videos at <https://practicalstats.com>. This package adds new functions to
-the `NADA` Package.
+Work with model files (setup, input, output) from the hydrological
+catchment model HYPE: Streamlined file import and export, standard
+evaluation plot routines, diverse post-processing and aggregation routines
+for hydrological model analysis.
 
 %prep
 %setup -q -c -n %{packname}

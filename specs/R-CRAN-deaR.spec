@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  deaR
-%global packver   1.2.5
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conventional and Fuzzy Data Envelopment Analysis
 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-writexl
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
@@ -34,6 +36,7 @@ Requires:         R-CRAN-writexl
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-grDevices 
 
 %description
 Set of functions for Data Envelopment Analysis. It runs both classic and

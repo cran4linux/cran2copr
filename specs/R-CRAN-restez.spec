@@ -1,45 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kernelshap
-%global packver   0.2.0
+%global packname  restez
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel SHAP
+Summary:          Create and Query a Local Copy of 'GenBank' in R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-utils 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rentrez 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-ape 
+Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-utils 
+Requires:         R-CRAN-rentrez 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-duckdb 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-ape 
 
 %description
-Multidimensional version of the iterative Kernel SHAP algorithm described
-in Ian Covert and Su-In Lee (2021)
-<http://proceedings.mlr.press/v130/covert21a>.  SHAP values are calculated
-iteratively until convergence, along with approximate standard errors.
-The package allows to work with any model that provides numeric
-predictions of dimension one or higher.  Examples include linear
-regression, logistic regression (logit or probability scale), other
-generalized linear models, generalized additive models, and neural
-networks.  The package plays well together with meta-learning packages
-like 'tidymodels', 'caret' or 'mlr3'. Visualizations can be done using the
-R package 'shapviz'.
+Download large sections of 'GenBank'
+<https://www.ncbi.nlm.nih.gov/genbank/> and generate a local SQL-based
+database. A user can then query this database using 'restez' functions or
+through 'rentrez' <https://CRAN.R-project.org/package=rentrez> wrappers.
 
 %prep
 %setup -q -c -n %{packname}

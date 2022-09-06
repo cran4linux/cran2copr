@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NMproject
-%global packver   0.6.7
+%global packver   0.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Script Based 'NONMEM' Model Development
 
@@ -18,6 +19,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-stringr >= 1.3.1
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.2
 BuildRequires:    R-CRAN-rstudioapi >= 0.7
@@ -26,11 +28,9 @@ BuildRequires:    R-CRAN-git2r >= 0.18.0
 BuildRequires:    R-CRAN-diffobj >= 0.1.11
 BuildRequires:    R-CRAN-miniUI >= 0.1.1
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-dygraphs 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-usethis 
 Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-stringr >= 1.3.1
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.2
 Requires:         R-CRAN-rstudioapi >= 0.7
@@ -46,11 +47,9 @@ Requires:         R-CRAN-git2r >= 0.18.0
 Requires:         R-CRAN-diffobj >= 0.1.11
 Requires:         R-CRAN-miniUI >= 0.1.1
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-dygraphs 
 Requires:         R-CRAN-DT 
 Requires:         R-methods 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-rmarkdown 

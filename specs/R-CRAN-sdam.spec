@@ -1,48 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  renderthis
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  sdam
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Render Slides to Different Formats
+Summary:          Social Dynamics and Complexity in the Ancient Mediterranean
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-magick >= 2.7.1
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pagedown 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xaringan 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-magick >= 2.7.1
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pagedown 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xaringan 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-CRAN-grImport2 
+BuildRequires:    R-CRAN-multiplex 
+Requires:         R-CRAN-grImport2 
+Requires:         R-CRAN-multiplex 
 
 %description
-Render slides to different formats, including 'html', 'pdf', 'png', 'gif',
-'pptx', and 'mp4', as well as a 'social' output, a 'png' of the first
-slide re-sized for sharing on social media.
+Provides digital tools for performing analyses within Social Dynamics and
+complexity in the Ancient Mediterranean (SDAM), which is a research group
+based at the Department of History and Classical Studies at Aarhus
+University.
 
 %prep
 %setup -q -c -n %{packname}

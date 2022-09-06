@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  estadistica
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fundamentos De Estadistica Descriptiva e Inferencial
 
@@ -23,7 +24,6 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
@@ -37,7 +37,6 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
 Requires:         R-grid 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 

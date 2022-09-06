@@ -1,45 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kernelshap
-%global packver   0.2.0
+%global packname  Observation
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel SHAP
+Summary:          Collect and Process Physical Activity Direct Observation Data
 
-License:          GPL (>= 2)
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-svDialogs >= 1.0.0
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-svDialogs >= 1.0.0
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Multidimensional version of the iterative Kernel SHAP algorithm described
-in Ian Covert and Su-In Lee (2021)
-<http://proceedings.mlr.press/v130/covert21a>.  SHAP values are calculated
-iteratively until convergence, along with approximate standard errors.
-The package allows to work with any model that provides numeric
-predictions of dimension one or higher.  Examples include linear
-regression, logistic regression (logit or probability scale), other
-generalized linear models, generalized additive models, and neural
-networks.  The package plays well together with meta-learning packages
-like 'tidymodels', 'caret' or 'mlr3'. Visualizations can be done using the
-R package 'shapviz'.
+Two-part system for first collecting then managing direct observation
+data, as described by Hibbing PR, Ellingson LD, Dixon PM, & Welk GJ (2018)
+<doi:10.1249/MSS.0000000000001486>.
 
 %prep
 %setup -q -c -n %{packname}

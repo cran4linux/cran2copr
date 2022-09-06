@@ -1,45 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kernelshap
-%global packver   0.2.0
+%global packname  hippie
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel SHAP
+Summary:          Hippie Code Completion in 'RStudio'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rstudioapi >= 0.13
 BuildRequires:    R-utils 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-sourcetools 
+Requires:         R-CRAN-rstudioapi >= 0.13
 Requires:         R-utils 
+Requires:         R-CRAN-sourcetools 
 
 %description
-Multidimensional version of the iterative Kernel SHAP algorithm described
-in Ian Covert and Su-In Lee (2021)
-<http://proceedings.mlr.press/v130/covert21a>.  SHAP values are calculated
-iteratively until convergence, along with approximate standard errors.
-The package allows to work with any model that provides numeric
-predictions of dimension one or higher.  Examples include linear
-regression, logistic regression (logit or probability scale), other
-generalized linear models, generalized additive models, and neural
-networks.  The package plays well together with meta-learning packages
-like 'tidymodels', 'caret' or 'mlr3'. Visualizations can be done using the
-R package 'shapviz'.
+An 'RStudio' Addin for Hippie Expand (AKA Hippie Code Completion or Cyclic
+Expand Word). This type of completion searches for matching tokens within
+the user's current source editor file, regardless of file type. By
+searching only within the current source file, 'hippie' offers a fast way
+to identify and insert completions that appear around the user's cursor.
 
 %prep
 %setup -q -c -n %{packname}

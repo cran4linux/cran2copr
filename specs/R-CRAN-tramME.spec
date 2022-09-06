@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tramME
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models with Mixed Effects
 
@@ -49,15 +50,15 @@ Requires:         R-CRAN-coneproj
 
 %description
 Likelihood-based estimation of mixed-effects transformation models using
-the Template Model Builder ('TMB', Kristensen et al., 2016,
-<doi:10.18637/jss.v070.i05>). The technical details of transformation
-models are given in Hothorn et al. (2018, <doi:10.1111/sjos.12291>).
+the Template Model Builder ('TMB', Kristensen et al., 2016)
+<doi:10.18637/jss.v070.i05>. The technical details of transformation
+models are given in Hothorn et al. (2018) <doi:10.1111/sjos.12291>.
 Likelihood contributions of exact, randomly censored (left, right,
 interval) and truncated observations are supported. The random effects are
 assumed to be normally distributed on the scale of the transformation
 function, the marginal likelihood is evaluated using the Laplace
 approximation, and the gradients are calculated with automatic
-differentiation (Tamasi and Hothorn, 2021, <doi:10.32614/RJ-2021-075>).
+differentiation (Tamasi & Hothorn, 2021) <doi:10.32614/RJ-2021-075>.
 Penalized smooth shift terms can be defined using 'mgcv'.
 
 %prep

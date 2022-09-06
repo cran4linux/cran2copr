@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  finetune
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Additional Functions for Model Tuning
 
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-workflows >= 0.2.6
 Requires:         R-CRAN-tune >= 0.2.0
 Requires:         R-CRAN-dials >= 0.1.0
@@ -41,7 +41,6 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
 
 %description
 The ability to tune models is important. 'finetune' enhances the 'tune'

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  remiod
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference-Based Multiple Imputation for Ordinal/Binary Response
 
@@ -30,7 +31,6 @@ BuildRequires:    R-CRAN-ordinal
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mcmcse 
-BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-JointAI 
 Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-coda 
@@ -45,7 +45,6 @@ Requires:         R-CRAN-ordinal
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mcmcse 
-Requires:         R-CRAN-reshape2 
 
 %description
 Reference-based multiple imputation of ordinal and binary responses under

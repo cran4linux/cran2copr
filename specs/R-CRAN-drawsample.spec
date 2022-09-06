@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  drawsample
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Samples with the Desired Properties from a Data Set
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -20,7 +21,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-shiny 
@@ -28,13 +28,10 @@ BuildRequires:    R-CRAN-shinycssloaders
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-xlsx 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-shiny 
@@ -42,8 +39,6 @@ Requires:         R-CRAN-shinycssloaders
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-xlsx 
 Requires:         R-utils 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 
 %description
 A tool to sample data with the desired properties.Samples can be drawn by
@@ -64,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

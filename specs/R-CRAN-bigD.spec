@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kernelshap
+%global packname  bigD
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel SHAP
+Summary:          Flexibly Format Dates and Times to a Given Locale
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Multidimensional version of the iterative Kernel SHAP algorithm described
-in Ian Covert and Su-In Lee (2021)
-<http://proceedings.mlr.press/v130/covert21a>.  SHAP values are calculated
-iteratively until convergence, along with approximate standard errors.
-The package allows to work with any model that provides numeric
-predictions of dimension one or higher.  Examples include linear
-regression, logistic regression (logit or probability scale), other
-generalized linear models, generalized additive models, and neural
-networks.  The package plays well together with meta-learning packages
-like 'tidymodels', 'caret' or 'mlr3'. Visualizations can be done using the
-R package 'shapviz'.
+Format dates and times flexibly and to whichever locales make sense.
+Parses dates, times, and date-times in various formats (including
+string-based ISO 8601 constructions). The formatting syntax gives the user
+many options for formatting the date and time output in a precise manner.
+Time zones in the input can be expressed in multiple ways and there are
+many options for formatting time zones in the output as well. Several of
+the provided helper functions allow for automatic generation of
+locale-aware formatting patterns based on date/time skeleton formats and
+standardized date/time formats with varying specificity.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tipr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tipping Point Analyses
 
@@ -30,13 +30,17 @@ Requires:         R-CRAN-sensemakr
 The strength of evidence provided by epidemiological and observational
 studies is inherently limited by the potential for unmeasured confounding.
 We focus on three key quantities: the observed bound of the confidence
-interval closest to the null, a plausible residual effect size for an
-unmeasured continuous or binary confounder, and a realistic mean
-difference or prevalence difference for this hypothetical confounder.
-Building on the methods put forth by Lin, Psaty, & Kronmal (1998)
-<doi:10.2307/2533848>, we can use these quantities to assess how an
-unmeasured confounder may tip our result to insignificance, rendering the
-study inconclusive.
+interval closest to the null, the relationship between an unmeasured
+confounder and the outcome, for example a plausible residual effect size
+for an unmeasured continuous or binary confounder, and the relationship
+between an unmeasured confounder and the exposure, for example a realistic
+mean difference or prevalence difference for this hypothetical confounder
+between exposure groups. Building on the methods put forth by Cornfield et
+al. (1959), Bross (1966), Schlesselman (1978), Rosenbaum & Rubin (1983),
+Lin et al. (1998), Lash et al. (2009), Rosenbaum (1986), Cinelli & Hazlett
+(2020), VanderWeele & Ding (2017), and Ding & VanderWeele (2016), we can
+use these quantities to assess how an unmeasured confounder may tip our
+result to insignificance.
 
 %prep
 %setup -q -c -n %{packname}

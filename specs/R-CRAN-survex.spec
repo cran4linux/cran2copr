@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  atpolR
+%global packname  survex
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          ATPOL Grid Implementation
+Summary:          Explainable Machine Learning in Survival Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack >= 0.7
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-Rdpack >= 0.7
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-CRAN-DALEX >= 2.2.1
+BuildRequires:    R-CRAN-ingredients 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-pec 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-DALEX >= 2.2.1
+Requires:         R-CRAN-ingredients 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-pec 
+Requires:         R-CRAN-survival 
 
 %description
-ATPOL is a rectangular grid system used for botanical studies in Poland.
-The ATPOL grid was developed in Institute of Botany, Jagiellonian
-University, Krakow, Poland in '70. Since then it is widely used to
-represent distribution of plants in Poland. 'atpolR' provides functions to
-translate geographic coordinates to the grid and vice versa. It also
-allows to create a choreograph map.
+Survival analysis models are commonly used in medicine and other areas.
+Many of them are too complex to be interpreted by human. Exploration and
+explanation is needed, but standard methods do not give a broad enough
+picture. 'survex' provides easy-to-apply methods for explaining survival
+models, both complex black-boxes and simpler statistical models. They
+include methods specific to survival analysis such as SurvSHAP(t)
+described in Krzyzinski et al., (2022) <arXiv:2208.11080>, SurvLIME
+introduced in Kovalev et al., (2020) <doi:10.1016/j.knosys.2020.106164> as
+well as extensions of existing ones described in Biecek et al., (2021)
+<doi:10.1201/9780429027192>.
 
 %prep
 %setup -q -c -n %{packname}
