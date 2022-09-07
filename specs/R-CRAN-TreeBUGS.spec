@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeBUGS
-%global packver   1.4.8
+%global packver   1.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
+Version:          1.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Multinomial Processing Tree Modeling
 
@@ -54,7 +54,8 @@ either fitted by calling JAGS or by an MPT-tailored Gibbs sampler in C++
 (only for nonhierarchical and beta MPT models). Provides tests of
 heterogeneity and MPT-tailored summaries and plotting functions. A
 detailed documentation is available in Heck, Arnold, & Arnold (2018)
-<DOI:10.3758/s13428-017-0869-7>.
+<DOI:10.3758/s13428-017-0869-7> and a tutorial on MPT modeling can be
+found in Schmidt, Erdfelder, & Heck (2022) <DOI:10.31234/osf.io/gh8md>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CRTgeeDR
-%global packver   2.0.1
+%global packname  greta.gp
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Doubly Robust Inverse Probability Weighted Augmented GEE Estimator
+Summary:          Gaussian Process Modelling in 'greta'
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-tensorflow >= 2.7.0
+BuildRequires:    R-CRAN-greta >= 0.4.2
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-tensorflow >= 2.7.0
+Requires:         R-CRAN-greta >= 0.4.2
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
 
 %description
-Implements a semi-parametric GEE estimator accounting for missing data
-with Inverse-probability weighting (IPW) and for imbalance in covariates
-with augmentation (AUG). The estimator IPW-AUG-GEE is Doubly robust (DR).
+Provides a syntax to create and combine Gaussian process kernels in
+'greta'. You can then them to define either full rank or sparse Gaussian
+processes. This is an extension to the 'greta' software, Golding (2019)
+<doi:10.21105/joss.01601>.
 
 %prep
 %setup -q -c -n %{packname}

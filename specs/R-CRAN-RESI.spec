@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CRTgeeDR
-%global packver   2.0.1
+%global packname  RESI
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Doubly Robust Inverse Probability Weighted Augmented GEE Estimator
+Summary:          Robust Effect Size Index (RESI) Estimation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-aod 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-clubSandwich 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-regtools 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-CRAN-aod 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-clubSandwich 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-regtools 
+Requires:         R-CRAN-sandwich 
 
 %description
-Implements a semi-parametric GEE estimator accounting for missing data
-with Inverse-probability weighting (IPW) and for imbalance in covariates
-with augmentation (AUG). The estimator IPW-AUG-GEE is Doubly robust (DR).
+Summarize model output using a robust effect size index. The index is
+introduced in Vandekar, Rao, & Blume (2020)
+<doi:10.1007/s11336-020-09698-2>.
 
 %prep
 %setup -q -c -n %{packname}

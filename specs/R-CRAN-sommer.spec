@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sommer
-%global packver   4.1.7
+%global packver   4.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.7
+Version:          4.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solving Mixed Model Equations in R
 
@@ -41,7 +42,7 @@ matrices) (Covarrubias-Pazaran, 2016 <doi:10.1371/journal.pone.0156744>;
 Maier et al., 2015 <doi:10.1016/j.ajhg.2014.12.006>). REML estimates can
 be obtained using the Direct-Inversion Newton-Raphson and Direct-Inversion
 Average Information algorithms for the problems r x r (r being the number
-f records) or using the mixed-model-equations-based average information
+of records) or using the mixed-model-equations-based average information
 algorithm for the problem c x c (c being the number of coefficients to
 estimate). Spatial models can also be fitted using the two-dimensional
 spline functionality available in sommer.

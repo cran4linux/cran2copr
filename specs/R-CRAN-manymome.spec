@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MKinfer
-%global packver   0.7
+%global packname  manymome
+%global packver   0.1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inferential Statistics
+Summary:          Mediation, Moderation and Moderated-Mediation After Model Fitting
 
-License:          LGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MKdescr 
+BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-CRAN-MKdescr 
+Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-nlme 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 
 %description
-Computation of various confidence intervals (Altman et al. (2000),
-ISBN:978-0-727-91375-3; Hedderich and Sachs (2018),
-ISBN:978-3-662-56657-2) including bootstrapped versions (Davison and
-Hinkley (1997), ISBN:978-0-511-80284-3) as well as Hsu (Hedderich and
-Sachs (2018), ISBN:978-3-662-56657-2), permutation (Janssen (1997),
-<doi:10.1016/S0167-7152(97)00043-6>), bootstrap (Davison and Hinkley
-(1997), ISBN:978-0-511-80284-3) and multiple imputation (Barnard and Rubin
-(1999), <doi:10.1093/biomet/86.4.948>) t-test. Graphical visualization by
-volcano plots.
+Computes indirect effects, conditional effects, and conditional indirect
+effects in a structural equation model or path model after model fitting,
+with no need to define any user parameters or label any paths in the model
+syntax. Can also form bootstrap confidence intervals by doing
+bootstrapping only once and reusing the bootstrap estimates in all
+subsequent computations. Supports bootstrap confidence intervals for
+standardized (partially or completely) indirect effects, conditional
+effects, and conditional indirect effects as described in Cheung (2009)
+<doi:10.3758/BRM.41.2.425> and Cheung, Cheung, Lau, Hui, and Vong (2022)
+<doi:10.1037/hea0001188>. Model fitting can be done by structural equation
+modeling using lavaan() or regression using lm().
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spatPomp
-%global packver   0.29.0.0
+%global packver   0.30.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.29.0.0
+Version:          0.30.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference for Spatiotemporal Partially Observed Markov Processes
 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-pomp >= 4.1
 Requires:         R-methods 
 Requires:         R-CRAN-foreach 
@@ -33,6 +35,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Inference on panel data using spatiotemporal partially-observed Markov
@@ -42,9 +45,9 @@ data using partially-observed Markov process (POMP) models. Implemented
 methods include filtering and inference methods in Park and Ionides (2020)
 <doi:10.1007/s11222-020-09957-3>, Rebeschini and van Handel (2015)
 <doi:10.1214/14-AAP1061>, Evensen and van Leeuwen (1996)
-<doi:10.1029/94JC00572> and Ionides et al. (2021) <arXiv:2002.05211v2>.
-Pre-print statistical software article: Asfaw et al. (2021)
-<arXiv:2101.01157>.
+<doi:10.1029/94JC00572> and Ionides et al. (2021)
+<doi:10.1080/01621459.2021.1974867>. Pre-print statistical software
+article: Asfaw et al. (2021) <arXiv:2101.01157>.
 
 %prep
 %setup -q -c -n %{packname}

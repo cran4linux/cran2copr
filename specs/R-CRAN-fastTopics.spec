@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fastTopics
-%global packver   0.6-135
+%global packver   0.6-142
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.135
+Version:          0.6.142
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Algorithms for Fitting Topic Models and Non-Negative Matrix Factorizations to Count Data
 

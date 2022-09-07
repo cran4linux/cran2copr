@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iapws
-%global packver   0.10
+%global packver   0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10
+Version:          0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formulations of the International Association for the Properties of Water and Steam
 
@@ -21,8 +21,8 @@ Requires:         R-core >= 3.0.0
 Implementation of some of the formulations for the thermodynamic and
 transport properties of ordinary water and steam released by the
 International Association for the Properties of Water and Steam (IAPWS).
-More specifically, the releases referenced R6-95(2018), R7-97(2012),
-R12-08 and R15-11 at <http://iapws.org/release.html>.
+More specifically, the releases referenced R1-76(2014), R6-95(2018),
+R7-97(2012), R8-97, R12-08 and R15-11 at <http://iapws.org>.
 
 %prep
 %setup -q -c -n %{packname}

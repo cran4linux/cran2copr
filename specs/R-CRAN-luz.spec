@@ -1,55 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  plumber
-%global packver   1.2.1
+%global packname  luz
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An API Generator for R
+Summary:          Higher Level 'API' for 'torch'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swagger >= 3.33.0
-BuildRequires:    R-CRAN-R6 >= 2.0.0
-BuildRequires:    R-CRAN-httpuv >= 1.5.5
-BuildRequires:    R-CRAN-promises >= 1.1.0
-BuildRequires:    R-CRAN-webutils >= 1.1
-BuildRequires:    R-CRAN-jsonlite >= 0.9.16
-BuildRequires:    R-CRAN-stringi >= 0.3.0
-BuildRequires:    R-CRAN-ellipsis >= 0.3.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-sodium 
+BuildRequires:    R-CRAN-torch >= 0.5.0
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-zeallot 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-swagger >= 3.33.0
-Requires:         R-CRAN-R6 >= 2.0.0
-Requires:         R-CRAN-httpuv >= 1.5.5
-Requires:         R-CRAN-promises >= 1.1.0
-Requires:         R-CRAN-webutils >= 1.1
-Requires:         R-CRAN-jsonlite >= 0.9.16
-Requires:         R-CRAN-stringi >= 0.3.0
-Requires:         R-CRAN-ellipsis >= 0.3.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-sodium 
+BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-prettyunits 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-torch >= 0.5.0
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mime 
+Requires:         R-CRAN-zeallot 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-coro 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-prettyunits 
+Requires:         R-CRAN-cli 
 
 %description
-Gives the ability to automatically generate and serve an HTTP API from R
-functions using the annotations in the R documentation around your
-functions.
+A high level interface for 'torch' providing utilities to reduce the the
+amount of code needed for common tasks, abstract away torch details and
+make the same code work on both the 'CPU' and 'GPU'. It's flexible enough
+to support expressing a large range of models. It's heavily inspired by
+'fastai' by Howard et al. (2020) <arXiv:2002.04688>, 'Keras' by Chollet et
+al. (2015) and 'PyTorch Lightning' by Falcon et al. (2019)
+<doi:10.5281/zenodo.3828935>.
 
 %prep
 %setup -q -c -n %{packname}

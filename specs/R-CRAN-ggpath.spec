@@ -1,41 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CRTgeeDR
-%global packver   2.0.1
+%global packname  ggpath
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Doubly Robust Inverse Probability Weighted Augmented GEE Estimator
+Summary:          Robust Image Rendering Support for 'ggplot2'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-magick >= 2.7.3
+BuildRequires:    R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-cachem >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-rappdirs >= 0.3.0
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-magick >= 2.7.3
+Requires:         R-CRAN-memoise >= 2.0.0
+Requires:         R-CRAN-cachem >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-rappdirs >= 0.3.0
+Requires:         R-grid 
 
 %description
-Implements a semi-parametric GEE estimator accounting for missing data
-with Inverse-probability weighting (IPW) and for imbalance in covariates
-with augmentation (AUG). The estimator IPW-AUG-GEE is Doubly robust (DR).
+A 'ggplot2' extension that enables robust image grobs in panels and theme
+elements.
 
 %prep
 %setup -q -c -n %{packname}

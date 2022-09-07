@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ndvtest
-%global packver   1.0-0
+%global __requires_exclude ^libmpi
+%global packname  meconetcomp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shi's Non Degenerate Vuong Test
+Summary:          Compare Microbial Networks of 'trans_network' Class of 'microeco' Package
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-nonnest2 
-BuildRequires:    R-CRAN-CompQuadForm 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-nonnest2 
-Requires:         R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-microeco 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-microeco 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-reshape2 
 
 %description
-The Vuong test <doi:10.2307/1912557> is a very popular test for non-nested
-models. Shi <doi:10.3982/QE382> proposed a non-degenerate version of the
-Vuong test using local asymptotic theory.
+Compare microbial co-occurrence networks created from 'trans_network'
+class of 'microeco' package <https://github.com/ChiLiubio/microeco>. This
+package is the extension of 'trans_network' class of 'microeco' package
+and especially useful when different networks are constructed and analyzed
+simultaneously.
 
 %prep
 %setup -q -c -n %{packname}
