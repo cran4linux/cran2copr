@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pCODE
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
-Release:          3%{?dist}%{?buildtag}
-Summary:          Estimation of an Ordinary Differential Equation Model byParameter Cascade Method
+Version:          0.9.4
+Release:          1%{?dist}%{?buildtag}
+Summary:          Estimation of an Ordinary Differential Equation Model by Parameter Cascade Method
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,21 +19,18 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-base 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-pracma 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-deSolve 
-Requires:         R-base 
 Requires:         R-stats 
 
 %description
-An implementation of the parameter cascade method Ramsay, J. O.,
-Hooker,G., Campbell, D., and Cao, J. (2007)
-<doi:10.1111/j.1467-9868.2007.00610.x> for estimating ordinary
+An implementation of the parameter cascade method in Ramsay, J. O.,
+Hooker,G., Campbell, D., and Cao, J. (2007) for estimating ordinary
 differential equation models with missing or complete observations. It
 combines smoothing method and profile estimation to estimate any
 non-linear dynamic system. The package also offers variance estimates for
@@ -41,6 +39,15 @@ parameters of interest based on either bootstrap or Delta method.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -48,18 +55,10 @@ parameters of interest based on either bootstrap or Delta method.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

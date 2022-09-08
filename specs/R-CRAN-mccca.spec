@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClustBlock
-%global packver   3.0.0
+%global packname  mccca
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering of Datasets
+Summary:          Visualizing Class Specific Heterogeneous Tendencies in Categorical Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FactoMineR 
-Requires:         R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-magic 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-wordcloud 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-magic 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-wordcloud 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
-Hierarchical and partitioning algorithms of blocks of variables. The
-partitioning algorithm includes an option called noise cluster to set
-aside atypical blocks of variables. The CLUSTATIS method (for quantitative
-blocks) (Llobell, Cariou, Vigneau, Labenne & Qannari (2020)
-<doi:10.1016/j.foodqual.2018.05.013>, Llobell, Vigneau & Qannari (2019)
-<doi:10.1016/j.foodqual.2019.02.017>) and the CLUSCATA method (for
-Check-All-That-Apply data) (Llobell, Cariou, Vigneau, Labenne & Qannari
-(2019) <doi:10.1016/j.foodqual.2018.09.006>, Llobell, Giacalone, Labenne &
-Qannari (2019) <doi:10.1016/j.foodqual.2019.05.017>) are the core of this
-package. The CATATIS methods allows to compute some indices and tests to
-control the quality of CATA data. Multivariate analysis and clustering of
-subjects for quantitative multiblock data, CATA, Free Sorting and JAR
-experiments are available.
+Performing multiple-class cluster correspondence analysis(MCCCA). The main
+functions are create.MCCCAdata() to create a list to be applied to MCCCA,
+MCCCA() to apply MCCCA, and plot.mccca() for visualizing MCCCA result.
+Methods used in the package refers to Mariko Takagishi and Michel van de
+Velden (2022)<doi:10.1080/10618600.2022.2035737>.
 
 %prep
 %setup -q -c -n %{packname}

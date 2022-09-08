@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AlleleShift
-%global packver   1.1
+%global packname  mlim
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict and Visualize Population-Level Changes in Allele Frequencies in Response to Climate Change
+Summary:          Multiple Imputation with Automated Machine Learning
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan >= 2.5.6
-BuildRequires:    R-CRAN-BiodiversityR >= 2.12.3
-BuildRequires:    R-CRAN-adegenet 
-Requires:         R-CRAN-vegan >= 2.5.6
-Requires:         R-CRAN-BiodiversityR >= 2.12.3
-Requires:         R-CRAN-adegenet 
+BuildRequires:    R-CRAN-curl >= 4.3.0
+BuildRequires:    R-CRAN-h2o >= 3.34.0.0
+BuildRequires:    R-CRAN-md.log >= 0.2.0
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-missRanger 
+BuildRequires:    R-CRAN-memuse 
+Requires:         R-CRAN-curl >= 4.3.0
+Requires:         R-CRAN-h2o >= 3.34.0.0
+Requires:         R-CRAN-md.log >= 0.2.0
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-missRanger 
+Requires:         R-CRAN-memuse 
 
 %description
-Methods (<doi:10.7717/peerj.11534>) are provided of calibrating and
-predicting shifts in allele frequencies through redundancy analysis
-('vegan::rda()') and generalized additive models ('mgcv::gam()').
-Visualization functions for predicted changes in allele frequencies
-include 'shift.dot.ggplot()', 'shift.pie.ggplot()', 'shift.moon.ggplot()',
-'shift.waffle.ggplot()' and 'shift.surf.ggplot()' that are made with input
-data sets that are prepared by helper functions for each visualization
-method. Examples in the documentation show how to prepare animated climate
-change graphics through a time series with the 'gganimate' package.
-Function 'amova.rda()' shows how Analysis of Molecular Variance can be
-directly conducted with the results from redundancy analysis.
+Using automated machine learning, the package fine-tunes an Elastic Net
+(default) or Gradient Boosting, Random Forest, Deep Learning, Extreme
+Gradient Boosting, or Stacked Ensemble machine learning model for imputing
+the missing observations of each variable. This procedure has been
+implemented for the first time by this package and is expected to
+outperform other packages for imputing missing data that do not fine-tune
+their models. The main idea is to allow the model to set its own
+parameters for imputing each variable instead of setting fixed predefined
+parameters to impute all variables of the dataset.
 
 %prep
 %setup -q -c -n %{packname}

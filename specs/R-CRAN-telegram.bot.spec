@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  telegram.bot
-%global packver   2.4.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Develop a 'Telegram Bot' with R
 
@@ -18,12 +18,16 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-R6 
 
 %description

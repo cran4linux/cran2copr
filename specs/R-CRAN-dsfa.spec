@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lgrExtra
-%global packver   0.0.7
+%global packname  dsfa
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Appenders for 'lgr'
+Summary:          Distributional Stochastic Frontier Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,14 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lgr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lgr 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-gratia 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-sn 
+Requires:         R-CRAN-gratia 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Additional appenders for the logging package 'lgr' that support logging to
-databases, email and push notifications.
+Framework to fit distributional stochastic frontier models. Casts the
+stochastic frontier model into the flexible framework of distributional
+regression or otherwise known as General Additive Models of Location,
+Scale and Shape (GAMLSS). Allows for linear, non-linear, random and
+spatial effects on all the parameters of the distribution of the output,
+e.g. effects on the production or cost function, heterogeneity of the
+noise and inefficiency. Available distributions are the normal-halfnormal
+and normal-exponential distribution. Estimation via the fast and reliable
+routines of the 'mgcv' package. For more details see Schmidt R, Kneib T
+(2022) <doi:10.48550/arXiv.2208.10294>.
 
 %prep
 %setup -q -c -n %{packname}

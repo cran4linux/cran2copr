@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClustBlock
-%global packver   3.0.0
+%global packname  vapour
+%global packver   0.8.82
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.8.82
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering of Datasets
+Summary:          Access to the 'Geospatial Data Abstraction Library' ('GDAL')
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-FactoMineR 
-Requires:         R-CRAN-FactoMineR 
+BuildRequires:    gdal-devel
+BuildRequires:    proj-devel
+BuildRequires:    sqlite-devel
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-utils 
 
 %description
-Hierarchical and partitioning algorithms of blocks of variables. The
-partitioning algorithm includes an option called noise cluster to set
-aside atypical blocks of variables. The CLUSTATIS method (for quantitative
-blocks) (Llobell, Cariou, Vigneau, Labenne & Qannari (2020)
-<doi:10.1016/j.foodqual.2018.05.013>, Llobell, Vigneau & Qannari (2019)
-<doi:10.1016/j.foodqual.2019.02.017>) and the CLUSCATA method (for
-Check-All-That-Apply data) (Llobell, Cariou, Vigneau, Labenne & Qannari
-(2019) <doi:10.1016/j.foodqual.2018.09.006>, Llobell, Giacalone, Labenne &
-Qannari (2019) <doi:10.1016/j.foodqual.2019.05.017>) are the core of this
-package. The CATATIS methods allows to compute some indices and tests to
-control the quality of CATA data. Multivariate analysis and clustering of
-subjects for quantitative multiblock data, CATA, Free Sorting and JAR
-experiments are available.
+Provides low-level access to 'GDAL' functionality. 'GDAL' is the
+'Geospatial Data Abstraction Library' a translator for raster and vector
+geospatial data formats that presents a single raster abstract data model
+and single vector abstract data model to the calling application for all
+supported formats <https://gdal.org/>. This package is focussed on
+providing exactly and only what GDAL does, to enable developing further
+tools.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chromote
-%global packver   0.1.1
+%global packname  flexsiteboard
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Headless Chrome Web Browser Interface
+Summary:          Breaks Single Page Applications from 'flexdashboard' in Multiple Files
 
-License:          GPL-2
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-websocket >= 1.2.0
-BuildRequires:    R-CRAN-promises >= 1.1.1
-BuildRequires:    R-CRAN-later >= 1.1.0
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-flexdashboard 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-fastmap 
-Requires:         R-CRAN-websocket >= 1.2.0
-Requires:         R-CRAN-promises >= 1.1.1
-Requires:         R-CRAN-later >= 1.1.0
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-flexdashboard 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-fastmap 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-stats 
+Requires:         R-CRAN-yaml 
 
 %description
-An implementation of the 'Chrome DevTools Protocol', for controlling a
-headless Chrome web browser.
+A drop-in replacement for 'flexdashboard' 'Rmd' documents, which
+implements an after-knit-hook to split the generated single page
+application in one document per main section to reduce rendering load in
+the web browser displaying the document. Put all 'JavaScript' stuff needed
+in all sections before the first headline featuring navigation menu
+attributes. This package is experimental and maybe replaced by a solution
+inside 'flexdashboard'.
 
 %prep
 %setup -q -c -n %{packname}

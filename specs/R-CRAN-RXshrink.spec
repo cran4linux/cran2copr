@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RXshrink
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or Least Angle Regression
 
@@ -24,20 +25,21 @@ Requires:         R-CRAN-ellipse
 %description
 Functions are provided to calculate and display ridge TRACE Diagnostics
 for a variety of alternative Shrinkage Paths. While all methods focus on
-Maximum Likelihood estimation of unknown true effects under
-Normal-distribution theory, some estimates are modified to be Unbiased or
-to have "Correct Range" when estimating either [1] the noncentrality of
-the F-ratio for testing that true Beta coefficients are Zeros or [2] the
+Maximum Likelihood estimation of unknown true effects under normal
+distribution-theory, some estimates are modified to be Unbiased or to have
+"Correct Range" when estimating either [1] the noncentrality of the
+F-ratio for testing that true Beta coefficients are Zeros or [2] the
 "relative" MSE Risk (i.e. MSE divided by true sigma-square, where the
 "relative" variance of OLS is known.) The eff.ridge() function implements
 the "Efficient Shrinkage Path" introduced in Obenchain (2022) <Open
-Statistics>. This new "p-Parameter" Shrinkage-Path always passes through
-the vector of regression coefficient estimates Most-Likely to achieve the
+Statistics>. This "p-Parameter" Shrinkage-Path always passes through the
+vector of regression coefficient estimates Most-Likely to achieve the
 overall Optimal Variance-Bias Trade-Off and is the shortest Path with this
 property. Functions eff.aug() and eff.biv() augment the calculations made
 by eff.ridge() to provide plots of the bivariate confidence ellipses
 corresponding to any of the p*(p-1) possible ordered pairs of shrunken
-regression coefficients.
+regression coefficients. Functions for plotting TRACE Diagnostics now have
+more options.
 
 %prep
 %setup -q -c -n %{packname}

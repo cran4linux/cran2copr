@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClustBlock
-%global packver   3.0.0
+%global packname  OneArm2stage
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering of Datasets
+Summary:          Optimal One-Arm Two-Stage Phase II Design with Survival Endpoint
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FactoMineR 
-Requires:         R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-IPDfromKM 
+Requires:         R-CRAN-survival 
+Requires:         R-utils 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-IPDfromKM 
 
 %description
-Hierarchical and partitioning algorithms of blocks of variables. The
-partitioning algorithm includes an option called noise cluster to set
-aside atypical blocks of variables. The CLUSTATIS method (for quantitative
-blocks) (Llobell, Cariou, Vigneau, Labenne & Qannari (2020)
-<doi:10.1016/j.foodqual.2018.05.013>, Llobell, Vigneau & Qannari (2019)
-<doi:10.1016/j.foodqual.2019.02.017>) and the CLUSCATA method (for
-Check-All-That-Apply data) (Llobell, Cariou, Vigneau, Labenne & Qannari
-(2019) <doi:10.1016/j.foodqual.2018.09.006>, Llobell, Giacalone, Labenne &
-Qannari (2019) <doi:10.1016/j.foodqual.2019.05.017>) are the core of this
-package. The CATATIS methods allows to compute some indices and tests to
-control the quality of CATA data. Multivariate analysis and clustering of
-subjects for quantitative multiblock data, CATA, Free Sorting and JAR
-experiments are available.
+The proposed two-stage design can be used for single-arm phase II trial
+designs with time-to-event endpoints, which is desirable for clinical
+trials on immunotherapies among cancer patients. There're two advantages
+of the proposed approach: 1) It provides flexible choices of four
+underlying survival distributions and 2) the power of the design is more
+accurately calculated using exact variance in one-sample log-rank test.
+The package can be used for 1) planning the sample size; 2) conducting the
+interim and final analyses for the Go/No-go decisions. More details about
+the design method can be found in the paper: Wu, J, Chen L, Wei J, Weiss
+H, Chauhan A. (2020). <doi:10.1002/pst.1983>.
 
 %prep
 %setup -q -c -n %{packname}

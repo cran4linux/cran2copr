@@ -1,38 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lawstat
-%global packver   3.5
+%global packname  remaCor
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Biostatistics, Public Policy, and Law
+Summary:          Random Effects Meta-Analysis for Correlated Test Statistics
 
-License:          GPL (>= 2)
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-RUnit 
+BuildRequires:    R-CRAN-clusterGeneration 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-Kendall 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-RUnit 
+Requires:         R-CRAN-clusterGeneration 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-reshape2 
+Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
 
 %description
-Statistical tests widely utilized in biostatistics, public policy, and
-law. Along with the well-known tests for equality of means and variances,
-randomness, and measures of relative variability, the package contains new
-robust tests of symmetry, omnibus and directional tests of normality, and
-their graphical counterparts such as robust QQ plot, robust trend tests
-for variances, etc. All implemented tests and methods are illustrated by
-simulations and real-life examples from legal statistics, economics, and
-biostatistics.
+Meta-analysis is widely used to summarize estimated effects sizes across
+multiple statistical tests. Standard fixed and random effect meta-analysis
+methods assume that the estimated of the effect sizes are statistically
+independent.  Here we relax this assumption and enable meta-analysis when
+the correlation matrix between effect size estimates is known.  Fixed
+effect meta-analysis uses the method of Lin and Sullivan (2009)
+<doi:10.1016/j.ajhg.2009.11.001>, and random effects meta-analysis uses
+the method of Han, et al. <doi:10.1093/hmg/ddw049>.
 
 %prep
 %setup -q -c -n %{packname}

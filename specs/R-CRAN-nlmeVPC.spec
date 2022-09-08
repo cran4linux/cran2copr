@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nlmeVPC
-%global packver   2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visual Model Checking for Nonlinear Mixed Effect Model
 
@@ -16,26 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-timeDate 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-timeDate 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-timeDate 
 
 %description
 Various visual and numerical diagnosis methods for the nonlinear mixed

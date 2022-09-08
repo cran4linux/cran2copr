@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  brokenstick
-%global packver   2.1.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broken Stick Model for Irregular Longitudinal Data
 
@@ -36,16 +37,31 @@ Requires:         R-stats
 Requires:         R-CRAN-tidyr 
 
 %description
-The broken stick model describes a set of individual curves by a linear
-mixed model using a second-order linear B-spline. The main use of the
-model is to align irregularly observed data to a user-specified grid of
-break ages. All fitting can done in the Z-score scale, so non-linearity
-and irregular data can be treated as separate problems. This package
-contains functions for fitting a broken stick model to data, for
-predicting broken stick curves in new data, and for plotting the broken
-stick estimates. For additional documentation on background, methodology
-and applications see
-<https://stefvanbuuren.name/publications/2021_brokenstick_JSS_manuscript.pdf>.
+Data on multiple individuals through time are often sampled at times that
+differ between persons. Irregular observation times can severely
+complicate the statistical analysis of the data. The broken stick model
+approximates each subject’s trajectory by one or more connected line
+segments. The times at which segments connect (breakpoints) are identical
+for all subjects and under control of the user. A well-fitting broken
+stick model effectively transforms individual measurements made at
+irregular times into regular trajectories with common observation times.
+Specification of the model requires just three variables: time,
+measurement and subject. The model is a special case of the linear mixed
+model, with time as a linear B-spline and subject as the grouping factor.
+The main assumptions are: subjects are exchangeable, trajectories between
+consecutive breakpoints are straight, random effects follow a multivariate
+normal distribution, and unobserved data are missing at random. The
+package contains functions for fitting the broken stick model to data, for
+predicting curves in new data and for plotting broken stick estimates. The
+package supports two optimization methods, and includes options to
+structure the variance-covariance matrix of the random effects. The
+analyst may use the software to smooth growth curves by a series of
+connected straight lines, to align irregularly observed curves to a common
+time grid, to create synthetic curves at a user-specified set of
+breakpoints, to estimate the time-to-time correlation matrix and to
+predict future observations. For additional documentation on background,
+methodology and applications see
+<https://growthcharts.org/brokenstick/articles/manual/manual.html>.
 
 %prep
 %setup -q -c -n %{packname}
