@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cem
-%global packver   1.1.31
+%global packname  mglasso
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.31
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Coarsened Exact Matching
+Summary:          Multiscale Graphical Lasso
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MatchIt 
-BuildRequires:    R-CRAN-combinat 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-tcltk 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MatchIt 
-Requires:         R-CRAN-combinat 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-reticulate >= 1.25
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-reticulate >= 1.25
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-Implementation of the Coarsened Exact Matching algorithm discussed along
-with its properties in Iacus, King, Porro (2011)
-<DOI:10.1198/jasa.2011.tm09599>; Iacus, King, Porro (2012)
-<DOI:10.1093/pan/mpr013> and Iacus, King, Porro (2019)
-<DOI:10.1017/pan.2018.29>.
+Inference of Multiscale graphical models with neighborhood selection
+approach.  The method is based on solving a convex optimization problem
+combining a Lasso and fused-group Lasso penalties.  This allows to infer
+simultaneously a conditional independence graph and a clustering
+partition. The optimization is based on the Continuation with Nesterov
+smoothing in a Shrinkage-Thresholding Algorithm solver (Hadj-Selem et al.
+2018) <doi:10.1109/TMI.2018.2829802> implemented in python.
 
 %prep
 %setup -q -c -n %{packname}

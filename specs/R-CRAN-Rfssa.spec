@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Rfssa
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Singular Spectrum Analysis
 
@@ -22,7 +23,6 @@ BuildRequires:    R-CRAN-lattice
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-Rssa 
-BuildRequires:    R-CRAN-hrbrthemes 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-methods 
@@ -38,7 +38,6 @@ Requires:         R-CRAN-lattice
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-Rssa 
-Requires:         R-CRAN-hrbrthemes 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
 Requires:         R-methods 
@@ -47,17 +46,8 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-markdown 
 
 %description
-Methods and tools for implementing univariate and multivariate functional
-singular spectrum analysis for functional time series whose variables
-might be observed over different dimensional domains. The univariate fssa
-algorithm is described in Haghbin H., Najibi, S.M., Mahmoudvand R., Trinka
-J., Maadooliat M. (2021) and the multivariate fssa over different
-dimensional domains technique may be found in Trinka J., Haghbin H., and
-Maadooliat M. (Accepted). In addition, one may perform forecasting of
-univariate and multivariate fts whose variables are observed over
-one-dimensional domains as described in the dissertation of Trinka J.
-(2021) and the manuscript of Trinka J., Haghbin H., Maadooliat M. (2020)
-where the manuscript is to be submitted to a journal for publication.
+Methods and tools for implementing functional singular spectrum analysis
+and related techniques.
 
 %prep
 %setup -q -c -n %{packname}

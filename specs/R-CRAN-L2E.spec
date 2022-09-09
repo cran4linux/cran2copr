@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  L2E
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Structured Regression via the L2 Criterion
 
@@ -16,14 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-CRAN-isotone 
 BuildRequires:    R-CRAN-cobs 
+BuildRequires:    R-CRAN-ncvreg 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-robustbase 
+Requires:         R-CRAN-osqp 
 Requires:         R-CRAN-isotone 
 Requires:         R-CRAN-cobs 
+Requires:         R-CRAN-ncvreg 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-robustbase 
 
 %description
 An implementation of a computational framework for performing robust
 structured regression with the L2 criterion from Chi and Chi (2021+).
+Improvements using the majorization-minimization (MM) principle from Liu,
+Chi, and Lange (2022+) added in Version 2.0.
 
 %prep
 %setup -q -c -n %{packname}

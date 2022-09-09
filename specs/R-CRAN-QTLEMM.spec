@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  QTLEMM
-%global packver   1.1.0
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          QTL Mapping and Hotspots Detection
 
@@ -20,10 +21,12 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
 For QTL mapping, it consists of several functions to perform various
@@ -51,10 +54,10 @@ mapping and hotspot detection methods for general use in genes, genomics
 and genetics studies. The QTL mapping methods for the complete and
 selective genotyping designs are based on the multiple interval mapping
 (MIM) model proposed by Kao, C.-H. , Z.-B. Zeng and R. D. Teasdale (1999)
-<doi:10.1534/genetics.103.021642> and H.-I Lee, H.-A. Ho and C.-H. Kao
-(2014) <doi:10.1534/genetics.114.168385>, respectively. The QTL hotspot
+<doi: 10.1534/genetics.103.021642> and H.-I Lee, H.-A. Ho and C.-H. Kao
+(2014) <doi: 10.1534/genetics.114.168385>, respectively. The QTL hotspot
 detection analysis is based on the method by Wu, P.-Y., M.-.H. Yang, and
-C.-H. Kao (2021) .
+C.-H. Kao (2021) <doi: 10.1093/g3journal/jkab056>.
 
 %prep
 %setup -q -c -n %{packname}

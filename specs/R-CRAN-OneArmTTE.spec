@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cem
-%global packver   1.1.31
+%global packname  OneArmTTE
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.31
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Coarsened Exact Matching
+Summary:          One-Arm Clinical Trial Designs for Time-to-Event Endpoint
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MatchIt 
-BuildRequires:    R-CRAN-combinat 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-tcltk 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MatchIt 
-Requires:         R-CRAN-combinat 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-survival 
 
 %description
-Implementation of the Coarsened Exact Matching algorithm discussed along
-with its properties in Iacus, King, Porro (2011)
-<DOI:10.1198/jasa.2011.tm09599>; Iacus, King, Porro (2012)
-<DOI:10.1093/pan/mpr013> and Iacus, King, Porro (2019)
-<DOI:10.1017/pan.2018.29>.
+Get operating characteristics of one-arm clinical trial designs for
+time-to-event endpoint through simulation and perform analysis with
+time-to-event data.
 
 %prep
 %setup -q -c -n %{packname}

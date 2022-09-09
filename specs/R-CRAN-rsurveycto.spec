@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cem
-%global packver   1.1.31
+%global packname  rsurveycto
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.31
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Coarsened Exact Matching
+Summary:          Interact with Data on 'SurveyCTO'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MatchIt 
-BuildRequires:    R-CRAN-combinat 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-tcltk 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MatchIt 
-Requires:         R-CRAN-combinat 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-curl >= 4.3.2
+BuildRequires:    R-CRAN-withr >= 2.5.0
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-httr >= 1.4.3
+BuildRequires:    R-CRAN-data.table >= 1.14.2
+Requires:         R-CRAN-curl >= 4.3.2
+Requires:         R-CRAN-withr >= 2.5.0
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-httr >= 1.4.3
+Requires:         R-CRAN-data.table >= 1.14.2
 
 %description
-Implementation of the Coarsened Exact Matching algorithm discussed along
-with its properties in Iacus, King, Porro (2011)
-<DOI:10.1198/jasa.2011.tm09599>; Iacus, King, Porro (2012)
-<DOI:10.1093/pan/mpr013> and Iacus, King, Porro (2019)
-<DOI:10.1017/pan.2018.29>.
+'SurveyCTO' is a platform for mobile data collection in offline settings.
+The 'rsurveycto' R package uses the 'SurveyCTO' REST API
+<https://docs.surveycto.com/05-exporting-and-publishing-data/05-api-access/01.api-access.html>
+to read datasets and forms from a 'SurveyCTO' server into R as
+'data.table's and to download file attachments. The package also has
+limited support to write datasets to a server.
 
 %prep
 %setup -q -c -n %{packname}

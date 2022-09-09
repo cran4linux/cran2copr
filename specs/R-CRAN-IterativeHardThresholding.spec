@@ -1,41 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cem
-%global packver   1.1.31
+%global packname  IterativeHardThresholding
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.31
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Coarsened Exact Matching
+Summary:          Iterative Hard Thresholding Extensions to Cyclops
 
-License:          GPL-2
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MatchIt 
-BuildRequires:    R-CRAN-combinat 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-tcltk 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MatchIt 
-Requires:         R-CRAN-combinat 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-Cyclops >= 1.3.0
+BuildRequires:    R-CRAN-ParallelLogger 
+Requires:         R-CRAN-Cyclops >= 1.3.0
+Requires:         R-CRAN-ParallelLogger 
 
 %description
-Implementation of the Coarsened Exact Matching algorithm discussed along
-with its properties in Iacus, King, Porro (2011)
-<DOI:10.1198/jasa.2011.tm09599>; Iacus, King, Porro (2012)
-<DOI:10.1093/pan/mpr013> and Iacus, King, Porro (2019)
-<DOI:10.1017/pan.2018.29>.
+Fits large-scale regression models with a penalty that restricts the
+maximum number of non-zero regression coefficients to a prespecified
+value.  While Chu et al (2020) <doi:10.1093/gigascience/giaa044> describe
+the basic algorithm, this package uses Cyclops for an efficient
+implementation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  JuliaCall
-%global packver   0.17.4
+%global packver   0.17.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.4
+Version:          0.17.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seamless Integration Between R and 'Julia'
 
@@ -19,9 +20,11 @@ Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-knitr >= 1.28
 BuildRequires:    R-CRAN-Rcpp >= 0.12.7
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rjson 
 Requires:         R-CRAN-knitr >= 1.28
 Requires:         R-CRAN-Rcpp >= 0.12.7
 Requires:         R-utils 
+Requires:         R-CRAN-rjson 
 
 %description
 Provides an R interface to 'Julia', which is a high-level,
@@ -41,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

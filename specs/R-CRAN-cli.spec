@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cli
-%global packver   3.3.0
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helpers for Developing Command Line Interfaces
 
@@ -15,9 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-glue >= 1.6.0
 BuildRequires:    R-utils 
-Requires:         R-CRAN-glue >= 1.6.0
 Requires:         R-utils 
 
 %description

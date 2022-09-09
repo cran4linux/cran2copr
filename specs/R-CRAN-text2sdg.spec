@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  text2sdg
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detecting UN Sustainable Development Goals in Text
 
@@ -42,7 +42,7 @@ contributions to social, economic, and environmental transformations. The
 in text using scientifically developed query systems, opening up the
 opportunity to monitor any type of text-based data, such as scientific
 output or corporate publications. For more information regarding the
-methodology see Meier, Mata & Wulff (2021) <arXiv:2110.05856>.
+methodology see Meier, Mata & Wulff (2022) <arXiv:2110.05856>.
 
 %prep
 %setup -q -c -n %{packname}

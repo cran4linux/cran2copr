@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  funtimes
-%global packver   8.2
+%global packver   9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.2
+Version:          9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Time Series Analysis
 
@@ -13,27 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-Jmisc 
 BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-mlVAR 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-vars 
+Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-Jmisc 
 Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-mlVAR 
+Requires:         R-parallel 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-vars 
 
 %description
 Nonparametric estimators and tests for time series analysis. The functions
 use bootstrap techniques and robust nonparametric difference-based
-estimators to test for the presence of possibly nonmonotonic trends and
-for synchronism of trends in multiple time series.
+estimators to test for the presence of possibly non-monotonic trends and
+for synchronicity of trends in multiple time series.
 
 %prep
 %setup -q -c -n %{packname}

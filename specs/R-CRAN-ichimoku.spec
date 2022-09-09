@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ichimoku
-%global packver   1.3.4
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Tools for Ichimoku Kinko Hyo Strategies
 
@@ -16,18 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-nanonext >= 0.5.5
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-nanonext >= 0.5.5
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 

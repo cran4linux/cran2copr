@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lfl
-%global packver   2.1.2
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linguistic Fuzzy Logic
 
@@ -34,7 +35,10 @@ Requires:         R-CRAN-zoo
 Various algorithms related to linguistic fuzzy logic: mining for
 linguistic fuzzy association rules, composition of fuzzy relations,
 performing perception-based logical deduction (PbLD), and forecasting
-time-series using fuzzy rule-based ensemble (FRBE).
+time-series using fuzzy rule-based ensemble (FRBE). The package also
+contains basic fuzzy-related algebraic functions capable of handling
+missing values in different styles (Bochvar, Sobocinski, Kleene etc.),
+computation of Sugeno integrals and fuzzy transform.
 
 %prep
 %setup -q -c -n %{packname}

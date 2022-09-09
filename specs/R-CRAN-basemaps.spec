@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  basemaps
-%global packver   0.0.1
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing Spatial Basemaps in R
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stars >= 0.5.0
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-slippymath 
 BuildRequires:    R-CRAN-httr 
@@ -23,9 +25,9 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
+Requires:         R-CRAN-stars >= 0.5.0
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-slippymath 
 Requires:         R-CRAN-httr 
@@ -33,13 +35,12 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-stars 
 Requires:         R-utils 
 Requires:         R-grDevices 
 
 %description
 A lightweight package to access spatial basemaps from open sources such as
-OpenStreetMap, Carto, Mapbox and others in R.
+'OpenStreetMap', 'Carto', 'Mapbox' and others in R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

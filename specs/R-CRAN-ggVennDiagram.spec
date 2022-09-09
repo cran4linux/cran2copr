@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggVennDiagram
-%global packver   1.2.0
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'ggplot2' Implement of Venn Diagram
 
@@ -19,23 +20,23 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RVenn 
+BuildRequires:    R-CRAN-yulab.utils 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-RVenn 
+Requires:         R-CRAN-yulab.utils 
 
 %description
 Easy-to-use functions to generate 2-7 sets Venn plot in publication

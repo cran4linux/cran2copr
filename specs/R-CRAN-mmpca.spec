@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vapour
-%global packver   0.8.82
+%global packname  mmpca
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.82
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to the 'Geospatial Data Abstraction Library' ('GDAL')
+Summary:          Integrative Analysis of Several Related Data Matrices
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel
-BuildRequires:    proj-devel
-BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-digest >= 0.6.0
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppGSL 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-digest >= 0.6.0
 
 %description
-Provides low-level access to 'GDAL' functionality. 'GDAL' is the
-'Geospatial Data Abstraction Library' a translator for raster and vector
-geospatial data formats that presents a single raster abstract data model
-and single vector abstract data model to the calling application for all
-supported formats <https://gdal.org/>. This package is focussed on
-providing exactly and only what GDAL does, to enable developing further
-tools.
+A generalization of principal component analysis for integrative analysis.
+The method finds principal components that describe single matrices or
+that are common to several matrices. The solutions are sparse. Rank of
+solutions is automatically selected using cross validation. The method is
+described in Kallus et al. (2019) <arXiv:1911.04927>.
 
 %prep
 %setup -q -c -n %{packname}
