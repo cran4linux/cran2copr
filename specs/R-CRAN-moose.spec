@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fddm
-%global packver   0.5-2
+%global packname  moose
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Implementation of the Diffusion Decision Model
+Summary:          Mean Squared Out-of-Sample Error Projection
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Provides the probability density function (PDF), cumulative distribution
-function (CDF), and the partial derivatives of the PDF of the diffusion
-decision model (DDM; e.g., Ratcliff & McKoon, 2008,
-<doi:10.1162/neco.2008.12-06-420>) with across-trial variability in the
-drift rate. Because the PDF, its partial derivatives, and the CDF of the
-DDM both contain an infinite sum, they need to be approximated. 'fddm'
-implements all published approximations (Navarro & Fuss, 2009,
-<doi:10.1016/j.jmp.2009.02.003>; Gondan, Blurton, & Kesselmeier, 2014,
-<doi:10.1016/j.jmp.2014.05.002>; Blurton, Kesselmeier, & Gondan, 2017,
-<doi:10.1016/j.jmp.2016.11.003>; Hartmann & Klauer, 2021,
-<doi:10.1016/j.jmp.2021.102550>) plus new approximations. All
-approximations are implemented purely in 'C++' providing faster speed than
-existing packages.
+Projects mean squared out-of-sample error for a linear regression based
+upon the methodology developed in Rohlfs (2022)
+<doi:10.48550/arXiv.2209.01493>.  It consumes as inputs the lm object from
+an estimated OLS regression (based on the "training sample") and a
+data.frame of out-of-sample cases (the "test sample") that have
+non-missing values for the same predictors. The test sample may or may not
+include data on the outcome variable; if it does, that variable is not
+used. The aim of the exercise is to project what what mean squared
+out-of-sample error can be expected given the predictor values supplied in
+the test sample. Output consists of a list of three elements: the
+projected mean squared out-of-sample error, the projected out-of-sample
+R-squared, and a vector of out-of-sample "hat" or "leverage" values, as
+defined in the paper.
 
 %prep
 %setup -q -c -n %{packname}

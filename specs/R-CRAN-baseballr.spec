@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  baseballr
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Acquiring and Analyzing Baseball Data
 
@@ -22,7 +23,6 @@ BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-progressr >= 0.6.0
 BuildRequires:    R-CRAN-httr >= 0.5
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-janitor
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-pitchRx 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
 Requires:         R-CRAN-cli >= 3.0.0
@@ -42,7 +41,6 @@ Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-progressr >= 0.6.0
 Requires:         R-CRAN-httr >= 0.5
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.0
@@ -53,7 +51,6 @@ Requires:         R-CRAN-janitor
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-pitchRx 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
 

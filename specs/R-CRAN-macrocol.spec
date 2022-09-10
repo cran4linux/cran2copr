@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fddm
-%global packver   0.5-2
+%global packname  macrocol
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Implementation of the Diffusion Decision Model
+Summary:          Colombian Macro-Financial Time Series Generator
 
-License:          GPL (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-R.utils 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readxl 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-R.utils 
 
 %description
-Provides the probability density function (PDF), cumulative distribution
-function (CDF), and the partial derivatives of the PDF of the diffusion
-decision model (DDM; e.g., Ratcliff & McKoon, 2008,
-<doi:10.1162/neco.2008.12-06-420>) with across-trial variability in the
-drift rate. Because the PDF, its partial derivatives, and the CDF of the
-DDM both contain an infinite sum, they need to be approximated. 'fddm'
-implements all published approximations (Navarro & Fuss, 2009,
-<doi:10.1016/j.jmp.2009.02.003>; Gondan, Blurton, & Kesselmeier, 2014,
-<doi:10.1016/j.jmp.2014.05.002>; Blurton, Kesselmeier, & Gondan, 2017,
-<doi:10.1016/j.jmp.2016.11.003>; Hartmann & Klauer, 2021,
-<doi:10.1016/j.jmp.2021.102550>) plus new approximations. All
-approximations are implemented purely in 'C++' providing faster speed than
-existing packages.
+This repository aims to contribute to the econometric models' production
+with Colombian data, by providing a set of web-scrapping functions of some
+of the main macro-financial indicators. All the sources are public and
+free, but the advantage of these functions is that they directly download
+and harmonize the information in R's environment. No need to import or
+download additional files. You only need an internet connection!
 
 %prep
 %setup -q -c -n %{packname}

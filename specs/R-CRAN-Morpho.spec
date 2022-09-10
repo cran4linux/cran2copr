@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Morpho
-%global packver   2.9
+%global packver   2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9
+Version:          2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculations and Visualisations Related to Geometric Morphometrics
 
@@ -31,6 +32,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-bezier 
 Requires:         R-CRAN-foreach >= 1.4.0
 Requires:         R-CRAN-doParallel >= 1.0.6
@@ -47,6 +49,7 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-bezier 
 
 %description

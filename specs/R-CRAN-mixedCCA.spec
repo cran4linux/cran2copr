@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mixedCCA
-%global packver   1.5.2
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Canonical Correlation Analysis for High-Dimensional Mixed Data
 
@@ -15,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
+BuildRequires:    R-CRAN-latentcor >= 2.0.1
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Rcpp 
@@ -24,6 +26,7 @@ BuildRequires:    R-CRAN-fMultivar
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-latentcor >= 2.0.1
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Rcpp 
@@ -39,7 +42,7 @@ can handle mixed data types: continuous, binary and truncated continuous.
 Bridge functions are provided to connect Kendall's tau to latent
 correlation under the Gaussian copula model. The methods are described in
 Yoon, Carroll and Gaynanova (2020) <doi:10.1093/biomet/asaa007> and Yoon,
-Mueller and Gaynanova (2020) <doi:10.1080/10618600.2021.1882468>.
+Mueller and Gaynanova (2021) <doi:10.1080/10618600.2021.1882468>.
 
 %prep
 %setup -q -c -n %{packname}

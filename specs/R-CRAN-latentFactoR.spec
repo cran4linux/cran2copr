@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fddm
-%global packver   0.5-2
+%global packname  latentFactoR
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Implementation of the Diffusion Decision Model
+Summary:          Data Simulation Based on Latent Factors
 
-License:          GPL (>= 2)
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-methods 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-Provides the probability density function (PDF), cumulative distribution
-function (CDF), and the partial derivatives of the PDF of the diffusion
-decision model (DDM; e.g., Ratcliff & McKoon, 2008,
-<doi:10.1162/neco.2008.12-06-420>) with across-trial variability in the
-drift rate. Because the PDF, its partial derivatives, and the CDF of the
-DDM both contain an infinite sum, they need to be approximated. 'fddm'
-implements all published approximations (Navarro & Fuss, 2009,
-<doi:10.1016/j.jmp.2009.02.003>; Gondan, Blurton, & Kesselmeier, 2014,
-<doi:10.1016/j.jmp.2014.05.002>; Blurton, Kesselmeier, & Gondan, 2017,
-<doi:10.1016/j.jmp.2016.11.003>; Hartmann & Klauer, 2021,
-<doi:10.1016/j.jmp.2021.102550>) plus new approximations. All
-approximations are implemented purely in 'C++' providing faster speed than
-existing packages.
+Generates data based on latent factor models. Data can be continuous,
+polytomous, dichotomous, or mixed. Skews, cross-loadings, wording effects,
+population errors, and local dependencies can be added. All parameters can
+be manipulated. Data categorization is based on Garrido, Abad, and Ponsoda
+(2011) <doi:10.1177/0013164410389489>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PPforest
-%global packver   0.1.3
+%global packname  allhomes
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Projection Pursuit Classification Forest
+Summary:          Extract Past Sales Data from Allhomes.com.au
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.7
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-htmltab 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-dplyr >= 0.7.5
-Requires:         R-CRAN-Rcpp >= 0.12.7
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-htmltab 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
 
 %description
-Implements projection pursuit forest algorithm for supervised
-classification.
+Extract past sales data for specific suburb(s) and year(s) from the
+Australian property website <https://www.allhomes.com.au>. Allhomes data
+include the address and property details, date and price of the sale,
+block size and unimproved value of properties mainly in the ACT and NSW.
 
 %prep
 %setup -q -c -n %{packname}
