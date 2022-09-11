@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  agvgd
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Implementation of the 'Align-GVGD' Method
 
@@ -18,6 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-grantham 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
@@ -29,6 +31,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-grantham 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
