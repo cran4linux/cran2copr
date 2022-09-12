@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DIMORA
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diffusion Models R Analysis
 
-License:          GPL | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -30,18 +31,21 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-deSolve 
 
 %description
-The implemented methods are: Bass model, Generalized Bass model (with
-rectangular shock, exponential shock, mixed shock and harmonic shock, 1 to
-3 shocks available), Dynamic market potential model, and UCRCD model. The
-Bass model consists of a simple differential equation that describes the
-process of how new products get adopted in a population, the Generalized
-Bass model is a generalization of the Bass model with a function x(t),
-capturing the changing speed of diffusion. In some real processes the
-market potential may be not constant over time and a dynamic market
-potential model is needed. The Guseo-Guidolin model is a specification of
-this situation. The UCRCD model (Unbalanced Competition and Regime Change
-Diachronic) is a diffusion model used to capture the dynamics of
-competition between two products within the same market.
+The implemented methods are: Standard Bass model, Generalized Bass model
+(with rectangular shock, exponential shock, and mixed shock. You can
+choose to add from 1 to 3 shocks), Guseo-Guidolin model and Variable
+Potential Market model, and UCRCD model. The Bass model consists of a
+simple differential equation that describes the process of how new
+products get adopted in a population, the Generalized Bass model is a
+generalization of the Bass model in which there is a "carrier" function
+x(t) that allows to change the speed of time sliding. In some real
+processes the reachable potential of the resource available in a temporal
+instant may appear to be not constant over time, because of this we use
+Variable Potential Market model, in which the Guseo-Guidolin has a
+particular specification for the market function. The UCRCD model
+(Unbalanced Competition and Regime Change Diachronic) is a diffusion model
+used to capture the dynamics of the competitive or collaborative
+transition.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

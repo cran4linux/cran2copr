@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lessR
-%global packver   4.2.2
+%global packver   4.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.2
+Version:          4.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Less Code, More Results
 
@@ -52,16 +53,16 @@ Each function accomplishes the work of several or more standard R
 functions. For example, two function calls, Read() and CountAll(), read
 the data and generate summary statistics for all variables in the data
 frame, plus histograms and bar charts as appropriate. Other functions
-provide for descriptive statistics, a comprehensive regression analysis,
-analysis of variance and t-test, visualizations including the
-Violin/Box/Scatter plot for a numerical variable, bar chart, histogram,
-box plot, density curves, calibrated power curve, reading multiple data
-formats with the same function call, variable labels, color themes,
-Trellis graphics, and comprehensive summary statistics via pivot tables.
-Also includes a confirmatory factor analysis of multiple indicator
-measurement models, pedagogical routines for data simulation such as for
-the Central Limit Theorem, and generation and rendering of R markdown
-instructions for interpretative output.
+provide for comprehensive summary statistics via pivot tables, a
+comprehensive regression analysis, analysis of variance and t-test,
+visualizations including the Violin/Box/Scatter plot for a numerical
+variable, bar chart, histogram, box plot, density curves, calibrated power
+curve, reading multiple data formats with the same function call, variable
+labels, color themes, and Trellis graphics. Also includes a confirmatory
+factor analysis of multiple indicator measurement models, pedagogical
+routines for data simulation such as for the Central Limit Theorem,
+generation and rendering of R markdown instructions for interpretative
+output, and interactive visualizations.
 
 %prep
 %setup -q -c -n %{packname}

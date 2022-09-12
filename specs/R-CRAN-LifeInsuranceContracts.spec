@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LifeInsuranceContracts
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Framework for Traditional Life Insurance Contracts
 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-tidyr 
@@ -41,6 +43,7 @@ Requires:         R-CRAN-abind
 Requires:         R-CRAN-stringr 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-pander 
 Requires:         R-CRAN-tidyr 

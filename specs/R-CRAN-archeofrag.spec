@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flextable
-%global packver   0.8.0
+%global packname  archeofrag
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Tabular Reporting
+Summary:          Refitting and Spatial Analysis in Archaeology
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,43 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-officer >= 0.4.4
-BuildRequires:    R-CRAN-gdtools >= 0.1.6
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-officer >= 0.4.4
-Requires:         R-CRAN-gdtools >= 0.1.6
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-igraph 
 Requires:         R-graphics 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-base64enc 
-Requires:         R-grid 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Create pretty tables for 'HTML', 'PDF', 'Microsoft Word', 'Microsoft
-PowerPoint' documents from 'R Markdown' and as 'Grid Graphics' objects.
-Functions are provided to let users create tables, modify and format their
-content. It also extends package 'officer' that does not contain any
-feature for customized tabular reporting.
+Methods to analyse fragmented objects in archaeology using refitting
+relationships between fragments scattered in archaeological spatial units
+(e.g. stratigraphic layers). Graphs and graph theory are used to model
+archaeological observations. The package is mainly based on the 'igraph'
+package for graph analysis. Functions can: 1) create, manipulate, and
+simulate fragmentation graphs, 2) measure the cohesion and admixture of
+archaeological spatial units, and 3) characterise the topology of a
+specific set of refitting relationships. An empirical dataset is also
+provided as an example. Documentation about 'archeofrag' is provided by
+the vignette included in this package and by the accompanying scientific
+papers: Plutniak (2021, Journal of Archaeological Science,
+<doi:10.1016/j.jas.2021.105501>) and Plutniak (2022, Journal of Open
+Source Software, <doi:10.21105/joss.04335>).
 
 %prep
 %setup -q -c -n %{packname}

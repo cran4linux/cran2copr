@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mixSSG
-%global packver   1.1.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering Using Mixtures of Sub Gaussian Stable Distributions
 
@@ -27,7 +27,8 @@ Requires:         R-CRAN-rootSolve
 %description
 Developed for model-based clustering using the finite mixtures of skewed
 sub-Gaussian stable distributions developed by Teimouri (2022)
-<arXiv:2205.14067>.
+<arXiv:2205.14067> and estimating parameters of the symmetric stable
+distribution within the Bayesian framework.
 
 %prep
 %setup -q -c -n %{packname}
