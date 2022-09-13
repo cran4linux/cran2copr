@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IsoriX
-%global packver   0.8.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Isoscape Computation and Inference of Spatial Origins using Mixed Models
 
@@ -16,12 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spaMM >= 2.4
+BuildRequires:    R-CRAN-spaMM >= 3.13
 BuildRequires:    R-CRAN-rasterVis >= 0.30
+BuildRequires:    R-CRAN-elevatr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-raster 
@@ -30,12 +32,13 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-spaMM >= 2.4
+Requires:         R-CRAN-spaMM >= 3.13
 Requires:         R-CRAN-rasterVis >= 0.30
+Requires:         R-CRAN-elevatr 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-lattice 
+Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-raster 
@@ -57,9 +60,15 @@ its isotopic ratio. 'IsoriX' also relies heavily on the package
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -69,6 +78,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

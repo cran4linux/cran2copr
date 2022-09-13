@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  usincometaxes
-%global packver   0.5.1
+%global packname  msda
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Federal and State Income Taxes in the United States
+Summary:          Multi-Class Sparse Discriminant Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-datasets 
-BuildRequires:    R-CRAN-vroom 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-V8 
-Requires:         R-datasets 
-Requires:         R-CRAN-vroom 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-V8 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 
 %description
-Calculates federal and state income taxes in the United States. It acts as
-a wrapper to the NBER's TAXSIM 35 (<http://taxsim.nber.org/taxsim35/>) tax
-simulator. TAXSIM 35 conducts the calculations, while 'usincometaxes'
-prepares the data for TAXSIM 35, sends the data to TAXSIM 35's server or
-communicates with the Web Assembly file, retrieves the data, and places it
-into a data frame. All without the user worrying about this process.
+Efficient procedures for computing a new Multi-Class Sparse Discriminant
+Analysis method that estimates all discriminant directions simultaneously.
+It is an implementation of the work proposed by Mai, Q., Yang, Y., and
+Zou, H. (2019) <doi:10.5705/ss.202016.0117>.
 
 %prep
 %setup -q -c -n %{packname}

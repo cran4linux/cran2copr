@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WoodburyMatrix
-%global packver   0.0.2
+%global packname  blm
+%global packver   2022.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          2022.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Matrix Operations via the Woodbury Matrix Identity
+Summary:          Binomial Linear Regression
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-stats4 
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-stats4 
 
 %description
-A hierarchy of classes and methods for manipulating matrices formed
-implicitly from the sums of the inverses of other matrices, a situation
-commonly encountered in spatial statistics and related fields. Enables
-easy use of the Woodbury matrix identity and the matrix determinant lemma
-to allow computation (e.g., solving linear systems) without having to form
-the actual matrix. More information on the underlying linear algebra can
-be found in Harville, D. A. (1997) <doi:10.1007/b98818>.
+Implements regression models for binary data on the absolute risk scale.
+These models are applicable to cohort and population-based case-control
+data.
 
 %prep
 %setup -q -c -n %{packname}

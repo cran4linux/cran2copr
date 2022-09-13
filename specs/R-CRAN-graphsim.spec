@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  graphsim
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Expression Data from 'igraph' Networks
 
@@ -16,19 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-graphics 
-Requires:         R-utils 
 Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-Matrix 
 Requires:         R-graphics 
 
 %description

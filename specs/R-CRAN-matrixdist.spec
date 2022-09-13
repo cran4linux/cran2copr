@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  matrixdist
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistics for Matrix Distributions
 
@@ -13,24 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-reshape2 
 
 %description
-Tools for homogeneous and in-homogeneous phase-type distributions. Methods
-for functional evaluation, simulation and estimation using the
-expectation-maximization (EM) algorithm are provided. The methods of this
-package are based on the following references. Asmussen, S., Nerman, O., &
-Olsson, M. (1996) <https://www.jstor.org/stable/4616418>, Olsson, M.
-(1996) <https://www.jstor.org/stable/4616419>. Albrecher, H., & Bladt, M.
-(2019) <doi:10.1017/jpr.2019.60> Albrecher, H., Bladt, M., & Yslas, J.
-(2020) <doi:10.1111/sjos.12505> Bladt, M., & Yslas, J. (2020)
-<arXiv:2011.03219>.
+Tools for phase-type distributions including the following variants:
+continuous, discrete, multivariate, in-homogeneous, right-censored, and
+regression. Methods for functional evaluation, simulation and estimation
+using the expectation-maximization (EM) algorithm are provided for all
+models. The methods of this package are based on the following references.
+Asmussen, S., Nerman, O., & Olsson, M. (1996)
+<https://www.jstor.org/stable/4616418>, Olsson, M. (1996)
+<https://www.jstor.org/stable/4616419>, Albrecher, H., & Bladt, M. (2019)
+<doi:10.1017/jpr.2019.60>, Albrecher, H., Bladt, M., & Yslas, J. (2020)
+<doi:10.1111/sjos.12505>, Albrecher, H., Bladt, M., Bladt, M., & Yslas, J.
+(2022) <doi:10.1016/j.insmatheco.2022.08.001>, Bladt, M., & Yslas, J.
+(2022) <doi:10.1080/03461238.2022.2097019>, Bladt, M. (2022)
+<doi:10.1017/asb.2021.40>, Bladt, M. (2022). <arXiv:2110.05179>,
+Albrecher, H., Bladt, M., & Mueller, A. (2022) <arXiv:2207.01279>.
 
 %prep
 %setup -q -c -n %{packname}

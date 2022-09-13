@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  wdnet
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted and Directed Networks
 
@@ -15,21 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-wdm 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rARPACK 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rARPACK 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppXPtrUtils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-wdm 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-wdm 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rARPACK 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rARPACK 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppXPtrUtils 
+Requires:         R-stats 
+Requires:         R-CRAN-wdm 
 
 %description
 Implementations of network analysis including (1) assortativity

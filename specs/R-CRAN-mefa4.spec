@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mefa4
-%global packver   0.3-8
+%global packver   0.3-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Data Handling with S4 Classes and Sparse Matrices
 
@@ -16,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix >= 1.4.2
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix >= 1.4.2
 Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
 
 %description
 An S4 update of the 'mefa' package using sparse matrices for enhanced

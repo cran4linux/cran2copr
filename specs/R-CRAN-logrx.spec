@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  logrx
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Logging Utility Focus on Clinical Trial Programming Workflows
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sessioninfo >= 1.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
@@ -26,10 +28,10 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-sessioninfo 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-waiter 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-sessioninfo >= 1.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
@@ -40,7 +42,6 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-sessioninfo 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-waiter 
 Requires:         R-CRAN-tibble 

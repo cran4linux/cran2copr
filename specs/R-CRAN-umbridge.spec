@@ -1,47 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webtools
-%global packver   0.7.12
+%global packname  umbridge
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.12
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Various Useful Web Tools (Including Full CRAN Dataset Search and Fetch)
+Summary:          Integration for the UM-Bridge Protocol
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-pkgsearch 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-pkgsearch 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-A set of useful web tools to improve your productivity. Including:
-searching DuckDuckGo; finding and loading datasets across all CRAN
-packages (not just those you've installed); sharing a file to a paste-bin;
-getting a fast GUID; useful info on all countries; Random Seinfeld show
-quotes; Seinfeld guessing game.
+A convenient wrapper for the UM-Bridge protocol. UM-Bridge is a protocol
+designed for coupling uncertainty quantification (or statistical /
+optimization) software to numerical models. A model is represented as a
+mathematical function with optional support for derivatives via Jacobian
+actions etc.
 
 %prep
 %setup -q -c -n %{packname}

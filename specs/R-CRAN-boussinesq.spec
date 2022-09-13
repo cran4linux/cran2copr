@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WoodburyMatrix
-%global packver   0.0.2
+%global packname  boussinesq
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Matrix Operations via the Woodbury Matrix Identity
+Summary:          Analytic Solutions for (Ground-Water) Boussinesq Equation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
 
 %description
-A hierarchy of classes and methods for manipulating matrices formed
-implicitly from the sums of the inverses of other matrices, a situation
-commonly encountered in spatial statistics and related fields. Enables
-easy use of the Woodbury matrix identity and the matrix determinant lemma
-to allow computation (e.g., solving linear systems) without having to form
-the actual matrix. More information on the underlying linear algebra can
-be found in Harville, D. A. (1997) <doi:10.1007/b98818>.
+A collection of R functions were implemented from published and available
+analytic solutions for the One-Dimensional Boussinesq Equation
+(ground-water). In particular, the function "beq.lin()" is the analytic
+solution of the linearized form of Boussinesq Equation between two
+different head-based boundary (Dirichlet) conditions; "beq.song" is the
+non-linear power-series analytic solution of the motion of a wetting front
+over a dry bedrock (Song at al, 2007, see complete reference on function
+documentation). Bugs/comments/questions/collaboration of any kind are
+warmly welcomed.
 
 %prep
 %setup -q -c -n %{packname}

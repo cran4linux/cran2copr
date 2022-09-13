@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WoodburyMatrix
-%global packver   0.0.2
+%global packname  corrtable
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Matrix Operations via the Woodbury Matrix Identity
+Summary:          Creates and Saves Out a Correlation Table with Significance Levels Indicated
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Hmisc 
+Requires:         R-CRAN-Hmisc 
 
 %description
-A hierarchy of classes and methods for manipulating matrices formed
-implicitly from the sums of the inverses of other matrices, a situation
-commonly encountered in spatial statistics and related fields. Enables
-easy use of the Woodbury matrix identity and the matrix determinant lemma
-to allow computation (e.g., solving linear systems) without having to form
-the actual matrix. More information on the underlying linear algebra can
-be found in Harville, D. A. (1997) <doi:10.1007/b98818>.
+After using this, a publication-ready correlation table with p-values
+indicated will be created.  The input can be a full data frame; any string
+and Boolean terms will be dropped as part of functionality.  Correlations
+and p-values are calculated using the 'Hmisc' framework.  Output of the
+correlation_matrix() function is a table of strings; this gets saved out
+to a '.csv2' with the save_correlation_matrix() function for easy
+insertion into a paper. For more details about the process, consult
+<https://paulvanderlaken.com/2020/07/28/publication-ready-correlation-matrix-significance-r/>.
 
 %prep
 %setup -q -c -n %{packname}

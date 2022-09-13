@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WoodburyMatrix
-%global packver   0.0.2
+%global packname  HeckmanEM
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Matrix Operations via the Woodbury Matrix Identity
+Summary:          Fit Normal or Student-t Heckman Selection Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-MomTrunc >= 5.79
+BuildRequires:    R-CRAN-PerformanceAnalytics >= 2.0.4
+BuildRequires:    R-CRAN-sampleSelection >= 1.2.6
+BuildRequires:    R-CRAN-mvtnorm >= 1.1.0
+Requires:         R-CRAN-MomTrunc >= 5.79
+Requires:         R-CRAN-PerformanceAnalytics >= 2.0.4
+Requires:         R-CRAN-sampleSelection >= 1.2.6
+Requires:         R-CRAN-mvtnorm >= 1.1.0
 
 %description
-A hierarchy of classes and methods for manipulating matrices formed
-implicitly from the sums of the inverses of other matrices, a situation
-commonly encountered in spatial statistics and related fields. Enables
-easy use of the Woodbury matrix identity and the matrix determinant lemma
-to allow computation (e.g., solving linear systems) without having to form
-the actual matrix. More information on the underlying linear algebra can
-be found in Harville, D. A. (1997) <doi:10.1007/b98818>.
+Maximum likelihood estimation by an EM algorithm of Heckman-type sample
+selection Normal or Student-t models. The reference is Lachos, Prates and
+Dey (2020) <doi:10.1016/j.jmva.2021.104737>.
 
 %prep
 %setup -q -c -n %{packname}

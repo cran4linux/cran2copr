@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hlaR
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for HLA Data
 
@@ -17,7 +18,6 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-reshape2 
@@ -28,11 +28,8 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-readxlsb 
 BuildRequires:    R-CRAN-janitor 
 Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-reshape2 
@@ -43,8 +40,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-readxlsb 
 Requires:         R-CRAN-janitor 
 
 %description

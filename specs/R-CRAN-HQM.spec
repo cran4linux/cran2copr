@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WoodburyMatrix
-%global packver   0.0.2
+%global packname  HQM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Matrix Operations via the Woodbury Matrix Identity
+Summary:          Superefficient Estimation of Future Conditional Hazards Based on Marker Information
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A hierarchy of classes and methods for manipulating matrices formed
-implicitly from the sums of the inverses of other matrices, a situation
-commonly encountered in spatial statistics and related fields. Enables
-easy use of the Woodbury matrix identity and the matrix determinant lemma
-to allow computation (e.g., solving linear systems) without having to form
-the actual matrix. More information on the underlying linear algebra can
-be found in Harville, D. A. (1997) <doi:10.1007/b98818>.
+Provides a nonparametric smoothed kernel density estimator for the future
+conditional hazard when time-dependent covariates are present. It also
+provides pointwise and uniform confidence bands and a bandwidth selection.
 
 %prep
 %setup -q -c -n %{packname}

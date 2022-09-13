@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rmBayes
-%global packver   0.1.13
+%global packver   0.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.13
+Version:          0.1.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Performing Bayesian Inference for Repeated-Measures Designs
 
@@ -13,9 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
@@ -23,12 +23,15 @@ BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-stats 
 Requires:         R-CRAN-rstantools
 
 %description
@@ -39,7 +42,11 @@ intervals can be wide due to between-subjects variability and tends to
 hide within-subjects effects, rendering its relationship with the Bayes
 factor less clear in within-subjects (repeated-measures) designs. This
 urgent issue can be addressed by using within-subjects intervals in
-within-subjects designs.
+within-subjects designs, which integrate four methods including the
+Loftus-Masson (1994) <doi:10.3758/BF03210951>, the
+Rouder-Morey-Speckman-Province (2012) <doi:10.1016/j.jmp.2012.08.001>, the
+Nathoo-Kilshaw-Masson (2018) <doi:10.1016/j.jmp.2018.07.005>, and the Heck
+(2019) <doi:10.31234/osf.io/whp8t> interval estimates.
 
 %prep
 %setup -q -c -n %{packname}
