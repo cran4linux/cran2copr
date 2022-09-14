@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  stratallo
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimum Sample Allocation in Stratified Sampling Schemes
 
@@ -25,14 +26,14 @@ Requires:         R-CRAN-lifecycle
 Functions in this package provide solution to classical problem in survey
 methodology - an optimum sample allocation in stratified sampling schemes.
 In this context, the optimal allocation is in the classical
-Tschuprov-Neyman's sense and it satisfies additional either lower or upper
-bounds restrictions imposed on sample sizes in strata. There are few
-different algorithms available to use, and one them is based on popular
-sample allocation method that applies Neyman allocation to recursively
-reduced set of strata. This package also provides the function that
-computes a solution to the minimum sample size allocation problem, which
-is a minor modification of the classical optimium sample allocation. This
-problems lies in the determination of a vector of strata sample sizes that
+Tschuprov-Neyman's sense and it satisfies additional lower or upper bounds
+restrictions imposed on sample sizes in strata. There are few different
+algorithms available to use, and one them is based on popular sample
+allocation method that applies Neyman allocation to recursively reduced
+set of strata. This package also provides the function that computes a
+solution to the minimum sample size allocation problem, which is a minor
+modification of the classical optimium sample allocation. This problem
+lies in the determination of a vector of strata sample sizes that
 minimizes total sample size, under assumed fixed level of the
 pi-estimator's variance. As in the case of the classical optimal
 allocation, the problem of minimum sample size allocation can be

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  widyr
-%global packver   0.1.5
+%global packname  implicitExpansion
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Widen, Process, then Re-Tidy Data
+Summary:          Array Operations for Arrays of Mismatching Sizes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,30 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytext 
 
 %description
-Encapsulates the pattern of untidying data into a wide matrix, performing
-some processing, then turning it back into a tidy form. This is useful for
-several operations such as co-occurrence counts, correlations, or
-clustering that are mathematically convenient on wide matrices.
+Support for implicit expansion of arrays in operations involving arrays of
+mismatching sizes. This pattern is known as "broadcasting" in 'Python' and
+"implicit expansion" in 'Matlab' and is explained for example in the
+article "Array programming with NumPy" by C. R. Harris et al. (2020)
+<doi:10.1038/s41586-020-2649-2>.
 
 %prep
 %setup -q -c -n %{packname}

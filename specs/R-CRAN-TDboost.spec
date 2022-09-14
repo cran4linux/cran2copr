@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  N2H4
-%global packver   0.8.0
+%global packname  TDboost
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling Methods for Naver News Text Crawling
+Summary:          A Boosted Tweedie Compound Poisson Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rappdirs 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rappdirs 
+BuildRequires:    R-devel >= 2.12.0
+Requires:         R-core >= 2.12.0
+BuildRequires:    R-CRAN-lattice 
+Requires:         R-CRAN-lattice 
 
 %description
-Provides some functions to get Korean text sample from news articles in
-Naver which is popular news portal service <https://news.naver.com/> in
-Korea.
+An implementation of a boosted Tweedie compound Poisson model proposed by
+Yang, Y., Qian, W. and Zou, H. (2018) <doi:10.1080/07350015.2016.1200981>.
+It is capable of fitting a flexible nonlinear Tweedie compound Poisson
+model (or a gamma model) and capturing high-order interactions among
+predictors. This package is based on the 'gbm' package originally
+developed by Greg Ridgeway.
 
 %prep
 %setup -q -c -n %{packname}

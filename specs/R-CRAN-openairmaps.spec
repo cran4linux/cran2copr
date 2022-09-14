@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  widyr
-%global packver   0.1.5
+%global packname  openairmaps
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Widen, Process, then Re-Tidy Data
+Summary:          Create Interactive Web Maps of Air Pollution Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-openair 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-broom 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-forcats 
+Requires:         R-CRAN-openair 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-forcats 
 
 %description
-Encapsulates the pattern of untidying data into a wide matrix, performing
-some processing, then turning it back into a tidy form. This is useful for
-several operations such as co-occurrence counts, correlations, or
-clustering that are mathematically convenient on wide matrices.
+Combine the air quality data analysis methods of 'openair' with the
+JavaScript 'Leaflet' (<https://leafletjs.com/>) library. Functionality
+includes plotting site maps, "directional analysis" figures such as polar
+plots, and air mass trajectories.
 
 %prep
 %setup -q -c -n %{packname}

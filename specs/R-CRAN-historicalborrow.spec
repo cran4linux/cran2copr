@@ -1,52 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  corx
-%global packver   1.0.7.1
+%global packname  historicalborrow
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create and Format Correlation Matrices
+Summary:          Non-Longitudinal Bayesian Historical Borrowing Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-ggcorrplot 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ppcor 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-ggcorrplot 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-ppcor 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Create correlation (or partial correlation) matrices. Correlation matrices
-are formatted with significance stars based on user preferences. Matrices
-of coefficients, p-values, and number of pairwise observations are
-returned. Send resultant formatted matrices to the clipboard to be pasted
-into excel and other programs. A plot method allows users to visualize
-correlation matrices created with 'corx'.
+Historical borrowing in clinical trials can improve precision and
+operating characteristics. This package supports a hierarchical model and
+a mixture model to borrow historical control data from other studies to
+better characterize the control response of the current study. It also
+quantifies the amount of borrowing through benchmark models (independent
+and pooled). Some of the methods are discussed by Viele et al. (2013)
+<doi:10.1002/pst.1589>.
 
 %prep
 %setup -q -c -n %{packname}

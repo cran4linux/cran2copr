@@ -1,52 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  corx
-%global packver   1.0.7.1
+%global packname  stockAnalyst
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create and Format Correlation Matrices
+Summary:          Equity Valuation using Methods of Fundamental Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-ggcorrplot 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ppcor 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-ggcorrplot 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-ppcor 
 
 %description
-Create correlation (or partial correlation) matrices. Correlation matrices
-are formatted with significance stars based on user preferences. Matrices
-of coefficients, p-values, and number of pairwise observations are
-returned. Send resultant formatted matrices to the clipboard to be pasted
-into excel and other programs. A plot method allows users to visualize
-correlation matrices created with 'corx'.
+Methods of Fundamental Analysis for Valuation of Equity included here
+serve as a quick reference for undergraduate courses on Stock Valuation
+and Chartered Financial Analyst Levels 1 and 2 Readings on Equity
+Valuation. Jerald E. Pinto (“Equity Asset Valuation (4th Edition)”, 2020,
+ISBN: 9781119628194). Chartered Financial Analyst Institute ("Chartered
+Financial Analyst Program Curriculum 2020 Level I Volumes 1-6. (Vol. 4,
+pp. 445-491)", 2019, ISBN: 9781119593577). Chartered Financial Analyst
+Institute ("Chartered Financial Analyst Program Curriculum 2020 Level II
+Volumes 1-6. (Vol. 4, pp. 197-447)", 2019, ISBN: 9781119593614).
 
 %prep
 %setup -q -c -n %{packname}

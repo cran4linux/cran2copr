@@ -1,46 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  widyr
-%global packver   0.1.5
+%global packname  argosfilter
+%global packver   0.70
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.70
 Release:          1%{?dist}%{?buildtag}
-Summary:          Widen, Process, then Re-Tidy Data
+Summary:          Argos Locations Filter
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytext 
 
 %description
-Encapsulates the pattern of untidying data into a wide matrix, performing
-some processing, then turning it back into a tidy form. This is useful for
-several operations such as co-occurrence counts, correlations, or
-clustering that are mathematically convenient on wide matrices.
+Filters animal satellite tracking data obtained from the Argos
+system(<https://www.argos-system.org/>), following the algorithm described
+in Freitas et al (2008) <doi:10.1111/j.1748-7692.2007.00180.x>. It is
+especially indicated for telemetry studies of marine animals, where Argos
+locations are predominantly of low-quality.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  garchx
-%global packver   1.3
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible and Robust GARCH-X Modelling
 
@@ -15,7 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-zoo 
+Requires:         R-methods 
 Requires:         R-CRAN-zoo 
 
 %description
@@ -25,7 +28,9 @@ on the results by Francq and Thieu (2018) <doi:10.1017/S0266466617000512>.
 Coefficients can straightforwardly be set to zero by omission, and quasi
 maximum likelihood methods ensure estimates are generally consistent and
 inference valid, even when the standardised innovations are non-normal
-and/or dependent over time.
+and/or dependent over time, see
+<https://journal.r-project.org/archive/2021/RJ-2021-057/RJ-2021-057.pdf>
+for an overview of the package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  corx
-%global packver   1.0.7.1
+%global packname  CpmERCCutoff
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create and Format Correlation Matrices
+Summary:          Calculation of Log2 Counts per Million Cutoff from ERCC Controls
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,36 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-ggcorrplot 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ppcor 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-ggcorrplot 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-ppcor 
+Requires:         R-graphics 
 
 %description
-Create correlation (or partial correlation) matrices. Correlation matrices
-are formatted with significance stars based on user preferences. Matrices
-of coefficients, p-values, and number of pairwise observations are
-returned. Send resultant formatted matrices to the clipboard to be pasted
-into excel and other programs. A plot method allows users to visualize
-correlation matrices created with 'corx'.
+Implementation of the empirical method to derive log2 counts per million
+(CPM) cutoff to filter out lowly expressed genes using ERCC spike-ins as
+described in Goll and Bosinger et.al
+(2022)<doi:10.1101/2022.06.23.497396>. This package utilizes the synthetic
+mRNA control pairs developed by the External RNA Controls Consortium
+(ERCC) (ERCC 1 / ERCC 2) that are spiked into sample pairs at known ratios
+at various absolute abundances.  The relationship between the observed and
+expected fold changes is then used to empirically determine an optimal
+log2 CPM cutoff for filtering out lowly expressed genes.
 
 %prep
 %setup -q -c -n %{packname}

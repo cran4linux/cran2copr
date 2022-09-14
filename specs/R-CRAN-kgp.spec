@@ -1,46 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  widyr
-%global packver   0.1.5
+%global packname  kgp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Widen, Process, then Re-Tidy Data
+Summary:          1000 Genomes Project Metadata
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytext 
 
 %description
-Encapsulates the pattern of untidying data into a wide matrix, performing
-some processing, then turning it back into a tidy form. This is useful for
-several operations such as co-occurrence counts, correlations, or
-clustering that are mathematically convenient on wide matrices.
+Metadata about populations and data about samples from the 1000 Genomes
+Project, including the 2,504 samples sequenced for the Phase 3 release and
+the expanded collection of 3,202 samples with 602 additional trios. The
+data is described in Auton et al. (2015) <doi:10.1038/nature15393> and
+Byrska-Bishop et al. (2022) <doi:10.1016/j.cell.2022.08.004>, and raw data
+is available at <http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  widyr
-%global packver   0.1.5
+%global packname  yahoofinancer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Widen, Process, then Re-Tidy Data
+Summary:          Fetch Data from Yahoo Finance API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stringr 
 
 %description
-Encapsulates the pattern of untidying data into a wide matrix, performing
-some processing, then turning it back into a tidy form. This is useful for
-several operations such as co-occurrence counts, correlations, or
-clustering that are mathematically convenient on wide matrices.
+Obtain historical and near real time data related to stocks, index and
+currencies from the Yahoo Finance API. This package is community
+maintained and is not officially supported by 'Yahoo'. The accuracy of
+data is only as correct as provided on <https://finance.yahoo.com/>.
 
 %prep
 %setup -q -c -n %{packname}

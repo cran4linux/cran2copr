@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lintr
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Linter' for R Code
 
@@ -16,36 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xmlparsedata >= 1.0.3
+BuildRequires:    R-CRAN-xmlparsedata >= 1.0.5
 BuildRequires:    R-CRAN-xml2 >= 1.0.0
-BuildRequires:    R-CRAN-rex 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-codetools 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cyclocomp 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rex 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-backports 
-Requires:         R-CRAN-xmlparsedata >= 1.0.3
+Requires:         R-CRAN-xmlparsedata >= 1.0.5
 Requires:         R-CRAN-xml2 >= 1.0.0
-Requires:         R-CRAN-rex 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-backports 
 Requires:         R-CRAN-codetools 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cyclocomp 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rex 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-backports 
 
 %description
 Checks adherence to a given style, syntax errors and possible semantic
-issues. Supports on the fly checking of R code edited with 'RStudio IDE',
+issues.  Supports on the fly checking of R code edited with 'RStudio IDE',
 'Emacs', 'Vim', 'Sublime Text', 'Atom' and 'Visual Studio Code'.
 
 %prep

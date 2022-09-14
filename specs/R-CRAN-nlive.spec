@@ -1,52 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  corx
-%global packver   1.0.7.1
+%global packname  nlive
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create and Format Correlation Matrices
+Summary:          Automated Estimation of Sigmoidal and Piecewise Linear Mixed Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-ggcorrplot 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-nlraa 
+BuildRequires:    R-CRAN-sqldf 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lcmm 
+BuildRequires:    R-CRAN-saemix 
+BuildRequires:    R-CRAN-Rmisc 
+BuildRequires:    R-CRAN-sitar 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ppcor 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-ggcorrplot 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-nlraa 
+Requires:         R-CRAN-sqldf 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-lcmm 
+Requires:         R-CRAN-saemix 
+Requires:         R-CRAN-Rmisc 
+Requires:         R-CRAN-sitar 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-ppcor 
+Requires:         R-CRAN-knitr 
 
 %description
-Create correlation (or partial correlation) matrices. Correlation matrices
-are formatted with significance stars based on user preferences. Matrices
-of coefficients, p-values, and number of pairwise observations are
-returned. Send resultant formatted matrices to the clipboard to be pasted
-into excel and other programs. A plot method allows users to visualize
-correlation matrices created with 'corx'.
+Estimation of relatively complex nonlinear mixed-effects models, including
+the Sigmoidal Mixed Model and the Piecewise Linear Mixed Model with abrupt
+or smooth transition, through a single intuitive line of code and with
+automated generation of starting values.
 
 %prep
 %setup -q -c -n %{packname}
