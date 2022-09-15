@@ -1,48 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  condvis2
-%global packver   0.1.2
+%global packname  elections.dtree
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Conditional Visualization for Supervised and Unsupervised Models in Shiny
+Summary:          Ranked Voting Election Audits with Dirichlet-Trees
 
-License:          GPL (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-DendSer 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-gower 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-DendSer 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RcppThread 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-gower 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-R6 
+Requires:         R-parallel 
 
 %description
-Constructs a shiny app function with interactive displays for conditional
-visualization of models, data and density functions. An extended version
-of package 'condvis'. Catherine B. Hurley, Mark O'Connell,Katarina Domijan
-(2021) <doi:10.1080/10618600.2021.1983439>.
+Perform ballot-polling Bayesian audits for ranked voting elections using
+Dirichlet-tree prior distributions. Everest et al. (2022)
+<arXiv:2206.14605>, <arXiv:2209.03881>.
 
 %prep
 %setup -q -c -n %{packname}

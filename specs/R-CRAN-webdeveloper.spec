@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  webdeveloper
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Web Development
 
@@ -19,8 +19,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-html5 >= 1.0.0
 BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-promises 
 Requires:         R-CRAN-html5 >= 1.0.0
 Requires:         R-CRAN-httpuv 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-promises 
 
 %description
 Organizational framework for web development in R including functions to

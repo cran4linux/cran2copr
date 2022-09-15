@@ -1,52 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  priceR
-%global packver   0.1.66
+%global packname  lmap
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.66
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Economics and Pricing Tools
+Summary:          Logistic Mapping
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gsubfn 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gsubfn 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-nnet 
 Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tidyr 
 
 %description
-Functions to aid in micro and macro economic analysis and handling of
-price and currency data. Includes extraction of relevant inflation and
-exchange rate data from World Bank API, data cleaning/parsing, and
-standardisation. Inflation adjustment calculations as found in Principles
-of Macroeconomics by Gregory Mankiw et al (2014). Current and historical
-end of day exchange rates for 171 currencies from the European Central
-Bank Statistical Data Warehouse (2020)
-<https://sdw.ecb.europa.eu/curConverter.do>.
+Set of tools for mapping of categorical response variables based on
+principal component analysis (pca) and multidimensional unfolding (mdu).
 
 %prep
 %setup -q -c -n %{packname}

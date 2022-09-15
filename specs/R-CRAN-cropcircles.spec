@@ -1,52 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  priceR
-%global packver   0.1.66
+%global packname  cropcircles
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.66
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Economics and Pricing Tools
+Summary:          Crops an Image to a Circle
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gsubfn 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gsubfn 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magick 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tidyr 
 
 %description
-Functions to aid in micro and macro economic analysis and handling of
-price and currency data. Includes extraction of relevant inflation and
-exchange rate data from World Bank API, data cleaning/parsing, and
-standardisation. Inflation adjustment calculations as found in Principles
-of Macroeconomics by Gregory Mankiw et al (2014). Current and historical
-end of day exchange rates for 171 currencies from the European Central
-Bank Statistical Data Warehouse (2020)
-<https://sdw.ecb.europa.eu/curConverter.do>.
+Images are cropped to a circle with a transparent background. The function
+takes a vector of images, either local or from a link, and circle crops
+the image. Paths to the cropped image are returned for plotting with
+'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

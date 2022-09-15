@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  priceR
-%global packver   0.1.66
+%global packname  receptiviti
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.66
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Economics and Pricing Tools
+Summary:          Text Analysis Through the 'Receptiviti' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,36 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gsubfn 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gsubfn 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-progressr 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-progressr 
 
 %description
-Functions to aid in micro and macro economic analysis and handling of
-price and currency data. Includes extraction of relevant inflation and
-exchange rate data from World Bank API, data cleaning/parsing, and
-standardisation. Inflation adjustment calculations as found in Principles
-of Macroeconomics by Gregory Mankiw et al (2014). Current and historical
-end of day exchange rates for 171 currencies from the European Central
-Bank Statistical Data Warehouse (2020)
-<https://sdw.ecb.europa.eu/curConverter.do>.
+Send text to the <https://www.receptiviti.com> API to be scored by all
+available frameworks.
 
 %prep
 %setup -q -c -n %{packname}

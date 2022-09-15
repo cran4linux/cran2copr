@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ribd
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pedigree-based Relatedness Coefficients
 
@@ -29,9 +30,9 @@ Requires:         R-CRAN-slam
 Recursive algorithms for computing various relatedness coefficients,
 including pairwise kinship, kappa and identity coefficients. Both
 autosomal and X-linked coefficients are computed. Founders are allowed to
-be inbred, enabling construction of any given kappa coefficients (Vigeland
-(2020) <doi:10.1007/s00285-020-01505-x>). In addition to the standard
-pairwise coefficients, 'ribd' also computes a range of lesser-known
+be inbred, which enables construction of any given kappa coefficients, as
+described in Vigeland (2020) <doi:10.1007/s00285-020-01505-x>. In addition
+to the standard coefficients, 'ribd' also computes a range of lesser-known
 coefficients, including generalised kinship coefficients (Karigl (1981)
 <doi:10.1111/j.1469-1809.1981.tb00341.x>; Weeks and Lange (1988)
 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1715269>), two-locus
@@ -39,7 +40,8 @@ coefficients (Thompson (1988) <doi:10.1093/imammb/5.4.261>) and
 multi-person coefficients. This package is part of the 'ped suite', a
 collection of packages for pedigree analysis in R. Several methods of
 'ribd' are featured in the online app 'QuickPed' available at
-<https://magnusdv.shinyapps.io/quickped>.
+<https://magnusdv.shinyapps.io/quickped>. See Vigeland (2022)
+<doi:10.1186/s12859-022-04759-y>.
 
 %prep
 %setup -q -c -n %{packname}

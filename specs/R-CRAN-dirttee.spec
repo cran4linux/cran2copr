@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dirttee
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributional Regression for Time to Event Data
 
@@ -47,7 +47,7 @@ probability of censoring weights has been introduced in Seipp et al.
 (2021) "Weighted Expectile Regression for Right-Censored Data"
 <doi:10.1002/sim.9137>, mode regression for time-to-event variables has
 been introduced in Seipp et al. (2022) "Flexible Semiparametric Mode
-Regression for Time-to-Event Data" (accepted manuscript).
+Regression for Time-to-Event Data" <doi:10.1177/09622802221122406>.
 
 %prep
 %setup -q -c -n %{packname}

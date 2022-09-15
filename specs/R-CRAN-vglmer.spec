@@ -1,49 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EnrichIntersect
-%global packver   0.3
+%global packname  vglmer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enrichment Analysis and Intersecting Sankey Diagram
+Summary:          Variational Inference for Hierarchical Generalized Linear Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-networkD3 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-webshot2 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-CholWishart 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-networkD3 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-webshot2 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-mgcv 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-CholWishart 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
+Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-grDevices 
+Requires:         R-CRAN-lmtest 
+Requires:         R-splines 
+Requires:         R-CRAN-mgcv 
 
 %description
-A flexible tool for enrichment analysis based on user-defined sets. It
-allows users to perform over-representation analysis of the custom sets
-among any specified ranked feature list, hence making enrichment analysis
-applicable to various types of data from different scientific fields.
-'EnrichIntersect' also enables an interactive means to visualize
-identified associations based on, for example, the mix-lasso model (Zhao
-et al. (2022) <doi:10.1016/j.isci.2022.104767>) or similar methods.
+Estimates hierarchical models using mean-field variational Bayes. At
+present, it can estimate logistic, linear, and negative binomial models.
+It can accommodate models with an arbitrary number of random effects and
+requires no integration to estimate. It also provides the ability to
+improve the quality of the approximation using marginal augmentation.
+Goplerud (2022) <doi:10.1214/21-BA1266> provides details on the
+variational algorithms.
 
 %prep
 %setup -q -c -n %{packname}

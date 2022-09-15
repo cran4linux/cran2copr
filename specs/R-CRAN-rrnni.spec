@@ -1,48 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  condvis2
-%global packver   0.1.2
+%global packname  rrnni
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Conditional Visualization for Supervised and Unsupervised Models in Shiny
+Summary:          Manipulate with RNNI Tree Space
 
-License:          GPL (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-DendSer 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-gower 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-DendSer 
+BuildRequires:    R-CRAN-ape 
 Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-gower 
+Requires:         R-CRAN-ape 
 
 %description
-Constructs a shiny app function with interactive displays for conditional
-visualization of models, data and density functions. An extended version
-of package 'condvis'. Catherine B. Hurley, Mark O'Connell,Katarina Domijan
-(2021) <doi:10.1080/10618600.2021.1983439>.
+Calculate RNNI distance between and manipulate with ranked trees. RNNI
+stands for Ranked Nearest Neighbour Interchange and is an extension of the
+classical NNI space (space of trees created by the NNI moves) to ranked
+trees, where internal nodes are ordered according to their heights
+(usually assumed to be times). The RNNI distance takes the tree topology
+into account, as standard NNI does, but also penalizes changes in the
+order of internal nodes, i.e. changes in the order of times of
+evolutionary events. For more information about the RNNI space see:
+Gavryushkin et al. (2018) <doi:10.1007/s00285-017-1167-9>, Collienne &
+Gavryushkin (2021) <doi:10.1007/s00285-021-01567-5>, Collienne et al.
+(2021) <doi:10.1007/s00285-021-01685-0>, and Collienne (2021)
+<http://hdl.handle.net/10523/12606>.
 
 %prep
 %setup -q -c -n %{packname}

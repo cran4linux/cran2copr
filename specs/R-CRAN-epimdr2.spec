@@ -1,48 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  condvis2
-%global packver   0.1.2
+%global packname  epimdr2
+%global packver   1.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Conditional Visualization for Supervised and Unsupervised Models in Shiny
+Summary:          Functions and Data for "Epidemics: Models and Data in R (2nd Edition)"
 
-License:          GPL (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-polspline 
+BuildRequires:    R-CRAN-phaseR 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-DendSer 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-gower 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-polspline 
+Requires:         R-CRAN-phaseR 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-DendSer 
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-gower 
 
 %description
-Constructs a shiny app function with interactive displays for conditional
-visualization of models, data and density functions. An extended version
-of package 'condvis'. Catherine B. Hurley, Mark O'Connell,Katarina Domijan
-(2021) <doi:10.1080/10618600.2021.1983439>.
+Functions, data sets and shiny apps for "Epidemics: Models and Data in R
+(2nd edition)" by Ottar N. Bjornstad (2022, ISBN: 978-3-031-12055-8)
+<https://link.springer.com/book/10.1007/978-3-319-97487-3>. The package
+contains functions to study the Susceptible-Exposed-Infected-Removed SEIR
+model, spatial and age-structured Susceptible-Infected-Removed SIR models;
+time-series SIR and chain-binomial stochastic models; catalytic disease
+models; coupled map lattice models of spatial transmission and network
+models for social spread of infection. The package is also an advanced
+quantitative companion to the 'Coursera' Epidemics Massive Online Open
+Course <https://www.coursera.org/learn/epidemics>.
 
 %prep
 %setup -q -c -n %{packname}

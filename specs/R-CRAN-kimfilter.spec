@@ -1,48 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  condvis2
-%global packver   0.1.2
+%global packname  kimfilter
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Conditional Visualization for Supervised and Unsupervised Models in Shiny
+Summary:          Kim Filter
 
-License:          GPL (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-DendSer 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-gower 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-DendSer 
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-gower 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.9
 
 %description
-Constructs a shiny app function with interactive displays for conditional
-visualization of models, data and density functions. An extended version
-of package 'condvis'. Catherine B. Hurley, Mark O'Connell,Katarina Domijan
-(2021) <doi:10.1080/10618600.2021.1983439>.
+'Rcpp' implementation of the multivariate Kim filter, which combines the
+Kalman and Hamilton filters for state probability inference. The filter is
+designed for state space models and can handle missing values and
+exogenous data in the observation and state equations. Kim, Chang-Jin and
+Charles R. Nelson (1999) "State-Space Models with Regime Switching:
+Classical and Gibbs-Sampling Approaches with Applications"
+<doi:10.7551/mitpress/6444.001.0001><http://econ.korea.ac.kr/~cjkim/>.
 
 %prep
 %setup -q -c -n %{packname}

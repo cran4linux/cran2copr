@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bayesmeta
-%global packver   3.0
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Random-Effects Meta-Analysis and Meta-Regression
 
@@ -27,11 +28,12 @@ Requires:         R-CRAN-mvtnorm >= 1.1.1
 
 %description
 A collection of functions allowing to derive the posterior distribution of
-the two parameters in a random-effects meta-analysis, and providing
-functionality to evaluate joint and marginal posterior probability
-distributions, predictive distributions, shrinkage effects, posterior
-predictive p-values, etc.; For more details, see also Roever C (2020)
-<doi:10.18637/jss.v093.i06>.
+the model parameters in random-effects meta-analysis or meta-regression,
+and providing functionality to evaluate joint and marginal posterior
+probability distributions, predictive distributions, shrinkage effects,
+posterior predictive p-values, etc.; For more details, see also Roever C
+(2020) <doi:10.18637/jss.v093.i06>, or Roever C and Friede T (2022)
+<arXiv:2209.06004>.
 
 %prep
 %setup -q -c -n %{packname}
