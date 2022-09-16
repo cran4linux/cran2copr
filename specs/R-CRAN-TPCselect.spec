@@ -1,47 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamma
-%global packver   1.0.3
+%global packname  TPCselect
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dose Rate Estimation from in-Situ Gamma-Ray Spectrometry Measurements
+Summary:          Variable Selection via Threshold Partial Correlation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-IsoplotR 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rxylib 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-IsoplotR 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rxylib 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-KernSmooth 
 Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-KernSmooth 
 
 %description
-Process in-situ Gamma-Ray Spectrometry for Luminescence Dating. This
-package allows to import, inspect and correct the energy shifts of
-Gamma-ray spectra. It provides methods for estimating the gamma dose rate
-by the use of a calibration curve as described in Mercier and Falguères
-(2007). The package only supports Canberra CNF and TKA files.
+A threshold partial correlation approach to selecting important variables
+in linear models of L. and others (2017) at <doi:10.5705/ss.202015.0473>,
+and in partial linear models of L. and others (2018) at
+<doi:10.1016/j.jmva.2018.06.005>. This package also extends the PC-simple
+algorithm of B. and others (2010) at <doi:10.1093/biomet/asq008> to
+partial linear models.
 
 %prep
 %setup -q -c -n %{packname}

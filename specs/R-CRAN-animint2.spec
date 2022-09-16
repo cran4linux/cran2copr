@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  animint2
-%global packver   2022.1.25
+%global packver   2022.9.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.1.25
+Version:          2022.9.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Animated Interactive Grammar of Graphics
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.9.8
 BuildRequires:    R-CRAN-plyr >= 1.7.1
 BuildRequires:    R-CRAN-knitr >= 1.5
 BuildRequires:    R-CRAN-scales >= 0.4.1
@@ -26,8 +28,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-lazyeval 
+Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-plyr >= 1.7.1
 Requires:         R-CRAN-knitr >= 1.5
 Requires:         R-CRAN-scales >= 0.4.1
@@ -38,8 +39,6 @@ Requires:         R-grid
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-lazyeval 
 
 %description
 Functions are provided for defining animated, interactive data

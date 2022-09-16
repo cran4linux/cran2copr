@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  aurin
-%global packver   0.6.0
+%global __requires_exclude ^libmpi
+%global packname  C19dNUTS
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Datasets from the 'AURIN' API
+Summary:          Dataset of Regional COVID-19 Deaths per 100,000 Pop (NUTS)
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,34 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-ows4R 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-ows4R 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
 
 %description
-'AURIN' <https://aurin.org.au/resources/aurin-apis/> is "Australia's
-single largest resource for accessing clean, integrated, spatially enabled
-and research-ready data on issues surrounding health and wellbeing,
-socio-economic metrics, transportation, and land-use.". This package
-provides functions to download and search datasets from the AURIN API
-(it's free to use!).
+Dataset containing COVID-19 deaths (absolute and per 100,000 pop) at the
+regional level (mostly NUTS 3) for 31 EU/EFTA countries.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ast2ast
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translates a R Function into an External Pointer to a C++ Function
+Summary:          Translates an R Function to a C++ Function
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,21 +20,22 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RcppXPtrUtils 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-RcppXPtrUtils 
 Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-methods 
 
 %description
 Enable translation of a tiny subset of R to C++. The user has to define a
 R function which gets translated. For a full list of possible functions
-check the documentation. After translation an external pointer to the C++
-function is returned to the user. The intention of the package is to
-generate fast functions which can be used as ode-system or during
-optimization.
+check the documentation. After translation an R function is returned which
+is a shallow wrapper around the C++ code. Alternatively an external
+pointer to the C++ function is returned to the user. The intention of the
+package is to generate fast functions which can be used as ode-system or
+during optimization.
 
 %prep
 %setup -q -c -n %{packname}

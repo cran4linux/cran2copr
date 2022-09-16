@@ -1,47 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamma
-%global packver   1.0.3
+%global packname  VedicDateTime
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dose Rate Estimation from in-Situ Gamma-Ray Spectrometry Measurements
+Summary:          Vedic Calendar System
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-IsoplotR 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rxylib 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-IsoplotR 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rxylib 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-swephR 
+Requires:         R-CRAN-swephR 
 
 %description
-Process in-situ Gamma-Ray Spectrometry for Luminescence Dating. This
-package allows to import, inspect and correct the energy shifts of
-Gamma-ray spectra. It provides methods for estimating the gamma dose rate
-by the use of a calibration curve as described in Mercier and Falguères
-(2007). The package only supports Canberra CNF and TKA files.
+Provides platform for Vedic calendar system having several functionalities
+to facilitate conversion between Gregorian and Vedic calendar systems, and
+helpful in examining its impact in the time series analysis domain. The
+background is described in Neeraj Dhanraj Bokde et al. (2021)
+<doi:10.48550/arXiv.2111.03441>, Karanam L. Ramakumar et al. (2011)
+<https:archive.org/details/PanchangamCalculations>, K. S. Charak et al.
+(2012, ISBN:8190100807), Satish BD et al. (2013)
+<https:github.com/webresh/drik-panchanga>.
 
 %prep
 %setup -q -c -n %{packname}

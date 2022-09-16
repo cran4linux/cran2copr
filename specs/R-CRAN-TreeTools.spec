@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TreeTools
-%global packver   1.7.3
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, Modify and Analyse Phylogenetic Trees
 
@@ -45,7 +46,7 @@ ancestor-descendant relationships, of 'stemwardness' (Asher & Smith, 2022)
 <doi:10.1016/j.mbs.2012.10.005>; artificial extinction (Asher & Smith,
 2022) <doi:10.1093/sysbio/syab072>; import and export of trees from
 Newick, Nexus (Maddison et al. 1997) <doi:10.1093/sysbio/46.4.590>, and
-TNT <http://www.lillo.org.ar/phylogeny/tnt/> formats; and analysis of
+TNT <https://www.lillo.org.ar/phylogeny/tnt/> formats; and analysis of
 splits and cladistic information.
 
 %prep

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mapboxapi
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'Mapbox' Web Services
 
@@ -59,9 +60,9 @@ Requires:         R-CRAN-jpeg
 Includes support for 'Mapbox' Navigation APIs, including directions,
 isochrones, and route optimization; the Search API for forward and reverse
 geocoding; the Maps API for interacting with 'Mapbox' vector tilesets and
-visualizing 'Mapbox' maps in R; and the 'tippecanoe' tile-generation
-utility. See <https://docs.mapbox.com/api/> for more information about the
-'Mapbox' APIs.
+visualizing 'Mapbox' maps in R; and 'Mapbox Tiling Service' and
+'tippecanoe' for generating map tiles. See <https://docs.mapbox.com/api/>
+for more information about the 'Mapbox' APIs.
 
 %prep
 %setup -q -c -n %{packname}

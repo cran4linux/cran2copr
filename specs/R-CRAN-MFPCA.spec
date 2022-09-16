@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MFPCA
-%global packver   1.3-9
+%global packver   1.3-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
+Version:          1.3.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Functional Principal Component Analysis for Data Observed on Different Dimensional Domains
 
@@ -13,24 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    fftw-devel >= 3.3.4
+BuildRequires:    fftw-devel
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-mgcv >= 1.8.33
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-CRAN-funData >= 1.3.4
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-mgcv >= 1.8.33
+Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-funData >= 1.3.4
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-plyr 
 Requires:         R-stats 

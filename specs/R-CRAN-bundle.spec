@@ -1,47 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamma
-%global packver   1.0.3
+%global packname  bundle
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dose Rate Estimation from in-Situ Gamma-Ray Spectrometry Measurements
+Summary:          Serialize Model Objects with a Consistent Interface
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-IsoplotR 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rxylib 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-IsoplotR 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rxylib 
-Requires:         R-stats 
-Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Process in-situ Gamma-Ray Spectrometry for Luminescence Dating. This
-package allows to import, inspect and correct the energy shifts of
-Gamma-ray spectra. It provides methods for estimating the gamma dose rate
-by the use of a calibration curve as described in Mercier and Falguères
-(2007). The package only supports Canberra CNF and TKA files.
+Typically, models in 'R' exist in memory and can be saved via regular 'R'
+serialization. However, some models store information in locations that
+cannot be saved using 'R' serialization alone. The goal of 'bundle' is to
+provide a common interface to capture this information, situate it within
+a portable object, and restore it for use in new settings.
 
 %prep
 %setup -q -c -n %{packname}

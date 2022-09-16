@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Kmedians
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          K-Medians
 
@@ -50,9 +50,11 @@ Hilbert spaces with an averaged stochastic gradient algorithm". Bernoulli,
 19, 18-43. <doi:10.3150/11-BEJ390>. Cardot, H. and Godichon-Baggioni, A.
 (2017). "Fast Estimation of the Median Covariation Matrix with Application
 to Online Robust Principal Components Analysis". Test, 26(3), 461-480
-<doi:10.1007/s11749-016-0519-x>. Vardi, Y. and Zhang, C.-H. (2000). "The
-multivariate L1-median and associated data depth". Proc. Natl. Acad. Sci.
-USA, 97(4):1423-1426. <doi:10.1073/pnas.97.4.1423>.
+<doi:10.1007/s11749-016-0519-x>. Godichon-Baggioni, A. and Surendran, S.
+"A penalized criterion for selecting the number of clusters for K-medians"
+<arXiv:2209.03597> Vardi, Y. and Zhang, C.-H. (2000). "The multivariate
+L1-median and associated data depth". Proc. Natl. Acad. Sci. USA,
+97(4):1423-1426. <doi:10.1073/pnas.97.4.1423>.
 
 %prep
 %setup -q -c -n %{packname}

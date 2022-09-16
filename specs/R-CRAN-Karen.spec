@@ -1,45 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  relSim
-%global packver   0.3-3
+%global packname  Karen
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relative Simulator
+Summary:          Kalman Reaction Networks
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-gaussquad 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-multicool 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
+Requires:         R-CRAN-gaussquad 
+Requires:         R-splines 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-tmvtnorm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-multicool 
-Requires:         R-utils 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-expm 
 Requires:         R-methods 
 
 %description
-A set of tools to explore the behaviour statistics used for forensic DNA
-interpretation when close relatives are involved. The package also offers
-some useful tools for exploring other forensic DNA situations.
+This is a stochastic framework that combines biochemical reaction networks
+with extended Kalman filter and Rauch-Tung-Striebel smoothing. This
+framework allows to investigate the dynamics of cell differentiation from
+high-dimensional clonal tracking data subject to measurement noise, false
+negative errors, and systematically unobserved cell types. Our tool can
+provide statistical support to biologists in gene therapy clonal tracking
+studies for a deeper understanding of clonal reconstitution dynamics.
+Further details on the methods can be found in L. Del Core et al., (2022)
+<doi:10.1101/2022.07.08.499353>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamma
-%global packver   1.0.3
+%global packname  tidyrgee
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dose Rate Estimation from in-Situ Gamma-Ray Spectrometry Measurements
+Summary:          'tidyverse' Methods for 'Earth Engine'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-IsoplotR 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-reticulate >= 1.24
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rgee 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rxylib 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-IsoplotR 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-reticulate >= 1.24
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rgee 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rxylib 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Process in-situ Gamma-Ray Spectrometry for Luminescence Dating. This
-package allows to import, inspect and correct the energy shifts of
-Gamma-ray spectra. It provides methods for estimating the gamma dose rate
-by the use of a calibration curve as described in Mercier and Falguères
-(2007). The package only supports Canberra CNF and TKA files.
+Provides 'tidyverse' methods for wrangling and analyzing 'Earth Engine'
+<https://earthengine.google.com/> data. These methods help the user with
+filtering, joining and summarising 'Earth Engine' image collections.
 
 %prep
 %setup -q -c -n %{packname}

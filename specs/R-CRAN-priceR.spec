@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  priceR
-%global packver   0.1.66
+%global packver   0.1.67
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.66
+Version:          0.1.67
 Release:          1%{?dist}%{?buildtag}
 Summary:          Economics and Pricing Tools
 
