@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  matrixNormal
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Matrix Normal Distribution
 
@@ -16,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm >= 1.0.8
+BuildRequires:    R-CRAN-mvtnorm >= 1.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-mvtnorm >= 1.0.8
+Requires:         R-CRAN-mvtnorm >= 1.1.2
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
 Computes densities, probabilities, and random deviates of the Matrix
-Normal (Iranmanesh et al. (2010) <doi:10.7508/ijmsi.2010.02.004>). Also
+Normal (Pocuca et al. (2019) <doi:10.48550/arXiv.1910.02859>). Also
 includes simple but useful matrix functions. See the vignette for more
 information.
 

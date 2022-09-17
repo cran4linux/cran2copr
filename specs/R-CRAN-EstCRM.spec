@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EstCRM
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calibrating Parameters for the Samejima's Continuous IRT Model
 
@@ -22,11 +23,11 @@ Requires:         R-CRAN-Hmisc
 Requires:         R-CRAN-lattice 
 
 %description
-Estimates item and person parameters for the Samejima's Continuous
-Response Model (CRM), computes item fit residual statistics, draws
-empirical 3D item category response curves, draws theoretical 3D item
-category response curves, and generates data under the CRM for simulation
-studies.
+Estimates item and person parameters for the Continuous Response Model
+(CRM; Samejima, 1973, <doi:10.1007/BF02291114>), computes item fit
+residual statistics, draws empirical 3D item category response curves,
+draws theoretical 3D item category response curves, and generates data
+under the CRM for simulation studies.
 
 %prep
 %setup -q -c -n %{packname}

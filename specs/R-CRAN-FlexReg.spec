@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FlexReg
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Models for Bounded Responses
+Summary:          Regression Models for Bounded and Binomial Responses
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -44,19 +45,22 @@ Requires:         R-CRAN-faraway
 Requires:         R-CRAN-rstantools
 
 %description
-Functions to fit regression models for bounded responses (e.g.,
-proportions and rates) and binomial data. Available models are the
-flexible beta (Migliorati, S., Di Brisco, A. M., Ongaro, A. (2018)
-<doi:10.1214/17-BA1079>), the variance-inflated beta (Di Brisco, A. M.,
-Migliorati, S., Ongaro, A. (2020) <doi:10.1177/1471082X18821213>), the
-beta (Ferrari, S.L.P., and Cribari-Neto, F. (2004)
-<doi:10.1080/0266476042000214501>), the flexible beta-binomial (Ascari, R.
-and Migliorati, S. (2021) <doi:10.1002/sim.9005>), the beta-binomial, and
-the binomial one. Inference is dealt with a Bayesian approach based on the
-Hamiltonian Monte Carlo (HMC) algorithm (Gelman, A.; Carlin, J. B.; Stern,
-H. S. and Rubin, D. B. (2014) <doi:10.1201/b16018>). Besides, functions to
-compute residuals, posterior predictives, goodness-of-fit measures,
-convergence diagnostics, and graphical representations are provided.
+Functions to fit regression models for bounded (e.g., proportions and
+rates) and binomial responses. In case of bounded responses, available
+models are the flexible beta (Migliorati, S., Di Brisco, A. M., Ongaro, A.
+(2018) <doi:10.1214/17-BA1079>), the variance-inflated beta (Di Brisco, A.
+M., Migliorati, S., Ongaro, A. (2020) <doi:10.1177/1471082X18821213>), the
+beta (Ferrari, S.L.P., Cribari-Neto, F. (2004)
+<doi:10.1080/0266476042000214501>), and their augmented versions to handle
+the presence of zero/one values (Di Brisco, A. M., Migliorati, S. (2020)
+<doi:10.1002/sim.8406>). In case of binomial responses, available models
+are the flexible beta-binomial (Ascari, R., Migliorati, S. (2021)
+<doi:10.1002/sim.9005>), the beta-binomial, and the binomial. Inference is
+dealt with a Bayesian approach based on the Hamiltonian Monte Carlo (HMC)
+algorithm (Gelman, A., Carlin, J. B., Stern, H. S., Rubin, D. B. (2014)
+<doi:10.1201/b16018>). Besides, functions to compute residuals, posterior
+predictives, goodness-of-fit measures, convergence diagnostics, and
+graphical representations are provided.
 
 %prep
 %setup -q -c -n %{packname}

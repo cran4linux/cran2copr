@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gridtext
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Improved Text Rendering Support for 'Grid' Graphics
 
@@ -15,22 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-curl 
 Requires:         R-grid 
 Requires:         R-grDevices 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-stringr 
@@ -50,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
