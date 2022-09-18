@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  meta
-%global packver   5.5-0
+%global packver   6.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.0
+Version:          6.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Package for Meta-Analysis
 
@@ -32,12 +33,14 @@ User-friendly general package providing standard methods for meta-analysis
 and supporting Schwarzer, Carpenter, and Rücker
 <DOI:10.1007/978-3-319-21416-0>, "Meta-Analysis with R" (2015): - common
 effect and random effects meta-analysis; - several plots (forest, funnel,
-Galbraith / radial, L'Abbe, Baujat, bubble); - statistical tests and
-trim-and-fill method to evaluate bias in meta-analysis; - import data from
-'RevMan 5'; - prediction interval, Hartung-Knapp method for random effects
-model; - cumulative meta-analysis and leave-one-out meta-analysis; -
-meta-regression; - generalised linear mixed models; - produce forest plot
-summarising several (subgroup) meta-analyses.
+Galbraith / radial, L'Abbe, Baujat, bubble); - three-level meta-analysis
+model; - generalised linear mixed model; - Hartung-Knapp method for random
+effects model; - Kenward-Roger method for random effects model; -
+prediction interval; - statistical tests for funnel plot asymmetry; -
+trim-and-fill method to evaluate bias in meta-analysis; - meta-regression;
+- cumulative meta-analysis and leave-one-out meta-analysis; - import data
+from 'RevMan 5'; - produce forest plot summarising several (subgroup)
+meta-analyses.
 
 %prep
 %setup -q -c -n %{packname}

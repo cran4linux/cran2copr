@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robustlmm
-%global packver   3.0-2
+%global packver   3.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Linear Mixed Effects Models
 
@@ -49,11 +49,6 @@ Requires:         R-utils
 Implements the Robust Scoring Equations estimator to fit linear mixed
 effects models robustly. Robustness is achieved by modification of the
 scoring equations combined with the Design Adaptive Scale approach.
-Includes some references to the archived packages 'robustvarComp' and
-'heavy'. Both packages are only needed to reproduce a simulation study and
-are not required for the running of the regular package functions. You can
-install both packages by downloading the latest version from the CRAN
-archive.
 
 %prep
 %setup -q -c -n %{packname}

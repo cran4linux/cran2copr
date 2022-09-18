@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bayestestR
-%global packver   0.12.1
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Understand and Describe Bayesian Models and Posterior Distributions
 
@@ -13,17 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-datawizard >= 0.4.0
-BuildRequires:    R-CRAN-insight >= 0.17.0
+BuildRequires:    R-CRAN-datawizard >= 0.5.1
+BuildRequires:    R-CRAN-insight >= 0.18.2
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-datawizard >= 0.4.0
-Requires:         R-CRAN-insight >= 0.17.0
+Requires:         R-CRAN-datawizard >= 0.5.1
+Requires:         R-CRAN-insight >= 0.18.2
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 

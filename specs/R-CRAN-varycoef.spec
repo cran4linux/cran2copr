@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  varycoef
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Spatially Varying Coefficients
 
@@ -17,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-optimParallel >= 0.8.1
-BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-methods 
@@ -26,8 +26,8 @@ BuildRequires:    R-CRAN-mlrMBO
 BuildRequires:    R-CRAN-ParamHelpers 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-smoof 
+BuildRequires:    R-CRAN-spam 
 Requires:         R-CRAN-optimParallel >= 0.8.1
-Requires:         R-CRAN-spam 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-lhs 
 Requires:         R-methods 
@@ -36,6 +36,7 @@ Requires:         R-CRAN-mlrMBO
 Requires:         R-CRAN-ParamHelpers 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-smoof 
+Requires:         R-CRAN-spam 
 
 %description
 Implements a maximum likelihood estimation (MLE) method for estimation and
@@ -44,8 +45,9 @@ models (Dambon et al. (2021a) <doi:10.1016/j.spasta.2020.100470>).
 Covariance tapering (Furrer et al. (2006) <doi:10.1198/106186006X132178>)
 can be applied such that the method scales to large data. Further, it
 implements a joint variable selection of the fixed and random effects
-(Dambon et al. (2021b) <arXiv:2101.01932>). The package and its
-capabilities are described in (Dambon et al. (2021c) <arXiv:2106.02364>).
+(Dambon et al. (2021b) <doi:10.1080/13658816.2022.2097684>). The package
+and its capabilities are described in (Dambon et al. (2021c)
+<arXiv:2106.02364>).
 
 %prep
 %setup -q -c -n %{packname}

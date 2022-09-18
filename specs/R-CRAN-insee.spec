@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  insee
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Easily Download Data from INSEE BDM Database
 
@@ -27,7 +28,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-readsdmx 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-tibble 
@@ -39,13 +39,10 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-readsdmx 
 
 %description
 Using embedded sdmx queries, get the data of more than 150 000 insee
-series from bdm database. Have a look at the detailed sdmx web service
-page with the following link :
-<https://www.insee.fr/en/information/2868055>.
+series from 'bdm' macroeconomic database.
 
 %prep
 %setup -q -c -n %{packname}

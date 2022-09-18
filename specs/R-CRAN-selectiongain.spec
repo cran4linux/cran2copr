@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  selectiongain
-%global packver   2.0.707
+%global packver   2.0.710
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.707
+Version:          2.0.710
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool for Calculation and Optimization of the Expected Gain from Multi-Stage Selection
 

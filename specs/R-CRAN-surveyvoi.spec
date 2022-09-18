@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveyvoi
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survey Value of Information
 
@@ -73,7 +73,7 @@ coverage, diversity of sampled environmental algorithms. After generating
 such survey plans, they can be evaluated using conditions) and maximizing
 value of information. Please note that several functions depend on the
 'Gurobi' optimization software (available from <https://www.gurobi.com>).
-Additionally, the JAGS software (available from
+Additionally, the 'JAGS' software (available from
 <https://mcmc-jags.sourceforge.io/>) is required to fit hierarchical
 generalized linear models.
 
