@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  raster
-%global packver   3.5-29
+%global packver   3.6-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.29
+Version:          3.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Data Analysis and Modeling
 
@@ -16,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-terra >= 1.6.2
+BuildRequires:    R-CRAN-terra >= 1.6.16
 BuildRequires:    R-CRAN-sp >= 1.4.5
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-terra >= 1.6.2
+Requires:         R-CRAN-terra >= 1.6.16
 Requires:         R-CRAN-sp >= 1.4.5
 Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
@@ -28,8 +28,9 @@ Requires:         R-methods
 %description
 Reading, writing, manipulating, analyzing and modeling of spatial data.
 The package implements basic and high-level functions for raster data and
-for vector data operations such as intersections. See the manual and
-tutorials on <https://rspatial.org/> to get started.
+for vector data operations such as intersections. This package has been
+superseded by the "terra" package
+<https://CRAN.R-project.org/package=terra>.
 
 %prep
 %setup -q -c -n %{packname}

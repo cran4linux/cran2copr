@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ngramr
-%global packver   1.8.0
+%global packver   1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Plot Google n-Gram Data
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.3
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-textutils
 Requires:         R-CRAN-dplyr >= 1.0.3
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

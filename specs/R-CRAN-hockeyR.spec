@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hockeyR
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collect and Clean Hockey Stats
 
@@ -32,6 +32,9 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-padr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
@@ -47,6 +50,9 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 Requires:         R-CRAN-zoo 
+Requires:         R-stats 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-padr 
 
 %description
 Various functions to scrape hockey play-by-play data from the
