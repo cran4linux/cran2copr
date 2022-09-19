@@ -186,6 +186,7 @@ EpiSignalDetection,,,TRUE,pandoc
 eplusr,,,TRUE,EnergyPlus (optional) (<https://energyplus.net>);udunits2
 ergm,,,TRUE,OpenMPI
 eseis,,,TRUE,gipptools dataselect
+EvidenceSynthesis,,,TRUE,Java versionor higher (https://www.java.com/)
 EviewsR,,,TRUE,EViews
 exactextractr,geos-devel,,TRUE,GEOS
 excerptr,,,TRUE,Python
@@ -193,7 +194,7 @@ exifr,/usr/bin/exiftool,/usr/bin/exiftool,TRUE,Perl
 exiftoolr,/usr/bin/exiftool,/usr/bin/exiftool,TRUE,Perl
 extRatum,,,TRUE,"GDAL, GEOS, PROJ"
 ezknitr,,,TRUE,pandoc with https support
-fastGLCM,,,TRUE,"apt-get-pip: apt-get install -y python3-pip (deb),python3-pip: python3 -m pip install -U pip (deb), numpy: pip3install -U numpy (deb), cv2: pip3 install -U opencv-python(deb), libarmadillo: apt-get install -y libarmadillo-dev (deb),libblas: apt-get install -y libblas-dev (deb), liblapack:apt-get install -y liblapack-dev (deb), libarpack++2: apt-getinstall -y libarpack++2-dev (deb), : apt-get install -y (deb)"
+fastGLCM,,,TRUE,"apt-get-pip: apt-get install -y python3-pip (deb),python3-pip: python3 -m pip install -U pip (deb), numpy: pip3install -U numpy (deb), cv2: pip3 install -U opencv-python(deb), matplotlib: pip3 install -U matplotlib (deb), skimage:pip3 install -U scikit-image (deb), libarmadillo: apt-getinstall -y libarmadillo-dev (deb), libblas: apt-get install -ylibblas-dev (deb), liblapack: apt-get install -y liblapack-dev(deb), libarpack++2: apt-get install -y libarpack++2-dev (deb),: apt-get install -y  (deb)"
 fastText,,,TRUE,"Generally, fastText builds on modern Mac OS andLinux distributions. Since it uses some  features, itrequires a compiler with good  support. These include a(g++-4.7.2 or newer) or a (-3.3 or newer)."
 FCPS,,pandoc,TRUE,Pandoc
 feamiR,,,TRUE,Python sreformat patman
@@ -208,6 +209,7 @@ findInGit,,grep git,TRUE,"grep, git"
 FishResp,,,TRUE,Display resolutionx800; RAMGB
 fitbitViz,,,TRUE,update: apt-get -y update (deb)
 flan,gsl-devel,,TRUE,GNU GSL
+flexsiteboard,,,TRUE,pandoc - http://pandoc.org
 fmf,,,TRUE,"libarmadillo: apt-get install -y libarmadillo-dev(deb), libblas: apt-get install -y libblas-dev (deb),liblapack: apt-get install -y liblapack-dev (deb),libarpack++2: apt-get install -y libarpack++2-dev (deb),: apt-get install -y  (deb)"
 foieGras,,pandoc,TRUE,"GDAL, GEOS, PROJ,pandoc"
 footBayes,,pandoc,TRUE,"pandoc, pandoc-citeproc"
@@ -216,6 +218,7 @@ forsearch,,,TRUE,gmp
 frequency,,,TRUE,pandoc - http://pandoc.org
 fRLR,gsl-devel,,TRUE,GNU Scientific Library (GSL). Note: users shouldhave GSL installed.
 fsdaR,,,TRUE,"(license-free) MATLAB Runtime (MCR) V, Java(>=8)"
+fslr,,,TRUE,FSL
 fst,,,TRUE,little-endian platform
 fstcore,,,TRUE,little-endian platform
 ftExtra,,,TRUE,pandoc - http://pandoc.org
@@ -266,6 +269,8 @@ GRANBase,,subversion git,TRUE,"svn, git"
 GreedyExperimentalDesign,,,TRUE,Java
 GreedyExperimentalDesignJARs,,,TRUE,Java
 greta,,,TRUE,Python with header files and sharedlibrary; TensorFlow (v1.14; https://www.tensorflow.org/);TensorFlow Probability (v0.7.0;https://www.tensorflow.org/probability/)
+greta.dynamics,,,TRUE,Python with header files and sharedlibrary; TensorFlow (v1.14; https://www.tensorflow.org/);TensorFlow Probability (v0.7.0;https://www.tensorflow.org/probability/)
+greta.gp,,,TRUE,Python with header files and sharedlibrary; TensorFlow (v1.14; https://www.tensorflow.org/);TensorFlow Probability (v0.7.0;https://www.tensorflow.org/probability/)
 gretlR,,gretl,TRUE,gretl
 gridDebug,,,TRUE,graphviz
 gridGraphviz,,graphviz,TRUE,graphviz
@@ -283,6 +288,7 @@ h2o,,R-java,TRUE,"Java, <="
 h2o4gpu,,,TRUE,Python with header files and sharedlibrary; H2O4GPU (https://github.com/h2oai/h2o4gpu)
 h3jsr,,,TRUE,"V8 engine version+ is needed for modern JS andWASM support. On Debian / Ubuntu install either libv8-dev orlibnode-dev, on Fedora use v8-devel."
 hadron,gsl-devel,,TRUE,Gnu Scientific Library version
+happign,,,FALSE,"GDAL, GEOS, PROJ, sqlite3"
 haven,zlib-devel,,TRUE,"zlib: zlib1g-dev (deb), zlib-devel(rpm)"
 hdf5r,hdf5-devel,,TRUE,HDF5
 hdfqlr,,,TRUE,HDFql
@@ -387,12 +393,13 @@ MBNMAdose,,,TRUE,JAGS(https://mcmc-jags.sourceforge.net/)
 MBNMAtime,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 mboxr,,,TRUE,Anaconda (https://www.anaconda.com/download/)
 mBvs,gsl-devel,,TRUE,
+mcbette,,,TRUE,BEAST2 (https://www.beast2.org/)
 mdbr,,mdbtools,TRUE,mdbtools: mdbtools (deb).
 mdendro,,java,TRUE,
 MDSGUI,,bwidget,TRUE,"windows, 'BWidget', 'Tktable'"
 meltt,,,TRUE,Python
 memoiR,,,TRUE,pandoc
-MeshesOperations,gmp-devel mpfr-devel,,TRUE,"C++, gmp, mpfr"
+MeshesOperations,gmp-devel mpfr-devel,,TRUE,
 metagear,,,TRUE,Tcl/Tk toolkit (X11 Quarts for Mac)
 metaMix,,,TRUE,Open MPI
 metapost,,/usr/bin/mpost,TRUE,mpost
@@ -427,7 +434,7 @@ mutossGUI,,,TRUE,Java
 mwa,,,TRUE,Java
 mwcsr,,R-java,TRUE,Java
 NACHO,,,TRUE,"pandoc, pandoc-citeproc"
-nanonext,cmake,,TRUE,'cmake' to compile 'libnng' from source
+nanonext,cmake nng-devel mbedtls-devel,,FALSE,'cmake' to compile 'libnng' and 'libmbedtls' fromsource
 nbconvertR,,pandoc python3dist(nbconvert),TRUE,"pandoc, jupyter, jupyter nbconvert (""nbconvert""python package), pywin32 (on windows)"
 ncdf4,netcdf-devel,,TRUE,netcdf library versionor later
 ndjson,zlib-devel,,TRUE,"zlib,"
@@ -559,7 +566,7 @@ rapidraker,,,TRUE,Java
 RAppArmor,,,TRUE,"linux, libapparmor-dev"
 rapport,,,TRUE,pandoc (https://johnmacfarlane.net/pandoc) forexporting markdown files to other formats.
 RAQSAPI,,,TRUE,package manual requires pandochttp://pandoc.org
-rasciidoc,,asciidoc source-highlight,TRUE,"python, by default rasciidoc uses a systeminstallation of asciidoc. If a system installation of asciidocis not available, it downloads the sources from(<http://gitlab.com/asciidoc>). GNU source-highlight isrecommended."
+rasciidoc,,asciidoc source-highlight,TRUE,
 raveio,,,TRUE,little-endian platform
 ravetools,fftw-devel,,TRUE,"fftw3 (libfftw3-dev (deb), or fftw-devel (rpm))"
 RBaseX,,,TRUE,Needs a running BaseX server instance.
@@ -797,6 +804,7 @@ slendr,,,TRUE,'SLiM' is a forward simulation software forpopulation genetics and
 slowraker,,R-java,TRUE,Java
 smam,gsl-devel,,TRUE,"GNU GSL,"
 smile,,,TRUE,"GDAL, GEOS, PROJ"
+snSMART,,,TRUE,JAGSx.y
 sodium,libsodium-devel,,TRUE,libsodium
 SOFIA,,,TRUE,Circos
 soilhypfit,,,TRUE,"gmp, mpfr"
@@ -836,11 +844,12 @@ stringi,libicu-devel,,TRUE,"ICU4C, optional)"
 subspace,,,TRUE,Java
 sudachir,,,TRUE,Python
 SuperGauss,fftw-devel,,TRUE,fftw3
+surveyvoi,fftw3-devel gmp-devel mpfr-devel,,TRUE,"JAGS (optional), fftw3,gmp, gmpxx, mpfr, autoconf, automake"
 survSNP,gsl-devel,,TRUE,GNU GSL
 svDialogs,,zenity yad,TRUE,"zenity, yad"
 svglite,libpng-devel,,TRUE,libpng
 svKomodo,,,TRUE,Komodo Edit(https://www.activestate.com/products/komodo-ide/)
-switchboard,,,TRUE,Tcl/Tk toolkit (X11 Quarts for Mac)
+switchboard,xorg-x11-server-Xvfb,,TRUE,Tcl/Tk toolkit (X11 Quarts for Mac)
 switchr,,git subversion,TRUE,"git, svn"
 swmmr,,,TRUE,SWMM
 SymbolicDeterminants,,,TRUE,gmp
@@ -902,7 +911,7 @@ untb,,pari-gp,TRUE,PARI/GP[strongly recommended forlogkda()]
 utr.annotation,,,TRUE,Linux or MacOS Intel chip tensorflow
 V8,v8-devel,,TRUE,"V8 engine version+ is needed for ES6 and WASMsupport. On Linux you can build against libv8-dev (Debian) orv8-devel (Fedora). We also provide static libv8 binaries formost platforms, see the README for details."
 valection,,,TRUE,valection
-vapour,gdal-devel proj-devel sqlite-devel,,TRUE,"GDAL, PROJ.4,"
+vapour,gdal-devel proj-devel sqlite-devel,,TRUE,
 varitas,,perl bwa,TRUE,"perl, bedtools, bwa"
 vaultr,,,TRUE,vault
 VBLPCM,gsl-devel,,TRUE,Gnu Scientific Library

@@ -1,4 +1,6 @@
+%global debug_package %{nil}
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  x13binary
 %global packver   1.1.57-3
 %global rlibdir   /usr/local/lib/R/library
@@ -15,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 
 %description
 The US Census Bureau provides a seasonal adjustment program now called

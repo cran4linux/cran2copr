@@ -1,4 +1,6 @@
+%global debug_package %{nil}
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mathjaxr
 %global packver   1.6-0
 %global rlibdir   /usr/local/lib/R/library

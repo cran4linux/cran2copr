@@ -1,4 +1,5 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bigmemory
 %global packver   4.6.1
 %global rlibdir   /usr/local/lib/R/library
@@ -35,7 +36,7 @@ advanced functionality.
 
 %prep
 %setup -q -c -n %{packname}
-
+sed -i 's|-luuid||g' %{packname}/configure
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

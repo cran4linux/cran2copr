@@ -14,6 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    fftw3-devel
+BuildRequires:    gmp-devel
+BuildRequires:    mpfr-devel
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-vegan >= 2.5.6

@@ -299,7 +299,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
   tpl <- c(switch(
     pkg,
     BANOVA=,beam=,Boom=,FastRWeb=,mapdata=,pbdRPC=,pbdPROF=,qtpaint=,RxODE=,
-    tth=,wingui=,mixl=,StanHeaders="%global debug_package %{nil}",
+    tth=,wingui=,mixl=,StanHeaders=,mathjaxr=,x13binary="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
@@ -360,7 +360,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
       "sed -i '1d' %{packname}/inst/python/io_solo_params_community.py\n",
       "find %{packname} -type f -exec ",
       "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
-    arrow = "sed -i 's|PKGCONFIG_DIRS=.*|PKGCONFIG_DIRS=-L%{_libdir}|' %{packname}/configure"
+    arrow = "sed -i 's|PKGCONFIG_DIRS=.*|PKGCONFIG_DIRS=-L%{_libdir}|' %{packname}/configure",
+    bigmemory = "sed -i 's|-luuid||g' %{packname}/configure"
   ))
 
   # install
@@ -389,6 +390,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
   # other
   if (pkg %in% c("adapr", "taber"))
     unlink(file.path(path, "data"))
+  if (pkg %in% c("x13binary"))
+    dir.create(file.path(path, "src"))
 
   tpl
 }
@@ -403,8 +406,8 @@ create_spec <- function(pkg, cran=available_packages(), write=TRUE) {
   # fields
   desc <- read.dcf(file.path(path, "DESCRIPTION"))
   desc <- as.data.frame(desc, stringsAsFactors=FALSE)
-  if (!dir.exists(file.path(path, "src")))
-    cran[cran[,"Package"] == desc$Package, "NeedsCompilation"] = "no"
+  cran[cran[,"Package"] == desc$Package, "NeedsCompilation"] <-
+    if (dir.exists(file.path(path, "src"))) "yes" else "no"
   deps <- pkg_deps(desc, cran)
   description <- strwrap(desc$Description, 75)
   description <- gsub("%", "%%", description)
