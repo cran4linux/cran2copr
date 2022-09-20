@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cvar
-%global packver   0.4.1
+%global packname  TSCI
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Expected Shortfall and Value at Risk for Continuous Distributions
+Summary:          Tools for Causal Inference with Possibly Invalid Instrumental Variables
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack >= 0.8
-BuildRequires:    R-CRAN-gbutils 
-BuildRequires:    R-CRAN-fGarch 
-Requires:         R-CRAN-Rdpack >= 0.8
-Requires:         R-CRAN-gbutils 
-Requires:         R-CRAN-fGarch 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
+Requires:         R-CRAN-ranger 
+Requires:         R-parallel 
 
 %description
-Compute expected shortfall (ES) and Value at Risk (VaR) from a quantile
-function, distribution function, random number generator or probability
-density function.  ES is also known as Conditional Value at Risk (CVaR).
-Virtually any continuous distribution can be specified. The functions are
-vectorized over the arguments. The computations are done directly from the
-definitions, see e.g. Acerbi and Tasche (2002)
-<doi:10.1111/1468-0300.00091>. Some support for GARCH models is provided,
-as well.
+Two stage curvature identification with machine learning for causal
+inference in settings when instrumental variable regression is not
+suitable because of potentially invalid instrumental variables. Based on
+Guo and Buehlmann (2022) "Two Stage Curvature Identification with Machine
+Learning: Causal Inference with Possibly Invalid Instrumental Variables"
+<arXiv:2203.12808> .
 
 %prep
 %setup -q -c -n %{packname}

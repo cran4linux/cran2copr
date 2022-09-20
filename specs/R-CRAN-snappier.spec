@@ -1,38 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cvar
-%global packver   0.4.1
+%global packname  snappier
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Expected Shortfall and Value at Risk for Continuous Distributions
+Summary:          Compress and Decompress 'Snappy' Encoded Data
 
-License:          GPL (>= 2)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack >= 0.8
-BuildRequires:    R-CRAN-gbutils 
-BuildRequires:    R-CRAN-fGarch 
-Requires:         R-CRAN-Rdpack >= 0.8
-Requires:         R-CRAN-gbutils 
-Requires:         R-CRAN-fGarch 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 
 %description
-Compute expected shortfall (ES) and Value at Risk (VaR) from a quantile
-function, distribution function, random number generator or probability
-density function.  ES is also known as Conditional Value at Risk (CVaR).
-Virtually any continuous distribution can be specified. The functions are
-vectorized over the arguments. The computations are done directly from the
-definitions, see e.g. Acerbi and Tasche (2002)
-<doi:10.1111/1468-0300.00091>. Some support for GARCH models is provided,
-as well.
+Provides compression and decompression of 'Snappy' encoded data. Includes
+and provides bindings to the 'Snappy' compression library, with a safe R
+interface.
 
 %prep
 %setup -q -c -n %{packname}

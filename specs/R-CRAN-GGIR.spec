@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GGIR
-%global packver   2.7-1
+%global packver   2.8-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          2.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raw Accelerometer Data Analysis
 
@@ -15,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
@@ -28,11 +29,10 @@ BuildRequires:    R-CRAN-tuneR
 BuildRequires:    R-CRAN-unisensR 
 BuildRequires:    R-CRAN-ineq 
 BuildRequires:    R-CRAN-read.gt3x 
-BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-activityCounts 
 BuildRequires:    R-CRAN-ActCR 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-CRAN-GGIRread 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
@@ -45,22 +45,22 @@ Requires:         R-CRAN-tuneR
 Requires:         R-CRAN-unisensR 
 Requires:         R-CRAN-ineq 
 Requires:         R-CRAN-read.gt3x 
-Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-activityCounts 
 Requires:         R-CRAN-ActCR 
 Requires:         R-methods 
+Requires:         R-CRAN-GGIRread 
 
 %description
 A tool to process and analyse data collected with wearable raw
 acceleration sensors as described in Migueles and colleagues (JMPB 2019),
 and van Hees and colleagues (JApplPhysiol 2014; PLoSONE 2015). The package
 has been developed and tested for binary data from 'GENEActiv'
-<https://www.activinsights.com/> and GENEA devices (not for sale),
-.csv-export data from 'Actigraph' <https://actigraphcorp.com> devices, and
-.cwa and .wav-format data from 'Axivity' <https://axivity.com>. These
-devices are currently widely used in research on human daily physical
-activity. Further, the package can handle accelerometer data file from any
-other sensor brand providing that the data is stored in csv format and has
+<https://activinsights.com/> and GENEA devices (not for sale), .csv-export
+data from 'Actigraph' <https://actigraphcorp.com> devices, and .cwa and
+.wav-format data from 'Axivity' <https://axivity.com>. These devices are
+currently widely used in research on human daily physical activity.
+Further, the package can handle accelerometer data file from any other
+sensor brand providing that the data is stored in csv format and has
 either no header or a two column header. Also the package allows for
 external function embedding.
 

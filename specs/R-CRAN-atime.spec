@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  atime
-%global packver   2022.8.25
+%global packver   2022.9.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.8.25
+Version:          2022.9.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Asymptotic Timing
 

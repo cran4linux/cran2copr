@@ -1,51 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brulee
-%global packver   0.2.0
+%global packname  attachment
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          High-Level Modeling Functions with 'torch'
+Summary:          Deal with Dependencies
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coro >= 1.0.1
-BuildRequires:    R-CRAN-torch >= 0.6.0
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.3.1
+BuildRequires:    R-CRAN-glue >= 1.3.0
+BuildRequires:    R-CRAN-knitr >= 1.20
+BuildRequires:    R-CRAN-desc >= 1.2.0
+BuildRequires:    R-CRAN-rmarkdown >= 1.10
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-hardhat 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-coro >= 1.0.1
-Requires:         R-CRAN-torch >= 0.6.0
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringr >= 1.3.1
+Requires:         R-CRAN-glue >= 1.3.0
+Requires:         R-CRAN-knitr >= 1.20
+Requires:         R-CRAN-desc >= 1.2.0
+Requires:         R-CRAN-rmarkdown >= 1.10
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-hardhat 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-roxygen2 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Provides high-level modeling functions to define and train models using
-the 'torch' R package. Models include linear, logistic, and multinomial
-regression as well as multilayer perceptrons.
+Manage dependencies during package development. This can retrieve all
+dependencies that are used in ".R" files in the "R/" directory, in ".Rmd"
+files in "vignettes/" directory and in 'roxygen2' documentation of
+functions. There is a function to update the "DESCRIPTION" file of your
+package with 'CRAN' packages or any other remote package. All functions to
+retrieve dependencies of ".R" scripts and ".Rmd" or ".qmd" files can be
+used independently of a package development.
 
 %prep
 %setup -q -c -n %{packname}

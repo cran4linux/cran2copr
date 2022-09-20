@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cvar
-%global packver   0.4.1
+%global packname  rGV
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Expected Shortfall and Value at Risk for Continuous Distributions
+Summary:          Analysis of Continuous Glucose Monitor Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack >= 0.8
-BuildRequires:    R-CRAN-gbutils 
-BuildRequires:    R-CRAN-fGarch 
-Requires:         R-CRAN-Rdpack >= 0.8
-Requires:         R-CRAN-gbutils 
-Requires:         R-CRAN-fGarch 
+BuildRequires:    R-CRAN-chron 
+Requires:         R-CRAN-chron 
 
 %description
-Compute expected shortfall (ES) and Value at Risk (VaR) from a quantile
-function, distribution function, random number generator or probability
-density function.  ES is also known as Conditional Value at Risk (CVaR).
-Virtually any continuous distribution can be specified. The functions are
-vectorized over the arguments. The computations are done directly from the
-definitions, see e.g. Acerbi and Tasche (2002)
-<doi:10.1111/1468-0300.00091>. Some support for GARCH models is provided,
-as well.
+Reads in continuous glucose monitor data of many different formats,
+calculates a host of glycemic variability metrics, and plots glucose over
+time.
 
 %prep
 %setup -q -c -n %{packname}

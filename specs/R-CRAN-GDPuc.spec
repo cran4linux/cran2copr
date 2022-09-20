@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GDPuc
-%global packver   0.9.0
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Convert GDP Data
 
@@ -38,11 +39,11 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-withr 
 
 %description
-A function to convert GDP time series from one unit to another. All common
-GDP units are included, i.e. current and constant local currency units,
-US$ via market exchange rates and international dollars via purchasing
-power parities. Conversion factors can easily be customized. Conversion at
-a regional/aggregated level is also possible.
+A function to convert GDP time series from one unit to another.  All
+common GDP units are included, i.e. current and constant local currency
+units, US$ via market exchange rates and international dollars via
+purchasing power parities. Conversion factors can easily be customized.
+Conversion at a regional/aggregated level is also possible.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brulee
-%global packver   0.2.0
+%global packname  Ease
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          High-Level Modeling Functions with 'torch'
+Summary:          Simulating Explicit Population Genetics Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,36 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-coro >= 1.0.1
-BuildRequires:    R-CRAN-torch >= 0.6.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppProgress >= 0.1
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-hardhat 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-coro >= 1.0.1
-Requires:         R-CRAN-torch >= 0.6.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-RcppProgress >= 0.1
+Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-hardhat 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides high-level modeling functions to define and train models using
-the 'torch' R package. Models include linear, logistic, and multinomial
-regression as well as multilayer perceptrons.
+Implementation in a simple and efficient way of fully customisable
+population genetics simulations, considering multiple loci that have
+epistatic interactions. Specifically suited to the modelling of multilocus
+nucleocytoplasmic systems (with both diploid and haploid loci), it is
+nevertheless possible to simulate purely diploid (or purely haploid)
+genetic models. Examples of models that can be simulated with Ease are
+numerous, for example models of genetic incompatibilities as presented by
+Marie-Orleach et al. (2022) <doi:10.1101/2022.07.25.501356>. Many others
+are conceivable, although few are actually explored, Ease having been
+developed in particular to provide a solution so that these kinds of
+models can be simulated simply.
 
 %prep
 %setup -q -c -n %{packname}

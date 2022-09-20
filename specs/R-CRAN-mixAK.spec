@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mixAK
-%global packver   5.4
+%global packver   5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4
+Version:          5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Normal Mixture Models and Mixtures of Generalized Linear Mixed Models Including Model Based Clustering
 
@@ -19,6 +20,7 @@ BuildRequires:    R-CRAN-lme4 >= 1.0
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-fastGHQuad 
 BuildRequires:    R-CRAN-mnormt 
@@ -28,6 +30,7 @@ Requires:         R-CRAN-lme4 >= 1.0
 Requires:         R-CRAN-colorspace 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-methods 
 Requires:         R-splines 
 Requires:         R-CRAN-fastGHQuad 
 Requires:         R-CRAN-mnormt 

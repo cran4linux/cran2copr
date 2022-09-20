@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rcaiman
-%global packver   0.1.1
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Package for CAnopy IMage ANalysis
+Summary:          CAnopy IMage ANalysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-filenamer 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-pracma 
@@ -25,11 +28,11 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-spatial 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-rgdal 
-Requires:         R-CRAN-raster 
+BuildRequires:    R-CRAN-lidR 
+Requires:         R-CRAN-filenamer 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-terra 
 Requires:         R-methods 
 Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-pracma 
@@ -37,16 +40,16 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-spatial 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-lidR 
 
 %description
-Its main strength is to classify hemispherical photographs of the plant
-canopy with algorithms specially developed for such a task and well
-documented in Díaz and Lencinas (2015) <doi:10.1109/lgrs.2015.2425931> and
-Díaz and Lencinas (2018) <doi:10.1139/cjfr-2018-0006>. It supports
-non-circular hemispherical photography.
+Classify hemispherical photographs of the plant canopy with algorithms
+specially developed for such a task and well documented in Díaz and
+Lencinas (2015) <doi:10.1109/lgrs.2015.2425931> and Díaz and Lencinas
+(2018) <doi:10.1139/cjfr-2018-0006>. It supports non-circular
+hemispherical photography, such as those acquired with 15 mm lenses or
+with auxiliary fish-eye lenses attached to mobile devices. Most of the
+functions also support restricted view photography.
 
 %prep
 %setup -q -c -n %{packname}

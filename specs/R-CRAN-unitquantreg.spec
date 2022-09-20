@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dismo
-%global packver   1.3-9
+%global packname  unitquantreg
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Species Distribution Modeling
+Summary:          Parametric Quantile Regression Models for Bounded Data
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         R-java
-BuildRequires:    R-devel >= 3.6.3
-Requires:         R-core >= 3.6.3
-BuildRequires:    R-CRAN-raster >= 3.5.21
-BuildRequires:    R-CRAN-terra >= 1.5.34
-BuildRequires:    R-CRAN-sp >= 1.4.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-raster >= 3.5.21
-Requires:         R-CRAN-terra >= 1.5.34
-Requires:         R-CRAN-sp >= 1.4.5
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+Requires:         R-CRAN-optimx 
+Requires:         R-stats 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Methods for species distribution modeling, that is, predicting the
-environmental similarity of any site to that of the locations of known
-occurrences of a species.
+A collection of parametric quantile regression models for bounded data. At
+present, the package provides 13 parametric quantile regression models. It
+can specify regression structure for any quantile and shape parameters. It
+also provides several S3 methods to extract information from fitted model,
+such as residual analysis, prediction, plotting, and model comparison. For
+more computation efficient the [dpqr]'s, likelihood, score and hessian
+functions are written in C++. For further details see Mazucheli et. al
+(2022) <doi:10.1016/j.cmpb.2022.106816>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  brms
-%global packver   2.17.0
+%global packver   2.18.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.17.0
+Version:          2.18.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Regression Models using 'Stan'
 
@@ -73,17 +74,17 @@ Fit Bayesian generalized (non-)linear multivariate multilevel models using
 functions are supported, allowing users to fit -- among others -- linear,
 robust linear, count data, survival, response times, ordinal,
 zero-inflated, hurdle, and even self-defined mixture models all in a
-multilevel context. Further modeling options include non-linear and smooth
-terms, auto-correlation structures, censored data, meta-analytic standard
-errors, and quite a few more. In addition, all parameters of the response
-distribution can be predicted in order to perform distributional
-regression. Prior specifications are flexible and explicitly encourage
-users to apply prior distributions that actually reflect their beliefs.
-Model fit can easily be assessed and compared with posterior predictive
-checks and leave-one-out cross-validation. References: Bürkner (2017)
-<doi:10.18637/jss.v080.i01>; Bürkner (2018) <doi:10.32614/RJ-2018-017>;
-Bürkner (2021) <doi:10.18637/jss.v100.i05>; Carpenter et al. (2017)
-<doi:10.18637/jss.v076.i01>.
+multilevel context. Further modeling options include both theory-driven
+and data-driven non-linear terms, auto-correlation structures, censoring
+and truncation, meta-analytic standard errors, and quite a few more. In
+addition, all parameters of the response distribution can be predicted in
+order to perform distributional regression. Prior specifications are
+flexible and explicitly encourage users to apply prior distributions that
+actually reflect their prior knowledge. Models can easily be evaluated and
+compared using several methods assessing posterior or prior predictions.
+References: Bürkner (2017) <doi:10.18637/jss.v080.i01>; Bürkner (2018)
+<doi:10.32614/RJ-2018-017>; Bürkner (2021) <doi:10.18637/jss.v100.i05>;
+Carpenter et al. (2017) <doi:10.18637/jss.v076.i01>.
 
 %prep
 %setup -q -c -n %{packname}

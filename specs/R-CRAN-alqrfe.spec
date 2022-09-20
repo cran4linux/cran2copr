@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cvar
-%global packver   0.4.1
+%global packname  alqrfe
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Expected Shortfall and Value at Risk for Continuous Distributions
+Summary:          Adaptive Lasso Quantile Regression with Fixed Effects
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack >= 0.8
-BuildRequires:    R-CRAN-gbutils 
-BuildRequires:    R-CRAN-fGarch 
-Requires:         R-CRAN-Rdpack >= 0.8
-Requires:         R-CRAN-gbutils 
-Requires:         R-CRAN-fGarch 
+BuildRequires:    R-CRAN-MASS >= 7.3.49
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-MASS >= 7.3.49
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Compute expected shortfall (ES) and Value at Risk (VaR) from a quantile
-function, distribution function, random number generator or probability
-density function.  ES is also known as Conditional Value at Risk (CVaR).
-Virtually any continuous distribution can be specified. The functions are
-vectorized over the arguments. The computations are done directly from the
-definitions, see e.g. Acerbi and Tasche (2002)
-<doi:10.1111/1468-0300.00091>. Some support for GARCH models is provided,
-as well.
+Quantile regression with fixed effects solves longitudinal data,
+considering the individual intercepts as fixed effects. The parametric set
+of this type of problem used to be huge. Thus penalized methods such as
+Lasso are currently applied. Adaptive Lasso presents oracle proprieties,
+which include Gaussianity and correct model selection. Bayesian
+information criteria (BIC) estimates the optimal tuning parameter lambda.
+Plot tools are also available.
 
 %prep
 %setup -q -c -n %{packname}

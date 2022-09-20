@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  UNF
-%global packver   2.0.8
+%global __requires_exclude ^libmpi
+%global packname  Qindex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Creating Universal Numeric Fingerprints for Data
+Summary:          Quantile-Based Predictors for Survival Outcome
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-matrixStats 
 Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Computes a 'universal numeric fingerprint' ('UNF') for an R data object.
-'UNF' is a hash or signature that can be used to uniquely identify (a
-version of) a rectangular dataset, or a subset thereof. 'UNF' can be used,
-in tandem with a 'DOI', to form a persistent citation to a versioned
-dataset.
+Select optimal quantile-based predictors for survival outcome, to include
+the means to handle dichotomizing the quantiles, mean-signal-intensity or
+other continuous markers, and to obtain estimates for dichotomized
+predictors by Bootstrap-based bias correction.
 
 %prep
 %setup -q -c -n %{packname}

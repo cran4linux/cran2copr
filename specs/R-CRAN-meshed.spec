@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  meshed
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Regression with Meshed Gaussian Processes
 
@@ -21,6 +22,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-stats 
@@ -28,14 +30,14 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-FNN 
 
 %description
-Fits Bayesian spatial or spatiotemporal multivariate regression models
-based on latent Meshed Gaussian Processes (MGP) as described in Peruzzi,
-Banerjee, Finley (2020) <doi:10.1080/01621459.2020.1833889>, Peruzzi,
-Banerjee, Dunson, and Finley (2021) <arXiv:2101.03579>, Peruzzi and Dunson
-(2022) <arXiv:2201.10080>. Funded by ERC grant 856506 and NIH grant
-R01ES028804.
+Fits Bayesian regression models based on latent Meshed Gaussian Processes
+(MGP) as described in Peruzzi, Banerjee, Finley (2020)
+<doi:10.1080/01621459.2020.1833889>, Peruzzi, Banerjee, Dunson, and Finley
+(2021) <arXiv:2101.03579>, Peruzzi and Dunson (2022) <arXiv:2201.10080>.
+Funded by ERC grant 856506 and NIH grant R01ES028804.
 
 %prep
 %setup -q -c -n %{packname}
