@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SqlRender
-%global packver   1.9.2
+%global packver   1.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.2
+Version:          1.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rendering Parameterized SQL and Translation to Dialects
 
@@ -27,7 +28,8 @@ Requires:         R-CRAN-checkmate
 A rendering tool for parameterized SQL that also translates into different
 SQL dialects.  These dialects include 'Microsoft Sql Server', 'Oracle',
 'PostgreSql', 'Amazon RedShift', 'Apache Impala', 'IBM Netezza', 'Google
-BigQuery', 'Microsoft PDW', 'Apache Spark', and 'SQLite'.
+BigQuery', 'Microsoft PDW', 'Snowflake', 'Azure Synapse Analytics
+Dedicated', 'Apache Spark', and 'SQLite'.
 
 %prep
 %setup -q -c -n %{packname}

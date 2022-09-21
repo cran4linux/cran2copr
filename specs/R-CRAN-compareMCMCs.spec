@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yamlet
-%global packver   0.9.6
+%global packname  compareMCMCs
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Versatile Curation of Table Metadata
+Summary:          Compare MCMC Efficiency from 'nimble' and/or Other MCMC Engines
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENSE | GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,40 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-csv >= 0.6.2
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-encode 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-spork 
+BuildRequires:    R-CRAN-nimble 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-csv >= 0.6.2
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-encode 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-spork 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-nimble 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
+Requires:         R-grid 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-coda 
 
 %description
-A YAML-based mechanism for working with table metadata. Supports compact
-syntax for creating, modifying, viewing, exporting, importing, displaying,
-and plotting metadata coded as column attributes. The 'yamlet' dialect is
-valid 'YAML' with defaults and conventions chosen to improve readability.
-See ?yamlet, ?decorate.data.frame and ?modify.default. See ?read_yamlet
-?write_yamlet, ?io_csv, and ?ggplot.decorated.
+Manages comparison of MCMC performance metrics from multiple MCMC
+algorithms. These may come from different MCMC configurations using the
+'nimble' package or from other packages. Plug-ins for JAGS via 'rjags' and
+Stan via 'rstan' are provided. It is possible to write plug-ins for other
+packages. Performance metrics are held in an MCMCresult class along with
+samples and timing data. It is easy to apply new performance metrics.
+Reports are generated as html pages with figures comparing sets of runs.
+It is possible to configure the html pages, including providing new figure
+components.
 
 %prep
 %setup -q -c -n %{packname}

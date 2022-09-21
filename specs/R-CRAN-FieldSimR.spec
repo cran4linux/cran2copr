@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SASmarkdown
-%global packver   0.8.0
+%global packname  FieldSimR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Markdown
+Summary:          Simulation of Plot-Level Data in Plant Breeding Field Trials
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.4
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-mbend 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-interp 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-mbend 
 
 %description
-Settings and functions to extend the 'knitr' 'SAS' engine.
+Simulates plot-level data in plant breeding field trials for multiple
+traits in multiple environments. Its core function simulates spatially
+correlated plot-level errors across correlated traits using bivariate
+interpolation or a two-dimensional autoregressive process of order one
+(AR1:AR1). 'FieldSimR' then combines this spatial error with random
+measurement error at a user-defined ratio. The simulated plot-level errors
+can be combined with genetic values (e.g. true, simulated or predicted) to
+generate plot-level phenotypes. 'FieldSimR' provides wrapper functions to
+simulate the genetic values for multiple traits in multiple environments
+using the 'R' package 'AlphaSimR'.
 
 %prep
 %setup -q -c -n %{packname}

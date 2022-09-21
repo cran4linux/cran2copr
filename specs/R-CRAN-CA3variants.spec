@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CA3variants
-%global packver   3.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Three-Way Correspondence Analysis Variants
 
@@ -16,26 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel > 3.0.1
 Requires:         R-core > 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-multichull 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 Requires:         R-tools 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-multichull 
 Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-checkmate 
 
 %description
 Provides four variants of three-way correspondence analysis (ca):

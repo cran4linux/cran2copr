@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dail
-%global packver   1.4
+%global packname  gasmodel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from Access to Information Law
+Summary:          Generalized Autoregressive Score Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stopwords 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stopwords 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidytext 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-arrangements 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-arrangements 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-pracma 
 
 %description
-Downloads the public data available from the Brazilian Access to
-Information Law and and performs a search on information requests and
-appeals made since 2015.
+Estimation, forecasting, and simulation of generalized autoregressive
+score (GAS) models of Creal, Koopman, and Lucas (2013)
+<doi:10.1002/jae.1279> and Harvey (2013) <doi:10.1017/cbo9781139540933>.
+Model specification allows for various conditional distributions,
+different parametrizations, exogenous variables, higher score and
+autoregressive orders, custom and unconditional initial values of
+time-varying parameters, fixed and bounded values of coefficients, and
+missing values. Model estimation is performed by the maximum likelihood
+method and the Hessian matrix.
 
 %prep
 %setup -q -c -n %{packname}

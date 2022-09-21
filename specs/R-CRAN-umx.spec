@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  umx
-%global packver   4.10.50
+%global packver   4.15.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.10.50
+Version:          4.15.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Equation Modeling and Twin Modeling in R
 
@@ -13,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-OpenMx >= 2.11.5
+BuildRequires:    R-CRAN-OpenMx >= 2.19.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-DiagrammeR 
@@ -37,8 +38,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-OpenMx >= 2.11.5
+Requires:         R-CRAN-OpenMx >= 2.19.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-DiagrammeR 
@@ -59,7 +59,6 @@ Requires:         R-utils
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-tibble 
 
 %description
 Quickly create, run, and report structural equation models, and twin

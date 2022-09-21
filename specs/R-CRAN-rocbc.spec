@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SASmarkdown
-%global packver   0.8.0
+%global packname  rocbc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Markdown
+Summary:          Statistical Inference for Box-Cox Based Receiver Operating Characteristic Curves
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.4
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-clinfun 
+BuildRequires:    R-CRAN-splancs 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-clinfun 
+Requires:         R-CRAN-splancs 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Settings and functions to extend the 'knitr' 'SAS' engine.
+Generation of Box-Cox based ROC curves and several aspects of inferences
+and hypothesis testing. Can be used when inferences for one biomarker
+(Bantis LE, Nakas CT, Reiser B. (2018) <doi:10.1002/bimj.201700107>) are
+of interest or when comparisons of two correlated biomarkers (Bantis LE,
+Nakas CT, Reiser B. (2021) <doi:10.1002/bimj.202000128>) are of interest.
+Provides inferences and comparisons around the AUC, the Youden index, the
+sensitivity at a given specificity level (and vice versa), the optimal
+operating point of the ROC curve (in the Youden sense), and the Youden
+based cutoff.
 
 %prep
 %setup -q -c -n %{packname}

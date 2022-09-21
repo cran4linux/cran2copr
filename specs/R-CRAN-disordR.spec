@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  disordR
-%global packver   0.0-9-1
+%global packver   0.0-9-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9.1
+Version:          0.0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Ordered Vectors
 
@@ -16,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix >= 1.3.3
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-Matrix >= 1.3.3
 Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-digest 
 
 %description

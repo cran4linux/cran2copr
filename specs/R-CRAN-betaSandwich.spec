@@ -1,29 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SASmarkdown
-%global packver   0.8.0
+%global packname  betaSandwich
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Markdown
+Summary:          Robust Confidence Intervals for Standardized Regression Coefficients
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.4
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Settings and functions to extend the 'knitr' 'SAS' engine.
+Generates robust confidence intervals for standardized regression
+coefficients using heteroskedasticity-consistent standard errors for
+models fitted by lm() as described in Dudgeon (2017)
+<doi:10.1007/s11336-017-9563-z>.
 
 %prep
 %setup -q -c -n %{packname}

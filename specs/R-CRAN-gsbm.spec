@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SASmarkdown
-%global packver   0.8.0
+%global packname  gsbm
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Markdown
+Summary:          Estimate Parameters in the Generalized SBM
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.4
+BuildRequires:    R-CRAN-softImpute 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-softImpute 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-foreach 
 
 %description
-Settings and functions to extend the 'knitr' 'SAS' engine.
+Given an adjacency matrix drawn from a Generalized Stochastic Block Model
+with missing observations, this package robustly estimates the
+probabilities of connection between nodes and detects outliers nodes, as
+describes in Gaucher, Klopp and Robin (2019) <arXiv:1911.13122>.
 
 %prep
 %setup -q -c -n %{packname}

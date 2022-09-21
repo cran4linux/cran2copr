@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  melt
-%global packver   1.7.0
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Empirical Likelihood Tests
 
@@ -14,12 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-dqrng 
 BuildRequires:    R-CRAN-RcppEigen 
@@ -27,15 +28,18 @@ Requires:         R-graphics
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Performs multiple empirical likelihood tests for linear and generalized
-linear models. The core computational routines are implemented using the
-'Eigen' C++ library and 'RcppEigen' interface, with OpenMP for parallel
-computation. Details of multiple testing procedures are given in Kim,
-MacEachern, and Peruggia (2021) <arxiv:2112.09206>. This work was
-supported by the U.S. National Science Foundation under Grants No.
-SES-1921523 and DMS-2015552.
+linear models. The package offers an easy-to-use interface and flexibility
+in specifying hypotheses and calibration methods, extending the framework
+to simultaneous inferences. The core computational routines are
+implemented using the 'Eigen' C++ library and 'RcppEigen' interface, with
+OpenMP for parallel computation. Details of the testing procedures are
+given in Kim, MacEachern, and Peruggia (2021) <arxiv:2112.09206>. This
+work was supported by the U.S. National Science Foundation under Grants
+No.  SES-1921523 and DMS-2015552.
 
 %prep
 %setup -q -c -n %{packname}

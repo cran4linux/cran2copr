@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TOSTER
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two One-Sided Tests (TOST) Equivalence Testing
 
@@ -20,7 +21,6 @@ BuildRequires:    R-CRAN-jmvcore >= 0.9.6.4
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-ggdist 
 BuildRequires:    R-CRAN-distributional 
 BuildRequires:    R-CRAN-cowplot 
@@ -30,7 +30,6 @@ Requires:         R-CRAN-jmvcore >= 0.9.6.4
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-ggdist 
 Requires:         R-CRAN-distributional 
 Requires:         R-CRAN-cowplot 

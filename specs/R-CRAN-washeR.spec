@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  washeR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
-Release:          3%{?dist}%{?buildtag}
+Version:          0.1.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Outlier Detection
 
 License:          GPL (>= 2)
@@ -28,14 +29,28 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Time series outlier detection by mean of non parametric test. Outlier
-detection regarding two methodologies: single time series variability (a
-vector) and grouped similar time series (a data frame). Andrea
-Venturini(2011) Statistica-Universita' Bologna, Vol.71, pp.329-344.
+Time series outlier detection with non parametric test. This is a new
+outlier detection methodology (washer): efficient for time saving
+elaboration and implementation procedures, adaptable for general
+assumptions and for needing very short time series, reliable and effective
+as involving robust non parametric test. You can find two approaches:
+single time series (a vector) and grouped time series (a data frame). For
+other informations: Andrea Venturini (2011) Statistica - Universita di
+Bologna, Vol.71, pp.329-344. For an informal explanation look at
+R-bloggers on web.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -43,17 +58,10 @@ Venturini(2011) Statistica-Universita' Bologna, Vol.71, pp.329-344.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

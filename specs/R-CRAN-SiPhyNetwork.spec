@@ -1,29 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SASmarkdown
-%global packver   0.8.0
+%global packname  SiPhyNetwork
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Markdown
+Summary:          A Phylogenetic Simulator for Reticulate Evolution
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.4
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rstackdeque 
+Requires:         R-stats 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rstackdeque 
 
 %description
-Settings and functions to extend the 'knitr' 'SAS' engine.
+A simulator for reticulate evolution under a birth-death-hybridization
+process. Here the birth-death process is extended to consider reticulate
+Evolution by allowing hybridization events to occur. The general purpose
+simulator allows the modeling of three different reticulate patterns:
+lineage generative hybridization, lineage neutral hybridization, and
+lineage degenerative hybridization. Users can also specify hybridization
+events to be dependent on a trait value or genetic distance. We also
+extend some phylogenetic tree utility and plotting functions for networks.
+We allow two different stopping conditions: simulated to a fixed time or
+number of taxa. When simulating to a fixed number of taxa, the user can
+simulate under the Generalized Sampling Approach that properly simulates
+phylogenies when assuming a uniform prior on the root age.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,58 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mosaic
-%global packver   1.8.4.2
+%global packname  grandR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.4.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Project MOSAIC Statistics and Mathematics Teaching Utilities
+Summary:          Comprehensive Analysis of Nucleotide Conversion Sequencing Data
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mosaicCore >= 0.7.0
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-lattice >= 0.20.21
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggformula 
-BuildRequires:    R-CRAN-mosaicData 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-lfc 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-mosaicCore >= 0.7.0
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-lattice >= 0.20.21
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggformula 
-Requires:         R-CRAN-mosaicData 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-plyr 
+Requires:         R-parallel 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-MASS 
-Requires:         R-grid 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-lfc 
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Data sets and utilities from Project MOSAIC (<http://www.mosaic-web.org>)
-used to teach mathematics, statistics, computation and modeling.  Funded
-by the NSF, Project MOSAIC is a community of educators working to tie
-together aspects of quantitative work that students in science,
-technology, engineering and mathematics will need in their professional
-lives, but which are usually taught in isolation, if at all.
+Nucleotide conversion sequencing experiments have been developed to add a
+temporal dimension to RNA-seq and single-cell RNA-seq. Such experiments
+require specialized tools for primary processing such as GRAND-SLAM, (see
+'Jürges et al' <doi:10.1093/bioinformatics/bty256>) and specialized tools
+for downstream analyses. 'grandR' provides a comprehensive toolbox for
+quality control, kinetic modeling, differential gene expression analysis
+and visualization of such data.
 
 %prep
 %setup -q -c -n %{packname}

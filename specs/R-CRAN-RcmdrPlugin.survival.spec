@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RcmdrPlugin.survival
-%global packver   1.2-2
+%global packver   1.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander Plug-in for the 'survival' Package
 
@@ -14,17 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rcmdr >= 2.4.0
+BuildRequires:    R-CRAN-Rcmdr >= 2.8.0
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-date 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcmdr >= 2.4.0
+BuildRequires:    R-CRAN-car 
+Requires:         R-CRAN-Rcmdr >= 2.8.0
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-date 
 Requires:         R-stats 
+Requires:         R-CRAN-car 
 
 %description
 An R Commander plug-in for the survival package, with dialogs for Cox

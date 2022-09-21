@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  text
-%global packver   0.9.90
+%global packver   0.9.99.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.90
+Version:          0.9.99.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyses of Text using Natural Language Processing and Machine Learning
+Summary:          Analyses of Text using Transformers Models from HuggingFace, Natural Language Processing and Machine Learning
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -58,11 +59,12 @@ Requires:         R-CRAN-furrr
 Requires:         R-CRAN-overlapping 
 
 %description
-Transforms text variables to word embeddings; where the word embeddings
-are used to statistically test the mean difference between set of texts,
-compute semantic similarity scores between texts, predict numerical
-variables, and visual statistically significant words according to various
-dimensions etc. For more information see <https://www.r-text.org>.
+Link R with Transformers from Hugging Face to transform text variables to
+word embeddings; where the word embeddings are used to statistically test
+the mean difference between set of texts, compute semantic similarity
+scores between texts, predict numerical variables, and visual
+statistically significant words according to various dimensions etc. For
+more information see <https://www.r-text.org>.
 
 %prep
 %setup -q -c -n %{packname}

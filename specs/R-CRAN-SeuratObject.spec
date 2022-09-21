@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SeuratObject
-%global packver   4.1.1
+%global packver   4.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          4.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Structures for Single Cell Data
 
@@ -16,7 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Matrix >= 1.3.3
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-sp >= 1.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-future 
@@ -25,13 +26,13 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-grid 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Matrix >= 1.3.3
+Requires:         R-CRAN-Matrix >= 1.5.0
+Requires:         R-CRAN-sp >= 1.5.0
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-future 
@@ -40,7 +41,6 @@ Requires:         R-grDevices
 Requires:         R-grid 
 Requires:         R-methods 
 Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-rgeos 
 Requires:         R-stats 
 Requires:         R-tools 

@@ -1,29 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SASmarkdown
-%global packver   0.8.0
+%global packname  CytobankAPI
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Markdown
+Summary:          Cytobank API Wrapper for R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.4
+BuildRequires:    R-CRAN-curl >= 2.7
+BuildRequires:    R-CRAN-httr >= 1.2.1
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-aws.s3 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-jose 
+Requires:         R-CRAN-curl >= 2.7
+Requires:         R-CRAN-httr >= 1.2.1
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-aws.s3 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-jose 
 
 %description
-Settings and functions to extend the 'knitr' 'SAS' engine.
+Tools to interface with Cytobank's API via R, organized by endpoints that
+represent various areas of Cytobank functionality. Learn more about
+Cytobank at <https://www.beckman.com/flow-cytometry/software>.
 
 %prep
 %setup -q -c -n %{packname}

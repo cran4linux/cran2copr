@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SASmarkdown
-%global packver   0.8.0
+%global packname  LMD
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Markdown
+Summary:          A Self-Adaptive Approach for Demodulating Multi-Component Signal
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.4
+BuildRequires:    R-CRAN-EMD 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-CRAN-EMD 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
 
 %description
-Settings and functions to extend the 'knitr' 'SAS' engine.
+Local Mean Decomposition is an iterative and self-adaptive approach for
+demodulating, processing, and analyzing multi-component amplitude
+modulated and frequency modulated signals. This R package is based on the
+approach suggested by Smith (2005) <doi:10.1098/rsif.2005.0058> and the
+'Python' library 'PyLMD'.
 
 %prep
 %setup -q -c -n %{packname}

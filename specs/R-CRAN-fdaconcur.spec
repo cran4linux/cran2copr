@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SASmarkdown
-%global packver   0.8.0
+%global packname  fdaconcur
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Markdown
+Summary:          Concurrent Regression and History Index Models for Functional Data
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.4
+BuildRequires:    R-CRAN-fdapace 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-fdapace 
+Requires:         R-stats 
 
 %description
-Settings and functions to extend the 'knitr' 'SAS' engine.
+Provides implementation of concurrent or varying coefficient regression
+methods for functional data. The implementations are done for both dense
+and sparsely observed functional data. Pointwise confidence bands can be
+constructed for each case. Further, the influence of past predictor values
+is modeled by a smooth history index function, while the effects on the
+response are described by smooth varying coefficient functions, which are
+very useful in analyzing real data such as COVID data. References: Yao,
+F., Müller, H.G., Wang, J.L. (2005) <doi: 10.1214/009053605000000660>.
+Sentürk, D., Müller, H.G. (2010) <doi: 10.1198/jasa.2010.tm09228>.
 
 %prep
 %setup -q -c -n %{packname}

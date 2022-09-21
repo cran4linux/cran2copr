@@ -1,29 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SASmarkdown
-%global packver   0.8.0
+%global packname  neuRosim
+%global packver   0.2-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.2.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Markdown
+Summary:          Simulate fMRI Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.4
+BuildRequires:    R-devel >= 3.1.1
+Requires:         R-core >= 3.1.1
+BuildRequires:    R-CRAN-deSolve 
+Requires:         R-CRAN-deSolve 
 
 %description
-Settings and functions to extend the 'knitr' 'SAS' engine.
+Generates functional Magnetic Resonance Imaging (fMRI) time series or 4D
+data. Some high-level functions are created for fast data generation with
+only a few arguments and a diversity of functions to define activation and
+noise. For more advanced users it is possible to use the low-level
+functions and manipulate the arguments. See Welvaert et al. (2011)
+<doi:10.18637/jss.v044.i10>.
 
 %prep
 %setup -q -c -n %{packname}

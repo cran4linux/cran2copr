@@ -1,29 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SASmarkdown
-%global packver   0.8.0
+%global packname  kernstadapt
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Markdown
+Summary:          Spatio-Temporal Adaptive Kernel Estimators for Intensities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.4
+BuildRequires:    R-CRAN-misc3d 
+BuildRequires:    R-CRAN-sparr 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
+BuildRequires:    R-CRAN-spatstat.utils 
+Requires:         R-CRAN-misc3d 
+Requires:         R-CRAN-sparr 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
+Requires:         R-CRAN-spatstat.utils 
 
 %description
-Settings and functions to extend the 'knitr' 'SAS' engine.
+Adaptive estimation of the first-order intensity function of a
+spatio-temporal point process using kernels and variable bandwidths. The
+methodology used for estimation is presented in González and Moraga
+(2022). <arXiv:2208.12026>.
 
 %prep
 %setup -q -c -n %{packname}
