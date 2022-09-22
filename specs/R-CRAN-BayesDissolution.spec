@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  catmaply
-%global packver   0.9.2
+%global packname  BayesDissolution
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Heatmap for Categorical Data using 'plotly'
+Summary:          Bayesian Models for Dissolution Testing
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-geoR 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-pscl 
+Requires:         R-CRAN-geoR 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-pscl 
 
 %description
-Methods and plotting functions for displaying categorical data on an
-interactive heatmap using 'plotly'. Provides functionality for strictly
-categorical heatmaps, heatmaps illustrating categorized continuous data
-and annotated heatmaps. Also, there are various options to interact with
-the x-axis to prevent overlapping axis labels, e.g. via simple sliders or
-range sliders. Besides the viewer pane, resulting plots can be saved as a
-standalone HTML file, embedded in 'R Markdown' documents or in a 'Shiny'
-app.
+Fits Bayesian models to dissolution data sets that can be used for
+dissolution testing. Currently the package includes the Bayesian models
+outlined in Pourmohamad et al. (2022) <doi:10.1111/rssc.12535>, but more
+models may be added over time.
 
 %prep
 %setup -q -c -n %{packname}

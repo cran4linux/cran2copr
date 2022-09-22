@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  catmaply
-%global packver   0.9.2
+%global packname  SCORPION
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Heatmap for Categorical Data using 'plotly'
+Summary:          Single Cell Oriented Reconstruction of PANDA Individual Optimized Networks
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-RhpcBLASctl 
+Requires:         R-CRAN-cli 
+Requires:         R-methods 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-RhpcBLASctl 
 
 %description
-Methods and plotting functions for displaying categorical data on an
-interactive heatmap using 'plotly'. Provides functionality for strictly
-categorical heatmaps, heatmaps illustrating categorized continuous data
-and annotated heatmaps. Also, there are various options to interact with
-the x-axis to prevent overlapping axis labels, e.g. via simple sliders or
-range sliders. Besides the viewer pane, resulting plots can be saved as a
-standalone HTML file, embedded in 'R Markdown' documents or in a 'Shiny'
-app.
+Constructs gene regulatory networks from single-cell gene expression data
+using the PANDA (Passing Attributes between Networks for Data
+Assimilation) algorithm.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ClusterR
-%global packver   1.2.6
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Mixture Models, K-Means, Mini-Batch-Kmeans, K-Medoids and Affinity Propagation Clustering
 
@@ -24,6 +25,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-Rcpp >= 0.12.5
 Requires:         R-CRAN-gtools 
 Requires:         R-graphics 
@@ -32,6 +34,7 @@ Requires:         R-utils
 Requires:         R-stats 
 Requires:         R-CRAN-gmp 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Gaussian mixture models, k-means, mini-batch-kmeans, k-medoids and

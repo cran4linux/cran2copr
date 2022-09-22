@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  deepregression
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Deep Distributional Regression
 
@@ -17,33 +18,27 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tensorflow >= 2.2.0
+BuildRequires:    R-CRAN-keras >= 2.2.0
 BuildRequires:    R-CRAN-reticulate >= 1.14
 BuildRequires:    R-CRAN-tfprobability 
-BuildRequires:    R-CRAN-keras 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-tfruns 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-tensorflow >= 2.2.0
+Requires:         R-CRAN-keras >= 2.2.0
 Requires:         R-CRAN-reticulate >= 1.14
 Requires:         R-CRAN-tfprobability 
-Requires:         R-CRAN-keras 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-tfruns 
 Requires:         R-methods 
-Requires:         R-utils 
 
 %description
 Allows for the specification of semi-structured deep distributional

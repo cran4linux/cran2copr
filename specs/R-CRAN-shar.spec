@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  shar
-%global packver   1.3.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species-Habitat Associations
 
@@ -20,21 +21,21 @@ BuildRequires:    R-CRAN-classInt
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-spatstat.core 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-classInt 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-spatstat.core 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.random 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
 Requires:         R-utils 
 
 %description

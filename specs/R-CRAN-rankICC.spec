@@ -1,40 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  catmaply
-%global packver   0.9.2
+%global packname  rankICC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Heatmap for Categorical Data using 'plotly'
+Summary:          Rank Intraclass Correlation for Clustered Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
 
 %description
-Methods and plotting functions for displaying categorical data on an
-interactive heatmap using 'plotly'. Provides functionality for strictly
-categorical heatmaps, heatmaps illustrating categorized continuous data
-and annotated heatmaps. Also, there are various options to interact with
-the x-axis to prevent overlapping axis labels, e.g. via simple sliders or
-range sliders. Besides the viewer pane, resulting plots can be saved as a
-standalone HTML file, embedded in 'R Markdown' documents or in a 'Shiny'
-app.
+Estimates the rank intraclass correlation coefficient (ICC) for clustered
+continuous, ordinal, binary, and count data
+<https://github.com/shengxintu/rankICC>.
 
 %prep
 %setup -q -c -n %{packname}

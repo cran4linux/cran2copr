@@ -1,48 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pRecipe
-%global packver   0.3.0
+%global packname  RPhosFate
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Precipitation R Recipe
+Summary:          Soil and Chemical Substance Emission and Transport Model
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-hydroGOF 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-checkmate 
+Requires:         R-graphics 
+Requires:         R-CRAN-hydroGOF 
 Requires:         R-methods 
-Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
-An open-access tool/framework to download, validate, visualize, and
-analyze multi-source precipitation data across various spatio-temporal
-scales. Ultimately providing the hydrology science community with the
-tools for consistent and reproducible analysis regarding precipitation.
+An enhanced version of the semi-empirical, spatially distributed emission
+and transport model PhosFate implemented in 'R' and 'C++'. It currently
+supports suspended solids (SS) and particulate phosphorus (PP). A major
+feature is the allocation of substance loads entering surface waters to
+their sources of origin, which is a basic requirement for the
+identification of critical source areas and in consequence a
+cost-effective implementation of mitigation measures. References: Hepp et
+al. (2022) <doi:10.1016/j.jenvman.2022.114514>; Hepp and Zessner (2019)
+<doi:10.3390/w11102161>; Kovacs (2013)
+<http://hdl.handle.net/20.500.12708/9468>.
 
 %prep
 %setup -q -c -n %{packname}
