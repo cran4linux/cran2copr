@@ -50,7 +50,7 @@ map display, assets management interface, and metadata display. See
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python3@g' {} \;
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

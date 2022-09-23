@@ -144,7 +144,7 @@ datasailr,bison flex autoconf automake libtool,,TRUE,
 datelife,,,TRUE,PATHd8
 datr,,,TRUE,dat
 dbmss,,pandoc,TRUE,"pandoc,"
-dccvalidator,,,TRUE,synapseclient (pypi.org/project/synapseclient)
+dccvalidator,,,TRUE,
 dclone,,,TRUE,"none, one or more of JAGS, WinBUGS, OpenBUGS, Stan"
 dcmle,,,TRUE,JAGS
 Deducer,,,TRUE,"Java, JRI"
@@ -189,7 +189,7 @@ eseis,,,TRUE,gipptools dataselect
 EvidenceSynthesis,,,TRUE,Java versionor higher (https://www.java.com/)
 EviewsR,,,TRUE,EViews
 exactextractr,geos-devel,,TRUE,GEOS
-excerptr,,,TRUE,Python
+excerptr,,,TRUE,
 exifr,/usr/bin/exiftool,/usr/bin/exiftool,TRUE,Perl
 exiftoolr,/usr/bin/exiftool,/usr/bin/exiftool,TRUE,Perl
 extRatum,,,TRUE,"GDAL, GEOS, PROJ"
@@ -287,7 +287,7 @@ gyro,,,TRUE,C++
 h2o,,R-java,TRUE,"Java, <="
 h2o4gpu,,,TRUE,Python with header files and sharedlibrary; H2O4GPU (https://github.com/h2oai/h2o4gpu)
 h3jsr,,,TRUE,"V8 engine version+ is needed for modern JS andWASM support. On Debian / Ubuntu install either libv8-dev orlibnode-dev, on Fedora use v8-devel."
-hadron,gsl-devel,,TRUE,Gnu Scientific Library version
+hadron,gsl-devel,,TRUE,
 happign,,,FALSE,"GDAL, GEOS, PROJ, sqlite3"
 haven,zlib-devel,,TRUE,"zlib: zlib1g-dev (deb), zlib-devel(rpm)"
 hdf5r,hdf5-devel,,TRUE,HDF5
@@ -301,6 +301,7 @@ hSDM,gsl-devel,,TRUE,
 httpgd,libpng-devel cairo-devel freetype-devel,,TRUE,"libpng, cairo, freetype2, fontconfig"
 httpuv,zlib-devel,,TRUE,zlib
 huxtable,,tex(adjustbox.sty) tex(array.sty) tex(calc.sty) tex(caption.sty) tex(colortbl.sty) tex(fontspec.sty) tex(graphicx.sty) tex(hhline.sty) tex(hyperref.sty) tex(multirow.sty) tex(siunitx.sty) tex(tabularx.sty) tex(threeparttable.sty) tex(ulem.sty) tex(wrapfig.sty),TRUE,"LaTeX packages: adjustbox, array, calc, caption,colortbl, fontspec, graphicx, hhline, hyperref, multirow,siunitx, tabularx, threeparttable, ulem, wrapfig"
+hgwrr,gsl-devel,,TRUE,
 HydeNet,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 iai,,,TRUE,Julia and Interpretable AI System Image(>=
 IceSat2R,,,TRUE,"gdal-bin: apt install -y gdal-bin (deb),libgdal-dev: apt install -y libgdal-dev (deb), libudunits2-dev:apt install -y libudunits2-dev (deb), libgeos-dev: apt install-y libgeos-dev (deb), libproj-dev: apt install -y libproj-dev(deb), unzip: apt install unzip (deb)"
@@ -360,7 +361,7 @@ LCMCR,gsl-devel,,TRUE,Gnu Scientific Library version
 lcra,,,TRUE,JAGSx.y or WinBUGS
 LeafArea,,imagej,TRUE,"ImageJ, ij.jar (seehttp://imagej.nih.gov/ij/), Java"
 ledger,,ledger hledger,TRUE,"ledger, hledger, beancount"
-leidenAlg,libxml2-devel glpk-devel,,TRUE,"(optional), libxml2 (optional),glpk, optional)"
+leidenAlg,libxml2-devel glpk-devel gmp-devel,,TRUE,"(optional), libxml2 (optional),glpk, optional)"
 Libra,gsl-devel,,TRUE,GNU Scientific Library (GSL)
 libsoc,libxml2-devel,,TRUE,"libxml2: libxml2-dev (deb), libxml2-devel (rpm)"
 libstableR,gsl-devel,,TRUE,GNU GSL
@@ -373,6 +374,8 @@ LOMAR,gmp-devel fftw-devel,,TRUE,"gmp, fftw3"
 loo,,pandoc,TRUE,"pandoc, pandoc-citeproc"
 loon,xorg-x11-server-Xvfb,,TRUE,
 loon.ggplot,xorg-x11-server-Xvfb,,TRUE,
+loon.shiny,xorg-x11-server-Xvfb,,TRUE,
+loon.tourr,xorg-x11-server-Xvfb,,TRUE,
 lubridate,,,TRUE,A system with zoneinfo data (e.g./usr/share/zoneinfo). On Windows the zoneinfo included with Ris used.
 lwgeom,geos-devel proj-devel sqlite-devel,,TRUE,"GEOS, PROJ, sqlite3"
 m2r,,,TRUE,Macaulay2 <http://www.math.uiuc.edu/Macaulay2/>
@@ -525,7 +528,7 @@ PopGenome,zlib-devel,,TRUE,zlib headers and library.
 PortfolioEffectEstim,,,TRUE,Java
 PortfolioEffectHFT,,,TRUE,Java
 potools,,gettext,TRUE,gettext
-pRecipe,,,TRUE,"PROJ, https://proj.org/download.html) andGDAL, https://gdal.org/download.html)."
+pRecipe,,,TRUE,"PROJ, https://proj.org/download.html), GDAL(>=, https://gdal.org/download.html), NetCDF(>=,https://www.unidata.ucar.edu/software/netcdf/) and CDO,https://code.mpimet.mpg.de/projects/cdo)."
 precommit,,git,TRUE,git
 PreKnitPostHTMLRender,,,TRUE,pandoc -http://johnmacfarlane.net/pandoc
 prettydoc,,,TRUE,pandoc
@@ -586,7 +589,7 @@ rcdk,,,TRUE,Java JDKor higher
 RCDT,,,TRUE,C++
 rchallenge,,,TRUE,pandoc -http://johnmacfarlane.net/pandoc
 rchie,,,TRUE,"V8 <=: libv8-3.14-dev (deb), v8-314-devel(rpm), v8-3.14 (arch), v8@3.15 (homebrew)"
-RclusTool,,,TRUE,XQuartz (on OSX)
+RclusTool,xorg-x11-server-Xvfb,,TRUE,XQuartz (on OSX)
 Rcmdr,xorg-x11-server-Xvfb,,TRUE,
 RcmdrMisc,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.aRnova,xorg-x11-server-Xvfb,,TRUE,
@@ -656,7 +659,7 @@ restoptr,,,TRUE,Java
 reticulate,,python3,TRUE,Python
 rextendr,,cargo,TRUE,Rust 'cargo'; the crate 'libR-sys' must compilewithout error
 rfacts,,,TRUE,"FACTS Linux engines, FLFLL,Mono"
-rflsgen,,,TRUE,Java
+rflsgen,,,FALSE,Java
 rfviz,xorg-x11-server-Xvfb,,TRUE,
 rgdal,gdal-devel proj-devel sqlite-devel,,TRUE,"PROJ, https://proj.org/download.html) andGDAL, https://gdal.org/download.html), with versionseither (A) PROJ <and GDAL <or (B) PROJand GDALFor degraded PROJorand GDAL <, use the configureargument '--with-proj_api=""proj_api.h""'."
 rgeos,geos-devel,,TRUE,GEOS; for building from source: GEOSfrom https://libgeos.org; GEOS OSX frameworks built by WilliamKyngesburye at http://www.kyngchaos.com/ may be used for sourceinstalls on OSX.
@@ -684,6 +687,7 @@ RKEAjars,,,TRUE,Java
 RKEEL,,,TRUE,Java
 rkeops,cmake,cmake,TRUE,"cmake,  (optional), CUDA(optional but recommended)"
 Rlibeemd,gsl-devel,,TRUE,GNU GSL
+rlibkriging,cmake,,TRUE,"cmake,"
 RMariaDB,mariadb-devel,,TRUE,"libmariadb-client-lgpl-dev or libmariadb-dev orlibmysqlclient-dev, with libssl-dev (deb),mariadb-connector-c-devel or mariadb-devel (rpm),mariadb-connector-c or mysql-connector-c (brew)"
 RMark,,,TRUE,"notepad.exe, mark.exe (or mark32.exe andmark64.exe) and rel_32.exe (see README.txt)"
 rmarkdown,,pandoc,TRUE,pandoc - http://pandoc.org
@@ -775,7 +779,7 @@ SBRect,,,TRUE,java
 scaffolder,,,TRUE,Python
 scatteR,,,TRUE,Javaor higher
 scModels,gmp-devel mpfr-devel,,TRUE,"gmp, mpfr"
-sdcTable,glpk-devel,,TRUE,"GLPK library, including -dev or -devel part"
+sdcTable,glpk-devel gmp-devel,,TRUE,"GLPK library, including -dev or -devel part"
 sdmApp,,R-java,TRUE,Java
 SDMtune,,R-java,TRUE,Java and maxent.jarto use Maxent
 seewave,,,TRUE,LIBSNDFILE
@@ -820,6 +824,7 @@ spatPomp,,,TRUE,"For Windows users, Rtools (seehttps://cran.r-project.org/bin/wi
 spatsoc,,,TRUE,GEOS
 spcosa,,,TRUE,Java
 specklestar,fftw-devel,,TRUE,fftw3
+spFW,fftw-devel,,TRUE,
 spherepc,,,TRUE,XQuartz (on MacOS)
 spongecake,,ffmpeg-free,TRUE,FFmpeg (http://ffmpeg.org)
 sportyR,,,TRUE,"pandoc, pandoc-citeproc"
@@ -895,6 +900,7 @@ TooManyCellsR,,,TRUE,'TooManyCells'(https://github.com/GregorySchwartz/too-many-
 topicmodels,gsl-devel,,TRUE,"GNU Scientific Library version,"
 topicmodels.etm,,,TRUE,LibTorch (https://pytorch.org/)
 torch,,,TRUE,LibTorch (https://pytorch.org/); Only x86_64platforms are currently supported.
+ToxicR,cmake,,TRUE,
 trackdem,,python3 ffmpeg-free /usr/bin/exiftool,TRUE,"Python, Libav, ExifTool"
 trackter,,ffmpeg-free,TRUE,FFmpeg
 TreeBUGS,,,TRUE,JAGS (https://mcmc-jags.sourceforge.io/)
@@ -911,6 +917,7 @@ untb,,pari-gp,TRUE,PARI/GP[strongly recommended forlogkda()]
 utr.annotation,,,TRUE,Linux or MacOS Intel chip tensorflow
 V8,v8-devel,,TRUE,"V8 engine version+ is needed for ES6 and WASMsupport. On Linux you can build against libv8-dev (Debian) orv8-devel (Fedora). We also provide static libv8 binaries formost platforms, see the README for details."
 valection,,,TRUE,valection
+valse,R-CRAN-RcppGSL,,TRUE,
 vapour,gdal-devel proj-devel sqlite-devel,,TRUE,
 varitas,,perl bwa,TRUE,"perl, bedtools, bwa"
 vaultr,,,TRUE,vault

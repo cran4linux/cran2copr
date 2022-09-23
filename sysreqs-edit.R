@@ -2,11 +2,22 @@ cran <- tools::CRAN_package_db()[, c("Package", "NeedsCompilation", "Depends", "
 cran <- cran[!duplicated(cran$Package), ]
 names(cran) <- c("pkg", "nc", "dep", "imp")
 
-deps <- read.csv("sysreqs.csv", na.strings="", stringsAsFactors=FALSE)
-deps <- merge(deps, cran, all.x=TRUE)
-deps$revised <- as.factor(deps$revised)
-deps$nc <- as.factor(deps$nc == "yes")
-comment <- deps$comment; deps$comment <- NULL; deps$comment <- comment
+read_deps <- function() {
+  deps <- read.csv("sysreqs.csv", na.strings="", stringsAsFactors=FALSE)
+  deps <- merge(deps, cran, all.x=TRUE)
+  deps$revised <- as.factor(deps$revised)
+  deps$nc <- as.factor(deps$nc == "yes")
+  comment <- deps$comment; deps$comment <- NULL; deps$comment <- comment
+  deps
+}
+
+save_deps <- function(deps) {
+  data.table::fwrite(deps[, c(1:4, 8)], "sysreqs.csv")
+  deps <- read_deps()
+  data.table::fwrite(deps[, c(1:4, 8)], "sysreqs.csv")
+}
+
+deps <- read_deps()
 
 deps <- DataEditR::data_edit(
   deps,
@@ -19,7 +30,7 @@ deps <- DataEditR::data_edit(
   viewer_width = 1920
 )
 
-data.table::fwrite(deps[, c(1:4, 8)], "sysreqs.csv")
+save_deps(deps)
 
 # cleanup archived
 archived <- is.na(deps$comment) & is.na(deps$nc)

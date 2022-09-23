@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-TMB >= 1.7.20
+BuildRequires:    R-CRAN-RcppEigen
 BuildRequires:    R-CRAN-chk >= 0.7.0
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-doFuture 

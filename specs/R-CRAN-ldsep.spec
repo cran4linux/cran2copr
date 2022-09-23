@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ldsep
-%global packver   1.1.0
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linkage Disequilibrium Shrinkage Estimation for Polyploids
 
@@ -21,6 +22,9 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-ashr 
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-modeest 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-foreach 
@@ -28,6 +32,9 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-ashr 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-modeest 
+Requires:         R-CRAN-matrixStats 
 
 %description
 Estimate haplotypic or composite pairwise linkage disequilibrium (LD) in
@@ -36,9 +43,10 @@ provided to estimate the popular measures of LD: the LD coefficient D, the
 standardized LD coefficient D', and the Pearson correlation coefficient r.
 All estimates are returned with corresponding standard errors. These
 estimates and standard errors can then be used for shrinkage estimation.
-The main functions are ldest(), mldest(), sldest(), plot.lddf(),
+The main functions are ldfast(), ldest(), mldest(), sldest(), plot.lddf(),
 format_lddf(), and ldshrink(). Details of the methods are available in
-Gerard (2020) <doi:10.1101/2020.08.03.234476>.
+Gerard (2021a) <doi:10.1111/1755-0998.13349> and Gerard (2021b)
+<doi:10.1038/s41437-021-00462-5>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

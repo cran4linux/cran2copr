@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  elbird
-%global packver   0.2.5
+%global packname  modeest
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Blazing Fast Morphological Analyzer Based on Kiwi(Korean Intelligent Word Identifier)
+Summary:          Mode Estimation
 
-License:          LGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-R6 >= 2.4.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vroom 
-BuildRequires:    R-CRAN-matchr 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-R6 >= 2.4.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vroom 
-Requires:         R-CRAN-matchr 
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-statip >= 0.2.3
+BuildRequires:    R-CRAN-fBasics 
+BuildRequires:    R-CRAN-stable 
+BuildRequires:    R-CRAN-stabledist 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-statip >= 0.2.3
+Requires:         R-CRAN-fBasics 
+Requires:         R-CRAN-stable 
+Requires:         R-CRAN-stabledist 
+Requires:         R-stats 
 
 %description
-This is the R wrapper package Kiwi(Korean Intelligent Word Identifier), a
-blazing fast speed morphological analyzer for Korean. It supports
-configuration of user dictionary and detection of unregistered nouns based
-on frequency.
+Provides estimators of the mode of univariate data or univariate
+distributions.
 
 %prep
 %setup -q -c -n %{packname}

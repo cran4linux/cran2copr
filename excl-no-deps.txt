@@ -211,7 +211,6 @@ MKmisc
 MM2S
 MM2Sdata
 MMDvariance
-modeest
 Modeler
 moduleColor
 MoonFinder

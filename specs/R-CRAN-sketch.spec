@@ -1,4 +1,5 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sketch
 %global packver   1.1.17
 %global rlibdir   /usr/local/lib/R/library
@@ -44,7 +45,7 @@ enables users to write JavaScript applications using the syntax of R.
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname}/inst -type f -exec sed -i '/#!/d' {} \;
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

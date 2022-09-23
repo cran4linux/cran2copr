@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppEigen
+BuildRequires:    R-CRAN-CVXR
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-rlist
+Requires:         R-CRAN-CVXR
 
 %description
 In the era of big data and hyperconnectivity, learning high-dimensional

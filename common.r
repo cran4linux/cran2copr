@@ -333,9 +333,9 @@ pkg_exceptions <- function(tpl, pkg, path) {
     h2o = "cp %{SOURCE1} %{packname}/inst/java",
     RcppCGAL = "tar xf %{SOURCE1} -C %{packname}/inst */include --strip-components=1",
     nws=,OpenMx=,irace=,configr=,goldi=,RWebLogo=,rSymPy=,ndl=,scrobbler=,
-    chromoR=,SoilR=,dynwrap=,RcppRedis=,protViz=,PRISMA=paste(
+    chromoR=,SoilR=,dynwrap=,RcppRedis=,protViz=,PRISMA=,rgee=paste(
       "find %{packname} -type f -exec",
-      "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
+      "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python3@g' {} \\;"),
     shinyAce=, googleComputeEngineR =
       "find %{packname}/inst -type f -exec chmod a-x {} \\;",
     TMB = "sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R",
@@ -361,7 +361,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
       "find %{packname} -type f -exec ",
       "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
     arrow = "sed -i 's|PKGCONFIG_DIRS=.*|PKGCONFIG_DIRS=-L%{_libdir}|' %{packname}/configure",
-    bigmemory = "sed -i 's|-luuid||g' %{packname}/configure"
+    bigmemory = "sed -i 's|-luuid||g' %{packname}/configure",
+    sketch = "find %{packname}/inst -type f -exec sed -i '/#!/d' {} \\;"
   ))
 
   # install

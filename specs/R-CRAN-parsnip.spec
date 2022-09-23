@@ -32,7 +32,8 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-purrr
+BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
