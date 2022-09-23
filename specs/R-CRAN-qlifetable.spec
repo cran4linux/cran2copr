@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ghee
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  qlifetable
+%global packver   0.0.1-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.0.1.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Provides a Lightweight Interface for 'GitHub' through R
+Summary:          Managing and Building of Quarterly Life Tables
 
-License:          MIT + file LICENSE
+License:          EPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gh 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-gh 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Provides a user friendly wrapper for the 'gh' package facilitating easy
-access to the REST API for 'GitHub'. Includes support for common tasks
-such as creating and commenting on issues, inviting collaborators, and
-more.
+Manages, builds and computes statistics and datasets for the construction
+of quarterly (sub-annual) life tables by exploiting micro-data from either
+a general or an insured population. References: Pavía and Lledó (2022)
+<doi:10.1111/rssa.12769>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

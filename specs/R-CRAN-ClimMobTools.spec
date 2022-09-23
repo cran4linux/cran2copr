@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClimMobTools
-%global packver   0.4.6
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          API Client for the 'ClimMob' Platform
 
@@ -22,14 +22,12 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-sf 
 Requires:         R-utils 
 
 %description

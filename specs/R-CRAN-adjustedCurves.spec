@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datefixR
-%global packver   1.2.0
+%global packname  adjustedCurves
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standardize Dates in Different Formats or with Missing Data
+Summary:          Confounder-Adjusted Survival Curves and Cumulative Incidence Functions
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 
 %description
-There are many different formats dates are commonly represented with: the
-order of day, month, or year can differ, different separators ("-", "/",
-or whitespace) can be used, months can be numerical, names, or
-abbreviations and year given as two digits or four. 'datefixR' takes dates
-in all these different formats and converts them to R's built-in date
-class. If 'datefixR' cannot standardize a date, such as because it is too
-malformed, then the user is told which date cannot be standardized and the
-corresponding ID for the row. 'datefixR' also allows the imputation of
-missing days and months with user-controlled behavior.
+Estimate and plot confounder-adjusted survival curves using either 'Direct
+Adjustment', 'Direct Adjustment with Pseudo-Values', various forms of
+'Inverse Probability of Treatment Weighting', two forms of 'Augmented
+Inverse Probability of Treatment Weighting', 'Empirical Likelihood
+Estimation' and 'Targeted Maximum Likelihood Estimation'. Also includes a
+significance test for the difference between two adjusted survival curves
+and the calculation of adjusted restricted mean survival times.
+Additionally enables the user to estimate and plot cause-specific
+confounder-adjusted cumulative incidence functions in the competing risks
+setting using the same methods (with some exceptions). For details, see
+Denz et. al (2022) <arXiv:2203.10002v1>.
 
 %prep
 %setup -q -c -n %{packname}

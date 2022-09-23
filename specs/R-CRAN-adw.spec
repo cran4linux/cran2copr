@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  adw
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Angular Distance Weighting Interpolation
 
@@ -13,17 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rnaturalearth 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rnaturalearth 
+Requires:         R-methods 
 
 %description
 The irregularly-spaced data are interpolated onto regular

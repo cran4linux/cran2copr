@@ -1,49 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  isaeditor
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  rlibkriging
+%global packver   0.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Manipulate ISA-Tab Files
+Summary:          Kriging Models using the 'libKriging' Library
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-colorDF 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.11
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-colorDF 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.11
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-DiceKriging 
 
 %description
-ISA-Tab (Investigation/Study/Assay (ISA) tab-delimited (TAB) format) is a
-general purpose framework for storing complex metadata in omics
-applications. It is notoriously hard to manipulate due to the fact that it
-is a graph rather than a tab-delimited data frame. The 'isaeditor' package
-is meant to facilitate reading, writing, displaying, manipulating,
-modifying and populating ISA-Tab files in R.
+Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
+that should provide most standard Kriging / Gaussian process regression
+features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
+'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
+by Conrad Sanderson, and 'lbfgsb_cpp' is a 'C++' wrapper by Colin Fang
+around 'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge
+Nocedal and Jose Luis Morales used for hyperparameters optimization.
 
 %prep
 %setup -q -c -n %{packname}

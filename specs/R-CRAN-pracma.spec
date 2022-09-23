@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pracma
-%global packver   2.3.8
+%global packver   2.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.8
+Version:          2.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Practical Numerical Math Functions
 

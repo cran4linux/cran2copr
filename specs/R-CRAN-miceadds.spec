@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  miceadds
-%global packver   3.14-3
+%global packver   3.15-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.14.3
+Version:          3.15.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Some Additional Multiple Imputation Functions, Especially for 'mice'
 
@@ -36,8 +36,8 @@ Requires:         R-utils
 Contains functions for multiple imputation which complements existing
 functionality in R. In particular, several imputation methods for the mice
 package (van Buuren & Groothuis-Oudshoorn, 2011,
-<doi:10.18637/jss.v045.i03>) are included. Main features of the miceadds
-package include plausible value imputation (Mislevy, 1991,
+<doi:10.18637/jss.v045.i03>) are implemented. Main features of the
+miceadds package include plausible value imputation (Mislevy, 1991,
 <doi:10.1007/BF02294457>), multilevel imputation for variables at any
 level or with any number of hierarchical and non-hierarchical levels
 (Grund, Luedtke & Robitzsch, 2018, <doi:10.1177/1094428117703686>; van

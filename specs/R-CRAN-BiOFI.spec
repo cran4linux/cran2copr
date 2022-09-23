@@ -1,48 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sparsegl
-%global packver   0.5.0
+%global packname  BiOFI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Group Lasso
+Summary:          Feature Identification Between Metabolome and Microbiome in Disease and Health
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dotCall64 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dotCall64 
+BuildRequires:    R-CRAN-networkD3 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-ppcor 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-networkD3 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-ppcor 
 
 %description
-Efficient implementation of sparse group lasso with optional bound
-constraints on the coefficients. It supports the use of a sparse design
-matrix as well as returning coefficient estimates in a sparse matrix.
-Furthermore, it correctly calculates the degrees of freedom to allow for
-information criteria rather than cross-validation with very large data.
-Finally, the interface to compiled code avoids unnecessary copies and
-allows for the use of long integers.
+A strategy that provides the identification of metabolome and microbiome
+(Bi-omics) feature. It is able to screen out key/driving features
+(metabolites, microbes, and pathway functions) by an integrated importance
+score (IIS),combining sub-scores derived from difference, correlation,
+abundance, and network analysis. It is able to identify
+microbe-function-metabolite chains and to rank association pairs within
+specific functions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sdcTable
-%global packver   0.32.3
+%global packver   0.32.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.32.3
+Version:          0.32.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Statistical Disclosure Control in Tabular Data
 
@@ -14,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    glpk-devel
-BuildRequires:    gmp-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Matrix >= 1.3.0
 BuildRequires:    R-CRAN-sdcHierarchies >= 0.19.1
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-data.table 
@@ -29,8 +30,8 @@ BuildRequires:    R-CRAN-slam
 BuildRequires:    R-CRAN-glpkAPI 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-SSBtools 
+Requires:         R-CRAN-Matrix >= 1.3.0
 Requires:         R-CRAN-sdcHierarchies >= 0.19.1
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-data.table 
@@ -43,7 +44,6 @@ Requires:         R-CRAN-slam
 Requires:         R-CRAN-glpkAPI 
 Requires:         R-CRAN-progress 
 Requires:         R-utils 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-SSBtools 
 
 %description

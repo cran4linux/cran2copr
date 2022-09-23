@@ -1,34 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  excerptr
-%global packver   2.0.1
+%global __requires_exclude ^libmpi
+%global packname  glmmrBase
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Excerpt Structuring Comments from Your Code File and Set a Table of Contents
+Summary:          Specification of Generalised Linear Mixed Models
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-Matrix >= 1.3.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Matrix >= 1.3.1
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
 
 %description
-This is an R interface to the python package 'excerpts'
-(<https://pypi.org/project/excerpts/>).
+Specification of generalised linear mixed models using the 'R6'
+object-orientated class system. The package provides classes 'Covariance',
+'MeanFunction' and 'Model', which allow for flexible specification of
+generalised linear mixed models, as well as functionality to produce
+relevant matrices, values, and analyses. See
+<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
+detailed manual.
 
 %prep
 %setup -q -c -n %{packname}
-find %{packname}/inst -type f -name *.cl -exec chmod a-x {} \;
- find %{packname}/inst -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*dash@#!/usr/bin/sh@g' {} \;
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

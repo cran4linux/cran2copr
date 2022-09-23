@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SCORPION
+%global packname  CovRegRF
 %global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single Cell Oriented Reconstruction of PANDA Individual Optimized Networks
+Summary:          Covariance Regression with Random Forests
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-RhpcBLASctl 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-RhpcBLASctl 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-DiagrammeR 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-DiagrammeR 
 
 %description
-Constructs gene regulatory networks from single-cell gene expression data
-using the PANDA (Passing Attributes between Networks for Data
-Assimilation) algorithm.
+Covariance Regression with Random Forests ('CovRegRF') is a random forest
+method for estimating the covariance matrix of a multivariate response
+given a set of covariates. Random forest trees are built with a new
+splitting rule which is designed to maximize the distance between the
+sample covariance matrix estimates of the child nodes. The method is
+described in Alakus et al. (2022) <arXiv:2209.08173>. 'CovRegRF' uses
+'randomForestSRC' package (Ishwaran and Kogalur, 2022)
+<https://cran.r-project.org/package=randomForestSRC> by freezing at the
+version 3.1.0. The custom splitting rule feature is utilised to apply the
+proposed splitting rule.
 
 %prep
 %setup -q -c -n %{packname}
