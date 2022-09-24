@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mmpca
-%global packver   2.0.2
+%global packname  neuronorm
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Integrative Analysis of Several Related Data Matrices
+Summary:          Preprocessing of Structural MRI for Multiple Neurodegenerative Diseases
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-digest >= 0.6.0
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppGSL 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-digest >= 0.6.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-oro.nifti 
+BuildRequires:    R-CRAN-fslr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-oro.nifti 
+Requires:         R-CRAN-fslr 
+Requires:         R-stats 
 
 %description
-A generalization of principal component analysis for integrative analysis.
-The method finds principal components that describe single matrices or
-that are common to several matrices. The solutions are sparse. Rank of
-solutions is automatically selected using cross validation. The method is
-described in Kallus et al. (2019) <arXiv:1911.04927>.
+Preprocessing pipeline for normalizing and cleaning T1-weighted,
+T2-weighted and FLAIR MRI images coming from different sources, diseases,
+patients, scanners and sites.
 
 %prep
 %setup -q -c -n %{packname}

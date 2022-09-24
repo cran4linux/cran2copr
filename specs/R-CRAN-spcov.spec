@@ -1,29 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgo
-%global packver   0.9.2
+%global packname  spcov
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Geographical Operations (with OSGB36)
+Summary:          Sparse Estimation of a Covariance Matrix
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description
-Methods focused in performing the OSGB36/ETRS89 transformation (Great
-Britain and the Isle of Man only) by using the Ordnance Survey's
-OSTN15/OSGM15 transformation model. Calculation of distances and areas
-from sets of points defined in any of the supported Coordinated Systems is
-also available.
+Provides a covariance estimator for multivariate normal data that is
+sparse and positive definite.  Implements the majorize-minimize algorithm
+described in Bien, J., and Tibshirani, R. (2011), "Sparse Estimation of a
+Covariance Matrix," Biometrika. 98(4). 807--820.
 
 %prep
 %setup -q -c -n %{packname}

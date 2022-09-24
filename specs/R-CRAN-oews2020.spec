@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgo
-%global packver   0.9.2
+%global packname  oews2020
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Geographical Operations (with OSGB36)
+Summary:          May 2020 Occupational Employment and Wage Statistics
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,11 +19,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Methods focused in performing the OSGB36/ETRS89 transformation (Great
-Britain and the Isle of Man only) by using the Ordnance Survey's
-OSTN15/OSGM15 transformation model. Calculation of distances and areas
-from sets of points defined in any of the supported Coordinated Systems is
-also available.
+Contains data from the May 2020 Occupational Employment and Wage
+Statistics data release from the U.S. Bureau of Labor Statistics. The
+dataset covers employment and wages across occupations, industries,
+states, and at the national level. Metropolitan data is not included.
 
 %prep
 %setup -q -c -n %{packname}

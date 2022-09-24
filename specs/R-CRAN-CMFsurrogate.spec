@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgo
-%global packver   0.9.2
+%global packname  CMFsurrogate
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Geographical Operations (with OSGB36)
+Summary:          Calibrated Model Fusion Approach to Combine Surrogate Markers
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+Requires:         R-splines 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 
 %description
-Methods focused in performing the OSGB36/ETRS89 transformation (Great
-Britain and the Isle of Man only) by using the Ordnance Survey's
-OSTN15/OSGM15 transformation model. Calculation of distances and areas
-from sets of points defined in any of the supported Coordinated Systems is
-also available.
+Uses a calibrated model fusion approach to optimally combine multiple
+surrogate markers. Specifically, two initial estimates of optimal
+composite scores of the markers are obtained; the optimal calibrated
+combination of the two estimated scores is then constructed which ensures
+both validity of the final combined score and optimality with respect to
+the proportion of treatment effect explained (PTE) by the final combined
+score. The primary function, pte.estimate.multiple(), estimates the PTE of
+the identified combination of multiple surrogate markers. Details are
+described in Wang et al (2022) <doi:10.1111/biom.13677>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wdnr.gis
-%global packver   0.1.4
+%global packname  lambdaTS
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pull Spatial Layers from 'WDNR ArcGIS REST API'
+Summary:          Variational Seq2Seq Model with Lambda Transformer for Time Series Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arcpullr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-arcpullr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-narray 
+BuildRequires:    R-CRAN-fANCOVA 
+BuildRequires:    R-CRAN-imputeTS 
+BuildRequires:    R-CRAN-modeest 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-bizdays 
+BuildRequires:    R-CRAN-torch 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-narray 
+Requires:         R-CRAN-fANCOVA 
+Requires:         R-CRAN-imputeTS 
+Requires:         R-CRAN-modeest 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-bizdays 
+Requires:         R-CRAN-torch 
 
 %description
-Functions for finding and pulling data from the 'Wisconsin Department of
-Natural Resources ArcGIS REST APIs'
-<https://dnrmaps.wi.gov/arcgis/rest/services> and
-<https://dnrmaps.wi.gov/arcgis2/rest/services>.
+Time series analysis based on lambda transformer and variational seq2seq,
+built on 'Torch'.
 
 %prep
 %setup -q -c -n %{packname}

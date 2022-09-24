@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fbst
-%global packver   1.7
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Full Bayesian Evidence Test, Full Bayesian Significance Test and the e-Value
 
@@ -16,8 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-rstanarm 
 BuildRequires:    R-CRAN-bayestestR 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-rstanarm 
 Requires:         R-CRAN-bayestestR 
 Requires:         R-methods 
 
@@ -27,8 +36,7 @@ Full Bayesian Significance Test (FBST) and the e-value for testing a sharp
 hypothesis against its alternative, and the Full Bayesian Evidence Test
 (FBET) and the (generalized) Bayesian evidence value for testing a
 composite (or interval) hypothesis against its alternative. The methods
-are widely applicable as long as a posterior MCMC sample is available. For
-details on the computation and theory of the FBST see <arXiv:2005.13181>.
+are widely applicable as long as a posterior MCMC sample is available.
 
 %prep
 %setup -q -c -n %{packname}

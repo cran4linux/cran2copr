@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  desla
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Desparsified Lasso
+Summary:          Desparsified Lasso Inference for Time Series
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,16 +18,22 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
+Requires:         R-CRAN-parallelly 
 
 %description
 Calculates the desparsified lasso as originally introduced in van de Geer
 et al. (2014) <doi:10.1214/14-AOS1221>, and provides inference suitable
 for high-dimensional time series, based on the long run covariance
-estimator in Adamek et al. (2020) <arXiv:2007.10952>.
+estimator in Adamek et al. (2020) <arXiv:2007.10952>. Also estimates
+high-dimensional local projections by the desparsified lasso, as described
+in Adamek et al. (2022) <arXiv:2209.03218>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GUniFrac
-%global packver   1.3
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized UniFrac Distances, Distance-Based Multivariate Methods and Feature-Based Univariate Methods for Microbiome Data Analysis
 
@@ -17,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ape 
@@ -27,8 +29,12 @@ BuildRequires:    R-CRAN-statmod
 BuildRequires:    R-CRAN-rmutil 
 BuildRequires:    R-CRAN-dirmult 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-modeest 
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ape 
@@ -39,6 +45,9 @@ Requires:         R-CRAN-statmod
 Requires:         R-CRAN-rmutil 
 Requires:         R-CRAN-dirmult 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-modeest 
 
 %description
 A suite of methods for powerful and robust microbiome data analysis
@@ -51,8 +60,8 @@ include three extensions of PERMANOVA: (1) PERMANOVA using the
 Freedman-Lane permutation scheme, (2) PERMANOVA omnibus test using
 multiple matrices, and (3) analytical approach to approximating PERMANOVA
 p-value. Feature-based statistical methods include linear model-based
-permutation tests for differential abundance analysis of zero-inflated
-compositional data.
+methods for differential abundance analysis of zero-inflated
+high-dimensional compositional data.
 
 %prep
 %setup -q -c -n %{packname}

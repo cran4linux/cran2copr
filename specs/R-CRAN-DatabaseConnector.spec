@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DatabaseConnector
-%global packver   5.0.4
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.4
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connecting to Various Database Platforms
 
@@ -41,9 +42,9 @@ Requires:         R-CRAN-bit64
 An R 'DataBase Interface' ('DBI') compatible interface to various database
 platforms ('PostgreSQL', 'Oracle', 'Microsoft SQL Server', 'Amazon
 Redshift', 'Microsoft Parallel Database Warehouse', 'IBM Netezza', 'Apache
-Impala', 'Google BigQuery', 'Spark', and 'SQLite'). Also includes support
-for fetching data as 'Andromeda' objects. Uses 'Java Database
-Connectivity' ('JDBC') to connect to databases (except SQLite).
+Impala', 'Google BigQuery', 'Snowflake', 'Spark', and 'SQLite'). Also
+includes support for fetching data as 'Andromeda' objects. Uses 'Java
+Database Connectivity' ('JDBC') to connect to databases (except SQLite).
 
 %prep
 %setup -q -c -n %{packname}

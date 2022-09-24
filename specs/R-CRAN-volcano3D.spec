@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  volcano3D
-%global packver   2.0.0
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Volcano Plots and Polar Plots for Three-Class Data
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-matrixTests 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-ggplot2 
@@ -31,6 +33,7 @@ Requires:         R-CRAN-htmlwidgets
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-matrixTests 
 
 %description

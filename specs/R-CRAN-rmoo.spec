@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmoo
-%global packver   0.1.8
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Objective Optimization in R
 
@@ -19,34 +19,29 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ecr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-GA 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-cdata 
 BuildRequires:    R-CRAN-plotly 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-ecr 
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-CRAN-GA 
 Requires:         R-grDevices 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-cdata 
 Requires:         R-CRAN-plotly 
 
 %description
-A multiobjective optimization package based on K. Deb's algorithm and
-inspired in 'GA' package by Luca Scrucca (2017)
-<DOI:10.32614/RJ-2017-008>. The 'rmoo' package is a framework for multi-
-and many-objective optimization, allowing to work with representation of
-real numbers, permutations and binaries, offering a high range of
-configurations.
+The 'rmoo' package is a framework for multi- and many-objective
+optimization, which allows researchers and users versatility in parameter
+configuration, as well as tools for analysis, replication and
+visualization of results. The 'rmoo' package was built as a fork of the
+'GA' package by Luca Scrucca(2017) <DOI:10.32614/RJ-2017-008> and
+implementing the Non-Dominated Sorting Genetic Algorithms proposed by K.
+Deb's.
 
 %prep
 %setup -q -c -n %{packname}

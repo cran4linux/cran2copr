@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgo
-%global packver   0.9.2
+%global packname  cwot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Geographical Operations (with OSGB36)
+Summary:          Cauchy Weighted Joint Test for Pharmacogenetics Analysis
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-SPAtest 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-SPAtest 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Methods focused in performing the OSGB36/ETRS89 transformation (Great
-Britain and the Isle of Man only) by using the Ordnance Survey's
-OSTN15/OSGM15 transformation model. Calculation of distances and areas
-from sets of points defined in any of the supported Coordinated Systems is
-also available.
+A flexible and robust joint test of the single nucleotide polymorphism
+(SNP) main effect and genotype-by-treatment interaction effect for
+continuous and binary endpoints. Two analytic procedures, Cauchy weighted
+joint test (CWOT) and adaptively weighted joint test (AWOT), are proposed
+to accurately calculate the joint test p-value. The proposed methods are
+evaluated through extensive simulations under various scenarios. The
+results show that the proposed AWOT and CWOT control type I error well and
+outperform existing methods in detecting the most interesting signal
+patterns in pharmacogenetics (PGx) association studies. For reference, see
+Hong Zhang, Devan Mehrotra and Judong Shen (2022)
+<doi:10.13140/RG.2.2.28323.53280>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgo
-%global packver   0.9.2
+%global packname  OBASpatial
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Geographical Operations (with OSGB36)
+Summary:          Objective Bayesian Analysis for Spatial Regression Models
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-modeest 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-truncdist 
+BuildRequires:    R-CRAN-invgamma 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-modeest 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-truncdist 
+Requires:         R-CRAN-invgamma 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Methods focused in performing the OSGB36/ETRS89 transformation (Great
-Britain and the Isle of Man only) by using the Ordnance Survey's
-OSTN15/OSGM15 transformation model. Calculation of distances and areas
-from sets of points defined in any of the supported Coordinated Systems is
-also available.
+It makes an objective Bayesian analysis of the spatial regression model
+using both the normal (NSR) and student-T (TSR) distributions. The
+functions provided give prior and posterior objective densities and allow
+default Bayesian estimation of the model regression parameters. Details
+can be found in Ordonez et al. (2020) <arXiv:2004.04341>.
 
 %prep
 %setup -q -c -n %{packname}
