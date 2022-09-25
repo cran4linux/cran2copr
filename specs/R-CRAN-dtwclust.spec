@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dtwclust
-%global packver   5.5.10
+%global packver   5.5.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.10
+Version:          5.5.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Clustering Along with Optimizations for the Dynamic Time Warping Distance
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-RcppParallel >= 4.4.0
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-CRAN-proxy >= 0.4.16
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dtw 
@@ -29,7 +31,6 @@ BuildRequires:    R-CRAN-flexclust
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-reshape2 
@@ -38,6 +39,7 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-RcppParallel >= 4.4.0
+Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-proxy >= 0.4.16
 Requires:         R-methods 
 Requires:         R-CRAN-dtw 
@@ -51,7 +53,6 @@ Requires:         R-CRAN-flexclust
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-reshape2 

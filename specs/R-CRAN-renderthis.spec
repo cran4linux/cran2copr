@@ -1,47 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mbRes
-%global packver   0.1.5
+%global packname  renderthis
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploration of Multiple Biomarker Responses using Effect Size
+Summary:          Render Slides to Different Formats
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
-BuildRequires:    R-CRAN-tibble >= 3.1.8
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-tidyr >= 1.2.1
-BuildRequires:    R-CRAN-data.table >= 1.14.2
-BuildRequires:    R-CRAN-cowplot >= 1.1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.10
-BuildRequires:    R-CRAN-forcats >= 0.5.2
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.6
-Requires:         R-CRAN-tibble >= 3.1.8
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-tidyr >= 1.2.1
-Requires:         R-CRAN-data.table >= 1.14.2
-Requires:         R-CRAN-cowplot >= 1.1.1
-Requires:         R-CRAN-dplyr >= 1.0.10
-Requires:         R-CRAN-forcats >= 0.5.2
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-stats 
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-magick >= 2.7.1
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pagedown 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-xaringan 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-magick >= 2.7.1
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-pagedown 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-xaringan 
+Requires:         R-CRAN-zip 
 
 %description
-Summarize multiple biomarker responses of aquatic organisms to
-contaminants using Cliff’s delta, as described in Pham & Sokolova (2022)
-<doi:10.1002/ieam.4676>.
+Render slides to different formats, including 'html', 'pdf', 'png', 'gif',
+'pptx', and 'mp4', as well as a 'social' output, a 'png' of the first
+slide re-sized for sharing on social media.
 
 %prep
 %setup -q -c -n %{packname}

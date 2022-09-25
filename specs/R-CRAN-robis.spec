@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  robis
-%global packver   2.8.2
+%global packver   2.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.2
+Version:          2.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ocean Biodiversity Information System (OBIS) Client
 
@@ -33,6 +34,10 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
@@ -50,6 +55,10 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-memoise 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
 Client for the Ocean Biodiversity Information System (<https://obis.org>).

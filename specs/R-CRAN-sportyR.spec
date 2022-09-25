@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sportyR
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Scaled 'ggplot' Representations of Sports Playing Surfaces
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -29,7 +29,8 @@ Requires:         R-grid
 %description
 Create scaled 'ggplot' representations of playing surfaces. Playing
 surfaces are drawn pursuant to rule-book specifications. This package
-should be used as a baseline plot for displaying player tracking data.
+should be used as a baseline plot for displaying any type of tracking
+data.
 
 %prep
 %setup -q -c -n %{packname}
