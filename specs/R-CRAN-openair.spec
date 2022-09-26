@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  openair
-%global packver   2.10-0
+%global packver   2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.0
+Version:          2.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for the Analysis of Air Pollution Data
 
@@ -56,9 +57,10 @@ Requires:         R-utils
 
 %description
 Tools to analyse, interpret and understand air pollution data. Data are
-typically hourly time series and both monitoring data and dispersion model
-output can be analysed.  Many functions can also be applied to other data,
-including meteorological and traffic data.
+typically regular time series and air quality measurement, meteorological
+data and dispersion model output can be analysed. The package is described
+in Carslaw and Ropkins (2012, <doi:10.1016/j.envsoft.2011.09.008>) and
+subsequent papers.
 
 %prep
 %setup -q -c -n %{packname}

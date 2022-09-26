@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  owidR
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Package for Importing Data from Our World in Data
+Summary:          Import Data from Our World in Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-readr 
@@ -55,11 +56,10 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-rlang 
 Requires:         R-grDevices 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Imports data from the Our World in Data website, offering easy to use
-functions for searching for datasets, downloading them into R and
-visualising them.
+Search and download the data used in over 3,000 Our World in Data charts.
 
 %prep
 %setup -q -c -n %{packname}

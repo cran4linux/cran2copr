@@ -1,31 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mapfit
-%global packver   0.9.9
+%global __requires_exclude ^libmpi
+%global packname  wflo
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tool for PH/MAP Parameter Estimation
+Summary:          Data Set and Helper Functions for Wind Farm Layout Optimization Problems
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-deformula 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-deformula 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-emstreeR 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-emstreeR 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
 
 %description
-Estimation methods for phase-type distribution (PH) and Markovian arrival
-process (MAP) from empirical data (point and grouped data) and density
-function.
+Provides a convenient data set, a set of helper functions, and a benchmark
+function for economically (profit) driven wind farm layout optimization.
+This enables researchers in the field of the NP-hard (non-deterministic
+polynomial-time hard) problem of wind farm layout optimization to focus on
+their optimization methodology contribution and also provides a realistic
+benchmark setting for comparability among contributions. See
+Croonenbroeck, Carsten & Hennecke, David (2020)
+<doi:10.1016/j.energy.2020.119244>.
 
 %prep
 %setup -q -c -n %{packname}

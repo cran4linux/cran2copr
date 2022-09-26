@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httr2
-%global packver   0.2.2
+%global packname  popEpi
+%global packver   0.4.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.4.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform HTTP Requests and Process the Responses
+Summary:          Functions for Epidemiological Analysis using Population Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-CRAN-Epi >= 2.0
+BuildRequires:    R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-Epi >= 2.0
+Requires:         R-CRAN-data.table >= 1.10.4
+Requires:         R-splines 
+Requires:         R-CRAN-survival 
 
 %description
-Tools for creating and modifying HTTP requests, then performing them and
-processing the results. 'httr2' is a modern re-imagining of 'httr' that
-uses a pipe-based interface and solves more of the problems that API
-wrapping packages face.
+Enables computation of epidemiological statistics, including those where
+counts or mortality rates of the reference population are used.  Currently
+supported: excess hazard models (Dickman, Sloggett, Hills, and Hakulinen
+(2012) <doi:10.1002/sim.1597>), rates, mean survival times, relative/net
+survival (in particular the Ederer II (Ederer and Heise (1959)) and Pohar
+Perme (Pohar Perme, Stare, and Esteve (2012)
+<doi:10.1111/j.1541-0420.2011.01640.x>) estimators), and standardized
+incidence and mortality ratios, all of which can be easily adjusted for by
+covariates such as age. Fast splitting and aggregation of 'Lexis' objects
+(from package 'Epi') and other computations achieved using 'data.table'.
 
 %prep
 %setup -q -c -n %{packname}

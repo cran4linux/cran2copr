@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Exact
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unconditional Exact Test
 
@@ -41,7 +42,7 @@ difference in proportion. This package interacts with pre-computed data
 available through the ExactData R package, which is available in a 'drat'
 repository. Install the ExactData R package from GitHub at
 <https://pcalhoun1.github.io/drat/>. The ExactData R package is
-approximately 25 MB.
+approximately 85 MB.
 
 %prep
 %setup -q -c -n %{packname}

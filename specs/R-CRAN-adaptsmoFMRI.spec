@@ -1,52 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metamisc
-%global packver   0.4.0
+%global packname  adaptsmoFMRI
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta-Analysis of Diagnosis and Prognosis Research Studies
+Summary:          Adaptive Smoothing of FMRI Data
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-metafor >= 2.0.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-metafor >= 2.0.0
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-parallel 
 Requires:         R-methods 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-parallel 
 
 %description
-Facilitate frequentist and Bayesian meta-analysis of diagnosis and
-prognosis research studies. It includes functions to summarize multiple
-estimates of prediction model discrimination and calibration performance
-(Debray et al., 2019) <doi:10.1177/0962280218785504>. It also includes
-functions to evaluate funnel plot asymmetry (Debray et al., 2018)
-<doi:10.1002/jrsm.1266>. Finally, the package provides functions for
-developing multivariable prediction models from datasets with clustering
-(de Jong et al., 2021) <doi:10.1002/sim.8981>.
+Adaptive smoothing functions for estimating the blood oxygenation level
+dependent (BOLD) effect by using functional Magnetic Resonance Imaging
+(fMRI) data, based on adaptive Gauss Markov random fields, for real as
+well as simulated data. The implemented models make use of efficient
+Markov Chain Monte Carlo methods. Implemented methods are based on the
+research developed by A. Brezger, L. Fahrmeir, A. Hennerfeind (2007)
+<https://www.jstor.org/stable/4626770>.
 
 %prep
 %setup -q -c -n %{packname}
