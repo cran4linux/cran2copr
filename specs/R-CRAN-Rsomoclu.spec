@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCALI
-%global packver   0.3.4
+%global packname  Rsomoclu
+%global packver   1.7.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.7.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of the Integrated Flow of Particles Between Polygons
+Summary:          Somoclu
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-splancs 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-splancs 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-kohonen 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-kohonen 
 
 %description
-Calculate the flow of particles between polygons by two integration
-methods: integration by a cubature method and integration on a grid of
-points. Annie Bouvier, Kien Kieu, Kasia Adamczyk and Herve Monod (2009)
-<doi:10.1016/j.envsoft.2008.11.006>.
+Somoclu is a massively parallel implementation of self-organizing maps.
+It exploits multicore CPUs and it can be accelerated by CUDA. The topology
+of the map can be planar or toroid and the grid of neurons can be
+rectangular or hexagonal . Details refer to (Peter Wittek, et al (2017))
+<doi:10.18637/jss.v078.i09>.
 
 %prep
 %setup -q -c -n %{packname}

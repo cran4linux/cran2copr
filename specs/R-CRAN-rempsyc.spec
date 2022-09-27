@@ -1,42 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcdk
-%global packver   3.7.0
+%global packname  rempsyc
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.0
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'CDK' Libraries
+Summary:          Convenience Functions for Psychology
 
-License:          LGPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rcdklibs >= 2.8
-BuildRequires:    R-CRAN-fingerprint 
-BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-dplyr >= 1.0.4
+BuildRequires:    R-CRAN-flextable >= 0.7.1
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-effectsize 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggsignif 
+BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-itertools 
-Requires:         R-CRAN-rcdklibs >= 2.8
-Requires:         R-CRAN-fingerprint 
-Requires:         R-CRAN-rJava 
+BuildRequires:    R-CRAN-qqplotr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr >= 1.0.4
+Requires:         R-CRAN-flextable >= 0.7.1
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-effectsize 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggsignif 
+Requires:         R-CRAN-lmtest 
 Requires:         R-methods 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-itertools 
+Requires:         R-CRAN-qqplotr 
+Requires:         R-CRAN-rlang 
 
 %description
-Allows the user to access functionality in the 'CDK', a Java framework for
-chemoinformatics. This allows the user to load molecules, evaluate
-fingerprints, calculate molecular descriptors and so on. In addition, the
-'CDK' API allows the user to view structures in 2D.
+Make your workflow faster and easier. Easily customizable plots (via
+'ggplot2'), nice APA tables (following the style of the *American
+Psychological Association*) exportable to Word (via 'flextable'), easily
+run statistical tests or check assumptions, and automatize various other
+tasks.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsfa
-%global packver   0.0.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributional Stochastic Frontier Analysis
 
@@ -18,20 +18,18 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-CRAN-gratia 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-sn 
 Requires:         R-CRAN-gratia 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-copula 
-Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-sn 
 Requires:         R-CRAN-Rdpack 
 
 %description

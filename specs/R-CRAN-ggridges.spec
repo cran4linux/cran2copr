@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggridges
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ridgeline Plots in 'ggplot2'
 
@@ -19,12 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-grid >= 3.0.0
 BuildRequires:    R-CRAN-withr >= 2.1.1
-BuildRequires:    R-CRAN-plyr >= 1.8.0
 BuildRequires:    R-CRAN-scales >= 0.4.1
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-grid >= 3.0.0
 Requires:         R-CRAN-withr >= 2.1.1
-Requires:         R-CRAN-plyr >= 1.8.0
 Requires:         R-CRAN-scales >= 0.4.1
 
 %description
@@ -40,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

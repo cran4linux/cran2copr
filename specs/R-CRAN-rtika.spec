@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCALI
-%global packver   0.3.4
+%global packname  rtika
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of the Integrated Flow of Particles Between Polygons
+Summary:          R Interface to 'Apache Tika'
 
-License:          GPL-3
+License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-splancs 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-splancs 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sys >= 2.1
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-backports 
+Requires:         R-CRAN-sys >= 2.1
+Requires:         R-CRAN-curl 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-backports 
 
 %description
-Calculate the flow of particles between polygons by two integration
-methods: integration by a cubature method and integration on a grid of
-points. Annie Bouvier, Kien Kieu, Kasia Adamczyk and Herve Monod (2009)
-<doi:10.1016/j.envsoft.2008.11.006>.
+Extract text or metadata from over a thousand file types, using Apache
+Tika <https://tika.apache.org/>. Get either plain text or structured XHTML
+content.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCALI
-%global packver   0.3.4
+%global packname  hce
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of the Integrated Flow of Particles Between Polygons
+Summary:          Design and Analysis of Hierarchical Composite Endpoints
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-splancs 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-splancs 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-base 
+BuildRequires:    R-stats 
+Requires:         R-base 
+Requires:         R-stats 
 
 %description
-Calculate the flow of particles between polygons by two integration
-methods: integration by a cubature method and integration on a grid of
-points. Annie Bouvier, Kien Kieu, Kasia Adamczyk and Herve Monod (2009)
-<doi:10.1016/j.envsoft.2008.11.006>.
+Simulate and analyze hierarchical composite endpoints. Win odds is the
+main analysis method. See Gasparyan SB et al (2022)
+<doi:10.1007/s43441-022-00420-1>).
 
 %prep
 %setup -q -c -n %{packname}

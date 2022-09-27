@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdecision
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decision Analytic Modelling in Health Economics
 
@@ -21,12 +21,10 @@ BuildRequires:    R-CRAN-rlang >= 0.4.2
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-rlang >= 0.4.2
 Requires:         R-grid 
 Requires:         R-CRAN-R6 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 Classes and functions for modelling health care interventions using

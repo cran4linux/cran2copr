@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  calculus
-%global packver   0.3.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Numerical and Symbolic Calculus
 
@@ -21,14 +21,14 @@ Requires:         R-CRAN-Rcpp >= 1.0.1
 
 %description
 Efficient C++ optimized functions for numerical and symbolic calculus as
-described in Guidotti (2020) <arXiv:2101.00086>. It includes basic
-arithmetic, tensor calculus, Einstein summing convention, fast computation
-of the Levi-Civita symbol and generalized Kronecker delta, Taylor series
-expansion, multivariate Hermite polynomials, high-order derivatives,
-ordinary differential equations, differential operators (Gradient,
-Jacobian, Hessian, Divergence, Curl, Laplacian) and numerical integration
-in arbitrary orthogonal coordinate systems: cartesian, polar, spherical,
-cylindrical, parabolic or user defined by custom scale factors.
+described in Guidotti (2022) <doi:10.18637/jss.v104.i05>. It includes
+basic arithmetic, tensor calculus, Einstein summing convention, fast
+computation of the Levi-Civita symbol and generalized Kronecker delta,
+Taylor series expansion, multivariate Hermite polynomials, high-order
+derivatives, ordinary differential equations, differential operators
+(Gradient, Jacobian, Hessian, Divergence, Curl, Laplacian) and numerical
+integration in arbitrary orthogonal coordinate systems: cartesian, polar,
+spherical, cylindrical, parabolic or user defined by custom scale factors.
 
 %prep
 %setup -q -c -n %{packname}

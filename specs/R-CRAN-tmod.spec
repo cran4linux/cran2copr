@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shorts
-%global packver   2.1.0
+%global packname  tmod
+%global packver   0.50.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.50.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Short Sprints
+Summary:          Feature Set Enrichment Analysis for Metabolomics and Transcriptomics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-LambertW 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-beeswarm 
+BuildRequires:    R-CRAN-tagcloud 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plotwidgets 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-pheatmap 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-CRAN-LambertW 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-ggrepel 
+Requires:         R-CRAN-beeswarm 
+Requires:         R-CRAN-tagcloud 
+Requires:         R-CRAN-XML 
+Requires:         R-methods 
+Requires:         R-CRAN-plotwidgets 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-pheatmap 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-ggrepel 
 
 %description
-Create short sprint (<6sec) profiles using the split times or the radar
-gun data. Mono-exponential equation is used to estimate maximal sprinting
-speed (MSS), relative acceleration (TAU), and other parameters such us
-maximal acceleration (MAC) and maximal relative power (PMAX). These
-parameters can be used to predict kinematic and kinetics variables and to
-compare individuals. The modeling method utilized in this package is based
-on the works of Chelly SM, Denis C. (2001) <doi:
-10.1097/00005768-200102000-00024>, Clark KP, Rieger RH, Bruno RF, Stearne
-DJ. (2017) <doi: 10.1519/JSC.0000000000002081>, Furusawa K, Hill AV,
-Parkinson JL (1927) <doi: 10.1098/rspb.1927.0035>, Greene PR. (1986) <doi:
-10.1016/0025-5564(86)90063-5>, and Samozino P. (2018) <doi:
-10.1007/978-3-319-05633-3_11>.
+Methods and feature set definitions for feature or gene set enrichment
+analysis in transcriptional and metabolic profiling data. Package includes
+tests for enrichment based on ranked lists of features, functions for
+visualisation and multivariate functional analysis. See Zyla et al (2019)
+<doi:10.1093/bioinformatics/btz447>.
 
 %prep
 %setup -q -c -n %{packname}

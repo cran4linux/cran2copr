@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  micromapST
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linked Micromap Plots for U. S. and Other Geographic Areas
 
@@ -22,18 +22,18 @@ BuildRequires:    R-methods
 BuildRequires:    R-tools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-labeling 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-rmapshaper 
 BuildRequires:    R-CRAN-cleangeo 
 BuildRequires:    R-CRAN-pbapply 
@@ -42,18 +42,18 @@ Requires:         R-methods
 Requires:         R-tools 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-labeling 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-rmapshaper 
 Requires:         R-CRAN-cleangeo 
 Requires:         R-CRAN-pbapply 

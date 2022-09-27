@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCALI
-%global packver   0.3.4
+%global packname  coefa
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of the Integrated Flow of Particles Between Polygons
+Summary:          Meta Analysis of Factor Analysis Based on CO-Occurrence Matrices
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-splancs 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-splancs 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-purrr 
 
 %description
-Calculate the flow of particles between polygons by two integration
-methods: integration by a cubature method and integration on a grid of
-points. Annie Bouvier, Kien Kieu, Kasia Adamczyk and Herve Monod (2009)
-<doi:10.1016/j.envsoft.2008.11.006>.
+Provide a series of functions to conduct a meta analysis of factor
+analysis based on co-occurrence matrices. The tool can be used to solve
+the factor structure (i.e. inner structure of a construct, or scale)
+debate in several disciplines, such as psychology, psychiatry, management,
+education so on. References: Shafer (2005)
+<doi:10.1037/1040-3590.17.3.324>; Shafer (2006) <doi:10.1002/jclp.20213>;
+Loeber and Schmaling (1985) <doi:10.1007/BF00910652>.
 
 %prep
 %setup -q -c -n %{packname}

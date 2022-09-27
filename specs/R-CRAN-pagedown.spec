@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pagedown
-%global packver   0.18
+%global packver   0.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18
+Version:          0.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Paginate the HTML Output of R Markdown with CSS for Print
 
@@ -13,7 +14,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc >= 2.0
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch

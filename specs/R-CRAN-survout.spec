@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCALI
-%global packver   0.3.4
+%global packname  survout
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of the Integrated Flow of Particles Between Polygons
+Summary:          Excel Conversion of R Surival Analysis Output
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-splancs 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-splancs 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cmprsk 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
 
 %description
-Calculate the flow of particles between polygons by two integration
-methods: integration by a cubature method and integration on a grid of
-points. Annie Bouvier, Kien Kieu, Kasia Adamczyk and Herve Monod (2009)
-<doi:10.1016/j.envsoft.2008.11.006>.
+Simple and quick method of exporting the most often used survival analysis
+results to an Excel sheet.
 
 %prep
 %setup -q -c -n %{packname}

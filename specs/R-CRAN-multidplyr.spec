@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  multidplyr
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Multi-Process 'dplyr' Backend
 
@@ -13,27 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-callr >= 3.5.1
+BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.6
 BuildRequires:    R-CRAN-qs >= 0.24.1
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-callr >= 3.5.1
+Requires:         R-CRAN-rlang >= 1.0.6
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-vctrs >= 0.3.6
 Requires:         R-CRAN-qs >= 0.24.1
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 

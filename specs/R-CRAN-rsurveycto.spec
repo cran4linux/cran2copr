@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsurveycto
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interact with Data on 'SurveyCTO'
 
@@ -18,19 +18,23 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 4.3.2
+BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-withr >= 2.5.0
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-glue >= 1.6.2
 BuildRequires:    R-CRAN-httr >= 1.4.3
 BuildRequires:    R-CRAN-data.table >= 1.14.2
+BuildRequires:    R-CRAN-rlang >= 1.0.5
 Requires:         R-CRAN-curl >= 4.3.2
+Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-withr >= 2.5.0
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-glue >= 1.6.2
 Requires:         R-CRAN-httr >= 1.4.3
 Requires:         R-CRAN-data.table >= 1.14.2
+Requires:         R-CRAN-rlang >= 1.0.5
 
 %description
 'SurveyCTO' is a platform for mobile data collection in offline settings.
