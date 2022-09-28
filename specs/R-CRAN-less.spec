@@ -1,36 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chameleon
-%global packver   0.2-3
+%global packname  less
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Colors for Multi-Dimensional Data
+Summary:          Learning with Subset Stacking
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-umap 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-umap 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-MLmetrics 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-wordspace 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-MLmetrics 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-wordspace 
 
 %description
-Assign distinct colors to arbitrary multi-dimensional data, considering
-its structure.
+"Learning with Subset Stacking" is a supervised learning algorithm that is
+based on training many local estimators on subsets of a given dataset, and
+then passing their predictions to a global estimator. You can find the
+details about LESS in our manuscript at <arXiv:2112.06251>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chameleon
-%global packver   0.2-3
+%global packname  freebird
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Colors for Multi-Dimensional Data
+Summary:          Estimation and Inference for High Dimensional Mediation and Surrogate Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-scalreg 
+BuildRequires:    R-CRAN-Rmosek 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-umap 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-scalreg 
+Requires:         R-CRAN-Rmosek 
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
-Requires:         R-CRAN-umap 
+Requires:         R-CRAN-MASS 
 
 %description
-Assign distinct colors to arbitrary multi-dimensional data, considering
-its structure.
+Estimates and provides inference for quantities that assess high
+dimensional mediation and potential surrogate markers including the direct
+effect of treatment, indirect effect of treatment, and the proportion of
+treatment effect explained by a surrogate/mediator; details are described
+in Zhou et al (2022) <doi:10.1002/sim.9352> and Zhou et al (2020)
+<doi:10.1093/biomet/asaa016>. This package relies on the optimization
+software 'MOSEK', <https://www.mosek.com>.
 
 %prep
 %setup -q -c -n %{packname}

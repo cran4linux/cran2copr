@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chameleon
-%global packver   0.2-3
+%global packname  OptimalSurrogate
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Colors for Multi-Dimensional Data
+Summary:          Model Free Approach to Quantifying Surrogacy
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-umap 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
+Requires:         R-splines 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-umap 
 
 %description
-Assign distinct colors to arbitrary multi-dimensional data, considering
-its structure.
+Identifies an optimal transformation of a surrogate marker such that the
+proportion of treatment effect explained can be inferred based on the
+transformation of the surrogate and nonparametrically estimates two
+model-free quantities of this proportion. Details are described in Wang et
+al (2020) <doi:10.1093/biomet/asz065>.
 
 %prep
 %setup -q -c -n %{packname}

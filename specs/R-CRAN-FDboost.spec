@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chameleon
-%global packver   0.2-3
+%global packname  FDboost
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Colors for Multi-Dimensional Data
+Summary:          Boosting Functional Regression Models
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mboost >= 2.9.0
+BuildRequires:    R-CRAN-gamboostLSS >= 2.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-umap 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-stabs 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-mboost >= 2.9.0
+Requires:         R-CRAN-gamboostLSS >= 2.0.0
+Requires:         R-methods 
+Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-umap 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-stabs 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-zoo 
 
 %description
-Assign distinct colors to arbitrary multi-dimensional data, considering
-its structure.
+Regression models for functional data, i.e., scalar-on-function,
+function-on-scalar and function-on-function regression models, are fitted
+by a component-wise gradient boosting algorithm. For a manual on how to
+use 'FDboost', see Brockhaus, Ruegamer, Greven (2017)
+<doi:10.18637/jss.v094.i10>.
 
 %prep
 %setup -q -c -n %{packname}

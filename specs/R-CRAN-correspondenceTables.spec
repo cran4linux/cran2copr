@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chameleon
-%global packver   0.2-3
+%global packname  correspondenceTables
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Colors for Multi-Dimensional Data
+Summary:          Creating Correspondence Tables Between Two Statistical Classifications
 
-License:          MIT + file LICENSE
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-umap 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-umap 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-Assign distinct colors to arbitrary multi-dimensional data, considering
-its structure.
+A candidate correspondence table between two classifications can be
+created when there are correspondence tables leading from the first
+classification to the second one via intermediate 'pivot' classifications.
+The correspondence table between two statistical classifications can be
+updated when one of the classifications gets updated to a new version.
 
 %prep
 %setup -q -c -n %{packname}

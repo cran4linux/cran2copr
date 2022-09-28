@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chameleon
-%global packver   0.2-3
+%global packname  oceCens
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Colors for Multi-Dimensional Data
+Summary:          Ordered Composite Endpoints with Censoring
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-umap 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-umap 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-survival 
 
 %description
-Assign distinct colors to arbitrary multi-dimensional data, considering
-its structure.
+Estimates win ratio or Mann-Whitney parameter for two group comparisons
+using ordered composite endpoints with right censoring as described in
+Follmann, Fay, Hamasaki, and Evans (2020)<doi:10.1002/sim.7890>.
 
 %prep
 %setup -q -c -n %{packname}

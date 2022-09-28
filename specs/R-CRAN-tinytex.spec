@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinytex
-%global packver   0.41
+%global packver   0.42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.41
+Version:          0.42
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents
 

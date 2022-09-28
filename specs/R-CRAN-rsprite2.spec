@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rsprite2
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Distributions that Match Reported Sample Parameters (SPRITE)
 
@@ -26,7 +27,7 @@ The SPRITE algorithm creates possible distributions of discrete responses
 based on reported sample parameters, such as mean, standard deviation and
 range (Heathers et al., 2018, <doi:10.7287/peerj.preprints.26968v1>). This
 package implements it, drawing heavily on the code for Nick Brown's
-'rSPRITE' Shiny app <http://shiny.ieis.tue.nl/sprite/>. In addition, it
+'rSPRITE' Shiny app <https://shiny.ieis.tue.nl/sprite/>. In addition, it
 supports the modeling of distributions based on multi-item (Likert-type)
 scales and the use of restrictions on the frequency of particular
 responses.

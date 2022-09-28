@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chameleon
-%global packver   0.2-3
+%global packname  getpublist
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Colors for Multi-Dimensional Data
+Summary:          Obtain a List of Publications from 'PubMed' and 'Google Scholar'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-umap 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-umap 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-xml2 
 
 %description
-Assign distinct colors to arbitrary multi-dimensional data, considering
-its structure.
+Use web scraping for 'PubMed'(<https://pubmed.ncbi.nlm.nih.gov>) and
+'Google Scholar' profile page (for example
+<https://scholar.google.com/citations?user=lOOV8rwAAAAJ&hl=en>) to get all
+of the published information from the search page. Then placing it on a
+table.
 
 %prep
 %setup -q -c -n %{packname}
