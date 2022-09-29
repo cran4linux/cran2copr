@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nnet
-%global packver   7.3-17
+%global packver   7.3-18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.17
+Version:          7.3.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feed-Forward Neural Networks and Multinomial Log-Linear Models
 
