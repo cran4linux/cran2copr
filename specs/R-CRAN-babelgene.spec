@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  babelgene
-%global packver   22.3
+%global packver   22.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          22.3
+Version:          22.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gene Orthologs for Model Organisms in a Tidy Data Format
 

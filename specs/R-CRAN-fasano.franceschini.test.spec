@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fasano.franceschini.test
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fasano-Franceschini Test: A Multidimensional Kolmogorov-Smirnov Two-Sample Test
 
@@ -18,11 +18,9 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-microbenchmark 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-microbenchmark 
 Requires:         R-stats 
 
 %description

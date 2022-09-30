@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyterra
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects
 
@@ -18,29 +18,29 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-terra >= 1.5.12
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
+Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-terra >= 1.5.12
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 
 %description
 Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mapbayr
-%global packver   0.7.3
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MAP-Bayesian Estimation of PK Parameters
 
@@ -20,23 +21,19 @@ BuildRequires:    R-CRAN-mrgsolve >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-mrgsolve >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description

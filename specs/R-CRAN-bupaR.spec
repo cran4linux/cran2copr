@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bupaR
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Business Process Analysis in R
 
@@ -16,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.2.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-eventdataR >= 0.2.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,11 +31,13 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-cli >= 3.2.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-eventdataR >= 0.2.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -45,11 +50,11 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Comprehensive Business Process Analysis toolkit. Creates S3-class for

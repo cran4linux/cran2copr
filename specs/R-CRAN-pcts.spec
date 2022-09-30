@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pcts
-%global packver   0.15.3
+%global packver   0.15.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.3
+Version:          0.15.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Periodically Correlated and Periodically Integrated Time Series
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-PolynomF >= 2.0.2
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-CRAN-Rdpack >= 0.9
 BuildRequires:    R-CRAN-lagged >= 0.2.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sarima 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-CRAN-gbutils 
 BuildRequires:    R-CRAN-zoo 
@@ -31,11 +31,11 @@ BuildRequires:    R-stats4
 BuildRequires:    R-CRAN-mcompanion 
 BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-PolynomF >= 2.0.2
+Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-Rdpack >= 0.9
 Requires:         R-CRAN-lagged >= 0.2.2
 Requires:         R-methods 
 Requires:         R-CRAN-sarima 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-BB 
 Requires:         R-CRAN-gbutils 
 Requires:         R-CRAN-zoo 

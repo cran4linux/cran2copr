@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kernelshap
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel SHAP
 
@@ -29,14 +29,15 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Multidimensional version of the iterative Kernel SHAP algorithm described
-in Ian Covert and Su-In Lee (2021)
-<http://proceedings.mlr.press/v130/covert21a>.  SHAP values are calculated
-iteratively until convergence, along with approximate standard errors.
-The package allows to work with any model that provides numeric
-predictions of dimension one or higher.  Examples include linear
-regression, logistic regression (logit or probability scale), other
-generalized linear models, generalized additive models, and neural
+Multidimensional refinement of the Kernel SHAP algorithm described in Ian
+Covert and Su-In Lee (2021) <http://proceedings.mlr.press/v130/covert21a>.
+The package allows to calculate Kernel SHAP values in an exact way, by
+iterative sampling (as in the reference above), or by a hybrid of the two.
+As soon as sampling is involved, the algorithm iterates until convergence,
+and standard errors are provided.  The package works with any model that
+provides numeric predictions of dimension one or higher.  Examples include
+linear regression, logistic regression (on logit or probability scale),
+other generalized linear models, generalized additive models, and neural
 networks.  The package plays well together with meta-learning packages
 like 'tidymodels', 'caret' or 'mlr3'. Visualizations can be done using the
 R package 'shapviz'.

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  psych
-%global packver   2.2.5
+%global packver   2.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.5
+Version:          2.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures for Psychological, Psychometric, and Personality Research
 

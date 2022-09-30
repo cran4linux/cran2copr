@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ffp
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fully Flexible Probabilities for Stress Testing and Portfolio Construction
 
@@ -16,41 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-tibble >= 3.1.6
-BuildRequires:    R-CRAN-ggdist >= 3.1.1
-BuildRequires:    R-CRAN-magrittr >= 2.0.2
-BuildRequires:    R-CRAN-nloptr >= 2.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
+BuildRequires:    R-CRAN-ggdist >= 3.2.0
+BuildRequires:    R-CRAN-tibble >= 3.1.8
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-nloptr >= 2.0.3
 BuildRequires:    R-CRAN-lubridate >= 1.8.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-stringr >= 1.4.1
+BuildRequires:    R-CRAN-scales >= 1.2.1
+BuildRequires:    R-CRAN-tidyr >= 1.2.1
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
-BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.8
-BuildRequires:    R-CRAN-rlang >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
 BuildRequires:    R-CRAN-NlcOptim >= 0.6
-BuildRequires:    R-CRAN-forcats >= 0.5.1
-BuildRequires:    R-CRAN-vctrs >= 0.3.8
+BuildRequires:    R-CRAN-forcats >= 0.5.2
+BuildRequires:    R-CRAN-vctrs >= 0.4.1
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-tibble >= 3.1.6
-Requires:         R-CRAN-ggdist >= 3.1.1
-Requires:         R-CRAN-magrittr >= 2.0.2
-Requires:         R-CRAN-nloptr >= 2.0.0
+Requires:         R-CRAN-ggplot2 >= 3.3.6
+Requires:         R-CRAN-ggdist >= 3.2.0
+Requires:         R-CRAN-tibble >= 3.1.8
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-nloptr >= 2.0.3
 Requires:         R-CRAN-lubridate >= 1.8.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-stringr >= 1.4.1
+Requires:         R-CRAN-scales >= 1.2.1
+Requires:         R-CRAN-tidyr >= 1.2.1
 Requires:         R-CRAN-mvtnorm >= 1.1.3
-Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-CRAN-dplyr >= 1.0.8
-Requires:         R-CRAN-rlang >= 1.0.2
+Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-dplyr >= 1.0.10
 Requires:         R-CRAN-NlcOptim >= 0.6
-Requires:         R-CRAN-forcats >= 0.5.1
-Requires:         R-CRAN-vctrs >= 0.3.8
+Requires:         R-CRAN-forcats >= 0.5.2
+Requires:         R-CRAN-vctrs >= 0.4.1
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-methods 
@@ -58,8 +59,9 @@ Requires:         R-stats
 Requires:         R-CRAN-crayon 
 
 %description
-Implements numerical entropy-pooling for scenario analysis as described in
-Meucci, Attilio (2010) <doi:10.2139/ssrn.1696802>.
+Implements numerical entropy-pooling for portfolio construction and
+scenario analysis as described in Meucci, Attilio (2008) and Meucci,
+Attilio (2010) <doi:10.2139/ssrn.1696802>.
 
 %prep
 %setup -q -c -n %{packname}

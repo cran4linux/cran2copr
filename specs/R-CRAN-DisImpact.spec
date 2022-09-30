@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DisImpact
-%global packver   0.0.19
+%global packver   0.0.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.19
+Version:          0.0.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates Disproportionate Impact When Binary Success Data are Disaggregated by Subgroups
 
@@ -17,20 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.14.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-duckdb >= 0.5.0
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-fst 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-sets 
+Requires:         R-CRAN-data.table >= 1.14.2
 Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-duckdb >= 0.5.0
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-parallel 
 Requires:         R-CRAN-fst 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-sets 
 
 %description
 Implements methods for calculating disproportionate impact: the percentage

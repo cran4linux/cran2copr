@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gluvarpro
-%global packver   4.0
+%global packver   6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Glucose Variability Measures from Continuous Glucose MonitoringData
+Version:          6.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Glucose Variability Measures from Continuous Glucose Monitoring Data
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -49,12 +50,12 @@ Dougherty, R. L., Edelman, A. and Hyman, J. M. (1989)
 <doi:10.1016/0377-2217(86)90209-2>. F. John Service (2013)
 <doi:10.2337/db12-1396>. Edmond A. Ryan, Tami Shandro, Kristy Green, Breay
 W. Paty, Peter A. Senior, David Bigam, A.M. James Shapiro, and
-Marie-Christine Vantyghem (2004) <doi:10.2337/diabetes.53.4.955>. Seniz
-Sevimer Tuncan, Mehmet Uzunlulu, Ozge telci caklili, Hasan Huseyin Mutlu,
-and Aytekin Oguz (2016) <doi:10.5152/cjms.2016.109>. Sarah E. Siegelaar,
-Frits Holleman, Joost B. L. Hoekstra, and J. Hans DeVries (2010)
-<doi:10.1210/er.2009-0021>. Gabor Marics, Zsofia Lendvai, Csaba Lodi,
-Levente Koncz, David Zakarias, Gyorgy Schuster, Borbala Mikos, Csaba
+Marie-Christine Vantyghem (2004) <doi:10.2337/diabetes.53.4.955>. F. John
+Service, George D. Molnar, John W. Rosevear, Eugene Ackerman, Leal C.
+Gatewood, William F. Taylor (1970) <doi:10.2337/diab.19.9.644>. Sarah E.
+Siegelaar, Frits Holleman, Joost B. L. Hoekstra, and J. Hans DeVries
+(2010) <doi:10.1210/er.2009-0021>. Gabor Marics, Zsofia Lendvai, Csaba
+Lodi, Levente Koncz, David Zakarias, Gyorgy Schuster, Borbala Mikos, Csaba
 Hermann, Attila J. Szabo, and Peter Toth-Heyn (2015)
 <doi:10.1186/s12938-015-0035-3>. Thomas Danne, Revital Nimri, Tadej
 Battelino, Richard M. Bergenstal, Kelly L. Close, J. Hans DeVries,
@@ -70,7 +71,15 @@ monitoring.Diabetes Care, 2017 <doi:10.2337/dc17-1600>.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -78,17 +87,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

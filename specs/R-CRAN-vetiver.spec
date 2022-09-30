@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vetiver
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Version, Share, Deploy, and Monitor Models
 
@@ -22,14 +22,13 @@ BuildRequires:    R-CRAN-readr >= 1.4.0
 BuildRequires:    R-CRAN-pins >= 1.0.0
 BuildRequires:    R-CRAN-plumber >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-bundle 
 BuildRequires:    R-CRAN-butcher 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-hardhat 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rapidoc 
@@ -42,14 +41,13 @@ Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-CRAN-pins >= 1.0.0
 Requires:         R-CRAN-plumber >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-bundle 
 Requires:         R-CRAN-butcher 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-hardhat 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rapidoc 

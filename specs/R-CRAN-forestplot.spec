@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  forestplot
-%global packver   2.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced Forest Plot Using 'grid' Graphics
 
@@ -17,11 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-abind 
 Requires:         R-grid 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-abind 
 
 %description
 A forest plot that allows for multiple confidence intervals per row,

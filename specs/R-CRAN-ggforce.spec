@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggforce
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerating 'ggplot2'
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
 BuildRequires:    R-CRAN-Rcpp >= 0.12.2
 BuildRequires:    R-CRAN-tweenr >= 0.1.5
 BuildRequires:    R-grid 
@@ -31,8 +31,11 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-ggplot2 >= 3.3.6
 Requires:         R-CRAN-Rcpp >= 0.12.2
 Requires:         R-CRAN-tweenr >= 0.1.5
 Requires:         R-grid 
@@ -47,6 +50,9 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-withr 
 Requires:         R-utils 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-systemfonts 
 
 %description
 The aim of 'ggplot2' is to aid in visual data investigations. This focus

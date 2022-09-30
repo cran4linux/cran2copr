@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sensitivity
-%global packver   1.27.1
+%global packver   1.28.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.27.1
+Version:          1.28.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Sensitivity Analysis of Model Outputs
 
@@ -22,6 +22,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-dtwclust 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-numbers 
@@ -29,6 +30,7 @@ Requires:         R-methods
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-dtwclust 
 
 %description
 A collection of functions for sensitivity analysis of model outputs

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ino
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Initialization of Numerical Optimization
 
@@ -16,31 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ao >= 0.2.3
+BuildRequires:    R-CRAN-optimizeR 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RprobitB 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doSNOW 
+Requires:         R-CRAN-ao >= 0.2.3
+Requires:         R-CRAN-optimizeR 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RprobitB 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-evd 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doSNOW 
 
 %description
-Implementation of several initialization strategies for the numerical
-optimization of real-valued functions, in particular likelihood functions
-of statistical models.
+Implementation of initialization strategies for the numerical optimization
+of real-valued functions, in particular likelihood functions of
+statistical models.
 
 %prep
 %setup -q -c -n %{packname}

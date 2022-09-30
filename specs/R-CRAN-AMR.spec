@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AMR
-%global packver   1.8.1
+%global packver   1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          1.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Antimicrobial Resistance Data Analysis
 
@@ -20,8 +21,7 @@ BuildArch:        noarch
 %description
 Functions to simplify and standardise antimicrobial resistance (AMR) data
 analysis and to work with microbial and antimicrobial properties by using
-evidence-based methods and reliable reference data such as LPSN
-<doi:10.1099/ijsem.0.004332>.
+evidence-based methods, as described in <doi:10.18637/jss.v104.i03>.
 
 %prep
 %setup -q -c -n %{packname}
