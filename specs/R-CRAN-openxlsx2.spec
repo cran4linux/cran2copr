@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tardis
-%global packver   0.1.3
+%global packname  openxlsx2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Text Analysis with Rules and Dictionaries for Inferring Sentiment
+Summary:          Read, Write and Edit 'xlsx' Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-zip 
 
 %description
-Measure text's sentiment with dictionaries and simple rules covering
-negations and modifiers. User-supplied dictionaries are supported,
-including Unicode emojis and multi-word tokens, so this package can also
-be used to study constructs beyond sentiment.
+Simplifies the creation of 'xlsx' files by providing a high level
+interface to writing, styling and editing worksheets.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  vroom
-%global packver   1.5.7
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write Rectangular Text Data Quickly
 
@@ -13,8 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildRequires:    R-CRAN-cli >= 3.2.0
 BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-progress >= 1.2.1
 BuildRequires:    R-CRAN-rlang >= 0.4.2
@@ -23,7 +25,6 @@ BuildRequires:    R-CRAN-cpp11 >= 0.2.0
 BuildRequires:    R-CRAN-tzdb >= 0.1.1
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-lifecycle 
@@ -31,13 +32,13 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli >= 3.2.0
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-rlang >= 0.4.2
 Requires:         R-CRAN-vctrs >= 0.2.0
 Requires:         R-CRAN-tzdb >= 0.1.1
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-hms 
 Requires:         R-CRAN-lifecycle 

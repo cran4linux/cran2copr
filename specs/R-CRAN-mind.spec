@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mind
-%global packver   0.1.6-1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Model Based Inference for Domains
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-MASS 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-JWileymisc 
 BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
@@ -30,6 +32,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-stats 
 Requires:         R-CRAN-JWileymisc 
 Requires:         R-CRAN-tm 
+Requires:         R-methods 
 
 %description
 Allows users to produce estimates and MSE for multivariate variables using

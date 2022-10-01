@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cmaRs
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of the Conic Multivariate Adaptive Regression Splines in R
 
@@ -25,6 +26,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-AUC 
 BuildRequires:    R-CRAN-Ryacas0 
+BuildRequires:    R-CRAN-ROCR 
 Requires:         R-CRAN-earth 
 Requires:         R-graphics 
 Requires:         R-CRAN-Rmosek 
@@ -34,6 +36,7 @@ Requires:         R-utils
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-AUC 
 Requires:         R-CRAN-Ryacas0 
+Requires:         R-CRAN-ROCR 
 
 %description
 An implementation of 'Conic Multivariate Adaptive Regression Splines

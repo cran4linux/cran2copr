@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggpp
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar Extensions to 'ggplot2'
 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-xts >= 0.12.0
 BuildRequires:    R-stats 
 BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-MASS >= 7.3.51.6
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-tibble >= 3.0.3
@@ -48,6 +50,7 @@ Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-xts >= 0.12.0
 Requires:         R-stats 
 Requires:         R-grid 
+Requires:         R-grDevices 
 
 %description
 Extensions to 'ggplot2' respecting the grammar of graphics paradigm.

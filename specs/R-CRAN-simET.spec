@@ -1,40 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tardis
-%global packver   0.1.3
+%global packname  simET
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Text Analysis with Rules and Dictionaries for Inferring Sentiment
+Summary:          Evapotranspiration Simulation and Soil Water Balance under Field
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpmisc 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpmisc 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 
 %description
-Measure text's sentiment with dictionaries and simple rules covering
-negations and modifiers. User-supplied dictionaries are supported,
-including Unicode emojis and multi-word tokens, so this package can also
-be used to study constructs beyond sentiment.
+Supports the calculation of meteorological characteristics in
+evapotranspiration research and reference crop evapotranspiration, and
+offers three models to simulate crop evapotranspiration and soil water
+balance in the field, including single crop coefficient and dual crop
+coefficient, as well as the Shuttleworth-Wallace model. These calculations
+main refer to Allen et al.(1998, ISBN:92-5-104219-5), Teh (2006,
+ISBN:1-58-112-998-X), and Liu et al.(2006)
+<doi:10.1016/j.agwat.2006.01.018>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  decorators
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extend the Behaviour of a Function without Explicitly Modifying it
 
@@ -17,7 +18,9 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-purrr 
+Requires:         R-methods 
 
 %description
 A decorator is a function that receives a function, extends its behaviour,
@@ -29,7 +32,7 @@ optional behaviours. An example of the first use is a timer decorator that
 runs a function, outputs its execution time on the console, and returns
 the original function's result. An example of the second use is input type
 validation decorator that during running time tests whether the caller has
-passed input arguments of a particular class. Decorators can reduce
+passed input arguments of a particular class.  Decorators can reduce
 execution time, say by memoization, or reduce bugs by adding defensive
 programming routines.
 
@@ -41,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

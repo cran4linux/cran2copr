@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ndi
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neighborhood Deprivation Indices
 
@@ -48,12 +48,15 @@ Andrews et al. (2020) <doi:10.1080/17445647.2020.1750066> and Slotman et
 al. (2022) <doi:10.1016/j.dib.2022.108002> who use variables chosen by
 Roux and Mair (2010) <doi:10.1111/j.1749-6632.2009.05333.x>. Both are a
 decomposition of multiple demographic characteristics from the U.S. Census
-Bureau American Community Survey 5-year estimates (ACS-5; 2010-2020).
-Using data from the ACS-5 (2009-2020), the package can also (1) compute
+Bureau American Community Survey 5-year estimates (ACS-5; 2010 onward).
+Using data from the ACS-5 (2009 onward), the package can also (1) compute
 the spatial Racial Isolation Index (RI) based on Anthopolos et al. (2011)
-<doi:10.1016/j.sste.2011.06.002>s, (2) compute spatial the Educational
+<doi:10.1016/j.sste.2011.06.002>, (2) compute the spatial Educational
 Isolation Index (EI) based on Bravo et al. (2021)
-<doi:10.3390/ijerph18179384>,and (3) retrieve the aspatial Gini Index
+<doi:10.3390/ijerph18179384>, (3) compute the aspatial Index of
+Concentration at the Extremes (ICE) based on Feldman et al. (2015)
+<doi:10.1136/jech-2015-205728> and Krieger et al. (2016)
+<doi:10.2105/AJPH.2015.302955>, and (4) retrieve the aspatial Gini Index
 based on Gini (1921) <doi:10.2307/2223319>.
 
 %prep

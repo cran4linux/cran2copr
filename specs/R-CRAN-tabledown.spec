@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tardis
-%global packver   0.1.3
+%global packname  tabledown
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Text Analysis with Rules and Dictionaries for Inferring Sentiment
+Summary:          Create Publication Quality Tables and Plots
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,25 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-MOTE 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-MOTE 
+Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Measure text's sentiment with dictionaries and simple rules covering
-negations and modifiers. User-supplied dictionaries are supported,
-including Unicode emojis and multi-word tokens, so this package can also
-be used to study constructs beyond sentiment.
+Create publication quality plots and tables for Item Response Theory and
+Classical Test theory based item analysis, exploratory and confirmatory
+factor analysis.
 
 %prep
 %setup -q -c -n %{packname}

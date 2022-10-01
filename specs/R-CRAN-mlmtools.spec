@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wildlifeDI
-%global packver   0.5.0
+%global packname  mlmtools
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices of Dynamic Interaction for Wildlife Tracking Data
+Summary:          Multi-Level Model Assessment Kit
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-adehabitatLT 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-adehabitatLT 
-Requires:         R-CRAN-dplyr 
-Requires:         R-graphics 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-lme4 
 Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Dynamic interaction refers to spatial-temporal associations in the
-movements of two (or more) animals. This package provides tools for
-calculating a suite of indices used for quantifying dynamic interaction
-with wildlife telemetry data. For more information on each of the methods
-employed see the references within. The package (as of version >= 0.3)
-also has new tools for automating contact analysis in large tracking
-datasets. The package draws heavily on the classes and methods developed
-in the 'adehabitat' packages.
+Multilevel models (mixed effects models) are the statistical tool of
+choice for analyzing multilevel data (Searle et al, 2009). These models
+account for the correlated nature of observations within higher level
+units by adding group-level error terms that augment the singular residual
+error of a standard OLS regression. Multilevel and mixed effects models
+often require specialized data pre-processing and further post-estimation
+derivations and graphics to gain insight into model results. The package
+presented here, 'mlmtools', is a suite of pre- and post-estimation tools
+for multilevel models in 'R'. Package implements post-estimation tools
+designed to work with models estimated using 'lme4''s (Bates et al., 2014)
+lmer() function, which fits linear mixed effects regression models.
+Searle, S. R., Casella, G., & McCulloch, C. E. (2009,
+ISBN:978-0470009598). Bates, D., Mächler, M., Bolker, B., & Walker, S.
+(2014) <doi:10.18637/jss.v067.i01>.
 
 %prep
 %setup -q -c -n %{packname}
