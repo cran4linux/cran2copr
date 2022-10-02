@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  UKFE
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          UK Flood Estimation
 
@@ -13,14 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-xml2 
+Requires:         R-methods 
 
 %description
 Functions to implement the methods of the Flood Estimation Handbook (FEH),
 associated updates and the revitalised flood hydrograph model (ReFH).
-Currently the package uses NRFA peak flow dataset version 10. Aside from
+Currently the package uses NRFA peak flow dataset version 11. Aside from
 FEH functionality, further hydrological functions are available. Most of
 the methods implemented in this package are described in one or more of
 the following: "Flood Estimation Handbook", Centre for Ecology & Hydrology

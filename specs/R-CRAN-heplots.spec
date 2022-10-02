@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  heplots
-%global packver   1.3-9
+%global packver   1.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Hypothesis Tests in Multivariate Linear Models
 
@@ -17,17 +18,25 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-car >= 3.0
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-car >= 3.0
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-MASS 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 
 %description
 Provides HE plot and other functions for visualizing hypothesis tests in

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  readr
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Rectangular Text Data
 
@@ -13,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-vroom >= 1.5.6
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildRequires:    R-CRAN-cli >= 3.2.0
+BuildRequires:    R-CRAN-vroom >= 1.6.0
 BuildRequires:    R-CRAN-hms >= 0.4.1
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-tzdb >= 0.1.1
@@ -28,8 +29,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-vroom >= 1.5.6
+Requires:         R-CRAN-cli >= 3.2.0
+Requires:         R-CRAN-vroom >= 1.6.0
 Requires:         R-CRAN-hms >= 0.4.1
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-clipr 

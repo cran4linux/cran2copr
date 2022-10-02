@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rollinglda
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Consistent Time Series from Textual Data
 
@@ -32,12 +33,11 @@ Requires:         R-utils
 
 %description
 A rolling version of the Latent Dirichlet Allocation, see Rieger et al.
-(2021)
-<https://www.statistik.tu-dortmund.de/fileadmin/user_upload/Lehrstuehle/IWuS/Forschung/rollinglda.pdf>.
-By a sequential approach, it enables the construction of LDA-based time
-series of topics that are consistent with previous states of LDA models.
-After an initial modeling, updates can be computed efficiently, allowing
-for real-time monitoring and detection of events or structural breaks.
+(2021) <doi:10.18653/v1/2021.findings-emnlp.201>. By a sequential
+approach, it enables the construction of LDA-based time series of topics
+that are consistent with previous states of LDA models. After an initial
+modeling, updates can be computed efficiently, allowing for real-time
+monitoring and detection of events or structural breaks.
 
 %prep
 %setup -q -c -n %{packname}

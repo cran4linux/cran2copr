@@ -1,65 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parsnip
-%global packver   1.0.2
+%global packname  inTextSummaryTable
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Common API to Modeling and Analysis Functions
+Summary:          Creation of in-Text Summary Table
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+Requires:         pandoc
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-hardhat >= 1.1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-rlang >= 0.3.1
-BuildRequires:    R-CRAN-generics >= 0.1.2
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-reshape2 >= 1.4
+BuildRequires:    R-CRAN-flextable >= 0.5.5
+BuildRequires:    R-CRAN-clinUtils >= 0.1.0
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-globals 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-hardhat >= 1.1.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.0.1
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-rlang >= 0.3.1
-Requires:         R-CRAN-generics >= 0.1.2
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-reshape2 >= 1.4
+Requires:         R-CRAN-flextable >= 0.5.5
+Requires:         R-CRAN-clinUtils >= 0.1.0
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-globals 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-purrr 
+Requires:         R-methods 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
-A common interface is provided to allow users to specify a model without
-having to remember the different argument names across different functions
-or computational engines (e.g. 'R', 'Spark', 'Stan', etc).
+Creation of tables of summary statistics or counts for clinical data (for
+'TLFs'). These tables can be exported as in-text table (with the
+'flextable' package) for a Clinical Study Report (Word format) or a
+'topline' presentation (PowerPoint format), or as interactive table (with
+the 'DT' package) to an html document for clinical data review.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hopit
-%global packver   0.11.4
+%global packver   0.11.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.4
+Version:          0.11.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Ordered Probit Models with Application to Reporting Heterogeneity
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-survey >= 4.1.1
 BuildRequires:    R-CRAN-Rdpack >= 0.11
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-survey >= 4.1.1
 Requires:         R-CRAN-Rdpack >= 0.11
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Matrix 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-grDevices 

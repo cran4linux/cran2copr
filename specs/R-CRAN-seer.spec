@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  seer
-%global packver   1.1.7
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature-Based Forecast Model Selection
 
@@ -30,7 +31,6 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tsfeatures 
-BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-forecast >= 8.3
 Requires:         R-stats 
 Requires:         R-CRAN-urca 
@@ -45,7 +45,6 @@ Requires:         R-CRAN-future
 Requires:         R-CRAN-furrr 
 Requires:         R-utils 
 Requires:         R-CRAN-tsfeatures 
-Requires:         R-CRAN-MASS 
 
 %description
 A novel meta-learning framework for forecast model selection using time

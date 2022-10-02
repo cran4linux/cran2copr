@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  compareDF
-%global packver   2.3.3
+%global packver   2.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Do a Git Style Diff of the Rows Between Two Dataframes with Similar Structure
 
