@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NADIA
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          NA Data Imputation Algorithms
 
@@ -19,11 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-mlr3 
 BuildRequires:    R-CRAN-mlr3pipelines 
 BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-mlr3learners 
 BuildRequires:    R-CRAN-missForest 
 BuildRequires:    R-CRAN-missMDA 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-mlr3learners 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-Amelia 
 BuildRequires:    R-CRAN-VIM 
 BuildRequires:    R-CRAN-softImpute 
@@ -32,15 +35,16 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-glmnet 
 Requires:         R-CRAN-mlr3 
 Requires:         R-CRAN-mlr3pipelines 
 Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-mlr3learners 
 Requires:         R-CRAN-missForest 
 Requires:         R-CRAN-missMDA 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-mlr3learners 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-Amelia 
 Requires:         R-CRAN-VIM 
 Requires:         R-CRAN-softImpute 
@@ -49,7 +53,6 @@ Requires:         R-methods
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-glmnet 
 
 %description
 Creates a uniform interface for several advanced imputations missing data
@@ -67,6 +70,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

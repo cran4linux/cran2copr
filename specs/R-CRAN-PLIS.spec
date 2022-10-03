@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDFEstimator
-%global packver   4.3
+%global packname  PLIS
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Nonparametric Probability Density Estimator
+Summary:          Multiplicity Control using Pooled LIS Statistic
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-MultiRNG 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-MultiRNG 
-Requires:         R-methods 
+BuildArch:        noarch
 
 %description
-Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
-multivariate nonparametric density estimator based on the maximum-entropy
-method.  Accurately predicts a probability density function (PDF) for
-random data using a novel iterative scoring function to determine the best
-fit without overfitting to the sample.
+A multiple testing procedure for testing several groups of hypotheses is
+implemented. Linear dependency among the hypotheses within the same group
+is modeled by using hidden Markov Models. It is noted that a smaller p
+value does not necessarily imply more significance due to the dependency.
+A typical application is to analyze genome wide association studies
+datasets, where SNPs from the same chromosome are treated as a group and
+exhibit strong linear genomic dependency. See Wei Z, Sun W, Wang K,
+Hakonarson H (2009) <doi:10.1093/bioinformatics/btp476> for more details.
 
 %prep
 %setup -q -c -n %{packname}

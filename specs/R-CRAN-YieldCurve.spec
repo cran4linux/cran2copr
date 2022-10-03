@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDFEstimator
-%global packver   4.3
+%global packname  YieldCurve
+%global packver   5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3
+Version:          5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Nonparametric Probability Density Estimator
+Summary:          Modelling and Estimation of the Yield Curve
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-MultiRNG 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-MultiRNG 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-xts 
+Requires:         R-CRAN-xts 
 
 %description
-Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
-multivariate nonparametric density estimator based on the maximum-entropy
-method.  Accurately predicts a probability density function (PDF) for
-random data using a novel iterative scoring function to determine the best
-fit without overfitting to the sample.
+Modelling the yield curve with some parametric models. The models
+implemented are: Nelson, C.R., and A.F. Siegel (1987) <doi:
+10.1086/296409>, Diebold, F.X. and Li, C. (2006) <doi:
+10.1016/j.jeconom.2005.03.005> and Svensson, L.E. (1994) <doi:
+10.3386/w4871>. The package also includes the data of the term structure
+of interest rate of Federal Reserve Bank and European Central Bank.
 
 %prep
 %setup -q -c -n %{packname}

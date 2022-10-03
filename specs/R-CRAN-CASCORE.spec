@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CASCORE
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate Assisted Spectral Clustering on Ratios of Eigenvectors
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-reshape2 
 
 %description
 Functions for the novel algorithm CASCORE, proposed to detect the latent
@@ -35,7 +37,7 @@ reference paper: Yaofang Hu and Wanjie Wang (2022) <arXiv:2208.00257>.
 This package also includes other classical community detection algorithms
 that are compared to CASCORE in our paper, such as Spectral Clustering On
 Ratios-of Eigenvectors (SCORE), normalized PCA, ordinary PCA and
-covariate-assisted spectral clustering (CASC).
+covariate-assisted spectral clustering (CASC) and ADMM.
 
 %prep
 %setup -q -c -n %{packname}

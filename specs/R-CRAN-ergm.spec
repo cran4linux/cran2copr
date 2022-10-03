@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ergm
-%global packver   4.2.2
+%global packver   4.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.2
+Version:          4.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks
 
@@ -13,7 +14,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    openmpi-devel
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-MASS >= 7.3.53.1
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-trust >= 0.1.8
 BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-MASS >= 7.3.53.1
 Requires:         R-CRAN-lpSolveAPI >= 5.5.2.0.17.7
@@ -52,7 +51,6 @@ Requires:         R-CRAN-trust >= 0.1.8
 Requires:         R-parallel 
 Requires:         R-methods 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-digest 
 Requires:         R-CRAN-stringr 
 
 %description
