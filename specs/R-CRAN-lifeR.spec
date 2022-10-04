@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  yowie
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  lifeR
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Longitudinal Wages Data from the National Longitudinal Survey of Youth 1979
+Summary:          Identify Sites for Your Bird List
 
-License:          GPL (>= 3)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tsibble >= 1.0.1
-Requires:         R-CRAN-tsibble >= 1.0.1
+BuildRequires:    R-CRAN-curl >= 4.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
+BuildRequires:    R-CRAN-ggmap >= 3.0.0
+BuildRequires:    R-CRAN-rmarkdown >= 2.7
+BuildRequires:    R-CRAN-jsonlite >= 1.7.0
+BuildRequires:    R-CRAN-readr >= 1.4.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-knitr >= 1.31
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-curl >= 4.3
+Requires:         R-CRAN-ggplot2 >= 3.3.3
+Requires:         R-CRAN-ggmap >= 3.0.0
+Requires:         R-CRAN-rmarkdown >= 2.7
+Requires:         R-CRAN-jsonlite >= 1.7.0
+Requires:         R-CRAN-readr >= 1.4.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-knitr >= 1.31
+Requires:         R-CRAN-dplyr >= 1.0.2
 
 %description
-Longitudinal wages data sets and several demographic variables from the
-National Longitudinal Survey of Youth from 1979 to 2018. There are three
-data sets in this package: The wages data from the cohort whose highest
-grade completed is up to high school; The wages data of the high school
-dropouts and; The demographic data of the cohort in the survey year 1979.
+A suite of tools to use the 'eBird' database (<https://ebird.org/home/>)
+and APIs to compare users' species lists to recent observations and create
+a report of the top sites to visit to see new species.
 
 %prep
 %setup -q -c -n %{packname}

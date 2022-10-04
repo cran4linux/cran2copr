@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggbraid
-%global packver   0.2.2
+%global __requires_exclude ^libmpi
+%global packname  CTNote
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Braid Ribbons in 'ggplot2'
+Summary:          CTN Outcomes, Treatments, and Endpoints
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
 
 %description
-A new stat, stat_braid(), that extends the functionality of geom_ribbon()
-to correctly fill the area between two alternating lines (or steps) with
-two different colors, and a geom, geom_braid(), that wraps geom_ribbon()
-and uses stat_braid() by default.
+The Clinical Trials Network (CTN) of the U.S. National Institute of Drug
+Abuse sponsored the CTN-0094 research team to harmonize data sets from
+three nationally-representative clinical trials for opioid use disorder
+(OUD). The CTN-0094 team herein provides a coded collection of trial
+outcomes and endpoints used in various OUD clinical trials over the past
+50 years. These coded outcome functions are used to contrast and cluster
+different clinical outcome functions based on daily or weekly patient
+urine screenings. Note that we abbreviate urine drug screen as "UDS" and
+urine opioid screen as "UOS". For the example data sets (based on clinical
+trials data harmonized by the CTN-0094 research team), UDS and UOS are
+largely interchangeable.
 
 %prep
 %setup -q -c -n %{packname}

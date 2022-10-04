@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  XML
-%global packver   3.99-0.10
+%global packver   3.99-0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.99.0.10
+Version:          3.99.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Parsing and Generating XML Within R and S-Plus
 
@@ -13,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    libxml2-devel >= 2.6.3
+BuildRequires:    libxml2-devel
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-methods 

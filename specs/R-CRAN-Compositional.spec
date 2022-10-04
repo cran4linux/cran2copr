@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   5.8
+%global packver   5.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.8
+Version:          5.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -64,9 +65,10 @@ Requires:         R-stats
 %description
 Regression, classification, contour plots, hypothesis testing and fitting
 of distributions for compositional data are some of the functions
-included. The standard textbook for such data is John Aitchison's (1986)
-"The statistical analysis of compositional data". Relevant papers include:
-a) Tsagris M.T., Preston S. and Wood A.T.A. (2011). A data-based power
+included. We further include functions for percentages (or proportions).
+The standard textbook for such data is John Aitchison's (1986) "The
+statistical analysis of compositional data". Relevant papers include: a)
+Tsagris M.T., Preston S. and Wood A.T.A. (2011). A data-based power
 transformation for compositional data. Fourth International International
 Workshop on Compositional Data Analysis. b) Tsagris M. (2014). The k-NN
 algorithm for compositional data: a revised approach with and without zero
@@ -90,12 +92,12 @@ without zero values. Journal of Data Science, 17(1): 219--238.
 <doi:10.6339/JDS.201901_17(1).0010>. i) Tsagris M. and Stewart C. (2020).
 A folded model for compositional data analysis. Australian and New Zealand
 Journal of Statistics, 62(2):249--277. <doi:10.1111/anzs.12289>. j)
-Tsagris M., Alenazi A. and Stewart C. (2021). Non-parametric regression
-models for compositional data. <arXiv:2002.05137>. k) Alenazi A. (2021).
-Alenazi, A. (2021). A review of compositional data analysis and recent
-advances. Communications in Statistics-Theory and Methods (Accepted for
-publication). <doi:10.1080/03610926.2021.2014890>. We further include
-functions for percentages (or proportions).
+Alenazi A. (2021). Alenazi, A. (2021). A review of compositional data
+analysis and recent advances. Communications in Statistics-Theory and
+Methods (Accepted for publication). <doi:10.1080/03610926.2021.2014890>.
+k) Tsagris M., Alenazi A. and Stewart C. (2022). Flexible non-parametric
+regression models for compositional response data with zeros.
+<arXiv:2002.05137>.
 
 %prep
 %setup -q -c -n %{packname}

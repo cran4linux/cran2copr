@@ -1,30 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  OCA
-%global packver   0.4
+%global __requires_exclude ^libmpi
+%global packname  plattice
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Capital Allocations
+Summary:          Lattice Plot for Panel Data
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Computes optimal capital allocations based on some standard principles
-such as Haircut, Overbeck type II and the Covariance Allocation Principle.
-It also provides some shortcuts for obtaining the Value at Risk and the
-Expectation Shortfall, using both the normal and the t-student
-distribution, see Urbina and Guillén
-(2014)<doi:10.1016/j.eswa.2014.05.017> and Urbina
-(2013)<http://hdl.handle.net/2099.1/19443>.
+It creates a lattice plot to visualize panel or longitudinal data. The
+observed values are plotted as dots and the fitted values as lines, both
+against time. The plot is customizable and easy to edit, even if you do
+not know how to construct a lattice plot from scratch.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

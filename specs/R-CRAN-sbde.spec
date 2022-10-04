@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hydroscoper
-%global packver   1.4.1
+%global __requires_exclude ^libmpi
+%global packname  sbde
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the Greek National Data Bank for Hydrometeorological Information
+Summary:          Semiparametric Bayesian Density Estimation
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1
-BuildRequires:    R-CRAN-pingr >= 2.0
-BuildRequires:    R-CRAN-jsonlite >= 1.7
-BuildRequires:    R-CRAN-stringi >= 1.5
-BuildRequires:    R-CRAN-stringr >= 1.4
-BuildRequires:    R-CRAN-readr >= 1.4
-Requires:         R-CRAN-tibble >= 3.1
-Requires:         R-CRAN-pingr >= 2.0
-Requires:         R-CRAN-jsonlite >= 1.7
-Requires:         R-CRAN-stringi >= 1.5
-Requires:         R-CRAN-stringr >= 1.4
-Requires:         R-CRAN-readr >= 1.4
+BuildRequires:    R-devel >= 2.6
+Requires:         R-core >= 2.6
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-extremefit 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-extremefit 
 
 %description
-R interface to the Greek National Data Bank for Hydrological and
-Meteorological Information. It covers Hydroscope's data sources and
-provides functions to transliterate, translate and download them into tidy
-dataframes.
+Offers Bayesian semiparametric density estimation and tail-index
+estimation for heavy tailed data, by using a parametric, tail-respecting
+transformation of the data to the unit interval and then modeling the
+transformed data with a purely nonparametric logistic Gaussian process
+density prior. Based on Tokdar et al. (2022)
+<doi:10.1080/01621459.2022.2104727>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

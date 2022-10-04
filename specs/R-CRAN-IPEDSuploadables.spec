@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IPEDSuploadables
-%global packver   2.4.5
+%global packver   2.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          2.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transforms Institutional Data into Text Files for IPEDS Automated Import/Upload
 

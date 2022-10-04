@@ -1,53 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rRofex
-%global packver   2.0.6
+%global __requires_exclude ^libmpi
+%global packname  cft
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Matba Rofex' Trading API
+Summary:          Climate Futures Toolbox
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-osmdata 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidync 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-epitools 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-websocket 
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pipeR 
+BuildRequires:    R-CRAN-rlist 
+Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-osmdata 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidync 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-epitools 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-websocket 
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-pipeR 
+Requires:         R-CRAN-rlist 
 
 %description
-Execute API calls to the 'Matba Rofex' <https://apihub.primary.com.ar>
-trading platform. Functionality includes accessing account data and
-current holdings, retrieving investment quotes, placing and canceling
-orders, and getting reference data for instruments.
+Developed as a collaboration between Earth lab and the North Central
+Climate Adaptation Science Center to help users gain insights from
+available climate data. Includes tools and instructions for downloading
+climate data via a 'USGS' API and then organizing those data for
+visualization and analysis that drive insight. Web interface for 'USGS'
+API can be found at
+<http://thredds.northwestknowledge.net:8080/thredds/reacch_climate_CMIP5_aggregated_macav2_catalog.html>.
 
 %prep
 %setup -q -c -n %{packname}

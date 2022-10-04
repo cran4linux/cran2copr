@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  logitr
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Logit Models w/Preference & WTP Space Utility Parameterizations
 
@@ -16,16 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nloptr 
 Requires:         R-parallel 
-Requires:         R-stats 
 Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
 Fast estimation of multinomial (MNL) and mixed logit (MXL) models in R.

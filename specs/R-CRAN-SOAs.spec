@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SOAs
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creation of Stratum Orthogonal Arrays
 
@@ -23,6 +24,8 @@ BuildRequires:    R-CRAN-combinat
 BuildRequires:    R-CRAN-FrF2 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-conf.design 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-itertools 
 Requires:         R-CRAN-DoE.base >= 1.2
 Requires:         R-CRAN-lhs >= 1.1.3
 Requires:         R-stats 
@@ -30,6 +33,8 @@ Requires:         R-CRAN-combinat
 Requires:         R-CRAN-FrF2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-conf.design 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-itertools 
 
 %description
 Creates stratum orthogonal arrays (also known as strong orthogonal

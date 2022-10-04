@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  processmapR
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Process Maps Using Event Data
 
@@ -15,9 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-cli >= 3.2.0
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
-BuildRequires:    R-CRAN-edeaR >= 0.8.0
-BuildRequires:    R-CRAN-bupaR >= 0.4.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-edeaR >= 0.9.0
+BuildRequires:    R-CRAN-bupaR >= 0.5.1
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-stringr 
@@ -29,16 +32,17 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-cli >= 3.2.0
 Requires:         R-CRAN-DiagrammeR >= 1.0.0
-Requires:         R-CRAN-edeaR >= 0.8.0
-Requires:         R-CRAN-bupaR >= 0.4.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-edeaR >= 0.9.0
+Requires:         R-CRAN-bupaR >= 0.5.1
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-stringr 
@@ -50,7 +54,6 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-hms 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-htmltools 

@@ -1,29 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VIGoR
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  mclm
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variational Bayesian Inference for Genome-Wide Regression
+Summary:          Mastering Corpus Linguistics Methods
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-ca 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-ca 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-yaml 
 
 %description
-Conducts linear regression using variational Bayesian inference,
-particularly optimized for genome-wide association mapping and
-whole-genome prediction which use a number of DNA markers as the
-explanatory variables. Provides seven regression models which select the
-important variables (i.e., the variables related to response variables)
-among the given explanatory variables in different ways (i.e., model
-structures).
+Read, inspect and process corpus files for quantitative corpus
+linguistics. Obtain concordances via regular expressions, tokenize texts,
+and compute frequencies and association measures. Useful for collocation
+analysis, keywords analysis and variationist studies (comparison of
+linguistic variants and of linguistic varieties).
 
 %prep
 %setup -q -c -n %{packname}

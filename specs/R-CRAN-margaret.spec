@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  margaret
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scientometric Analysis Minciencias
 
@@ -17,11 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-SnowballC 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-scholar 
@@ -37,11 +38,11 @@ BuildRequires:    R-CRAN-widyr
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-igraph 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-SnowballC 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-scholar 
