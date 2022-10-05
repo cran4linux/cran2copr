@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  C19dNUTS
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dataset of Regional COVID-19 Deaths per 100,000 Pop (NUTS)
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Dataset containing COVID-19 deaths (absolute and per 100,000 pop) at the
-regional level (mostly NUTS 3) for 31 EU/EFTA countries.
+Dataset containing cumulative COVID-19 deaths (absolute and per 100,000
+pop) at the regional level (mostly NUTS 3) for 31 EU/EFTA countries.
 
 %prep
 %setup -q -c -n %{packname}

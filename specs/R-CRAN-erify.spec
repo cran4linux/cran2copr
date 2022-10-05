@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  erify
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Check Arguments and Generate Readable Error Messages
 
@@ -13,20 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rstudioapi 
 
 %description
-Provides several validator functions to check if arguments passed by users
-have valid types, lengths, etc., and if not, to generate informative and
-good-formatted error messages in a consistent style. Also provides tools
+Provides several validator functions for checking if arguments passed by
+users have valid types, lengths, etc. and for generating informative and
+well-formatted error messages in a consistent style. Also provides tools
 for users to create their own validator functions. The error message style
 used is adopted from <https://style.tidyverse.org/error-messages.html>.
 
@@ -38,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

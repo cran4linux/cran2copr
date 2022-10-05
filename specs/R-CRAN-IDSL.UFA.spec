@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IDSL.UFA
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          United Formula Annotation (UFA) for HRMS Data Processing
 
@@ -48,9 +48,8 @@ Requires:         R-CRAN-gridExtra
 
 %description
 A pipeline to annotate peaklists from the IDSL.IPA package with molecular
-formula using an isotopic profile matching approach. The IDSL.UFA pipeline
-is especially beneficial when MS/MS data is not available. The IDSL.UFA
-package has functions to process user-defined adduct formulas.
+formula of a prioritized chemical space using an isotopic profile matching
+approach. The IDSL.UFA pipeline only requires MS1 for formula annotation.
 
 %prep
 %setup -q -c -n %{packname}

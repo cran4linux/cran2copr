@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  memisc
-%global packver   0.99.30.7
+%global packver   0.99.31.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.30.7
+Version:          0.99.31.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Management of Survey Data and Presentation of Analysis Results
 
@@ -21,16 +22,18 @@ BuildRequires:    R-methods
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-repr 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-lattice 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
 Requires:         R-grid 
-Requires:         R-CRAN-repr 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-jsonlite 
 
 %description
 An infrastructure for the management of survey data including value

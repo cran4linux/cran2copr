@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TidyDensity
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Tidy Analysis and Generation of Random Data
 
@@ -32,6 +32,8 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -47,6 +49,8 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-broom 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-data.table 
 
 %description
 To make it easy to generate random numbers based upon the underlying stats

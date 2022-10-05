@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datawizard
-%global packver   0.6.2
+%global packname  CancerEvolutionVisualization
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Data Wrangling and Statistical Transformations
+Summary:          Publication Quality Phylogenetic Tree Plots
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.18.4
-BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.18.4
-Requires:         R-stats 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-graphics 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-plyr 
+Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-CRAN-stringr 
 
 %description
-A lightweight package to assist in key steps involved in any data analysis
-workflow: (1) wrangling the raw data to get it in the needed form, (2)
-applying preprocessing steps and statistical transformations, and (3)
-compute statistical summaries of data properties and distributions. It is
-also the data wrangling backend for packages in 'easystats' ecosystem.
+Generates tree plots with precise branch lengths, gene annotations, and
+cellular prevalence. The package handles complex tree structures (angles,
+lengths, etc.) and can be further refined as needed by the user.
 
 %prep
 %setup -q -c -n %{packname}

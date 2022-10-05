@@ -1,35 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datawizard
-%global packver   0.6.2
+%global packname  stats4teaching
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Data Wrangling and Statistical Transformations
+Summary:          Simulate Pedagogical Statistical Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.18.4
+BuildRequires:    R-CRAN-asbio 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-clusterGeneration 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MVN 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-pwr 
+BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.18.4
+Requires:         R-CRAN-asbio 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-clusterGeneration 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MVN 
+Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-pwr 
+Requires:         R-CRAN-rstatix 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-A lightweight package to assist in key steps involved in any data analysis
-workflow: (1) wrangling the raw data to get it in the needed form, (2)
-applying preprocessing steps and statistical transformations, and (3)
-compute statistical summaries of data properties and distributions. It is
-also the data wrangling backend for packages in 'easystats' ecosystem.
+Univariate and multivariate normal data simulation. They also supply a
+brief summary of the analysis for each experiment/design: - Independent
+samples. - One-way and two-way Anova. - Paired samples (T-Test &
+Regression). - Repeated measures (Anova & Multiple Regression). - Clinical
+Assay.
 
 %prep
 %setup -q -c -n %{packname}

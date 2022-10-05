@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datawizard
-%global packver   0.6.2
+%global packname  summclust
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Data Wrangling and Statistical Transformations
+Summary:          Module to Compute Influence and Leverage Statistics for Regression Models with Clustered Errors
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.18.4
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.18.4
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dreamerr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-utils 
+Requires:         R-CRAN-dreamerr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-generics 
 
 %description
-A lightweight package to assist in key steps involved in any data analysis
-workflow: (1) wrangling the raw data to get it in the needed form, (2)
-applying preprocessing steps and statistical transformations, and (3)
-compute statistical summaries of data properties and distributions. It is
-also the data wrangling backend for packages in 'easystats' ecosystem.
+Module to compute cluster specific information for regression models with
+clustered errors, including leverage and influence statistics. Models of
+type 'lm' and 'fixest'(from the 'stats' and 'fixest' packages) are
+supported. 'summclust' implements similar features as the user-written
+'summclust.ado' Stata module (MacKinnon, Nielsen & Webb, 2022;
+<arXiv:2205.03288v1>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datawizard
-%global packver   0.6.2
+%global packname  roughsf
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Data Wrangling and Statistical Transformations
+Summary:          Visualize Spatial Data using 'roughjs'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.18.4
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.18.4
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sf 
 
 %description
-A lightweight package to assist in key steps involved in any data analysis
-workflow: (1) wrangling the raw data to get it in the needed form, (2)
-applying preprocessing steps and statistical transformations, and (3)
-compute statistical summaries of data properties and distributions. It is
-also the data wrangling backend for packages in 'easystats' ecosystem.
+Draw maps using the 'javascript' library 'roughjs'. This allows to draw
+sketchy, hand-drawn-like maps.
 
 %prep
 %setup -q -c -n %{packname}

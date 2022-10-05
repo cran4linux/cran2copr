@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  chron
-%global packver   2.3-57
+%global packver   2.3-58
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.57
+Version:          2.3.58
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chronological Objects which can Handle Dates and Times
 

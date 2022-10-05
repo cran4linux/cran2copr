@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MACER
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Molecular Acquisition, Cleaning, and Evaluation in R 'MACER'
 
@@ -21,11 +22,21 @@ BuildRequires:    R-CRAN-ape
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-png 
 Requires:         R-CRAN-rentrez 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-httr 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-grDevices 
+Requires:         R-CRAN-png 
 
 %description
 To assist biological researchers in assembling taxonomically and marker

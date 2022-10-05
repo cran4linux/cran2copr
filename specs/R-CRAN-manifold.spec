@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datawizard
-%global packver   0.6.2
+%global packname  manifold
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Data Wrangling and Statistical Transformations
+Summary:          Operations for Riemannian Manifolds
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.18.4
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.18.4
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
 
 %description
-A lightweight package to assist in key steps involved in any data analysis
-workflow: (1) wrangling the raw data to get it in the needed form, (2)
-applying preprocessing steps and statistical transformations, and (3)
-compute statistical summaries of data properties and distributions. It is
-also the data wrangling backend for packages in 'easystats' ecosystem.
+Implements operations for Riemannian manifolds, e.g., geodesic distance,
+Riemannian metric, exponential and logarithm maps, etc. Also incorporates
+random object generator on the manifolds. See Dai, Lin, and Müller (2021)
+<doi:10.1111/biom.13385>.
 
 %prep
 %setup -q -c -n %{packname}

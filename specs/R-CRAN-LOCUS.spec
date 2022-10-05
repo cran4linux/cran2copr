@@ -1,26 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snappier
-%global packver   0.2.0
+%global packname  LOCUS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compress and Decompress 'Snappy' Encoded Data
+Summary:          Low-Rank Decomposition of Brain Connectivity Matrices with Uniform Sparsity
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ica 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-far 
+Requires:         R-CRAN-ica 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-far 
 
 %description
-Provides compression and decompression of 'Snappy' encoded data. Includes
-and provides bindings to the 'Snappy' compression library, with a safe R
-interface.
+To decompose symmetric matrices such as brain connectivity matrices so
+that one can extract sparse latent component matrices and also estimate
+mixing coefficients, a blind source separation (BSS) method named LOCUS
+was proposed in Wang and Guo (2023) <arXiv:2008.08915>. For brain
+connectivity matrices, the outputs correspond to sparse latent
+connectivity traits and individual-level trait loadings.
 
 %prep
 %setup -q -c -n %{packname}

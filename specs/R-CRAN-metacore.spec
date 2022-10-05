@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  metacore
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Centralized Metadata Object Focus on Clinical Trial Data Programming Workflows
 
@@ -21,7 +22,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
@@ -32,7 +33,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
