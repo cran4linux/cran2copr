@@ -1,28 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MicroDatosEs
-%global packver   0.8.14
+%global packname  maraca
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.14
+Version:          0.3.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Official Spanish Microdata
+Summary:          The Maraca Plot: Visualization of Hierarchical Composite Endpoints in Clinical Trials
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3
+BuildRequires:    R-CRAN-survival >= 3.3
+BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-checkmate >= 2.1
+BuildRequires:    R-CRAN-sanon >= 1.6
+BuildRequires:    R-CRAN-tidyr >= 1.2
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-ggfortify >= 0.4
+Requires:         R-CRAN-ggplot2 >= 3.3
+Requires:         R-CRAN-survival >= 3.3
+Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-checkmate >= 2.1
+Requires:         R-CRAN-sanon >= 1.6
+Requires:         R-CRAN-tidyr >= 1.2
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-ggfortify >= 0.4
 
 %description
-Provides utilities for reading and processing microdata from Spanish
-official statistics with R.
+Library that supports visual interpretation of hierarchical composite
+endpoints (HCEs). HCEs are complex constructs used as primary endpoints in
+clinical trials, combining outcomes of different types into ordinal
+endpoints, in which each patient contributes the most clinically important
+event (one and only one) to the analysis.
 
 %prep
 %setup -q -c -n %{packname}

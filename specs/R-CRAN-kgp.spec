@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kgp
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          1000 Genomes Project Metadata
 
@@ -24,7 +24,8 @@ Project, including the 2,504 samples sequenced for the Phase 3 release and
 the expanded collection of 3,202 samples with 602 additional trios. The
 data is described in Auton et al. (2015) <doi:10.1038/nature15393> and
 Byrska-Bishop et al. (2022) <doi:10.1016/j.cell.2022.08.004>, and raw data
-is available at <http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/>.
+is available at <http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/>. See Turner
+(2022) <doi:10.48550/arXiv.2210.00539> for more details.
 
 %prep
 %setup -q -c -n %{packname}

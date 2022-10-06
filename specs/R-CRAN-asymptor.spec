@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  asymptor
-%global packver   1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Asymptomatic Cases via Capture/Recapture Methods
 
@@ -21,7 +22,11 @@ BuildArch:        noarch
 Estimate the lower and upper bound of asymptomatic cases in an epidemic
 using the capture/recapture methods from Böhning et al. (2020)
 <doi:10.1016/j.ijid.2020.06.009> and Rocchetti et al. (2020)
-<doi:10.1101/2020.07.14.20153445>.
+<doi:10.1101/2020.07.14.20153445>. Note there is currently some discussion
+about the validity of the methods implemented in this package. You should
+read carefully the original articles, alongside this answer from Li et al.
+(2022) <doi:10.48550/arXiv.2209.11334> before using this package in your
+project.
 
 %prep
 %setup -q -c -n %{packname}
@@ -31,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

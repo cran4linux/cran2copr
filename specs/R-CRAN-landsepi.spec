@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  landsepi
-%global packver   1.1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Landscape Epidemiology and Evolution
 
@@ -14,17 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel
-BuildRequires:    gdal-devel >= 1.11.0
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats >= 3.0.2
 BuildRequires:    R-grDevices >= 3.0.0
 BuildRequires:    R-graphics >= 3.0.0
+BuildRequires:    R-CRAN-Matrix >= 1.3.0
 BuildRequires:    R-CRAN-sp >= 1.0.17
 BuildRequires:    R-CRAN-Rcpp >= 0.9.0
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-splancs 
@@ -32,17 +33,18 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-stats >= 3.0.2
 Requires:         R-grDevices >= 3.0.0
 Requires:         R-graphics >= 3.0.0
+Requires:         R-CRAN-Matrix >= 1.3.0
 Requires:         R-CRAN-sp >= 1.0.17
 Requires:         R-CRAN-Rcpp >= 0.9.0
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-splancs 
@@ -50,8 +52,8 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-deSolve 
 
 %description
 A stochastic, spatially-explicit, demo-genetic model simulating the spread

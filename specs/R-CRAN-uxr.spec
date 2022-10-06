@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MicroDatosEs
-%global packver   0.8.14
+%global packname  uxr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.14
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Official Spanish Microdata
+Summary:          User Experience Research
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,12 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-scales 
 
 %description
-Provides utilities for reading and processing microdata from Spanish
-official statistics with R.
+Provides convenience functions for user experience research with an
+emphasis on quantitative user experience testing and reporting. The
+functions are designed to translate statistical approaches to applied user
+experience research.
 
 %prep
 %setup -q -c -n %{packname}

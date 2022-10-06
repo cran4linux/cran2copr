@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  biglasso
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extending Lasso Model Fitting to Big Data
 
@@ -29,11 +30,11 @@ Requires:         R-CRAN-ncvreg
 Requires:         R-methods 
 
 %description
-Extend lasso and elastic-net model fitting for ultrahigh-dimensional,
-multi-gigabyte data sets that cannot be loaded into memory. It's much more
-memory- and computation-efficient as compared to existing lasso-fitting
-packages like 'glmnet' and 'ncvreg', thus allowing for very powerful big
-data analysis even with an ordinary laptop.
+Extend lasso and elastic-net model fitting for ultra high-dimensional,
+multi-gigabyte data sets that cannot be loaded into memory. Designed to be
+more memory- and computation-efficient than existing lasso-fitting
+packages like 'glmnet' and 'ncvreg', thus allowing the user to analyze big
+data analysis even on an ordinary laptop.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dparser
-%global packver   1.3.1-5
+%global packver   1.3.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1.5
+Version:          1.3.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Port of 'Dparser' Package
 
@@ -27,14 +28,14 @@ A Scannerless GLR parser/parser generator.  Note that GLR standing for
 <https://en.wikipedia.org/wiki/GLR_parser>. This parser is based on the
 Tomita (1987) algorithm. (Paper can be found at
 <https://aclanthology.org/P84-1073.pdf>). The original 'dparser' package
-documentation can be found at <http://dparser.sourceforge.net/>.  This
+documentation can be found at <https://dparser.sourceforge.net/>.  This
 allows you to add mini-languages to R (like RxODE's ODE mini-language
 Wang, Hallow, and James 2015 <DOI:10.1002/psp4.12052>) or to parse other
 languages like 'NONMEM' to automatically translate them to R code.  To use
 this in your code, add a LinkingTo dparser in your DESCRIPTION file and
 instead of using #include <dparse.h> use #include <dparser.h>.  This also
 provides a R-based port of the make_dparser
-<http://dparser.sourceforge.net/d/make_dparser.cat> command called
+<https://dparser.sourceforge.net/d/make_dparser.cat> command called
 mkdparser().  Additionally you can parse an arbitrary grammar within R
 using the dparse() function, which works on most OSes and is mainly for
 grammar testing.  The fastest parsing, of course, occurs at the C level,

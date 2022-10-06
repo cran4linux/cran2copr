@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MicroDatosEs
-%global packver   0.8.14
+%global packname  mvdalab
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.14
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Official Spanish Microdata
+Summary:          Multivariate Data Analysis Laboratory
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,12 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-penalized 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-sn 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-moments 
+Requires:         R-parallel 
+Requires:         R-CRAN-penalized 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-sn 
 
 %description
-Provides utilities for reading and processing microdata from Spanish
-official statistics with R.
+An open-source implementation of latent variable methods and multivariate
+modeling tools. The focus is on exploratory analyses using dimensionality
+reduction methods including low dimensional embedding, classical
+multivariate statistical tools, and tools for enhanced interpretation of
+machine learning methods (i.e. intelligible models to provide important
+information for end-users).  Target domains include extension to dedicated
+applications e.g. for manufacturing process modeling, spectroscopic
+analyses, and data mining.
 
 %prep
 %setup -q -c -n %{packname}

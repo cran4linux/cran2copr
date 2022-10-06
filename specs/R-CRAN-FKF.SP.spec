@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FKF.SP
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Kalman Filtering Through Sequential Processing
 
@@ -23,15 +24,16 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-CRAN-curl 
 
 %description
-Fast and flexible Kalman filtering implementation utilizing sequential
-processing, designed for efficient parameter estimation through maximum
-likelihood estimation. Sequential processing is a univariate treatment of
-a multivariate series of observations and can benefit from computational
-efficiency over traditional Kalman filtering when independence is assumed
-in the variance of the disturbances of the measurement equation.
-Sequential processing is described in the textbook of Durbin and Koopman
-(2001, ISBN:978-0-19-964117-8). 'FKF.SP' was built upon the existing 'FKF'
-package and is, in general, a faster Kalman filter.
+Fast and flexible Kalman filtering and smoothing implementation utilizing
+sequential processing, designed for efficient parameter estimation through
+maximum likelihood estimation. Sequential processing is a univariate
+treatment of a multivariate series of observations and can benefit from
+computational efficiency over traditional Kalman filtering when
+independence is assumed in the variance of the disturbances of the
+measurement equation. Sequential processing is described in the textbook
+of Durbin and Koopman (2001, ISBN:978-0-19-964117-8). 'FKF.SP' was built
+upon the existing 'FKF' package and is, in general, a faster Kalman
+filter/smoother.
 
 %prep
 %setup -q -c -n %{packname}

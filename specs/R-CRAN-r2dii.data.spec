@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  r2dii.data
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datasets to Measure the Alignment of Corporate Loan Books with Climate Goals
 
@@ -27,11 +28,11 @@ Requires:         R-utils
 These datasets support the implementation in R of the software 'PACTA'
 (Paris Agreement Capital Transition Assessment), which is a free tool that
 calculates the alignment between corporate lending portfolios and climate
-scenarios (<https://2degrees-investing.org/>). Financial institutions use
-'PACTA' to study how their capital allocation decisions align with climate
-change mitigation goals. Because both financial institutions and market
-data providers keep their data private, this package provides fake, public
-data to enable the development and use of 'PACTA' in R.
+scenarios (<https://www.transitionmonitor.com/>). Financial institutions
+use 'PACTA' to study how their capital allocation decisions align with
+climate change mitigation goals. Because both financial institutions and
+market data providers keep their data private, this package provides fake,
+public data to enable the development and use of 'PACTA' in R.
 
 %prep
 %setup -q -c -n %{packname}

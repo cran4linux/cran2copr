@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MicroDatosEs
-%global packver   0.8.14
+%global packname  ExclusionTable
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.14
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Official Spanish Microdata
+Summary:          Creating Tables of Excluded Observations
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Provides utilities for reading and processing microdata from Spanish
-official statistics with R.
+Instead of counting observations before and after a subset() call, the
+ExclusionTable() function reports the number before and after each
+subset() call together with the number of observations that have been
+excluded. This is especially useful in observational studies for keeping
+track how many observations have been excluded for each in-/ or exclusion
+criteria. You just need to provide ExclusionTable() with a dataset and a
+list of logical filter statements.
 
 %prep
 %setup -q -c -n %{packname}

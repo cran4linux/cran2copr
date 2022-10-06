@@ -1,28 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MicroDatosEs
-%global packver   0.8.14
+%global packname  island
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.14
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Official Spanish Microdata
+Summary:          Stochastic Island Biogeography Theory Made Easy
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides utilities for reading and processing microdata from Spanish
-official statistics with R.
+Develops stochastic models based on the Theory of Island Biogeography
+(TIB) of MacArthur and Wilson (1967) <doi:10.1023/A:1016393430551> and
+extensions. It implements methods to estimate colonization and extinction
+rates (including environmental variables) given presence-absence data,
+simulates community assembly, and performs model selection.
 
 %prep
 %setup -q -c -n %{packname}

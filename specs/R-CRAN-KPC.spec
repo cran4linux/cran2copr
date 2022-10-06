@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  KPC
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Partial Correlation Coefficient
 
@@ -47,8 +48,8 @@ a stepwise forward variable selection algorithm KFOCI (using the graph
 based estimator of KPC) is provided, as well as a similar stepwise forward
 selection algorithm based on the RKHS based estimator. For more details on
 KPC, its empirical estimators and its application on variable selection,
-see Huang, Z., N. Deb, and B. Sen (2020). “Kernel partial correlation
-coefficient – a measure of conditional dependence” <arXiv:2012.14804>.
+see Huang, Z., N. Deb, and B. Sen (2022). “Kernel partial correlation
+coefficient – a measure of conditional dependence” (URL listed below).
 When X is empty, KPC measures the unconditional dependence between Y and
 Z, which has been described in Deb, N., P. Ghosal, and B. Sen (2020),
 “Measuring association on topological spaces using kernels and geometric

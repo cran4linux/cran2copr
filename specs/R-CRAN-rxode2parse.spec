@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dynamichazard
-%global packver   1.0.2
+%global packname  rxode2parse
+%global packver   2.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Hazard Models using State Space Models
+Summary:          Parsing and Code Generation Functions for 'rxode2'
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.6
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.21.0.7
+BuildRequires:    R-CRAN-BH >= 1.78.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.2
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-dparser 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-qs 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.6
-Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-dparser 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-qs 
 Requires:         R-utils 
-Requires:         R-CRAN-survival 
-Requires:         R-parallel 
-Requires:         R-CRAN-boot 
 
 %description
-Contains functions that lets you fit dynamic hazard models using state
-space models. The first implemented model is described in Fahrmeir (1992)
-<doi:10.1080/01621459.1992.10475232> and Fahrmeir (1994)
-<doi:10.1093/biomet/81.2.317>. Extensions hereof are available where the
-Extended Kalman filter is replaced by an unscented Kalman filter. See
-Christoffersen (2021) <doi:10.18637/jss.v099.i07> for more details.
-Particle filters and smoothers are also supported more general state space
-models.
+Provides the parsing needed for 'rxode2' (Wang, Hallow and James (2016)
+<doi:10.1002/psp4.12052>). It also provides the 'stan' based advan linear
+compartment model solutions with gradients (Carpenter et al (2015),
+<arXiv:1509.07164>) needed in 'nlmixr2' (Fidler et al (2019)
+<doi:10.1002/psp4.12445>) needed in 'nlmixr2'. This split will reduce
+computational burden of recompiling 'rxode2'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MicroDatosEs
-%global packver   0.8.14
+%global packname  GLCMTextures
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.14
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Official Spanish Microdata
+Summary:          GLCM Textures of Raster Layers
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-raster 
 
 %description
-Provides utilities for reading and processing microdata from Spanish
-official statistics with R.
+Calculates grey level co-occurrence matrix (GLCM) based texture measures
+(Hall-Beyer (2017)
+<https://prism.ucalgary.ca/bitstream/handle/1880/51900/texture%%20tutorial%%20v%%203_0%%20180206.pdf>;
+Haralick et al. (1973) <doi:10.1109/TSMC.1973.4309314>) of raster layers
+using a sliding rectangular window. It also includes functions to quantize
+a raster into grey levels as well as tabulate a glcm and calculate glcm
+texture metrics for a matrix.
 
 %prep
 %setup -q -c -n %{packname}

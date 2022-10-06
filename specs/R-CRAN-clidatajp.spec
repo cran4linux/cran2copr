@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mdsr
-%global packver   0.2.6
+%global packname  clidatajp
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Complement to 'Modern Data Science with R'
+Summary:          Data from Japan Meteorological Agency
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,43 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-babynames 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-downloader 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-RMariaDB 
-BuildRequires:    R-CRAN-skimr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-webshot 
-Requires:         R-CRAN-babynames 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-downloader 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-RMariaDB 
-Requires:         R-CRAN-skimr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-webshot 
+Requires:         R-CRAN-tidyr 
 
 %description
-A complement to *Modern Data Science with R*, both the first and second
-editions (ISBN: 978-0367191498, publisher URL:
-<https://www.routledge.com/Modern-Data-Science-with-R/Baumer-Kaplan-Horton/p/book/9780367191498>).
-This package contains data and code to complete exercises and reproduce
-examples from the text. It also facilitates connections to the SQL
-database server used in the book. Both editions of the book are supported
-by this package.
+Includes climate data from Japan Meteorological Agency ('JMA')
+<https://www.jma.go.jp/jma/indexe.html>. Can download climate data from
+'JMA'.
 
 %prep
 %setup -q -c -n %{packname}

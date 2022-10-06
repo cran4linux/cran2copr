@@ -1,28 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MicroDatosEs
-%global packver   0.8.14
+%global packname  pbcc
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.14
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Official Spanish Microdata
+Summary:          Percentile-Based Control Chart
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.10
+Requires:         R-core >= 3.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-qcc 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggpubr 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-qcc 
+Requires:         R-grDevices 
+Requires:         R-CRAN-ggpubr 
 
 %description
-Provides utilities for reading and processing microdata from Spanish
-official statistics with R.
+Design and implementation of Percentile-based Shewharts Control Charts for
+continuous data. Faraz (2019) <doi:10.1002/qre.2384>.
 
 %prep
 %setup -q -c -n %{packname}

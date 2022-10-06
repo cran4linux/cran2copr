@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  geouy
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Information of Uruguay
 
@@ -17,7 +18,6 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
@@ -32,10 +32,9 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rjson 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
@@ -50,14 +49,14 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rjson 
 
 %description
 The toolbox have functions to load and process geographic information for
 Uruguay. And extra-function to get address coordinates and orthophotos
 through the uruguayan 'IDE' API
-<https://www.gub.uy/infraestructura-datos-espaciales/tramites-y-servicios/servicios/servicio-direcciones-geograficas>.
+<https://www.gub.uy/infraestructura-datos-espaciales/tramites-y-servicios/servicios/sistema-unico-direcciones-geograficas>.
 
 %prep
 %setup -q -c -n %{packname}

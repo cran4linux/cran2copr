@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cooltools
-%global packver   1.8
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Practical Tools for Scientific Computations and Visualizations
 
@@ -23,8 +23,8 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-bit64 
@@ -36,8 +36,8 @@ Requires:         R-CRAN-pracma
 Requires:         R-utils 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-bit64 
@@ -55,9 +55,9 @@ interpolation, Monte Carlo integration, vector arithmetic and coordinate
 transformations. Also included is a non-exhaustive list of important
 constants and cosmological conversion functions. The graphics routines can
 be used to produce and export publication-ready scientific plots and
-movies, e.g. as used in Obreschkow et al. (2020)
-<doi:10.1093/mnras/staa445>. These routines include special color scales,
-projection functions, and bitmap handling routines.
+movies, e.g. as used in Obreschkow et al. (2020, MNRAS Vol 493, Issue 3,
+Pages 4551–4569). These routines include special color scales, projection
+functions, and bitmap handling routines.
 
 %prep
 %setup -q -c -n %{packname}

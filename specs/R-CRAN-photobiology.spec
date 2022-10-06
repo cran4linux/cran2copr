@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  photobiology
-%global packver   0.10.12
+%global packver   0.10.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.12
+Version:          0.10.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Photobiological Calculations
 

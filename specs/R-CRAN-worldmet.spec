@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  worldmet
-%global packver   0.9.5
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import Surface Meteorological Data from NOAA Integrated Surface Database (ISD)
 
@@ -39,7 +40,7 @@ Requires:         R-CRAN-readr
 Functions to import data from more than 30,000 surface meteorological
 sites around the world managed by the National Oceanic and Atmospheric
 Administration (NOAA) Integrated Surface Database (ISD, see
-<https://www.ncdc.noaa.gov/isd>).
+<https://www.ncei.noaa.gov/products/land-based-station/integrated-surface-database>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
