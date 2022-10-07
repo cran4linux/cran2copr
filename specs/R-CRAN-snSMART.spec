@@ -1,42 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metatools
-%global packver   0.1.3
+%global packname  snSMART
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enable the Use of 'metacore' to Help Create and Check Dataset
+Summary:          Small N Sequential Multiple Assignment Randomized Trial Methods
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-metacore >= 0.0.4
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-bayestestR 
+BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-truncdist 
+BuildRequires:    R-CRAN-condMVNorm 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-metacore >= 0.0.4
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-EnvStats 
+Requires:         R-CRAN-bayestestR 
+Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-truncdist 
+Requires:         R-CRAN-condMVNorm 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-EnvStats 
 
 %description
-Uses the metadata information stored in 'metacore' objects to check and
-build metadata associated columns.
+Consolidated data simulation, sample size calculation and analysis
+functions for several snSMART (small sample sequential, multiple
+assignment, randomized trial) designs under one library. See Wei, B.,
+Braun, T.M., Tamura, R.N. and Kidwell, K.M. "A Bayesian analysis of small
+n sequential multiple assignment randomized trials (snSMARTs)." (2018)
+Statistics in medicine, 37(26), pp.3723-3732 <doi:10.1002/sim.7900>.
 
 %prep
 %setup -q -c -n %{packname}

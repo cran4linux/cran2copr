@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  usethat
-%global packver   0.3.0
+%global __requires_exclude ^libmpi
+%global packname  paleopop
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automate Analytic Project Setup and Development
+Summary:          Pattern-Oriented Modeling Framework for Coupled Niche-Population Paleo-Climatic Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-microservices >= 0.1.2
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-microservices >= 0.1.2
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-CRAN-R6 >= 2.5.0
+BuildRequires:    R-CRAN-poems >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9
+Requires:         R-CRAN-R6 >= 2.5.0
+Requires:         R-CRAN-poems >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9
 
 %description
-Automate analytic project setup tasks that are otherwise performed
-manually. This includes setting up docker, spinning up a microservice, and
-more.
+This extension of the poems pattern-oriented modeling (POM) framework
+provides a collection of modules and functions customized for
+paleontological time-scales, and optimized for single-generation
+transitions and large populations, across multiple generations.
 
 %prep
 %setup -q -c -n %{packname}

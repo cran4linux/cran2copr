@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rotl
-%global packver   3.0.12
+%global packver   3.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.12
+Version:          3.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'Open Tree of Life' API
 
@@ -16,18 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.1
 Requires:         R-core >= 3.1.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 3.0.0
 BuildRequires:    R-CRAN-rncl >= 0.6.0
-BuildRequires:    R-CRAN-assertthat >= 0.1
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rentrez 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-curl >= 3.0.0
 Requires:         R-CRAN-rncl >= 0.6.0
-Requires:         R-CRAN-assertthat >= 0.1
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rentrez 
+Requires:         R-CRAN-rlang 
 
 %description
 An interface to the 'Open Tree of Life' API to retrieve phylogenetic

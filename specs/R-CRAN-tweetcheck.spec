@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  elections.dtree
-%global packver   1.0.0
+%global packname  tweetcheck
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ranked Voting Election Audits with Dirichlet-Trees
+Summary:          Parse and Validate Tweet Text
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppThread 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-R6 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-V8 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-V8 
 
 %description
-Perform ballot-polling Bayesian audits for ranked voting elections using
-Dirichlet-tree prior distributions. Everest et al. (2022)
-<arXiv:2206.14605>, <arXiv:2209.03881>.
+An interface to 'twitter-text', a 'JavaScript' library which is
+responsible for determining the length/validity of a tweet and
+identifying/linking any URLs or special tags (e.g. mentions or hashtags)
+which may be present.
 
 %prep
 %setup -q -c -n %{packname}

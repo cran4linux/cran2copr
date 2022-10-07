@@ -1,31 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  listr
+%global packname  avfintools
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Lists
+Summary:          Financial Analysis Tools Using Data from 'Alpha Vantager'
 
-License:          EUPL
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-methods >= 4.2.0
+BuildRequires:    R-CRAN-plotly >= 4.10.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
+BuildRequires:    R-CRAN-tibble >= 3.1.7
+BuildRequires:    R-CRAN-lubridate >= 1.8.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.9
+BuildRequires:    R-CRAN-alphavantager >= 0.1.2
+Requires:         R-methods >= 4.2.0
+Requires:         R-CRAN-plotly >= 4.10.0
+Requires:         R-CRAN-ggplot2 >= 3.3.6
+Requires:         R-CRAN-tibble >= 3.1.7
+Requires:         R-CRAN-lubridate >= 1.8.0
+Requires:         R-CRAN-dplyr >= 1.0.9
+Requires:         R-CRAN-alphavantager >= 0.1.2
 
 %description
-Tools for common operations on lists. Provided are short-cuts to
-operations like selecting and merging data stored in lists. The functions
-in this package are designed to be used with pipes.
+To pull data from 'ALPHA VANTAGE' <https://www.alphavantage.co/>, use the
+av_api_key() function from 'alphavantager' for inserting your API key.
+This is a complement to the 'alphavantager' package from CRAN. Contains
+commonly used quantitative finance tools. 'avfintools' stands for 'ALPHA
+VANTAGE' Finance Tools, as it depends on sourcing financial data from the
+'ALPHA VANTAGE' <https://www.alphavantage.co/documentation/> API.
 
 %prep
 %setup -q -c -n %{packname}

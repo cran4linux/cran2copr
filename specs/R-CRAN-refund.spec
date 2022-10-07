@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  refund
-%global packver   0.1-26
+%global packver   0.1-28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.26
+Version:          0.1.28
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression with Functional Data
 

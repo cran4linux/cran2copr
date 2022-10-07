@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  adiv
-%global packver   2.1.2
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Diversity
 
@@ -13,15 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-adegraphics 
-BuildRequires:    R-CRAN-adephylo 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-FactoMineR 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lpSolve 
@@ -33,10 +32,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-adegraphics 
-Requires:         R-CRAN-adephylo 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-FactoMineR 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lpSolve 

@@ -1,51 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyterra
-%global packver   0.2.2
+%global packname  namer
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects
+Summary:          Names Your 'R Markdown' Chunks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-terra >= 1.5.12
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-terra >= 1.5.12
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-tibble 
 
 %description
-Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
-the 'terra' package. It includes also new 'geom_' functions that provide a
-convenient way of visualizing 'terra' objects with 'ggplot2'.
+It names the 'R Markdown' chunks of files based on the filename.
 
 %prep
 %setup -q -c -n %{packname}

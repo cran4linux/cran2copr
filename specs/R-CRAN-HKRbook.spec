@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HKRbook
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apps and Data for the Book "Introduction to Statistics"
 
@@ -23,6 +23,9 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-shinydashboardPlus 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-highlight 
+BuildRequires:    R-CRAN-formatR 
 BuildRequires:    R-CRAN-scatterplot3d 
 Requires:         R-tools 
 Requires:         R-CRAN-MASS 
@@ -30,6 +33,9 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-shinydashboardPlus 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-highlight 
+Requires:         R-CRAN-formatR 
 Requires:         R-CRAN-scatterplot3d 
 
 %description

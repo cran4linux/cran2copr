@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mpathsenser
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process and Analyse Data from m-Path Sense
 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
@@ -40,6 +42,7 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 

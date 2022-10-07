@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rlibkriging
-%global packver   0.7-0
+%global packname  EcoDiet
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kriging Models using the 'libKriging' Library
+Summary:          Estimating a Diet Matrix from Biotracer and Stomach Content Data
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.11
-Requires:         R-methods 
-Requires:         R-CRAN-DiceKriging 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rjags >= 4.10
+BuildRequires:    R-stats >= 3.6
+BuildRequires:    R-utils >= 3.6
+BuildRequires:    R-CRAN-ggplot2 >= 3.2
+BuildRequires:    R-CRAN-coda >= 0.19
+Requires:         R-CRAN-rjags >= 4.10
+Requires:         R-stats >= 3.6
+Requires:         R-utils >= 3.6
+Requires:         R-CRAN-ggplot2 >= 3.2
+Requires:         R-CRAN-coda >= 0.19
 
 %description
-Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
-that should provide most standard Kriging / Gaussian process regression
-features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
-'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
-by Conrad Sanderson, and 'lbfgsb_cpp' is a 'C++' wrapper by Colin Fang
-around 'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge
-Nocedal and Jose Luis Morales used for hyperparameters optimization.
+Biotracers and stomach content analyses are combined in a Bayesian
+hierarchical model to estimate a probabilistic topology matrix (all
+trophic link probabilities) and a diet matrix (all diet proportions). The
+package relies on the JAGS software and the 'rjags' package to run a
+Markov chain Monte Carlo approximation of the different variables.
 
 %prep
 %setup -q -c -n %{packname}
