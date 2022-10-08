@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hutilscpp
-%global packver   0.9.3
+%global packname  hettest
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions in C++
+Summary:          Testing for a Treatment Effect Using a Heterogeneous Surrogate Marker
 
-License:          GPL-2
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-hutils 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-hutils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides utility functions that are simply, frequently used, but may
-require higher performance that what can be obtained from base R.
-Incidentally provides support for 'reverse geocoding', such as matching a
-point with its nearest neighbour in another array. Used as a complement to
-package 'hutils' by sacrificing compilation or installation time for
-higher running speeds. The name is a portmanteau of the author and 'Rcpp'.
+Tests for a treatment effect using surrogate marker information accounting
+for heterogeneity in the utility of the surrogate. Details are described
+in Parast et al (2022) <arXiv:2209.08315>.
 
 %prep
 %setup -q -c -n %{packname}

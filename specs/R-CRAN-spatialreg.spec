@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialreg
-%global packver   1.2-5
+%global packver   1.2-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Regression Analysis
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-LearnBayes 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-gmodels 
 Requires:         R-CRAN-spData 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-sf 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-boot
 Requires:         R-splines 
 Requires:         R-CRAN-LearnBayes 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-gmodels 
 
 %description
 A collection of all the estimation functions for spatial cross-sectional

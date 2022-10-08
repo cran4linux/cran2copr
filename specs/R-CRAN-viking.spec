@@ -1,37 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hutilscpp
-%global packver   0.9.3
+%global packname  viking
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions in C++
+Summary:          State-Space Models Inference by Kalman or Viking
 
-License:          GPL-2
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-hutils 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-hutils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Provides utility functions that are simply, frequently used, but may
-require higher performance that what can be obtained from base R.
-Incidentally provides support for 'reverse geocoding', such as matching a
-point with its nearest neighbour in another array. Used as a complement to
-package 'hutils' by sacrificing compilation or installation time for
-higher running speeds. The name is a portmanteau of the author and 'Rcpp'.
+Inference methods for state-space models, relying on the Kalman Filter or
+on Viking (Variational Bayesian VarIance tracKING). See J. de Vilmarest
+(2022) <https://tel.archives-ouvertes.fr/tel-03716104/>.
 
 %prep
 %setup -q -c -n %{packname}

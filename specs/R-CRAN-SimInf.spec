@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimInf
-%global packver   9.2.0
+%global packver   9.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.2.0
+Version:          9.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Data-Driven Stochastic Disease Spread Simulations
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    gsl-devel
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Matrix >= 1.3.0
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -24,7 +25,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix >= 1.3.0
 Requires:         R-CRAN-digest 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -32,7 +33,6 @@ Requires:         R-CRAN-MASS
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-Matrix 
 
 %description
 Provides an efficient and very flexible framework to conduct data-driven

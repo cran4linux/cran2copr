@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  envalysis
-%global packver   0.5.4
+%global packname  powRICLPM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Environmental Analyses
+Summary:          Perform Power Analysis for the Random Intercept Cross-Lagged Panel Model
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-drc 
-BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-lavaan >= 0.6.7
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-drc 
-Requires:         R-CRAN-lmtest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-future 
+Requires:         R-CRAN-lavaan >= 0.6.7
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-future 
 
 %description
-Small toolbox for data analyses in environmental chemistry and
-ecotoxicology. Provides, for example, calibration() to calculate
-calibration curves and corresponding limits of detection (LODs) and limits
-of quantification (LOQs) according to German DIN 32645 (2008). texture()
-makes it easy to estimate soil particle size distributions from hydrometer
-measurements (ASTM D422-63, 2007).
+Perform user-friendly power analyses for the bivariate random intercept
+cross-lagged panel model (RI-CLPM). The strategy as proposed by Mulder
+(2022) <doi:10.1080/10705511.2022.2122467> is implemented. Extended power
+analysis options include the use of bounded estimation, inclusion of
+measurement error in the data generating model and estimation model (i.e.,
+the stable trait autoregressive trait state, STARTS, model), imposing
+various constraints over time on the parameters of the estimation model,
+among others.
 
 %prep
 %setup -q -c -n %{packname}
