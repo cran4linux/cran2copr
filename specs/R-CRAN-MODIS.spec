@@ -1,66 +1,68 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  secr
-%global packver   4.5.7
+%global packname  MODIS
+%global packver   1.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.7
+Version:          1.2.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatially Explicit Capture-Recapture
+Summary:          Acquisition and Processing of MODIS Products
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.1.1
-BuildRequires:    R-CRAN-raster >= 3.5.15
-BuildRequires:    R-CRAN-terra >= 1.5.12
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-graphics 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mapdata 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-bitops 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mapedit 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-ptw 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-RcppParallel >= 5.1.1
-Requires:         R-CRAN-raster >= 3.5.15
-Requires:         R-CRAN-terra >= 1.5.12
-Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-methods 
-Requires:         R-CRAN-abind 
-Requires:         R-graphics 
+Requires:         R-CRAN-mapdata 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-bitops 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-devtools 
 Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nlme 
+Requires:         R-graphics 
+Requires:         R-CRAN-mapedit 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-maptools 
+Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-RcppNumerical 
+Requires:         R-CRAN-ptw 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Functions to estimate the density and size of a spatially distributed
-animal population sampled with an array of passive detectors, such as
-traps, or by searching polygons or transects. Models incorporating
-distance-dependent detection are fitted by maximizing the likelihood.
-Tools are included for data manipulation and model selection.
+Download and processing functionality for the Moderate Resolution Imaging
+Spectroradiometer (MODIS). The package provides automated access to the
+global online data archives LP DAAC (<https://lpdaac.usgs.gov/>), LAADS
+(<https://ladsweb.modaps.eosdis.nasa.gov/>) and NSIDC
+(<https://nsidc.org/home>) as well as processing capabilities such as file
+conversion, mosaicking, subsetting and time series filtering.
 
 %prep
 %setup -q -c -n %{packname}
