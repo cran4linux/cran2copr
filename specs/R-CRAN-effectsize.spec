@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  effectsize
-%global packver   0.7.0.5
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0.5
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Indices of Effect Size and Standardized Parameters
+Summary:          Indices of Effect Size
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-performance >= 0.9.1
-BuildRequires:    R-CRAN-datawizard >= 0.5.0
-BuildRequires:    R-CRAN-parameters >= 0.18.1
-BuildRequires:    R-CRAN-insight >= 0.18.0
-BuildRequires:    R-CRAN-bayestestR >= 0.12.1
+BuildRequires:    R-CRAN-datawizard >= 0.6.2
+BuildRequires:    R-CRAN-parameters >= 0.19.0
+BuildRequires:    R-CRAN-insight >= 0.18.4
+BuildRequires:    R-CRAN-bayestestR >= 0.13.0
+BuildRequires:    R-CRAN-performance >= 0.10.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-performance >= 0.9.1
-Requires:         R-CRAN-datawizard >= 0.5.0
-Requires:         R-CRAN-parameters >= 0.18.1
-Requires:         R-CRAN-insight >= 0.18.0
-Requires:         R-CRAN-bayestestR >= 0.12.1
+Requires:         R-CRAN-datawizard >= 0.6.2
+Requires:         R-CRAN-parameters >= 0.19.0
+Requires:         R-CRAN-insight >= 0.18.4
+Requires:         R-CRAN-bayestestR >= 0.13.0
+Requires:         R-CRAN-performance >= 0.10.0
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Provide utilities to work with indices of effect size and standardized
-parameters for a wide variety of models (see list of supported models
-using the function 'insight::supported_models()'), allowing computation of
-and conversion between indices such as Cohen's d, r, odds, etc.
+Provide utilities to work with indices of effect size for a wide variety
+of models and hypothesis tests (see list of supported models using the
+function 'insight::supported_models()'), allowing computation of and
+conversion between indices such as Cohen's d, r, odds, etc. References:
+Ben-Shachar et al. (2020) <doi:10.21105/joss.02815>.
 
 %prep
 %setup -q -c -n %{packname}

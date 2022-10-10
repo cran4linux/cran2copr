@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TraMineRextras
-%global packver   0.6.4
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          TraMineR Extension
 
@@ -18,7 +19,6 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-TraMineR >= 2.2.1
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-RColorBrewer 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-foreach
 Requires:         R-CRAN-TraMineR >= 2.2.1
 Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-gtools 
 Requires:         R-stats 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-RColorBrewer 

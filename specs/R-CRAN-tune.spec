@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tune
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tuning Tools
 
@@ -23,10 +24,10 @@ BuildRequires:    R-CRAN-hardhat >= 1.2.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.8
+BuildRequires:    R-CRAN-parsnip >= 1.0.2
 BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-dials >= 1.0.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
-BuildRequires:    R-CRAN-parsnip >= 1.0.0
 BuildRequires:    R-CRAN-recipes >= 1.0.0
 BuildRequires:    R-CRAN-rsample >= 1.0.0
 BuildRequires:    R-CRAN-workflows >= 1.0.0
@@ -45,10 +46,10 @@ Requires:         R-CRAN-hardhat >= 1.2.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.1.2
 Requires:         R-CRAN-dplyr >= 1.0.8
+Requires:         R-CRAN-parsnip >= 1.0.2
 Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-dials >= 1.0.0
 Requires:         R-CRAN-lifecycle >= 1.0.0
-Requires:         R-CRAN-parsnip >= 1.0.0
 Requires:         R-CRAN-recipes >= 1.0.0
 Requires:         R-CRAN-rsample >= 1.0.0
 Requires:         R-CRAN-workflows >= 1.0.0

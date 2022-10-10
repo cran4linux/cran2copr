@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggraph
-%global packver   2.0.6
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Grammar of Graphics for Graphs and Networks
 
@@ -34,6 +34,9 @@ BuildRequires:    R-CRAN-viridis
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-igraph >= 1.0.0
 Requires:         R-CRAN-graphlayouts >= 0.5.0
@@ -52,6 +55,9 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-lifecycle 
 
 %description
 The grammar of graphics as implemented in ggplot2 is a poor fit for graph

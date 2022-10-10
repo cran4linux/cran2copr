@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aorsf
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerated Oblique Random Survival Forests
 
@@ -19,10 +19,12 @@ Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-data.table 
 Requires:         R-utils 
+Requires:         R-stats 
 
 %description
 Fit, interpret, and make predictions with oblique random survival forests.
