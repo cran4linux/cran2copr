@@ -1,35 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggpackets
-%global packver   0.2.1
+%global packname  rcssci
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package Plot Layers for Easier Portability and Modularization
+Summary:          Visualization of Restricted Cubic Splines
 
-License:          MIT + file LICENSE
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pacman 
+BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-Cairo 
+Requires:         R-CRAN-pacman 
+Requires:         R-CRAN-rms 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-Cairo 
 
 %description
-Create groups of 'ggplot2' layers that can be easily migrated from one
-plot to another, reducing redundant code and improving the ability to
-format many plots that draw from the same source 'ggpacket' layers.
+Restricted Cubic Splines were performed to explore the shape of
+association form of "U, inverted U, L" shape and test linearity or
+non-linearity base on "Cox,Logistic,linear" regression, and auto output
+Restricted Cubic Splines figures. The Restricted Cubic Splines method were
+based on Suli Huang (2022) <doi:10.1016/j.ecoenv.2022.113183>,Amit Kaura
+(2019) <doi:10.1136/bmj.l6055>, and Harrell Jr (2015,
+ISBN:978-3-319-19424-0 (Print) 978-3-319-19425-7 (Online)).
 
 %prep
 %setup -q -c -n %{packname}

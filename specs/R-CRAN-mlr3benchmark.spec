@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tseries
-%global packver   0.10-52
+%global packname  mlr3benchmark
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.52
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series Analysis and Computational Finance
+Summary:          Analysis and Visualisation of Benchmark Experiments
 
-License:          GPL-2
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-quantmod >= 0.4.9
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-quantmod >= 0.4.9
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mlr3misc 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mlr3misc 
+Requires:         R-CRAN-R6 
 
 %description
-Time series analysis and computational finance.
+Implements methods for post-hoc analysis and visualisation of benchmark
+experiments, for 'mlr3' and beyond.
 
 %prep
 %setup -q -c -n %{packname}

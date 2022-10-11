@@ -1,44 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prider
-%global packver   1.0.4
+%global __requires_exclude ^libmpi
+%global packname  landmix
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiplexed Primer Design by Linear Set Coverage Approximation
+Summary:          Landmark Prediction for Mixture Data
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-blaster 
-BuildRequires:    R-CRAN-gplots 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-blaster 
-Requires:         R-CRAN-gplots 
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Implementation of an oligonucleotide primer and probe design algorithm
-using a linearly scaling approximation of set coverage. A detailed
-description available at Smolander and Tamminen, 2021;
-<doi:10.1101/2021.09.06.459073>.
+Non-parametric prediction of survival outcomes for mixture data that
+incorporates covariates and a landmark time. Details are described in
+Garcia (2021) <doi:10.1093/biostatistics/kxz052>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ER
-%global packver   1.1.1
+%global packname  EcoEnsemble
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Effect + Residual Modelling
+Summary:          A General Framework for Combining Ecosystem Models
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstantools >= 2.1.1
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-plsVarSel 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstantools >= 2.1.1
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-plsVarSel 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-rstantools
 
 %description
-Multivariate modeling of data after deflation of interfering effects. EF
-Mosleth et al. (2021) <doi:10.1038/s41598-021-82388-w> and EF Mosleth et
-al. (2020) <doi:10.1016/B978-0-12-409547-2.14882-6>.
+Fit and sample from the ensemble model described in Spence et al (2018):
+"A general framework for combining ecosystem
+models"<https://onlinelibrary.wiley.com/doi/abs/10.1111/faf.12310>.
 
 %prep
 %setup -q -c -n %{packname}

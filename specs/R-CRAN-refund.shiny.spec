@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  refund.shiny
-%global packver   0.4.1
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Plotting for Functional Data Analyses
 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-refund 
-BuildRequires:    R-CRAN-registr 
 Requires:         R-CRAN-shiny >= 0.11
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
@@ -35,11 +35,10 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-refund 
-Requires:         R-CRAN-registr 
 
 %description
-Shiny applications are produced for different types of popular functional
-data analyses. The functional data analyses are implemented in the refund
+Produces Shiny applications for different types of popular functional data
+analyses. The functional data analyses are implemented in the refund
 package, then refund.shiny reads in the refund object and implements an
 object-specific set of plots based on the object class using S3.
 

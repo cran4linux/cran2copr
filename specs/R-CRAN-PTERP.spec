@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rjpdmp
-%global packver   2.0.0
+%global __requires_exclude ^libmpi
+%global packname  PTERP
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reversible Jump PDMP Samplers
+Summary:          PTE and RP for Optimally-Transformed Surrogate
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
-Provides an implementation of the reversible jump piecewise deterministic
-Markov processes (PDMPs) methods developed in the paper Reversible Jump
-PDMP Samplers for Variable Selection (Chevallier, Fearnhead, Sutton 2020,
-<arXiv:2010.11771>). It also contains an implementation of a Gibbs sampler
-for variable selection in Logistic regression based on Polya-Gamma
-augmentation.
+Evaluates the strength of a surrogate marker by estimating the proportion
+of treatment effect explained (PTE) and relative power(RP) for the
+optimally-transformed version of the surrogate.  Details available in Wang
+et al (2022) <arXiv:2209.08414>.
 
 %prep
 %setup -q -c -n %{packname}

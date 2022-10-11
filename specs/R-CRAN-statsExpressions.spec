@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statsExpressions
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Dataframes and Expressions with Statistical Details
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-WRS2 >= 1.1.3
-BuildRequires:    R-CRAN-performance >= 0.9.2
+BuildRequires:    R-CRAN-WRS2 >= 1.1.4
 BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.4
-BuildRequires:    R-CRAN-correlation >= 0.8.2
-BuildRequires:    R-CRAN-effectsize >= 0.7.0.5
-BuildRequires:    R-CRAN-datawizard >= 0.5.0
-BuildRequires:    R-CRAN-insight >= 0.18.2
-BuildRequires:    R-CRAN-parameters >= 0.18.2
+BuildRequires:    R-CRAN-correlation >= 0.8.3
+BuildRequires:    R-CRAN-effectsize >= 0.8.0
+BuildRequires:    R-CRAN-datawizard >= 0.6.2
+BuildRequires:    R-CRAN-parameters >= 0.19.0
+BuildRequires:    R-CRAN-insight >= 0.18.4
+BuildRequires:    R-CRAN-performance >= 0.10.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
@@ -33,14 +33,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-WRS2 >= 1.1.3
-Requires:         R-CRAN-performance >= 0.9.2
+Requires:         R-CRAN-WRS2 >= 1.1.4
 Requires:         R-CRAN-BayesFactor >= 0.9.12.4.4
-Requires:         R-CRAN-correlation >= 0.8.2
-Requires:         R-CRAN-effectsize >= 0.7.0.5
-Requires:         R-CRAN-datawizard >= 0.5.0
-Requires:         R-CRAN-insight >= 0.18.2
-Requires:         R-CRAN-parameters >= 0.18.2
+Requires:         R-CRAN-correlation >= 0.8.3
+Requires:         R-CRAN-effectsize >= 0.8.0
+Requires:         R-CRAN-datawizard >= 0.6.2
+Requires:         R-CRAN-parameters >= 0.19.0
+Requires:         R-CRAN-insight >= 0.18.4
+Requires:         R-CRAN-performance >= 0.10.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 

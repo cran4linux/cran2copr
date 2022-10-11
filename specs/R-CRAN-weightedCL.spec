@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tseries
-%global packver   0.10-52
+%global packname  weightedCL
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.52
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series Analysis and Computational Finance
+Summary:          Efficient and Feasible Inference for High-Dimensional Normal Copula Regression Models
 
-License:          GPL-2
+License:          GPL (>= 3.5.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-quantmod >= 0.4.9
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-quantmod >= 0.4.9
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-matlab 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-sure 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-matlab 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-sure 
+Requires:         R-CRAN-MASS 
 
 %description
-Time series analysis and computational finance.
+Estimates high-dimensional multivariate normal copula regression models
+with the weighted composite likelihood estimating equations in
+Nikoloulopoulos (2022) <arXiv:2203.04619>. It provides autoregressive
+moving average correlation structures and binary, ordinal, Poisson, and
+negative binomial regressions.
 
 %prep
 %setup -q -c -n %{packname}

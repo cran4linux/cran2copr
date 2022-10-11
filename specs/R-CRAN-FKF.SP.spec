@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FKF.SP
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Kalman Filtering Through Sequential Processing
 
@@ -17,11 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-mathjaxr 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-curl 
 
 %description
 Fast and flexible Kalman filtering and smoothing implementation utilizing

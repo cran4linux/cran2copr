@@ -1,27 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  blaster
-%global packver   1.0.4
+%global __requires_exclude ^libmpi
+%global packname  ibmsunburst
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Native R Implementation of an Efficient BLAST-Like Algorithm
+Summary:          Generate Personality Insights Sunburst Diagrams
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Implementation of an efficient BLAST-like sequence comparison algorithm,
-written in C++11 and using native R datatypes. Blaster is based on
-'nsearch' - Schmid et al 2018; <doi:10.1101/399782>.
+Generates Personality Insights sunburst diagrams based on 'IBM Watson'
+Personality Insights service output.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LabApplStat
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Scripts from the Data Science Laboratory (UCPH)
 
@@ -22,12 +23,14 @@ BuildRequires:    R-CRAN-emmeans
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggraph 
 Requires:         R-grid 
+Requires:         R-CRAN-vctrs 
 
 %description
 Miscellaneous scripts, e.g. functionality to make and plot factor diagrams

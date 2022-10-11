@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hydraulics
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Pipe and Open Channel Hydraulics
 
@@ -21,12 +22,14 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-units 
 
 %description
