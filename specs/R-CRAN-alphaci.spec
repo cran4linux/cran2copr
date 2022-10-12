@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegan
-%global packver   2.6-4
+%global packname  alphaci
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Community Ecology Package
+Summary:          Confidence Intervals for Coefficient Alpha and Standardized Alpha
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-permute >= 0.9.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-mgcv 
-Requires:         R-CRAN-permute >= 0.9.0
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-matrixcalc 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-matrixcalc 
 
 %description
-Ordination methods, diversity analysis and other functions for community
-and vegetation ecologists.
+Calculate confidence intervals for alpha and standardized alpha using
+asymptotic theory or the studentized bootstrap, with or without
+transformations. Supports the asymptotic distribution-free method of
+Maydeu-Olivares, et al. (2007) <doi:10.1037/1082-989X.12.2.157>, the
+pseudo-elliptical method of Yuan & Bentler (2002)
+<doi:10.1007/BF02294845>, and the normal method of van Zyl et al. (1999)
+<doi:10.1007/BF02296146>, for both coefficient alpha and standardized
+alpha.
 
 %prep
 %setup -q -c -n %{packname}

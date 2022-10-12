@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  weibull4
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  TOU
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fits Data into 4-Parameters Weibull Distribution
+Summary:          Transformed Ornstein-Uhlenbeck Model for Adsorption Kinetics
 
-License:          Creative Commons Attribution 4.0 International License
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-DEoptim >= 2.2.6
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-DEoptim >= 2.2.6
+Requires:         R-CRAN-Rdpack 
 
 %description
-Performs a curve fit to 4-parameters Weibull distribution using Metropolis
-algorithm - Markov chain-Monte Carlo method. Special usage for fitting
-COVID-19 epidemic data on daily new cases and deaths. Also, builds the
-4-parameters Weibull distribution curve using given parameters (shape,
-scale, location and area).
+Estimates the parameters of a Transformed Ornstein-Uhlenbeck (TOU)
+stochastic model for adsorption data and also the parameters of the
+related pseudo-n-order (PNO) model, such as the maximum adsorption
+capacity (qe), the adsorption rate constant (kn) and the order of the
+model (n).
 
 %prep
 %setup -q -c -n %{packname}
@@ -32,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

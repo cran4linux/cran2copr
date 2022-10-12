@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  binaryMM
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Marginalized Models for Binary Correlated Outcomes
 
@@ -26,10 +26,10 @@ Requires:         R-CRAN-Rcpp
 %description
 Estimates marginalized mean and dependence model parameters for correlated
 binary response data. Dependence model may include transition and/or
-latent variable terms. Methods are described in: Heagerty (1999)
+latent variable terms. Methods are described in: Schildcrout and Heagerty
+(2007) <doi:10.1111/j.1541-0420.2006.00680.x>, Heagerty (1999)
 <doi:10.1111/j.0006-341x.1999.00688.x>, Heagerty (2002)
-<doi:10.1111/j.0006-341x.2002.00342.x>, Schildcrout and Heagerty (2007)
-<doi:10.1111/j.1541-0420.2006.00680.x>.
+<doi:10.1111/j.0006-341x.2002.00342.x>.
 
 %prep
 %setup -q -c -n %{packname}

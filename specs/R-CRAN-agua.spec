@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  agua
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'tidymodels' Integration with 'h2o'
 
@@ -16,26 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-h2o >= 3.36.0.4
+BuildRequires:    R-CRAN-h2o >= 3.38.0.1
+BuildRequires:    R-CRAN-hardhat >= 1.1.0
+BuildRequires:    R-CRAN-tune >= 1.0.1
+BuildRequires:    R-CRAN-generics >= 0.1.3
 BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-h2o >= 3.36.0.4
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-workflows 
+Requires:         R-CRAN-h2o >= 3.38.0.1
+Requires:         R-CRAN-hardhat >= 1.1.0
+Requires:         R-CRAN-tune >= 1.0.1
+Requires:         R-CRAN-generics >= 0.1.3
 Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-hardhat 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rsample 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-workflows 
 
 %description
 Create and evaluate models using 'tidymodels' and 'h2o' <https://h2o.ai/>.

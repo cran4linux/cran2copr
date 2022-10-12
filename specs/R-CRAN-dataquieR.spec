@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataquieR
-%global packver   1.0.10
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality in Epidemiological Research
 
@@ -50,13 +50,13 @@ Requires:         R-utils
 
 %description
 Data quality assessments guided by a 'data quality framework introduced by
-Schmidt and colleagues 2021' <doi:10.1186/s12874-021-01252-7> target the
+Schmidt and colleagues, 2021' <doi:10.1186/s12874-021-01252-7> target the
 data quality dimensions integrity, completeness, consistency, and
 accuracy. The scope of applicable functions rests on the availability of
 extensive metadata which can be provided in spreadsheet tables. Either
 standardized (e.g. as 'html5' reports) or individually tailored reports
 can be generated. For an introduction into the specification of
-corresponding metadata, please refer to the 'package web site'
+corresponding metadata, please refer to the 'package website'
 <https://dataquality.ship-med.uni-greifswald.de/Annotation_of_Metadata.html>.
 
 %prep

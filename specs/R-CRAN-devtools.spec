@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  devtools
-%global packver   2.4.4
+%global packver   2.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4
+Version:          2.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Make Developing R Packages Easier
 
@@ -18,7 +19,7 @@ Requires:         R-core >= 3.0.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-roxygen2 >= 7.2.1
 BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-testthat >= 3.1.4
+BuildRequires:    R-CRAN-testthat >= 3.1.5
 BuildRequires:    R-CRAN-withr >= 2.5.0
 BuildRequires:    R-CRAN-remotes >= 2.4.2
 BuildRequires:    R-CRAN-usethis >= 2.1.6
@@ -42,7 +43,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 Requires:         R-CRAN-roxygen2 >= 7.2.1
 Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-testthat >= 3.1.4
+Requires:         R-CRAN-testthat >= 3.1.5
 Requires:         R-CRAN-withr >= 2.5.0
 Requires:         R-CRAN-remotes >= 2.4.2
 Requires:         R-CRAN-usethis >= 2.1.6

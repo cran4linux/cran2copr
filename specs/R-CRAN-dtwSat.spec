@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dtwSat
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time-Weighted Dynamic Time Warping for Satellite Image Time Series Analysis
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-ggplot2 
@@ -35,6 +36,7 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-ggplot2 
@@ -55,17 +57,17 @@ Requires:         R-CRAN-mgcv
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-foreach 
 
 %description
 Provides an implementation of the Time-Weighted Dynamic Time Warping
-(TWDTW) method for land cover mapping using satellite image time series.
-TWDTW compares unclassified satellite image time series with a set of
-known temporal patterns (e.g. phenological cycles associated with the
-vegetation). Using 'dtwSat' the user can build temporal patterns for land
-cover types, apply the TWDTW analysis for satellite datasets, visualize
-the results of the time series analysis, produce land cover maps, create
-temporal plots for land cover change, and compute accuracy assessment
-metrics.
+(TWDTW) method for land cover mapping. TWDTW computes the similarity
+between satellite image time series with a set of known temporal patterns
+(e.g. phenological cycles of the vegetation). 'dtwSat' offers the user
+methods to create temporal patterns for land cover types, perform TWDTW
+analysis for satellite datasets, visualize the results of the analysis,
+produce land cover maps, create temporal plots for land cover change, and
+compute accuracy metrics.
 
 %prep
 %setup -q -c -n %{packname}

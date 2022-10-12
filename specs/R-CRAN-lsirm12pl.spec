@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lsirm12pl
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Space Item Response Model
 
@@ -21,6 +22,9 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-MCMCpack 
@@ -28,6 +32,9 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-GPArotation 
 Requires:         R-CRAN-dplyr 
 Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-coda 
 
 %description
 Analysis of dichotomous and continuous response data using latent factor

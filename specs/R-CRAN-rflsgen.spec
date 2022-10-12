@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rflsgen
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the 'Flsgen' Neutral Landscape Generator with Targets on Landscape Indices
+Summary:          Neutral Landscape Generator with Targets on Landscape Indices
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.5.12
 BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-terra >= 1.5.12
 Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-checkmate 
 Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
 
 %description
 Interface to the 'flsgen' neutral landscape generator

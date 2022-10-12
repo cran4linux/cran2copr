@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegan
-%global packver   2.6-4
+%global packname  rxode2random
+%global packver   2.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.4
+Version:          2.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Community Ecology Package
+Summary:          Random Number Generation Functions for 'rxode2'
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-permute >= 0.9.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-mgcv 
-Requires:         R-CRAN-permute >= 0.9.0
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-sitmo 
+BuildRequires:    R-CRAN-rxode2parse 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-checkmate 
 
 %description
-Ordination methods, diversity analysis and other functions for community
-and vegetation ecologists.
+Provides the random number generation (in parallel) needed for 'rxode2'
+(Wang, Hallow and James (2016) <doi:10.1002/psp4.12052>) and 'nlmixr2'
+(Fidler et al (2019) <doi:10.1002/psp4.12445>). This split will reduce
+computational burden of recompiling 'rxode2'.
 
 %prep
 %setup -q -c -n %{packname}

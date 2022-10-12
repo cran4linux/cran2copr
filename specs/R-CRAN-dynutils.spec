@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dynutils
-%global packver   1.0.10
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Functionality for the 'dynverse' Packages
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-proxyC >= 0.3.3
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-desc 
@@ -23,12 +24,12 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-proxyC 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-proxyC >= 0.3.3
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-desc 
@@ -36,7 +37,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-proxyC 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-remotes 

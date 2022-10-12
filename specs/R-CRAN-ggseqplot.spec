@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggseqplot
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Render Sequence Plots using 'ggplot2'
 
@@ -47,14 +47,13 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-usethis 
 
 %description
-A set of wrapper functions that mainly re-produces some of the sequence
-plots rendered with TraMineR::seqplot() and 'TraMineRextras'. Whereas
-'TraMineR' uses base R to produce the plots this library draws on
-'ggplot2'. The plots are produced on the basis of a sequence object
-defined with TraMineR::seqdef(). The package automates the reshaping and
-plotting of sequence data. Resulting plots are of class 'ggplot', i.e.
-components can be added and tweaked using '+' and regular 'ggplot2'
-functions.
+A set of wrapper functions that mainly re-produces most of the sequence
+plots rendered with TraMineR::seqplot(). Whereas 'TraMineR' uses base R to
+produce the plots this library draws on 'ggplot2'. The plots are produced
+on the basis of a sequence object defined with TraMineR::seqdef(). The
+package automates the reshaping and plotting of sequence data. Resulting
+plots are of class 'ggplot', i.e. components can be added and tweaked
+using '+' and regular 'ggplot2' functions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  volesti
-%global packver   1.1.2-2
+%global __requires_exclude ^libmpi
+%global packname  SVDNF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Volume Approximation and Sampling of Convex Polytopes
+Summary:          Discrete Nonlinear Filtering for Stochastic Volatility Models
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.17
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.12.17
+Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-methods 
-Requires:         R-stats 
 
 %description
-Provides an R interface for 'volesti' C++ package. 'volesti' computes
-estimations of volume of polytopes given by (i) a set of points, (ii)
-linear inequalities or (iii) Minkowski sum of segments (a.k.a. zonotopes).
-There are three algorithms for volume estimation as well as algorithms for
-sampling, rounding and rotating polytopes. Moreover, 'volesti' provides
-algorithms for estimating copulas useful in computational finance.
+Generates simulated paths from various financial models and applies the
+discrete nonlinear filter (DNF) of Kitagawa (1987)
+<doi:10.1080/01621459.1987.10478534>.
 
 %prep
 %setup -q -c -n %{packname}

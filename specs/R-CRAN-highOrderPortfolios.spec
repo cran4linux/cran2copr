@@ -1,48 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EHR
-%global packver   0.4-10
+%global packname  highOrderPortfolios
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Electronic Health Record (EHR) Data Processing and Analysis Tool
+Summary:          Design of High-Order Portfolios Including Skewness and Kurtosis
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-CRAN-ECOSolveR 
+BuildRequires:    R-CRAN-lpSolveAPI 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-PerformanceAnalytics 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-fitHeavyTail 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-pkdata 
+Requires:         R-CRAN-ECOSolveR 
+Requires:         R-CRAN-lpSolveAPI 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-PerformanceAnalytics 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-fitHeavyTail 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-pkdata 
 
 %description
-Process and analyze electronic health record (EHR) data. The 'EHR' package
-provides modules to perform diverse medication-related studies using data
-from EHR databases. Especially, the package includes modules to perform
-pharmacokinetic/pharmacodynamic (PK/PD) analyses using EHRs, as outlined
-in Choi, Beck, McNeer, Weeks, Williams, James, Niu, Abou-Khalil, Birdwell,
-Roden, Stein, Bejan, Denny, and Van Driest (2020) <doi:10.1002/cpt.1787>.
-Additional modules will be added in future. In addition, this package
-provides various functions useful to perform Phenome Wide Association
-Study (PheWAS) to explore associations between drug exposure and
-phenotypes obtained from EHR data, as outlined in Choi, Carroll, Beck,
-Mosley, Roden, Denny, and Van Driest (2018)
-<doi:10.1093/bioinformatics/bty306>.
+The classical Markowitz's mean-variance portfolio formulation ignores
+heavy tails and skewness. High-order portfolios use higher order moments
+to better characterize the return distribution. Different formulations and
+fast algorithms are proposed for high-order portfolios based on the mean,
+variance, skewness, and kurtosis. The package is based on the papers: R.
+Zhou and D. P. Palomar (2021). "Solving High-Order Portfolios via
+Successive Convex Approximation Algorithms." <arXiv:2008.00863>. X. Wang,
+R. Zhou, J. Ying, and D. P. Palomar (2022). "Efficient and Scalable
+High-Order Portfolios Design via Parametric Skew-t Distribution."
+<arXiv:2206.02412>.
 
 %prep
 %setup -q -c -n %{packname}
