@@ -1,37 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CMplot
-%global packver   4.2.0
+%global packname  SoftBart
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Circle Manhattan Plot
+Summary:          Implements the SoftBart Algorithm
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-glmnet >= 4.0.0
+BuildRequires:    R-CRAN-scales >= 1.1.1
+BuildRequires:    R-CRAN-Rcpp >= 0.12.9
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-glmnet >= 4.0.0
+Requires:         R-CRAN-scales >= 1.1.1
+Requires:         R-CRAN-Rcpp >= 0.12.9
+Requires:         R-methods 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-MASS 
 
 %description
-Manhattan plot, a type of scatter plot, was widely used to display the
-association results. However, it is usually time-consuming and laborious
-for a non-specialist user to write scripts and adjust parameters of an
-elaborate plot. Moreover, the ever-growing traits measured have
-necessitated the integration of results from different Genome-wide
-association study researches. Circle Manhattan Plot is the first open R
-package that can lay out. Genome-wide association study P-value results in
-both traditional rectangular patterns, QQ-plot and novel circular ones.
-United in only one bull's eye style plot, association results from
-multiple traits can be compared interactively, thereby to reveal both
-similarities and differences between signals. Additional functions
-include: highlight signals, a group of SNPs, chromosome visualization and
-candidate genes around SNPs.
+Implements the SoftBart model of described by Linero and Yang (2018)
+<doi:10.1111/rssb.12293>, with the optional use of a sparsity-inducing
+prior to allow for variable selection. For usability, the package
+maintains the same style as the 'BayesTree' package.
 
 %prep
 %setup -q -c -n %{packname}

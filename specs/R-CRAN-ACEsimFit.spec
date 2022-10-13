@@ -1,37 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CMplot
-%global packver   4.2.0
+%global packname  ACEsimFit
+%global packver   0.0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          0.0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Circle Manhattan Plot
+Summary:          ACE Kin Pair Data Simulations and Model Fitting
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats >= 3.5.0
+BuildRequires:    R-CRAN-OpenMx >= 2.19.6
+Requires:         R-stats >= 3.5.0
+Requires:         R-CRAN-OpenMx >= 2.19.6
 
 %description
-Manhattan plot, a type of scatter plot, was widely used to display the
-association results. However, it is usually time-consuming and laborious
-for a non-specialist user to write scripts and adjust parameters of an
-elaborate plot. Moreover, the ever-growing traits measured have
-necessitated the integration of results from different Genome-wide
-association study researches. Circle Manhattan Plot is the first open R
-package that can lay out. Genome-wide association study P-value results in
-both traditional rectangular patterns, QQ-plot and novel circular ones.
-United in only one bull's eye style plot, association results from
-multiple traits can be compared interactively, thereby to reveal both
-similarities and differences between signals. Additional functions
-include: highlight signals, a group of SNPs, chromosome visualization and
-candidate genes around SNPs.
+A few functions aim to provide a statistic tool for three purposes. First,
+simulate kin pairs data based on the assumption that every trait is
+affected by genetic effects (A), common environmental effects (C) and
+unique environmental effects (E).Second, use kin pairs data to fit an ACE
+model and get model fit output.Third, calculate power of A estimate given
+a specific condition. For the mechanisms of power calculation, we suggest
+to check Visscher(2004)<doi:10.1375/twin.7.5.505>.
 
 %prep
 %setup -q -c -n %{packname}

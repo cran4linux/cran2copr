@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  paleopop
-%global packver   2.1.3
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pattern-Oriented Modeling Framework for Coupled Niche-Population Paleo-Climatic Models
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.5.0
+BuildRequires:    R-CRAN-trend >= 1.1.4
 BuildRequires:    R-CRAN-poems >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 0.9
 Requires:         R-CRAN-R6 >= 2.5.0
+Requires:         R-CRAN-trend >= 1.1.4
 Requires:         R-CRAN-poems >= 1.0.0
 Requires:         R-CRAN-sf >= 0.9
 

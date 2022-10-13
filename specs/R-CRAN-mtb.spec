@@ -1,26 +1,29 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mtb
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for Assisting Kitchen and Garden Projects
+Summary:          My Toolbox for Assisting Document Editing and Data Presenting
 
 License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-data.table >= 1.14.2
 BuildRequires:    R-CRAN-scales >= 1.0.0
 BuildRequires:    R-CRAN-htmltools >= 0.4.0
 BuildRequires:    R-CRAN-labeling >= 0.3
 Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-data.table >= 1.14.2
 Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-htmltools >= 0.4.0
 Requires:         R-CRAN-labeling >= 0.3

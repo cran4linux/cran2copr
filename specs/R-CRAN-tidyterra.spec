@@ -1,46 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  guiplot
-%global packver   0.2.1
+%global packname  tidyterra
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          User-Friendly GUI Plotting Tools
+Summary:          'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-shiny >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.3.1
-BuildRequires:    R-CRAN-svglite 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-terra >= 1.5.12
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-excelR 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-shiny >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.3.1
-Requires:         R-CRAN-svglite 
-Requires:         R-CRAN-DT 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 >= 3.1.0
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-terra >= 1.5.12
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-sf >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-excelR 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-Create a user-friendly plotting GUI for R. In addition, one purpose of
-creating the R package is to facilitate third-party software to call R for
-drawing, for example, 'Phoenix WinNonlin' software calls R to draw the
-drug concentration versus time curve.
+Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
+the 'terra' package. It includes also new 'geom_' functions that provide a
+convenient way of visualizing 'terra' objects with 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

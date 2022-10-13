@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CMplot
-%global packver   4.2.0
+%global packname  RobustANOVA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Circle Manhattan Plot
+Summary:          Robust One-Way ANOVA Tests under Heteroscedasticity and Nonnormality
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-PEIP 
+BuildRequires:    R-CRAN-optimbase 
+Requires:         R-stats 
+Requires:         R-CRAN-PEIP 
+Requires:         R-CRAN-optimbase 
 
 %description
-Manhattan plot, a type of scatter plot, was widely used to display the
-association results. However, it is usually time-consuming and laborious
-for a non-specialist user to write scripts and adjust parameters of an
-elaborate plot. Moreover, the ever-growing traits measured have
-necessitated the integration of results from different Genome-wide
-association study researches. Circle Manhattan Plot is the first open R
-package that can lay out. Genome-wide association study P-value results in
-both traditional rectangular patterns, QQ-plot and novel circular ones.
-United in only one bull's eye style plot, association results from
-multiple traits can be compared interactively, thereby to reveal both
-similarities and differences between signals. Additional functions
-include: highlight signals, a group of SNPs, chromosome visualization and
-candidate genes around SNPs.
+Robust tests (RW, RPB and RGF) are provided for testing the equality of
+several long-tailed symmetric (LTS) means when the variances are unknown
+and arbitrary. RW, RPB and RGF tests are robust versions of Welch's F test
+proposed by Welch (1951) <doi:10.2307/2332579>, parametric bootstrap test
+proposed by Krishnamoorthy et. al (2007) <doi:10.1016/j.csda.2006.09.039>;
+and generalized F test proposed by Weerahandi (1995)
+<doi:10.2307/2532947>;, respectively. These tests are based on the
+modified maximum likelihood (MML) estimators proposed by Tiku(1967, 1968)
+<doi:10.2307/2333859>, <doi:10.1080/01621459.1968.11009228>.
 
 %prep
 %setup -q -c -n %{packname}

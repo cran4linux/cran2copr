@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CMplot
-%global packver   4.2.0
+%global packname  R2sample
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Circle Manhattan Plot
+Summary:          Two Sample Problem Routines using Permutation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-microbenchmark 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-parallel 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-microbenchmark 
 
 %description
-Manhattan plot, a type of scatter plot, was widely used to display the
-association results. However, it is usually time-consuming and laborious
-for a non-specialist user to write scripts and adjust parameters of an
-elaborate plot. Moreover, the ever-growing traits measured have
-necessitated the integration of results from different Genome-wide
-association study researches. Circle Manhattan Plot is the first open R
-package that can lay out. Genome-wide association study P-value results in
-both traditional rectangular patterns, QQ-plot and novel circular ones.
-United in only one bull's eye style plot, association results from
-multiple traits can be compared interactively, thereby to reveal both
-similarities and differences between signals. Additional functions
-include: highlight signals, a group of SNPs, chromosome visualization and
-candidate genes around SNPs.
+The routine twosample_test() in this package runs the two sample test
+using various test statistic. The p values are found via permutation. The
+routine twosample_power() allows the calculation of the power in various
+cases, and plot_power() draws the corresponding power graphs.
 
 %prep
 %setup -q -c -n %{packname}

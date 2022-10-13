@@ -1,58 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  finetune
-%global packver   1.0.1
+%global packname  precmed
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Additional Functions for Model Tuning
+Summary:          Precision Medicine
 
-License:          MIT + file LICENSE
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 1.0.2
-BuildRequires:    R-CRAN-tune >= 1.0.1
-BuildRequires:    R-CRAN-workflows >= 0.2.6
-BuildRequires:    R-CRAN-dials >= 0.1.0
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-CRAN-gam 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MESS 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-parsnip >= 1.0.2
-Requires:         R-CRAN-tune >= 1.0.1
-Requires:         R-CRAN-workflows >= 0.2.6
-Requires:         R-CRAN-dials >= 0.1.0
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-randomForestSRC 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gbm 
+Requires:         R-CRAN-gam 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-glmnet 
+Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MESS 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-randomForestSRC 
 
 %description
-The ability to tune models is important. 'finetune' enhances the 'tune'
-package by providing more specialized methods for finding reasonable
-values of model tuning parameters.  Two racing methods described by Kuhn
-(2014) <arXiv:1405.6974> are included. An iterative search method using
-generalized simulated annealing (Bohachevsky, Johnson and Stein, 1986)
-<doi:10.1080/00401706.1986.10488128> is also included.
+A doubly robust precision medicine approach to fit, cross-validate and
+visualize prediction models for the conditional average treatment effect
+(CATE). It implements doubly robust estimation and semiparametric modeling
+approach of treatment-covariate interactions as proposed by Yadlowsky et
+al. (2020) <doi:10.1080/01621459.2020.1772080>.
 
 %prep
 %setup -q -c -n %{packname}

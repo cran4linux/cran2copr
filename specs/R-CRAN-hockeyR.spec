@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hockeyR
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collect and Clean Hockey Stats
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-janitor
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-polite 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-janitor
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-polite 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 

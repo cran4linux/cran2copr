@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gsDesign
-%global packver   3.3.0
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Sequential Design
 
@@ -16,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 0.9.2
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-ggplot2 >= 0.9.2
-Requires:         R-stats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-tools 
 Requires:         R-CRAN-dplyr 
+Requires:         R-graphics 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
 Requires:         R-CRAN-xtable 
 
 %description

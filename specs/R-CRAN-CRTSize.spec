@@ -1,37 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CMplot
-%global packver   4.2.0
+%global packname  CRTSize
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Circle Manhattan Plot
+Summary:          Sample Size Estimation Functions for Cluster Randomized Trials
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.01
+Requires:         R-core >= 2.01
 BuildArch:        noarch
 
 %description
-Manhattan plot, a type of scatter plot, was widely used to display the
-association results. However, it is usually time-consuming and laborious
-for a non-specialist user to write scripts and adjust parameters of an
-elaborate plot. Moreover, the ever-growing traits measured have
-necessitated the integration of results from different Genome-wide
-association study researches. Circle Manhattan Plot is the first open R
-package that can lay out. Genome-wide association study P-value results in
-both traditional rectangular patterns, QQ-plot and novel circular ones.
-United in only one bull's eye style plot, association results from
-multiple traits can be compared interactively, thereby to reveal both
-similarities and differences between signals. Additional functions
-include: highlight signals, a group of SNPs, chromosome visualization and
-candidate genes around SNPs.
+Sample size estimation in cluster (group) randomized trials.  Contains
+traditional power-based methods, empirical smoothing (Rotondi and Donner,
+2009), and updated meta-analysis techniques (Rotondi and Donner, 2012).
 
 %prep
 %setup -q -c -n %{packname}

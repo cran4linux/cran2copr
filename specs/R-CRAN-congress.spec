@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  repoRter.nih
-%global packver   0.1.3
+%global __requires_exclude ^libmpi
+%global packname  congress
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the 'NIH RePORTER Project' API
+Summary:          Access the Congress.gov API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,32 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.3
-BuildRequires:    R-CRAN-janitor >= 2.1.0
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-jsonlite >= 1.7.2
-BuildRequires:    R-CRAN-lubridate >= 1.7.10
-BuildRequires:    R-CRAN-httr >= 1.4.2
-BuildRequires:    R-CRAN-crayon >= 1.4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-Requires:         R-CRAN-tibble >= 3.1.3
-Requires:         R-CRAN-janitor >= 2.1.0
-Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-jsonlite >= 1.7.2
-Requires:         R-CRAN-lubridate >= 1.7.10
-Requires:         R-CRAN-httr >= 1.4.2
-Requires:         R-CRAN-crayon >= 1.4.1
-Requires:         R-CRAN-dplyr >= 1.0.7
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-assertthat >= 0.2.1
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Methods to easily build requests in the non-standard JSON schema required
-by the National Institute of Health (NIH)'s 'RePORTER Project API'
-<https://api.reporter.nih.gov/#/Search/post_v2_projects_search>. Also
-retrieve and process result sets as either a ragged or flattened 'tibble'.
+Download and read data on United States congressional proceedings. Data is
+read from the Library of Congress's Congress.gov Application Programming
+Interface (<https://github.com/LibraryOfCongress/api.congress.gov/>).
+Functions exist for all version 3 endpoints, including for bills,
+amendments, congresses, summaries, members, reports, communications,
+nominations, and treaties.
 
 %prep
 %setup -q -c -n %{packname}
