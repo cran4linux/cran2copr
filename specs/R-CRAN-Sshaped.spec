@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Sshaped
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric, Tuning-Free Estimation of S-Shaped Functions
 
@@ -23,7 +24,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.5
 Estimation of an S-shaped function and its corresponding inflection point
 via a least squares approach. A sequential mixed primal-dual based
 algorithm is implemented for the fast computation. Details can be found in
-Feng et al. (2021) <arXiv:2107.07257>.
+Feng et al. (2022) <doi:10.1111/rssb.12481>.
 
 %prep
 %setup -q -c -n %{packname}

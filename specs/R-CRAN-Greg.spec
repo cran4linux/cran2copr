@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Greg
-%global packver   1.4.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Helper Functions
 
@@ -14,41 +14,55 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlTable >= 2.0.0
 BuildRequires:    R-CRAN-Gmisc >= 1.0.3
 BuildRequires:    R-CRAN-forestplot 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-Epi 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-Epi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 Requires:         R-CRAN-htmlTable >= 2.0.0
 Requires:         R-CRAN-Gmisc >= 1.0.3
 Requires:         R-CRAN-forestplot 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-Epi 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-knitr 
+Requires:         R-methods 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rms 
 Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-methods 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-Epi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 
 %description
 Methods for manipulating regression models and for describing these in a
@@ -56,7 +70,7 @@ style adapted for medical journals. Contains functions for generating an
 HTML table with crude and adjusted estimates, plotting hazard ratio,
 plotting model estimates and confidence intervals using forest plots,
 extending this to comparing multiple models in a single forest plots. In
-addition to the descriptive methods, there are add-ons for the robust
+addition to the descriptive methods, there are functions for the robust
 covariance matrix provided by the 'sandwich' package, a function for
 adding non-linearities to a model, and a wrapper around the 'Epi'
 package's Lexis() functions for time-splitting a dataset when modeling

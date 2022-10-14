@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pRecipe
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Precipitation R Recipe
+Summary:          Precipitation R Recipes
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,21 +19,25 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-methods 
 Requires:         R-CRAN-ncdf4 
+Requires:         R-parallel 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-utils 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  statquotes
-%global packver   0.2.6
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quotes on Statistics, Data Visualization and Science
 
@@ -26,7 +27,8 @@ Requires:         R-CRAN-wordcloud
 %description
 Generates a random quotation from a data base of quotes on topics in
 statistics, data visualization and science. Other functions allow
-searching the quotes database or creating a word cloud.
+searching the quotes database by key term tags, or authors or creating a
+word cloud.
 
 %prep
 %setup -q -c -n %{packname}

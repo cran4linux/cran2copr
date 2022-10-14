@@ -1,44 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oem
-%global packver   2.0.11
+%global packname  volesti
+%global packver   1.1.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.11
+Version:          1.1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Orthogonalizing EM: Penalized Regression for Big Tall Data
+Summary:          Volume Approximation and Sampling of Convex Polytopes
 
-License:          GPL (>= 2)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-bigmemory 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.17
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-bigmemory 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-Rcpp >= 0.12.17
 Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Solves penalized least squares problems for big tall data using the
-orthogonalizing EM algorithm of Xiong et al. (2016)
-<doi:10.1080/00401706.2015.1054436>. The main fitting function is oem()
-and the functions cv.oem() and xval.oem() are for cross validation, the
-latter being an accelerated cross validation function for linear models.
-The big.oem() function allows for out of memory fitting. A description of
-the underlying methods and code interface is described in Huling and Chien
-(2022) <doi:10.18637/jss.v104.i06>.
+Provides an R interface for 'volesti' C++ package. 'volesti' computes
+estimations of volume of polytopes given by (i) a set of points, (ii)
+linear inequalities or (iii) Minkowski sum of segments (a.k.a. zonotopes).
+There are three algorithms for volume estimation as well as algorithms for
+sampling, rounding and rotating polytopes. Moreover, 'volesti' provides
+algorithms for estimating copulas useful in computational finance. Methods
+implemented in 'volesti' are described in A. Chalkis and V. Fisikopoulos
+(2022) <doi:10.32614/RJ-2021-077> and references therein.
 
 %prep
 %setup -q -c -n %{packname}

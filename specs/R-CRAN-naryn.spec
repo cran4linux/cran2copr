@@ -1,44 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oem
-%global packver   2.0.11
+%global packname  naryn
+%global packver   2.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.11
+Version:          2.6.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Orthogonalizing EM: Penalized Regression for Big Tall Data
+Summary:          Native Access Medical Record Retriever for High Yield Analytics
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-bigmemory 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-bigmemory 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-foreach 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Solves penalized least squares problems for big tall data using the
-orthogonalizing EM algorithm of Xiong et al. (2016)
-<doi:10.1080/00401706.2015.1054436>. The main fitting function is oem()
-and the functions cv.oem() and xval.oem() are for cross validation, the
-latter being an accelerated cross validation function for linear models.
-The big.oem() function allows for out of memory fitting. A description of
-the underlying methods and code interface is described in Huling and Chien
-(2022) <doi:10.18637/jss.v104.i06>.
+A toolkit for medical records data analysis. The 'naryn' package
+implements an efficient data structure for storing medical records, and
+provides a set of functions for data extraction, manipulation and
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

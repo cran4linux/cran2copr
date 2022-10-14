@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PReMiuM
-%global packver   3.2.7
+%global packver   3.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.7
+Version:          3.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dirichlet Process Bayesian Clustering, Profile Regression
 
@@ -19,8 +20,8 @@ BuildRequires:    R-CRAN-gamlss.dist >= 4.3.1
 BuildRequires:    R-CRAN-plotrix >= 3.6.6
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-BH >= 1.65.0.1
-BuildRequires:    R-CRAN-rgdal >= 1.3.3
 BuildRequires:    R-CRAN-data.table >= 1.10.4.3
+BuildRequires:    R-CRAN-sf >= 1.0.8
 BuildRequires:    R-CRAN-spdep >= 0.7.7
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
@@ -28,8 +29,8 @@ BuildRequires:    R-CRAN-cluster
 Requires:         R-CRAN-gamlss.dist >= 4.3.1
 Requires:         R-CRAN-plotrix >= 3.6.6
 Requires:         R-CRAN-ggplot2 >= 2.2
-Requires:         R-CRAN-rgdal >= 1.3.3
 Requires:         R-CRAN-data.table >= 1.10.4.3
+Requires:         R-CRAN-sf >= 1.0.8
 Requires:         R-CRAN-spdep >= 0.7.7
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-cluster 

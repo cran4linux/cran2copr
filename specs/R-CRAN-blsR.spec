@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blsR
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Requests from the Bureau of Labor Statistics API
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
 
 %description
 Implements v2 of the B.L.S. API for requests of survey information and
