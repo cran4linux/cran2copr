@@ -1,51 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggblanket
-%global packver   1.5.0
+%global packname  StemAnalysis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify 'ggplot2' Visualisation
+Summary:          Reconstructing Tree Growth and Carbon Accumulation with Stem Analysis Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-CRAN-lmfor >= 1.0
+Requires:         R-CRAN-lmfor >= 1.0
 
 %description
-Simplify 'ggplot2' visualisation with 'ggblanket' wrapper functions.
+Use stem analysis data to reconstructing tree growth and carbon
+accumulation. Users can independently or in combination perform a number
+of standard tasks for any tree species. (i) Age class determination. (ii)
+The cumulative growth, mean annual increment, and current annual increment
+of diameter at breast height (DBH) with bark, tree height, and stem volume
+with bark are estimated. (iii) Tree biomass and carbon storage estimation
+from volume and allometric models are calculated. (iv) Height-diameter
+relationship is fitted with nonlinear models, if diameter at breast height
+(DBH) or tree height are available, which can be used to retrieve tree
+height and diameter at breast height (DBH).
+<https://github.com/forestscientist/StemAnalysis>.
 
 %prep
 %setup -q -c -n %{packname}

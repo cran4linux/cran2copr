@@ -1,51 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggblanket
-%global packver   1.5.0
+%global packname  twopartm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify 'ggplot2' Visualisation
+Summary:          Two-Part Model with Marginal Effects
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-MASS 
 
 %description
-Simplify 'ggplot2' visualisation with 'ggblanket' wrapper functions.
+Fit two-part regression models for zero-inflated data. The models and
+their components are represented using S4 classes and methods. Average
+Marginal effects and predictive margins with standard errors and
+confidence intervals can be calculated from two-part model objects.
+Belotti, F., Deb, P., Manning, W. G., & Norton, E. C. (2015)
+<doi:10.1177/1536867X1501500102>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggblanket
-%global packver   1.5.0
+%global packname  bullishTrader
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify 'ggplot2' Visualisation
+Summary:          Bullish Trading Strategies Through Graphs
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,35 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-graphics 
+Requires:         R-graphics 
 
 %description
-Simplify 'ggplot2' visualisation with 'ggblanket' wrapper functions.
+Stock, Options and Futures Trading Strategies for Traders and Investors
+with Bullish Outlook are represented here through their Graphs. The
+graphic indicators, strategies, calculations, functions and all the
+discussions are for academic, research, and educational purposes only and
+should not be construed as investment advice and come with absolutely no
+Liability. Guy Cohen (“The Bible of Options Strategies (2nd ed.)”, 2015,
+ISBN: 9780133964028). Zura Kakushadze, Juan A. Serur (“151 Trading
+Strategies”, 2018, ISBN: 9783030027919). John C. Hull (“Options, Futures,
+and Other Derivatives (11th ed.)”, 2022, ISBN: 9780136939979).
 
 %prep
 %setup -q -c -n %{packname}

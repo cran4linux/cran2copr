@@ -1,51 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggblanket
-%global packver   1.5.0
+%global packname  FuzzyStatTraEOO
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify 'ggplot2' Visualisation
+Summary:          Package 'FuzzyStatTra' in Encapsulated Object Oriented Programming
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-testthat 
 
 %description
-Simplify 'ggplot2' visualisation with 'ggblanket' wrapper functions.
+The aim of the package is to contain the package 'FuzzyStatTra' in
+Encapsulated Object Oriented Programming using R6. 'FuzzyStatTra' contains
+Statistical Methods for Trapezoidal Fuzzy Numbers, whose aim is to provide
+some basic functions for doing statistical analysis with trapezoidal fuzzy
+numbers. For more details, you can visit the website of the SMIRE+CoDiRE
+(Statistical Methods with Imprecise Random Elements and Comparison of
+Distributions of Random Elements) Research Group
+(<https://bellman.ciencias.uniovi.es/smire+codire/>). The most related
+paper can be found in References. Now, those functions are organized in
+specific classes and methods. This object-based approach is an important
+step in making statistical computing more accessible to users.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BiOFI
-%global packver   0.1.0
+%global packname  DYNATE
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Feature Identification Between Metabolome and Microbiome in Disease and Health
+Summary:          Dynamic Aggregation Testing
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,37 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-networkD3 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-visNetwork 
-BuildRequires:    R-CRAN-ppcor 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-networkD3 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-visNetwork 
-Requires:         R-CRAN-ppcor 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-reshape2 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 
 %description
-A strategy that provides the identification of metabolome and microbiome
-(Bi-omics) feature. It is able to screen out key/driving features
-(metabolites, microbes, and pathway functions) by an integrated importance
-score (IIS),combining sub-scores derived from difference, correlation,
-abundance, and network analysis. It is able to identify
-microbe-function-metabolite chains and to rank association pairs within
-specific functions.
+A multiple testing procedure aims to find the rare-variant association
+regions. When variants are rare, the single variant association test
+approach suffers from low power. To improve testing power, the procedure
+dynamically and hierarchically aggregates smaller genome regions to larger
+ones and performs multiple testing for disease associations with a
+controlled node-level false discovery rate. This method are members of the
+family of ancillary information assisted recursive testing introduced in
+Pura, Li, Chan and Xie (2021) <arXiv:1906.07757v2> and Li, Sung and Xie
+(2021) <arXiv:2103.11085v2>.
 
 %prep
 %setup -q -c -n %{packname}

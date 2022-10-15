@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  worldfootballR
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract and Clean World Football (Soccer) Data
 
@@ -41,6 +41,7 @@ BuildRequires:    R-CRAN-withr
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-dplyr 
@@ -65,6 +66,7 @@ Requires:         R-CRAN-withr
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
 
 %description
 Allow users to obtain clean and tidy football (soccer) game, team and

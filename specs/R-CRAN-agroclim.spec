@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  agroclim
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Climatic Indices for Agriculture
 
@@ -19,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-raster 
@@ -35,7 +35,6 @@ BuildRequires:    R-tools
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-raster 

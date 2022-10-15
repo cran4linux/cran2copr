@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggblanket
-%global packver   1.5.0
+%global packname  mlpwr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify 'ggplot2' Visualisation
+Summary:          A Power Analysis Toolbox to Find Cost-Efficient Study Designs
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,35 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-WeightSVM 
+BuildRequires:    R-CRAN-rgenoud 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-DiceKriging 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-WeightSVM 
+Requires:         R-CRAN-rgenoud 
 
 %description
-Simplify 'ggplot2' visualisation with 'ggblanket' wrapper functions.
+We implement a surrogate modeling algorithm to guide simulation-based
+sample size planning. The method is described in detail in a recent
+preprint (Zimmer & Debelak (2022) <doi:10.31234/osf.io/tnhb2>). It
+supports multiple study design parameters and optimization with respect to
+a cost function. It can find optimal designs that correspond to a desired
+statistical power or that fulfill a cost constraint.
 
 %prep
 %setup -q -c -n %{packname}

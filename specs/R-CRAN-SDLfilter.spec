@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SDLfilter
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Filtering and Assessing the Sample Size of Tracking Data
 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-emmeans
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-plotKML 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-data.table 
@@ -44,6 +46,7 @@ Requires:         R-CRAN-emmeans
 Requires:         R-utils 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 
+Requires:         R-CRAN-plotKML 
 
 %description
 Functions to filter GPS/Argos locations, as well as assessing the sample
