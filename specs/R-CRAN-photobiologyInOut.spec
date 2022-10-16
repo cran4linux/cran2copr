@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  photobiologyInOut
-%global packver   0.4.25
+%global packver   0.4.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.25
+Version:          0.4.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Spectral and Logged Data from Foreign Files
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-anytime >= 0.3.9
-BuildRequires:    R-CRAN-photobiology >= 0.10.9
+BuildRequires:    R-CRAN-photobiology >= 0.10.10
 BuildRequires:    R-methods 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
@@ -42,7 +42,7 @@ Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-anytime >= 0.3.9
-Requires:         R-CRAN-photobiology >= 0.10.9
+Requires:         R-CRAN-photobiology >= 0.10.10
 Requires:         R-methods 
 Requires:         R-tools 
 Requires:         R-utils 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AutoScore
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interpretable Machine Learning-Based Automatic Clinical Score Generator
 
@@ -13,33 +14,58 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tableone 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-coxed 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ordinal 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-randomForestSRC 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-survAUC 
+BuildRequires:    R-CRAN-survminer 
 Requires:         R-CRAN-tableone 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-coxed 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ordinal 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-randomForestSRC 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-survAUC 
+Requires:         R-CRAN-survminer 
 
 %description
 A novel interpretable machine learning-based framework to automate the
 development of a clinical scoring model for predefined outcomes. Our novel
 framework consists of six modules: variable ranking with machine learning,
 variable transformation, score derivation, model selection, domain
-knowledge-based score fine-tuning, and performance evaluation.The details
-are described in our research paper<doi:10.2196/21798>. Users or
-clinicians could seamlessly generate parsimonious sparse-score risk models
-(i.e., risk scores), which can be easily implemented and validated in
-clinical practice. We hope to see its application in various medical case
-studies.
+knowledge-based score fine-tuning, and performance evaluation.The The
+original AutoScore structure is described in the research
+paper<doi:10.2196/21798>. A full tutorial can be found
+here<https://nliulab.github.io/AutoScore/>. Users or clinicians could
+seamlessly generate parsimonious sparse-score risk models (i.e., risk
+scores), which can be easily implemented and validated in clinical
+practice. We hope to see its application in various medical case studies.
 
 %prep
 %setup -q -c -n %{packname}
