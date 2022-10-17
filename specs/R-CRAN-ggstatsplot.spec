@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggstatsplot
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statsExpressions >= 1.3.3
-BuildRequires:    R-CRAN-performance >= 0.9.2
-BuildRequires:    R-CRAN-correlation >= 0.8.2
-BuildRequires:    R-CRAN-datawizard >= 0.5.0
-BuildRequires:    R-CRAN-insight >= 0.18.2
-BuildRequires:    R-CRAN-parameters >= 0.18.2
+BuildRequires:    R-CRAN-statsExpressions >= 1.3.4
+BuildRequires:    R-CRAN-correlation >= 0.8.3
+BuildRequires:    R-CRAN-datawizard >= 0.6.2
+BuildRequires:    R-CRAN-parameters >= 0.19.0
+BuildRequires:    R-CRAN-insight >= 0.18.5
+BuildRequires:    R-CRAN-performance >= 0.10.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
@@ -35,12 +35,12 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-statsExpressions >= 1.3.3
-Requires:         R-CRAN-performance >= 0.9.2
-Requires:         R-CRAN-correlation >= 0.8.2
-Requires:         R-CRAN-datawizard >= 0.5.0
-Requires:         R-CRAN-insight >= 0.18.2
-Requires:         R-CRAN-parameters >= 0.18.2
+Requires:         R-CRAN-statsExpressions >= 1.3.4
+Requires:         R-CRAN-correlation >= 0.8.3
+Requires:         R-CRAN-datawizard >= 0.6.2
+Requires:         R-CRAN-parameters >= 0.19.0
+Requires:         R-CRAN-insight >= 0.18.5
+Requires:         R-CRAN-performance >= 0.10.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
@@ -63,7 +63,8 @@ dot-and-whisker plots) or categorical (pie and bar charts) data.
 Currently, it supports the most common types of statistical approaches and
 tests: parametric, nonparametric, robust, and Bayesian versions of
 t-test/ANOVA, correlation analyses, contingency table analysis,
-meta-analysis, and regression analyses.
+meta-analysis, and regression analyses. References: Patil (2021)
+<doi:10.21105/joss.03236>.
 
 %prep
 %setup -q -c -n %{packname}

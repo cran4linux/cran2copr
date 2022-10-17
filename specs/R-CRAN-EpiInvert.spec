@@ -1,41 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boomer
-%global packver   0.1.1
+%global packname  EpiInvert
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Debugging Tools to Inspect the Intermediate Steps of a Call
+Summary:          Incidence Curve Decomposition by Inverting the Renewal Equation
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pryr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-styler 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-crayon 
-Requires:         R-methods 
-Requires:         R-CRAN-pryr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-styler 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
+Requires:         R-CRAN-Rcpp >= 1.0.8.3
 
 %description
-Provides debugging tools that let you inspect the intermediate results of
-a call. The output looks as if we explode a call into its parts hence the
-package name.
+Estimation, by inverting a renewal equation, of time-varying reproduction
+numbers, 7-day seasonality, and restored incidence curves with festive
+days bias corrected as described in Alvarez et al. (2021)
+<doi:10.1073/pnas.2105112118> and Alvarez et al. (2022)
+<doi:10.3390/biology11040540>. 'EpiInvert' can manage daily incidence data
+and weekly aggregated incidence data. This version of the package also
+includes 'EpiInvertForecast', a learning method for the short time
+forecast of the restored incidence curve.
 
 %prep
 %setup -q -c -n %{packname}

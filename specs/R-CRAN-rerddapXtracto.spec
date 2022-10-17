@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rerddapXtracto
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracts Environmental Data from 'ERDDAP' Web Services
 
@@ -16,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rerddap >= 0.6.0
+BuildRequires:    R-CRAN-rerddap >= 0.8.0
 BuildRequires:    R-CRAN-plotdap >= 0.0.5
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-dplyr 
@@ -31,7 +32,7 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-rerddap >= 0.6.0
+Requires:         R-CRAN-rerddap >= 0.8.0
 Requires:         R-CRAN-plotdap >= 0.0.5
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-dplyr 

@@ -1,44 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3spatiotempcv
-%global packver   2.0.2
+%global packname  factset.protobuf.stach.v2
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatiotemporal Resampling Methods for 'mlr3'
+Summary:          'FactSet' 'STACH V2' Library
 
-License:          LGPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3misc >= 0.9.2
-BuildRequires:    R-CRAN-mlr3 >= 0.12.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-RProtoBuf 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-mlr3misc >= 0.9.2
-Requires:         R-CRAN-mlr3 >= 0.12.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-RProtoBuf 
 Requires:         R-CRAN-R6 
-Requires:         R-utils 
 
 %description
-Extends the mlr3 ML framework with spatio-temporal resampling methods to
-account for the presence of spatiotemporal autocorrelation (STAC) in
-predictor variables. STAC may cause highly biased performance estimates in
-cross-validation if ignored.
+Generates 'RProtobuf' classes for 'FactSet' 'STACH V2' tabular format
+which represents complex multi-dimensional array of data. These classes
+help in the 'serialization' and 'deserialization' of 'STACH V2' formatted
+data. See 'GitHub' repository documentation for more information.
 
 %prep
 %setup -q -c -n %{packname}

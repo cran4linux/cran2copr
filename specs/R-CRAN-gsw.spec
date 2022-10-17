@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gsw
-%global packver   1.0-6
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gibbs Sea Water Functions
 
@@ -18,11 +19,11 @@ Requires:         R-core >= 3.5.0
 
 %description
 Provides an interface to the Gibbs 'SeaWater' ('TEOS-10') C library,
-version 3.05 (commit 'f7bfebf44f686034636facb09852f1d5760c27f5', dated
-2021-03-27, available at <https://github.com/TEOS-10/GSW-C>, which stems
-from 'Matlab' and other code written by members of Working Group 127 of
-'SCOR'/'IAPSO' (Scientific Committee on Oceanic Research / International
-Association for the Physical Sciences of the Oceans).
+version 3.06-16-0 (commit '657216dd4f5ea079b5f0e021a4163e2d26893371',
+dated 2022-10-11, available at <https://github.com/TEOS-10/GSW-C>, which
+stems from 'Matlab' and other code written by members of Working Group 127
+of 'SCOR'/'IAPSO' (Scientific Committee on Oceanic Research /
+International Association for the Physical Sciences of the Oceans).
 
 %prep
 %setup -q -c -n %{packname}
@@ -32,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

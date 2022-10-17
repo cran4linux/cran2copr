@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spacefillr
-%global packver   0.3.1
+%global packname  vscc
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Space-Filling Random and Quasi-Random Sequences
+Summary:          Variable Selection for Clustering and Classification
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-teigen 
+BuildRequires:    R-CRAN-mclust 
+Requires:         R-CRAN-teigen 
+Requires:         R-CRAN-mclust 
 
 %description
-Generates random and quasi-random space-filling sequences. Supports the
-following sequences: 'Halton', 'Sobol', 'Owen'-scrambled 'Sobol',
-'Owen'-scrambled 'Sobol' with errors distributed as blue noise,
-progressive jittered, progressive multi-jittered ('PMJ'), 'PMJ' with blue
-noise, 'PMJ02', and 'PMJ02' with blue noise. Includes a 'C++' 'API'.
-Methods derived from "Constructing Sobol sequences with better
-two-dimensional projections" (2012) <doi:10.1137/070709359> S. Joe and F.
-Y. Kuo, "Progressive Multi-Jittered Sample Sequences" (2018)
-<https://graphics.pixar.com/library/ProgressiveMultiJitteredSampling/paper.pdf>
-Christensen, P., Kensler, A. and Kilpatrick, C., and "A Low-Discrepancy
-Sampler that Distributes Monte Carlo Errors as a Blue Noise in Screen
-Space" (2019) E. Heitz, B. Laurent, O. Victor, C. David and I.
-Jean-Claude, <doi:10.1145/3306307.3328191>.
+Performs variable selection/feature reduction under a clustering or
+classification framework. In particular, it can be used in an automated
+fashion using mixture model-based methods ('teigen' and 'mclust' are
+currently supported). See Andrews and McNicholas (2014)
+<doi:10.1007/s00357-013-9139-2>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdm2id
-%global packver   0.9.7
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Mining and R Programming for Beginners
 
@@ -18,11 +18,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-arules 
+BuildRequires:    R-CRAN-arulesViz 
 BuildRequires:    R-CRAN-FactoMineR 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-pls 
 Requires:         R-CRAN-arules 
+Requires:         R-CRAN-arulesViz 
 Requires:         R-CRAN-FactoMineR 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-nnet 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PKNCA
-%global packver   0.9.5
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Pharmacokinetic Non-Compartmental Analysis
 
@@ -17,6 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.5.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-parallel 
@@ -27,6 +29,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr >= 0.5.0
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-nlme 
 Requires:         R-parallel 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semmcci
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monte Carlo Confidence Intervals in Structural Equation Modeling
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-lavaan 
 Requires:         R-stats 
-Requires:         R-CRAN-lavaan 
 Requires:         R-methods 
+Requires:         R-CRAN-lavaan 
 
 %description
 Monte Carlo confidence intervals for free and defined parameters in models

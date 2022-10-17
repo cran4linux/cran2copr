@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  africamonitor
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Africa Macroeconomic Monitor Database API
 
@@ -16,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-collapse >= 1.8.0
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RMySQL 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-collapse 
+Requires:         R-CRAN-collapse >= 1.8.0
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RMySQL 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-collapse 
 
 %description
 An R API providing access to a relational database with macroeconomic data

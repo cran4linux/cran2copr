@@ -1,52 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sfnetworks
-%global packver   0.6.0
+%global packname  unitquantreg
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Geospatial Networks
+Summary:          Parametric Quantile Regression Models for Bounded Data
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-lwgeom 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sfheaders 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dplyr 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-lwgeom 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sfheaders 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-units 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-optimx 
+Requires:         R-stats 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Provides a tidy approach to spatial network analysis, in the form of
-classes and functions that enable a seamless interaction between the
-network analysis package 'tidygraph' and the spatial analysis package
-'sf'.
+A collection of parametric quantile regression models for bounded data. At
+present, the package provides 13 parametric quantile regression models. It
+can specify regression structure for any quantile and shape parameters. It
+also provides several S3 methods to extract information from fitted model,
+such as residual analysis, prediction, plotting, and model comparison. For
+more computation efficient the [dpqr]'s, likelihood, score and hessian
+functions are written in C++. For further details see Mazucheli et. al
+(2022) <doi:10.1016/j.cmpb.2022.106816>.
 
 %prep
 %setup -q -c -n %{packname}
