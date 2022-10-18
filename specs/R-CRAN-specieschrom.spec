@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  logconcens
-%global packver   0.17-1
+%global packname  specieschrom
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Estimation of a Log-Concave Density Based on Censored Data
+Summary:          The Species Chromatogram
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-colorRamps 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+Requires:         R-CRAN-colorRamps 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
 Requires:         R-utils 
 
 %description
-Based on right or interval censored data, compute the maximum likelihood
-estimator of a (sub)probability density under the assumption that it is
-log-concave. For further information see Duembgen, Rufibach and
-Schuhmacher (2014) <doi:10.1214/14-EJS930>.
+A simple method to display and characterise the multidimensional
+ecological niche of a species. The method also estimates the optimums and
+amplitudes along each niche dimension. Give also an estimation of the
+degree of niche overlapping between species. See Kleparski and Beaugrand
+(2022) <doi:10.1002/ece3.8830> for further details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VaRES
-%global packver   1.0.1
+%global __requires_exclude ^libmpi
+%global packname  googleadsR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computes Value at Risk and Expected Shortfall for over 100 Parametric Distributions
+Summary:          Access to Google Ads via the 'Windsor.ai' API
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-Computes Value at risk and expected shortfall, two most popular measures
-of financial risk, for over one hundred parametric distributions,
-including all commonly known distributions.  Also computed are the
-corresponding probability density function and cumulative distribution
-function.
+Collect marketing data from google Ads using the 'Windsor.ai' API
+<https://windsor.ai/api-fields/>.
 
 %prep
 %setup -q -c -n %{packname}

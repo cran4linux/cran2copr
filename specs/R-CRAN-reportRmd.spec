@@ -1,50 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  doBy
-%global packver   4.6.14
+%global packname  reportRmd
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.14
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Groupwise Statistics, LSmeans, Linear Estimates, Utilities
+Summary:          Tidy Presentation of Clinical Reporting
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pbkrtest >= 0.4.8.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-Deriv 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-aod 
+BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-microbenchmark 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-pbkrtest >= 0.4.8.1
-Requires:         R-methods 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-Deriv 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-pander 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-aod 
+Requires:         R-CRAN-cmprsk 
+Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-microbenchmark 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-pander 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-survival 
 
 %description
-Utility package containing: 1) Facilities for working with grouped data:
-'do' something to data stratified 'by' some variables. 2) LSmeans
-(least-squares means), general linear estimates. 3) Restrict functions to
-a smaller domain. 4) Miscellaneous other utilities.
+Streamlined statistical reporting in 'Rmarkdown' environments. Facilitates
+the automated reporting of descriptive statistics, multiple univariate
+models, multivariable models and tables combining these outputs. Plotting
+functions include customisable survival curves, forest plots from logistic
+and ordinal regression and bivariate comparison plots.
 
 %prep
 %setup -q -c -n %{packname}

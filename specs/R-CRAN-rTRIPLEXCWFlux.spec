@@ -1,46 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WLinfer
-%global packver   1.2.0
+%global packname  rTRIPLEXCWFlux
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference in Weighted Lindley Distribution
+Summary:          Carbon-Water Coupled Model
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LindleyR 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-goftest 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-bbmle 
-Requires:         R-CRAN-LindleyR 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-nleqslv 
-Requires:         R-stats 
-Requires:         R-CRAN-goftest 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-bbmle 
 
 %description
-Estimate the parameters of weighted Lindley distribution, and provide some
-useful results like goodness of fit or confidence interval etc. Ghitany,
-M., Alqallaf, F., Al-Mutairi, D., Husain, H. (2011)
-<doi:10.1016/j.matcom.2010.11.005>. Hyoung-Moon Kim. and Yu-Hyeong Jang.
-(2021) <doi:10.1007/s42952-020-00097-y>. Wang, M., Wang, W. (2017)
-<doi:10.1080/03610918.2014.970696>.
+A carbon-water coupled model (TRIPLEX-CW-Flux) is based on two
+well-established models, TRIPLEX-Flux model and Penman–Monteith model,
+integrates soil water and water vapor pressure deficits into the stomatal
+conductance submodule to estimate net ecosystem production and
+evapotranspiration in forest
+ecosystems.<https://github.com/ShulanSun/rTRIPLEX_CW_Flux>.
 
 %prep
 %setup -q -c -n %{packname}

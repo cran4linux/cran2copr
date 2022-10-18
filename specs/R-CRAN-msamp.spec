@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  logconcens
-%global packver   0.17-1
+%global packname  msamp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Estimation of a Log-Concave Density Based on Censored Data
+Summary:          Estimate Sample Size to Detect Bacterial Contamination in a Product Lot
 
-License:          GPL (>= 2)
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grDevices 
+BuildRequires:    R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
-Based on right or interval censored data, compute the maximum likelihood
-estimator of a (sub)probability density under the assumption that it is
-log-concave. For further information see Duembgen, Rufibach and
-Schuhmacher (2014) <doi:10.1214/14-EJS930>.
+Estimates the sample size needed to detect microbial contamination in a
+lot with a user-specified detection probability and user-specified
+analytical sensitivity. Various patterns of microbial contamination are
+accounted for: homogeneous (Poisson), heterogeneous (Poisson-Gamma) or
+localized(Zero-inflated Poisson). Ida Jongenburger et al. (2010)
+<doi:10.1016/j.foodcont.2012.02.004> "Impact of microbial distributions on
+food safety". Leroy Simon (1963) <doi:10.1017/S0515036100001975> "Casualty
+Actuarial Society - The Negative Binomial and Poisson Distributions
+Compared".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SCpubr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Publication Ready Visualizations of Single Cell Transcriptomics Data
 
@@ -21,7 +21,7 @@ BuildArch:        noarch
 %description
 A system that provides a streamlined way of generating publication ready
 plots for known Single-Cell transcriptomics data in a “publication ready”
-format. This is, the aim is to automatically generate plots with the
+format. This is, the goal is to automatically generate plots with the
 highest quality possible, that can be used right away or with minimal
 modifications for a research article.
 

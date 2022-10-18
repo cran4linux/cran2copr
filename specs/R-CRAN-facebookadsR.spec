@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  logconcens
-%global packver   0.17-1
+%global packname  facebookadsR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Estimation of a Log-Concave Density Based on Censored Data
+Summary:          Access to Facebook Ads via the 'Windsor.ai' API
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-Based on right or interval censored data, compute the maximum likelihood
-estimator of a (sub)probability density under the assumption that it is
-log-concave. For further information see Duembgen, Rufibach and
-Schuhmacher (2014) <doi:10.1214/14-EJS930>.
+Collect marketing data from facebook Ads using the 'Windsor.ai' API
+<https://windsor.ai/api-fields/>. Use four spaces when indenting
+paragraphs within the Description.
 
 %prep
 %setup -q -c -n %{packname}

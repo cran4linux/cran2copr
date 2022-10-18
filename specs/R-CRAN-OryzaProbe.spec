@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  logconcens
-%global packver   0.17-1
+%global packname  OryzaProbe
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Estimation of a Log-Concave Density Based on Censored Data
+Summary:          Rice Microarray Probe ID Conversion, from Probe ID to RAP-DB ID
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Based on right or interval censored data, compute the maximum likelihood
-estimator of a (sub)probability density under the assumption that it is
-log-concave. For further information see Duembgen, Rufibach and
-Schuhmacher (2014) <doi:10.1214/14-EJS930>.
+Microarray probe ID is not convenient for further enrichment analysis and
+target gene selection. The package is created for the rice microarray
+probe ID conversion. This package can convert microarray probe ID from
+GPL6864 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL6864>,
+GPL8852 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL8852>, and
+GPL2025 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL2025>
+platforms to RAP-DB ID. RAP-DB "The Rice Annotation Project Database"
+<https://rapdb.dna.affrc.go.jp> is a well-known database for rice Oryza
+sativa, and the gene ID in this database is widely used in many areas
+related to rice research. For multiple probes representing a single gene,
+This package can merge them by taking the mean, max, or min value of these
+probes. Or we can keep multiple probes by appending sequence numbers to
+duplicate the RAP-DB ID.
 
 %prep
 %setup -q -c -n %{packname}

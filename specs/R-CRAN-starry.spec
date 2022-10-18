@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  logconcens
-%global packver   0.17-1
+%global packname  starry
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Estimation of a Log-Concave Density Based on Censored Data
+Summary:          Explore Data with Plots and Tables
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyWidgets 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyWidgets 
 
 %description
-Based on right or interval censored data, compute the maximum likelihood
-estimator of a (sub)probability density under the assumption that it is
-log-concave. For further information see Duembgen, Rufibach and
-Schuhmacher (2014) <doi:10.1214/14-EJS930>.
+Provides modular functions and applications for quickly generating plots
+and tables. Each modular function opens a graphical user interface
+providing the user with options to create and customise plots and tables.
 
 %prep
 %setup -q -c -n %{packname}

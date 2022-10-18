@@ -1,46 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  textreadr
-%global packver   1.2.0
+%global __requires_exclude ^libmpi
+%global packname  pinterestadsR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Text Documents into R
+Summary:          Access to Pinterest Ads via the 'Windsor.ai' API
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-antiword 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-striprtf 
-BuildRequires:    R-CRAN-textshape 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-antiword 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-striprtf 
-Requires:         R-CRAN-textshape 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-A small collection of convenience tools for reading text documents into R.
+Collect marketing data from Pinterest Ads using the 'Windsor.ai' API
+<https://windsor.ai/api-fields/>. Use four spaces when indenting
+paragraphs within the Description.
 
 %prep
 %setup -q -c -n %{packname}
