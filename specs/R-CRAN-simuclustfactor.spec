@@ -1,36 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EMMIXSSL
-%global packver   1.1.1
+%global packname  simuclustfactor
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Supervised Gaussian Mixture Model with a Missing-Data Mechanism
+Summary:          Simultaneous Clustering and Factorial Decomposition of Three-Way Datasets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-Rdpack 
 
 %description
-The algorithm of semi-supervised learning based on finite Gaussian mixture
-models with a missing-data mechanism is designed for a fitting g-class
-Gaussian mixture model via maximum likelihood (ML). It is proposed to
-treat the labels of the unclassified features as missing-data and to
-introduce a framework for their missing as in the pioneering work of Rubin
-(1976) for missing in incomplete data analysis. This dependency in the
-missingness pattern can be leveraged to provide additional information
-about the optimal classifier as specified by Bayes’ rule.
+Implements two iterative techniques called T3Clus and 3Fkmeans, aimed at
+simultaneously clustering objects and a factorial dimensionality reduction
+of variables and occasions on three-mode datasets developed by Vichi et
+al. (2007) <doi:10.1007/s00357-007-0006-x>. Also, we provide a convex
+combination of these two simultaneous procedures called CT3Clus and based
+on a hyperparameter alpha (alpha in [0,1], with 3FKMeans for alpha=0 and
+T3Clus for alpha= 1) also developed by Vichi et al. (2007)
+<doi:10.1007/s00357-007-0006-x>. Furthermore, we implemented the
+traditional tandem procedures of T3Clus (TWCFTA) and 3FKMeans (TWFCTA) for
+sequential clustering-factorial decomposition (TWCFTA), and vice-versa
+(TWFCTA) proposed by P. Arabie and L. Hubert (1996)
+<doi:10.1007/978-3-642-79999-0_1>.
 
 %prep
 %setup -q -c -n %{packname}

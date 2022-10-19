@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  modeltime.ensemble
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Algorithms for Time Series Forecasting with Modeltime
 
@@ -17,7 +18,7 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-timetk >= 2.5.0
-BuildRequires:    R-CRAN-modeltime >= 1.2.2
+BuildRequires:    R-CRAN-modeltime >= 1.2.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-modeltime.resample >= 0.2.1
 BuildRequires:    R-CRAN-workflows >= 0.2.1
@@ -40,7 +41,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-timetk >= 2.5.0
-Requires:         R-CRAN-modeltime >= 1.2.2
+Requires:         R-CRAN-modeltime >= 1.2.3
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-modeltime.resample >= 0.2.1
 Requires:         R-CRAN-workflows >= 0.2.1

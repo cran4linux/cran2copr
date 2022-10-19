@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  s2dv
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Set of Common Tools for Seasonal to Decadal Verification
 
@@ -18,13 +19,13 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-multiApply >= 2.1.1
 BuildRequires:    R-CRAN-SpecsVerification >= 0.5.0
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-mapproj 
+BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ClimProjDiags 
 BuildRequires:    R-stats 
@@ -35,13 +36,13 @@ BuildRequires:    R-CRAN-easyNCDF
 BuildRequires:    R-CRAN-easyVerification 
 Requires:         R-CRAN-multiApply >= 2.1.1
 Requires:         R-CRAN-SpecsVerification >= 0.5.0
-Requires:         R-CRAN-maps 
-Requires:         R-methods 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-bigmemory 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-maps 
 Requires:         R-CRAN-mapproj 
+Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-ClimProjDiags 
 Requires:         R-stats 
@@ -61,6 +62,7 @@ covers from data retrieval, data post-processing, skill scores against
 observation, to visualization. Compared to 's2dverification', 's2dv' is
 more compatible with the package 'startR', able to use multiple cores for
 computation and handle multi-dimensional arrays with a higher flexibility.
+The CDO version used in development is 1.9.8.
 
 %prep
 %setup -q -c -n %{packname}

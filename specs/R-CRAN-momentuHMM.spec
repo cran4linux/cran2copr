@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  momentuHMM
-%global packver   1.5.4
+%global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Analysis of Animal Movement Behavior Using Multivariate Hidden Markov Models
 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-Brobdingnag 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-crawl >= 2.2.1
 Requires:         R-CRAN-Rcpp 
@@ -40,6 +42,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-Brobdingnag 
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-raster 
 
 %description
 Extended tools for analyzing telemetry data using generalized hidden

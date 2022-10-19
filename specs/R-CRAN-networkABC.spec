@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  networkABC
-%global packver   0.8-0
+%global packver   0.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Reverse Engineering with Approximate Bayesian Computation
 
@@ -27,9 +28,9 @@ We developed an inference tool based on approximate Bayesian computation
 to decipher network data and assess the strength of the inferred links
 between network's actors. It is a new multi-level approximate Bayesian
 computation (ABC) approach. At the first level, the method captures the
-global properties of the network, such as scale-freeness and clustering
-coefficients, whereas the second level is targeted to capture local
-properties, including the probability of each couple of genes being
+global properties of the network, such as a scale-free structure and
+clustering coefficients, whereas the second level is targeted to capture
+local properties, including the probability of each couple of genes being
 linked. Up to now, Approximate Bayesian Computation (ABC) algorithms have
 been scarcely used in that setting and, due to the computational overhead,
 their application was limited to a small number of genes. On the contrary,
@@ -52,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

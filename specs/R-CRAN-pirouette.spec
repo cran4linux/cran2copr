@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pirouette
-%global packver   1.6.4
+%global packver   1.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create a Bayesian Posterior from a Phylogeny
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-phangorn
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-pryr 
-BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-TESS 
@@ -54,7 +53,6 @@ Requires:         R-CRAN-phangorn
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-pryr 
-Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-TESS 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PSweight
-%global packver   1.1.8
+%global packname  tiktokadsR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Propensity Score Weighting for Causal Inference with Observational Studies and Randomized Trials
+Summary:          Access to TikTok Ads via the 'Windsor.ai' API
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-gbm 
-BuildRequires:    R-CRAN-SuperLearner 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-gbm 
-Requires:         R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-Supports propensity score weighting analysis of observational studies and
-randomized trials. Enables the estimation and inference of average causal
-effects with binary and multiple treatments using overlap weights (ATO),
-inverse probability of treatment weights (ATE), average treatment effect
-among the treated weights (ATT), matching weights (ATM) and entropy
-weights (ATEN), with and without propensity score trimming. These weights
-are members of the family of balancing weights introduced in Li, Morgan
-and Zaslavsky (2018) <doi:10.1080/01621459.2016.1260466> and Li and Li
-(2019) <doi:10.1214/19-AOAS1282>.
+Collect marketing data from TikTok Ads using the 'Windsor.ai' API
+<https://windsor.ai/api-fields/>.
 
 %prep
 %setup -q -c -n %{packname}

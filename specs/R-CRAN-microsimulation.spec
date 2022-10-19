@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  microsimulation
-%global packver   1.3.7
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Event Simulation in R and C++, with Tools for Cost-Effectiveness Analysis
 
@@ -20,23 +21,25 @@ BuildRequires:    R-methods
 BuildRequires:    R-parallel 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ascii 
-BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.10.2
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-grDevices 
 Requires:         R-CRAN-ascii 
+Requires:         R-CRAN-survival 
 
 %description
 Discrete event simulation using both R and C++ (Karlsson et al 2016;
 <doi:10.1109/eScience.2016.7870915>). The C++ code is adapted from the
-SSIM library <https://www.inf.usi.ch/carzaniga/ssim/>, allowing for both
-event-oriented and process-oriented simulation. The code includes a
-SummaryReport class for reporting events and costs by age and other
-covariates. The C++ code is available as a static library for linking to
-other packages. A priority queue implementation is given in C++ together
-with an S3 closure and a reference class implementation. Finally, some
-tools are provided for cost-effectiveness analysis.
+SSIM library <https://www.inf.usi.ch/carzaniga/ssim/>, allowing for
+event-oriented simulation. The code includes a SummaryReport class for
+reporting events and costs by age and other covariates. The C++ code is
+available as a static library for linking to other packages. A priority
+queue implementation is given in C++ together with an S3 closure and a
+reference class implementation. Finally, some tools are provided for
+cost-effectiveness analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Rmixmod
-%global packver   2.1.6
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification with Mixture Modelling
 
@@ -23,7 +24,8 @@ Requires:         R-methods
 
 %description
 Interface of 'MIXMOD' software for supervised, unsupervised and
-semi-supervised classification with mixture modelling.
+semi-supervised classification with mixture modelling <doi:
+10.18637/jss.v067.i06>.
 
 %prep
 %setup -q -c -n %{packname}

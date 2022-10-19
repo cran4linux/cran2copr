@@ -1,36 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EMMIXSSL
+%global packname  VIGoR
 %global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Supervised Gaussian Mixture Model with a Missing-Data Mechanism
+Summary:          Variational Bayesian Inference for Genome-Wide Regression
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-The algorithm of semi-supervised learning based on finite Gaussian mixture
-models with a missing-data mechanism is designed for a fitting g-class
-Gaussian mixture model via maximum likelihood (ML). It is proposed to
-treat the labels of the unclassified features as missing-data and to
-introduce a framework for their missing as in the pioneering work of Rubin
-(1976) for missing in incomplete data analysis. This dependency in the
-missingness pattern can be leveraged to provide additional information
-about the optimal classifier as specified by Bayes’ rule.
+Conducts linear regression using variational Bayesian inference,
+particularly optimized for genome-wide association mapping and
+whole-genome prediction which use a number of DNA markers as the
+explanatory variables. Provides seven regression models which select the
+important variables (i.e., the variables related to response variables)
+among the given explanatory variables in different ways (i.e., model
+structures).
 
 %prep
 %setup -q -c -n %{packname}

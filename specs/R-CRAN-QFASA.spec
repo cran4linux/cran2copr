@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  QFASA
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Fatty Acid Signature Analysis
 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-TMB
 BuildRequires:    R-CRAN-compositions 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-stats 
@@ -43,6 +45,7 @@ Requires:         R-CRAN-TMB
 Requires:         R-CRAN-compositions 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Accurate estimates of the diets of predators are required in many areas of

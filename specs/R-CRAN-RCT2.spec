@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EMMIXSSL
-%global packver   1.1.1
+%global packname  RCT2
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Supervised Gaussian Mixture Model with a Missing-Data Mechanism
+Summary:          Designing and Analyzing Two-Stage Randomized Experiments
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-AER 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-quadprog 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-AER 
 Requires:         R-stats 
+Requires:         R-CRAN-quadprog 
 
 %description
-The algorithm of semi-supervised learning based on finite Gaussian mixture
-models with a missing-data mechanism is designed for a fitting g-class
-Gaussian mixture model via maximum likelihood (ML). It is proposed to
-treat the labels of the unclassified features as missing-data and to
-introduce a framework for their missing as in the pioneering work of Rubin
-(1976) for missing in incomplete data analysis. This dependency in the
-missingness pattern can be leveraged to provide additional information
-about the optimal classifier as specified by Bayes’ rule.
+Provides various statistical methods for designing and analyzing two-stage
+randomized controlled trials using the methods developed by Imai, Jiang,
+and Malani (2021) <doi:10.1080/01621459.2020.1775612> and (2022+)
+<doi:10.48550/arXiv.2011.07677>.  The package enables the estimation of
+direct and spillover effects, conduct hypotheses tests, and conduct sample
+size calculation for two-stage randomized controlled trials.
 
 %prep
 %setup -q -c -n %{packname}

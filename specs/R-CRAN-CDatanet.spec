@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CDatanet
-%global packver   1.0.1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Count Data with Peer Effects
 
@@ -23,6 +24,8 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-RcppDist 
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-formula.tools 

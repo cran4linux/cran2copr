@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtreg
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regulatory Tables for Clinical Research
 
@@ -20,9 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.6
 BuildRequires:    R-CRAN-cli >= 3.1.0
 BuildRequires:    R-CRAN-gtsummary >= 1.6.1
+BuildRequires:    R-CRAN-glue >= 1.6.0
 BuildRequires:    R-CRAN-broom.helpers >= 1.5.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-knitr >= 1.37
 BuildRequires:    R-CRAN-tidyr >= 1.1.4
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-rlang >= 1.0.0
@@ -31,9 +31,9 @@ BuildRequires:    R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-tibble >= 3.1.6
 Requires:         R-CRAN-cli >= 3.1.0
 Requires:         R-CRAN-gtsummary >= 1.6.1
+Requires:         R-CRAN-glue >= 1.6.0
 Requires:         R-CRAN-broom.helpers >= 1.5.0
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-knitr >= 1.37
 Requires:         R-CRAN-tidyr >= 1.1.4
 Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-rlang >= 1.0.0

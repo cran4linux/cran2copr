@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PSweight
-%global packver   1.1.8
+%global packname  FunctanSNP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Propensity Score Weighting for Causal Inference with Observational Studies and Randomized Trials
+Summary:          Functional Analysis (with Interactions) for Dense SNP Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,31 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-lava 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-gbm 
-BuildRequires:    R-CRAN-SuperLearner 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nnet 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-funData 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-lava 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-gbm 
-Requires:         R-CRAN-SuperLearner 
+Requires:         R-stats 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-funData 
+Requires:         R-graphics 
 
 %description
-Supports propensity score weighting analysis of observational studies and
-randomized trials. Enables the estimation and inference of average causal
-effects with binary and multiple treatments using overlap weights (ATO),
-inverse probability of treatment weights (ATE), average treatment effect
-among the treated weights (ATT), matching weights (ATM) and entropy
-weights (ATEN), with and without propensity score trimming. These weights
-are members of the family of balancing weights introduced in Li, Morgan
-and Zaslavsky (2018) <doi:10.1080/01621459.2016.1260466> and Li and Li
-(2019) <doi:10.1214/19-AOAS1282>.
+An implementation of revised functional regression models for multiple
+genetic variation data, such as single nucleotide polymorphism (SNP) data,
+which provides revised functional linear regression models, partially
+functional interaction regression analysis with penalty-based techniques
+and corresponding drawing functions, etc.(Ruzong Fan, Yifan Wang, James L.
+Mills, Alexander F. Wilson, Joan E. Bailey-Wilson, and Momiao Xiong (2013)
+<doi:10.1002/gepi.21757>).
 
 %prep
 %setup -q -c -n %{packname}

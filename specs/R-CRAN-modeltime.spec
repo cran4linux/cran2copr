@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  modeltime
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Tidymodels Extension for Time Series Modeling
 
@@ -18,9 +19,9 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-timetk >= 2.8.1
 BuildRequires:    R-CRAN-xgboost >= 1.2.0.1
+BuildRequires:    R-CRAN-workflows >= 1.0.0
 BuildRequires:    R-CRAN-hardhat >= 1.0.0
 BuildRequires:    R-CRAN-parsnip >= 0.2.1
-BuildRequires:    R-CRAN-workflows >= 0.1.3
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-yardstick >= 0.0.8
 BuildRequires:    R-CRAN-StanHeaders 
@@ -49,9 +50,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-timetk >= 2.8.1
 Requires:         R-CRAN-xgboost >= 1.2.0.1
+Requires:         R-CRAN-workflows >= 1.0.0
 Requires:         R-CRAN-hardhat >= 1.0.0
 Requires:         R-CRAN-parsnip >= 0.2.1
-Requires:         R-CRAN-workflows >= 0.1.3
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-yardstick >= 0.0.8
 Requires:         R-CRAN-StanHeaders 

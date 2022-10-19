@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  representr
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Representative Records After Entity Resolution
 
@@ -25,10 +26,10 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-Rcpp 
 
 %description
-An implementation of Kaplan, Betancourt, Steorts (2020) <arXiv:1810.01538>
-that creates representative records for use in downstream tasks after
-entity resolution is performed. Multiple methods for creating the
-representative records (data sets) are provided.
+An implementation of Kaplan, Betancourt, Steorts (2022)
+<doi:10.1080/00031305.2022.2041482> that creates representative records
+for use in downstream tasks after entity resolution is performed. Multiple
+methods for creating the representative records (data sets) are provided.
 
 %prep
 %setup -q -c -n %{packname}
