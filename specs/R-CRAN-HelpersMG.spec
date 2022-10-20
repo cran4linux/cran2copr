@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HelpersMG
-%global packver   5.6
+%global packver   5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.6
+Version:          5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Environmental Analyses, Ecotoxicology and Various R Functions
 

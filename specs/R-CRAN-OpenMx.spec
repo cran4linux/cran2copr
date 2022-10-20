@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  OpenMx
-%global packver   2.20.6
+%global packver   2.20.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.20.6
+Version:          2.20.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Structural Equation Modelling
 
@@ -50,7 +51,7 @@ Pritikin, Zahery, Brick, Kirkpatrick, Estabrook, Bates, Maes, & Boker
 
 %prep
 %setup -q -c -n %{packname}
-find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
+find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python3@g' {} \;
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

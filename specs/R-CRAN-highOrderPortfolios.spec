@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  highOrderPortfolios
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design of High-Order Portfolios Including Skewness and Kurtosis
 
@@ -16,20 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-fitHeavyTail >= 0.1.4
 BuildRequires:    R-CRAN-ECOSolveR 
 BuildRequires:    R-CRAN-lpSolveAPI 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-fitHeavyTail 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-fitHeavyTail >= 0.1.4
 Requires:         R-CRAN-ECOSolveR 
 Requires:         R-CRAN-lpSolveAPI 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-fitHeavyTail 
 Requires:         R-stats 
 Requires:         R-utils 
 

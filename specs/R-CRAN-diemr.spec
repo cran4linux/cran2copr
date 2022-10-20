@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  diemr
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostic Index Expectation Maximisation in R
 
@@ -23,7 +24,8 @@ Requires:         R-CRAN-zoo
 Likelihood-based genome polarisation finds which alleles of genomic
 markers belong to which side of the barrier. Co-estimates which
 individuals belong to either side of the barrier and barrier strength.
-Uses expectation maximisation in likelihood framework.
+Uses expectation maximisation in likelihood framework. The method is
+described in Baird et al. (2022) <doi:10.1111/2041-210X.14010>.
 
 %prep
 %setup -q -c -n %{packname}

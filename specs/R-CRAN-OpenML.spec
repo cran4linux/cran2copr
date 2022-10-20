@@ -1,53 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lintr
-%global packver   3.0.2
+%global packname  OpenML
+%global packver   1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          1.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'Linter' for R Code
+Summary:          Open Machine Learning and Open Data Platform
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xmlparsedata >= 1.0.5
-BuildRequires:    R-CRAN-xml2 >= 1.0.0
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-codetools 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-cyclocomp 
+BuildRequires:    R-CRAN-curl >= 4.1
+BuildRequires:    R-CRAN-checkmate >= 1.8.2
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-BBmisc >= 1.11
+BuildRequires:    R-CRAN-backports >= 1.1.0
+BuildRequires:    R-CRAN-memoise >= 1.0.0
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rex 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-xmlparsedata >= 1.0.5
-Requires:         R-CRAN-xml2 >= 1.0.0
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-codetools 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-cyclocomp 
+Requires:         R-CRAN-curl >= 4.1
+Requires:         R-CRAN-checkmate >= 1.8.2
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-BBmisc >= 1.11
+Requires:         R-CRAN-backports >= 1.1.0
+Requires:         R-CRAN-memoise >= 1.0.0
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-XML 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rex 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Checks adherence to a given style, syntax errors and possible semantic
-issues.  Supports on the fly checking of R code edited with 'RStudio IDE',
-'Emacs', 'Vim', 'Sublime Text', 'Atom' and 'Visual Studio Code'.
+We provide an R interface to 'OpenML.org' which is an online machine
+learning platform where researchers can access open data, download and
+upload data sets, share their machine learning tasks and experiments and
+organize them online to work and collaborate with other researchers. The R
+interface allows to query for data sets with specific properties, and
+allows the downloading and uploading of data sets, tasks, flows and runs.
+See <https://www.openml.org/guide/api> for more information.
 
 %prep
 %setup -q -c -n %{packname}

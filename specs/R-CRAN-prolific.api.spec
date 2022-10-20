@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adephylo
-%global packver   1.1-13
+%global packname  prolific.api
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.13
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploratory Analyses for the Phylogenetic Comparative Method
+Summary:          A User-Friendly Interface for Accessing the Prolific API
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ade4 >= 1.7.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-phylobase 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-adegenet 
-Requires:         R-CRAN-ade4 >= 1.7.10
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
-Requires:         R-CRAN-phylobase 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-adegenet 
+Requires:         R-utils 
 
 %description
-Multivariate tools to analyze comparative data, i.e. a phylogeny and some
-traits measured for each taxa.
+A user-friendly interface for creating and managing empirical
+crowd-sourcing studies via API access to <https://www.prolific.co>.
 
 %prep
 %setup -q -c -n %{packname}

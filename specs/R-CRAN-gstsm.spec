@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gstsm
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Spatial-Time Sequence Miner
 
@@ -20,12 +21,12 @@ BuildRequires:    R-CRAN-digest
 Requires:         R-CRAN-digest 
 
 %description
-Implementations of the algorithms present in the future article
-Generalized Discovery of Tight Space-Time Sequences, original title
-(Castro Filho, A. J. ; Borges, H. ; Pacitti, Esther ; Porto, F. ;
-Coutinho, R. ; Ogasawara, E. . Generalização de Mineração de Sequências
-Restritas no Espaço e no Tempo. In: XXXVI SBBD - Simpósio Brasileiro de
-Banco de Dados, 2021).
+Implementations of the algorithms present article Generalized Spatial-Time
+Sequence Miner, original title (Castro, Antonio; Borges, Heraldo ;
+Pacitti, Esther ; Porto, Fabio ; Coutinho, Rafaelli ; Ogasawara, Eduardo .
+Generalização de Mineração de Sequências Restritas no Espaço e no Tempo.
+In: XXXVI SBBD - Simpósio Brasileiro de Banco de Dados, 2021
+<doi:10.5753/sbbd.2021.17891>).
 
 %prep
 %setup -q -c -n %{packname}

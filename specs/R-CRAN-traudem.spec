@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adephylo
-%global packver   1.1-13
+%global packname  traudem
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.13
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploratory Analyses for the Phylogenetic Comparative Method
+Summary:          Use TauDEM
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-ade4 >= 1.7.10
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-phylobase 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-adegenet 
-Requires:         R-CRAN-ade4 >= 1.7.10
-Requires:         R-methods 
-Requires:         R-CRAN-phylobase 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-adegenet 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sys 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sys 
+Requires:         R-tools 
+Requires:         R-CRAN-withr 
 
 %description
-Multivariate tools to analyze comparative data, i.e. a phylogeny and some
-traits measured for each taxa.
+Simple trustworthy utility functions to use TauDEM (Terrain Analysis Using
+Digital Elevation Models <https://hydrology.usu.edu/taudem/taudem5/>)
+command-line interface. This package provides a guide to installation of
+TauDEM and its dependencies GDAL (Geopatial Data Abstraction Library) and
+MPI (Message Passing Interface) for different operating systems. Moreover,
+it checks that TauDEM and its dependencies are correctly installed and
+included to the PATH, and it provides wrapper commands for calling TauDEM
+methods from R.
 
 %prep
 %setup -q -c -n %{packname}

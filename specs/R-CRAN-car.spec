@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  car
-%global packver   3.1-0
+%global packver   3.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Companion to Applied Regression
 
@@ -28,8 +29,8 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-carData >= 3.0.0
 Requires:         R-CRAN-lme4 >= 1.1.27.1
 Requires:         R-CRAN-pbkrtest >= 0.4.4
@@ -42,8 +43,8 @@ Requires:         R-grDevices
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-scales 
 
 %description
 Functions to Accompany J. Fox and S. Weisberg, An R Companion to Applied

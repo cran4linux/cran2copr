@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adephylo
-%global packver   1.1-13
+%global packname  PolycrossDesigns
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.13
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploratory Analyses for the Phylogenetic Comparative Method
+Summary:          Polycross Designs ("PolycrossDesigns"")
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ade4 >= 1.7.10
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-phylobase 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-adegenet 
-Requires:         R-CRAN-ade4 >= 1.7.10
-Requires:         R-methods 
-Requires:         R-CRAN-phylobase 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-adegenet 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Multivariate tools to analyze comparative data, i.e. a phylogeny and some
-traits measured for each taxa.
+A polycross is the pollination by natural hybridization of a group of
+genotypes, generally selected, grown in isolation from other compatible
+genotypes in such a way to promote random open pollination. A particular
+practical application of the polycross method occurs in the production of
+a synthetic variety resulting from cross-pollinated plants. Laying out
+these experiments in appropriate designs, known as polycross designs,
+would not only save experimental resources but also gather more
+information from the experiment. Different experimental situations may
+arise in polycross nurseries which may be requiring different polycross
+designs (Varghese et. al. (2015) <doi:10.1080/02664763.2015.1043860>. "
+Experimental designs for open pollination in polycross trials"). This
+package contains a function named PD() which generates nine types of
+polycross designs suitable for various experimental situations.
 
 %prep
 %setup -q -c -n %{packname}

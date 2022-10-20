@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adephylo
-%global packver   1.1-13
+%global packname  ISEtools
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.13
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploratory Analyses for the Phylogenetic Comparative Method
+Summary:          Ion Selective Electrodes Analysis Methods
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-ade4 >= 1.7.10
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-phylobase 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-adegenet 
-Requires:         R-CRAN-ade4 >= 1.7.10
-Requires:         R-methods 
-Requires:         R-CRAN-phylobase 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-adegenet 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-coda 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Multivariate tools to analyze comparative data, i.e. a phylogeny and some
-traits measured for each taxa.
+Characterisation and calibration of single or multiple Ion Selective
+Electrodes (ISEs); activity estimation of experimental samples. Implements
+methods described in: Dillingham, P.W., Radu, T., Diamond, D., Radu, A.
+and McGraw, C.M. (2012) <doi:10.1002/elan.201100510>, Dillingham, P.W.,
+Alsaedi, B.S.O. and McGraw, C.M. (2017) <doi:10.1109/ICSENS.2017.8233898>,
+Dillingham, P.W., Alsaedi, B.S.O., Radu, A., and McGraw, C.M. (2019)
+<doi:10.3390/s19204544>, and Dillingham, P.W., Alsaedi, B.S.O.,
+Granados-Focil, S., Radu, A., and McGraw, C.M. (2020)
+<doi:10.1021/acssensors.9b02133>.
 
 %prep
 %setup -q -c -n %{packname}

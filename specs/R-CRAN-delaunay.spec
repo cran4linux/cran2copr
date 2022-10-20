@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  delaunay
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          2d, 2.5d, and 3d Delaunay Tessellations
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    gmp-devel
 BuildRequires:    mpfr-devel
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-graphics 

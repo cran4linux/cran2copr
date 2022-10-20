@@ -1,35 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adephylo
-%global packver   1.1-13
+%global packname  campaignmanageR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.13
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploratory Analyses for the Phylogenetic Comparative Method
+Summary:          Connect to Campaign Manager via the 'Windsor.ai' API
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ade4 >= 1.7.10
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-phylobase 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-adegenet 
-Requires:         R-CRAN-ade4 >= 1.7.10
-Requires:         R-methods 
-Requires:         R-CRAN-phylobase 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-adegenet 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-Multivariate tools to analyze comparative data, i.e. a phylogeny and some
-traits measured for each taxa.
+Collect marketing data from Campaign Manager using the 'Windsor.ai' API
+<https://windsor.ai/api-fields/>.
 
 %prep
 %setup -q -c -n %{packname}

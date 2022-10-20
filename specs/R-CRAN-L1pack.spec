@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  L1pack
-%global packver   0.41
+%global packver   0.41-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.41
+Version:          0.41.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Routines for L1 Estimation
 
@@ -26,9 +26,11 @@ Requires:         R-grDevices
 Requires:         R-graphics 
 
 %description
-L1 estimation for linear regression, density, distribution function,
-quantile function and random number generation for univariate and
-multivariate Laplace distribution.
+L1 estimation for linear regression using Barrodale and Roberts' method
+<doi:10.1145/355616.361024> and the EM algorithm
+<doi:10.1023/A:1020759012226>, density, distribution function, quantile
+function and random number generation for univariate and multivariate
+Laplace distribution.
 
 %prep
 %setup -q -c -n %{packname}

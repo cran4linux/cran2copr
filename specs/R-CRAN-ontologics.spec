@@ -1,65 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iglu
-%global packver   3.3.2
+%global packname  ontologics
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.2
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpreting Glucose Data from Continuous Glucose Monitors
+Summary:          Code-Logics to Handle Ontologies
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caTools 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-caTools 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rdflib 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shiny 
-Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-gtable 
-Requires:         R-grid 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rdflib 
 
 %description
-Implements a wide range of metrics for measuring glucose control and
-glucose variability based on continuous glucose monitoring data. The list
-of implemented metrics is summarized in Rodbard (2009)
-<doi:10.1089/dia.2009.0015>. Additional visualization tools include
-time-series plots, lasagna plots and ambulatory glucose profile report.
+Provides tools to build and work with an ontology of linked (open) data in
+a tidy workflow. It is inspired by the Food and Agrilculture Organizations
+(FAO) caliper platform <https://www.fao.org/statistics/caliper/web/> and
+makes use of the Simple Knowledge Organisation System (SKOS).
 
 %prep
 %setup -q -c -n %{packname}

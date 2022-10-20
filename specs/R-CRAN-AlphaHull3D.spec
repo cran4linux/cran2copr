@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adephylo
-%global packver   1.1-13
+%global packname  AlphaHull3D
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.13
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploratory Analyses for the Phylogenetic Comparative Method
+Summary:          Alpha Hull Computation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-ade4 >= 1.7.10
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-phylobase 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-adegenet 
-Requires:         R-CRAN-ade4 >= 1.7.10
-Requires:         R-methods 
-Requires:         R-CRAN-phylobase 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-adegenet 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Rvcg 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppCGAL 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Rvcg 
 
 %description
-Multivariate tools to analyze comparative data, i.e. a phylogeny and some
-traits measured for each taxa.
+Computation of the alpha hull of a set of points in the 3D space, that is
+to say "something like the shape formed by these points". The alpha hull
+depends on a positive parameter alpha. When alpha goes to zero, the alpha
+hull degenerates to the set of points, while it is the convex hull of the
+set of points when alpha goes to infinity. Computations are performed by
+the 'CGAL' 'C++' library <https://www.cgal.org/>.
 
 %prep
 %setup -q -c -n %{packname}

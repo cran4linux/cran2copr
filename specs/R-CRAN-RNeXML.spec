@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RNeXML
-%global packver   2.4.7
+%global packver   2.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.7
+Version:          2.4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semantically Rich I/O for the 'NeXML' Format
 
@@ -22,11 +23,10 @@ BuildRequires:    R-methods >= 3.0.0
 BuildRequires:    R-CRAN-plyr >= 1.8
 BuildRequires:    R-CRAN-reshape2 >= 1.2.2
 BuildRequires:    R-CRAN-stringr >= 1.0
-BuildRequires:    R-CRAN-dplyr >= 0.5.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-tidyr >= 0.3.1
 BuildRequires:    R-CRAN-httr >= 0.3
 BuildRequires:    R-CRAN-uuid >= 0.1.1
-BuildRequires:    R-CRAN-lazyeval >= 0.1.0
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rlang 
@@ -36,11 +36,10 @@ Requires:         R-methods >= 3.0.0
 Requires:         R-CRAN-plyr >= 1.8
 Requires:         R-CRAN-reshape2 >= 1.2.2
 Requires:         R-CRAN-stringr >= 1.0
-Requires:         R-CRAN-dplyr >= 0.5.0
+Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-tidyr >= 0.3.1
 Requires:         R-CRAN-httr >= 0.3
 Requires:         R-CRAN-uuid >= 0.1.1
-Requires:         R-CRAN-lazyeval >= 0.1.0
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rlang 

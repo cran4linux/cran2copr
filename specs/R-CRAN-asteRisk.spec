@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  asteRisk
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Satellite Position
 
@@ -42,7 +43,7 @@ available in a 'drat' repository. To install this data package, run
 'install.packages("asteRiskData",
 repos="https://rafael-ayala.github.io/drat/")'. Felix R. Hoots, Ronald L.
 Roehrich and T.S. Kelso (1988)
-<https://celestrak.com/NORAD/documentation/spacetrk.pdf>. David Vallado,
+<https://celestrak.org/NORAD/documentation/spacetrk.pdf>. David Vallado,
 Paul Crawford, Richard Hujsak and T.S. Kelso (2012)
 <doi:10.2514/6.2006-6753>. Felix R. Hoots, Paul W. Schumacher Jr. and
 Robert A. Glover (2014) <doi:10.2514/1.9161>.

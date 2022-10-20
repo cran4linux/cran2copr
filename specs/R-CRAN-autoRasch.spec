@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  autoRasch
-%global packver   0.1.5
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Automated Rasch Analysis
 
@@ -29,7 +30,8 @@ Requires:         R-CRAN-lavaan
 Performs Rasch analysis (semi-)automatically, which has been shown to be
 comparable with the standard Rasch analysis (Feri Wijayanto et al. (2021)
 <doi:10.1111/bmsp.12218>, Feri Wijayanto et al. (2022)
-<https://psyarxiv.com/erxuh/>).
+<doi:10.3758/s13428-022-01947-9>, Feri Wijayanto et al. (2022)
+<doi:10.1177/01466216221125178>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.utils
-%global packver   3.0-1
+%global packname  MSTest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utility Functions for 'spatstat'
+Summary:          Hypothesis Testing for Markov Switching Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-lmf 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-CRAN-pso 
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-lmf 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-pso 
+Requires:         R-CRAN-GA 
 
 %description
-Contains utility functions for the 'spatstat' family of packages which may
-also be useful for other purposes.
+Implementation of hypothesis testing procedures described in Hansen (1992)
+<doi:10.1002/jae.3950070506>, Carrasco, Hu, & Ploberger (2014)
+<doi:10.3982/ECTA8609>, Dufour & Luger (2017)
+<doi:10.1080/07474938.2017.1307548>, and Rodriguez Rondon & Dufour (2022)
+<https://grodriguezrondon.com/research/> that can be used to identify the
+number of regimes in Markov switching models.
 
 %prep
 %setup -q -c -n %{packname}
