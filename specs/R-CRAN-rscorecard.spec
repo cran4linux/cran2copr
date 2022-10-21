@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rscorecard
-%global packver   0.23.0
+%global packver   0.24.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.0
+Version:          0.24.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Method to Download Department of Education College Scorecard Data
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2
-%global packver   2.0.9
+%global packver   2.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          2.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilities for Simulating from ODE-Based Models
 
@@ -16,6 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-rxode2ll >= 2.0.9
+BuildRequires:    R-CRAN-rxode2et >= 2.0.9
+BuildRequires:    R-CRAN-rxode2random >= 2.0.9
+BuildRequires:    R-CRAN-rxode2parse >= 2.0.11
 BuildRequires:    R-CRAN-cli >= 2.0.0
 BuildRequires:    R-CRAN-data.table >= 1.12.4
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.300.2.0
@@ -33,12 +37,12 @@ BuildRequires:    R-CRAN-rex
 BuildRequires:    R-CRAN-sys 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rxode2ll 
-BuildRequires:    R-CRAN-rxode2et 
-BuildRequires:    R-CRAN-rxode2parse 
-BuildRequires:    R-CRAN-rxode2random 
 BuildRequires:    R-CRAN-qs 
 BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-rxode2ll >= 2.0.9
+Requires:         R-CRAN-rxode2et >= 2.0.9
+Requires:         R-CRAN-rxode2random >= 2.0.9
+Requires:         R-CRAN-rxode2parse >= 2.0.11
 Requires:         R-CRAN-cli >= 2.0.0
 Requires:         R-CRAN-data.table >= 1.12.4
 Requires:         R-CRAN-lotri >= 0.4.0
@@ -55,10 +59,6 @@ Requires:         R-CRAN-rex
 Requires:         R-CRAN-sys 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-rxode2ll 
-Requires:         R-CRAN-rxode2et 
-Requires:         R-CRAN-rxode2parse 
-Requires:         R-CRAN-rxode2random 
 Requires:         R-CRAN-qs 
 
 %description

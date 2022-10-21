@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  osrm
-%global packver   3.5.1
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.1
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface Between R and the OpenStreetMap-Based Routing Service OSRM
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,28 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RcppSimdJson 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mapiso 
 BuildRequires:    R-CRAN-googlePolylines 
 BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RcppSimdJson 
 Requires:         R-CRAN-curl 
 Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-isoband 
-Requires:         R-methods 
+Requires:         R-CRAN-mapiso 
 Requires:         R-CRAN-googlePolylines 
 Requires:         R-CRAN-sf 
 
 %description
 An interface between R and the 'OSRM' API. 'OSRM' is a routing service
 based on 'OpenStreetMap' data. See <http://project-osrm.org/> for more
-information. This package allows to compute routes, trips, isochrones and
-travel distances matrices (travel time and kilometric distance).
+information. This package enables the computation of routes, trips,
+isochrones and travel distances matrices (travel time and kilometric
+distance).
 
 %prep
 %setup -q -c -n %{packname}

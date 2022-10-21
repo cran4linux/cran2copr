@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clockify
-%global packver   0.0.10
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper for the 'Clockify' API
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-janitor
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-anytime 
+BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-janitor
 Requires:         R-CRAN-logger 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-anytime 
+Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-tibble 
 
 %description

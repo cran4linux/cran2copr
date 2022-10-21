@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  InteractionPoweR
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analyses for Interaction Effects in Cross-Sectional Regressions
 
@@ -45,7 +45,7 @@ Requires:         R-CRAN-ggbeeswarm
 %description
 Power analysis for regression models which test the interaction of two
 independent variables on a single dependent variable. Includes options for
-continuous, binary, and/or skewed variables, as well as correlated
+continuous, binary, or ordinal variables, as well as correlated
 interacting variables. Also includes options to specify variable
 reliability. Power analyses can be done either analytically or via
 simulation.  Includes tools for simulating single data sets and

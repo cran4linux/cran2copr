@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  graphPAF
-%global packver   1.0.1
+%global packname  RfEmpImp
+%global packver   2.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating and Displaying Population Attributable Fractions
+Summary:          Multiple Imputation using Chained Random Forests
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-survival 
-Requires:         R-splines 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mice >= 3.9.0
+BuildRequires:    R-CRAN-ranger >= 0.12.1
+Requires:         R-CRAN-mice >= 3.9.0
+Requires:         R-CRAN-ranger >= 0.12.1
 
 %description
-Estimation and display of various types of population attributable
-fraction and impact fractions.  As well as the usual calculations of
-attributable fractions and impact fractions, functions are provided for
-attributable fraction nomograms and fan plots, continuous exposures, for
-pathway specific population attributable fractions, and for joint, average
-and sequential population attributable fractions.
+An R package for multiple imputation using chained random forests.
+Implemented methods can handle missing data in mixed types of variables by
+using prediction-based or node-based conditional distributions constructed
+using random forests. For prediction-based imputation, the method based on
+the empirical distribution of out-of-bag prediction errors of random
+forests and the method based on normality assumption for prediction errors
+of random forests are provided for imputing continuous variables. And the
+method based on predicted probabilities is provided for imputing
+categorical variables. For node-based imputation, the method based on the
+conditional distribution formed by the predicting nodes of random forests,
+and the method based on proximity measures of random forests are provided.
+More details of the statistical methods can be found in Hong et al. (2020)
+<arXiv:2004.14823>.
 
 %prep
 %setup -q -c -n %{packname}

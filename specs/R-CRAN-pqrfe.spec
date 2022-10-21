@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  imagine
-%global packver   1.5.4
+%global packname  pqrfe
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          IMAGing engINEs, Tools for Application of Image Filters to Data Matrices
+Summary:          Penalized Quantile Regression with Fixed Effects
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-MASS >= 7.3.49
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-MASS >= 7.3.49
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Provides fast application of image filters to data matrices, using R and
-C++ algorithms.
+Quantile regression with fixed effects is a general model for longitudinal
+data. Here we proposed to solve it by several methods. The estimation
+methods include three loss functions as check, asymmetric least square and
+asymmetric Huber functions; and three structures as simple regression,
+fixed effects and fixed effects with penalized intercepts by LASSO.
 
 %prep
 %setup -q -c -n %{packname}

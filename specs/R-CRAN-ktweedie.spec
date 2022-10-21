@@ -1,27 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  imagine
-%global packver   1.5.4
+%global packname  ktweedie
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          IMAGing engINEs, Tools for Application of Image Filters to Data Matrices
+Summary:          'Tweedie' Compound Poisson Model in the Reproducing Kernel Hilbert Space
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Provides fast application of image filters to data matrices, using R and
-C++ algorithms.
+Kernel-based 'Tweedie' compound Poisson gamma model using high-dimensional
+predictors for the analyses of zero-inflated response variables. The
+package features built-in estimation, prediction and cross-validation
+tools and supports choice of different kernel functions.
 
 %prep
 %setup -q -c -n %{packname}
