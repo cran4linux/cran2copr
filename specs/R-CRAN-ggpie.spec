@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggpie
-%global packver   0.2.2
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pie, Donut and Rose Pie Plots
 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-grDevices 
 Requires:         R-CRAN-RColorBrewer 
@@ -40,6 +42,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-stringr 
 
 %description
 Create pie, donut and rose pie plot with 'ggplot2'.

@@ -1,27 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  kdtools
-%global packver   0.6.0
+%global __requires_exclude ^libmpi
+%global packname  NestMRMC
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Working with Multidimensional Data
+Summary:          Single Reader Between-Cases AUC Estimator in Nested Data
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-Requires:         R-CRAN-Rcpp >= 0.12.14
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-iMRMC 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-iMRMC 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides various tools for working with multidimensional data in R and
-C++, including extremely fast nearest-neighbor- and range- queries without
-the overhead of linked tree nodes.
+This R package provides a calculation of between-cases AUC estimate,
+corresponding covariance, and variance estimate in the nested data
+problem.  Also, the package has the function to simulate the nested data.
+The calculated between-cases AUC estimate is used to evaluate the reader's
+diagnostic performance in clinical tasks with nested data. For more
+details on the above methods, please refer to the paper by H Du, S Wen, Y
+Guo, F Jin, BD Gallas (2022) <doi:10.1177/09622802221111539>.
 
 %prep
 %setup -q -c -n %{packname}

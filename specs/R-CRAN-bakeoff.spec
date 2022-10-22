@@ -1,26 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PearsonDS
-%global packver   1.2.3
+%global packname  bakeoff
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pearson Distribution System
+Summary:          Data from "The Great British Bake Off"
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-Implementation of the Pearson distribution system, including full support
-for the (d,p,q,r)-family of functions for probability distributions and
-fitting via method of moments and maximum likelihood method.
+Data about the bakers, challenges, and ratings for "The Great British Bake
+Off", from Wikipedia
+<https://en.wikipedia.org/wiki/The_Great_British_Bake_Off>.
 
 %prep
 %setup -q -c -n %{packname}

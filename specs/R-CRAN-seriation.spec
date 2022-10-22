@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  seriation
-%global packver   1.3.6
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infrastructure for Ordering Objects Using Seriation
 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-cluster
 BuildRequires:    R-CRAN-gclus 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ca 
 BuildRequires:    R-CRAN-registry 
 Requires:         R-stats 
 Requires:         R-grDevices 
@@ -34,6 +36,7 @@ Requires:         R-CRAN-cluster
 Requires:         R-CRAN-gclus 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ca 
 Requires:         R-CRAN-registry 
 
 %description

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  StratifiedSampling
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Different Methods for Stratified Sampling
 
@@ -21,6 +22,7 @@ BuildRequires:    R-CRAN-transport
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-sampling 
+BuildRequires:    R-CRAN-Rglpk 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
@@ -28,15 +30,17 @@ Requires:         R-CRAN-transport
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-sampling 
+Requires:         R-CRAN-Rglpk 
 
 %description
 Integrating a stratified structure in the population in a sampling design
 can considerably reduce the variance of the Horvitz-Thompson estimator. We
 propose in this package different methods to handle the selection of a
 balanced sample in stratified population. For more details see Raphaël
-Jauslin, Esther Eustache and Yves Tillé (2021) <arXiv:2101.05568>. The
-package propose also a method based on optimal transport and balanced
-sampling, see Raphaël Jauslin and Yves Tillé <arXiv:2105.08379>.
+Jauslin, Esther Eustache and Yves Tillé (2021)
+<doi:10.1007/s42081-021-00134-y>. The package propose also a method based
+on optimal transport and balanced sampling, see Raphaël Jauslin and Yves
+Tillé <arXiv:2105.08379>.
 
 %prep
 %setup -q -c -n %{packname}

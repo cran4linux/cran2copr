@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spatstat.sparse
-%global packver   2.1-1
+%global packver   3.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Three-Dimensional Arrays and Linear Algebra Utilities
 
@@ -15,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 2.1.0
+BuildRequires:    R-CRAN-spatstat.utils >= 3.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.utils >= 2.1.0
+Requires:         R-CRAN-spatstat.utils >= 3.0.0
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 

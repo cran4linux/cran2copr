@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tiledb
-%global packver   0.15.0
+%global packver   0.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.0
+Version:          0.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Universal Storage Engine for Sparse and Dense Multidimensional Arrays
 

@@ -1,26 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PearsonDS
-%global packver   1.2.3
+%global packname  exams2learnr
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pearson Distribution System
+Summary:          Interface for 'exams' Exercises in 'learnr' Tutorials
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-exams >= 2.4.0
+BuildRequires:    R-CRAN-learnr >= 0.11.0
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-exams >= 2.4.0
+Requires:         R-CRAN-learnr >= 0.11.0
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Implementation of the Pearson distribution system, including full support
-for the (d,p,q,r)-family of functions for probability distributions and
-fitting via method of moments and maximum likelihood method.
+Automatic generation of quizzes or individual questions for 'learnr'
+tutorials based on 'R/exams' exercises.
 
 %prep
 %setup -q -c -n %{packname}

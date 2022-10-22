@@ -1,48 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clustAnalytics
-%global packver   0.5.0
+%global packname  HomomorphicEncryption
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cluster Evaluation on Graphs
+Summary:          BFV, BGV, CKKS Schema for Fully Homomorphic Encryption
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-mcclust 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-fossil 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-kdtools 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-mcclust 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-fossil 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-kdtools 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-polynom 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-polynom 
+Requires:         R-stats 
 
 %description
-Evaluates the stability and significance of clusters on 'igraph' graphs.
-Supports weighted and unweighted graphs. Implements the cluster evaluation
-methods defined by Arratia A, Renedo M (2021) <doi:10.7717/peerj-cs.600>.
-Also includes an implementation of the Reduced Mutual Information
-introduced by Newman et al. (2020).
+Implements the Brakerski-Fan-Vercauteren (BFV, 2012)
+<https://eprint.iacr.org/2012/144>, Brakerski-Gentry-Vaikuntanathan (BGV,
+2014) <doi:10.1145/2633600>, and Cheon-Kim-Kim-Song (CKKS, 2016)
+<https://eprint.iacr.org/2016/421.pdf> schema for Fully Homomorphic
+Encryption, as well as several helper functions.
 
 %prep
 %setup -q -c -n %{packname}

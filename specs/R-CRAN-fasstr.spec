@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fasstr
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze, Summarize, and Visualize Daily Streamflow Data
 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-RcppRoll >= 0.3.0
 BuildRequires:    R-CRAN-zyp >= 0.10.1.1
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-openxlsx >= 4.1.0
 Requires:         R-CRAN-ggplot2 >= 3.1.0
 Requires:         R-CRAN-plyr >= 1.8.4
@@ -44,6 +46,7 @@ Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-RcppRoll >= 0.3.0
 Requires:         R-CRAN-zyp >= 0.10.1.1
 Requires:         R-grDevices 
+Requires:         R-CRAN-lubridate 
 
 %description
 The Flow Analysis Summary Statistics Tool for R, 'fasstr', provides

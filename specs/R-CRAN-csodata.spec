@@ -1,61 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  toRvik
-%global packver   1.1.0
+%global packname  csodata
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extensive and Tidy NCAA Men's College Basketball Data
+Summary:          Download Data from the CSO 'PxStat' API
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rjstat 
+BuildRequires:    R-CRAN-R.cache 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rjstat 
+Requires:         R-CRAN-R.cache 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-withr 
 
 %description
-An API wrapper for cbbstat and a suite of functions to pull and clean
-detailed, extensive college basketball statistics from
-Barttorvik<https://barttorvik.com/>.
+Imports 'PxStat' data in JSON-stat format and (optionally) reshapes it
+into wide format. The Central Statistics Office (CSO) is the national
+statistical institute of Ireland and 'PxStat' is the CSOs online database
+of Official Statistics. This database contains current and historical data
+series compiled from CSO statistical releases and is accessed at
+<http://data.cso.ie>. The CSO 'PxStat' Application Programming Interface
+(API), which is accessed in this package, provides access to 'PxStat' data
+in JSON-stat format at <http://data.cso.ie>. This dissemination tool
+allows developers machine to machine access to CSO 'PxStat' data.
 
 %prep
 %setup -q -c -n %{packname}

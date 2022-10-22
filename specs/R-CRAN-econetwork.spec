@@ -1,36 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shinySelect
-%global packver   1.2.0
+%global packname  econetwork
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Wrapper of the 'react-select' Library
+Summary:          Analyzing Ecological Networks
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-fontawesome 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-fontawesome 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-reactR 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-rdiversity 
+BuildRequires:    R-CRAN-blockmodels 
+BuildRequires:    R-CRAN-bipartite 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppGSL 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-rdiversity 
+Requires:         R-CRAN-blockmodels 
+Requires:         R-CRAN-bipartite 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides a select control widget for 'Shiny'. It is easily customizable,
-and one can easily use HTML in the items and KaTeX to type mathematics.
+A collection of advanced tools, methods and models specifically designed
+for analyzing different types of ecological networks - especially
+antagonistic (food webs, host-parasite), mutualistic (plant-pollinator,
+plant-fungus, etc) and competitive networks, as well as their variability
+in time and space. Statistical models are developed to describe and
+understand the mechanisms that determine species interactions, and to
+decipher the organization of these ecological networks (Ohlmann et al.
+(2019) <doi:10.1111/ele.13221>, Gonzalez et al. (2020)
+<doi:10.1101/2020.04.02.021691>, Miele et al. (2021)
+<doi:10.48550/arXiv.2103.10433>, Botella et al (2021)
+<doi:10.1111/2041-210X.13738>).
 
 %prep
 %setup -q -c -n %{packname}

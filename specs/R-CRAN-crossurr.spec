@@ -1,56 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ShinyItemAnalysis
-%global packver   1.4.2
+%global packname  crossurr
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test and Item Analysis via Shiny
+Summary:          Cross-Fitting for Doubly Robust Evaluation of High-Dimensional Surrogate Markers
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-difR >= 5.0
-BuildRequires:    R-CRAN-mirt >= 1.24
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-RCAL 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-SIS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-SuperLearner 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-difR >= 5.0
-Requires:         R-CRAN-mirt >= 1.24
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-gbm 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-glue 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-psych 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-RCAL 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-SIS 
+Requires:         R-stats 
+Requires:         R-CRAN-SuperLearner 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-methods 
 
 %description
-Package including functions and interactive shiny application for the
-psychometric analysis of educational tests, psychological assessments,
-health-related and other types of multi-item measurements, or ratings from
-multiple raters.
+Doubly robust methods for evaluating surrogate markers as outlined in:
+Agniel D, Hejblum BP, Thiebaut R & Parast L (2022). "Doubly robust
+evaluation of high-dimensional surrogate markers", Biostatistics
+<doi:10.1093/biostatistics/kxac020>. You can use these methods to
+determine how much of the overall treatment effect is explained by a
+(possibly high-dimensional) set of surrogate markers.
 
 %prep
 %setup -q -c -n %{packname}

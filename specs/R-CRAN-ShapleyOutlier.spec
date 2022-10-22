@@ -1,36 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shinySelect
-%global packver   1.2.0
+%global packname  ShapleyOutlier
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Wrapper of the 'react-select' Library
+Summary:          Multivariate Outlier Explanations using Shapley Values and Mahalanobis Distances
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fontawesome 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-fontawesome 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-reactR 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-egg 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-egg 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-magrittr 
 
 %description
-Provides a select control widget for 'Shiny'. It is easily customizable,
-and one can easily use HTML in the items and KaTeX to type mathematics.
+Based on Shapley values to explain multivariate outlyingness and to detect
+and impute cellwise outliers. Includes implementations of methods
+described in Mayrhofer and Filzmoser (2022)
+<doi:10.48550/ARXIV.2210.10063>.
 
 %prep
 %setup -q -c -n %{packname}

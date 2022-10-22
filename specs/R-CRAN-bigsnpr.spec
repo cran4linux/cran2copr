@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bigsnpr
-%global packver   1.10.8
+%global packver   1.11.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.8
+Version:          1.11.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Massive SNP Arrays
 
@@ -13,13 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-bigstatsr >= 1.5.6
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildRequires:    R-CRAN-bigstatsr >= 1.5.11
 BuildRequires:    R-CRAN-data.table >= 1.12.4
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
 BuildRequires:    R-CRAN-bigsparser >= 0.6
 BuildRequires:    R-CRAN-bigutilsr >= 0.3.3
+BuildRequires:    R-CRAN-runonce >= 0.2.3
+BuildRequires:    R-CRAN-roptim >= 0.1.6
 BuildRequires:    R-CRAN-bigassertr >= 0.1.3
 BuildRequires:    R-CRAN-bigparallelr 
 BuildRequires:    R-CRAN-bigreadr 
@@ -33,10 +36,11 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-rmio 
-Requires:         R-CRAN-bigstatsr >= 1.5.6
+Requires:         R-CRAN-bigstatsr >= 1.5.11
 Requires:         R-CRAN-data.table >= 1.12.4
 Requires:         R-CRAN-bigsparser >= 0.6
 Requires:         R-CRAN-bigutilsr >= 0.3.3
+Requires:         R-CRAN-runonce >= 0.2.3
 Requires:         R-CRAN-bigassertr >= 0.1.3
 Requires:         R-CRAN-bigparallelr 
 Requires:         R-CRAN-bigreadr 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  wru
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Who are You? Bayesian Prediction of Racial Category Using Surname, First Name, Middle Name, and Geolocation
 
@@ -15,22 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-piggyback >= 0.1.4
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-piggyback 
 BuildRequires:    R-CRAN-PL94171 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-piggyback >= 0.1.4
 Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-piggyback 
 Requires:         R-CRAN-PL94171 
 
 %description
