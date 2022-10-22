@@ -2,6 +2,9 @@
 %global packname CoprManager
 %global rlibdir %{_datadir}/R/library
 
+%global modulename %{packname}
+%global selinuxtype targeted
+
 Name:           R-%{packname}
 Version:        0.3.10
 Release:        1%{?dist}%{?buildtag}
@@ -13,6 +16,7 @@ Source0:        %{url}/archive/v%{version}/%{projname}_%{version}.tar.gz
 
 BuildRequires:  R-devel, python3-devel
 Requires:       python3-dnf
+Requires:       (%{name}-selinux = %{version}-%{release} if selinux-policy-%{selinuxtype})
 Recommends:     /usr/bin/busctl, python3-dbus, python3-gobject
 BuildArch:      noarch
 
@@ -20,6 +24,17 @@ BuildArch:      noarch
 Enables binary package installations in Fedora systems based on
 the 'cran2copr' project. Provides a installation function that talks over
 D-Bus to a systemd service that manages package installations via DNF.
+
+%package selinux
+Summary:        SELinux module for %{packname}
+BuildRequires:  selinux-policy-devel
+Requires:       selinux-policy-%{selinuxtype}
+Requires(post): selinux-policy-%{selinuxtype}
+BuildArch:      noarch
+%{?selinux_requires}
+
+%description selinux
+This package contains the SELinux policy module for %{name}.
 
 %prep
 %setup -q -n %{projname}-%{version}
@@ -39,6 +54,26 @@ OPATH="/org/fedoraproject/cran2copr1/PackageManager"
 IFACE="org.fedoraproject.cran2copr1.PackageManager"
 BUS_NAME="org.fedoraproject.cran2copr1"
 EOF
+
+# selinux policy
+mkdir selinux && echo "^selinux" >> .Rbuildignore
+pushd selinux
+  cat <<'  EOF' | sed -r 's/^ {2}//' > %{modulename}.te
+  policy_module(%{modulename},%{version})
+  type %{modulename}_t;
+  type %{modulename}_service_t;
+  init_daemon_domain(%{modulename}_t, %{modulename}_service_t)
+  require { class dir write; }
+  allow %{modulename}_service_t %{modulename}_t:dir write;
+  EOF
+
+  cat <<'  EOF' | sed -r 's/^ {2}//' > %{modulename}.fc
+  %{rlibdir}/%{packname}/service/%{packname}.py -- gen_context(system_u:object_r:%{modulename}_service_t,s0)
+  EOF
+
+  make -f %{_datadir}/selinux/devel/Makefile %{modulename}.pp
+  bzip2 -9 %{modulename}.pp
+popd
 
 %install
 mkdir -p %{buildroot}%{rlibdir}
@@ -63,6 +98,22 @@ local({
     source(startup_file)
 })
 EOF
+
+# selinux
+install -D -m 0644 selinux/%{modulename}.pp.bz2 \
+  %{buildroot}%{_datadir}/selinux/packages/%{selinuxtype}/%{modulename}.pp.bz2
+
+%pre selinux
+%selinux_relabel_pre -s %{selinuxtype}
+
+%post selinux
+%selinux_modules_install -s %{selinuxtype} %{_datadir}/selinux/packages/%{selinuxtype}/%{modulename}.pp.bz2
+
+%postun selinux
+%selinux_modules_uninstall -s %{selinuxtype} %{modulename}
+
+%posttrans selinux
+%selinux_relabel_post -s %{selinuxtype}
 
 %files
 # main
@@ -95,5 +146,8 @@ EOF
 %config(noreplace) %{_libdir}/R/etc/Rprofile.site
 %dir %{_libdir}/R/etc/Rprofile.site.d
 %config(noreplace) %{_libdir}/R/etc/Rprofile.site.d/50-%{packname}.site
+
+%files selinux
+%{_datadir}/selinux/packages/%{selinuxtype}/%{modulename}.pp.*
 
 %changelog
