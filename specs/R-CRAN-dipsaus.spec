@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dipsaus
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Dipping Sauce for Data Analysis and Visualizations
 
@@ -26,7 +26,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-cli 
@@ -48,7 +47,6 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-parallel 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-cli 
@@ -70,10 +68,10 @@ The goal is to provide simple solutions that are frequently asked for
 online, such as how to synchronize 'shiny' inputs without freezing the
 app, or how to get memory size on 'Linux' or 'MacOS' system. The
 enhancements roughly fall into these four categories: 1. 'shiny' input
-widgets; 2. high-performance computing using 'RcppParallel' and 'future'
-package; 3. modify R calls and convert among numbers, strings, and other
-objects. 4. utility functions to get system information such like CPU
-chip-set, memory limit, etc.
+widgets; 2. high-performance computing using the 'future' package; 3.
+modify R calls and convert among numbers, strings, and other objects. 4.
+utility functions to get system information such like CPU chip-set, memory
+limit, etc.
 
 %prep
 %setup -q -c -n %{packname}

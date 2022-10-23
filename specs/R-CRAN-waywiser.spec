@@ -1,41 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  waywiser
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Yardstick Extensions for Measuring Spatial Structure in Model Residuals
+Summary:          Methods for Assessing Spatial Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-yardstick 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-hardhat 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spdep 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-yardstick 
 
 %description
-Predictive models of spatial data may have spatially structured errors,
-with "hot spots" of higher than expected error clustered geographically
-due to spatial structure in the underlying data. These functions provide
-methods for measuring the spatial structure of model errors for models,
-and are particularly useful for models fit using the 'tidymodels'
-framework. Methods include Moran's I ('Moran' (1950)
-<doi:10.2307/2332142>), Geary's C ('Geary' (1954) <doi:10.2307/2986645>)
-and Getis-Ord's G ('Ord' and 'Getis' (1995)
-<doi:10.1111/j.1538-4632.1995.tb00912.x>).
+Assessing predictive models of spatial data can be challenging, both
+because these models are typically built for extrapolating outside the
+original region represented by training data and due to potential
+spatially structured errors, with "hot spots" of higher than expected
+error clustered geographically due to spatial structure in the underlying
+data. These functions provide methods for measuring the spatial structure
+of model errors and evaluating where predictions can be made safely, and
+are particularly useful for models fit using the 'tidymodels' framework.
+Methods include Moran's I ('Moran' (1950) <doi:10.2307/2332142>), Geary's
+C ('Geary' (1954) <doi:10.2307/2986645>), Getis-Ord's G ('Ord' and 'Getis'
+(1995) <doi:10.1111/j.1538-4632.1995.tb00912.x>), as well as an
+implementation of the area of applicability methodology from 'Meyer' and
+'Pebesma' (2021) (<doi:10.1111/2041-210X.13650>).
 
 %prep
 %setup -q -c -n %{packname}

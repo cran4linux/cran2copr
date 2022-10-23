@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datawizard
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Data Wrangling and Statistical Transformations
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.18.4
+BuildRequires:    R-CRAN-insight >= 0.18.5
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.18.4
+Requires:         R-CRAN-insight >= 0.18.5
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -30,6 +30,7 @@ workflow: (1) wrangling the raw data to get it in the needed form, (2)
 applying preprocessing steps and statistical transformations, and (3)
 compute statistical summaries of data properties and distributions. It is
 also the data wrangling backend for packages in 'easystats' ecosystem.
+References: Patil et al. (2022) <doi:10.21105/joss.04684>.
 
 %prep
 %setup -q -c -n %{packname}

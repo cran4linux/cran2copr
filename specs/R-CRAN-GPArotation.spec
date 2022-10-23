@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GPArotation
-%global packver   2022.4-1
+%global packver   2022.10-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.4.1
+Version:          2022.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          GPA Factor Rotation
 
