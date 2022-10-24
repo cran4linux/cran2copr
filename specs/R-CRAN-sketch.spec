@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sketch
-%global packver   1.1.17
+%global packver   1.1.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
+Version:          1.1.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Sketches
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-base64enc
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-V8 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-base64enc
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-shiny 
 Requires:         R-methods 
+Requires:         R-CRAN-V8 
 
 %description
 Creates static / animated / interactive visualisations embeddable in R

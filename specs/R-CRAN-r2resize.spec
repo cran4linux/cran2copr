@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r2resize
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          In-Text Resizing for Images and Data Tables in 'Markdown' and 'Quarto' Documents
+Summary:          In-Text Resizing for Containers, Images and Data Tables in 'Shiny', 'Markdown' and 'Quarto' Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,13 +18,16 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-DT 
 Requires:         R-utils 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-DT 
 
 %description
-Automatic resizing toolbar for images and tables. Most suitable to include
-resize functionality in 'Markdown', 'Rmarkdown' and 'Quarto' documents.
+Automatic resizing toolbar for containers, images and tables. Most
+suitable to include resize functionality in 'Markdown', 'Rmarkdown' and
+'Quarto' documents.
 
 %prep
 %setup -q -c -n %{packname}

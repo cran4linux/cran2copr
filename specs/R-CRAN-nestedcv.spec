@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nestedcv
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Cross-Validation with 'glmnet' and 'caret'
 
@@ -21,9 +21,12 @@ BuildRequires:    R-CRAN-Boruta
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-CORElearn 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-hsstan 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-matrixTests 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
@@ -32,13 +35,17 @@ BuildRequires:    R-CRAN-randomForest
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-SuperLearner 
 Requires:         R-CRAN-Boruta 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-CORElearn 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-hsstan 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-matrixTests 
 Requires:         R-methods 
 Requires:         R-parallel 
@@ -47,6 +54,7 @@ Requires:         R-CRAN-randomForest
 Requires:         R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-SuperLearner 
 
 %description
 Implements nested k*l-fold cross-validation for lasso and elastic-net
