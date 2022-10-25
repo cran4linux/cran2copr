@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inlabru
-%global packver   2.5.3
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.3
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Latent Gaussian Modelling using INLA and Extensions
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-rgdal >= 1.5.8
@@ -41,6 +42,7 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
 

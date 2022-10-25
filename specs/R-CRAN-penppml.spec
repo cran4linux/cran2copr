@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  penppml
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Poisson Pseudo Maximum Likelihood Regression
 
@@ -21,6 +22,9 @@ BuildRequires:    R-CRAN-fixest
 BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-glmnet 
@@ -28,6 +32,9 @@ Requires:         R-CRAN-fixest
 Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-devtools 
 
 %description
 A set of tools that enables efficient estimation of penalized Poisson

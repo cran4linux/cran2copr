@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LexisNexisTools
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Working with Files from 'LexisNexis'
 
@@ -42,7 +43,7 @@ Requires:         R-CRAN-quanteda.textstats
 %description
 My PhD supervisor once told me that everyone doing newspaper analysis
 starts by writing code to read in files from the 'LexisNexis' newspaper
-archive (retrieved e.g., from <http://www.nexis.com/> or any of the
+archive (retrieved e.g., from <https://www.lexisnexis.com/> or any of the
 partner sites). However, while this is a nice exercise I do recommend, not
 everyone has the time. This package takes files downloaded from the
 newspaper archive of 'LexisNexis', reads them into R and offers functions

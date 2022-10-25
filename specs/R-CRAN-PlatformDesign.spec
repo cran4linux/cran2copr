@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PlatformDesign
-%global packver   1.0.1
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Two-Period Multi-Arm Platform Design
+Summary:          Optimal Two-Period Multiarm Platform Design with New Experimental Arms Added During the Trial
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,13 +23,14 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-stats 
 
 %description
-Design parameters can be calculated using this package based on the
-optimal two-period multi-arm platform design allowing pre-planned deferred
-arms to be added during the trial. More details about the design method
-can be found in the paper: Pan, H., Yuan, X. and Ye, J. (2022) "An optimal
-two-period multi-arm platform design with adding new arms". Manuscript
-submitted for publication. For additional references: Dunnett, C. W.
-(1955) <doi:10.2307/2281208>.
+Design parameters of the optimal two-period multiarm platform design
+(controlling for either family-wise error rate or pair-wise error rate)
+can be calculated using this package, allowing pre-planned deferred arms
+to be added during the trial. More details about the design method can be
+found in the paper: Pan, H., Yuan, X. and Ye, J. (2022) "An optimal
+two-period multiarm platform design with new experimental arms added
+during the trial". Manuscript submitted for publication. For additional
+references: Dunnett, C. W. (1955) <doi:10.2307/2281208>.
 
 %prep
 %setup -q -c -n %{packname}

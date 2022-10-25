@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RPANDA
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic ANalyses of DiversificAtion
 
@@ -30,12 +31,17 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-pspline 
 BuildRequires:    R-CRAN-pvclust 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-GUniFrac 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-TESS 
 BuildRequires:    R-utils 
@@ -54,12 +60,17 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-parallel 
 Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-pspline 
 Requires:         R-CRAN-pvclust 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-GUniFrac 
+Requires:         R-CRAN-R.utils 
 Requires:         R-stats 
 Requires:         R-CRAN-TESS 
 Requires:         R-utils 
@@ -82,8 +93,10 @@ Manceau et al. (2015) <DOI:10.1111/ele.12415>, Lewitus & Morlon (2016)
 <DOI:10.1038/s41559-019-0908-0>, Billaud et al. (2019)
 <DOI:10.1093/sysbio/syz057>, Lewitus et al. (2019)
 <DOI:10.1093/sysbio/syz061>, Aristide & Morlon (2019)
-<DOI:10.1111/ele.13385>, Maliet et al. (2020) <DOI:10.1111/ele.13592> and
-Drury et al. (2021) <DOI:10.1371/journal.pbio.3001270>.
+<DOI:10.1111/ele.13385>, Maliet et al. (2020) <DOI:10.1111/ele.13592>,
+Drury et al. (2021) <DOI:10.1371/journal.pbio.3001270>, Perez-Lamarque &
+Morlon (2022) <DOI:10.1111/mec.16478> and Perez-Lamarque et al. (2022)
+<DOI:10.1101/2021.08.30.458192>.
 
 %prep
 %setup -q -c -n %{packname}

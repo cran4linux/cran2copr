@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggdensity
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Bivariate Density Visualization with 'ggplot2'
 
@@ -18,11 +19,15 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-isoband 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-isoband 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-scales 

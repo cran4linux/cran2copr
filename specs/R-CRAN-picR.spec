@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  HDPenReg
-%global packver   0.94.8
+%global __requires_exclude ^libmpi
+%global packname  picR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.94.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          High-Dimensional Penalized Regression
+Summary:          Predictive Information Criteria for Model Selection
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-rtkore >= 1.5.5
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-rtkore >= 1.5.5
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Algorithms for lasso and fused-lasso problems: implementation of the lars
-algorithm for lasso and fusion penalization and EM-based algorithms for
-(logistic) lasso and fused-lasso penalization.
+Computation of predictive information criteria (PIC) from select model
+object classes for model selection in predictive contexts. In contrast to
+the more widely used Akaike Information Criterion (AIC), which are derived
+under the assumption that target(s) of prediction (i.e. validation data)
+are independently and identically distributed to the fitting data, the PIC
+are derived under less restrictive assumptions and thus generalize AIC to
+the more practically relevant case of training/validation data
+heterogeneity. The methodology featured in this package is based on Flores
+(2021)
+<https://iro.uiowa.edu/esploro/outputs/doctoral/A-new-class-of-information-criteria/9984097169902771?institution=01IOWA_INST>
+"A new class of information criteria for improved prediction in the
+presence of training/validation data heterogeneity".
 
 %prep
 %setup -q -c -n %{packname}

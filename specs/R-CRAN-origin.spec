@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  origin
-%global packver   0.5.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explicitly Qualifying Namespaces by Automatically Adding 'pkg::' to Functions
 
@@ -25,7 +26,8 @@ dplyr::mutate(). It is up to the user to determine which packages should
 be used explicitly, whether to include base R packages or use the
 functionality on selected text, a file, or a complete directory. User
 friendly logging is provided in the 'RStudio' Markers pane. Lives in the
-spirit of 'lintr' and 'styler'.
+spirit of 'lintr' and 'styler'. Can also be used for checking which
+packages are actually used in a project.
 
 %prep
 %setup -q -c -n %{packname}
