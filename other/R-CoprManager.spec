@@ -60,15 +60,13 @@ mkdir selinux && echo "^selinux" >> .Rbuildignore
 pushd selinux
   cat <<'  EOF' | sed -r 's/^ {2}//' > %{modulename}.te
   policy_module(%{modulename},%{version})
-  type %{modulename}_t;
-  type %{modulename}_service_t;
-  init_daemon_domain(%{modulename}_t, %{modulename}_service_t)
-  require { class dir write; }
-  allow %{modulename}_service_t %{modulename}_t:dir write;
-  EOF
-
-  cat <<'  EOF' | sed -r 's/^ {2}//' > %{modulename}.fc
-  %{rlibdir}/%{packname}/service/%{packname}.py -- gen_context(system_u:object_r:%{modulename}_service_t,s0)
+  require {
+    type unconfined_t;
+    type unconfined_service_t;
+    class dir { add_name write };
+  }
+  allow unconfined_service_t unconfined_t:dir write;
+  allow unconfined_service_t unconfined_t:dir add_name;
   EOF
 
   make -f %{_datadir}/selinux/devel/Makefile %{modulename}.pp
