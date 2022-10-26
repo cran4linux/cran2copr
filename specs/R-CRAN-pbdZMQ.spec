@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pbdZMQ
-%global packver   0.3-7
+%global packver   0.3-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Programming with Big Data -- Interface to 'ZeroMQ'
 
@@ -13,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zeromq-devel >= 4.0.4
+BuildRequires:    zeromq-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spacefillr
-%global packver   0.3.2
+%global packname  IGCities
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Space-Filling Random and Quasi-Random Sequences
+Summary:          Simulate Impact of Different Urban Policies Through a General Equilibrium Model
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildArch:        noarch
 
 %description
-Generates random and quasi-random space-filling sequences. Supports the
-following sequences: 'Halton', 'Sobol', 'Owen'-scrambled 'Sobol',
-'Owen'-scrambled 'Sobol' with errors distributed as blue noise,
-progressive jittered, progressive multi-jittered ('PMJ'), 'PMJ' with blue
-noise, 'PMJ02', and 'PMJ02' with blue noise. Includes a 'C++' 'API'.
-Methods derived from "Constructing Sobol sequences with better
-two-dimensional projections" (2012) <doi:10.1137/070709359> S. Joe and F.
-Y. Kuo, "Progressive Multi-Jittered Sample Sequences" (2018)
-<https://graphics.pixar.com/library/ProgressiveMultiJitteredSampling/paper.pdf>
-Christensen, P., Kensler, A. and Kilpatrick, C., and "A Low-Discrepancy
-Sampler that Distributes Monte Carlo Errors as a Blue Noise in Screen
-Space" (2019) E. Heitz, B. Laurent, O. Victor, C. David and I.
-Jean-Claude, <doi:10.1145/3306307.3328191>.
+Develops a General Equilibrium (GE) Model, which estimates key variables
+such as wages, the number of residents and workers, the prices of the
+floor space, and its distribution between commercial and residential use,
+as in Ahlfeldt et al., (2015)
+<https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA10876>. By doing so,
+the model allows understanding the economic influence of different urban
+policies.
 
 %prep
 %setup -q -c -n %{packname}

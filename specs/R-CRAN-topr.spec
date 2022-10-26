@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  topr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Custom Plots for Viewing Genetic Association Results
 
@@ -19,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-readr >= 1.4.0
 BuildRequires:    R-CRAN-scales >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-ggrepel 
@@ -27,11 +27,11 @@ BuildRequires:    R-CRAN-egg
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-toprdata 
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-CRAN-scales >= 1.1.1
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-ggrepel 
@@ -39,13 +39,14 @@ Requires:         R-CRAN-egg
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-toprdata 
 
 %description
-A collection of functions for visualizing, exploring and annotating
-genetic association results. Association results from multiple traits can
-be viewed simultaneously along with gene annotation, over the entire
-genome (Manhattan plot) or in the more detailed regional view.
+A collection of functions for visualizing,exploring and annotating genetic
+association results.Association results from multiple traits can be viewed
+simultaneously along with gene annotation, over the entire genome
+(Manhattan plot) or in the more detailed regional view.
 
 %prep
 %setup -q -c -n %{packname}

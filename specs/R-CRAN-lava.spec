@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lava
-%global packver   1.6.10
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.10
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Variable Models
 
@@ -17,21 +18,21 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-SQUAREM 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-progressr 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-progressr 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-SQUAREM 
@@ -42,7 +43,7 @@ A general implementation of Structural Equation Models with latent
 variables (MLE, 2SLS, and composite likelihood estimators) with both
 continuous, censored, and ordinal outcomes (Holst and Budtz-Joergensen
 (2013) <doi:10.1007/s00180-012-0344-y>). Mixture latent variable models
-and non-linear latent variable models (Holst and Budtz-Joergensen (2019)
+and non-linear latent variable models (Holst and Budtz-Joergensen (2020)
 <doi:10.1093/biostatistics/kxy082>). The package also provides methods for
 graph exploration (d-separation, back-door criterion), simulation of
 general non-linear latent variable models, and estimation of influence

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  targeted
-%global packver   0.2.0
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Targeted Inference
 
@@ -15,25 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-lava >= 1.6.10
+BuildRequires:    R-CRAN-lava >= 1.7.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-futile.logger 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-mets 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-lava >= 1.6.10
+Requires:         R-CRAN-lava >= 1.7.0
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-futile.logger 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-progressr 
 Requires:         R-methods 
-Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-mets 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-survival 
 
 %description
 Various methods for targeted and semiparametric inference including

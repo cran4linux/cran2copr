@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  templr
-%global packver   0.1-0
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MASCOTNUM Algorithms Template Tools
 
@@ -20,9 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Helper functions for MASCOTNUM algorithm template, for design of numerical

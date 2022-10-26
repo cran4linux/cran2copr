@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  foreSIGHT
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systems Insights from Generation of Hydroclimatic Timeseries
 
@@ -16,8 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-GA >= 3.0
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-GA >= 3.0.2
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-directlabels 
 BuildRequires:    R-CRAN-cowplot 
@@ -35,9 +35,10 @@ BuildRequires:    R-CRAN-viridisLite
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-GA >= 3.0
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-GA >= 3.0.2
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-directlabels 
 Requires:         R-CRAN-cowplot 
@@ -55,6 +56,8 @@ Requires:         R-CRAN-viridisLite
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 A tool to create hydroclimate scenarios, stress test systems and visualize
@@ -83,8 +86,10 @@ are included for the easy integration of existing system models both
 internally in R and externally for seamless 'stress-testing'. A suite of
 visualization options for the results of a scenario-neutral analysis (e.g.
 plotting performance spaces and overlaying climate projection information)
-are also included. As further developments in scenario-neutral approaches
-occur the tool will be updated to incorporate these advances.
+are also included. Version 1.0 of this package is described in Bennett et
+al. (2021) <doi:10.1016/j.envsoft.2021.104999>. As further developments in
+scenario-neutral approaches occur the tool will be updated to incorporate
+these advances.
 
 %prep
 %setup -q -c -n %{packname}
@@ -94,6 +99,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

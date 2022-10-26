@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastRhockey
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Access Premier Hockey Federation and National Hockey League Play by Play Data
 
@@ -56,10 +56,10 @@ Requires:         R-CRAN-rlang
 
 %description
 A utility to scrape and load play-by-play data and statistics from the
-Premier Hockey Federation (PHF)<https://www.premierhockeyfederation.com/>,
-formerly known as the National Women's Hockey League (NWHL). Additionally,
-allows access to the National Hockey League's stats API
-<https://www.nhl.com/>.
+Premier Hockey Federation (PHF)
+<https://www.premierhockeyfederation.com/>, formerly known as the National
+Women's Hockey League (NWHL). Additionally, allows access to the National
+Hockey League's stats API <https://www.nhl.com/>.
 
 %prep
 %setup -q -c -n %{packname}

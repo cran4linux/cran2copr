@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  shiny
-%global packver   1.7.2
+%global packver   1.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Web Application Framework for R
 
@@ -26,9 +27,9 @@ BuildRequires:    R-CRAN-later >= 1.0.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.16
 BuildRequires:    R-CRAN-htmltools >= 0.5.2
 BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-fontawesome >= 0.4.0
 BuildRequires:    R-CRAN-bslib >= 0.3.0
 BuildRequires:    R-CRAN-mime >= 0.3
-BuildRequires:    R-CRAN-fontawesome >= 0.2.1
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
@@ -50,9 +51,9 @@ Requires:         R-CRAN-later >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 0.9.16
 Requires:         R-CRAN-htmltools >= 0.5.2
 Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-fontawesome >= 0.4.0
 Requires:         R-CRAN-bslib >= 0.3.0
 Requires:         R-CRAN-mime >= 0.3
-Requires:         R-CRAN-fontawesome >= 0.2.1
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-methods 
 Requires:         R-utils 
