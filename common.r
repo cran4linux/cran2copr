@@ -361,8 +361,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
       "find %{packname} -type f -exec ",
       "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
     arrow = "sed -i 's|PKGCONFIG_DIRS=.*|PKGCONFIG_DIRS=-L%{_libdir}|' %{packname}/configure",
-    bigmemory = "sed -i 's|-luuid||g' %{packname}/configure",
-    sketch = "find %{packname}/inst -type f -exec sed -i '/#!/d' {} \\;"
+    bigmemory = "sed -i 's|-luuid||g' %{packname}/configure"
   ))
 
   # install

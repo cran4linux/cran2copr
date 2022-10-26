@@ -47,7 +47,7 @@ enables users to write JavaScript applications using the syntax of R.
 
 %prep
 %setup -q -c -n %{packname}
-find %{packname}/inst -type f -exec sed -i '/#!/d' {} \;
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
