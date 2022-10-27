@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rCNV
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detect Copy Number Variants from SNPs Data
 
@@ -21,11 +22,13 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
 Requires:         R-graphics 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-stringr 
 
 %description
 Functions in this package will import filtered variant call format (VCF)

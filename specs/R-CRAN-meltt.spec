@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  meltt
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matching Event Data by Location, Time and Type
 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
@@ -38,6 +40,7 @@ Requires:         R-CRAN-shinyjs
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-tibble 
+Requires:         R-methods 
 
 %description
 Framework for merging and disambiguating event data based on

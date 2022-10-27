@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HYPEtools
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Processing and Analysing Files from the Hydrological Catchment Model HYPE
 
@@ -20,12 +20,16 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.9.8
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-hydroGOF 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
@@ -36,12 +40,16 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-hydroGOF 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-parallel 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Bayesrel
-%global packver   0.7.4.3
+%global packver   0.7.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4.3
+Version:          0.7.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Reliability Estimation
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-coda
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.4.6
@@ -35,7 +34,6 @@ Requires:         R-CRAN-coda
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-Rdpack 
 
 %description

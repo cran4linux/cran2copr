@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  synthACS
-%global packver   1.7.0
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthetic Microdata and Spatial MicroSimulation Modeling for ACS Data
 
@@ -31,7 +31,7 @@ a wrapper to library(acs). Builds synthetic micro-datasets at any
 user-specified geographic level with ten default attributes; and, conducts
 spatial microsimulation modeling (SMSM) via simulated annealing.  SMSM is
 conducted in parallel by default. Lastly, we provide functionality for
-data-extensibility of micro-datasets.
+data-extensibility of micro-datasets <doi:10.18637/jss.v104.i07>.
 
 %prep
 %setup -q -c -n %{packname}

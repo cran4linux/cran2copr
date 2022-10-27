@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyHugePlot
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Plotting of Large-Sized Data
 
@@ -21,25 +21,37 @@ BuildRequires:    R-CRAN-plotly >= 4.10.0
 BuildRequires:    R-CRAN-bit64 >= 4.0.5
 BuildRequires:    R-CRAN-tibble >= 3.1.7
 BuildRequires:    R-CRAN-R6 >= 2.5.1
+BuildRequires:    R-CRAN-shinyjs >= 2.1.0
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.14.2
+BuildRequires:    R-CRAN-tidyselect >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.9
+BuildRequires:    R-CRAN-rlang >= 1.0.5
+BuildRequires:    R-CRAN-htmltools >= 0.5.2
 BuildRequires:    R-CRAN-nanotime >= 0.3.6
 BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-lazyeval >= 0.2.2
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-plotly >= 4.10.0
 Requires:         R-CRAN-bit64 >= 4.0.5
 Requires:         R-CRAN-tibble >= 3.1.7
 Requires:         R-CRAN-R6 >= 2.5.1
+Requires:         R-CRAN-shinyjs >= 2.1.0
+Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.14.2
+Requires:         R-CRAN-tidyselect >= 1.1.2
 Requires:         R-CRAN-dplyr >= 1.0.9
+Requires:         R-CRAN-rlang >= 1.0.5
+Requires:         R-CRAN-htmltools >= 0.5.2
 Requires:         R-CRAN-nanotime >= 0.3.6
 Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-lazyeval >= 0.2.2
 Requires:         R-CRAN-assertthat >= 0.2.1
 
 %description

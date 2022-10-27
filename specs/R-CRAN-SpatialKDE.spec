@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SpatialKDE
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Density Estimation for Spatial Data
 
@@ -15,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
@@ -24,7 +24,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-raster 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 

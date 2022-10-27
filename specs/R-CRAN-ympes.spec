@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ympes
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Helper Functions
 
@@ -14,16 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
 Provides a collection of lightweight helper functions (imps) both for
 interactive use and for inclusion within other packages. These include
 minimal assertion functions with a focus on informative error messaging
 for both missing and incorrect function arguments as well as other
-functions for visualising colour palettes and quoting user input.
+functions for visualising colour palettes, quoting user input and working
+with age intervals.
 
 %prep
 %setup -q -c -n %{packname}

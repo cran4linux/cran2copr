@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asciicast
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create 'Ascii' Screen Casts from R Scripts
 
@@ -17,21 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-processx >= 3.7.0
+BuildRequires:    R-CRAN-cli >= 3.3.0.9000
 BuildRequires:    R-CRAN-magick >= 2.2.9002
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-V8 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-processx >= 3.7.0
+Requires:         R-CRAN-cli >= 3.3.0.9000
 Requires:         R-CRAN-magick >= 2.2.9002
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-V8 
+Requires:         R-CRAN-withr 
 
 %description
 Record 'asciicast' screen casts from R scripts. Convert them to animated

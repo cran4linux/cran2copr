@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BGVAR
-%global packver   2.5.1
+%global packver   2.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          2.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Global Vector Autoregressions
 
@@ -66,7 +66,11 @@ Applied Econometrics, Vol. 31(7), pp. 1371-1391 <doi:10.1002/jae.2504>.
 Post-processing functions allow for doing predictions, structurally
 identify the model with short-run or sign-restrictions and compute impulse
 response functions, historical decompositions and forecast error variance
-decompositions. Plotting functions are also available.
+decompositions. Plotting functions are also available. The package has a
+companion paper: Boeck, M., Feldkircher, M. and F. Huber (2022) "BGVAR:
+Bayesian Global Vector Autoregressions with Shrinkage Priors in R",
+Journal of Statistical Software, Vol. 104(9), pp. 1-28
+<doi:10.18637/jss.v104.i09>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fbnet
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forensic Bayesian Networks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -20,21 +20,24 @@ BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-paramlink 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-paramlink 
 Requires:         R-stats 
 Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-assertthat 
+Requires:         R-utils 
 
 %description
 Open-source package for computing likelihood ratios in kinship testing and
 human identification cases (Chernomoretz et al. (2021)
-<doi:10.1016/j.fsir.2020.100132>).  It relies on a Bayesian Networks
-framework and is particularly well suited to efficiently perform
+<doi:10.1016/j.fsir.2020.100132>). It has the core function of the
+software GENis, developed by Fundación Sadosky. It relies on a Bayesian
+Networks framework and is particularly well suited to efficiently perform
 large-size queries against databases of missing individuals (Darwiche
 (2009) <doi:10.1017/CBO9780511811357>).
 
