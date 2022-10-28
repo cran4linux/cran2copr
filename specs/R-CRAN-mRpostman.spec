@@ -1,50 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidync
-%global packver   0.3.0
+%global packname  mRpostman
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Approach to 'NetCDF' Data Exploration and Extraction
+Summary:          An IMAP Client for R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RNetCDF >= 1.9.1
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-ncmeta >= 0.2.0
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-RNetCDF >= 1.9.1
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-ncmeta >= 0.2.0
-Requires:         R-CRAN-forcats 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-base64enc 
+Requires:         R-utils 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
 
 %description
-Tidy tools for 'NetCDF' data sources. Explore the contents of a 'NetCDF'
-source (file or URL) presented as variables organized by grid with a
-database-like interface. The hyper_filter() interactive function
-translates the filter value or index expressions to array-slicing form. No
-data is read until explicitly requested, as a data frame or list of arrays
-via hyper_tibble() or hyper_array().
+An easy-to-use IMAP client that provides tools for message searching,
+selective fetching of message attributes, mailbox management, attachment
+extraction, and several other IMAP features, paving the way for e-mail
+data analysis in R.
 
 %prep
 %setup -q -c -n %{packname}

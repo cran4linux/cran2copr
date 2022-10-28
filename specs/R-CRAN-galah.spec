@@ -1,57 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bigrquery
-%global packver   1.4.1
+%global packname  galah
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to Google's 'BigQuery' 'API'
+Summary:          Biodiversity Data from the Living Atlas Community
 
-License:          GPL-3
+License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-gargle >= 1.2.0
-BuildRequires:    R-CRAN-rlang >= 0.4.9
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glue >= 1.3.2
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+BuildRequires:    R-CRAN-stringr >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite >= 0.9.8
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-brio 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rapidjsonr 
-Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-gargle >= 1.2.0
-Requires:         R-CRAN-rlang >= 0.4.9
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-glue >= 1.3.2
+Requires:         R-CRAN-lifecycle >= 1.0.0
+Requires:         R-CRAN-stringr >= 1.0.0
+Requires:         R-CRAN-jsonlite >= 0.9.8
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-brio 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Easily talk to Google's 'BigQuery' database from R.
+The living atlas community provides tools to enable users of biodiversity
+information to find, access, combine and visualise data on plants, animals
+and fungi. 'galah' enables the R community to directly access data and
+resources hosted by the living atlases.
 
 %prep
 %setup -q -c -n %{packname}

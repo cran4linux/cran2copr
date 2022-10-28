@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppAnnoy
-%global packver   0.0.20
+%global packname  gMWT
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.20
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Bindings for 'Annoy', a Library for Approximate Nearest Neighbors
+Summary:          Generalized Mann-Whitney Type Tests
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildRequires:    R-CRAN-Rcpp >= 0.9.13
+BuildRequires:    R-CRAN-clinfun 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.9.13
+Requires:         R-CRAN-clinfun 
 
 %description
-'Annoy' is a small C++ library for Approximate Nearest Neighbors written
-for efficient memory usage as well an ability to load from / save to disk.
-This package provides an R interface by relying on the 'Rcpp' package,
-exposing the same interface as the original Python wrapper to 'Annoy'. See
-<https://github.com/spotify/annoy> for more on 'Annoy'. 'Annoy' is
-released under Version 2.0 of the Apache License. Also included is a small
-Windows port of 'mmap' which is released under the MIT license.
+Generalized Mann-Whitney type tests based on probabilistic indices and new
+diagnostic plots, for the underlying manuscript see Fischer, Oja (2015)
+<doi:10.18637/jss.v065.i09>.
 
 %prep
 %setup -q -c -n %{packname}

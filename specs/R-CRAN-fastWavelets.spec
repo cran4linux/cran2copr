@@ -1,34 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppAnnoy
-%global packver   0.0.20
+%global packname  fastWavelets
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.20
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Bindings for 'Annoy', a Library for Approximate Nearest Neighbors
+Summary:          Compute Maximal Overlap Discrete Wavelet Transform (MODWT) and À Trous Discrete Wavelet Transform
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 
 %description
-'Annoy' is a small C++ library for Approximate Nearest Neighbors written
-for efficient memory usage as well an ability to load from / save to disk.
-This package provides an R interface by relying on the 'Rcpp' package,
-exposing the same interface as the original Python wrapper to 'Annoy'. See
-<https://github.com/spotify/annoy> for more on 'Annoy'. 'Annoy' is
-released under Version 2.0 of the Apache License. Also included is a small
-Windows port of 'mmap' which is released under the MIT license.
+A lightweight package to compute Maximal Overlap Discrete Wavelet
+Transform (MODWT) and À Trous Discrete Wavelet Transform by leveraging the
+power of 'Rcpp' to make these operations fast. See Maheswaran and Khosa
+(2012) <doi:10.1016/j.cageo.2011.12.015>.
 
 %prep
 %setup -q -c -n %{packname}

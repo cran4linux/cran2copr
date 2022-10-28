@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rts2
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Real-Time Disease Surveillance
 
@@ -45,10 +46,12 @@ methods to map covariates between geographies. An approximate log-Gaussian
 Cox Process model is fit using 'rstan' or 'cmdstanr' and provides output
 and analysis as 'sf' objects for simple visualisation. 'cmdstanr' can be
 downloaded at <https://mc-stan.org/cmdstanr/>. Log-Gaussian Cox Processes
-are described by Diggle et al. (2013) <doi:10.1214/13-STS441> and we use
-the low-rank approximation for Gaussian processes described by Solin and
-Särkkä (2020) <doi:10.1007/s11222-019-09886-w> and Riutort-Mayol (2020)
-<arXiv:2004.11408>.
+are described by Diggle et al. (2013) <doi:10.1214/13-STS441> and we
+provide both the low-rank approximation for Gaussian processes described
+by Solin and Särkkä (2020) <doi:10.1007/s11222-019-09886-w> and
+Riutort-Mayol et al (2020) <arXiv:2004.11408> and the nearest neighbour
+Gaussian process described by Datta et al (2016)
+<doi:10.1080/01621459.2015.1044091>.
 
 %prep
 %setup -q -c -n %{packname}

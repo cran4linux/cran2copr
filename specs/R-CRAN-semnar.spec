@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppAnnoy
-%global packver   0.0.20
+%global packname  semnar
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.20
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Bindings for 'Annoy', a Library for Approximate Nearest Neighbors
+Summary:          Constructing and Interacting with Databases of Presentations
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-parsedate 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-urlshorteneR 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-parsedate 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-urlshorteneR 
 
 %description
-'Annoy' is a small C++ library for Approximate Nearest Neighbors written
-for efficient memory usage as well an ability to load from / save to disk.
-This package provides an R interface by relying on the 'Rcpp' package,
-exposing the same interface as the original Python wrapper to 'Annoy'. See
-<https://github.com/spotify/annoy> for more on 'Annoy'. 'Annoy' is
-released under Version 2.0 of the Apache License. Also included is a small
-Windows port of 'mmap' which is released under the MIT license.
+Provides methods for constructing and maintaining a database of
+presentations in R. The presentations are either ones that the user gives
+or gave or presentations at a particular event or event series. The
+package also provides a plot method for the interactive mapping of the
+presentations using 'leaflet' by grouping them according to country, city,
+year and other presentation attributes. The markers on the map come with
+popups providing presentation details (title, institution, event, links to
+materials and events, and so on).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rayrender
-%global packver   0.27.1
+%global packver   0.28.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27.1
+Version:          0.28.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build and Raytrace 3D Scenes
 
@@ -17,10 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-rayimage >= 0.6.2
+BuildRequires:    R-CRAN-rayimage >= 0.7.1
 BuildRequires:    R-CRAN-spacefillr >= 0.3.0
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-png 
@@ -30,9 +29,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-rayimage >= 0.6.2
+Requires:         R-CRAN-rayimage >= 0.7.1
 Requires:         R-parallel 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-png 

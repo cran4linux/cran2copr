@@ -1,50 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidync
-%global packver   0.3.0
+%global packname  mtdesign
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Approach to 'NetCDF' Data Exploration and Extraction
+Summary:          Mander and Thompson Designs
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-RNetCDF >= 1.9.1
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-ncmeta >= 0.2.0
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-RNetCDF >= 1.9.1
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-ncmeta >= 0.2.0
-Requires:         R-CRAN-forcats 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-logger 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-purrr 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
-Tidy tools for 'NetCDF' data sources. Explore the contents of a 'NetCDF'
-source (file or URL) presented as variables organized by grid with a
-database-like interface. The hyper_filter() interactive function
-translates the filter value or index expressions to array-slicing form. No
-data is read until explicitly requested, as a data frame or list of arrays
-via hyper_tibble() or hyper_array().
+Implements Mander & Thompson's (2010) <doi:10.1016/j.cct.2010.07.008>
+methods for two-stage designs optimal under the alternative hypothesis for
+phase II [cancer] trials.  Also provides an implementation of Simon's
+(1989) <doi:10.1016/0197-2456(89)90015-9> original methodology and allows
+exploration of the operating characteristics of sub-optimal designs.
 
 %prep
 %setup -q -c -n %{packname}
