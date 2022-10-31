@@ -1,51 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chessR
-%global packver   1.5.2
+%global packname  simcausal
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Extract, Clean and Analyse Online Chess Game Data
+Summary:          Simulating Longitudinal Data with Causal Inference Applications
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
-A set of functions to enable users to extract chess game data from popular
-chess sites, including 'Lichess'<https://lichess.org/> and 'Chess.com'
-<https://www.chess.com/> and then perform analysis on that game data.
+A flexible tool for simulating complex longitudinal data using structural
+equations, with emphasis on problems in causal inference. Specify
+interventions and simulate from intervened data generating distributions.
+Define and evaluate treatment-specific means, the average treatment
+effects and coefficients from working marginal structural models. User
+interface designed to facilitate the conduct of transparent and
+reproducible simulation studies, and allows concise expression of complex
+functional dependencies for a large number of time-varying nodes. See the
+package vignette for more information, documentation and examples.
 
 %prep
 %setup -q -c -n %{packname}

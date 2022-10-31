@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggdag
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze and Create Elegant Directed Acyclic Graphs
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidygraph 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidygraph 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shorts
-%global packver   2.1.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Short Sprints
 
@@ -41,7 +41,8 @@ on the works of Chelly SM, Denis C. (2001) <doi:
 10.1097/00005768-200102000-00024>, Clark KP, Rieger RH, Bruno RF, Stearne
 DJ. (2017) <doi: 10.1519/JSC.0000000000002081>, Furusawa K, Hill AV,
 Parkinson JL (1927) <doi: 10.1098/rspb.1927.0035>, Greene PR. (1986) <doi:
-10.1016/0025-5564(86)90063-5>, and Samozino P. (2018) <doi:
+10.1016/0025-5564(86)90063-5>, Samozino P. and Peyrot N., et al (2022)
+<doi: 10.1111/sms.14097>, and Samozino P. (2018) <doi:
 10.1007/978-3-319-05633-3_11>.
 
 %prep

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cylcop
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Circular-Linear Copulas with Angular Symmetry for Movement Data
 
@@ -19,13 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-GoFKernel 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-data.table 
@@ -38,16 +37,16 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-movMF 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-mixR 
+BuildRequires:    R-CRAN-transport 
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-circular 
 Requires:         R-stats 
-Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
 Requires:         R-methods 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-GoFKernel 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-data.table 
@@ -60,11 +59,13 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-movMF 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-mixR 
+Requires:         R-CRAN-transport 
 
 %description
 Classes (S4) of circular-linear, symmetric copulas with corresponding
 methods, extending the 'copula' package. These copulas are especially
-useful for modelling correlation in discrete-time movement data. Methods
+useful for modeling correlation in discrete-time movement data. Methods
 for density, (conditional) distribution, random number generation,
 bivariate dependence measures and fitting parameters using maximum
 likelihood and other approaches. The package also contains methods for

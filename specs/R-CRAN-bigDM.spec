@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bigDM
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalable Bayesian Disease Mapping Models for High-Dimensional Data
 
@@ -17,6 +18,7 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-MASS 
@@ -32,6 +34,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlist 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-fastDummies 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-MASS 
@@ -51,9 +54,10 @@ Requires:         R-CRAN-rlist
 Implements several spatial and spatio-temporal scalable disease mapping
 models for high-dimensional count data using the INLA technique for
 approximate Bayesian inference in latent Gaussian models (Orozco-Acosta et
-al., 2021 <doi:10.1016/j.spasta.2021.100496> and Orozco-Acosta et al.,
-2022 <arXiv:2201.08323>). The creation and develpment of this package has
-been supported by Project MTM2017-82553-R (AEI/FEDER, UE) and Project
+al., 2021 <doi:10.1016/j.spasta.2021.100496>; Orozco-Acosta et al., 2022
+<arXiv:2201.08323> and Vicente et al., 2022 <arXiv:2210.14849>). The
+creation and develpment of this package has been supported by Project
+MTM2017-82553-R (AEI/FEDER, UE) and Project
 PID2020-113125RB-I00/MCIN/AEI/10.13039/501100011033. It has also been
 partially funded by the Public University of Navarra (project PJUPNA2001).
 

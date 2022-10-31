@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  arkhe
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Representation of Archaeological Data
+Summary:          Tools for Cleaning Rectangular Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,20 +19,14 @@ Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-A collection of classes that represent archaeological data. This package
-provides a set of S4 classes that represent different special types of
-matrix (absolute/relative frequency, presence/absence data, co-occurrence
-matrix, etc.) upon which package developers can build subclasses. It also
-provides a set of generic methods (mutators and coercion mechanisms) and
-functions (e.g. summary statistics, predicates). In addition, a few
-classes of general interest (e.g. that represent stratigraphic
-relationships) are implemented.
+A dependency-free collection of simple functions for cleaning rectangular
+data. This package allows to detect, count and replace values or discard
+rows/columns using a predicate function. In addition, it provides tools to
+check conditions and return informative error messages.
 
 %prep
 %setup -q -c -n %{packname}

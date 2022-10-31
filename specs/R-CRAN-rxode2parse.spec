@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2parse
-%global packver   2.0.11
+%global packver   2.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.11
+Version:          2.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parsing and Code Generation Functions for 'rxode2'
 
@@ -18,19 +18,17 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.21.0.7
 BuildRequires:    R-CRAN-BH >= 1.78.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.2
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dparser 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-qs 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dparser 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-qs 
@@ -41,8 +39,8 @@ Provides the parsing needed for 'rxode2' (Wang, Hallow and James (2016)
 <doi:10.1002/psp4.12052>). It also provides the 'stan' based advan linear
 compartment model solutions with gradients (Carpenter et al (2015),
 <arXiv:1509.07164>) needed in 'nlmixr2' (Fidler et al (2019)
-<doi:10.1002/psp4.12445>) needed in 'nlmixr2'. This split will reduce
-computational burden of recompiling 'rxode2'.
+<doi:10.1002/psp4.12445>). This split will reduce computational burden of
+recompiling 'rxode2'.
 
 %prep
 %setup -q -c -n %{packname}

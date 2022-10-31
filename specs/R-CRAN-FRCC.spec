@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scAnnotate
-%global packver   0.0.4
+%global packname  FRCC
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Automated Cell Type Annotation Tool for Single-Cell RNA-Sequencing Data
+Summary:          Fast Regularized Canonical Correlation Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Seurat >= 4.0.5
-BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-calibrate 
+BuildRequires:    R-CRAN-CCP 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MTPS 
-BuildRequires:    R-CRAN-harmony 
-Requires:         R-CRAN-Seurat >= 4.0.5
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-calibrate 
+Requires:         R-CRAN-CCP 
+Requires:         R-CRAN-corpcor 
+Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-MTPS 
-Requires:         R-CRAN-harmony 
+Requires:         R-utils 
 
 %description
-An entirely data-driven cell type annotation tools, which requires
-training data to learn the classifier, but not biological knowledge to
-make subjective decisions. It consists of three steps: preprocessing
-training and test data, model fitting on training data, and cell
-classification on test data. See Xiangling Ji,Danielle Tsao, Kailun Bai,
-Min Tsao, Li Xing, Xuekui Zhang.(2022)<doi:10.1101/2022.02.19.481159> for
-more details.
+Contains the core functions associated with Fast Regularized Canonical
+Correlation Analysis. Please see the following for details: Raul
+Cruz-Cano, Mei-Ling Ting Lee, Fast regularized canonical correlation
+analysis, Computational Statistics & Data Analysis, Volume 70, 2014, Pages
+88-100, ISSN 0167-9473 <doi:10.1016/j.csda.2013.09.020>.
 
 %prep
 %setup -q -c -n %{packname}

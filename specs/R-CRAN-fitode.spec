@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fanc
-%global packver   2.3.5
+%global __requires_exclude ^libmpi
+%global packname  fitode
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Likelihood Factor Analysis via Nonconvex Penalty
+Summary:          Tools for Ordinary Differential Equations Model Fitting
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ellipse 
-Requires:         R-tcltk 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bbmle 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-bbmle 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-coda 
+Requires:         R-methods 
 
 %description
-Computes the penalized maximum likelihood estimates of factor loadings and
-unique variances for various tuning parameters. The pathwise coordinate
-descent along with EM algorithm is used.  This package also includes a new
-graphical tool which outputs path diagram, goodness-of-fit indices and
-model selection criteria for each regularization parameter. The user can
-change the regularization parameter by manipulating scrollbars, which is
-helpful to find a suitable value of regularization parameter.
+Methods and functions for fitting ordinary differential equations (ODE)
+model in 'R'. Sensitivity equations are used to compute the gradients of
+ODE trajectories with respect to underlying parameters, which in turn
+allows for more stable fitting. Other fitting methods, such as MCMC
+(Markov chain Monte Carlo), are also available.
 
 %prep
 %setup -q -c -n %{packname}

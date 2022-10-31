@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  markdown
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Render Markdown with the C Library 'Sundown'
+Summary:          Render Markdown with 'commonmark'
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,19 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.11.1
 Requires:         R-core >= 2.11.1
+BuildArch:        noarch
 BuildRequires:    R-CRAN-mime >= 0.3
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-commonmark 
 BuildRequires:    R-CRAN-xfun 
 Requires:         R-CRAN-mime >= 0.3
 Requires:         R-utils 
+Requires:         R-CRAN-commonmark 
 Requires:         R-CRAN-xfun 
 
 %description
-Provides R bindings to the 'Sundown' Markdown rendering library
-(<https://github.com/vmg/sundown>). Markdown is a plain-text formatting
-syntax that can be converted to 'XHTML' or other formats. See
-<https://en.wikipedia.org/wiki/Markdown> for more information about
-Markdown.
+Render Markdown to full HTML documents with the 'commonmark' package.
+Markdown is a plain-text formatting syntax that can be converted to
+'XHTML' or other formats. See <https://en.wikipedia.org/wiki/Markdown> for
+more information about Markdown.
 
 %prep
 %setup -q -c -n %{packname}

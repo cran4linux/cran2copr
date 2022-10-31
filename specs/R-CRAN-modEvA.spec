@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  modEvA
-%global packver   3.5
+%global packver   3.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5
+Version:          3.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Evaluation and Analysis
 
@@ -33,7 +34,8 @@ includes functions for performing variation partitioning, calculating
 several measures of model discrimination and calibration, optimizing
 prediction thresholds based on a number of criteria, performing
 multivariate environmental similarity surface (MESS) analysis, and
-displaying various analytical plots.
+displaying various analytical plots. Initially described in Barbosa et al.
+(2013) <doi:10.1111/ddi.12100>.
 
 %prep
 %setup -q -c -n %{packname}

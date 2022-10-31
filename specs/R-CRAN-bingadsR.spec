@@ -1,36 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jetpack
-%global packver   0.5.4
+%global packname  bingadsR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Friendly Package Manager
+Summary:          Get Bing Ads Data via the 'Windsor.ai' API
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-remotes >= 2.0.3
-BuildRequires:    R-CRAN-desc >= 1.2.0
-BuildRequires:    R-CRAN-docopt >= 0.4
-BuildRequires:    R-CRAN-renv >= 0.13.1
-Requires:         R-CRAN-remotes >= 2.0.3
-Requires:         R-CRAN-desc >= 1.2.0
-Requires:         R-CRAN-docopt >= 0.4
-Requires:         R-CRAN-renv >= 0.13.1
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-Manage project dependencies from your DESCRIPTION file. Create a
-reproducible virtual environment with minimal additional files in your
-project. Provides tools to add, remove, and update dependencies as well as
-install existing dependencies with a single function.
+Collect your data on digital marketing campaigns from bing Ads using the
+'Windsor.ai' API <https://windsor.ai/api-fields/>.
 
 %prep
 %setup -q -c -n %{packname}

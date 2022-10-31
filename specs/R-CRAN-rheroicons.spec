@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rheroicons
-%global packver   0.4.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Zero Dependency 'SVG' Icon Library for 'Shiny'
 
@@ -17,10 +18,10 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-htmltools >= 0.5.2
+BuildRequires:    R-CRAN-htmltools >= 0.5.3
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-htmltools >= 0.5.2
+Requires:         R-CRAN-htmltools >= 0.5.3
 Requires:         R-CRAN-stringr 
 
 %description

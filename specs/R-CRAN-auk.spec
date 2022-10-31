@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  auk
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          eBird Data Extraction and Processing in R
 
@@ -26,7 +27,6 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-readr >= 2.0.0
 Requires:         R-CRAN-countrycode >= 1.0.0
 Requires:         R-CRAN-tidyr >= 0.8.0
@@ -37,7 +37,6 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
-Requires:         R-utils 
 
 %description
 Extract and process bird sightings records from eBird

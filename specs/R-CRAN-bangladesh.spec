@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nse2r
-%global packver   0.1.5
+%global __requires_exclude ^libmpi
+%global packname  bangladesh
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fetch Data from 'National Stock Exchange (India)'
+Summary:          Provides Ready to Use Shapefiles for Geographical Map of Bangladesh
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-tmap 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-tmap 
+Requires:         R-CRAN-sf 
 
 %description
-Fetch data related to stocks, index, futures & options from the 'NSE
-(National Stock Exchange, India)'. This package is community maintained
-and is not officially supported by 'NSE'. The accuracy of data is only as
-correct as provided on <https://www.nseindia.com>.
+Usually, it is difficult to plot choropleth maps for Bangladesh in 'R'.
+The 'bangladesh' package provides ready-to-use shapefiles for different
+administrative regions of Bangladesh (e.g., Division, District, Upazila,
+and Union). This package helps users to draw thematic maps of
+administrative regions of Bangladesh easily as it comes with the 'sf'
+objects for the boundaries. It also provides functions allowing users to
+efficiently get specific area maps and center coordinates for regions.
+Users can also search for a specific area and calculate the centroids of
+those areas.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

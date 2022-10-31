@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spsur
-%global packver   1.0.2.4
+%global packver   1.0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2.4
+Version:          1.0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Seemingly Unrelated Regression Models
 
@@ -62,7 +62,8 @@ SUR-SDEM), SUR with Spatial Autoregressive terms and Spatial
 Autoregressive Disturbances (called SUR-SARAR), SUR-SARAR with Spatial Lag
 of X regressors (called SUR-GNM) and SUR with Spatially Independent Model
 (called SUR-SIM). The methodology of these models can be found in next
-references Mur, J., Lopez, F., and Herrera, M. (2010)
+references Minguez, R., Lopez, F.A., and Mur, J. (2022)
+<doi:10.18637/jss.v104.i11> Mur, J., Lopez, F.A., and Herrera, M. (2010)
 <doi:10.1080/17421772.2010.516443> Lopez, F.A., Mur, J., and Angulo, A.
 (2014) <doi:10.1007/s00168-014-0624-2>.
 

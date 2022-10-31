@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  migest
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for the Indirect Estimation of Bilateral Migration
 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-migration.indices
 BuildRequires:    R-CRAN-circlize 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-mipfp 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
@@ -44,6 +46,7 @@ Requires:         R-CRAN-migration.indices
 Requires:         R-CRAN-circlize 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-mipfp 
 
 %description
 Tools for estimating, measuring and working with migration data.
