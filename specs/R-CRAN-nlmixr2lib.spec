@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  folio
-%global packver   1.3.0
+%global packname  nlmixr2lib
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for Teaching Archaeology and Paleontology
+Summary:          A Model Library for 'nlmixr2'
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rxode2 
+BuildRequires:    R-CRAN-nlmixr2est 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-methods 
+Requires:         R-CRAN-rxode2 
+Requires:         R-CRAN-nlmixr2est 
 
 %description
-Datasets for teaching quantitative approaches and modeling in archaeology
-and paleontology. This package provides several types of data related to
-broad topics (cultural evolution, radiocarbon dating, paleoenvironments,
-etc.), which can be used to illustrate statistical methods in the
-classroom (multivariate data analysis, compositional data analysis,
-diversity measurement, etc.).
+A model library for 'nlmixr2'.  The models include (and plan to include)
+pharmacokinetic, pharmacodynamic, and disease models used in
+pharmacometrics.  Where applicable, references for each model are included
+in the meta-data for each individual model.  The package also includes
+model composition and modification functions to make model updates easier.
 
 %prep
 %setup -q -c -n %{packname}

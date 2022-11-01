@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BranchGLM
-%global packver   1.3.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Branch and Bound Variable Selection for GLMs using 'RcppArmadillo'
 
@@ -18,10 +18,14 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 Performs efficient and scalable glm best subset selection using a novel

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MARVEL
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Revealing Splicing Dynamics at Single-Cell Resolution
 
@@ -18,9 +18,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-plyr >= 1.8.4
+BuildRequires:    R-CRAN-Matrix >= 1.3.3
 BuildRequires:    R-CRAN-scales >= 1.1.1
 BuildRequires:    R-methods 
 Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-plyr >= 1.8.4
+Requires:         R-CRAN-Matrix >= 1.3.3
 Requires:         R-CRAN-scales >= 1.1.1
 Requires:         R-methods 
 
@@ -28,13 +32,9 @@ Requires:         R-methods
 Alternative splicing represents an additional and underappreciated layer
 of complexity underlying gene expression profiles. Nevertheless, there
 remains hitherto a paucity of software to investigate splicing dynamics at
-single-cell resolution. 'MARVEL' quantifies percent spliced-in (PSI)
-values for the all exon-level splicing events. Additionally, 'MARVEL'
-performs differential splicing analysis to identify splicing events whose
-PSI distribution differ between groups of cells. Finally, 'MARVEL' models
-the PSI distribution for each event as a beta distribution and categorises
-each distribution into modalities (inspired by Song (2017)
-<doi:10.1016/j.molcel.2017.06.003>).
+single-cell resolution. 'MARVEL' enables splicing analysis of single-cell
+RNA-sequencing data generated from plate- and droplet-based library
+preparation methods.
 
 %prep
 %setup -q -c -n %{packname}

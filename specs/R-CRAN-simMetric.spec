@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  simMetric
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metrics (with Uncertainty) for Simulation Studies that Evaluate Statistical Methods
 
@@ -19,11 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
 
 %description
 Allows users to quickly apply individual or multiple metrics to evaluate

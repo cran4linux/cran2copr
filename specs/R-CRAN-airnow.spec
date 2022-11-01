@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CropScapeR
-%global packver   1.1.4
+%global packname  airnow
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Cropland Data Layer Data via the 'CropScape' Web Service
+Summary:          Retrieve 'AirNow' Air Quality Observations and Forecasts
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.6.1
-BuildRequires:    R-CRAN-raster >= 3.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-RJSONIO >= 1.3
-BuildRequires:    R-CRAN-data.table >= 1.12.8
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-sf >= 0.8
-Requires:         R-utils >= 3.6.1
-Requires:         R-CRAN-raster >= 3.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-RJSONIO >= 1.3
-Requires:         R-CRAN-data.table >= 1.12.8
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-sf >= 0.8
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-tibble 
 
 %description
-Interface to easily access Cropland Data Layer (CDL) data for any area of
-interest via the 'CropScape' <https://nassgeodata.gmu.edu/CropScape/> web
-service.
+Retrieve air quality data via the 'AirNow' <https://www.airnow.gov/> API.
 
 %prep
 %setup -q -c -n %{packname}

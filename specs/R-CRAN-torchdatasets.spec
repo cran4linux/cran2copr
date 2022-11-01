@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  torchdatasets
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ready to Use Extra Datasets for Torch
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-pins
 BuildRequires:    R-CRAN-torchvision 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-torch >= 0.5.0
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-zip 
@@ -30,6 +32,7 @@ Requires:         R-CRAN-pins
 Requires:         R-CRAN-torchvision 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-withr 
+Requires:         R-utils 
 
 %description
 Provides datasets in a format that can be easily consumed by torch

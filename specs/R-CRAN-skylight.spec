@@ -1,30 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  folio
-%global packver   1.3.0
+%global packname  skylight
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for Teaching Archaeology and Paleontology
+Summary:          A Simple Sky Illuminance Model
 
-License:          GPL (>= 3)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 
 %description
-Datasets for teaching quantitative approaches and modeling in archaeology
-and paleontology. This package provides several types of data related to
-broad topics (cultural evolution, radiocarbon dating, paleoenvironments,
-etc.), which can be used to illustrate statistical methods in the
-classroom (multivariate data analysis, compositional data analysis,
-diversity measurement, etc.).
+A tool to calculate sky illuminance values (in lux) for both sun and moon.
+The model is a verbatim translation of the code by Janiczek and DeYoung
+(1987) <https://archive.org/details/DTIC_ADA182110>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  folio
-%global packver   1.3.0
+%global packname  experiences
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for Teaching Archaeology and Paleontology
+Summary:          Experience Research
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-huxtable 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-huxtable 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Datasets for teaching quantitative approaches and modeling in archaeology
-and paleontology. This package provides several types of data related to
-broad topics (cultural evolution, radiocarbon dating, paleoenvironments,
-etc.), which can be used to illustrate statistical methods in the
-classroom (multivariate data analysis, compositional data analysis,
-diversity measurement, etc.).
+Provides convenience functions for researching experiences including user,
+customer, patient, employee, and other human experiences. It provides a
+suite of tools to simplify data exploration such as benchmarking,
+comparing groups, and checking for differences. The outputs translate
+statistical approaches in applied experience research to human readable
+output.
 
 %prep
 %setup -q -c -n %{packname}

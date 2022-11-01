@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  folio
-%global packver   1.3.0
+%global packname  jetpack
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for Teaching Archaeology and Paleontology
+Summary:          A Friendly Package Manager
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-remotes >= 2.0.3
+BuildRequires:    R-CRAN-desc >= 1.2.0
+BuildRequires:    R-CRAN-docopt >= 0.4
+BuildRequires:    R-CRAN-renv >= 0.13.1
+Requires:         R-CRAN-remotes >= 2.0.3
+Requires:         R-CRAN-desc >= 1.2.0
+Requires:         R-CRAN-docopt >= 0.4
+Requires:         R-CRAN-renv >= 0.13.1
 
 %description
-Datasets for teaching quantitative approaches and modeling in archaeology
-and paleontology. This package provides several types of data related to
-broad topics (cultural evolution, radiocarbon dating, paleoenvironments,
-etc.), which can be used to illustrate statistical methods in the
-classroom (multivariate data analysis, compositional data analysis,
-diversity measurement, etc.).
+Manage project dependencies from your DESCRIPTION file. Create a
+reproducible virtual environment with minimal additional files in your
+project. Provides tools to add, remove, and update dependencies as well as
+install existing dependencies with a single function.
 
 %prep
 %setup -q -c -n %{packname}

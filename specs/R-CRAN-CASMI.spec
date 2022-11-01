@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  folio
-%global packver   1.3.0
+%global packname  CASMI
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for Teaching Archaeology and Paleontology
+Summary:          'CASMI'-Based Functions
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-EntropyEstimation 
+BuildRequires:    R-CRAN-entropy 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-EntropyEstimation 
+Requires:         R-CRAN-entropy 
+Requires:         R-stats 
 
 %description
-Datasets for teaching quantitative approaches and modeling in archaeology
-and paleontology. This package provides several types of data related to
-broad topics (cultural evolution, radiocarbon dating, paleoenvironments,
-etc.), which can be used to illustrate statistical methods in the
-classroom (multivariate data analysis, compositional data analysis,
-diversity measurement, etc.).
+Contains Coverage Adjusted Standardized Mutual Information ('CASMI')-based
+functions. 'CASMI' is a fundamental concept of a series of methods. For
+more information about 'CASMI' and 'CASMI'-related methods, please refer
+to the corresponding publications (for example, a feature selection
+method, Shi, J., Zhang, J., & Ge, Y. (2019) <doi:10.3390/e21121179>, and a
+dataset quality measurement method, Shi, J., Zhang, J., & Ge, Y. (2019)
+<doi:10.1109/ICHI.2019.8904553>) or contact the package author.
 
 %prep
 %setup -q -c -n %{packname}

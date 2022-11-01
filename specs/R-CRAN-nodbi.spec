@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nodbi
-%global packver   0.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'NoSQL' Database Connector
 
@@ -16,33 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RSQLite >= 2.2.4
-BuildRequires:    R-CRAN-mongolite >= 1.6
-BuildRequires:    R-CRAN-elastic >= 1.0.0
-BuildRequires:    R-CRAN-sofa >= 0.3.0
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-jsonify 
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-jqr 
-BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite >= 2.2.4
-Requires:         R-CRAN-mongolite >= 1.6
-Requires:         R-CRAN-elastic >= 1.0.0
-Requires:         R-CRAN-sofa >= 0.3.0
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-jsonify 
 Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-jqr 
-Requires:         R-CRAN-RPostgres 
 Requires:         R-CRAN-DBI 
 
 %description
 Simplified document database access and manipulation, providing a common
 API across supported 'NoSQL' databases 'Elasticsearch', 'CouchDB',
-'MongoDB' as well as 'SQLite/JSON1' and 'PostgreSQL'.
+'MongoDB' as well as 'SQLite/JSON1', 'PostgreSQL', and 'DuckDB'.
 
 %prep
 %setup -q -c -n %{packname}

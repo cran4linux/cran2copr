@@ -1,39 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ustfd
-%global packver   0.2.0
+%global packname  tidyfit
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          API Client for US Treasury Fiscal Data
+Summary:          Regularized Linear Modeling with Tidy Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yardstick 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rsample 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-yardstick 
 
 %description
-Make requests from the US Treasury Fiscal Data API endpoints.
+An extension to the 'R' tidy data environment for automated machine
+learning. The package allows fitting and cross validation of linear
+regression and classification algorithms on grouped data.
 
 %prep
 %setup -q -c -n %{packname}

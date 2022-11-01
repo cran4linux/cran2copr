@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rioja
-%global packver   1.0-2
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Quaternary Science Data
 
@@ -19,23 +19,15 @@ Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-sjmisc 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-forcats 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-mgcv 
 Requires:         R-grDevices 
-Requires:         R-CRAN-sjmisc 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
-Requires:         R-CRAN-forcats 
 
 %description
-Stratigraphic diagrams, constrained clustering, transfer functions, and
-other methods for analysing Quaternary science data.
+Constrained clustering, transfer functions, and other methods for
+analysing Quaternary science data.
 
 %prep
 %setup -q -c -n %{packname}

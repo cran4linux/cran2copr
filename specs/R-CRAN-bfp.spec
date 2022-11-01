@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bfp
-%global packver   0.0-45
+%global packver   0.0-46
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.45
+Version:          0.0.46
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Fractional Polynomials
 

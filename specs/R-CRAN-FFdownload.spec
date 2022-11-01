@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FFdownload
-%global packver   1.0.6
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Data from Kenneth French's Website
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-xts
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-timetk 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-rvest 
@@ -30,6 +32,7 @@ Requires:         R-CRAN-xts
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-timetk 
 
 %description
 Downloads all the datasets (you can exclude the daily ones or specify a
@@ -46,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

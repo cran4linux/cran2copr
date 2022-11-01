@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  folio
-%global packver   1.3.0
+%global packname  SAP
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for Teaching Archaeology and Paleontology
+Summary:          Statistical Analysis and Programming
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-BSDA 
+Requires:         R-stats 
+Requires:         R-CRAN-BSDA 
 
 %description
-Datasets for teaching quantitative approaches and modeling in archaeology
-and paleontology. This package provides several types of data related to
-broad topics (cultural evolution, radiocarbon dating, paleoenvironments,
-etc.), which can be used to illustrate statistical methods in the
-classroom (multivariate data analysis, compositional data analysis,
-diversity measurement, etc.).
+The Hypothesis tests for the means of independent or paired groups. This
+package investigates the normality assumption automatically. Then, it
+tests the hypothesis tests for two independent or paired group means by
+using parametric or non-parametric tests. It uses the Shapiro-Wilk test to
+test the normality assumption. For independent two groups, If data comes
+from the normal distribution, the package uses the Z or t-test according
+to whether variances are known. For paired groups, it uses paired t-test
+under normal data sets. If data does not come from the normal
+distribution, the package uses the Wilcoxon test for independent and
+paired cases.
 
 %prep
 %setup -q -c -n %{packname}
