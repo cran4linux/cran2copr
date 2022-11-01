@@ -68,7 +68,7 @@ blogdown,,hugo,TRUE,Hugo (<https://gohugo.io>) and Pandoc(<https://pandoc.org>)
 BMTME,,,TRUE,GNU
 BNSP,gsl-devel,,TRUE,
 bookdown,,,TRUE,Pandoc
-Boov,,,TRUE,"C++, gmp, mpfr"
+Boov,gmp-devel mpfr-devel,,TRUE,"C++, gmp, mpfr"
 BOSO,,,TRUE,IBM ILOG CPLEX
 botor,,,TRUE,Python and boto3(https://aws.amazon.com/sdk-for-python)
 BrailleR,,python3dist(wxpython),TRUE,Pythonand wxPython
