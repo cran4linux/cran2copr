@@ -76,7 +76,8 @@ information is available in the inst/COPYRIGHTS.
 
 %prep
 %setup -q -c -n %{packname}
-
+sed -i '/RcppEigen/,+12d' %{packname}/inst/tools/workaround.R
+sed -i 's/-@ISYSTEM@"$(EG)" @SH@//' %{packname}/src/Makevars.in
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
