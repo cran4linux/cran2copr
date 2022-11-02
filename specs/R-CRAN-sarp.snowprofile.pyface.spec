@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegperiod
-%global packver   0.4.0
+%global packname  sarp.snowprofile.pyface
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Determine Thermal Vegetation Periods
+Summary:          'python' Modules from Snowpack and Avalanche Research
 
-License:          GPL (>= 3)
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sarp.snowprofile >= 1.3.0
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-sarp.snowprofile >= 1.3.0
 Requires:         R-utils 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-data.table 
 
 %description
-Collection of common methods to determine growing season length in a
-simple manner. Start and end dates of the vegetation periods are
-calculated solely based on daily mean temperatures and the day of the
-year.
+The development of post-processing functionality for simulated snow
+profiles by the snow and avalanche community is often done in 'python'.
+This package aims to make these tools accessible to 'R' users. Currently
+integrated modules contain functions to calculate dry snow layer
+instabilities in support of avalache hazard assessments following the
+publications of Richter, Schweizer, Rotach, and Van Herwijnen (2019)
+<doi:10.5194/tc-13-3353-2019>, and Mayer, Van Herwijnen, Techel, and
+Schweizer (2022) <doi:10.5194/tc-2022-34>.
 
 %prep
 %setup -q -c -n %{packname}

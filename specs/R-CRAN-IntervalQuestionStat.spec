@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IntervalQuestionStat
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Deal with Interval-Valued Responses in Questionnaires
 
@@ -26,12 +27,25 @@ Requires:         R-graphics
 Requires:         R-stats 
 
 %description
-S4 classes, methods and functions to deal with interval-valued responses
-in questionnaires. They allow for computing any arithmetic and statistical
-operations with interval-valued data, preparing plots, transforming
-interval-valued responses into Likert-type and visual analogue scales
-responses, analysing respondents answers reliability and simulating
-interval-valued responses in a questionnaire.
+A user-friendly toolbox for doing the statistical analysis of
+interval-valued responses in questionnaires measuring intrinsically
+imprecise human attributes or features (attitudes, perceptions, opinions,
+feelings, etc.). In particular, this package provides S4 classes, methods,
+and functions in order to compute basic arithmetic and statistical
+operations with interval-valued data; prepare customized plots; associate
+each interval-valued response to its equivalent Likert-type and visual
+analogue scales answers through the minimum theta-distance and the
+mid-point criteria; analyze the reliability of respondents' answers from
+the internal consistency point of view by means of Cronbach's alpha
+coefficient; and simulate interval-valued responses in this type of
+questionnaires. The package also incorporates some real-life data that can
+be used to illustrate its working with several non-trivial reproducible
+examples. The methodology used in this package is based in many
+theoretical and applied publications from SMIRE+CoDiRE (Statistical
+Methods with Imprecise Random Elements and Comparison of Distributions of
+Random Elements) Research Group
+(<https://bellman.ciencias.uniovi.es/smire+codire/>) from the University
+of Oviedo (Spain).
 
 %prep
 %setup -q -c -n %{packname}

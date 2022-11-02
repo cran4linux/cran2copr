@@ -1,30 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegperiod
-%global packver   0.4.0
+%global packname  rfars
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Determine Thermal Vegetation Periods
+Summary:          Download and Analyze Fatal Crash Data
 
-License:          GPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-downloader 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-timetk 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-downloader 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-timetk 
 
 %description
-Collection of common methods to determine growing season length in a
-simple manner. Start and end dates of the vegetation periods are
-calculated solely based on daily mean temperatures and the day of the
-year.
+Download raw data from the Fatality Analysis Reporting System
+(<https://cdan.dot.gov/query>) and prepare it for research.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  intensegRid
+%global __requires_exclude ^libmpi
+%global packname  tensorFun
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Wrapper for the Carbon Intensity API
+Summary:          Basic Functions to Handle Tensor Data in Array Class
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-ClimProjDiags 
+BuildRequires:    R-CRAN-psychTools 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-ClimProjDiags 
+Requires:         R-CRAN-psychTools 
+Requires:         R-CRAN-MASS 
 
 %description
-Electricity is not made equal and it vary in its carbon footprint (or
-carbon intensity) depending on its source. This package enables to access
-and query data provided by the Carbon Intensity API
-(<https://carbonintensity.org.uk/>). National Grid’s Carbon Intensity API
-provides an indicative trend of regional carbon intensity of the
-electricity system in Great Britain.
+Basic functions to handle higher-order tensor data. See Kolda and Bader
+(2009) <doi:10.1137/07070111X> for details on tensor. While existing
+packages on tensor data extend the base 'array' class to some S4 classes,
+this package serves as an alternative resort to handle tensor only as
+'array' class. Some functionalities related to missingness and
+rearrangement, discussed in Bai and Ng (2021) <arXiv:1910.06677>, are also
+supported.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

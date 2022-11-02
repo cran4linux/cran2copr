@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  opGMMassessment
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimized Automated Gaussian Mixture Assessment
 
@@ -63,7 +64,9 @@ Requires:         R-CRAN-doParallel
 Necessary functions for optimized automated evaluation of the number and
 parameters of Gaussian mixtures in one-dimensional data. Various methods
 are available for parameter estimation and for determining the number of
-modes in the mixture.
+modes in the mixture. A detailed description of the methods ca ben found
+in Lotsch, J., Malkusch, S. and A. Ultsch. (2022)
+<doi:10.1016/j.imu.2022.101113>.
 
 %prep
 %setup -q -c -n %{packname}

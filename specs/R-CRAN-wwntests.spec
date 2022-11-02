@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RxCEcolInf
-%global packver   0.1-5
+%global __requires_exclude ^libmpi
+%global packname  wwntests
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'R x C Ecological Inference With Optional Incorporation of Survey Information'
+Summary:          Hypothesis Tests for Functional Time Series
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sde 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-CRAN-ftsa 
+BuildRequires:    R-CRAN-rainbow 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-sde 
 Requires:         R-stats 
+Requires:         R-CRAN-ftsa 
+Requires:         R-CRAN-rainbow 
+Requires:         R-CRAN-MASS 
+Requires:         R-graphics 
 
 %description
-Fits the R x C inference model described in Greiner and Quinn (2009)
-<DOI:10.1111/j.1467-985X.2008.00551.x> and Greiner and Quinn (2010)
-<DOI:10.1214/10-AOAS353>. Allows incorporation of survey results.
+Provides an array of white noise hypothesis tests for functional data and
+related visualizations. These include tests based on the norms of
+autocovariance operators that are built under both strong and weak white
+noise assumptions. Additionally, tests based on the spectral density
+operator and on principal component dimensional reduction are included,
+which are built under strong white noise assumptions. These methods are
+described in Kokoszka et al. (2017) <doi:10.1016/j.jmva.2017.08.004>,
+Characiejus and Rice (2019) <doi:10.1016/j.ecosta.2019.01.003>, and Gabrys
+and Kokoszka (2007) <doi:10.1198/016214507000001111>, respectively.
 
 %prep
 %setup -q -c -n %{packname}

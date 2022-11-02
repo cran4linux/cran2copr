@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MedianaDesigner
-%global packver   0.9
+%global packver   0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size Calculations for Clinical Trials
 
@@ -57,11 +57,11 @@ Requires:         R-CRAN-lmerTest
 Requires:         R-CRAN-pbkrtest 
 
 %description
-The package supports efficient simulation-based power and sample size
-calculations for a broad class of late-stage clinical trials. The
-following modules are included in the package: Adaptive designs with
-data-driven sample size or event count re-estimation, Adaptive designs
-with data-driven treatment selection, Adaptive designs with data-driven
+Efficient simulation-based power and sample size calculations are
+supported for a broad class of late-stage clinical trials. The following
+modules are included in the package: Adaptive designs with data-driven
+sample size or event count re-estimation, Adaptive designs with
+data-driven treatment selection, Adaptive designs with data-driven
 population selection, Optimal selection of a futility stopping rule, Event
 prediction in event-driven trials, Adaptive trials with response-adaptive
 randomization (experimental module), Traditional trials with multiple

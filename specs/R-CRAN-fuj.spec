@@ -1,30 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegperiod
-%global packver   0.4.0
+%global packname  fuj
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Determine Thermal Vegetation Periods
+Summary:          Functions and Utilities for Jordan
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
 
 %description
-Collection of common methods to determine growing season length in a
-simple manner. Start and end dates of the vegetation periods are
-calculated solely based on daily mean temperatures and the day of the
-year.
+Provides core functions and utilities for packages and other code
+developed by Jordan Mark Barbone.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2
-%global packver   2.0.10
+%global packver   2.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          2.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilities for Simulating from ODE-Based Models
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-rxode2ll >= 2.0.9
 BuildRequires:    R-CRAN-rxode2et >= 2.0.9
 BuildRequires:    R-CRAN-rxode2random >= 2.0.9
-BuildRequires:    R-CRAN-rxode2parse >= 2.0.11
+BuildRequires:    R-CRAN-rxode2parse >= 2.0.12
 BuildRequires:    R-CRAN-cli >= 2.0.0
 BuildRequires:    R-CRAN-data.table >= 1.12.4
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.300.2.0
@@ -42,7 +42,7 @@ BuildRequires:    R-CRAN-BH
 Requires:         R-CRAN-rxode2ll >= 2.0.9
 Requires:         R-CRAN-rxode2et >= 2.0.9
 Requires:         R-CRAN-rxode2random >= 2.0.9
-Requires:         R-CRAN-rxode2parse >= 2.0.11
+Requires:         R-CRAN-rxode2parse >= 2.0.12
 Requires:         R-CRAN-cli >= 2.0.0
 Requires:         R-CRAN-data.table >= 1.12.4
 Requires:         R-CRAN-lotri >= 0.4.0
@@ -76,8 +76,7 @@ information is available in the inst/COPYRIGHTS.
 
 %prep
 %setup -q -c -n %{packname}
-sed -i '/RcppEigen/,+12d' %{packname}/inst/tools/workaround.R
-sed -i 's/-@ISYSTEM@"$(EG)" @SH@//' %{packname}/src/Makevars.in
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

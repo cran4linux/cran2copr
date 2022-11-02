@@ -1,47 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  frictionless
-%global packver   1.0.1
+%global packname  nse2r
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write Frictionless Data Packages
+Summary:          Fetch Data from 'National Stock Exchange (India)'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 2.1.0
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-readr >= 2.1.0
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-yahoofinancer 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-yahoofinancer 
 
 %description
-Read and write Frictionless Data Packages. A 'Data Package'
-(<https://specs.frictionlessdata.io/data-package/>) is a simple container
-format and standard to describe and package a collection of (tabular)
-data. It is typically used to publish FAIR
-(<https://www.go-fair.org/fair-principles/>) and open datasets.
+Fetch data related to stocks, index, futures & options from the 'NSE
+(National Stock Exchange, India)'. This package is community maintained
+and is not officially supported by 'NSE'. The accuracy of data is only as
+correct as provided on <https://www.nseindia.com>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SynthCast
-%global packver   0.2.1
+%global __requires_exclude ^libmpi
+%global packname  combinatorics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Synthetic Control Method to Forecast Series
+Summary:          Introduction to Some Combinatorial Relations
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-Synth 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-forcats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-Synth 
-Requires:         R-utils 
-Requires:         R-CRAN-forcats 
 
 %description
-Not a new method implementation. Usage of the Synthetic Control Method,
-see Abadie et al. (2011) <doi:10.18637/jss.v042.i13>, as an ad-hoc
-approach to forecast series with panel in a specific context. The context
-being: There are units in different stages of a certain journey, there the
-assumption that the units’ behavior throw out the journey are similar is
-valid and there are not enough data to use traditional forecasting
-methods. For a usage example see the package home page documentation.
+Determining the value of Stirling numbers of 1st kind and 2nd
+kind,references: Bóna,Miklós(2017,ISBN 9789813148840).
 
 %prep
 %setup -q -c -n %{packname}

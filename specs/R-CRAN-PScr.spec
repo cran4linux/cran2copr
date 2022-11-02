@@ -1,51 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shar
-%global packver   2.0.1
+%global packname  PScr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Species-Habitat Associations
+Summary:          Estimation for the Power Series Cure Rate Model
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-classInt 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-LambertW 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-mstate 
+BuildRequires:    R-CRAN-VGAM 
 Requires:         R-stats 
-Requires:         R-CRAN-terra 
-Requires:         R-utils 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-LambertW 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-mstate 
+Requires:         R-CRAN-VGAM 
 
 %description
-Analyse species-habitat associations in R. Therefore, information about
-the location of the species (as a point pattern) is needed together with
-environmental conditions (as a categorical raster). To test for
-significance habitat associations, one of the two components is
-randomized. Methods are mainly based on Plotkin et al. (2000)
-<doi:10.1006/jtbi.2000.2158> and Harms et al. (2001)
-<doi:10.1111/j.1365-2745.2001.00615.x>.
+Provide estimation for particular cases of the power series cure rate
+model <doi:10.1080/03610918.2011.639971>. For the distribution of the
+concurrent causes the alternative models are the Poisson, logarithmic,
+negative binomial and Bernoulli (which are includes in the original work)
+and the polylogarithm model <doi:10.1080/00949655.2018.1451850>. The
+estimation procedure is based on the EM algorithm discussed in
+<doi:10.1080/03610918.2016.1202276>. For the distribution of the
+time-to-event the alternative models are slash half-normal, Weibull, gamma
+and Birnbaum-Saunders distributions.
 
 %prep
 %setup -q -c -n %{packname}

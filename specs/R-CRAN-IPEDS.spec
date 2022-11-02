@@ -1,30 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegperiod
-%global packver   0.4.0
+%global packname  IPEDS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Determine Thermal Vegetation Periods
+Summary:          Data from the Integrated Post-Secondary Education Data System
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-readr 
 Requires:         R-utils 
 
 %description
-Collection of common methods to determine growing season length in a
-simple manner. Start and end dates of the vegetation periods are
-calculated solely based on daily mean temperatures and the day of the
-year.
+Contains data on Post-Secondary Institution Statistics in 2020
+<https://nces.ed.gov/ipeds/use-the-data>. The package allows easy access
+to a wide variety of information regarding Post-secondary Institutions,
+its students, faculty, and their demographics, financial aid, educational
+and recreational offerings, and completions. This package can be used by
+students, college counselors, or involved parents interested in pursuing
+higher education, considering their options, and securing admission into
+their school of choice.
 
 %prep
 %setup -q -c -n %{packname}

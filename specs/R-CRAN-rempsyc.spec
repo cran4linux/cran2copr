@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rempsyc
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convenience Functions for Psychology
 
@@ -19,28 +19,18 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.4
 BuildRequires:    R-CRAN-flextable >= 0.7.1
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-effectsize 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-ggsignif 
-BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-insight >= 0.18.4
+BuildRequires:    R-CRAN-performance >= 0.10.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-qqplotr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-effectsize 
 Requires:         R-CRAN-dplyr >= 1.0.4
 Requires:         R-CRAN-flextable >= 0.7.1
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-effectsize 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-ggsignif 
-Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-insight >= 0.18.4
+Requires:         R-CRAN-performance >= 0.10.0
 Requires:         R-methods 
-Requires:         R-CRAN-qqplotr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-effectsize 
 
 %description
 Make your workflow faster and easier. Easily customizable plots (via

@@ -1,30 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegperiod
-%global packver   0.4.0
+%global packname  VIMean
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Determine Thermal Vegetation Periods
+Summary:          Variability Independent of Mean
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
 
 %description
-Collection of common methods to determine growing season length in a
-simple manner. Start and end dates of the vegetation periods are
-calculated solely based on daily mean temperatures and the day of the
-year.
+To computed the variability independent of mean (VIM) or variation
+independent of mean (VIM). The methodology can be found at Peter M
+Rothwell et al. (2010) <doi:10.1016/S1474-4422(10)70067-3>.
 
 %prep
 %setup -q -c -n %{packname}

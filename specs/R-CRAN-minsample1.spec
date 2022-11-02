@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Ease
-%global packver   0.1.1
+%global packname  minsample1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Explicit Population Genetics Models
+Summary:          The Minimum Sample Size
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-RcppProgress >= 0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-RcppProgress >= 0.1
-Requires:         R-methods 
-Requires:         R-stats 
+BuildArch:        noarch
 
 %description
-Implementation in a simple and efficient way of fully customisable
-population genetics simulations, considering multiple loci that have
-epistatic interactions. Specifically suited to the modelling of multilocus
-nucleocytoplasmic systems (with both diploid and haploid loci), it is
-nevertheless possible to simulate purely diploid (or purely haploid)
-genetic models. Examples of models that can be simulated with Ease are
-numerous, for example models of genetic incompatibilities as presented by
-Marie-Orleach et al. (2022) <doi:10.1101/2022.07.25.501356>. Many others
-are conceivable, although few are actually explored, Ease having been
-developed in particular to provide a solution so that these kinds of
-models can be simulated simply.
+Using this package, one can determine the minimum sample size required so
+that the absolute deviation of the sample mean and the population mean of
+a distribution becomes less than some pre-determined epsilon, i.e. it
+helps the user to determine the minimum sample size required to attain the
+pre-fixed precision level by minimizing the difference between the sample
+mean and population mean.
 
 %prep
 %setup -q -c -n %{packname}

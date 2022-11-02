@@ -1,35 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IDSL.UFA
-%global packver   1.7
+%global packname  cookies
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          United Formula Annotation (UFA) for HRMS Data Processing
+Summary:          Use Browser Cookies with 'shiny'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IDSL.IPA >= 2.1
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-readxl 
-Requires:         R-CRAN-IDSL.IPA >= 2.1
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-readxl 
+BuildRequires:    R-CRAN-shiny >= 1.6.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clock 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-shiny >= 1.6.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clock 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-httpuv 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-vctrs 
 
 %description
-A pipeline to annotate peaklists from the IDSL.IPA package with molecular
-formula of a prioritized chemical space using an isotopic profile matching
-approach. The IDSL.UFA pipeline only requires MS1 for formula annotation.
+Browser cookies are name-value pairs that are saved in a user's browser by
+a website. Cookies allow websites to persist information about the user
+and their use of the website. Here we provide tools for working with
+cookies in 'shiny' apps, in part by wrapping the 'js-cookie' JavaScript
+library <https://github.com/js-cookie/js-cookie>.
 
 %prep
 %setup -q -c -n %{packname}

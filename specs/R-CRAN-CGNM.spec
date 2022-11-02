@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dual.spls
-%global packver   0.1.2
+%global packname  CGNM
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dual Sparse Partial Least Squares Regression
+Summary:          Cluster Gauss-Newton Method
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-pdist 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-pdist 
-Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
 
 %description
-Provides a series of functions for fitting a dual sparse partial least
-squares (Dual-SPLS) regression. These functions differ by the choice of
-the underlying norm.
+Find multiple solutions of a nonlinear least squares problem.  Cluster
+Gauss-Newton method does not assume uniqueness of the solution of the
+nonlinear least squares problem and compute approximate multiple
+minimizers. Please cite the following paper when this software is used in
+your research: Aoki et al. (2020) <doi:10.1007/s11081-020-09571-2>.
+Cluster Gauss–Newton method. Optimization and Engineering, 1-31.
 
 %prep
 %setup -q -c -n %{packname}
