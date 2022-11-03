@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emoji
-%global packver   15.0
+%global packname  MandalaR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          15.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Function to Work with Emojis
+Summary:          Building Mandalas from Parametric Equations of Classical Curves
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Contains data about emojis with relevant metadata, and functions to work
-with emojis when they are in strings.
+Provides an algorithm for creating mandalas. From the perspective of
+classic mathematical curves and rigid movements on the plane, the package
+allows you to select curves and produce mandalas from the curve. The
+algorithm was developed based on the book by Alcoforado et. al. entitled
+"Art, Geometry and Mandalas with R" (2022) in press by the USP Open Books
+Portal.
 
 %prep
 %setup -q -c -n %{packname}

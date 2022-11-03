@@ -1,32 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emoji
-%global packver   15.0
+%global packname  rgeedim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          15.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Function to Work with Emojis
+Summary:          Search, Composite, and Download 'Google Earth Engine' Imagery with the 'Python' Module 'geedim'
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Contains data about emojis with relevant metadata, and functions to work
-with emojis when they are in strings.
+Search, composite, and download 'Google Earth Engine' imagery with
+'reticulate' bindings for the 'Python' module 'geedim'. Read the 'geedim'
+documentation here: <https://geedim.readthedocs.io/>. Wrapper functions
+are provided to make it more convenient to use 'geedim' to download images
+larger than the 'Google Earth Engine' size limit
+<https://developers.google.com/earth-engine/apidocs/ee-image-getdownloadurl>.
+By default the "High Volume" API endpoint
+<https://developers.google.com/earth-engine/cloud/highvolume> is used to
+download data and this URL can be customized during initialization of the
+package.
 
 %prep
 %setup -q -c -n %{packname}

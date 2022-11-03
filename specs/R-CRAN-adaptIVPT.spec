@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emoji
-%global packver   15.0
+%global packname  adaptIVPT
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          15.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Function to Work with Emojis
+Summary:          Adaptive Bioequivalence Design for In-Vitro Permeation Tests
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rgl 
 
 %description
-Contains data about emojis with relevant metadata, and functions to work
-with emojis when they are in strings.
+Contains functions carrying out adaptive procedures using mixed scaling
+approach to establish bioequivalence for in-vitro permeation test (IVPT)
+data. Currently, the package provides procedures based on parallel
+replicate design and balanced data, according to the U.S. Food and Drug
+Administration's "Draft Guidance on Acyclovir"
+<https:www.accessdata.fda.gov/drugsatfda_docs/psg/Acyclovir_topical
+cream_RLD 21478_RV12-16.pdf>. Potvin et al. (2008) <doi:10.1002/pst.294>
+provides the basis for our adaptive design (see Method B). This package
+reflects the views of the authors and should not be construed to represent
+the views or policies of the U.S. Food and Drug Administration.
 
 %prep
 %setup -q -c -n %{packname}

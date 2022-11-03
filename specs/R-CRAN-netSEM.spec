@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netSEM
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Structural Equation Modeling
 
@@ -47,11 +47,11 @@ variables [1]. It builds a pathway model by exploring a pool of domain
 knowledge guided candidate statistical relationships between each of the
 variable pairs, selecting the 'best fit' on the basis of a specific
 criteria such as adjusted r-squared value. This material is based upon
-work supported by the U.S. Department of Energy Office of Energy,
-Efficiency and Renewable Energy (EERE) under Solar Energy Technologies
-Office (SETO) Agreement Number DE-EE0007140. [1] Bruckman, Laura S.,
-Nicholas R. Wheeler, Junheng Ma, Ethan Wang, Carl K. Wang, Ivan Chou,
-Jiayang Sun, and Roger H. French. (2013)
+work supported by the U.S. National Science Foundation Award EEC-2052776
+and EEC-2052662 for the MDS-Rely IUCRC Center, under the NSF Solicitation:
+NSF 20-570 Industry-University Cooperative Research Centers Program [1]
+Bruckman, Laura S., Nicholas R. Wheeler, Junheng Ma, Ethan Wang, Carl K.
+Wang, Ivan Chou, Jiayang Sun, and Roger H. French. (2013)
 <doi:10.1109/ACCESS.2013.2267611>.
 
 %prep

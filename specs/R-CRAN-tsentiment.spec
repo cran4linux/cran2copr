@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tsentiment
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fetching Tweet Data for Sentiment Analysis
 
@@ -16,27 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-wordcloud 
-BuildRequires:    R-CRAN-wordcloud2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-syuzhet 
 BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-stringi 
+Requires:         R-grDevices 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-wordcloud 
-Requires:         R-CRAN-wordcloud2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-syuzhet 
 Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-stringi 
 
 %description

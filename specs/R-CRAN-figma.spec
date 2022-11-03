@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mrfse
-%global packver   0.4
+%global packname  figma
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Markov Random Field Structure Estimator
+Summary:          Web Client/Wrapper to the 'Figma API'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.0.5
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 0.3.3
+Requires:         R-CRAN-tibble >= 3.0.5
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-purrr >= 0.3.3
 
 %description
-Three algorithms for estimating a Markov random field structure.Two of
-them are an exact version and a simulated annealing version of a penalized
-maximum conditional likelihood method similar to the Bayesian Information
-Criterion (Frondana, 2016)
-<doi:10.11606/T.45.2018.tde-02022018-151123>.The third one is a greedy
-algorithm based on information theory (Bresler, 2015).
+An easy-to-use web client/wrapper for the 'Figma API'
+<https://www.figma.com/developers/api>. It allows you to bring all data
+from a 'Figma' file to your 'R' session. This includes the data of all
+objects that you have drawn in this file, and their respective canvas/page
+metadata.
 
 %prep
 %setup -q -c -n %{packname}

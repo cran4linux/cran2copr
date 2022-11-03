@@ -1,32 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emoji
-%global packver   15.0
+%global packname  RcmdrPlugin.EACSPIR
+%global packver   0.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          15.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Function to Work with Emojis
+Summary:          Plugin de R-Commander para el Manual 'EACSPIR'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-Rcmdr >= 2.8.0
+BuildRequires:    R-CRAN-R2HTML 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-ez 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-RcmdrMisc 
+Requires:         R-CRAN-Rcmdr >= 2.8.0
+Requires:         R-CRAN-R2HTML 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-ez 
+Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-RcmdrMisc 
 
 %description
-Contains data about emojis with relevant metadata, and functions to work
-with emojis when they are in strings.
+Este paquete proporciona una interfaz grafica de usuario (GUI) para
+algunos de los procedimientos estadisticos detallados en un curso de
+'Estadistica aplicada a las Ciencias Sociales mediante el programa
+informatico R' (EACSPIR). LA GUI se ha desarrollado como un Plugin del
+programa R-Commander.
 
 %prep
 %setup -q -c -n %{packname}

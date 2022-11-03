@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  marginaleffects
-%global packver   0.7.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Marginal Effects, Marginal Means, Predictions, and Contrasts
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.18.4
+BuildRequires:    R-CRAN-insight >= 0.18.5
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-insight >= 0.18.4
+Requires:         R-CRAN-insight >= 0.18.5
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-generics 
@@ -30,7 +30,7 @@ Requires:         R-methods
 
 %description
 Compute and plot adjusted predictions, contrasts, marginal effects, and
-marginal means for over 65 classes of statistical models in R. Conduct
+marginal means for over 70 classes of statistical models in R. Conduct
 linear and non-linear hypothesis tests using the delta method.
 
 %prep
