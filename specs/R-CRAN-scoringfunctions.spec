@@ -1,30 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  arctools
-%global packver   1.1.4
+%global __requires_exclude ^libmpi
+%global packname  scoringfunctions
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing and Physical Activity Summaries of Minute Level Activity Data
+Summary:          A Collection of Scoring Functions for Assessing Point Forecasts
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-runstats 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-runstats 
 
 %description
-Provides functions to process minute level actigraphy-measured activity
-counts data and extract commonly used physical activity volume and
-fragmentation metrics.
+Implements multiple consistent scoring functions (Gneiting T (2011)
+<doi:10.1198/jasa.2011.r10138>) for assessing point forecasts and point
+predictions. Detailed documentation of scoring functions' properties is
+included for facilitating interpretation of results.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmmrBase
-%global packver   0.1.3
+%global packname  cmbClust
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Specification of Generalised Linear Mixed Models
+Summary:          Conditional Mixture Modeling and Model-Based Clustering
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-Matrix >= 1.3.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Matrix >= 1.3.1
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+Requires:         R-stats 
+Requires:         R-parallel 
 
 %description
-Specification of generalised linear mixed models using the 'R6'
-object-orientated class system. The package provides classes 'Covariance',
-'MeanFunction' and 'Model', which allow for flexible specification of
-generalised linear mixed models, as well as functionality to produce
-relevant matrices, values, and analyses. See
-<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
-detailed manual.
+Conditional mixture model fitted via EM (Expectation Maximization)
+algorithm for model-based clustering, including parsimonious procedure,
+optimal conditional order exploration, and visualization.
 
 %prep
 %setup -q -c -n %{packname}

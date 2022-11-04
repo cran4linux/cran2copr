@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmmrBase
-%global packver   0.1.3
+%global packname  kfino
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Specification of Generalised Linear Mixed Models
+Summary:          Kalman Filter for Impulse Noised Outliers
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-Matrix >= 1.3.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Matrix >= 1.3.1
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
 
 %description
-Specification of generalised linear mixed models using the 'R6'
-object-orientated class system. The package provides classes 'Covariance',
-'MeanFunction' and 'Model', which allow for flexible specification of
-generalised linear mixed models, as well as functionality to produce
-relevant matrices, values, and analyses. See
-<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
-detailed manual.
+A method for detecting outliers with a Kalman filter on impulsed noised
+outliers and prediction on cleaned data. 'kfino' is a robust sequential
+algorithm allowing to filter data with a large number of outliers. This
+algorithm is based on simple latent linear Gaussian processes as in the
+Kalman Filter method and is devoted to detect impulse-noised outliers.
+These are data points that differ significantly from other observations.
+'ML' (Maximization Likelihood) and 'EM' (Expectation-Maximization
+algorithm) algorithms were implemented in 'kfino'. The method is described
+in full details in the following arXiv e-Print: <arXiv:2208.00961>.
 
 %prep
 %setup -q -c -n %{packname}

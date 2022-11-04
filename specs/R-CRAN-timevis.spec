@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  timevis
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Interactive Timeline Visualizations in R
 
@@ -19,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets >= 0.6
 BuildRequires:    R-CRAN-htmltools >= 0.2.6
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-shiny
 Requires:         R-CRAN-htmlwidgets >= 0.6
 Requires:         R-CRAN-htmltools >= 0.2.6
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-rmarkdown 
@@ -35,11 +34,10 @@ Requires:         R-CRAN-shiny
 
 %description
 Create rich and fully interactive timeline visualizations. Timelines can
-be included in Shiny apps and R markdown documents, or viewed from the R
-console and 'RStudio' Viewer. 'timevis' includes an extensive API to
-manipulate a timeline after creation, and supports getting data out of the
-visualization into R. Based on the 'vis.js' Timeline module and the
-'htmlwidgets' R package.
+be included in Shiny apps or R markdown documents. 'timevis' includes an
+extensive API to manipulate a timeline after creation, and supports
+getting data out of the visualization into R. Based on the 'vis.js'
+Timeline JavaScript library.
 
 %prep
 %setup -q -c -n %{packname}

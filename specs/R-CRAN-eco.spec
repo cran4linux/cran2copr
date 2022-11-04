@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmmrBase
-%global packver   0.1.3
+%global packname  eco
+%global packver   4.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          4.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Specification of Generalised Linear Mixed Models
+Summary:          Ecological Inference in 2x2 Tables
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-Matrix >= 1.3.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Matrix >= 1.3.1
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 2.0
+Requires:         R-core >= 2.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-utils 
 
 %description
-Specification of generalised linear mixed models using the 'R6'
-object-orientated class system. The package provides classes 'Covariance',
-'MeanFunction' and 'Model', which allow for flexible specification of
-generalised linear mixed models, as well as functionality to produce
-relevant matrices, values, and analyses. See
-<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
-detailed manual.
+Implements the Bayesian and likelihood methods proposed in Imai, Lu, and
+Strauss (2008 <DOI: 10.1093/pan/mpm017>) and (2011
+<DOI:10.18637/jss.v042.i05>) for ecological inference in 2 by 2 tables as
+well as the method of bounds introduced by Duncan and Davis (1953).  The
+package fits both parametric and nonparametric models using either the
+Expectation-Maximization algorithms (for likelihood models) or the Markov
+chain Monte Carlo algorithms (for Bayesian models).  For all models, the
+individual-level data can be directly incorporated into the estimation
+whenever such data are available. Along with in-sample and out-of-sample
+predictions, the package also provides a functionality which allows one to
+quantify the effect of data aggregation on parameter estimation and
+hypothesis testing under the parametric likelihood models.
 
 %prep
 %setup -q -c -n %{packname}

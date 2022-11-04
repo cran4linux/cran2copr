@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cvar
-%global packver   0.4.1
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Expected Shortfall and Value at Risk for Continuous Distributions
 
@@ -19,10 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rdpack >= 0.8
 BuildRequires:    R-CRAN-gbutils 
-BuildRequires:    R-CRAN-fGarch 
 Requires:         R-CRAN-Rdpack >= 0.8
 Requires:         R-CRAN-gbutils 
-Requires:         R-CRAN-fGarch 
 
 %description
 Compute expected shortfall (ES) and Value at Risk (VaR) from a quantile

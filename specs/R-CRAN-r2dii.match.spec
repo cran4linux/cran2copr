@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r2dii.match
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Match Corporate Lending Portfolios with Climate Data
 
@@ -50,12 +50,12 @@ Requires:         R-utils
 These tools implement in R a fundamental part of the software 'PACTA'
 (Paris Agreement Capital Transition Assessment), which is a free tool that
 calculates the alignment between financial portfolios and climate
-scenarios (<https://2degrees-investing.org/>). Financial institutions use
-'PACTA' to study how their capital allocation decisions align with climate
-change mitigation goals. This package matches data from corporate lending
-portfolios to asset level data from market-intelligence databases (e.g.
-power plant capacities, emission factors, etc.). This is the first step to
-assess if a financial portfolio aligns with climate goals.
+scenarios (<https://www.transitionmonitor.com/>). Financial institutions
+use 'PACTA' to study how their capital allocation decisions align with
+climate change mitigation goals. This package matches data from corporate
+lending portfolios to asset level data from market-intelligence databases
+(e.g. power plant capacities, emission factors, etc.). This is the first
+step to assess if a financial portfolio aligns with climate goals.
 
 %prep
 %setup -q -c -n %{packname}

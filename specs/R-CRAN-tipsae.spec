@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tipsae
-%global packver   0.0.7
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Handling Indices and Proportions in Small Area Estimation
 
@@ -29,6 +29,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-ggplot2 >= 3.3.2
@@ -40,6 +41,7 @@ Requires:         R-methods
 Requires:         R-CRAN-broom 
 Requires:         R-stats 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rstantools
 

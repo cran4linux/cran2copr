@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BSL
-%global packver   3.2.4
+%global packver   3.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.4
+Version:          3.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Synthetic Likelihood
 
@@ -30,7 +31,6 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-glasso 
@@ -47,7 +47,6 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-doRNG 
 Requires:         R-methods 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-DBI 
 
 %description
 Bayesian synthetic likelihood (BSL, Price et al. (2018)

@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TrafficBDE
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  rBahadur
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Traffic Predictions Using Neural Networks
+Summary:          Assortative Mating Simulation and Multivariate Bernoulli Variates
 
-License:          GPL-2 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DescriptiveStats.OBeu 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DescriptiveStats.OBeu 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-RCurl 
 Requires:         R-stats 
-Requires:         R-CRAN-zoo 
 
 %description
-Estimate and return either the traffic speed or the car entries in the
-city of Thessaloniki using historical traffic data. It's used in transport
-pilot of the 'BigDataEurope' project. There are functions for processing
-these data, training a neural network, select the most appropriate model
-and predict the traffic speed or the car entries for a selected time date.
+Simulation of phenotype / genotype data under assortative mating. Includes
+functions for generating Bahadur order-2 multivariate Bernoulli variables
+with general and diagonal-plus-low-rank correlation structures. Further
+details are provided in: Border and Malik (2022)
+<doi:10.1101/2022.10.13.512132>.
 
 %prep
 %setup -q -c -n %{packname}

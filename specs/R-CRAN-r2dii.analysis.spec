@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  r2dii.analysis
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measure Climate Scenario Alignment of Corporate Loans
 
@@ -41,8 +42,8 @@ with climate goals. They summarize key climate indicators attributed to
 the portfolio (e.g. production, emission factors), and calculate alignment
 targets based on climate scenarios. They implement in R the last step of
 the free software 'PACTA' (Paris Agreement Capital Transition Assessment;
-<https://2degrees-investing.org/>). Financial institutions use 'PACTA' to
-study how their capital allocation decisions align with climate change
+<https://www.transitionmonitor.com/>). Financial institutions use 'PACTA'
+to study how their capital allocation decisions align with climate change
 mitigation goals.
 
 %prep
