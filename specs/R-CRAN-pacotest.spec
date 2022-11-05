@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pacotest
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testing for Partial Copulas and the Simplifying Assumption in Vine Copulas
 
@@ -32,10 +33,10 @@ Requires:         R-methods
 %description
 Routines for two different test types, the Constant Conditional
 Correlation (CCC) test and the Vectorial Independence (VI) test are
-provided (Kurz and Spanhel (2017) <arXiv:1706.02338>). The tests can be
-applied to check whether a conditional copula coincides with its partial
-copula. Functions to test whether a regular vine copula satisfies the
-so-called simplifying assumption or to test a single copula within a
+provided (Kurz and Spanhel (2022) <doi:10.1214/22-EJS2051>). The tests can
+be applied to check whether a conditional copula coincides with its
+partial copula. Functions to test whether a regular vine copula satisfies
+the so-called simplifying assumption or to test a single copula within a
 regular vine copula to be a (j-1)-th order partial copula are available.
 The CCC test comes with a decision tree approach to allow testing in
 high-dimensional settings.

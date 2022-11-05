@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  timechange
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Changing of Date-Times
+Summary:          Efficient Manipulation of Date-Times
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,8 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-Rcpp >= 0.12
-Requires:         R-CRAN-Rcpp >= 0.12
+BuildRequires:    R-CRAN-cpp11 >= 0.2.7
 
 %description
 Efficient routines for manipulation of date-time objects while accounting

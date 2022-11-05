@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiview
-%global packver   0.4
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cooperative Learning for Multi-View Analysis
 
@@ -44,7 +44,7 @@ fusion) in an adaptive manner, using a validation set or cross-validation
 to estimate test set prediction error. In the setting of cooperative
 regularized linear regression, the method combines the lasso penalty with
 the agreement penalty (Ding, D., Li, S., Narasimhan, B., Tibshirani, R.
-(2021) <arXiv:2112.12337>).
+(2021) <doi:10.1073/pnas.2202113119>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gconsensus
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Consensus Value Constructor
 
@@ -13,20 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.0
-BuildRequires:    R-CRAN-rjags >= 4.10
-BuildRequires:    R-graphics >= 3.5
-BuildRequires:    R-stats >= 3.5
-BuildRequires:    R-utils >= 3.5
+BuildRequires:    R-CRAN-rjags >= 4.8
+BuildRequires:    R-graphics >= 3.4
+BuildRequires:    R-stats >= 3.4
+BuildRequires:    R-utils >= 3.4
 BuildRequires:    R-CRAN-coda >= 0.13
 Requires:         R-CRAN-MASS >= 7.0
-Requires:         R-CRAN-rjags >= 4.10
-Requires:         R-graphics >= 3.5
-Requires:         R-stats >= 3.5
-Requires:         R-utils >= 3.5
+Requires:         R-CRAN-rjags >= 4.8
+Requires:         R-graphics >= 3.4
+Requires:         R-stats >= 3.4
+Requires:         R-utils >= 3.4
 Requires:         R-CRAN-coda >= 0.13
 
 %description
@@ -40,9 +41,8 @@ consensus building. It also implements the comparison among different
 consensus builders and evaluates the participating method or sources
 against the consensus reference value. Based on a diverse set of
 references, DerSimonian-Laird (1986) <doi:10.1016/0197-2456(86)90046-2>,
-Vangel-Ruhkin (1999) <doi:10.1111/j.0006-341X.1999.00129.x>, for a
-complete list of references look at the reference section in the package
-documentation.
+for a complete list of references look at the reference section in the
+package documentation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  melt
-%global packver   1.8.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Empirical Likelihood Tests
 
@@ -39,7 +39,7 @@ implemented using the 'Eigen' C++ library and 'RcppEigen' interface, with
 OpenMP for parallel computation. Details of the testing procedures are
 given in Kim, MacEachern, and Peruggia (2021) <arxiv:2112.09206>. This
 work was supported by the U.S. National Science Foundation under Grants
-No.  SES-1921523 and DMS-2015552.
+No. SES-1921523 and DMS-2015552.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mctq
-%global packver   0.3.1
+%global packname  mlmhelpr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Process the Munich ChronoType Questionnaire (MCTQ)
+Summary:          Multilevel/Mixed Model Helper Functions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.4.1
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-lubridate >= 1.8.0
-BuildRequires:    R-CRAN-hms >= 1.1.2
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.10
-Requires:         R-CRAN-cli >= 3.4.1
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-lubridate >= 1.8.0
-Requires:         R-CRAN-hms >= 1.1.2
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-mathjaxr 
+Requires:         R-CRAN-lme4 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-A complete toolkit to process the Munich ChronoType Questionnaire (MCTQ)
-for its three versions (standard, micro, and shift). MCTQ is a
-quantitative and validated tool to assess chronotypes using peoples' sleep
-behavior, originally presented by Till Roenneberg, Anna Wirz-Justice, and
-Martha Merrow (2003, <doi:10.1177/0748730402239679>).
+A collection of miscellaneous helper function for running multilevel/mixed
+models in 'lme4'. This package aims to provide functions to compute common
+tasks when estimating multilevel models such as computing the intraclass
+correlation and design effect, centering variables, estimating the
+proportion of variance explained at each level, pseudo-R squared, random
+intercept and slope reliabilities, tests for homogeneity of variance at
+level-1, and cluster robust and bootstrap standard errors. The tests and
+statistics reported in the package are from Raudenbush & Bryk (2002,
+ISBN:9780761919049), Hox et al. (2018, ISBN:9781138121362), and Snijders &
+Bosker (2012, ISBN:9781849202015).
 
 %prep
 %setup -q -c -n %{packname}

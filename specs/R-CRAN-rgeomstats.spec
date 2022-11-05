@@ -1,41 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mctq
-%global packver   0.3.1
+%global packname  rgeomstats
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Process the Munich ChronoType Questionnaire (MCTQ)
+Summary:          Interface to 'Geomstats'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.4.1
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-lubridate >= 1.8.0
-BuildRequires:    R-CRAN-hms >= 1.1.2
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.10
-Requires:         R-CRAN-cli >= 3.4.1
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-lubridate >= 1.8.0
-Requires:         R-CRAN-hms >= 1.1.2
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-rlang 
 
 %description
-A complete toolkit to process the Munich ChronoType Questionnaire (MCTQ)
-for its three versions (standard, micro, and shift). MCTQ is a
-quantitative and validated tool to assess chronotypes using peoples' sleep
-behavior, originally presented by Till Roenneberg, Anna Wirz-Justice, and
-Martha Merrow (2003, <doi:10.1177/0748730402239679>).
+Provides an interface to the Python package 'Geomstats' authored by
+Miolane et al. (2020) <arXiv:2004.04667>.
 
 %prep
 %setup -q -c -n %{packname}

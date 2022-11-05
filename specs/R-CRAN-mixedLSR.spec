@@ -1,36 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sfdep
-%global packver   0.2.0
+%global packname  mixedLSR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Dependence for Simple Features
+Summary:          Mixed, Low-Rank, and Sparse Multivariate Regression on High-Dimensional Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-grpreg 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-spdep 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-grpreg 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
 
 %description
-An interface to 'spdep' to integrate with 'sf' objects and the
-'tidyverse'.
+Mixed, low-rank, and sparse multivariate regression ('mixedLSR') provides
+tools for performing mixture regression when the coefficient matrix is
+low-rank and sparse. 'mixedLSR' allows subgroup identification by
+alternating optimization with simulated annealing to encourage global
+optimum convergence. This method is data-adaptive, automatically
+performing parameter selection to identify low-rank substructures in the
+coefficient matrix.
 
 %prep
 %setup -q -c -n %{packname}

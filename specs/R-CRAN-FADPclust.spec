@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FADPclust
-%global packver   0.1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Data Clustering Using Adaptive Density Peak Detection
 
@@ -18,6 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MFPCA 
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-fda.usc 
 BuildRequires:    R-CRAN-funData 
@@ -25,6 +27,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-MFPCA 
 Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-fda.usc 
 Requires:         R-CRAN-funData 

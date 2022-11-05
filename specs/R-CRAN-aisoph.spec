@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mctq
-%global packver   0.3.1
+%global packname  aisoph
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Process the Munich ChronoType Questionnaire (MCTQ)
+Summary:          Additive Isotonic Proportional Hazards Model
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.4.1
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-lubridate >= 1.8.0
-BuildRequires:    R-CRAN-hms >= 1.1.2
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.10
-Requires:         R-CRAN-cli >= 3.4.1
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-lubridate >= 1.8.0
-Requires:         R-CRAN-hms >= 1.1.2
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.1
+BuildRequires:    R-CRAN-Iso 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-Rcpp >= 0.12.1
+Requires:         R-CRAN-Iso 
+Requires:         R-CRAN-survival 
 
 %description
-A complete toolkit to process the Munich ChronoType Questionnaire (MCTQ)
-for its three versions (standard, micro, and shift). MCTQ is a
-quantitative and validated tool to assess chronotypes using peoples' sleep
-behavior, originally presented by Till Roenneberg, Anna Wirz-Justice, and
-Martha Merrow (2003, <doi:10.1177/0748730402239679>).
+Nonparametric estimation of additive isotonic covariate effects for
+proportional hazards model.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BayesMallows
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Preference Learning with the Mallows Rank Model
 
@@ -17,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
 BuildRequires:    R-CRAN-igraph >= 1.2.5
-BuildRequires:    R-CRAN-PerMallows >= 1.13
 BuildRequires:    R-CRAN-sets >= 1.0.18
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-cowplot >= 1.0.0
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-RcppArmadillo
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
 Requires:         R-CRAN-igraph >= 1.2.5
-Requires:         R-CRAN-PerMallows >= 1.13
 Requires:         R-CRAN-sets >= 1.0.18
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-cowplot >= 1.0.0

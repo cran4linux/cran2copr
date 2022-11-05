@@ -1,41 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mctq
-%global packver   0.3.1
+%global packname  parttime
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Process the Munich ChronoType Questionnaire (MCTQ)
+Summary:          Partial Datetime Handling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.4.1
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-lubridate >= 1.8.0
-BuildRequires:    R-CRAN-hms >= 1.1.2
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.10
-Requires:         R-CRAN-cli >= 3.4.1
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-lubridate >= 1.8.0
-Requires:         R-CRAN-hms >= 1.1.2
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-vctrs >= 0.2.0
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-vctrs >= 0.2.0
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-lubridate 
+Requires:         R-methods 
+Requires:         R-CRAN-pillar 
+Requires:         R-utils 
 
 %description
-A complete toolkit to process the Munich ChronoType Questionnaire (MCTQ)
-for its three versions (standard, micro, and shift). MCTQ is a
-quantitative and validated tool to assess chronotypes using peoples' sleep
-behavior, originally presented by Till Roenneberg, Anna Wirz-Justice, and
-Martha Merrow (2003, <doi:10.1177/0748730402239679>).
+Datetimes and timestamps are invariably an imprecise notation, with any
+partial representation implying some amount of uncertainty. To handle
+this, 'parttime' provides classes for embedding partial missingness as a
+central part of its datetime classes. This central feature allows for more
+ergonomic use of datetimes for challenging datetime computation, including
+calculations of overlapping date ranges, imputations, and more thoughtful
+handling of ambiguity that arises from uncertain time zones. This package
+was developed first and foremost with pharmaceutical applications in mind,
+but aims to be agnostic to application to accommodate general use cases
+just as conveniently.
 
 %prep
 %setup -q -c -n %{packname}

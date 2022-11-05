@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nametagger
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Named Entity Recognition in Texts using 'NameTag'
 
@@ -26,7 +27,7 @@ users to find and extract entities (names, persons, locations, addresses,
 ...) in raw text and build your own entity recognition models. Based on a
 maximum entropy Markov model which is described in Strakova J., Straka M.
 and Hajic J. (2013)
-<http://ufal.mff.cuni.cz/~straka/papers/2013-tsd_ner.pdf>.
+<https://ufal.mff.cuni.cz/~straka/papers/2013-tsd_ner.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

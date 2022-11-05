@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  topr
-%global packver   1.1.1
+%global packname  ardl.nardl
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Custom Plots for Viewing Genetic Association Results
+Summary:          Linear and Nonlinear Autoregressive Distributed Lag Models
 
-License:          LGPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,36 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-graphics >= 4.2.1
+BuildRequires:    R-stats >= 4.2.1
+BuildRequires:    R-CRAN-car >= 3.1.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-egg 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-toprdata 
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-texreg >= 1.38.6
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-lmtest >= 0.9.38
+BuildRequires:    R-CRAN-rlist >= 0.4.6.2
+BuildRequires:    R-CRAN-tseries >= 0.10.51
+BuildRequires:    R-CRAN-nardl >= 0.1.6
+Requires:         R-graphics >= 4.2.1
+Requires:         R-stats >= 4.2.1
+Requires:         R-CRAN-car >= 3.1.1
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-egg 
-Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-toprdata 
+Requires:         R-CRAN-texreg >= 1.38.6
+Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-lmtest >= 0.9.38
+Requires:         R-CRAN-rlist >= 0.4.6.2
+Requires:         R-CRAN-tseries >= 0.10.51
+Requires:         R-CRAN-nardl >= 0.1.6
 
 %description
-A collection of functions for visualizing,exploring and annotating genetic
-association results.Association results from multiple traits can be viewed
-simultaneously along with gene annotation, over the entire genome
-(Manhattan plot) or in the more detailed regional view.
+Estimate the linear and nonlinear autoregressive distributed lag (ARDL &
+NARDL) models and the corresponding error correction models, and test for
+longrun and short-run asymmetric. The Pesaran, Shin & Smith (2001)
+(<doi:10.1002/jae.616>) bounds test for level relationships is also
+provided. The 'ardl.nardl' package also performs short-run and longrun
+symmetric restrictions available at Shin et al. (2014)
+<doi:10.1007/978-1-4899-8008-3_9> and their corresponding tests.
 
 %prep
 %setup -q -c -n %{packname}

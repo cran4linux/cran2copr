@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggplot2
-%global packver   3.3.6
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.6
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Elegant Data Visualisations Using the Grammar of Graphics
 
@@ -16,11 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-scales >= 0.5.0
-BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-withr >= 2.5.0
+BuildRequires:    R-CRAN-scales >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-CRAN-gtable >= 0.1.1
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-lifecycle > 1.0.1
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
@@ -29,11 +32,13 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-scales >= 0.5.0
-Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-withr >= 2.5.0
+Requires:         R-CRAN-scales >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-CRAN-gtable >= 0.1.1
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-lifecycle > 1.0.1
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
 Requires:         R-grid 
