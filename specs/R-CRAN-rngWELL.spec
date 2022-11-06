@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rngWELL
-%global packver   0.10-7
+%global packver   0.10-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.7
+Version:          0.10.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolbox for WELL Random Number Generators
 
@@ -19,10 +20,10 @@ Requires:         R-core >= 3.0.0
 %description
 It is a dedicated package to WELL pseudo random generators, which were
 introduced in Panneton et al. (2006), ``Improved Long-Period Generators
-Based on Linear Recurrences Modulo 2'', ACM Transactions on Mathematical
-Software. But this package is not intended to be used directly, you are
-strongly __encouraged__ to use the 'randtoolbox' package, which depends on
-this package.
+Based on Linear Recurrences Modulo 2'', see <doi:10.1145/1132973.1132974>.
+But this package is not intended to be used directly, you are strongly
+__encouraged__ to use the 'randtoolbox' package, which depends on this
+package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ACEP
-%global packver   0.0.2
+%global packver   0.0.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.21
 Release:          1%{?dist}%{?buildtag}
-Summary:          Análisis Computacional de Eventos de Protesta
+Summary:          Analisis Computacional de Eventos de Protesta
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,15 +19,17 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-httr 
 
 %description
-La librería 'ACEP' contiene funciones específicas para desarrollar
-análisis computacional de eventos de protesta. Asimismo, contiene base de
+La libreria 'ACEP' contiene funciones especificas para desarrollar
+analisis computacional de eventos de protesta. Asimismo, contiene base de
 datos con colecciones de notas sobre protestas y diccionarios de palabras
-conflictivas. Colección de diccionarios que reúne diccionarios de
-diferentes orígenes.  The 'ACEP' library contains specific functions to
+conflictivas. Coleccion de diccionarios que reune diccionarios de
+diferentes origenes.  The 'ACEP' library contains specific functions to
 perform computational analysis of protest events. It also contains a
 database with collections of notes on protests and dictionaries of
 conflicting words. Collection of dictionaries that brings together

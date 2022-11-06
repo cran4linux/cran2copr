@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtExtras
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extending 'gt' for Beautiful HTML Tables
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-paletteer >= 1.4.0
 BuildRequires:    R-CRAN-scales >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-rlang >= 1.0.4
-BuildRequires:    R-CRAN-gt >= 0.6
+BuildRequires:    R-CRAN-gt >= 0.7
 BuildRequires:    R-CRAN-htmltools >= 0.5.3
 BuildRequires:    R-CRAN-fontawesome >= 0.3.0
 BuildRequires:    R-CRAN-commonmark 
@@ -33,7 +33,7 @@ Requires:         R-CRAN-paletteer >= 1.4.0
 Requires:         R-CRAN-scales >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-rlang >= 1.0.4
-Requires:         R-CRAN-gt >= 0.6
+Requires:         R-CRAN-gt >= 0.7
 Requires:         R-CRAN-htmltools >= 0.5.3
 Requires:         R-CRAN-fontawesome >= 0.3.0
 Requires:         R-CRAN-commonmark 

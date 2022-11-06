@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fGarch
-%global packver   4021.88
+%global packver   4022.89
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4021.88
+Version:          4022.89
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rmetrics - Autoregressive Conditional Heteroskedastic Modelling
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-cvar >= 0.5
 BuildRequires:    R-CRAN-fBasics 
 BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-CRAN-timeSeries 
@@ -26,6 +27,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Matrix >= 1.5.0
+Requires:         R-CRAN-cvar >= 0.5
 Requires:         R-CRAN-fBasics 
 Requires:         R-CRAN-timeDate 
 Requires:         R-CRAN-timeSeries 
