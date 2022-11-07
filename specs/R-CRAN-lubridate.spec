@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lubridate
-%global packver   1.8.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Dealing with Dates a Little Easier
 
@@ -15,9 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-cpp11 >= 0.2.7
+BuildRequires:    R-CRAN-timechange >= 0.1.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-generics 
+Requires:         R-CRAN-timechange >= 0.1.1
 Requires:         R-methods 
 Requires:         R-CRAN-generics 
 
@@ -27,9 +29,7 @@ parsing of date-time data, extraction and updating of components of a
 date-time (years, months, days, hours, minutes, and seconds), algebraic
 manipulation on date-time and time-span objects. The 'lubridate' package
 has a consistent and memorable syntax that makes working with dates easy
-and fun.  Parts of the 'CCTZ' source code, released under the Apache 2.0
-License, are included in this package. See
-<https://github.com/google/cctz> for more details.
+and fun.
 
 %prep
 %setup -q -c -n %{packname}

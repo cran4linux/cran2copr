@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  abess
-%global packver   0.4.5
+%global packver   0.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Best Subset Selection
 
@@ -27,8 +28,8 @@ Requires:         R-CRAN-Matrix
 
 %description
 Extremely efficient toolkit for solving the best subset selection problem
-<arXiv:2110.09697>. This package is its R interface. The package
-implements and generalizes algorithms designed in
+<https://www.jmlr.org/papers/v23/21-1060.html>. This package is its R
+interface. The package implements and generalizes algorithms designed in
 <doi:10.1073/pnas.2014241117> that exploits a novel
 sequencing-and-splicing technique to guarantee exact support recovery and
 globally optimal solution in polynomial times for linear model. It also

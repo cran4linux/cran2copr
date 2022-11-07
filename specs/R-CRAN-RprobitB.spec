@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RprobitB
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Probit Choice Modeling
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-plotROC 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-mvtnorm 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-plotROC 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-cli 
 
 %description
 Bayes estimation of probit choice models, both in the cross-sectional and

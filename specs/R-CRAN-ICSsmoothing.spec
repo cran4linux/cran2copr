@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  legco
-%global packver   0.1.4
+%global __requires_exclude ^libmpi
+%global packname  ICSsmoothing
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for the Hong Kong Legislative Council API
+Summary:          Data Smoothing by Interpolating Cubic Splines
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,24 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-polynom 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-polynom 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Fetching data from Hong Kong Legislative Council's open data API in R.
-Functions correspond to the data endpoints of the API. Documentations of
-supported API databases:
-<https://www.legco.gov.hk/odata/english/billsdb.html>,
-<https://www.legco.gov.hk/odata/english/hansard-db.html>,
-<https://www.legco.gov.hk/odata/english/attendance-db.html>,
-<https://www.legco.gov.hk/odata/english/schedule-db.html> and
-<https://www.legco.gov.hk/odata/english/vrdb.html>.
+We construct the explicit form of clamped cubic interpolating spline (both
+uniform - knots are equidistant and non-uniform - knots are arbitrary).
+Using this form, we propose a linear regression model suitable for real
+data smoothing.
 
 %prep
 %setup -q -c -n %{packname}

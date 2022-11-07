@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  psfmi
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Model Pooling, Selection and Performance Evaluation Across Multiply Imputed Datasets
 
@@ -16,46 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms >= 6.1.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-mice >= 3.12.0
-BuildRequires:    R-CRAN-miceadds >= 3.10.28
-BuildRequires:    R-CRAN-survival >= 3.1.12
-BuildRequires:    R-CRAN-tibble >= 3.0.4
-BuildRequires:    R-CRAN-car >= 3.0.10
+BuildRequires:    R-CRAN-rms >= 6.3.0
+BuildRequires:    R-CRAN-survival >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
+BuildRequires:    R-CRAN-mice >= 3.14.0
+BuildRequires:    R-CRAN-tibble >= 3.1.8
+BuildRequires:    R-CRAN-car >= 3.1.1
 BuildRequires:    R-CRAN-mitools >= 2.4
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-pROC >= 1.16.2
-BuildRequires:    R-CRAN-lme4 >= 1.1.26
-BuildRequires:    R-CRAN-tidyr >= 1.1.2
-BuildRequires:    R-CRAN-cvAUC >= 1.1.0
-BuildRequires:    R-CRAN-norm >= 1.0.9.5
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-mitml >= 0.3.7
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-stringr >= 1.4.1
+BuildRequires:    R-CRAN-tidyr >= 1.2.1
+BuildRequires:    R-CRAN-pROC >= 1.18.0
+BuildRequires:    R-CRAN-cvAUC >= 1.1.4
+BuildRequires:    R-CRAN-lme4 >= 1.1.30
+BuildRequires:    R-CRAN-rsample >= 1.1.0
+BuildRequires:    R-CRAN-norm >= 1.0.10.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-mitml >= 0.4.3
 BuildRequires:    R-CRAN-ResourceSelection >= 0.3.5
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-rsample >= 0.0.8
-Requires:         R-CRAN-rms >= 6.1.0
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-mice >= 3.12.0
-Requires:         R-CRAN-miceadds >= 3.10.28
-Requires:         R-CRAN-survival >= 3.1.12
-Requires:         R-CRAN-tibble >= 3.0.4
-Requires:         R-CRAN-car >= 3.0.10
+BuildRequires:    R-CRAN-purrr >= 0.3.5
+Requires:         R-CRAN-rms >= 6.3.0
+Requires:         R-CRAN-survival >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.3.6
+Requires:         R-CRAN-mice >= 3.14.0
+Requires:         R-CRAN-tibble >= 3.1.8
+Requires:         R-CRAN-car >= 3.1.1
 Requires:         R-CRAN-mitools >= 2.4
-Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-pROC >= 1.16.2
-Requires:         R-CRAN-lme4 >= 1.1.26
-Requires:         R-CRAN-tidyr >= 1.1.2
-Requires:         R-CRAN-cvAUC >= 1.1.0
-Requires:         R-CRAN-norm >= 1.0.9.5
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-mitml >= 0.3.7
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-stringr >= 1.4.1
+Requires:         R-CRAN-tidyr >= 1.2.1
+Requires:         R-CRAN-pROC >= 1.18.0
+Requires:         R-CRAN-cvAUC >= 1.1.4
+Requires:         R-CRAN-lme4 >= 1.1.30
+Requires:         R-CRAN-rsample >= 1.1.0
+Requires:         R-CRAN-norm >= 1.0.10.0
+Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-mitml >= 0.4.3
 Requires:         R-CRAN-ResourceSelection >= 0.3.5
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-rsample >= 0.0.8
+Requires:         R-CRAN-purrr >= 0.3.5
 
 %description
 Pooling, backward and forward selection of linear, logistic and Cox

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggmulti
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Data Visualization
 
@@ -24,6 +24,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
@@ -31,6 +32,7 @@ Requires:         R-utils
 Requires:         R-grid 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
 
 %description
 It provides materials (i.e. 'serial axes' objects, Andrew's plot, various

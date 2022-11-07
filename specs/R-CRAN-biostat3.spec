@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  biostat3
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions, Datasets and Extended Examples for Survival Analysis
 
@@ -18,11 +19,13 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-muhaz 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-CRAN-muhaz 
 Requires:         R-graphics 
 Requires:         R-stats 

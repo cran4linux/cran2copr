@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ijtiff
-%global packver   2.2.8
+%global packver   2.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.8
+Version:          2.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive TIFF I/O with Full Support for 'ImageJ' TIFF Files
 
@@ -55,7 +55,7 @@ General purpose TIFF file I/O for R users.  Currently the only such
 package with read and write support for TIFF files with floating point
 (real-numbered) pixels, and the only package that can correctly import
 TIFF files that were saved from 'ImageJ' and write TIFF files than can be
-correctly read by 'ImageJ' <https://imagej.nih.gov/ij/>.  Also supports
+correctly read by 'ImageJ' <https://imagej.nih.gov/ij/>. Also supports
 text image I/O.
 
 %prep

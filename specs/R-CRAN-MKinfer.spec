@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MKinfer
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inferential Statistics
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-arrangements 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-exactRankTests 
 Requires:         R-stats 
 Requires:         R-CRAN-MKdescr 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-arrangements 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-exactRankTests 
 
 %description
 Computation of various confidence intervals (Altman et al. (2000),
