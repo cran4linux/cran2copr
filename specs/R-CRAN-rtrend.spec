@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rtrend
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trend Estimating Tools
 
@@ -20,18 +21,18 @@ BuildRequires:    R-CRAN-fftwtools
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-fftwtools 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-ggplot2 
 
 %description
 The traditional linear regression trend, Modified Mann-Kendall (MK)

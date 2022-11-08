@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  coda4microbiome
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis for Microbiome Studies
 
@@ -22,14 +23,12 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-qpdf 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-qpdf 
 
 %description
 Functions for microbiome data analysis that take into account its

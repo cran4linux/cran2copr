@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  itraxR
-%global packver   1.4
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Itrax Data Analysis Tools
 
@@ -18,32 +19,32 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggfortify 
+BuildRequires:    R-CRAN-compositions 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tiff 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-ggcorrplot 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-compositions 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-munsellinterpol 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggfortify 
+Requires:         R-CRAN-compositions 
 Requires:         R-grid 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tiff 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-compositions 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-munsellinterpol 
 
 %description
 Parse, trim, join, visualise and analyse data from Itrax sediment core
@@ -51,9 +52,8 @@ multi-parameter scanners manufactured by Cox Analytical Systems, Sweden.
 Functions are provided for parsing XRF-peak area files, line-scan optical
 images, and radiographic images, alongside accompanying metadata. A
 variety of data wrangling tasks like trimming, joining and reducing
-XRF-peak area data are simplified. Principle component analysis (PCA),
-cluster analysis and associated multivariate methods are implemented with
-appropriate data transformation.
+XRF-peak area data are simplified. Multivariate methods are implemented
+with appropriate data transformation.
 
 %prep
 %setup -q -c -n %{packname}

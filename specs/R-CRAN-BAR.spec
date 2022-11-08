@@ -1,41 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AnnoProbe
-%global packver   0.1.5
+%global __requires_exclude ^libmpi
+%global packname  BAR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Annotate the Gene Symbols for Probes in Expression Array
+Summary:          Bayesian Adaptive Randomization
 
-License:          Apache License (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-pheatmap 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-pheatmap 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
 
 %description
-We curated 147 of expression array, from 3 species(human,mouse,rat), 3
-companies('Affymetrix','Illumina','Agilent'), by aligning the 'Fasta'
-sequences of all probes of each platform to their corresponding reference
-genome, and then annotate them to genes.
+Bayesian adaptive randomization is also called outcome adaptive
+randomization, which is increasingly used in clinical trials.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +30,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

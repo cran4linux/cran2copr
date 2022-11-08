@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVDNF
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Nonlinear Filtering for Stochastic Volatility Models
 
@@ -22,9 +22,12 @@ Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-methods 
 
 %description
-Generates simulated paths from various financial models and applies the
-discrete nonlinear filter (DNF) of Kitagawa (1987)
-<doi:10.1080/01621459.1987.10478534>.
+Generates simulated paths from various financial stochastic volatility
+models with jumps and applies the discrete nonlinear filter (DNF) of
+Kitagawa (1987) <doi:10.1080/01621459.1987.10478534> to compute likelihood
+evaluations, filtering distribution estimates, and maximum likelihood
+parameter estimates. The algorithm is implemented following the work of
+Bégin and Boudreault (2021) <doi:10.1080/10618600.2020.1840995>.
 
 %prep
 %setup -q -c -n %{packname}

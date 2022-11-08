@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  scdhlm
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Hierarchical Linear Models for Single-Case Designs
 
@@ -16,14 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lmeInfo > 0.2.0
+BuildRequires:    R-CRAN-lmeInfo >= 0.3.0
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-readxl 
-Requires:         R-CRAN-lmeInfo > 0.2.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-lmeInfo >= 0.3.0
 Requires:         R-CRAN-nlme 
 Requires:         R-stats 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-magrittr 
 
 %description
 Provides a set of tools for estimating hierarchical linear models and

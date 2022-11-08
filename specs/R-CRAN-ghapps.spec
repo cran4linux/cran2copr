@@ -1,27 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ranlip
-%global packver   1.0.1
+%global __requires_exclude ^libmpi
+%global packname  ghapps
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generation of Random Vectors with User-Defined Density
+Summary:          Authenticate as a 'GitHub' App
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-CRAN-openssl 
+Requires:         R-CRAN-gh 
+Requires:         R-CRAN-jose 
+Requires:         R-CRAN-openssl 
 
 %description
-Random vectors with arbitrary Lipschitz density are generated using
-acceptance/ rejection. The method is based on G. Beliakov (2005)
-<doi:10.1016/j.cpc.2005.03.105>.
+'GitHub' apps provide a powerful way to manage fine grained programmatic
+access to specific 'git' repositories, without having to create dummy
+users, and which are safer than a personal access token for automated
+tasks. This package extends the 'gh' package to let you authenticate and
+interact with 'GitHub' <https://docs.github.com/en/rest/overview> in 'R'
+as an app.
 
 %prep
 %setup -q -c -n %{packname}
@@ -31,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,51 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xpectr
-%global packver   0.4.2
+%global __requires_exclude ^libmpi
+%global packname  stickyr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generates Expectations for 'testthat' Unit Testing
+Summary:          Data Frames with Persistent Columns and Attributes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-testthat >= 2.3.1
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-clipr >= 0.7.0
-BuildRequires:    R-CRAN-fansi >= 0.4.1
-BuildRequires:    R-CRAN-rstudioapi >= 0.10
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-testthat >= 2.3.1
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-clipr >= 0.7.0
-Requires:         R-CRAN-fansi >= 0.4.1
-Requires:         R-CRAN-rstudioapi >= 0.10
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-vctrs 
 
 %description
-Helps systematize and ease the process of building unit tests with the
-'testthat' package by providing tools for generating expectations.
+Provides data frames that hold certain columns and attributes persistently
+for data processing in 'dplyr'.
 
 %prep
 %setup -q -c -n %{packname}

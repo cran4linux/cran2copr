@@ -1,43 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  styler
-%global packver   1.8.1
+%global packname  itscalledsoccer
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Invasive Pretty Printing of R Code
+Summary:          American Soccer Analysis API Client
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.1.1
-BuildRequires:    R-CRAN-withr >= 2.3.0
+BuildRequires:    R-CRAN-R6 >= 2.5.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.0
-BuildRequires:    R-CRAN-rprojroot >= 1.1
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-purrr >= 0.2.3
-BuildRequires:    R-CRAN-R.cache >= 0.15.0
-BuildRequires:    R-CRAN-rlang >= 0.1.1
-BuildRequires:    R-tools 
-Requires:         R-CRAN-cli >= 3.1.1
-Requires:         R-CRAN-withr >= 2.3.0
+BuildRequires:    R-CRAN-jsonlite >= 1.7.0
+BuildRequires:    R-CRAN-stringi >= 1.5.3
+BuildRequires:    R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-glue >= 1.4.1
+BuildRequires:    R-CRAN-httpcache >= 1.2.0
+BuildRequires:    R-CRAN-data.table >= 1.13.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-R6 >= 2.5.0
 Requires:         R-CRAN-magrittr >= 2.0.0
-Requires:         R-CRAN-rprojroot >= 1.1
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-purrr >= 0.2.3
-Requires:         R-CRAN-R.cache >= 0.15.0
-Requires:         R-CRAN-rlang >= 0.1.1
-Requires:         R-tools 
+Requires:         R-CRAN-jsonlite >= 1.7.0
+Requires:         R-CRAN-stringi >= 1.5.3
+Requires:         R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-glue >= 1.4.1
+Requires:         R-CRAN-httpcache >= 1.2.0
+Requires:         R-CRAN-data.table >= 1.13.0
+Requires:         R-CRAN-tidyr >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-clisymbols 
+Requires:         R-methods 
 
 %description
-Pretty-prints R code without changing the user's formatting intent.
+Provides a wrapper around the same API
+<https://app.americansocceranalysis.com/api/v1/__docs__/> that powers the
+American Soccer Analysis app.
 
 %prep
 %setup -q -c -n %{packname}

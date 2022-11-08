@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  scorecard
-%global packver   0.3.9
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Credit Risk Scorecard
 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-data.table >= 1.10.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
@@ -32,6 +34,7 @@ Requires:         R-CRAN-doParallel
 Requires:         R-parallel 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-cli 
 
 %description
 The `scorecard` package makes the development of credit risk scorecard

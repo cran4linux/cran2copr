@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statsExpressions
-%global packver   1.3.4
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Dataframes and Expressions with Statistical Details
 
@@ -20,10 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-WRS2 >= 1.1.4
 BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.4
 BuildRequires:    R-CRAN-correlation >= 0.8.3
-BuildRequires:    R-CRAN-effectsize >= 0.8.0
-BuildRequires:    R-CRAN-datawizard >= 0.6.2
+BuildRequires:    R-CRAN-effectsize >= 0.8.2
+BuildRequires:    R-CRAN-datawizard >= 0.6.3
 BuildRequires:    R-CRAN-parameters >= 0.19.0
-BuildRequires:    R-CRAN-insight >= 0.18.4
+BuildRequires:    R-CRAN-insight >= 0.18.6
 BuildRequires:    R-CRAN-performance >= 0.10.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
@@ -36,10 +36,10 @@ BuildRequires:    R-CRAN-zeallot
 Requires:         R-CRAN-WRS2 >= 1.1.4
 Requires:         R-CRAN-BayesFactor >= 0.9.12.4.4
 Requires:         R-CRAN-correlation >= 0.8.3
-Requires:         R-CRAN-effectsize >= 0.8.0
-Requires:         R-CRAN-datawizard >= 0.6.2
+Requires:         R-CRAN-effectsize >= 0.8.2
+Requires:         R-CRAN-datawizard >= 0.6.3
 Requires:         R-CRAN-parameters >= 0.19.0
-Requires:         R-CRAN-insight >= 0.18.4
+Requires:         R-CRAN-insight >= 0.18.6
 Requires:         R-CRAN-performance >= 0.10.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
@@ -58,7 +58,8 @@ contingency table analyses, and meta-analyses. The functions are
 pipe-friendly and provide a consistent syntax to work with tidy data.
 These dataframes additionally contain expressions with statistical
 details, and can be used in graphing packages. This package also forms the
-statistical processing backend for 'ggstatsplot'.
+statistical processing backend for 'ggstatsplot'. References: Patil (2021)
+<doi:10.21105/joss.03236>.
 
 %prep
 %setup -q -c -n %{packname}

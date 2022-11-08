@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bsts
-%global packver   0.9.8
+%global packver   0.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          0.9.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Structural Time Series
 
@@ -17,11 +18,11 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-zoo >= 1.8
 BuildRequires:    R-CRAN-BoomSpikeSlab >= 1.2.5
-BuildRequires:    R-CRAN-Boom >= 0.9.10
+BuildRequires:    R-CRAN-Boom >= 0.9.11
 BuildRequires:    R-CRAN-xts 
 Requires:         R-CRAN-zoo >= 1.8
 Requires:         R-CRAN-BoomSpikeSlab >= 1.2.5
-Requires:         R-CRAN-Boom >= 0.9.10
+Requires:         R-CRAN-Boom >= 0.9.11
 Requires:         R-CRAN-xts 
 
 %description

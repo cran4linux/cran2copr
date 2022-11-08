@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aorsf
-%global packver   0.0.4
+%global packname  Ease
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accelerated Oblique Random Survival Forests
+Summary:          Simulating Explicit Population Genetics Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppProgress >= 0.1
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-collapse 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-RcppProgress >= 0.1
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-collapse 
 
 %description
-Fit, interpret, and make predictions with oblique random survival forests.
-Oblique decision trees are notoriously slow compared to their axis based
-counterparts, but 'aorsf' runs as fast or faster than axis-based decision
-tree algorithms for right-censored time-to-event outcomes. Methods to
-accelerate and interpret the oblique random survival forest are described
-in Jaeger et al., (2022) <arXiv:2208.01129>.
+Implementation in a simple and efficient way of fully customisable
+population genetics simulations, considering multiple loci that have
+epistatic interactions. Specifically suited to the modelling of multilocus
+nucleocytoplasmic systems (with both diploid and haploid loci), it is
+nevertheless possible to simulate purely diploid (or purely haploid)
+genetic models. Examples of models that can be simulated with Ease are
+numerous, for example models of genetic incompatibilities as presented by
+Marie-Orleach et al. (2022) <doi:10.1101/2022.07.25.501356>. Many others
+are conceivable, although few are actually explored, Ease having been
+developed in particular to provide a solution so that these kinds of
+models can be simulated simply.
 
 %prep
 %setup -q -c -n %{packname}

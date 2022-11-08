@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seqimpute
-%global packver   1.7
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imputation of Missing Data in Sequence Analysis
 
@@ -57,7 +57,8 @@ Multiple imputation of missing data present in a dataset through the
 prediction based on either a random forest or a multinomial regression
 model. Covariates and time-dependant covariates can be included in the
 model. The prediction of the missing values is based on the method of
-Halpin (2012) <https://ulir.ul.ie/handle/10344/3639>.
+Halpin (2012)
+<https://researchrepository.ul.ie/articles/report/Multiple_imputation_for_life-course_sequence_data/19839736>.
 
 %prep
 %setup -q -c -n %{packname}

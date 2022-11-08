@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rTRIPLEXCWFlux
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Carbon-Water Coupled Model
 
@@ -21,7 +21,7 @@ BuildArch:        noarch
 %description
 A carbon-water coupled model (TRIPLEX-CW-Flux) is based on two
 well-established models, TRIPLEX-Flux model and Penman–Monteith model,
-integrates soil water and water vapor pressure deficits into the stomatal
+integrates soil water and water vapor pressure deficits into the stomata
 conductance submodule to estimate net ecosystem production and
 evapotranspiration in forest
 ecosystems.<https://github.com/ShulanSun/rTRIPLEX_CW_Flux>.

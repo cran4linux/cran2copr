@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Seurat
-%global packver   4.2.0
+%global packver   4.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-plotly >= 4.9.0
-BuildRequires:    R-CRAN-SeuratObject >= 4.1.2
+BuildRequires:    R-CRAN-SeuratObject >= 4.1.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-scattermore >= 0.7
-BuildRequires:    R-CRAN-sctransform >= 0.3.4
+BuildRequires:    R-CRAN-sctransform >= 0.3.5
 BuildRequires:    R-CRAN-leiden >= 0.3.1
 BuildRequires:    R-CRAN-uwot >= 0.1.14
 BuildRequires:    R-CRAN-RcppAnnoy >= 0.0.18
@@ -58,7 +58,7 @@ BuildRequires:    R-CRAN-ROCR
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
@@ -67,12 +67,12 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-plotly >= 4.9.0
-Requires:         R-CRAN-SeuratObject >= 4.1.2
+Requires:         R-CRAN-SeuratObject >= 4.1.3
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-scattermore >= 0.7
-Requires:         R-CRAN-sctransform >= 0.3.4
+Requires:         R-CRAN-sctransform >= 0.3.5
 Requires:         R-CRAN-leiden >= 0.3.1
 Requires:         R-CRAN-uwot >= 0.1.14
 Requires:         R-CRAN-RcppAnnoy >= 0.0.18
@@ -108,7 +108,7 @@ Requires:         R-CRAN-ROCR
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FADPclust
-%global packver   1.1.1
+%global packname  tehtuner
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functional Data Clustering Using Adaptive Density Peak Detection
+Summary:          Fit and Tune Models to Detect Treatment Effect Heterogeneity
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MFPCA 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fpc 
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-fda.usc 
-BuildRequires:    R-CRAN-funData 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-MFPCA 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fpc 
-Requires:         R-CRAN-fda 
-Requires:         R-CRAN-fda.usc 
-Requires:         R-CRAN-funData 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-party 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-randomForestSRC 
+BuildRequires:    R-CRAN-earth 
+Requires:         R-CRAN-party 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-randomForestSRC 
+Requires:         R-CRAN-earth 
 
 %description
-An implementation of a clustering algorithm for functional data based on
-adaptive density peak detection technique, in which the density is
-estimated by functional k-nearest neighbor density estimation based on a
-proposed semi-metric between functions. The proposed functional data
-clustering algorithm is computationally fast since it does not need
-iterative process. (Alex Rodriguez and Alessandro Laio (2014)
-<doi:10.1126/science.1242072>; Xiao-Feng Wang and Yifan Xu (2016)
-<doi:10.1177/0962280215609948>).
+Implements methods to fit Virtual Twins models (Foster et al. (2011)
+<doi:10.1002/sim.4322>) for identifying subgroups with differential
+effects in the context of clinical trials while controlling the
+probability of falsely detecting a differential effect when the
+conditional average treatment effect is uniform across the study
+population using parameter selection methods proposed in Wolf et al.
+(2022) <doi:10.1177/17407745221095855>.
 
 %prep
 %setup -q -c -n %{packname}
