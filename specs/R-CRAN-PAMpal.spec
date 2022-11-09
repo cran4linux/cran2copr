@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PAMpal
-%global packver   0.16.0
+%global packver   0.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          0.17.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load and Process Passive Acoustic Data
 
@@ -32,7 +33,6 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-manipulate 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-reticulate 
@@ -53,7 +53,6 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-manipulate 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-reticulate 

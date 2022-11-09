@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TDApplied
-%global packver   0.1.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning and Inference for Topological Data Analysis
 
@@ -47,12 +47,14 @@ analysis with data, statistical and machine learning practitioners so that
 more analyses may benefit from the power of topological data analysis. The
 main tool of topological data analysis is persistent homology, which
 computes a shape descriptor of a dataset, called a persistence diagram.
-There are three goals of this package: (1) convert persistence diagrams
+There are five goals of this package: (1) convert persistence diagrams
 computed using the two main R packages for topological data analysis into
 a data frame, (2) implement fast versions of both distance and kernel
-calculations for pairs of persistence diagrams, and (3) provide methods
-for machine learning and inference for persistence diagrams which scale
-well.
+calculations for pairs of persistence diagrams, (3) provide methods for
+machine learning and inference for persistence diagrams which scale well,
+(4) deliver a fast implementation of persistent homology via a python
+interface, and (5) contribute tools for the interpretation of persistence
+diagrams.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  geosimilarity
-%global packver   1.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographically Optimal Similarity
 
@@ -18,14 +19,27 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-SecDim 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-stats 
 Requires:         R-CRAN-SecDim 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggrepel 
 
 %description
-Spatial prediction can be performed based on the geographical similarity
-theory. Geographically optimal similarity (GOS) model is a generalized
-model for accurate and reliable spatial prediction based on the
-geographical similarity theory.
+Understanding spatial association is essential for spatial statistical
+inference, including factor exploration and spatial prediction.
+Geographically optimal similarity (GOS) model is an effective method for
+spatial prediction, as described in Yongze Song (2022)
+<doi:10.1007/s11004-022-10036-8>. GOS was developed based on the
+geographical similarity principle, as described in Axing Zhu (2018)
+<doi:10.1080/19475683.2018.1534890>. GOS has advantages in more accurate
+spatial prediction using fewer samples and critically reduced prediction
+uncertainty.
 
 %prep
 %setup -q -c -n %{packname}

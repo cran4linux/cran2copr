@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggstar
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Geometric Shape Point Layer for 'ggplot2'
 
@@ -21,11 +22,13 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-grid 
 Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-cli 
 
 %description
 To create the multiple polygonal point layer for easily discernible

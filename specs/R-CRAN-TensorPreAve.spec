@@ -1,54 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GOCompare
-%global packver   1.0.2
+%global packname  TensorPreAve
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Comprehensive GO Terms Comparison Between Species
+Summary:          Rank and Factor Loadings Estimation in Time Series Tensor Factor Models
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-base >= 3.5
-BuildRequires:    R-utils >= 3.5
-BuildRequires:    R-methods >= 3.5
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-mathjaxr 
-Requires:         R-base >= 3.5
-Requires:         R-utils >= 3.5
-Requires:         R-methods >= 3.5
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-igraph 
-Requires:         R-parallel 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-pracma 
 
 %description
-Supports the assessment of functional enrichment analyses obtained for
-several lists of genes and provides a workflow to analyze them between two
-species via weighted graphs. Methods are described in Sosa et al. (2022)
-(Submitted to Genomics).
+A set of functions to estimate rank and factor loadings of time series
+tensor factor models. A tensor is a multidimensional array. To analyze
+high-dimensional tensor time series, factor model is a major dimension
+reduction tool. 'TensorPreAve' provides functions to estimate the rank of
+core tensors and factor loading spaces of tensor time series. More
+specifically, a pre-averaging method that accumulates information from
+tensor fibres is used to estimate the factor loading spaces. The estimated
+directions corresponding to the strongest factors are then used for
+projecting the data for a potentially improved re-estimation of the factor
+loading spaces themselves. A new rank estimation method is also
+implemented to utilizes correlation information from the projected data.
+See Chen and Lam (2022) <arXiv:2208.04012> for more details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gam
-%global packver   1.20.2
+%global packver   1.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20.2
+Version:          1.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Additive Models
 
@@ -18,9 +19,11 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-splines 
 Requires:         R-CRAN-foreach 
+Requires:         R-methods 
 
 %description
 Functions for fitting and working with generalized additive models, as

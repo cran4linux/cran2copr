@@ -1,28 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  libsoc
-%global packver   0.7.3
+%global __requires_exclude ^libmpi
+%global packname  BTSR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read, Create and Write 'PharmML' Standard Output (so) XML Files
+Summary:          Bounded Time Series Regression
 
-License:          LGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    libxml2-devel
-BuildRequires:    R-devel >= 2.14.1
-Requires:         R-core >= 2.14.1
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 
 %description
-Handle 'PharmML' (Pharmacometrics Markup Language) standard output (SO)
-XML files. SO files can be created, read, manipulated and written through
-a data binding from the XML structure to a tree structure of R objects.
+Simulate, estimate and forecast a wide range of regression based dynamic
+models for bounded time series, covering the most commonly applied models
+in the literature. The main calculations are done in 'FORTRAN', which
+translates into very fast algorithms. The main references are Bayer et al.
+(2017) <doi:10.1016/j.jhydrol.2017.10.006>, Pumi et al. (2019)
+<doi:10.1016/j.jspi.2018.10.001>, Pumi et al. (2021)
+<doi:10.1111/sjos.12439> and Pumi et al. (2022) <arXiv:2211.02097>.
 
 %prep
 %setup -q -c -n %{packname}

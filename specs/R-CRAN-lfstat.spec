@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DynamicGP
-%global packver   1.1-9
+%global packname  lfstat
+%global packver   0.9.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          0.9.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling and Analysis of Dynamic Computer Experiments
+Summary:          Calculation of Low Flow Statistics for Daily Stream Flow Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
-BuildRequires:    R-CRAN-lhs 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-lhs 
-Requires:         R-parallel 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-lmom 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-lmomRFA 
+BuildRequires:    R-CRAN-dygraphs 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-latticeExtra 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-lmom 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-lmomRFA 
+Requires:         R-CRAN-dygraphs 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-latticeExtra 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-scales 
 
 %description
-Emulating and solving inverse problems for dynamic computer experiments.
-It contains two major functionalities: (1) localized GP model for
-large-scale dynamic computer experiments using the algorithm proposed by
-Zhang et al. (2018) <arXiv:1611.09488>; (2) solving inverse problems in
-dynamic computer experiments. The current version only supports 64-bit
-version of R.
+The "Manual on Low-flow Estimation and Prediction" (Gustard & Demuth
+(2009, ISBN:978-92-63-11029-9)), published by the World Meteorological
+Organisation, gives a comprehensive summary on how to analyse stream flow
+data focusing on low-flows. This packages provides functions to compute
+the described statistics and produces plots similar to the ones in the
+manual.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,7 +60,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CoTiMA
-%global packver   0.5.4
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Meta-Analysis ('CoTiMA')
 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-lavaan >= 0.6
 BuildRequires:    R-CRAN-RPushbullet >= 0.3.3
 BuildRequires:    R-CRAN-scholar >= 0.2.0
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-MBESS >= 4.6.0
 Requires:         R-CRAN-openxlsx >= 4.2.2
 Requires:         R-CRAN-ctsem >= 3.3.11
@@ -48,6 +50,7 @@ Requires:         R-CRAN-lavaan >= 0.6
 Requires:         R-CRAN-RPushbullet >= 0.3.3
 Requires:         R-CRAN-scholar >= 0.2.0
 Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 
 %description
 The 'CoTiMA' package performs meta-analyses of correlation matrices of

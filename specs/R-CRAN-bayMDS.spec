@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bayMDS
-%global packver   1.6
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Multidimensional Scaling and Choice of Dimension
 
@@ -20,8 +21,6 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.7
@@ -29,8 +28,6 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-ggpubr 
 
 %description

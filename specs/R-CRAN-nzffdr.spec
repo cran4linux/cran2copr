@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nzffdr
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import, Clean and Update Data from the New Zealand Freshwater Fish Database
 
@@ -18,12 +19,16 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
 

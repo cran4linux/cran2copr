@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LUCIDus
-%global packver   2.2
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Unknown Clustering with Integrated Data
+Summary:          Latent Unknown Clustering Integrating Multi-View Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,12 +37,12 @@ Requires:         R-CRAN-nnet
 Requires:         R-CRAN-progress 
 
 %description
-An implementation of LUCID model (Peng (2019)
+An implementation of the LUCID model (Peng (2019)
 <doi:10.1093/bioinformatics/btz667>). LUCID conducts integrated clustering
-using exposures, omics data (and outcome of interest). An EM algorithm is
-implemented to estimate MLE of LUCID model. LUCID features integrated
-variable selection, incorporation of missing omics data, bootstrap
-inference and visualization via Sankey diagram.
+using exposures, omics data (and outcome as an option). An EM algorithm is
+implemented to estimate MLE of the LUCID model. LUCIDus features
+integrated variable selection, incorporation of missing omics data,
+bootstrap inference, prediction and visualization of the model.
 
 %prep
 %setup -q -c -n %{packname}

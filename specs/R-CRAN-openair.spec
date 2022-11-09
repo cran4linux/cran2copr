@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openair
-%global packver   2.11
+%global packver   2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11
+Version:          2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for the Analysis of Air Pollution Data
 
@@ -35,6 +35,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-grid 
 Requires:         R-CRAN-purrr 
@@ -54,6 +55,7 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-utils 
+Requires:         R-CRAN-rlang 
 
 %description
 Tools to analyse, interpret and understand air pollution data. Data are

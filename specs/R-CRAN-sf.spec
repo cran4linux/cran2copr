@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sf
-%global packver   1.0-8
+%global packver   1.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Features for R
 
@@ -13,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 2.0.1
-BuildRequires:    geos-devel >= 3.4.0
-BuildRequires:    proj-devel >= 4.8.0
+BuildRequires:    gdal-devel
+BuildRequires:    geos-devel
+BuildRequires:    proj-devel
 BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-s2 >= 1.0.7
+BuildRequires:    R-CRAN-s2 >= 1.1.0
 BuildRequires:    R-CRAN-DBI >= 0.8
 BuildRequires:    R-CRAN-units >= 0.7.0
 BuildRequires:    R-CRAN-classInt >= 0.4.1
@@ -32,7 +33,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-s2 >= 1.0.7
+Requires:         R-CRAN-s2 >= 1.1.0
 Requires:         R-CRAN-DBI >= 0.8
 Requires:         R-CRAN-units >= 0.7.0
 Requires:         R-CRAN-classInt >= 0.4.1

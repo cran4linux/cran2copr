@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spFSR
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Selection and Ranking via Simultaneous Perturbation Stochastic Approximation
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-tictoc >= 1.0
 BuildRequires:    R-CRAN-mlr3learners >= 0.5.4
 BuildRequires:    R-CRAN-lgr >= 0.4.4
 BuildRequires:    R-CRAN-mlr3pipelines >= 0.4.2
+BuildRequires:    R-CRAN-ranger >= 0.14.1
 BuildRequires:    R-CRAN-mlr3 >= 0.14.0
 Requires:         R-parallel >= 3.4.2
 Requires:         R-CRAN-ggplot2 >= 2.2.1
@@ -32,6 +33,7 @@ Requires:         R-CRAN-tictoc >= 1.0
 Requires:         R-CRAN-mlr3learners >= 0.5.4
 Requires:         R-CRAN-lgr >= 0.4.4
 Requires:         R-CRAN-mlr3pipelines >= 0.4.2
+Requires:         R-CRAN-ranger >= 0.14.1
 Requires:         R-CRAN-mlr3 >= 0.14.0
 
 %description

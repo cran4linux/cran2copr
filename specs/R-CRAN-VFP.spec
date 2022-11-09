@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  VFP
-%global packver   1.4
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variance Function Program
 
@@ -23,6 +24,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-gnm 
 Requires:         R-CRAN-VCA 
 Requires:         R-CRAN-MASS 
@@ -30,6 +32,7 @@ Requires:         R-utils
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-methods 
 
 %description
 Variance function estimation for models proposed by W. Sadler in his

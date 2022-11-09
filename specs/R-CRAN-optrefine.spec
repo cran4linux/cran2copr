@@ -1,54 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GOCompare
-%global packver   1.0.2
+%global packname  optrefine
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Comprehensive GO Terms Comparison Between Species
+Summary:          Optimally Refine Strata
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-base >= 3.5
-BuildRequires:    R-utils >= 3.5
-BuildRequires:    R-methods >= 3.5
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-sampling 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-mathjaxr 
-Requires:         R-base >= 3.5
-Requires:         R-utils >= 3.5
-Requires:         R-methods >= 3.5
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-sampling 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-igraph 
-Requires:         R-parallel 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-mathjaxr 
 
 %description
-Supports the assessment of functional enrichment analyses obtained for
-several lists of genes and provides a workflow to analyze them between two
-species via weighted graphs. Methods are described in Sosa et al. (2022)
-(Submitted to Genomics).
+Splits initial strata into refined strata that optimize covariate balance.
+For more information, please email the author for a copy of the
+accompanying manuscript. To solve the linear program, the 'Gurobi'
+commercial optimization software is recommended, but not required. The
+'gurobi' R package can be installed following the instructions at
+<https://www.gurobi.com/documentation/9.1/refman/ins_the_r_package.html>.
 
 %prep
 %setup -q -c -n %{packname}
