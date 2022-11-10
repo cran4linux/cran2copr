@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Require
-%global packver   0.1.4
+%global packname  Rigma
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Installing and Loading R Packages for Reproducible Workflows
+Summary:          Access to the 'Figma' API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-xml2 
 
 %description
-A single key function, 'Require' that makes rerun-tolerant versions of
-'install.packages' and `require` for CRAN packages, packages no longer on
-CRAN (i.e., archived), specific versions of packages, and GitHub packages.
-This approach is developed to create reproducible workflows that are
-flexible and fast enough to use while in development stages, while able to
-build snapshots once a stable package collection is found. As with other
-functions in a reproducible workflow, this package emphasizes functions
-that return the same result whether it is the first or subsequent times
-running the function, with subsequent times being sufficiently fast that
-they can be run every time without undue waiting burden on the user or
-developer.
+The 'Figma' API allows for interactions and read access to 'Figma' files
+<https://www.figma.com/developers/api>. This enables you to inspect any
+objects or layers, as well as their properties, and extract them so you
+may render them as images outside of 'Figma'. Then you can present your
+designs, extract design data that can be used for 'Shiny' and 'Rmarkdown',
+integrate them with other systems, or use them to realize your original
+ideas.
 
 %prep
 %setup -q -c -n %{packname}

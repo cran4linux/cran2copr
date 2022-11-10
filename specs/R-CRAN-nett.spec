@@ -1,54 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  roads
+%global __requires_exclude ^libmpi
+%global packname  nett
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Road Network Projection
+Summary:          Network Analysis and Community Detection
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-SpaDES.tools 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-SpaDES.tools 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-foreach 
 Requires:         R-methods 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-Project road network development based on an existing road network, target
-locations to be connected by roads and a cost surface. Road projection
-methods include minimum spanning tree with least cost path (Kruskal’s
-algorithm (1956) <doi:10.2307/2033241>), least cost path (Dijkstra's
-algorithm (1959) <doi:10.1007/BF01386390>) or snapping. These road network
-projection methods are ideal for use with land cover change projection
-models.
+Features tools for the network data analysis and community detection.
+Provides multiple methods for fitting, model selection and goodness-of-fit
+testing in degree-corrected stochastic blocks models. Most of the
+computations are fast and scalable for sparse networks, esp. for Poisson
+versions of the models. Implements the following: Amini, Chen, Bickel and
+Levina (2013) <doi:10.1214/13-AOS1138> Bickel and Sarkar (2015)
+<doi:10.1111/rssb.12117> Lei (2016) <doi:10.1214/15-AOS1370> Wang and
+Bickel (2017) <doi:10.1214/16-AOS1457> Zhang and Amini (2020)
+<arXiv:2012.15047> Le and Levina (2022) <doi:10.1214/21-EJS1971>.
 
 %prep
 %setup -q -c -n %{packname}

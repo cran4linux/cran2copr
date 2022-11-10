@@ -1,43 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  idar
-%global packver   1.4
+%global packname  ussherR
+%global packver   1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Individual Diversity-Area Relationships
+Summary:          Ussher Data Set Drawn from 1658 Chronology
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-FD 
-BuildRequires:    R-CRAN-picante 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-FD 
-Requires:         R-CRAN-picante 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.random 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Computes and tests individual (species, phylogenetic and functional)
-diversity-area relationships, i.e., how species-, phylogenetic- and
-functional-diversity varies with spatial scale around the individuals of
-some species in a community. See applications of these methods in Wiegand
-et al. (2007) <doi:10.1073/pnas.0705621104> or Chacon-Labella et al.
-(2016) <doi:10.1007/s00442-016-3547-z>.
+The "ussher" data set is drawn from original chronological textual
+historic events. Commonly known as James Ussher's Annals of the World, the
+source text was originally written in Latin in 1650, and published in
+English translation in 1658.The data are classified by index, year, epoch
+(or one of the 7 ancient "Ages of the World"), Biblical source book if
+referenced (rarely), as well as alternate dating mechanisms, such as "Anno
+Mundi" (age of the world) or "Julian Period" (dates based upon the Julian
+calendar). Additional file "usshfull" includes variables that may be of
+further interest to historians, such as Southern Kingdom and Northern
+Kingdom discrepant dates, and the original amalgamated dating mechanic
+used by Ussher in the original text. The raw data can also be called using
+"usshraw", as described in: Ussher, J. (1658)
+<https://archive.org/stream/AnnalsOfTheWorld/Annals_djvu.txt>.
 
 %prep
 %setup -q -c -n %{packname}

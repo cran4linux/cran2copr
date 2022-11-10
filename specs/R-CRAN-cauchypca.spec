@@ -1,43 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppArmadillo
-%global packver   0.11.4.2.1
+%global packname  cauchypca
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.4.2.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra Library
+Summary:          Robust Principal Component Analysis Using the Cauchy Distribution
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
 
 %description
-'Armadillo' is a templated C++ linear algebra library (by Conrad
-Sanderson) that aims towards a good balance between speed and ease of use.
-Integer, floating point and complex numbers are supported, as well as a
-subset of trigonometric and statistics functions. Various matrix
-decompositions are provided through optional integration with LAPACK and
-ATLAS libraries.  The 'RcppArmadillo' package includes the header files
-from the templated 'Armadillo' library. Thus users do not need to install
-'Armadillo' itself in order to use 'RcppArmadillo'. From release 7.800.0
-on, 'Armadillo' is licensed under Apache License 2; previous releases were
-under licensed as MPL 2.0 from version 3.800.0 onwards and LGPL-3 prior to
-that; 'RcppArmadillo' (the 'Rcpp' bindings/bridge to Armadillo) is
-licensed under the GNU GPL version 2 or later, as is the rest of 'Rcpp'.
+A new robust principal component analysis algorithm is implemented that
+relies upon the Cauchy Distribution. The algorithm is suitable for high
+dimensional data even if the sample size is less than the number of
+variables. The methodology is described in this paper: Fayomi A., Pantazis
+Y., Tsagris M. and Wood A.T.A. (2022). Cauchy robust principal component
+analysis with applications to high-dimensional data sets.
+<arXiv:2211.03181>.
 
 %prep
 %setup -q -c -n %{packname}

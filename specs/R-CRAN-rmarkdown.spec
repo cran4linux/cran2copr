@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmarkdown
-%global packver   2.17
+%global packver   2.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.17
+Version:          2.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Documents for R
 

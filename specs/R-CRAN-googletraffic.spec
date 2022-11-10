@@ -1,43 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  idar
-%global packver   1.4
+%global packname  googletraffic
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Individual Diversity-Area Relationships
+Summary:          Google Traffic
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-FD 
-BuildRequires:    R-CRAN-picante 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-FD 
-Requires:         R-CRAN-picante 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.random 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-googleway 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-plotwidgets 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-webshot 
+BuildRequires:    R-CRAN-raster 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-googleway 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-plotwidgets 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-webshot 
+Requires:         R-CRAN-raster 
 
 %description
-Computes and tests individual (species, phylogenetic and functional)
-diversity-area relationships, i.e., how species-, phylogenetic- and
-functional-diversity varies with spatial scale around the individuals of
-some species in a community. See applications of these methods in Wiegand
-et al. (2007) <doi:10.1073/pnas.0705621104> or Chacon-Labella et al.
-(2016) <doi:10.1007/s00442-016-3547-z>.
+Create geographically referenced traffic data from the Google Maps
+JavaScript API
+<https://developers.google.com/maps/documentation/javascript/examples/layer-traffic>.
 
 %prep
 %setup -q -c -n %{packname}

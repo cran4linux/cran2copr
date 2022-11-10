@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hydraulics
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Pipe and Open Channel Hydraulics
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-units
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
@@ -46,9 +48,10 @@ of the Moody diagram, the original citation being Colebrook (1939)
 used, again solving for missing parameters. The derivation of and
 solutions using the Darcy-Weisbach equation and the Manning equation are
 outlined in many fluid mechanics texts such as Finnemore and Franzini
-(2002, ISBN:978-0072432022). For the Manning equation solutions, this
-package uses modifications of original code from the 'iemisc' package by
-Irucka Embry.
+(2002, ISBN:978-0072432022). Some gradually- and rapidly-varied flow
+functions are included. For the Manning equation solutions, this package
+uses modifications of original code from the 'iemisc' package by Irucka
+Embry.
 
 %prep
 %setup -q -c -n %{packname}

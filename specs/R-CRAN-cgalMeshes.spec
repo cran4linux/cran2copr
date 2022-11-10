@@ -1,50 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbmi
-%global packver   1.2.1
+%global packname  cgalMeshes
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reference Based Multiple Imputation
+Summary:          R6 Based Utilities for 3D Meshes using 'CGAL'
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.1.1
-BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-mmrm 
-BuildRequires:    R-CRAN-pkgload 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 2.1.1
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-mmrm 
-Requires:         R-CRAN-pkgload 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppCGAL 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-data.table 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-rstantools
+Requires:         R-CRAN-rgl 
 
 %description
-Implements reference based multiple imputation allowing for the imputation
-of longitudinal datasets using predefined strategies.
+Provides some utilities for 3D meshes: clipping of a mesh to the volume
+bounded by another mesh, decomposition into convex parts, distance between
+a mesh and a point, triangulation, geodesic distance, Boolean operations
+(intersection, union, difference), connected components, volume, area, and
+centroid. Also provides an algorithm for surface reconstruction from a
+cloud of points. Meshes are represented by R6 classes. All algorithms are
+performed by the 'C++' library 'CGAL' (<https://www.cgal.org/>).
 
 %prep
 %setup -q -c -n %{packname}

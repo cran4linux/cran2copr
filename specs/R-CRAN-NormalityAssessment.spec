@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NormalityAssessment
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Graphical User Interface for Testing Normality Visually
 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-shinyBS >= 0.61
 BuildRequires:    R-CRAN-rio >= 0.5.27
 BuildRequires:    R-CRAN-DT >= 0.19
+BuildRequires:    R-CRAN-rmatio >= 0.16.0
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-shinyalert >= 2.0.0
 Requires:         R-CRAN-stringi >= 1.7.4
@@ -34,6 +36,7 @@ Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-shinyBS >= 0.61
 Requires:         R-CRAN-rio >= 0.5.27
 Requires:         R-CRAN-DT >= 0.19
+Requires:         R-CRAN-rmatio >= 0.16.0
 
 %description
 Package including an interactive Shiny application for testing normality

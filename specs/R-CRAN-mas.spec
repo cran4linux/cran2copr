@@ -1,43 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  idar
-%global packver   1.4
+%global packname  mas
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Individual Diversity-Area Relationships
+Summary:          Membership Association Studies
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-FD 
-BuildRequires:    R-CRAN-picante 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-FD 
-Requires:         R-CRAN-picante 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.random 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-methods >= 3.2.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-truncdist 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-methods >= 3.2.0
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-truncdist 
 
 %description
-Computes and tests individual (species, phylogenetic and functional)
-diversity-area relationships, i.e., how species-, phylogenetic- and
-functional-diversity varies with spatial scale around the individuals of
-some species in a community. See applications of these methods in Wiegand
-et al. (2007) <doi:10.1073/pnas.0705621104> or Chacon-Labella et al.
-(2016) <doi:10.1007/s00442-016-3547-z>.
+Genome-wide association analysis with membership information, variance
+adjustment, and correlated responses.
 
 %prep
 %setup -q -c -n %{packname}

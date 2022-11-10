@@ -1,43 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  idar
-%global packver   1.4
+%global packname  clustAnalytics
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Individual Diversity-Area Relationships
+Summary:          Cluster Evaluation on Graphs
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-FD 
-BuildRequires:    R-CRAN-picante 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-FD 
-Requires:         R-CRAN-picante 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.random 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-mcclust 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-fossil 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-mcclust 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-fossil 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Computes and tests individual (species, phylogenetic and functional)
-diversity-area relationships, i.e., how species-, phylogenetic- and
-functional-diversity varies with spatial scale around the individuals of
-some species in a community. See applications of these methods in Wiegand
-et al. (2007) <doi:10.1073/pnas.0705621104> or Chacon-Labella et al.
-(2016) <doi:10.1007/s00442-016-3547-z>.
+Evaluates the stability and significance of clusters on 'igraph' graphs.
+Supports weighted and unweighted graphs. Implements the cluster evaluation
+methods defined by Arratia A, Renedo M (2021) <doi:10.7717/peerj-cs.600>.
+Also includes an implementation of the Reduced Mutual Information
+introduced by Newman et al. (2020) <doi:10.1103/PhysRevE.101.042304>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppArmadillo
-%global packver   0.11.4.2.1
+%global packname  mcr
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.4.2.1
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra Library
+Summary:          Method Comparison Regression
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-robslopes 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-parallel 
+Requires:         R-CRAN-robslopes 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
 
 %description
-'Armadillo' is a templated C++ linear algebra library (by Conrad
-Sanderson) that aims towards a good balance between speed and ease of use.
-Integer, floating point and complex numbers are supported, as well as a
-subset of trigonometric and statistics functions. Various matrix
-decompositions are provided through optional integration with LAPACK and
-ATLAS libraries.  The 'RcppArmadillo' package includes the header files
-from the templated 'Armadillo' library. Thus users do not need to install
-'Armadillo' itself in order to use 'RcppArmadillo'. From release 7.800.0
-on, 'Armadillo' is licensed under Apache License 2; previous releases were
-under licensed as MPL 2.0 from version 3.800.0 onwards and LGPL-3 prior to
-that; 'RcppArmadillo' (the 'Rcpp' bindings/bridge to Armadillo) is
-licensed under the GNU GPL version 2 or later, as is the rest of 'Rcpp'.
+Regression methods to quantify the relation between two measurement
+methods are provided by this package. In particular it addresses
+regression problems with errors in both variables and without repeated
+measurements. It implements the CLSI recommendations (see J. A. Budd et
+al. (2018,
+<https://clsi.org/standards/products/method-evaluation/documents/ep09/>)
+for analytical method comparison and bias estimation using patient
+samples. Furthermore, algorithms for Theil-Sen and equivariant
+Passing-Bablok estimators are implemented, see F. Dufey (2020,
+<doi:10.1515/ijb-2019-0157>) and J. Raymaekers and F. Dufey (2022,
+<arXiv:2202:08060>). A comprehensive overview over the implemented methods
+and references can be found in the manual pages "mcr-package" and "mcreg".
 
 %prep
 %setup -q -c -n %{packname}

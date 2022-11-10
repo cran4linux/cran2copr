@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggh4x
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hacks for 'ggplot2'
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-stats 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rje
-%global packver   1.11.0
+%global packver   1.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.0
+Version:          1.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Useful Functions for Statistics
 
@@ -15,14 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.0.0
 Requires:         R-core >= 2.0.0
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-knitr 
 
 %description
-A series of functions in some way considered useful to the author. These
-include functions for subsetting tables and generating indices for arrays,
+A series of functions in some way considered useful to the author.  These
+include methods for subsetting tables and generating indices for arrays,
 conditioning and intervening in probability distributions, generating
-combinations and more...
+combinations, fast transformations, and more...
 
 %prep
 %setup -q -c -n %{packname}

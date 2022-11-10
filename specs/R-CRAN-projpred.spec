@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projpred
-%global packver   2.2.1
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Projection Predictive Feature Selection
 
@@ -28,6 +28,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-gamm4 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-loo >= 2.0.0
@@ -42,17 +43,18 @@ Requires:         R-utils
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-gamm4 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-rlang 
 
 %description
 Performs projection predictive feature selection for generalized linear
 and additive models as well as for generalized linear and additive
 multilevel models (see Piironen, Paasiniemi and Vehtari, 2020,
-<doi:10.1214/20-EJS1711>; Catalina, Bürkner and Vehtari, 2020,
-<arXiv:2010.06994>). The package is compatible with the 'rstanarm' and
-'brms' packages, but other reference models can also be used. See the
-documentation as well as the package vignette for more information and
-examples.
+<doi:10.1214/20-EJS1711>; Catalina, Bürkner and Vehtari, 2022,
+<https://proceedings.mlr.press/v151/catalina22a.html>). The package is
+compatible with the 'rstanarm' and 'brms' packages, but other reference
+models can also be used. See the documentation as well as the package
+vignette for more information and examples.
 
 %prep
 %setup -q -c -n %{packname}

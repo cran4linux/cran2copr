@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iheiddown
-%global packver   0.9.5
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          For Writing Geneva Graduate Institute Documents
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-xaringan 
 BuildRequires:    R-CRAN-crayon 
@@ -36,9 +36,9 @@ BuildRequires:    R-CRAN-fs
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-gender 
 BuildRequires:    R-CRAN-pagedown 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-bookdown 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-xaringan 
 Requires:         R-CRAN-crayon 

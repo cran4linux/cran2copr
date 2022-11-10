@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mdatools
-%global packver   0.13.1
+%global packname  sugarbag
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Create Tessellated Hexagon Maps
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-tibble >= 3.1.7
+BuildRequires:    R-CRAN-geosphere >= 1.5
+BuildRequires:    R-CRAN-progress >= 1.2.2
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-sf >= 1.0.8
+BuildRequires:    R-CRAN-rlang >= 1.0.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rmapshaper >= 0.4.6
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-tibble >= 3.1.7
+Requires:         R-CRAN-geosphere >= 1.5
+Requires:         R-CRAN-progress >= 1.2.2
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-sf >= 1.0.8
+Requires:         R-CRAN-rlang >= 1.0.4
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rmapshaper >= 0.4.6
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+Create a hexagon tile map display from spatial polygons. Each polygon is
+represented by a hexagon tile, placed as close to it's original centroid
+as possible, with a focus on maintaining spatial relationship to a focal
+point. Developed to aid visualisation and analysis of spatial
+distributions across Australia, which can be challenging due to the
+concentration of the population on the coast and wide open interior.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MazamaSpatialUtils
-%global packver   0.7.6
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Data Download and Utility Functions
 
@@ -13,30 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.5
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-cleangeo 
 BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmapshaper 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-MazamaCoreUtils >= 0.4.5
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-cleangeo 
 Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmapshaper 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
 
 %description

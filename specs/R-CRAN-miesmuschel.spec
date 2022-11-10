@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CausalImpact
-%global packver   1.3.0
+%global packname  miesmuschel
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inferring Causal Effects using Bayesian Structural Time-Series Models
+Summary:          Mixed Integer Evolution Strategies
 
-License:          Apache License 2.0 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bsts >= 0.9.0
-BuildRequires:    R-CRAN-assertthat >= 0.2.0
-BuildRequires:    R-CRAN-Boom 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-bsts >= 0.9.0
-Requires:         R-CRAN-assertthat >= 0.2.0
-Requires:         R-CRAN-Boom 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-CRAN-checkmate >= 1.9.0
+BuildRequires:    R-CRAN-paradox >= 0.7.1
+BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
+BuildRequires:    R-CRAN-bbotk >= 0.3.0.900
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-lgr 
+Requires:         R-CRAN-checkmate >= 1.9.0
+Requires:         R-CRAN-paradox >= 0.7.1
+Requires:         R-CRAN-mlr3misc >= 0.5.0
+Requires:         R-CRAN-bbotk >= 0.3.0.900
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-lgr 
 
 %description
-Implements a Bayesian approach to causal impact estimation in time series,
-as described in Brodersen et al. (2015) <DOI:10.1214/14-AOAS788>. See the
-package documentation on GitHub <https://google.github.io/CausalImpact/>
-to get started.
+Evolutionary black box optimization algorithms building on the 'bbotk'
+package. 'miesmuschel' offers both ready-to-use optimization algorithms,
+as well as their fundamental building blocks that can be used to manually
+construct specialized optimization loops. The Mixed Integer Evolution
+Strategies as described by Li et al. (2013) <doi:10.1162/EVCO_a_00059> can
+be implemented, as well as the multi-objective optimization algorithms
+NSGA-II by Deb, Pratap, Agarwal, and Meyarivan (2002)
+<doi:10.1109/4235.996017>.
 
 %prep
 %setup -q -c -n %{packname}

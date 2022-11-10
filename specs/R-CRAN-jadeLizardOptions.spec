@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SpaDES.addins
-%global packver   0.1.4
+%global packname  jadeLizardOptions
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Development Tools for 'SpaDES' and 'SpaDES' Modules
+Summary:          Trading Jade Lizard Option Strategies
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringi >= 1.1.3
-BuildRequires:    R-CRAN-rstudioapi >= 0.5
-BuildRequires:    R-CRAN-shiny >= 0.13
-BuildRequires:    R-CRAN-miniUI >= 0.1.1
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-reproducible 
-BuildRequires:    R-CRAN-SpaDES.core 
-Requires:         R-CRAN-stringi >= 1.1.3
-Requires:         R-CRAN-rstudioapi >= 0.5
-Requires:         R-CRAN-shiny >= 0.13
-Requires:         R-CRAN-miniUI >= 0.1.1
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-reproducible 
-Requires:         R-CRAN-SpaDES.core 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides 'RStudio' addins for 'SpaDES' packages and 'SpaDES' module
-development. See '?SpaDES.addins' for an overview of the tools provided.
+Jade Lizard and Reverse Jade Lizard Option Strategies are presented here
+through their Graphs. The graphic indicators, strategies, calculations,
+functions and all the discussions are for academic, research, and
+educational purposes only and should not be construed as investment advice
+and come with absolutely no Liability. Russell A. Stultz (“The option
+strategy desk reference: an essential reference for option traders (First
+edition.)”, 2019, ISBN: 9781949443912).
 
 %prep
 %setup -q -c -n %{packname}
