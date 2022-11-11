@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fbst
-%global packver   2.1
+%global packname  BSSoverSpace
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Full Bayesian Evidence Test, Full Bayesian Significance Test and the e-Value
+Summary:          Blind Source Separation for Multivariate Spatial Data using Eigen Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-rstanarm 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-ks 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-rstanarm 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-SpatialBSS 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-rSPDE 
+Requires:         R-CRAN-SpatialBSS 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-rSPDE 
 
 %description
-Provides access to a range of functions for computing and visualizing the
-Full Bayesian Significance Test (FBST) and the e-value for testing a sharp
-hypothesis against its alternative, and the Full Bayesian Evidence Test
-(FBET) and the (generalized) Bayesian evidence value for testing a
-composite (or interval) hypothesis against its alternative. The methods
-are widely applicable as long as a posterior MCMC sample is available.
+Provides functions for blind source separation over multivariate spatial
+data, and useful statistics for evaluating performance of estimation on
+mixing matrix. 'BSSoverSpace' is based on an eigen analysis of a positive
+definite matrix defined in terms of multiple normalized spatial local
+covariance matrices, and thus can handle moderately high-dimensional
+random fields. This package is an implementation of the method described
+in Zhang, Hao and Yao (2022)<arXiv:2201.02023>.
 
 %prep
 %setup -q -c -n %{packname}

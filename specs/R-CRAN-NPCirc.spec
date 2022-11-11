@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NPCirc
-%global packver   3.0.1
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Circular Methods
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
 BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-misc3d 
 BuildRequires:    R-CRAN-movMF 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-shape 
+BuildRequires:    R-CRAN-Bolstad2 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.8.3
 Requires:         R-CRAN-circular 
 Requires:         R-CRAN-misc3d 
 Requires:         R-CRAN-movMF 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-shape 
+Requires:         R-CRAN-Bolstad2 
 
 %description
 Nonparametric smoothing methods for density and regression estimation
-involving circular data, including methods described in Oliveira et al.
-(2014) and proposals in Alonso-Pena et al. (2021).
+involving circular data, including the estimation of the mean regression
+function and other conditional characteristics.
 
 %prep
 %setup -q -c -n %{packname}

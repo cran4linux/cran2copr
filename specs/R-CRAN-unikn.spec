@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  unikn
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Elements of the University of Konstanz's Corporate Design
 
@@ -27,12 +27,12 @@ Requires:         R-CRAN-ggplot2
 %description
 Define and use graphical elements of corporate design manuals in R. The
 'unikn' package provides color functions (by defining dedicated colors and
-color palettes, and commands for changing, viewing, and using them) and
-styled text elements (e.g., for marking, underlining, or plotting colored
-titles). The pre-defined range of colors and text functions is based on
-the corporate design of the University of Konstanz
-<https://www.uni-konstanz.de/>, but can be adapted and extended for other
-institutions and purposes.
+color palettes, and commands for finding, changing, viewing, and using
+them) and styled text elements (e.g., for marking, underlining, or
+plotting colored titles). The pre-defined range of colors and text
+decoration functions is based on the corporate design of the University of
+Konstanz <https://www.uni-konstanz.de/>, but can be adapted and extended
+for other purposes or institutions.
 
 %prep
 %setup -q -c -n %{packname}

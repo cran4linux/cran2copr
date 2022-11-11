@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fbst
-%global packver   2.1
+%global packname  bstrl
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Full Bayesian Evidence Test, Full Bayesian Significance Test and the e-Value
+Summary:          Bayesian Streaming Record Linkage
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-rstanarm 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-ks 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-rstanarm 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-BRL 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-BRL 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
 
 %description
-Provides access to a range of functions for computing and visualizing the
-Full Bayesian Significance Test (FBST) and the e-value for testing a sharp
-hypothesis against its alternative, and the Full Bayesian Evidence Test
-(FBET) and the (generalized) Bayesian evidence value for testing a
-composite (or interval) hypothesis against its alternative. The methods
-are widely applicable as long as a posterior MCMC sample is available.
+Perform record linkage on streaming files using recursive Bayesian
+updating.
 
 %prep
 %setup -q -c -n %{packname}

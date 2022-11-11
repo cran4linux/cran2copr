@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fbst
-%global packver   2.1
+%global packname  juicyjuice
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Full Bayesian Evidence Test, Full Bayesian Significance Test and the e-Value
+Summary:          Inline CSS Properties into HTML Tags Using 'juice'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-rstanarm 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-ks 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-rstanarm 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-V8 >= 4.2.0
+Requires:         R-CRAN-V8 >= 4.2.0
 
 %description
-Provides access to a range of functions for computing and visualizing the
-Full Bayesian Significance Test (FBST) and the e-value for testing a sharp
-hypothesis against its alternative, and the Full Bayesian Evidence Test
-(FBET) and the (generalized) Bayesian evidence value for testing a
-composite (or interval) hypothesis against its alternative. The methods
-are widely applicable as long as a posterior MCMC sample is available.
+There are occasions where you need a piece of HTML with integrated styles.
+A prime example of this is HTML email. This transformation involves moving
+the CSS and associated formatting instructions from the style block in the
+head of your document into the body of the HTML. Many prominent email
+clients require integrated styles in HTML email; otherwise a received HTML
+email will be displayed without any styling. This package will quickly and
+precisely perform these CSS transformations when given HTML text and it
+does so by using the JavaScript 'juice' library.
 
 %prep
 %setup -q -c -n %{packname}

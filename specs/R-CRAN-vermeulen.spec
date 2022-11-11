@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fbst
-%global packver   2.1
+%global packname  vermeulen
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Full Bayesian Evidence Test, Full Bayesian Significance Test and the e-Value
+Summary:          'Biomarker' Data Set by Vermeulen et al. (2009)
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-rstanarm 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-ks 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-rstanarm 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-memoise 
+Requires:         R-CRAN-memoise 
 
 %description
-Provides access to a range of functions for computing and visualizing the
-Full Bayesian Significance Test (FBST) and the e-value for testing a sharp
-hypothesis against its alternative, and the Full Bayesian Evidence Test
-(FBET) and the (generalized) Bayesian evidence value for testing a
-composite (or interval) hypothesis against its alternative. The methods
-are widely applicable as long as a posterior MCMC sample is available.
+The 'biomarker' data set by Vermeulen et al. (2009)
+<doi:10.1016/S1470-2045(09)70154-8> is provided. The data source, however,
+is by Ruijter et al. (2013) <doi:10.1016/j.ymeth.2012.08.011>. The
+original data set may be downloaded from
+<https://medischebiologie.nl/wp-content/uploads/2019/02/qpcrdatamethods.zip>.
+This data set is for a real-time quantitative polymerase chain reaction
+('PCR') experiment that comprises the raw fluorescence data of 24,576
+amplification curves. This data set comprises 59 genes of interest and 5
+reference genes. Each gene was assessed on 366 neuroblastoma complementary
+DNA ('cDNA') samples and on 18 standard dilution series samples (10-fold
+5-point dilution series x 3 replicates + no template controls ('NTC') x 3
+replicates).
 
 %prep
 %setup -q -c -n %{packname}

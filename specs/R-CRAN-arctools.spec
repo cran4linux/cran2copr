@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fbst
-%global packver   2.1
+%global packname  arctools
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Full Bayesian Evidence Test, Full Bayesian Significance Test and the e-Value
+Summary:          Processing and Physical Activity Summaries of Minute Level Activity Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-rstanarm 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-ks 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-rstanarm 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-runstats 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-runstats 
 
 %description
-Provides access to a range of functions for computing and visualizing the
-Full Bayesian Significance Test (FBST) and the e-value for testing a sharp
-hypothesis against its alternative, and the Full Bayesian Evidence Test
-(FBET) and the (generalized) Bayesian evidence value for testing a
-composite (or interval) hypothesis against its alternative. The methods
-are widely applicable as long as a posterior MCMC sample is available.
+Provides functions to process minute level actigraphy-measured activity
+counts data and extract commonly used physical activity volume and
+fragmentation metrics.
 
 %prep
 %setup -q -c -n %{packname}

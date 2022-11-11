@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.explore
-%global packver   3.0-3
+%global packver   3.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Data Analysis for the 'spatstat' Family
 

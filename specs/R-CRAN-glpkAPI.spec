@@ -1,19 +1,20 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  glpkAPI
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to C API of GLPK
 
-License:          GPL-3
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    glpk-devel >= 4.42
+BuildRequires:    glpk-devel
 BuildRequires:    gmp-devel
 BuildRequires:    R-devel >= 2.6.0
 Requires:         R-core >= 2.6.0
