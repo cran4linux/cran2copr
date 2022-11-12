@@ -1,31 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gMWT
-%global packver   1.2
+%global packname  mailchimpR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Mann-Whitney Type Tests
+Summary:          Get Mailchimp Data via the 'Windsor.ai' API
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-Rcpp >= 0.9.13
-BuildRequires:    R-CRAN-clinfun 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.9.13
-Requires:         R-CRAN-clinfun 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-Generalized Mann-Whitney type tests based on probabilistic indices and new
-diagnostic plots, for the underlying manuscript see Fischer, Oja (2015)
-<doi:10.18637/jss.v065.i09>.
+Collect your data on digital marketing campaigns from Mailchimp using the
+'Windsor.ai' API <https://windsor.ai/api-fields/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  htmltab
-%global packver   0.8.2
+%global __requires_exclude ^libmpi
+%global packname  mixopt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assemble Data Frames from HTML Tables
+Summary:          Mixed Variable Optimization
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-XML >= 3.98.1.3
-BuildRequires:    R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-XML >= 3.98.1.3
-Requires:         R-CRAN-httr >= 1.0.0
 
 %description
-HTML tables are a valuable data source but extracting and recasting these
-data into a useful format can be tedious. This package allows to collect
-structured information from HTML tables. It is similar to
-`readHTMLTable()` of the XML package but provides three major advantages.
-First, the function automatically expands row and column spans in the
-header and body cells. Second, users are given more control over the
-identification of header and body rows which will end up in the R table,
-including semantic header information that appear throughout the body.
-Third, the function preprocesses table code, corrects common types of
-malformations, removes unneeded parts and so helps to alleviate the need
-for tedious post-processing.
+Mixed variable optimization for non-linear functions. Can optimize
+function whose inputs are a combination of continuous, ordered, and
+unordered variables.
 
 %prep
 %setup -q -c -n %{packname}

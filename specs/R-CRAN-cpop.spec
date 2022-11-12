@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpop
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detection of Multiple Changes in Slope in Univariate Time-Series
 
@@ -20,22 +20,22 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-CRAN-crops 
 BuildRequires:    R-CRAN-pacman 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-crops 
 Requires:         R-CRAN-pacman 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-pracma 
+Requires:         R-methods 
 
 %description
 Detects multiple changes in slope using the CPOP dynamic programming
-approach of Fearnhead, Maidstone, and Letchford (2018)
+approach of Fearnhead, Maidstone, and Letchford (2019)
 <doi:10.1080/10618600.2018.1512868>. This method finds the best continuous
 piecewise linear fit to data under a criterion that measures fit to data
 using the residual sum of squares, but penalizes complexity based on an L0

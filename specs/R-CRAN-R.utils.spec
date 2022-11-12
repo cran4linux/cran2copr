@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R.utils
-%global packver   2.12.1
+%global packver   2.12.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.12.1
+Version:          2.12.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Programming Utilities
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R.methodsS3 >= 1.8.1
-BuildRequires:    R-CRAN-R.oo >= 1.24.0
+BuildRequires:    R-CRAN-R.oo 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-R.methodsS3 >= 1.8.1
-Requires:         R-CRAN-R.oo >= 1.24.0
+BuildRequires:    R-CRAN-R.methodsS3 
+Requires:         R-CRAN-R.oo 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-tools 
+Requires:         R-CRAN-R.methodsS3 
 
 %description
 Utility functions useful when programming and developing R packages.

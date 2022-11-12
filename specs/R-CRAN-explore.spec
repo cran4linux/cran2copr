@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  explore
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplifies Exploratory Data Analysis
 
@@ -18,10 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-DT >= 0.3
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-magrittr 
@@ -36,10 +36,10 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-DT >= 0.3
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-magrittr 

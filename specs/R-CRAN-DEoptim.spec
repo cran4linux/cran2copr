@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DEoptim
-%global packver   2.2-7
+%global packver   2.2-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.7
+Version:          2.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Optimization by Differential Evolution
 
@@ -17,10 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-parallelly 
 Requires:         R-methods 
 
 %description

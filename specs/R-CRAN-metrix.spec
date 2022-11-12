@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  metrix
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Water Quality Metrics Calculator
 
@@ -28,7 +29,7 @@ Requires:         R-CRAN-vegan
 %description
 Calculate different metrics based on aquatic macroinvertebrate density
 data (individuals per square meter) to assess water quality (Prat N et al.
-(2009) <http://www.ub.edu/riosandes/docs/MacroIndLatinAmcompag0908.pdf>).
+2009).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  areaplot
-%global packver   1.2.3
+%global packname  commafree
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Stacked Areas and Confidence Bands as Filled Polygons
+Summary:          Call Functions Without Commas Between Arguments
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
 
 %description
-Plot stacked areas and confidence bands as filled polygons, or add
-polygons to existing plots. A variety of input formats are supported,
-including vectors, matrices, data frames, formulas, etc.
+Provides the "comma-free call" operator: '%%(%%'. Use it to call a function
+without commas between the arguments. Just replace the '(' with '%%(%%' in a
+function call, supply your arguments as standard R expressions enclosed by
+'{ }', and be free of commas (for that call).
 
 %prep
 %setup -q -c -n %{packname}

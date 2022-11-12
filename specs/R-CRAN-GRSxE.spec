@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  areaplot
-%global packver   1.2.3
+%global packname  GRSxE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Stacked Areas and Confidence Bands as Filled Polygons
+Summary:          Testing Gene-Environment Interactions Through Genetic Risk Scores
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ranger 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Plot stacked areas and confidence bands as filled polygons, or add
-polygons to existing plots. A variety of input formats are supported,
-including vectors, matrices, data frames, formulas, etc.
+Statistical testing procedures for detecting GxE (gene-environment)
+interactions. The main focus lies on GRSxE interaction tests that aim at
+detecting GxE interactions through GRS (genetic risk scores). Moreover, a
+novel testing procedure based on bagging and OOB predictions is
+implemented for incorporating all available observations at both GRS
+construction and GxE testing.
 
 %prep
 %setup -q -c -n %{packname}

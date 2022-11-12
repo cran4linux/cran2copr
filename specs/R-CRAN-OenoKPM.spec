@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  OenoKPM
-%global packver   0.1.2
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling the Kinetics of CO2 Production in Alcoholic Fermentation
 
@@ -20,14 +21,10 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-extrafont 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-grDevices 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-extrafont 
 
 %description
 Developed to help researchers who need to model the kinetics of carbon
@@ -55,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

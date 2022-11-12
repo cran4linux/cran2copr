@@ -1,55 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  uniswappeR
-%global packver   0.6.0
+%global __requires_exclude ^libmpi
+%global packname  rtoot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interact with the Uniswap Platform
+Summary:          Collecting and Analyzing Mastodon Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-ghql 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-ghql 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reticulate 
-Requires:         R-utils 
 
 %description
-Routines to interact with the Uniswap trading platform and its API
-<https://uniswap.org>. The package contains codebase to interact with the
-uniswap platform directly from R console, Ability to pull and export data
-related to the platform and analyse some aspects.
+An implementation of calls designed to collect and organize Mastodon data
+via its Application Program Interfaces (API), which can be found at the
+following URL: <https://docs.joinmastodon.org/>.
 
 %prep
 %setup -q -c -n %{packname}

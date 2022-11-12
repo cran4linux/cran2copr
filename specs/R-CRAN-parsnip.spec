@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parsnip
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Common API to Modeling and Analysis Functions
 
@@ -59,7 +59,7 @@ Requires:         R-CRAN-withr
 %description
 A common interface is provided to allow users to specify a model without
 having to remember the different argument names across different functions
-or computational engines (e.g. 'R', 'Spark', 'Stan', etc).
+or computational engines (e.g. 'R', 'Spark', 'Stan', 'H2O', etc).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,50 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eurlex
-%global packver   0.4.3
+%global packname  MLEce
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data on European Union Law
+Summary:          Statistical Inference for Asymptotic Efficient Closed-Form Estimators
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-antiword 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-antiword 
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-sirt 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-sirt 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Access to data on European Union laws and court decisions made easy with
-pre-defined 'SPARQL' queries and 'GET' requests.
+Estimate asymptotic efficient closed-form estimators and provide goodness
+of fit, estimates, plot and etc. Yue, S. (2001) <doi:10.1002/hyp.259>.
+Mosimann, James E. (1962) <doi:10.1093/biomet/49.1-2.65>.
 
 %prep
 %setup -q -c -n %{packname}

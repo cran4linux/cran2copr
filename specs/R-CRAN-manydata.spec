@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  manydata
-%global packver   0.7.5
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Portal for Global Governance Data
 
@@ -16,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-messydates 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
@@ -27,12 +28,17 @@ BuildRequires:    R-CRAN-usethis
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-migraph 
+BuildRequires:    R-CRAN-cshapes 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-messydates 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
@@ -40,8 +46,13 @@ Requires:         R-CRAN-usethis
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-migraph 
+Requires:         R-CRAN-cshapes 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-zoo 
 
 %description
 This is the core package for the many packages universe. It includes

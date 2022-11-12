@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  stlnpp
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatio-Temporal Analysis of Point Patterns on Linear Networks
 
@@ -19,14 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-stats 
 Requires:         R-graphics 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Matrix
-%global packver   1.5-1
+%global packver   1.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse and Dense Matrix Classes and Methods
 
@@ -19,15 +19,15 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lattice 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-grid 
+Requires:         R-CRAN-lattice 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-lattice 
 
 %description
 A rich hierarchy of matrix classes, including triangular, symmetric, and

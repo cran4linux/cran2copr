@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modelr
-%global packver   0.1.9
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling Functions that Work with the Pipe
 
@@ -17,17 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-tidyr >= 0.8.0
 BuildRequires:    R-CRAN-purrr >= 0.2.2
-BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-rlang >= 1.0.6
 Requires:         R-CRAN-tidyr >= 0.8.0
 Requires:         R-CRAN-purrr >= 0.2.2
-Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
