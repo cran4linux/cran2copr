@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pedquant
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Public Economic Data and Quantitative Analysis
 
@@ -13,18 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-TTR 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-webdriver 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-jsonlite 
@@ -37,10 +36,8 @@ Requires:         R-CRAN-TTR
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-webdriver 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-jsonlite 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Countr
-%global packver   3.5.5
+%global packver   3.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.5
+Version:          3.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Univariate Count Models Based on Renewal Processes
 
@@ -15,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rdpack >= 0.7.0
+BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-Rcpp >= 0.11.3
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-flexsurv 
@@ -35,7 +36,7 @@ BuildRequires:    R-CRAN-pscl
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rdpack >= 0.7.0
+Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-Rcpp >= 0.11.3
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-flexsurv 
@@ -58,10 +59,9 @@ Requires:         R-CRAN-xtable
 %description
 Flexible univariate count models based on renewal processes. The models
 may include covariates and can be specified with familiar formula syntax
-as in glm() and package 'flexsurv'. The methodology is described in a
-forthcoming paper in the Journal of Statistical Software
-<doi:10.18637/jss.v090.i13> (included as vignette 'Countr_guide' in the
-package).
+as in glm() and package 'flexsurv'.  The methodology is described by
+Kharrat et all (2019) <doi:10.18637/jss.v090.i13> (included as vignette
+'Countr_guide' in the package).
 
 %prep
 %setup -q -c -n %{packname}
@@ -71,6 +71,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

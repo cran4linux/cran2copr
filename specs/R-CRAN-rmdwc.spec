@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rmdwc
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Count Words, Chars and Non-Whitespace Chars in R Markdown Docs
 
@@ -17,7 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 If you are using R Markdown documents then you have sometimes restrictions

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gamlss.ggplots
-%global packver   1.0-0
+%global packver   2.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Generalised Additive Model for Location, Scale and Shape
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-gamlss.foreach
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-CRAN-gamlss.inf 
 Requires:         R-CRAN-gamlss >= 4.3.3
 Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-ggplot2 
@@ -30,6 +32,7 @@ Requires:         R-CRAN-gamlss.foreach
 Requires:         R-methods 
 Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-ellipse 
+Requires:         R-CRAN-gamlss.inf 
 
 %description
 Plotting functions for Generalised Additive Models for Location Scale and

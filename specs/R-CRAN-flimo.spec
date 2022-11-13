@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flimo
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fixed Landscape Inference Method
 
@@ -18,13 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-JuliaConnectoR 
-BuildRequires:    R-CRAN-latex2exp 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-JuliaConnectoR 
-Requires:         R-CRAN-latex2exp 
 
 %description
 Likelihood-free inference method for stochastic models. Uses a
