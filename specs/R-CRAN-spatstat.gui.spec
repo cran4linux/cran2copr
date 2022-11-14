@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spatstat.gui
-%global packver   2.0-1
+%global packver   3.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Graphics Functions for the 'spatstat' Package
 
@@ -16,13 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.core >= 2.3.2
-BuildRequires:    R-CRAN-spatstat.linnet >= 2.3.1
-BuildRequires:    R-CRAN-spatstat.utils >= 2.1
-BuildRequires:    R-CRAN-spatstat.geom >= 2.0
-BuildRequires:    R-CRAN-spatstat.random >= 2.0
-BuildRequires:    R-CRAN-spatstat.data >= 2.0
-BuildRequires:    R-CRAN-spatstat >= 2.0
+BuildRequires:    R-CRAN-spatstat.random >= 3.0.0
+BuildRequires:    R-CRAN-spatstat.geom >= 3.0
+BuildRequires:    R-CRAN-spatstat.model >= 3.0
+BuildRequires:    R-CRAN-spatstat.linnet >= 3.0
+BuildRequires:    R-CRAN-spatstat.data >= 3.0
+BuildRequires:    R-CRAN-spatstat >= 3.0
+BuildRequires:    R-CRAN-spatstat.utils >= 3.0
+BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-rpanel 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-stats 
@@ -30,13 +32,14 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-spatstat.core >= 2.3.2
-Requires:         R-CRAN-spatstat.linnet >= 2.3.1
-Requires:         R-CRAN-spatstat.utils >= 2.1
-Requires:         R-CRAN-spatstat.geom >= 2.0
-Requires:         R-CRAN-spatstat.random >= 2.0
-Requires:         R-CRAN-spatstat.data >= 2.0
-Requires:         R-CRAN-spatstat >= 2.0
+Requires:         R-CRAN-spatstat.random >= 3.0.0
+Requires:         R-CRAN-spatstat.geom >= 3.0
+Requires:         R-CRAN-spatstat.model >= 3.0
+Requires:         R-CRAN-spatstat.linnet >= 3.0
+Requires:         R-CRAN-spatstat.data >= 3.0
+Requires:         R-CRAN-spatstat >= 3.0
+Requires:         R-CRAN-spatstat.utils >= 3.0
+Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-rpanel 
 Requires:         R-tcltk 
 Requires:         R-stats 
