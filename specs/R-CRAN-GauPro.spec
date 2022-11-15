@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MLEce
-%global packver   1.0.1
+%global packname  GauPro
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference for Asymptotic Efficient Closed-Form Estimators
+Summary:          Gaussian Process Fitting
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-sirt 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-sirt 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-lbfgs 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-lbfgs 
 
 %description
-Estimate asymptotic efficient closed-form estimators and provide goodness
-of fit, estimates, plot and etc. Yue, S. (2001) <doi:10.1002/hyp.259>.
-Mosimann, James E. (1962) <doi:10.1093/biomet/49.1-2.65>.
+Fits a Gaussian process model to data. Gaussian processes are commonly
+used in computer experiments to fit an interpolating model. The model is
+stored as an 'R6' object and can be easily updated with new data. There
+are options to run in parallel (not for Windows), and 'Rcpp' has been used
+to speed up calculations. Other R packages that perform similar
+calculations include 'laGP', 'DiceKriging', 'GPfit', and 'mlegp'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MLEce
-%global packver   1.0.1
+%global packname  rMOST
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference for Asymptotic Efficient Closed-Form Estimators
+Summary:          Estimates Pareto-Optimal Solution for Hiring with 3 Objectives
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-sirt 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-sirt 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-nloptr 
+Requires:         R-stats 
 
 %description
-Estimate asymptotic efficient closed-form estimators and provide goodness
-of fit, estimates, plot and etc. Yue, S. (2001) <doi:10.1002/hyp.259>.
-Mosimann, James E. (1962) <doi:10.1093/biomet/49.1-2.65>.
+Estimates Pareto-optimal solution for personnel selection with 3
+objectives using Normal Boundary Intersection (NBI) algorithm introduced
+by Das and Dennis (1998) <doi:10.1137/S1052623496307510>. Takes predictor
+intercorrelations and predictor-objective relations as input and generates
+a series of solutions containing predictor weights as output. Accepts
+between 3 and 10 selection predictors. Maximum 2 objectives could be
+adverse impact objectives. Partially modeled after De Corte (2006) TROFSS
+Fortran program <https://users.ugent.be/~wdecorte/trofss.pdf> and updated
+from 'ParetoR' package described in Song et al. (2017)
+<doi:10.1037/apl0000240>. For details, see Song et al. (in press).
 
 %prep
 %setup -q -c -n %{packname}

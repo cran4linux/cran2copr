@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MLEce
-%global packver   1.0.1
+%global packname  superml
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference for Asymptotic Efficient Closed-Form Estimators
+Summary:          Build Machine Learning Models Like Using Python's Scikit-Learn Library in R
 
-License:          GPL-2
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-sirt 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-sirt 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-R6 >= 2.2
+BuildRequires:    R-CRAN-data.table >= 1.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0
+BuildRequires:    R-CRAN-assertthat >= 0.2
+BuildRequires:    R-CRAN-Metrics >= 0.1
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-R6 >= 2.2
+Requires:         R-CRAN-data.table >= 1.10
+Requires:         R-CRAN-Rcpp >= 1.0
+Requires:         R-CRAN-assertthat >= 0.2
+Requires:         R-CRAN-Metrics >= 0.1
 
 %description
-Estimate asymptotic efficient closed-form estimators and provide goodness
-of fit, estimates, plot and etc. Yue, S. (2001) <doi:10.1002/hyp.259>.
-Mosimann, James E. (1962) <doi:10.1093/biomet/49.1-2.65>.
+The idea is to provide a standard interface to users who use both R and
+Python for building machine learning models. This package provides a
+scikit-learn's fit, predict interface to train machine learning models in
+R.
 
 %prep
 %setup -q -c -n %{packname}

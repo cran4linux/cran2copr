@@ -1,44 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gpboost
-%global packver   0.7.10
+%global packname  rbmi
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.10
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combining Tree-Boosting with Gaussian Process and Mixed Effects Models
+Summary:          Reference Based Multiple Imputation
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-R6 >= 2.0
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RJSONIO 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstantools >= 2.1.1
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-mmrm 
+BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.0
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-Matrix >= 1.1.0
-Requires:         R-graphics 
-Requires:         R-CRAN-RJSONIO 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstantools >= 2.1.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-mmrm 
+Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-rstantools
 
 %description
-An R package that allows for combining tree-boosting with Gaussian process
-and mixed effects models. It also allows for independently doing
-tree-boosting as well as inference and prediction for Gaussian process and
-mixed effects models. See <https://github.com/fabsig/GPBoost> for more
-information on the software and Sigrist (2022, JMLR)
-<https://www.jmlr.org/papers/v23/20-322.html> and Sigrist (2022, TPAMI)
-<doi:10.1109/TPAMI.2022.3168152> for more information on the methodology.
+Implements reference based multiple imputation allowing for the imputation
+of longitudinal datasets using predefined strategies.
 
 %prep
 %setup -q -c -n %{packname}

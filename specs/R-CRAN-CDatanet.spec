@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MLEce
-%global packver   1.0.1
+%global packname  CDatanet
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference for Asymptotic Efficient Closed-Form Estimators
+Summary:          Modeling Count Data with Peer Effects
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-sirt 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-sirt 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-ddpcr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-RcppDist 
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-ddpcr 
+Requires:         R-CRAN-Matrix 
 
 %description
-Estimate asymptotic efficient closed-form estimators and provide goodness
-of fit, estimates, plot and etc. Yue, S. (2001) <doi:10.1002/hyp.259>.
-Mosimann, James E. (1962) <doi:10.1093/biomet/49.1-2.65>.
+Likelihood-based estimation and data generation from a class of models
+used to estimate peer effects on count data by controlling for the network
+endogeneity. This class includes count data models with social
+interactions (Houndetoungan 2022; <doi:10.2139/ssrn.3721250>), spatial
+tobit models (Xu and Lee 2015; <doi:10.1016/j.jeconom.2015.05.004>), and
+spatial linear-in-means models (Lee 2004;
+<doi:10.1111/j.1468-0262.2004.00558.x>).
 
 %prep
 %setup -q -c -n %{packname}

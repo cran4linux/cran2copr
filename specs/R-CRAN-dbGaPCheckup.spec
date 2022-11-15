@@ -1,50 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vimp
-%global packver   2.3.0
+%global packname  dbGaPCheckup
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform Inference on Algorithm-Agnostic Variable Importance
+Summary:          dbGaP Checkup
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-formatR 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-questionr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-SuperLearner 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-formatR 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pander 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-questionr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-labelled 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Calculate point estimates of and valid confidence intervals for
-nonparametric, algorithm-agnostic variable importance measures in high and
-low dimensions, using flexible estimators of the underlying regression
-functions. For more information about the methods, please see Williamson
-et al. (Biometrics, 2020), Williamson et al. (JASA, 2021), and Williamson
-and Feng (ICML, 2020).
+Contains functions that check for formatting of the Subject Phenotype data
+set and data dictionary as specified by the National Center for
+Biotechnology Information (NCBI) Database of Genotypes and Phenotypes
+(dbGaP) <https://www.ncbi.nlm.nih.gov/gap/docs/submissionguide/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,50 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vimp
-%global packver   2.3.0
+%global packname  tip
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform Inference on Algorithm-Agnostic Variable Importance
+Summary:          Bayesian Clustering Using the Table Invitation Prior (TIP)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-SuperLearner 
-Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ROCR 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-changepoint 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mniw 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-changepoint 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-methods 
+Requires:         R-CRAN-mniw 
 
 %description
-Calculate point estimates of and valid confidence intervals for
-nonparametric, algorithm-agnostic variable importance measures in high and
-low dimensions, using flexible estimators of the underlying regression
-functions. For more information about the methods, please see Williamson
-et al. (Biometrics, 2020), Williamson et al. (JASA, 2021), and Williamson
-and Feng (ICML, 2020).
+Cluster data without specifying the number of clusters using the Table
+Invitation Prior (TIP) introduced in the paper "Clustering Gene Expression
+Using the Table Invitation Prior" by Charles W. Harrison, Qing He, and
+Hsin-Hsiung Huang (2022) <doi:10.3390/genes13112036>. TIP is a Bayesian
+prior that uses pairwise distance and similarity information to cluster
+vectors, matrices, or tensors.
 
 %prep
 %setup -q -c -n %{packname}
