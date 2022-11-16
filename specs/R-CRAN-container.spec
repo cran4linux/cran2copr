@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wrassp
-%global packver   1.0.2
+%global packname  container
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'ASSP' Library
+Summary:          Extending Base 'R' Lists
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildRequires:    R-CRAN-tibble >= 2.1.0
-Requires:         R-CRAN-tibble >= 2.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
 
 %description
-A wrapper around Michel Scheffers's 'libassp'
-(<https://libassp.sourceforge.net/>). The 'libassp' (Advanced Speech
-Signal Processor) library aims at providing functionality for handling
-speech signal files in most common audio formats and for performing
-analyses common in phonetic science/speech science. This includes the
-calculation of formants, fundamental frequency, root mean square, auto
-correlation, a variety of spectral analyses, zero crossing rate, filtering
-etc. This wrapper provides R with a large subset of 'libassp's signal
-processing functions and provides them to the user in a (hopefully)
-user-friendly manner.
+Extends the functionality of base 'R' lists and provides specialized data
+structures 'deque', 'set', 'dict', and 'dict.table', the latter to extend
+the 'data.table' package.
 
 %prep
 %setup -q -c -n %{packname}

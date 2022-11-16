@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wrassp
-%global packver   1.0.2
+%global packname  mmpca
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'ASSP' Library
+Summary:          Integrative Analysis of Several Related Data Matrices
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildRequires:    R-CRAN-tibble >= 2.1.0
-Requires:         R-CRAN-tibble >= 2.1.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-digest >= 0.6.0
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppGSL 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-digest >= 0.6.0
 
 %description
-A wrapper around Michel Scheffers's 'libassp'
-(<https://libassp.sourceforge.net/>). The 'libassp' (Advanced Speech
-Signal Processor) library aims at providing functionality for handling
-speech signal files in most common audio formats and for performing
-analyses common in phonetic science/speech science. This includes the
-calculation of formants, fundamental frequency, root mean square, auto
-correlation, a variety of spectral analyses, zero crossing rate, filtering
-etc. This wrapper provides R with a large subset of 'libassp's signal
-processing functions and provides them to the user in a (hopefully)
-user-friendly manner.
+A generalization of principal component analysis for integrative analysis.
+The method finds principal components that describe single matrices or
+that are common to several matrices. The solutions are sparse. Rank of
+solutions is automatically selected using cross validation. The method is
+described in Kallus et al. (2019) <arXiv:1911.04927>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wrassp
-%global packver   1.0.2
+%global packname  LakeMetabolizer
+%global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'ASSP' Library
+Summary:          Tools for the Analysis of Ecosystem Metabolism
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildRequires:    R-CRAN-tibble >= 2.1.0
-Requires:         R-CRAN-tibble >= 2.1.0
+BuildRequires:    R-devel >= 2.15.0
+Requires:         R-core >= 2.15.0
+BuildRequires:    R-CRAN-rLakeAnalyzer >= 1.4
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-rLakeAnalyzer >= 1.4
+Requires:         R-CRAN-plyr 
+Requires:         R-methods 
 
 %description
-A wrapper around Michel Scheffers's 'libassp'
-(<https://libassp.sourceforge.net/>). The 'libassp' (Advanced Speech
-Signal Processor) library aims at providing functionality for handling
-speech signal files in most common audio formats and for performing
-analyses common in phonetic science/speech science. This includes the
-calculation of formants, fundamental frequency, root mean square, auto
-correlation, a variety of spectral analyses, zero crossing rate, filtering
-etc. This wrapper provides R with a large subset of 'libassp's signal
-processing functions and provides them to the user in a (hopefully)
-user-friendly manner.
+A collection of tools for the calculation of freewater metabolism from in
+situ time series of dissolved oxygen, water temperature, and, optionally,
+additional environmental variables. LakeMetabolizer implements 5 different
+metabolism models with diverse statistical underpinnings: bookkeeping,
+ordinary least squares, maximum likelihood, Kalman filter, and Bayesian.
+Each of these 5 metabolism models can be combined with 1 of 7 models for
+computing the coefficient of gas exchange across the air–water interface
+(k). LakeMetabolizer also features a variety of supporting functions that
+compute conversions and implement calculations commonly applied to raw
+data prior to estimating metabolism (e.g., oxygen saturation and optical
+conversion models).
 
 %prep
 %setup -q -c -n %{packname}

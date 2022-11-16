@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cml
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Manifold Learning
 
@@ -17,9 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-MASS 
 
 %description
 Find a low-dimensional embedding of high-dimensional data, conditioning on

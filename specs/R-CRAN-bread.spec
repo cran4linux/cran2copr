@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bread
-%global packver   0.2.3
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Big Files Without Loading Them in Memory
 
@@ -17,12 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-stringr 
 
 %description
 A simple set of wrapper functions for data.table::fread() that allows

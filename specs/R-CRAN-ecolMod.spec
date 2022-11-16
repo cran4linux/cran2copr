@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecolMod
-%global packver   1.2.6.3
+%global packver   1.2.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6.3
+Version:          1.2.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          "A Practical Guide to Ecological Modelling - Using R as a Simulation Platform"
 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MazamaSpatialPlots
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Thematic Plots for Mazama Spatial Datasets
 
@@ -16,20 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MazamaSpatialUtils >= 0.7.3
+BuildRequires:    R-CRAN-MazamaSpatialUtils >= 0.8.0
 BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.6
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tmap 
-Requires:         R-CRAN-MazamaSpatialUtils >= 0.7.3
+Requires:         R-CRAN-MazamaSpatialUtils >= 0.8.0
 Requires:         R-CRAN-MazamaCoreUtils >= 0.4.6
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tmap 
 

@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wrassp
-%global packver   1.0.2
+%global packname  simplifyNet
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'ASSP' Library
+Summary:          Network Sparsification
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildRequires:    R-CRAN-tibble >= 2.1.0
-Requires:         R-CRAN-tibble >= 2.1.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildArch:        noarch
+BuildRequires:    R-methods >= 4.0.2
+BuildRequires:    R-stats >= 4.0.2
+BuildRequires:    R-CRAN-igraph >= 1.3.1
+BuildRequires:    R-CRAN-Matrix >= 1.2.18
+BuildRequires:    R-CRAN-dplyr >= 1.0.9
+BuildRequires:    R-CRAN-sanic >= 0.0.1
+Requires:         R-methods >= 4.0.2
+Requires:         R-stats >= 4.0.2
+Requires:         R-CRAN-igraph >= 1.3.1
+Requires:         R-CRAN-Matrix >= 1.2.18
+Requires:         R-CRAN-dplyr >= 1.0.9
+Requires:         R-CRAN-sanic >= 0.0.1
 
 %description
-A wrapper around Michel Scheffers's 'libassp'
-(<https://libassp.sourceforge.net/>). The 'libassp' (Advanced Speech
-Signal Processor) library aims at providing functionality for handling
-speech signal files in most common audio formats and for performing
-analyses common in phonetic science/speech science. This includes the
-calculation of formants, fundamental frequency, root mean square, auto
-correlation, a variety of spectral analyses, zero crossing rate, filtering
-etc. This wrapper provides R with a large subset of 'libassp's signal
-processing functions and provides them to the user in a (hopefully)
-user-friendly manner.
+Network sparsification with a variety of novel and known network
+sparsification techniques. All network sparsification techniques reduce
+the number of edges, not the number of nodes. Network sparsification is
+sometimes referred to as network dimensionality reduction. This package is
+based on the work of Spielman, D., Srivastava, N. (2009)<arXiv:0803.0929>.
+Koutis I., Levin, A., Peng, R. (2013)<arXiv:1209.5821>. Toivonen, H.,
+Mahler, S., Zhou, F. (2010)<doi:10.1007>. Foti, N., Hughes, J., Rockmore,
+D. (2011)<doi:10.1371>.
 
 %prep
 %setup -q -c -n %{packname}

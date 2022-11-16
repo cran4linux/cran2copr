@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geodata
-%global packver   0.4-11
+%global packver   0.4-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.11
+Version:          0.4.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Geographic Data
 

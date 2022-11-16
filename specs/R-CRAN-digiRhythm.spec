@@ -1,44 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cohorttools
-%global packver   0.1.5
+%global packname  digiRhythm
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cohort Data Analyses
+Summary:          Analyzing Animal's Rhythmicity
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Epi 
-BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-CRAN-readr >= 2.0.1
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-DiagrammeRsvg 
-BuildRequires:    R-CRAN-rsvg 
-Requires:         R-CRAN-Epi 
-Requires:         R-CRAN-cmprsk 
+Requires:         R-CRAN-readr >= 2.0.1
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-crayon 
 Requires:         R-stats 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-DiagrammeRsvg 
-Requires:         R-CRAN-rsvg 
 
 %description
-Functions to make lifetables and to calculate hazard function estimate
-using Poisson regression model with splines. Includes function to draw
-simple flowchart of cohort study. Function boxesLx() makes boxes of
-transition rates between states. It utilizes 'Epi' package 'Lexis' data.
+Analyze and visualize the rhythmic behavior of animals using the degree of
+functional coupling (See Scheibe (1999) <doi:10.1076/brhm.30.2.216.1420>),
+compute and visualize harmonic power, actograms, average activity and
+diurnality index.
 
 %prep
 %setup -q -c -n %{packname}

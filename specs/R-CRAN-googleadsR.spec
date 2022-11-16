@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  googleadsR
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to Google Ads via the 'Windsor.ai' API
+Summary:          Access to 'Google Ads' via the 'Windsor.ai' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-jsonlite >= 1.7.2
 Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-Collect marketing data from google Ads using the 'Windsor.ai' API
+Collect marketing data from 'Google Ads' using the 'Windsor.ai' API
 <https://windsor.ai/api-fields/>.
 
 %prep
