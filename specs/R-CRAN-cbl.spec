@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cbl
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Discovery under a Confounder Blanket
 
@@ -20,10 +21,12 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-lightgbm 
+BuildRequires:    R-CRAN-doRNG 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-lightgbm 
+Requires:         R-CRAN-doRNG 
 
 %description
 Methods for learning causal relationships among a set of foreground

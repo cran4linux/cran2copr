@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sits
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Satellite Image Time Series Analysis for Earth Observation Data Cubes
 
@@ -30,7 +31,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-gdalUtilities 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-Rcpp 
@@ -52,7 +52,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-gdalUtilities 
 Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-Rcpp 
@@ -74,7 +73,7 @@ using self-organized maps as presented by Santos et al (2021)
 including support vector machines, random forests, extreme gradient
 boosting, multi-layer perceptrons, temporal convolutional neural networks
 <doi:10.3390/rs11050523>, residual networks <arxiv:1809.04356>, and
-temporal attention encoders <arXiv:2007.00586>. Performs efficient
+temporal attention encoders <arxiv:2007.00586>. Performs efficient
 classification of big Earth observation data cubes and includes functions
 for post-classification smoothing based on Bayesian inference, and methods
 for uncertainty assessment. Enables best practices for estimating area and

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ttbary
-%global packver   0.3-0
+%global packver   0.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Barycenter Methods for Spatial Point Patterns
 
@@ -14,20 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-spatstat >= 2.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-spatstat >= 3.0.0
 BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-spatstat.model 
 BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-spatstat >= 2.3.0
+Requires:         R-CRAN-spatstat >= 3.0.0
 Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-spatstat.model 
 Requires:         R-CRAN-spatstat.random 
 Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-grDevices 

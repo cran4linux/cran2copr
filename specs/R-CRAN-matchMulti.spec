@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  matchMulti
-%global packver   1.1.10
+%global packver   1.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.10
+Version:          1.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Multilevel Matching using a Network Algorithm
 
@@ -17,7 +18,6 @@ BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rcbsubset >= 1.1.4
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-plyr 
@@ -25,10 +25,9 @@ BuildRequires:    R-CRAN-coin
 BuildRequires:    R-CRAN-weights 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-rcbsubset >= 1.1.4
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plyr 
@@ -36,8 +35,8 @@ Requires:         R-CRAN-coin
 Requires:         R-CRAN-weights 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-magrittr 
 
 %description
 Performs multilevel matches for data with cluster- level treatments and

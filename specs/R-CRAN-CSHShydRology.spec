@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CSHShydRology
-%global packver   1.2.10
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.10
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Canadian Hydrological Analyses
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-tidyhydat 
 BuildRequires:    R-CRAN-whitebox 
 BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-circular 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-lubridate 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-tidyhydat 
 Requires:         R-CRAN-whitebox 
 Requires:         R-datasets 
+Requires:         R-CRAN-circular 
 
 %description
 A collection of user-submitted functions to aid in the analysis of

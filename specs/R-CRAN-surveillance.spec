@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  surveillance
-%global packver   1.20.1
+%global packver   1.20.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20.1
+Version:          1.20.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Temporal and Spatio-Temporal Modeling and Monitoring of Epidemic Phenomena
 
@@ -51,7 +52,7 @@ public health surveillance of communicable diseases, but applications
 could just as well originate from environmetrics, reliability engineering,
 econometrics, or social sciences. The package implements many typical
 outbreak detection procedures such as the (improved) Farrington algorithm,
-or the negative binomial GLR-CUSUM method of H<f6>hle and Paul (2008)
+or the negative binomial GLR-CUSUM method of Hoehle and Paul (2008)
 <doi:10.1016/j.csda.2008.02.015>. A novel CUSUM approach combining
 logistic and multinomial logistic modeling is also included. The package
 contains several real-world data sets, the ability to simulate outbreak
@@ -66,7 +67,7 @@ Held (2011) <doi:10.1002/sim.4177> and Meyer and Held (2014)
 <doi:10.1214/14-AOAS743>. twinSIR() models the
 susceptible-infectious-recovered (SIR) event history of a fixed
 population, e.g, epidemics across farms or networks, as a multivariate
-point process as proposed by H<f6>hle (2009) <doi:10.1002/bimj.200900050>.
+point process as proposed by Hoehle (2009) <doi:10.1002/bimj.200900050>.
 twinstim() estimates self-exciting point process models for a
 spatio-temporal point pattern of infective events, e.g., time-stamped
 geo-referenced surveillance data, as proposed by Meyer et al. (2012)

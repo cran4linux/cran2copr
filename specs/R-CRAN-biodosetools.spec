@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  biodosetools
-%global packver   3.6.0
+%global packver   3.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.0
+Version:          3.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Shiny Application for Biological Dosimetry
 
@@ -33,8 +34,6 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-golem 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
@@ -53,8 +52,6 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-golem 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-cli 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hce
-%global packver   0.0.2
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design and Analysis of Hierarchical Composite Endpoints
 
@@ -25,7 +25,7 @@ Requires:         R-stats
 %description
 Simulate and analyze hierarchical composite endpoints. Win odds is the
 main analysis method. See Gasparyan SB et al (2022)
-<doi:10.1007/s43441-022-00420-1>).
+<doi:10.1007/s43441-022-00420-1>.
 
 %prep
 %setup -q -c -n %{packname}

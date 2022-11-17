@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TidyDensity
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Tidy Analysis and Generation of Random Data
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-actuar 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-actuar 
 Requires:         R-methods 
 Requires:         R-stats 

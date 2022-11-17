@@ -1,41 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  era
-%global packver   0.4.0
+%global __requires_exclude ^libmpi
+%global packname  MeshAgreement
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Year-Based Time Scales
+Summary:          Agreement Measures for 3D Meshes
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-pillar 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rvcg 
+BuildRequires:    R-CRAN-cgalMeshes 
+Requires:         R-stats 
+Requires:         R-CRAN-Rvcg 
+Requires:         R-CRAN-cgalMeshes 
 
 %description
-Provides a consistent representation of year-based time scales as a
-numeric vector with an associated 'era'. There are built-in era
-definitions for many year numbering systems used in contemporary and
-historic calendars (e.g. Common Era, Islamic 'Hijri' years); year-based
-time scales used in archaeology, astronomy, geology, and other
-palaeosciences (e.g. Before Present, SI-prefixed 'annus'); and support for
-arbitrary user-defined eras. Years can converted from any one era to
-another using a generalised transformation function. Methods are also
-provided for robust casting and coercion between years and other numeric
-types, type-stable arithmetic with years, and pretty-printing in tables.
+Calculates distance-based and volume-overlap-based agreement measures for
+triangular 3D meshes. These include the Hausdorff distance, the average
+surface distance, the Dice similarity coefficient, and the Jaccard
+similarity coefficient as documented in Stockinger et al. (2021)
+<doi:10.1186/s13014-021-01965-5>. Overall agreement for a set of meshes is
+calculated as the aggregate agreement for all pairwise comparisons. Based
+on algorithms provided by the 'VCGLIB' <http://vcg.isti.cnr.it/vcglib/>
+and 'CGAL' <https://www.cgal.org/> libraries. Includes web-based graphical
+user interface.
 
 %prep
 %setup -q -c -n %{packname}

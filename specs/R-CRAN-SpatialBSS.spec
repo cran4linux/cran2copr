@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SpatialBSS
-%global packver   0.12-0
+%global packver   0.13-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Blind Source Separation for Multivariate Spatial Data
 
@@ -19,17 +20,24 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 BuildRequires:    R-CRAN-JADE 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-SpatialNP 
+BuildRequires:    R-CRAN-distances 
+BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-CRAN-JADE 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-SpatialNP 
+Requires:         R-CRAN-distances 
+Requires:         R-CRAN-robustbase 
 
 %description
 Blind source separation for multivariate spatial data based on
-simultaneous/joint diagonalization of local covariance matrices. This
-package is an implementation of the methods described in Bachoc, Genton,
-Nordhausen, Ruiz-Gazen and Virta (2020) <doi:10.1093/biomet/asz079>.
+simultaneous/joint diagonalization of (robust) local covariance matrices.
+This package is an implementation of the methods described in Bachoc,
+Genton, Nordhausen, Ruiz-Gazen and Virta (2020)
+<doi:10.1093/biomet/asz079>.
 
 %prep
 %setup -q -c -n %{packname}

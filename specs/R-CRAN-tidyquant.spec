@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyquant
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Quantitative Financial Analysis
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-Quandl 
 BuildRequires:    R-CRAN-riingo 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-timeDate 
@@ -58,6 +59,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-Quandl 
 Requires:         R-CRAN-riingo 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-timeDate 

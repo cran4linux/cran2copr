@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  snSMART
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small N Sequential Multiple Assignment Randomized Trial Methods
 
@@ -17,31 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-geepack 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-HDInterval 
-BuildRequires:    R-CRAN-truncdist 
-BuildRequires:    R-CRAN-condMVNorm 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-EnvStats 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-geepack 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-HDInterval 
-Requires:         R-CRAN-truncdist 
-Requires:         R-CRAN-condMVNorm 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-EnvStats 
+BuildRequires:    R-CRAN-rjags >= 4.12
+BuildRequires:    R-CRAN-condMVNorm >= 2020
+BuildRequires:    R-CRAN-EnvStats >= 2.4.0
+BuildRequires:    R-CRAN-pracma >= 2.3.3
+BuildRequires:    R-CRAN-cubature >= 2.0.4.1
+BuildRequires:    R-CRAN-geepack >= 1.3.1
+BuildRequires:    R-CRAN-tidyr >= 1.1.2
+BuildRequires:    R-CRAN-truncdist >= 1.0.1
+BuildRequires:    R-CRAN-HDInterval >= 0.2.0
+BuildRequires:    R-CRAN-bayestestR >= 0.11.0
+Requires:         R-CRAN-rjags >= 4.12
+Requires:         R-CRAN-condMVNorm >= 2020
+Requires:         R-CRAN-EnvStats >= 2.4.0
+Requires:         R-CRAN-pracma >= 2.3.3
+Requires:         R-CRAN-cubature >= 2.0.4.1
+Requires:         R-CRAN-geepack >= 1.3.1
+Requires:         R-CRAN-tidyr >= 1.1.2
+Requires:         R-CRAN-truncdist >= 1.0.1
+Requires:         R-CRAN-HDInterval >= 0.2.0
+Requires:         R-CRAN-bayestestR >= 0.11.0
 
 %description
 Consolidated data simulation, sample size calculation and analysis
 functions for several snSMART (small sample sequential, multiple
-assignment, randomized trial) designs under one library. See Wei, B.,
+assignment, randomized trial) designs under one library.  See Wei, B.,
 Braun, T.M., Tamura, R.N. and Kidwell, K.M. "A Bayesian analysis of small
 n sequential multiple assignment randomized trials (snSMARTs)." (2018)
 Statistics in medicine, 37(26), pp.3723-3732 <doi:10.1002/sim.7900>.
