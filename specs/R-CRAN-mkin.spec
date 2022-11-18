@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mkin
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kinetic Evaluation of Chemical Degradation Data
 
@@ -17,31 +18,33 @@ BuildRequires:    R-devel >= 2.15.1
 Requires:         R-core >= 2.15.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nlme >= 3.1.151
-BuildRequires:    R-CRAN-saemix >= 3.0
+BuildRequires:    R-CRAN-saemix >= 3.1
 BuildRequires:    R-CRAN-inline >= 0.3.19
-BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-pkgbuild 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-nlme >= 3.1.151
-Requires:         R-CRAN-saemix >= 3.0
+Requires:         R-CRAN-saemix >= 3.1
 Requires:         R-CRAN-inline >= 0.3.19
-Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-pkgbuild 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
 
 %description
 Calculation routines based on the FOCUS Kinetics Report (2006, 2014).

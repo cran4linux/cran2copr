@@ -1,45 +1,50 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ClusROC
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          ROC Analysis in Three-Class Classification Problems for Clustered Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-snow 
-BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-car 
+Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-snow 
-Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-iterators 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 
 %description
 Statistical methods for ROC surface analysis in three-class classification

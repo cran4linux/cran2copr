@@ -1,28 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HDInterval
-%global packver   0.2.4
+%global packname  ggChernoff
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highest (Posterior) Density Intervals
+Summary:          Chernoff Faces for 'ggplot2'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.5
+Requires:         R-core >= 3.2.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 >= 2.2.0
+Requires:         R-grid 
+Requires:         R-CRAN-scales 
 
 %description
-A generic function and a set of methods to calculate highest density
-intervals for a variety of classes of objects which can specify a
-probability density distribution, including MCMC output, fitted density
-objects, and functions.
+Provides a Chernoff face geom for 'ggplot2'. Maps multivariate data to
+human-like faces. Inspired by Chernoff (1973)
+<doi:10.1080/01621459.1973.10482434>.
 
 %prep
 %setup -q -c -n %{packname}

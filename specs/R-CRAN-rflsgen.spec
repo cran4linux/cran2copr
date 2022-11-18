@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rflsgen
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neutral Landscape Generator with Targets on Landscape Indices
 
@@ -20,13 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-terra >= 1.5.12
 BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-terra >= 1.5.12
 Requires:         R-CRAN-rJava 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-checkmate 
 Requires:         R-utils 
 

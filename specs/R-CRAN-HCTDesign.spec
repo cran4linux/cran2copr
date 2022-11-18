@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  HCTDesign
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Sequential Design for Historical Control Trial with Survival Outcome
 
@@ -22,12 +23,14 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-diversitree 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-crayon 
 
 %description
 It provides functions to design historical controlled trials with survival

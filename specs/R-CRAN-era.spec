@@ -1,58 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cubble
-%global packver   0.2.0
+%global packname  era
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Vector Spatio-Temporal Data Structure for Data Analysis
+Summary:          Year-Based Time Scales
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-tsibble 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-pillar 
+BuildRequires:    R-CRAN-pillar 
+Requires:         R-CRAN-vctrs >= 0.3.0
+Requires:         R-methods 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-tsibble 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-pillar 
 
 %description
-A spatiotemperal data object in a relational data structure to separate
-the recording of time variant/ invariant variables.
+Provides a consistent representation of year-based time scales as a
+numeric vector with an associated 'era'. There are built-in era
+definitions for many year numbering systems used in contemporary and
+historic calendars (e.g. Common Era, Islamic 'Hijri' years); year-based
+time scales used in archaeology, astronomy, geology, and other
+palaeosciences (e.g. Before Present, SI-prefixed 'annus'); and support for
+arbitrary user-defined eras. Years can converted from any one era to
+another using a generalised transformation function. Methods are also
+provided for robust casting and coercion between years and other numeric
+types, type-stable arithmetic with years, and pretty-printing in tables.
 
 %prep
 %setup -q -c -n %{packname}
