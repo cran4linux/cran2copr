@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Seurat
-%global packver   4.2.1
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.1
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
@@ -50,6 +50,7 @@ BuildRequires:    R-CRAN-miniUI
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reticulate 
@@ -100,6 +101,7 @@ Requires:         R-CRAN-miniUI
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-png 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reticulate 

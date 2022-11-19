@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RSocrata
-%global packver   1.7.11-2
+%global packver   1.7.12-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.11.2
+Version:          1.7.12.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download or Upload 'Socrata' Data Sets
 

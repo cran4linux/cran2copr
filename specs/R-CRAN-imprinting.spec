@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNiftyReg
-%global packver   2.7.1
+%global packname  imprinting
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Image Registration Using the 'NiftyReg' Library
+Summary:          Calculate Birth Year-Specific Probabilities of Immune Imprinting to Influenza
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RNifti 
-BuildRequires:    R-CRAN-ore 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RNifti 
-Requires:         R-CRAN-ore 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.9
+BuildRequires:    R-CRAN-cowplot >= 1.0.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.0.9
+Requires:         R-CRAN-cowplot >= 1.0.0
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides an 'R' interface to the 'NiftyReg' image registration tools
-<https://github.com/KCL-BMEIS/niftyreg>. Linear and nonlinear registration
-are supported, in two and three dimensions.
+Reconstruct birth-year specific probabilities of immune imprinting to
+influenza A, using the methods of Gostic et al. (2016)
+<doi:10.1126/science.aag1322>. Plot, save, or export the calculated
+probabilities for use in your own research. By default, the package
+calculates subtype-specific imprinting probabilities, but with
+user-provided frequency data, it is possible to calculate probabilities
+for arbitrary kinds of primary exposure to influenza A, including primary
+vaccination and exposure to specific clades, strains, etc.
 
 %prep
 %setup -q -c -n %{packname}

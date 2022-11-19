@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastWavelets
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Maximal Overlap Discrete Wavelet Transform (MODWT) and À Trous Discrete Wavelet Transform
 
@@ -22,8 +22,10 @@ Requires:         R-CRAN-Rcpp
 %description
 A lightweight package to compute Maximal Overlap Discrete Wavelet
 Transform (MODWT) and À Trous Discrete Wavelet Transform by leveraging the
-power of 'Rcpp' to make these operations fast. See Maheswaran and Khosa
-(2012) <doi:10.1016/j.cageo.2011.12.015>.
+power of 'Rcpp' to make these operations fast. This package was designed
+for use in forecasting, and allows users avoid the inclusion of future
+data when performing wavelet decomposition of time series. See Quilty and
+Adamowski (2018) <doi:10.1016/j.jhydrol.2018.05.003>.
 
 %prep
 %setup -q -c -n %{packname}

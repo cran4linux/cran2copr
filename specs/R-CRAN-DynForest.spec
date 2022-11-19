@@ -1,57 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  remiod
-%global packver   1.0.2
+%global packname  DynForest
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reference-Based Multiple Imputation for Ordinal/Binary Response
+Summary:          Random Forest with Multivariate Longitudinal Predictors
 
-License:          GPL (>= 2)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-JointAI 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-doFuture 
-BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ordinal 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mcmcse 
-Requires:         R-CRAN-JointAI 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-CRAN-lcmm 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-pec 
+BuildRequires:    R-CRAN-prodlim 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-cmprsk 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-doFuture 
-Requires:         R-CRAN-mathjaxr 
-Requires:         R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ordinal 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mcmcse 
+Requires:         R-CRAN-lcmm 
+Requires:         R-methods 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-pec 
+Requires:         R-CRAN-prodlim 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-zoo 
 
 %description
-Reference-based multiple imputation of ordinal and binary responses under
-Bayesian framework, as described in Wang and Liu (2022)
-<arXiv:2203.02771>. Methods for missing-not-at-random include
-Jump-to-Reference (J2R), Copy Reference (CR), and Delta Adjustment which
-can generate tipping point analysis.
+Based on random forest principle, 'DynForest' is able to include multiple
+longitudinal predictors to provide individual predictions. Longitudinal
+predictors are modeled through the random forest. The methodology is fully
+described for a survival outcome in: Devaux, Helmer, Dufouil, Genuer &
+Proust-Lima (2022) <doi: 10.48550/arXiv.2208.05801>.
 
 %prep
 %setup -q -c -n %{packname}

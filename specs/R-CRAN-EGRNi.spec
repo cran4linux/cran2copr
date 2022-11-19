@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNiftyReg
-%global packver   2.7.1
+%global packname  EGRNi
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Image Registration Using the 'NiftyReg' Library
+Summary:          Ensemble Gene Regulatory Network Inference
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RNifti 
-BuildRequires:    R-CRAN-ore 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RNifti 
-Requires:         R-CRAN-ore 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fdrtool 
+BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-fdrtool 
+Requires:         R-CRAN-gdata 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-readr 
+Requires:         R-stats 
 
 %description
-Provides an 'R' interface to the 'NiftyReg' image registration tools
-<https://github.com/KCL-BMEIS/niftyreg>. Linear and nonlinear registration
-are supported, in two and three dimensions.
+Gene regulatory network constructed using combined score obtained from
+individual network inference method. The combined score measures the
+significance of edges in the ensemble network. Fisher's weighted method
+has been implemented to combine the outcomes of different methods based on
+the probability values. The combined score follows chi-square distribution
+with 2n degrees of freedom. <doi:10.22271/09746315.2020.v16.i3.1358>.
 
 %prep
 %setup -q -c -n %{packname}

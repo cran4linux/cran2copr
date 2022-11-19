@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  extRemes
-%global packver   2.1-2
+%global packver   2.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extreme Value Analysis
 
@@ -20,10 +21,12 @@ BuildRequires:    R-CRAN-distillery >= 1.0.4
 BuildRequires:    R-CRAN-Lmoments 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-distillery >= 1.0.4
 Requires:         R-CRAN-Lmoments 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-methods 
 
 %description
 General functions for performing extreme value analysis.  In particular,

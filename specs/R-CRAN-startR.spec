@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  startR
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Retrieve Multidimensional Distributed Data Sets
 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-easyNCDF
 BuildRequires:    R-CRAN-s2dv 
 BuildRequires:    R-CRAN-ClimProjDiags 
 BuildRequires:    R-CRAN-PCICt 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-multiApply >= 2.1.0
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-bigmemory 
@@ -34,6 +36,7 @@ Requires:         R-CRAN-easyNCDF
 Requires:         R-CRAN-s2dv 
 Requires:         R-CRAN-ClimProjDiags 
 Requires:         R-CRAN-PCICt 
+Requires:         R-methods 
 
 %description
 Tool to automatically fetch, transform and arrange subsets of multi-

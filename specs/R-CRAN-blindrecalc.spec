@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eco
-%global packver   4.0-3
+%global packname  blindrecalc
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Inference in 2x2 Tables
+Summary:          Blinded Sample Size Recalculation
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0
-Requires:         R-core >= 2.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implements the Bayesian and likelihood methods proposed in Imai, Lu, and
-Strauss (2008 <DOI: 10.1093/pan/mpm017>) and (2011
-<DOI:10.18637/jss.v042.i05>) for ecological inference in 2 by 2 tables as
-well as the method of bounds introduced by Duncan and Davis (1953).  The
-package fits both parametric and nonparametric models using either the
-Expectation-Maximization algorithms (for likelihood models) or the Markov
-chain Monte Carlo algorithms (for Bayesian models).  For all models, the
-individual-level data can be directly incorporated into the estimation
-whenever such data are available. Along with in-sample and out-of-sample
-predictions, the package also provides a functionality which allows one to
-quantify the effect of data aggregation on parameter estimation and
-hypothesis testing under the parametric likelihood models.
+Computation of key characteristics and plots for blinded sample size
+recalculation. Continuous as well as binary endpoints are supported in
+superiority and non-inferiority trials. See Baumann, Pilz, Kieser (2022)
+<doi:10.32614/RJ-2022-001> for a detailed description. The implemented
+methods include the approaches by Lu, K. (2019) <doi:10.1002/pst.1737>,
+Kieser, M. and Friede, T. (2000)
+<doi:10.1002/(SICI)1097-0258(20000415)19:7%%3C901::AID-SIM405%%3E3.0.CO;2-L>,
+Friede, T. and Kieser, M. (2004) <doi:10.1002/pst.140>, Friede, T.,
+Mitchell, C., Mueller-Veltern, G. (2007) <doi:10.1002/bimj.200610373>, and
+Friede, T. and Kieser, M. (2011) <doi:10.3414/ME09-01-0063>.
 
 %prep
 %setup -q -c -n %{packname}

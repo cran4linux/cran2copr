@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  eatRep
-%global packver   0.14.5
+%global packver   0.14.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.5
+Version:          0.14.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Educational Assessment Tools for Replication Methods
 
@@ -18,7 +19,7 @@ Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survey >= 4.1.1
 BuildRequires:    R-CRAN-mice >= 2.46
-BuildRequires:    R-CRAN-eatTools >= 0.7.3
+BuildRequires:    R-CRAN-eatTools >= 0.7.4
 BuildRequires:    R-CRAN-lavaan >= 0.6.7
 BuildRequires:    R-CRAN-eatGADS >= 0.20.0
 BuildRequires:    R-CRAN-BIFIEsurvey 
@@ -38,9 +39,11 @@ BuildRequires:    R-CRAN-janitor
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-survey >= 4.1.1
 Requires:         R-CRAN-mice >= 2.46
-Requires:         R-CRAN-eatTools >= 0.7.3
+Requires:         R-CRAN-eatTools >= 0.7.4
 Requires:         R-CRAN-lavaan >= 0.6.7
 Requires:         R-CRAN-eatGADS >= 0.20.0
 Requires:         R-CRAN-BIFIEsurvey 
@@ -60,6 +63,8 @@ Requires:         R-CRAN-janitor
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-lme4 
 Requires:         R-utils 
+Requires:         R-parallel 
+Requires:         R-methods 
 
 %description
 Replication methods to compute some basic statistic operations (means,

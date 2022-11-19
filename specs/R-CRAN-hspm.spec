@@ -1,46 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kernelshap
-%global packver   0.3.1
+%global packname  hspm
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel SHAP
+Summary:          Heterogeneous Spatial Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-sphet 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-sphet 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-Matrix 
 
 %description
-Multidimensional refinement of the Kernel SHAP algorithm described in Ian
-Covert and Su-In Lee (2021) <http://proceedings.mlr.press/v130/covert21a>.
-The package allows to calculate Kernel SHAP values in an exact way, by
-iterative sampling (as in the reference above), or by a hybrid of the two.
-As soon as sampling is involved, the algorithm iterates until convergence,
-and standard errors are provided.  The package works with any model that
-provides numeric predictions of dimension one or higher.  Examples include
-linear regression, logistic regression (on logit or probability scale),
-other generalized linear models, generalized additive models, and neural
-networks.  The package plays well together with meta-learning packages
-like 'tidymodels', 'caret' or 'mlr3'. Visualizations can be done using the
-R package 'shapviz'.
+Spatial heterogeneity can be specified in various ways. 'hspm' is an
+ambitious project that aims at implementing various methodologies to
+control for heterogeneity in spatial models. The current version of 'hspm'
+deals with spatial and (non-spatial) regimes models. In particular, the
+package allows to estimate a general spatial regimes model with additional
+endogenous variables, specified in terms of a spatial lag of the dependent
+variable, the spatially lagged regressors, and, potentially, a spatially
+autocorrelated error term. Spatial regime models are estimated by
+instrumental variables and generalized methods of moments (see Arraiz et
+al., (2010) <doi:10.1111/j.1467-9787.2009.00618.x>, Bivand and Piras,
+(2015) <doi:10.18637/jss.v063.i18>, Drukker et al., (2013)
+<doi:10.1080/07474938.2013.741020>, Kelejian and Prucha, (2010)
+<doi:10.1016/j.jeconom.2009.10.025>).
 
 %prep
 %setup -q -c -n %{packname}

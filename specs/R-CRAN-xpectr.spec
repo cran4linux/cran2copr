@@ -1,42 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tardis
-%global packver   0.1.4
+%global packname  xpectr
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Text Analysis with Rules and Dictionaries for Inferring Sentiment
+Summary:          Generates Expectations for 'testthat' Unit Testing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-testthat >= 2.3.1
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-withr >= 2.0.0
+BuildRequires:    R-CRAN-clipr >= 0.7.0
+BuildRequires:    R-CRAN-fansi >= 0.4.1
+BuildRequires:    R-CRAN-rstudioapi >= 0.10
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-testthat >= 2.3.1
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-withr >= 2.0.0
+Requires:         R-CRAN-clipr >= 0.7.0
+Requires:         R-CRAN-fansi >= 0.4.1
+Requires:         R-CRAN-rstudioapi >= 0.10
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Measure text's sentiment with dictionaries and simple rules covering
-negations and modifiers. User-supplied dictionaries are supported,
-including Unicode emojis and multi-word tokens, so this package can also
-be used to study constructs beyond sentiment.
+Helps systematize and ease the process of building unit tests with the
+'testthat' package by providing tools for generating expectations.
 
 %prep
 %setup -q -c -n %{packname}

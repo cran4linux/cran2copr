@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNiftyReg
-%global packver   2.7.1
+%global packname  mlr3spatiotempcv
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Image Registration Using the 'NiftyReg' Library
+Summary:          Spatiotemporal Resampling Methods for 'mlr3'
 
-License:          GPL-2
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RNifti 
-BuildRequires:    R-CRAN-ore 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RNifti 
-Requires:         R-CRAN-ore 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-mlr3 >= 0.12.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.11.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-mlr3 >= 0.12.0
+Requires:         R-CRAN-mlr3misc >= 0.11.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-R6 
+Requires:         R-utils 
 
 %description
-Provides an 'R' interface to the 'NiftyReg' image registration tools
-<https://github.com/KCL-BMEIS/niftyreg>. Linear and nonlinear registration
-are supported, in two and three dimensions.
+Extends the mlr3 ML framework with spatio-temporal resampling methods to
+account for the presence of spatiotemporal autocorrelation (STAC) in
+predictor variables. STAC may cause highly biased performance estimates in
+cross-validation if ignored.
 
 %prep
 %setup -q -c -n %{packname}

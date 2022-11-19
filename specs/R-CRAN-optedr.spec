@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  optedr
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Optimal and D-Augmented Designs
 
@@ -21,33 +22,19 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinyalert 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-hrbrthemes 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-orthopolynom 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinyalert 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-hrbrthemes 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-orthopolynom 
+Requires:         R-utils 
 
 %description
 Calculates D-, Ds-, A- and I-optimal designs for non-linear models, via an

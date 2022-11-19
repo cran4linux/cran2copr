@@ -1,33 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNiftyReg
-%global packver   2.7.1
+%global packname  stepmixr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Image Registration Using the 'NiftyReg' Library
+Summary:          Interface to 'Python' Package 'stepmix'
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RNifti 
-BuildRequires:    R-CRAN-ore 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RNifti 
-Requires:         R-CRAN-ore 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reticulate >= 1.8
+Requires:         R-CRAN-reticulate >= 1.8
 
 %description
-Provides an 'R' interface to the 'NiftyReg' image registration tools
-<https://github.com/KCL-BMEIS/niftyreg>. Linear and nonlinear registration
-are supported, in two and three dimensions.
+This is an interface for the 'python' package 'stepmix'. This is a package
+multi-step estimation of latent class models with measurement and
+structural components. The package can also be used to fit mixture models
+with various observed random variables. Largely based on Bakk & Kuha
+(2018) <doi:10.1007/s11336-017-9592-7>.
 
 %prep
 %setup -q -c -n %{packname}

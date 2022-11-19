@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  terra
-%global packver   1.6-17
+%global packver   1.6-41
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.17
+Version:          1.6.41
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Data Analysis
 
@@ -26,14 +26,15 @@ Requires:         R-methods
 Requires:         R-CRAN-Rcpp 
 
 %description
-Methods for spatial data analysis with raster and vector data. Raster
-methods allow for low-level data manipulation as well as high-level
-global, local, zonal, and focal computation. The predict and interpolate
-methods facilitate the use of regression type (interpolation, machine
-learning) models for spatial prediction, including with satellite remote
-sensing data. Processing of very large files is supported. See the manual
-and tutorials on <https://rspatial.org/terra/> to get started. 'terra' is
-a replacement for the 'raster' package ('terra' can do more, and it is
+Methods for spatial data analysis with vector (points, lines, polygons)
+and raster (grid) data. Methods for vector data include standard
+operations such as intersect and buffer. Raster methods include global,
+local, zonal, and focal computations. The predict and interpolate methods
+facilitate the use of regression type (interpolation, machine learning)
+models for spatial prediction, including with satellite remote sensing
+data. Processing of very large files is supported. See the manual and
+tutorials on <https://rspatial.org/terra/> to get started. 'terra' is a
+replacement for the 'raster' package ('terra' can do more, and it is
 faster and easier to use).
 
 %prep

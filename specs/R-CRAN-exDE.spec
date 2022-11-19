@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNiftyReg
-%global packver   2.7.1
+%global packname  exDE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Image Registration Using the 'NiftyReg' Library
+Summary:          Extensible Differential Equations for Mosquito-Borne Pathogen Modeling
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RNifti 
-BuildRequires:    R-CRAN-ore 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RNifti 
-Requires:         R-CRAN-ore 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-MASS 
 
 %description
-Provides an 'R' interface to the 'NiftyReg' image registration tools
-<https://github.com/KCL-BMEIS/niftyreg>. Linear and nonlinear registration
-are supported, in two and three dimensions.
+Provides tools to set up modular ordinary and delay differential equation
+models for mosquito-borne pathogens, focusing on malaria. Modular design
+is achieved by S3 dispatch on parameter lists for each component which is
+used to compute the full set of differential equations which may be solved
+using any of the packages for numerical simulation of differential
+equations in R. The methods implemented by this package are described in
+Wu et al. (2022) <doi:10.1101/2022.11.07.22282044>.
 
 %prep
 %setup -q -c -n %{packname}
