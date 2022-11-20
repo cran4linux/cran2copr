@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rangeBuilder
-%global packver   1.6
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Occurrence Filtering, Geographic and Taxonomic Standardization and Generation of Species Range Polygons
+Summary:          Occurrence Filtering, Geographic Standardization and Generation of Species Range Polygons
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,26 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-alphahull >= 2.5
-BuildRequires:    R-CRAN-data.table >= 1.10
 BuildRequires:    R-CRAN-Rcpp >= 0.12.9
-BuildRequires:    R-CRAN-rgeos >= 0.1.4
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-cleangeo 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-rnaturalearth 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-alphahull >= 2.5
-Requires:         R-CRAN-data.table >= 1.10
 Requires:         R-CRAN-Rcpp >= 0.12.9
-Requires:         R-CRAN-rgeos >= 0.1.4
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-cleangeo 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-rnaturalearth 
 Requires:         R-methods 
 
 %description

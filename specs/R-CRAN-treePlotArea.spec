@@ -1,43 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dynamAedes
-%global packver   2.1.0
+%global packname  treePlotArea
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Unified Mechanistic Model for the Population Dynamics of Invasive Aedes Mosquitoes
+Summary:          Correction Factors for Tree Plot Areas Intersected by Stand Boundaries
 
-License:          GPL (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-drc 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-insol 
-BuildRequires:    R-CRAN-slam 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-drc 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-insol 
-Requires:         R-CRAN-slam 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
 
 %description
-Generalised model for population dynamics of invasive Aedes mosquitoes.
-Rationale and model structure are described here:
-<doi:10.1016/j.ecoinf.2020.101180> and <doi:10.1101/2021.12.21.473628> .
+The German national forest inventory uses angle count sampling, a sampling
+method first published as `Bitterlich, W.: Die Winkelzählmessung.
+Allgemeine Forst- und Holzwirtschaftliche Zeitung, 58. Jahrg., Folge 11/12
+vom Juni 1947` and extended by Grosenbaugh
+(<https://academic.oup.com/jof/article-abstract/50/1/32/4684174>) as
+probability proportional to size sampling. When plots are located near
+stand boundaries, their sizes and hence their probabilities need to be
+corrected.
 
 %prep
 %setup -q -c -n %{packname}

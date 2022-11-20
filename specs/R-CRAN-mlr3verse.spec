@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3verse
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load the 'mlr3' Package Family
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3fselect >= 0.6.0
+BuildRequires:    R-CRAN-mlr3fselect >= 0.8.0
 BuildRequires:    R-CRAN-paradox >= 0.6.0
 BuildRequires:    R-CRAN-mlr3pipelines >= 0.4.0
-BuildRequires:    R-CRAN-mlr3tuning >= 0.15.0
+BuildRequires:    R-CRAN-mlr3tuning >= 0.17.0
 BuildRequires:    R-CRAN-mlr3 >= 0.12.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.11.0
 BuildRequires:    R-CRAN-mlr3tuningspaces >= 0.1.1
@@ -32,10 +32,10 @@ BuildRequires:    R-CRAN-mlr3filters
 BuildRequires:    R-CRAN-mlr3hyperband 
 BuildRequires:    R-CRAN-mlr3learners 
 BuildRequires:    R-CRAN-mlr3viz 
-Requires:         R-CRAN-mlr3fselect >= 0.6.0
+Requires:         R-CRAN-mlr3fselect >= 0.8.0
 Requires:         R-CRAN-paradox >= 0.6.0
 Requires:         R-CRAN-mlr3pipelines >= 0.4.0
-Requires:         R-CRAN-mlr3tuning >= 0.15.0
+Requires:         R-CRAN-mlr3tuning >= 0.17.0
 Requires:         R-CRAN-mlr3 >= 0.12.0
 Requires:         R-CRAN-mlr3misc >= 0.11.0
 Requires:         R-CRAN-mlr3tuningspaces >= 0.1.1

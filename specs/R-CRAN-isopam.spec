@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  GeoTcgaData
+%global __requires_exclude ^libmpi
+%global packname  isopam
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing various types of data on GEO and TCGA
+Summary:          Clustering of Sites with Species Data using Indicative Species
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-utils 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-proxy 
+Requires:         R-methods 
 
 %description
-Gene Expression Omnibus(GEO) and The Cancer Genome Atlas (TCGA) provide us
-with a wealth of data, such as RNA-seq, DNA Methylation, and Copy number
-variation data. It's easy to download data from TCGA using the gdc tool,
-but processing these data into a format suitable for bioinformatics
-analysis requires more work. This R package was developed to handle these
-data.
+Clustering algorithm developed for use with plot inventories of species.
+It groups plots by indicative species rather than overall species
+composition. There is an unsupervised and a supervised mode, the latter
+accepting predefined indicative species and cluster medoids.
 
 %prep
 %setup -q -c -n %{packname}

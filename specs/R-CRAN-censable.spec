@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  censable
-%global packver   0.0.3
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Making Census Data More Usable
 
@@ -18,27 +19,32 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.4
 BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidycensus 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-censusapi 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tinytiger 
 Requires:         R-CRAN-dplyr >= 1.0.4
 Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidycensus 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-censusapi 
+Requires:         R-methods 
+Requires:         R-CRAN-tinytiger 
 
 %description
 Creates a common framework for organizing, naming, and gathering
 population, age, race, and ethnicity data from the Census Bureau. Accesses
-the API <https://www.census.gov/data/developers/data-sets.html> via the
-package tidycensus. Provides tools for adding information to existing data
-to line up with Census data.
+the API <https://www.census.gov/data/developers/data-sets.html>. Provides
+tools for adding information to existing data to line up with Census data.
 
 %prep
 %setup -q -c -n %{packname}

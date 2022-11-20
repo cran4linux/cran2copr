@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qrcode
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate QRcodes with R
 
@@ -16,15 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-knitr 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 
 %description
