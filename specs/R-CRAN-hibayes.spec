@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hibayes
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Individual-Level, Summary-Level and Single-Step Bayesian Regression Model
 
@@ -21,6 +22,7 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-BH 
@@ -29,6 +31,7 @@ Requires:         R-CRAN-Matrix
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-methods 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-Rcpp 
 
 %description

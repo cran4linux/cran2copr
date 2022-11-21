@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lingglosses
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interlinear Glossed Linguistic Examples and Abbreviation Lists Generation
 
@@ -21,11 +22,13 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-utils 
 Requires:         R-CRAN-htmltools 
+Requires:         R-methods 
 
 %description
 Helps to render interlinear glossed linguistic examples in html
