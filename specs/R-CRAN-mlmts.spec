@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mlmts
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Algorithms for Multivariate Time Series
 
@@ -49,6 +50,8 @@ BuildRequires:    R-CRAN-ClusterR
 BuildRequires:    R-CRAN-AID 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-randomForest 
 Requires:         R-CRAN-quantspec 
 Requires:         R-CRAN-waveslim 
 Requires:         R-CRAN-Rfast 
@@ -82,15 +85,24 @@ Requires:         R-CRAN-ClusterR
 Requires:         R-CRAN-AID 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-randomForest 
 
 %description
 An implementation of several machine learning algorithms for multivariate
 time series. The package includes functions allowing the execution of
 clustering, classification or outlier detection methods, among others. It
 also incorporates a collection of multivariate time series datasets which
-can be used to analyse the performance of new proposed algorithms.
-Practitioners from a broad variety of fields could benefit from the
-general framework provided by 'mlmts'.
+can be used to analyse the performance of new proposed algorithms. Some of
+these datasets are stored in GitHub data packages 'ueadata1' to
+'ueadata8'. To access these data packages, run
+'install.packages(c('ueadata1', 'ueadata2', 'ueadata3', 'ueadata4',
+'ueadata5', 'ueadata6', 'ueadata7', 'ueadata8'),
+repos='<https://anloor7.github.io/drat/>')'. The installation takes a
+couple of minutes but we strongly encourage the users to do it if they
+want to have available all datasets of mlmts. Practitioners from a broad
+variety of fields could benefit from the general framework provided by
+'mlmts'.
 
 %prep
 %setup -q -c -n %{packname}

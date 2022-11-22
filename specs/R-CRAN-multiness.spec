@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  catnet
-%global packver   1.16.1
+%global packname  multiness
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Categorical Bayesian Network Inference
+Summary:          MULTIplex NEtworks with Shared Structure
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glmnet >= 4.0.2
+BuildRequires:    R-CRAN-Matrix >= 1.1.0
+BuildRequires:    R-CRAN-RSpectra >= 0.16.0
+Requires:         R-CRAN-glmnet >= 4.0.2
+Requires:         R-CRAN-Matrix >= 1.1.0
+Requires:         R-CRAN-RSpectra >= 0.16.0
 
 %description
-Structure learning and parameter estimation of discrete Bayesian networks
-using likelihood-based criteria.  Exhaustive search for fixed node orders
-and stochastic search of optimal orders via simulated annealing algorithm
-are implemented.
+Model fitting and simulation for Gaussian and logistic inner product
+MultiNeSS models for multiplex networks. The package implements a convex
+fitting algorithm with fully adaptive parameter tuning, including options
+for edge cross-validation. For more details see MacDonald et al. (2020).
 
 %prep
 %setup -q -c -n %{packname}

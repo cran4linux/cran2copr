@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AdaptFitOS
-%global packver   0.69
+%global __requires_exclude ^libmpi
+%global packname  histoslider
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.69
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Semiparametric Additive Regression with Simultaneous Confidence Bands and Specification Tests
+Summary:          A Histogram Slider Input for 'Shiny'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-SemiPar 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-MASS 
-Requires:         R-splines 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-SemiPar 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-reactR 
+Requires:         R-CRAN-shiny 
 
 %description
-Fits semiparametric additive regression models with spatially adaptive
-penalized splines and computes simultaneous confidence bands and
-associated specification (lack-of-fit) tests. Simultaneous confidence
-bands cover the entire curve with a prescribed level of confidence and
-allow us to assess the estimation uncertainty for the whole curve. In
-contrast to pointwise confidence bands, they permit statements about the
-statistical significance of certain features (e.g. bumps) in the
-underlying curve.The method allows for handling of spatially heterogeneous
-functions and their derivatives as well as heteroscedasticity in the data.
-See Wiesenfarth et al. (2012) <doi:10.1080/01621459.2012.682809>.
+A histogram slider input binding for use in 'Shiny'. Currently supports
+creating histograms from numeric, date, and 'date-time' vectors.
 
 %prep
 %setup -q -c -n %{packname}

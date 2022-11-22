@@ -1,36 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mgee2
-%global packver   0.2
+%global __requires_exclude ^libmpi
+%global packname  prismjs
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Marginal Analysis of Misclassified Longitudinal Ordinal Data
+Summary:          Server-Side Syntax Highlighting
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-V8 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-V8 
+Requires:         R-CRAN-xml2 
 
 %description
-Three estimating equation methods are provided in this package for
-marginal analysis of longitudinal ordinal data with misclassified
-responses and covariates. The naive analysis which is solely based on the
-observed data without adjustment may lead to bias. The corrected
-generalized estimating equations (GEE2) method which is unbiased requires
-the misclassification parameters to be known beforehand. The corrected
-generalized estimating equations (GEE2) with validation subsample method
-estimates the misclassification parameters based on a given validation
-set. This package is an implementation of Chen (2013)
-<doi:10.1002/bimj.201200195>.
+'Prism' <https://prismjs.com/> is a lightweight, extensible syntax
+highlighter, built with modern web standards in mind. This package
+provides server-side rendering in 'R' using 'V8' such that no 'JavaScript'
+library is required in the resulting 'HTML' documents. Over 400 languages
+are supported.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

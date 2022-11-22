@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  slgf
-%global packver   0.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Model Selection with Suspected Latent Grouping Factors
 
@@ -28,8 +29,7 @@ Implements the Bayesian model selection method with suspected latent
 grouping factor methodology of Metzger and Franck (2020),
 <doi:10.1080/00401706.2020.1739561>. SLGF detects latent
 heteroscedasticity or group-based regression effects based on the levels
-of a user-specified categorical predictor. We encourage you to review
-examples in vignette("slgf_vignette", "slgf").
+of a user-specified categorical predictor.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

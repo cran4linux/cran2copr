@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlflow
-%global packver   1.30.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.30.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'MLflow'
 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-swagger 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
@@ -50,7 +49,6 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-swagger 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-yaml 

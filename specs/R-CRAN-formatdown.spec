@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  csvwr
-%global packver   0.1.7
+%global packname  formatdown
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write CSV on the Web (CSVW) Tables and Metadata
+Summary:          Formatting Tools for 'rmarkdown' Documents
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-wrapr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-wrapr 
 
 %description
-Provide functions for reading and writing CSVW - i.e. CSV tables and JSON
-metadata. The metadata helps interpret CSV by setting the types and
-variable names.
+Provides a small set of tools for formatting tasks when creating documents
+in 'rmarkdown' or 'quarto'. Convert the elements of a numerical vector to
+character strings in which the numbers are formatted using powers-of-ten
+notation in scientific or engineering form and delimited for rendering as
+inline equations.
 
 %prep
 %setup -q -c -n %{packname}

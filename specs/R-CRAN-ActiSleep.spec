@@ -1,46 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parameters
-%global packver   0.20.0
+%global packname  ActiSleep
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          Sleep Duration Estimate Algorithm
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-datawizard >= 0.6.3
-BuildRequires:    R-CRAN-insight >= 0.18.6
-BuildRequires:    R-CRAN-bayestestR >= 0.13.0
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-accelerometry 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-datawizard >= 0.6.3
-Requires:         R-CRAN-insight >= 0.18.6
-Requires:         R-CRAN-bayestestR >= 0.13.0
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-accelerometry 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-lazyeval 
 Requires:         R-methods 
-Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-tibble 
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see list of supported models using the function
-'insight::supported_models()'), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+Estimate sleep duration using a Pruned Dynamic Programming (PDP) algorithm
+that quickly and efficiently identifies changepoints. When applied to
+physical activity data it can identify transitions from wakefulness to
+sleep and vice versa. Baek, Jonggyu, Banker, Margaret, Jansen, Erica C.,
+She, Xichen, Peterson, Karen E., Pitchford, E. Andrew, Song, Peter X. K.
+(2021) "An Efficient Segmentation Algorithm to Estimate Sleep Duration
+from Actigraphy Data" <doi:10.1007/s12561-021-09309-3>.
 
 %prep
 %setup -q -c -n %{packname}

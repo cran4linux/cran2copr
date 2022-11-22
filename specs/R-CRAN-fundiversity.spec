@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fundiversity
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Computation of Alpha Functional Diversity Indices
+Summary:          Easy Computation of Functional Diversity Indices
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,11 +27,13 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-vegan 
 
 %description
-Computes 5 alpha-functional diversity indices: Functional Divergence
-(FDiv), Function Evenness (FEve), Functional Richness (FRic), Functional
-Dispersion (FDis) and Rao's entropy (Q) (reviewed in Villéger et al. 2008
+Computes six functional diversity indices. These are namely, Functional
+Divergence (FDiv), Function Evenness (FEve), Functional Richness (FRic),
+Functional Richness intersections (FRic_intersect), Functional Dispersion
+(FDis), and Rao's entropy (Q) (reviewed in Villéger et al. 2008
 <doi:10.1890/07-1206.1>). Provides efficient, modular, and parallel
-functions to compute functional diversity indices.
+functions to compute functional diversity indices (preprint:
+<doi:10.32942/osf.io/dg7hw>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EL
-%global packver   1.1
+%global __requires_exclude ^libmpi
+%global packname  hellorust
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two-Sample Empirical Likelihood
+Summary:          Minimal Example of Using 'Rust' Code in 'R'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Empirical likelihood (EL) inference for two-sample problems. The following
-statistics are included: the difference of two-sample means, smooth Huber
-estimators, quantile (qdiff) and cumulative distribution functions
-(ddiff), probability-probability (P-P) and quantile-quantile (Q-Q) plots
-as well as receiver operating characteristic (ROC) curves. EL calculations
-are based on J. Valeinis, E. Cers (2011)
-<http://home.lu.lv/~valeinis/lv/petnieciba/EL_TwoSample_2011.pdf>.
+Template 'R' package that calls out to 'Rust' code in a way that complies
+with 'CRAN' policy. Includes simple examples of passing numbers and
+strings from 'Rust' to 'R' and using threads.
 
 %prep
 %setup -q -c -n %{packname}

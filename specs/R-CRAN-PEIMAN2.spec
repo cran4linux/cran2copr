@@ -1,41 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  csvwr
-%global packver   0.1.7
+%global packname  PEIMAN2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write CSV on the Web (CSVW) Tables and Metadata
+Summary:          Post-Translational Modification Enrichment, Integration, and Matching Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-graphics 
+Requires:         R-CRAN-forcats 
+Requires:         R-stats 
+Requires:         R-CRAN-magrittr 
 
 %description
-Provide functions for reading and writing CSVW - i.e. CSV tables and JSON
-metadata. The metadata helps interpret CSV by setting the types and
-variable names.
+Functions and mined database from 'UniProt' focusing on post-translational
+modifications to do single enrichment analysis (SEA) and protein set
+enrichment analysis (PSEA). Payman Nickchi, Mehdi Mirzaie, Marc Baumann,
+Amir Ata Saei, Mohieddin Jafari (2022)
+<bioRxiv:10.1101/2022.11.09.515610>.
 
 %prep
 %setup -q -c -n %{packname}

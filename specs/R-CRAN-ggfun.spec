@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfun
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for 'ggplot2'
 
@@ -27,9 +27,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-utils 
 
 %description
-Useful functions to edit 'ggplot' object (e.g., setting fonts for theme
-and layers, adding rounded rectangle as background for each of the
-legends).
+Useful functions and utilities for 'ggplot' object (e.g., geometric
+layers, themes, and utilities to edit the object).
 
 %prep
 %setup -q -c -n %{packname}

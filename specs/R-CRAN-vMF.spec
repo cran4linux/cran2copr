@@ -1,39 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  riot
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  vMF
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Inputs/Outputs for Tractography
+Summary:          Sampling from von Mises-Fisher Distribution
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
 
 %description
-An input-output interface for reading in and writing out common VTK
-formats that store tractography data. This data comes in the form of 3D
-polygons with possibly attributes at each point. These are obtained via
-tracking algorithms from diffusion MRI and are a non-invasive way of
-studying brain structural connectivity.
+Provides fast sampling from von Mises-Fisher distribution using the method
+proposed by Andrew T.A Wood (1994) <doi:10.1080/03610919408813161>.
 
 %prep
 %setup -q -c -n %{packname}

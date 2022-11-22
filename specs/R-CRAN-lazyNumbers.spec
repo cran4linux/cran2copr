@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  metabolighteR
-%global packver   0.1.3
+%global __requires_exclude ^libmpi
+%global packname  lazyNumbers
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'Metabolights' REST API
+Summary:          Exact Floating-Point Arithmetic
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppCGAL 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Access to the 'Metabolights' REST API
-<https://www.ebi.ac.uk/metabolights/index>. Retrieve elements of publicly
-available 'Metabolights' studies.
+Provides a new type of numbers called the lazy numbers. Arithmetic on lazy
+numbers is exact, contrary to ordinary floating-point arithmetic. The lazy
+numbers are implemented in 'C++' with the 'CGAL' library
+(<https://www.cgal.org/>).
 
 %prep
 %setup -q -c -n %{packname}

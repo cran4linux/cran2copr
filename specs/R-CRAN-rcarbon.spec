@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rcarbon
-%global packver   1.4.4
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calibration and Analysis of Radiocarbon Dates
 
@@ -17,10 +18,11 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.model 
+BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -31,10 +33,11 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.model 
+Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-graphics 
 Requires:         R-grDevices 

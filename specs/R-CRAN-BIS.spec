@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SoDA
-%global packver   1.0-6.1
+%global __requires_exclude ^libmpi
+%global packname  BIS
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Examples for "Software for Data Analysis"
+Summary:          Programmatic Access to Bank for International Settlements Data
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5
-Requires:         R-core >= 2.5
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-Requires:         R-methods 
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
 
 %description
-Functions, examples and other software related to the book "Software for
-Data Analysis: Programming with R". See package?SoDA for an overview.
+Provides an interface to data provided by the Bank for International
+Settlements <https://www.bis.org>, allowing for programmatic retrieval of
+a large quantity of (central) banking data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -32,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
