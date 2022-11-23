@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SpatEntropy
-%global packver   2.1-1
+%global packver   2.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Entropy Measures
 
@@ -16,15 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.3.0
+BuildRequires:    R-CRAN-spatstat >= 3.0.2
 BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat >= 2.3.0
+Requires:         R-CRAN-spatstat >= 3.0.2
 Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-CRAN-spatstat.random 
 
 %description
@@ -44,8 +41,7 @@ Parresol and Edwards' entropy (Parresol and Edwards, 2014
 <doi:10.1007/s10651-017-0383-1>). Full references for all measures can be
 found under the topic 'SpatEntropy'. The package is able to work with
 lattice and point data. The updated version works with the updated
-'spatstat' package (>= 2.3-0). The speed of most functions has also been
-substantially increased.
+'spatstat' package (>= 3.0-2).
 
 %prep
 %setup -q -c -n %{packname}

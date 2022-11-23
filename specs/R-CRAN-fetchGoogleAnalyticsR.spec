@@ -1,31 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boot
-%global packver   1.3-28.1
+%global packname  fetchGoogleAnalyticsR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.28.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Functions (Originally by Angelo Canty for S)
+Summary:          Get Data from Google Analytics via the 'Windsor.ai' API
 
-License:          Unlimited
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-Functions and datasets for bootstrapping from the book "Bootstrap Methods
-and Their Application" by A. C. Davison and D. V. Hinkley (1997, CUP),
-originally written by Angelo Canty for S.
+Collect your data on digital marketing campaigns from Google Analytics
+using the 'Windsor.ai' API <https://windsor.ai/api-fields/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  expirest
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Expiry Estimation Procedures
 
@@ -17,20 +18,20 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
 The Australian Regulatory Guidelines for Prescription Medicines (ARGPM),
-guidance on "Stability testing for prescription medicines"
-<https://www.tga.gov.au/stability-testing-prescription-medicines>,
-recommends to predict the shelf life of chemically derived medicines from
-stability data by taking the worst case situation at batch release into
-account. Consequently, if a change over time is observed, a release limit
-needs to be specified. Finding a release limit and the associated shelf
-life is supported, as well as the standard approach that is recommended by
+guidance on "Stability testing for prescription medicines", recommends to
+predict the shelf life of chemically derived medicines from stability data
+by taking the worst case situation at batch release into account.
+Consequently, if a change over time is observed, a release limit needs to
+be specified. Finding a release limit and the associated shelf life is
+supported, as well as the standard approach that is recommended by
 guidance Q1E "Evaluation of stability data" from the International Council
-for Harmonisation (ICH)
-<https://database.ich.org/sites/default/files/Q1E%%20Guideline.pdf>.
+for Harmonisation (ICH).
 
 %prep
 %setup -q -c -n %{packname}

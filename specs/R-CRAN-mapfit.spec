@@ -1,55 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatsurv
-%global packver   1.8-2
+%global packname  mapfit
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Spatial Survival Analysis with Parametric Proportional Hazards Models
+Summary:          PH/MAP Parameter Estimation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-deformula 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-fields 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-deformula 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-methods 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Bayesian inference for parametric proportional hazards spatial survival
-models; flexible spatial survival models. See Benjamin M. Taylor, Barry S.
-Rowlingson (2017) <doi:10.18637/jss.v077.i04>.
+Estimation methods for phase-type distribution (PH) and Markovian arrival
+process (MAP) from empirical data (point and grouped data) and density
+function. The tool is based on the following researches: Okamura et al.
+(2009) <doi:10.1109/TNET.2008.2008750>, Okamura and Dohi (2009)
+<doi:10.1109/QEST.2009.28>, Okamura et al. (2011)
+<doi:10.1016/j.peva.2011.04.001>, Okamura et al. (2013)
+<doi:10.1002/asmb.1919>, Horvath and Okamura (2013)
+<doi:10.1007/978-3-642-40725-3_10>, Okamura and Dohi (2016)
+<doi:10.15807/jorsj.59.72>.
 
 %prep
 %setup -q -c -n %{packname}

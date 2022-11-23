@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  latentFactoR
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Simulation Based on Latent Factors
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-EGAnet
 BuildRequires:    R-CRAN-fspe 
 BuildRequires:    R-CRAN-googledrive 
 BuildRequires:    R-CRAN-ineq 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mlr 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-EGAnet
 Requires:         R-CRAN-fspe 
 Requires:         R-CRAN-googledrive 
 Requires:         R-CRAN-ineq 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-mlr 
 Requires:         R-CRAN-mvtnorm 

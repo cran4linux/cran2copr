@@ -1,31 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boot
-%global packver   1.3-28.1
+%global packname  flashr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.28.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Functions (Originally by Angelo Canty for S)
+Summary:          Create Flashcards of Terms and Definitions
 
-License:          Unlimited
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-revealjs 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-gh 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-revealjs 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-testthat 
 
 %description
-Functions and datasets for bootstrapping from the book "Bootstrap Methods
-and Their Application" by A. C. Davison and D. V. Hinkley (1997, CUP),
-originally written by Angelo Canty for S.
+Provides functions for creating flashcard decks of terms and definitions.
+This package creates HTML slides using 'revealjs' that can be viewed in
+the 'RStudio' viewer or a web browser.  Users can create flashcards from
+either existing built-in decks or create their own from CSV files or
+vectors of function names.
 
 %prep
 %setup -q -c -n %{packname}

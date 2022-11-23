@@ -1,31 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boot
-%global packver   1.3-28.1
+%global packname  naryn
+%global packver   2.6.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.28.1
+Version:          2.6.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Functions (Originally by Angelo Canty for S)
+Summary:          Native Access Medical Record Retriever for High Yield Analytics
 
-License:          Unlimited
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Functions and datasets for bootstrapping from the book "Bootstrap Methods
-and Their Application" by A. C. Davison and D. V. Hinkley (1997, CUP),
-originally written by Angelo Canty for S.
+A toolkit for medical records data analysis. The 'naryn' package
+implements an efficient data structure for storing medical records, and
+provides a set of functions for data extraction, manipulation and
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NetworkExtinction
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extinction Simulation in Food Webs
+Summary:          Extinction Simulation in Ecological Networks
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -51,8 +51,8 @@ Requires:         R-CRAN-purrr
 Requires:         R-methods 
 
 %description
-Simulates the extinction of species in the food web and it analyzes its
-cascading effects, described in Dunne et al. (2002)
+Simulates the extinction of species in ecological networks and it analyzes
+its cascading effects, described in Dunne et al. (2002)
 <doi:10.1073/pnas.192407699>.
 
 %prep

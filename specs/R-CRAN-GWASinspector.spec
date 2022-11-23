@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GWASinspector
-%global packver   1.5.7.2
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7.2
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive and Easy to Use Quality Control of GWAS Results
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-openxlsx >= 4.0
 BuildRequires:    R-tools >= 3.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0
 BuildRequires:    R-CRAN-hash >= 2.2
@@ -30,6 +32,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R.utils 
+Requires:         R-CRAN-openxlsx >= 4.0
 Requires:         R-tools >= 3.0
 Requires:         R-CRAN-ggplot2 >= 3.0
 Requires:         R-CRAN-hash >= 2.2

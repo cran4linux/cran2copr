@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boot
-%global packver   1.3-28.1
+%global packname  et.nwfva
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.28.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Functions (Originally by Angelo Canty for S)
+Summary:          Forest Yield Tables for Northwest Germany and their Application
 
-License:          Unlimited
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-stats 
 
 %description
-Functions and datasets for bootstrapping from the book "Bootstrap Methods
-and Their Application" by A. C. Davison and D. V. Hinkley (1997, CUP),
-originally written by Angelo Canty for S.
+The new yield tables developed by the Northwest German Forest Research
+Institute (NW-FVA) provide a forest management tool for the five main
+commercial tree species oak, beech, spruce, Douglas-fir and pine for
+northwestern Germany. The new method applied for deriving yield tables
+combines measurements of growth and yield trials with growth simulations
+using a state-of-the-art single-tree growth simulator. By doing so, the
+new yield tables reflect the current increment level and the recommended
+graduated thinning from above is the underlying management concept. The
+yield tables are provided along with methods for deriving the site index
+and for interpolating between age and site indices and extrapolating
+beyond age and site index ranges. The inter-/extrapolations are performed
+traditionally by the rule of proportion or with a functional approach.
 
 %prep
 %setup -q -c -n %{packname}
