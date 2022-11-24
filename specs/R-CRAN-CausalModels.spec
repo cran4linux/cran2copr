@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CausalModels
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference Modeling for Estimation of Causal Effects
 
@@ -20,10 +21,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-causaldata 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-geepack 
 Requires:         R-stats 
 Requires:         R-CRAN-causaldata 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-geepack 
 
 %description
 Provides an array of statistical models common in causal inference such as

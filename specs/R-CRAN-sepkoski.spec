@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  padr
-%global packver   0.6.2
+%global packname  sepkoski
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quickly Get Datetime Data Ready for Analysis
+Summary:          Sepkoski's Fossil Marine Animal Genera Compendium
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Transforms datetime data into a format ready for analysis. It offers two
-core functionalities; aggregating data to a higher level interval
-(thicken) and imputing records where observations were absent (pad).
+Stratigraphic ranges of fossil marine animal genera from Sepkoski's (2002)
+published compendium. No changes have been made to any taxonomic names.
+However, first and last appearance intervals have been updated to be
+consistent with stages of the International Geological Timescale.
+Functionality for generating a plot of Sepkoski's evolutionary fauna is
+also included. For specific details on the compendium see: Sepkoski, J. J.
+(2002). A compendium of fossil marine animal genera. Bulletins of American
+Paleontology, 363, pp. 1–560 (ISBN 0-87710-450-6). Access:
+<https://www.biodiversitylibrary.org/item/40634#page/5/mode/1up>.
 
 %prep
 %setup -q -c -n %{packname}

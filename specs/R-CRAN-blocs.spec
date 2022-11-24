@@ -1,52 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gglm
-%global packver   1.0.0
+%global packname  blocs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Grammar of Graphics for Linear Model Diagnostic Plots
+Summary:          Estimate and Visualize Voting Blocs' Partisan Contributions
 
-License:          CC0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-broom.mixed 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-broom.mixed 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-mgcv >= 1.8.39
+BuildRequires:    R-CRAN-collapse >= 1.7.6
+BuildRequires:    R-CRAN-ks >= 1.13.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.6
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-ggplot2 >= 3.2.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-mgcv >= 1.8.39
+Requires:         R-CRAN-collapse >= 1.7.6
+Requires:         R-CRAN-ks >= 1.13.4
+Requires:         R-CRAN-dplyr >= 1.0.6
+Requires:         R-CRAN-rlang >= 1.0.0
 
 %description
-Allows for easy creation of diagnostic plots for a variety of model
-objects using the Grammar of Graphics. Provides functionality for both
-individual diagnostic plots and an array of four standard diagnostic
-plots.
+Functions to combine data on voting blocs' size, turnout, and vote choice
+to estimate each bloc's vote contributions to the Democratic and
+Republican parties. The package also includes functions for uncertainty
+estimation and plotting. Users may define voting blocs along a discrete or
+continuous variable. The package implements methods described in Grimmer,
+Marble, and Tanigawa-Lau (2022) <doi:10.31235/osf.io/c9fkg>.
 
 %prep
 %setup -q -c -n %{packname}

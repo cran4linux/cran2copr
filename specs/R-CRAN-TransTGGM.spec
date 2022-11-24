@@ -1,54 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GenEst
-%global packver   1.4.8
+%global packname  TransTGGM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Mortality Estimator
+Summary:          Transfer Learning for Tensor Graphical Models
 
-License:          CC0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-corpus 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-hellno 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-lubridate 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-corpus 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-hellno 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-Tlasso 
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-expm 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-Tlasso 
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-expm 
 
 %description
-Command-line and 'shiny' GUI implementation of the GenEst models for
-estimating bird and bat mortality at wind and solar power facilities,
-following Dalthorp, et al. (2018) <doi:10.3133/tm7A2>.
+Tensor Gaussian graphical models (GGMs) have important applications in
+numerous areas, which can interpret conditional independence structures
+within tensor data. Yet, the available tensor data in one single study is
+often limited due to high acquisition costs. Although relevant studies can
+provide additional data, it remains an open question how to pool such
+heterogeneous data. This package implements a transfer learning framework
+for tensor GGMs, which takes full advantage of informative auxiliary
+domains even when non-informative auxiliary domains are present,
+benefiting from the carefully designed data-adaptive weights. Reference:
+Ren, M., Zhen Y., and Wang J. (2022). "Transfer learning for tensor
+graphical models" <arXiv:2211.09391>.
 
 %prep
 %setup -q -c -n %{packname}

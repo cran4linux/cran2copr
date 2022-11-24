@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FactorCopula
-%global packver   0.8.1
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Factor, Bi-Factor and Second-Order Copula Models
+Summary:          Factor, Bi-Factor, Second-Order and Factor Tree Copula Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,26 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-matlab 
 BuildRequires:    R-CRAN-polycor 
 BuildRequires:    R-CRAN-VineCopula 
-BuildRequires:    R-CRAN-matlab 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-abind 
 Requires:         R-utils 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-matlab 
 Requires:         R-CRAN-polycor 
 Requires:         R-CRAN-VineCopula 
-Requires:         R-CRAN-matlab 
 
 %description
 Estimation, model selection and goodness-of-fit of (1) factor copula
 models for mixed continuous and discrete data in Kadhem and
 Nikoloulopoulos (2021) <doi:10.1111/bmsp.12231>; (2) bi-factor and
 second-order copula models for item response data in Kadhem and
-Nikoloulopoulos (2021) <arXiv:2102.10660>.
+Nikoloulopoulos (2021) <arXiv:2102.10660>; (3) factor tree copula models
+for item response data in Kadhem and Nikoloulopoulos (2022)
+<arXiv:2201.00339>.
 
 %prep
 %setup -q -c -n %{packname}

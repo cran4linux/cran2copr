@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  plnr
-%global packver   2022.6.8
+%global packver   2022.11.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.6.8
+Version:          2022.11.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          A System for Planing Analyses
 

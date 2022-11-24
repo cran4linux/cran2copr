@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cohorttools
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cohort Data Analyses
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-DiagrammeRsvg 
 BuildRequires:    R-CRAN-rsvg 
+BuildRequires:    R-CRAN-mgcv 
 Requires:         R-CRAN-Epi 
 Requires:         R-CRAN-cmprsk 
 Requires:         R-CRAN-ggplot2 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-DiagrammeRsvg 
 Requires:         R-CRAN-rsvg 
+Requires:         R-CRAN-mgcv 
 
 %description
 Functions to make lifetables and to calculate hazard function estimate

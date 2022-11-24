@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  padr
-%global packver   0.6.2
+%global packname  ggredist
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quickly Get Datetime Data Ready for Analysis
+Summary:          Scales, Geometries, and Extensions of 'ggplot2' for Election Mapping
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 
 %description
-Transforms datetime data into a format ready for analysis. It offers two
-core functionalities; aggregating data to a higher level interval
-(thicken) and imputing records where observations were absent (pad).
+Provides 'ggplot2' extensions for political map making. Implements new
+geometries for groups of simple feature geometries. Adds palettes and
+scales for red to blue color mapping and for discrete maps. Implements
+tools for easy label generation and placement, automatic map coloring, and
+themes.
 
 %prep
 %setup -q -c -n %{packname}

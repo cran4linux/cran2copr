@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dataRetrieval
-%global packver   2.7.11
+%global packver   2.7.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.11
+Version:          2.7.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieval Functions for USGS and EPA Hydrologic and Water Quality Data
+Summary:          Retrieval Functions for USGS and EPA Hydrology and Water Quality Data
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -34,12 +35,11 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-jsonlite 
 
 %description
-Collection of functions to help retrieve U.S. Geological Survey (USGS) and
-U.S. Environmental Protection Agency (EPA) water quality and hydrology
-data from web services. USGS web services are discovered from National
-Water Information System (NWIS) <https://waterservices.usgs.gov/> and
-<https://waterdata.usgs.gov/nwis>. Both EPA and USGS water quality data
-are obtained from the Water Quality Portal
+Collection of functions to help retrieve U.S. Geological Survey and U.S.
+Environmental Protection Agency water quality and hydrology data from web
+services. Data are discovered from National Water Information System
+<https://waterservices.usgs.gov/> and <https://waterdata.usgs.gov/nwis>.
+Water quality data are obtained from the Water Quality Portal
 <https://www.waterqualitydata.us/>.
 
 %prep

@@ -1,45 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ppmlasso
-%global packver   1.2
+%global __requires_exclude ^libmpi
+%global packname  facebookleadsR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Point Process Models with LASSO-Type Penalties
+Summary:          Get Facebook Leads Ads Data via the 'Windsor.ai' API
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lattice 
-Requires:         R-stats 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-Toolkit for fitting point process models with sequences of LASSO penalties
-("regularisation paths"), as described in Renner, I.W. and Warton, D.I.
-(2013) <doi:10.1111/j.1541-0420.2012.01824.x>. Regularisation paths of
-Poisson point process models or area-interaction models can be fitted with
-LASSO, adaptive LASSO or elastic net penalties. A number of criteria are
-available to judge the bias-variance tradeoff.
+Collect your data on digital marketing campaigns from Facebook Leads Ads
+using the 'Windsor.ai' API <https://windsor.ai/api-fields/>.
 
 %prep
 %setup -q -c -n %{packname}

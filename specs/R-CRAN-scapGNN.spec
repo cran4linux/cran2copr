@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  scapGNN
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph Neural Network-Based Framework for Single Cell Active Pathways and Gene Modules Analysis
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-mixtools 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-methods 
+BuildRequires:    R-compiler 
 Requires:         R-CRAN-ActivePathways 
 Requires:         R-CRAN-AdaptGauss 
 Requires:         R-CRAN-coop 
@@ -30,6 +32,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-mixtools 
 Requires:         R-CRAN-reticulate 
 Requires:         R-methods 
+Requires:         R-compiler 
 
 %description
 It is a single cell active pathway analysis tool based on the graph neural

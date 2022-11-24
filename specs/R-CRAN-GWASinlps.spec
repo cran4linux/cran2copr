@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GWASinlps
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Local Prior Based Iterative Variable Selection Tool for Genome-Wide Association Studies
 
@@ -18,22 +18,25 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-mombf 
-BuildRequires:    R-CRAN-fastglm 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-fastglm 
 BuildRequires:    R-CRAN-horseshoe 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-mombf 
-Requires:         R-CRAN-fastglm 
 Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-fastglm 
 Requires:         R-CRAN-horseshoe 
+Requires:         R-CRAN-survival 
 
 %description
 Performs variable selection with data from Genome-wide association studies
-(GWAS), or other high-dimensional data, combining in an iterative
-framework, the computational efficiency of the screen-and-select variable
-selection approach based on some association learning and the parsimonious
-uncertainty quantification provided by the use of non-local priors as
-described in Sanyal et al. (2019) <DOI:10.1093/bioinformatics/bty472>.
+(GWAS), or other high-dimensional data with continuous, binary or survival
+outcomes, combining in an iterative framework the computational efficiency
+of the structured screen-and-select variable selection strategy based on
+some association learning and the parsimonious uncertainty quantification
+provided by the use of non-local priors (see Sanyal et al., 2019
+<DOI:10.1093/bioinformatics/bty472>).
 
 %prep
 %setup -q -c -n %{packname}

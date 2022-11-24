@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OenoKPM
-%global packver   2.1.1
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modeling the Kinetics of CO2 Production in Alcoholic Fermentation
+Summary:          Modeling the Kinetics of Carbon Dioxide Production in Alcoholic Fermentation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,19 +30,20 @@ Requires:         R-grDevices
 Developed to help researchers who need to model the kinetics of carbon
 dioxide (CO2) production in alcoholic fermentation of wines, beers and
 other fermented products. The following models are available for modeling
-the CO2 production curve as a function of time: 5PL, Gompertz and 4PL.
-This package has different functions, which applied can: perform the
-modeling of the data obtained in the fermentation and return the
+the carbon dioxide production curve as a function of time: 5PL, Gompertz
+and 4PL. This package has different functions, which applied can: perform
+the modeling of the data obtained in the fermentation and return the
 coefficients, analyze the model fit and return different statistical
 metrics, and calculate the kinetic parameters: Maximum production of
-carbon dioxide; Maximum rate of production of CO2; Moment in which maximum
-fermentation rate occurs; Duration of the latency phase for CO2
-production; CO2 Produced until Maximum fermentation rate occurs. In
-addition, a function that generates graphs with the observed and predicted
-data from the models, isolated and combined, is available. Gava, A.,
-Borsato, D., & Ficagna, E. (2020). "Effect of mixture of fining agents on
-the fermentation kinetics of base wine for sparkling wine production: Use
-of methodology for modeling". <doi:10.1016/j.lwt.2020.109660>.
+carbon dioxide; Maximum rate of production of carbon dioxide; Moment in
+which maximum fermentation rate occurs; Duration of the latency phase for
+carbon dioxide production; Carbon dioxide produced until maximum
+fermentation rate occurs. In addition, a function that generates graphs
+with the observed and predicted data from the models, isolated and
+combined, is available. Gava, A., Borsato, D., & Ficagna, E.
+(2020)."Effect of mixture of fining agents on the fermentation kinetics of
+base wine for sparkling wine production: Use of methodology for modeling".
+<doi:10.1016/j.lwt.2020.109660>.
 
 %prep
 %setup -q -c -n %{packname}

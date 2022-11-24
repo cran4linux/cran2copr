@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  padr
-%global packver   0.6.2
+%global packname  csutil
+%global packver   2022.11.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          2022.11.24
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quickly Get Datetime Data Ready for Analysis
+Summary:          Common Base-R Problems Relating to Lists
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Transforms datetime data into a format ready for analysis. It offers two
-core functionalities; aggregating data to a higher level interval
-(thicken) and imputing records where observations were absent (pad).
+Utility functions that help with common base-R problems relating to lists.
+Lists in base-R are very flexible. This package provides functions to
+quickly and easily characterize types of lists. That is, to identify if
+all elements in a list are null, data.frames, lists, or fully named lists.
+Other functionality is provided for the handling of lists, such as the
+easy splitting of lists into equally sized groups, and the unnesting of
+data.frames within fully named lists.
 
 %prep
 %setup -q -c -n %{packname}

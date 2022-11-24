@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  npde
-%global packver   3.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Normalised Prediction Distribution Errors for Nonlinear Mixed-Effect Models
 
@@ -22,7 +23,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-methods 
 Requires:         R-CRAN-scales 
@@ -30,7 +30,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-mclust 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-rlang 
 
 %description

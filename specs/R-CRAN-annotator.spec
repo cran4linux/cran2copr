@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pct
-%global packver   0.9.5
+%global packname  annotator
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Propensity to Cycle Tool
+Summary:          Image Annotation and Polygon Outlining using Free Drawing
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stplanr >= 0.2.8
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-stplanr >= 0.2.8
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-imager 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-knitr 
 
 %description
-Functions and example data to teach and increase the reproducibility of
-the methods and code underlying the Propensity to Cycle Tool (PCT), a
-research project and web application hosted at <https://www.pct.bike/>.
-For an academic paper on the methods, see Lovelace et al (2017)
-<doi:10.5198/jtlu.2016.862>.
+Provides functions to create image annotations through polygon outlining.
+Annotator has the same function as 'graphics::locator()' but achieves its
+purpose through drawing, rather than multiple mouse clicks. It is based on
+the 'htmlwidgets' package and 'fabric.js' JavaScript library
+<http://fabricjs.com/>.
 
 %prep
 %setup -q -c -n %{packname}

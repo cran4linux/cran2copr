@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aplot
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decorate a 'ggplot' with Associated Information
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggfun >= 0.0.6
+BuildRequires:    R-CRAN-ggfun >= 0.0.9
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggplotify 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggfun >= 0.0.6
+Requires:         R-CRAN-ggfun >= 0.0.9
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggplotify 
 Requires:         R-CRAN-patchwork 

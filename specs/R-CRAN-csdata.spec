@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  padr
-%global packver   0.6.2
+%global packname  csdata
+%global packver   2022.11.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          2022.11.22
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quickly Get Datetime Data Ready for Analysis
+Summary:          Structural Data for Norway
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Transforms datetime data into a format ready for analysis. It offers two
-core functionalities; aggregating data to a higher level interval
-(thicken) and imputing records where observations were absent (pad).
+Datasets relating to population in municipalities, municipality/county
+matching, and how different municipalities have merged/redistricted over
+time from 2006 to 2020.
 
 %prep
 %setup -q -c -n %{packname}

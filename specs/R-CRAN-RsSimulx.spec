@@ -1,34 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  padr
-%global packver   0.6.2
+%global packname  RsSimulx
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quickly Get Datetime Data Ready for Analysis
+Summary:          Extension of 'lixoftConnectors' for 'Simulx'
 
-License:          MIT + file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
-Transforms datetime data into a format ready for analysis. It offers two
-core functionalities; aggregating data to a higher level interval
-(thicken) and imputing records where observations were absent (pad).
+Provides useful tools which supplement the use of 'Simulx' software and
+'R' connectors ('Monolix Suite'). 'Simulx' is an easy, efficient and
+flexible application for clinical trial simulations. You need 'Simulx'
+software to be installed in order to use 'RsSimulx' package. Among others
+tasks, 'RsSimulx' provides the same functions as package 'mlxR' does with
+a compatibility with 'Simulx' software.
 
 %prep
 %setup -q -c -n %{packname}
