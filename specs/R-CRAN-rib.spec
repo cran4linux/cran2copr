@@ -1,47 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geomerge
-%global packver   0.3.3
+%global packname  rib
+%global packver   0.18.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.18.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geospatial Data Integration
+Summary:          An Implementation of 'Interactive Brokers' API
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-R6 >= 2.4
+Requires:         R-CRAN-R6 >= 2.4
 
 %description
-Geospatial data integration framework that merges raster, spatial polygon,
-and (dynamic) spatial points data into a spatial (panel) data frame at any
-geographical resolution.
+Allows interaction with 'Interactive Brokers' 'Trader Workstation'
+<https://interactivebrokers.github.io/tws-api/>. Handles the connection
+over the network and the exchange of messages. Data is encoded and decoded
+between user and wire formats. Data structures and functionality closely
+mirror the official implementations.
 
 %prep
 %setup -q -c -n %{packname}

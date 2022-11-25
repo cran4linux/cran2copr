@@ -1,47 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geomerge
-%global packver   0.3.3
+%global packname  siie
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geospatial Data Integration
+Summary:          Superior Identification Index and Its Extensions
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-Geospatial data integration framework that merges raster, spatial polygon,
-and (dynamic) spatial points data into a spatial (panel) data frame at any
-geographical resolution.
+Calculate superior identification index and its extensions. Measure the
+performance of journals based on how well they could identify the top
+papers by any index (e.g. citation indices) according to Huang & Yang.
+(2022) <doi:10.1007/s11192-022-04372-z>. These methods could be extended
+to evaluate other entities such as institutes, countries, etc.
 
 %prep
 %setup -q -c -n %{packname}

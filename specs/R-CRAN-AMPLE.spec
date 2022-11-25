@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AMPLE
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny Apps to Support Capacity Building on Harvest Control Rules
 
@@ -16,23 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-R6 >= 2.5.1
-BuildRequires:    R-CRAN-shinyjs >= 2.0.0
-BuildRequires:    R-CRAN-shiny >= 1.7.1
-BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-CRAN-shinyscreenshot >= 0.1.0
+BuildRequires:    R-CRAN-shinyjs >= 2.1.0
+BuildRequires:    R-CRAN-shiny >= 1.7.3
+BuildRequires:    R-CRAN-scales >= 1.2.1
+BuildRequires:    R-CRAN-shinyscreenshot >= 0.2.0
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-R6 >= 2.5.1
-Requires:         R-CRAN-shinyjs >= 2.0.0
-Requires:         R-CRAN-shiny >= 1.7.1
-Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-CRAN-shinyscreenshot >= 0.1.0
+Requires:         R-CRAN-shinyjs >= 2.1.0
+Requires:         R-CRAN-shiny >= 1.7.3
+Requires:         R-CRAN-scales >= 1.2.1
+Requires:         R-CRAN-shinyscreenshot >= 0.2.0
 Requires:         R-CRAN-markdown 
 Requires:         R-graphics 
 Requires:         R-grDevices 

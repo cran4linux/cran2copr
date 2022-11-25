@@ -1,47 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geomerge
-%global packver   0.3.3
+%global packname  scAnnotate
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geospatial Data Integration
+Summary:          An Automated Cell Type Annotation Tool for Single-Cell RNA-Sequencing Data
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Seurat >= 4.0.5
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-MTPS 
+BuildRequires:    R-CRAN-harmony 
+Requires:         R-CRAN-Seurat >= 4.0.5
+Requires:         R-CRAN-glmnet 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-MTPS 
+Requires:         R-CRAN-harmony 
 
 %description
-Geospatial data integration framework that merges raster, spatial polygon,
-and (dynamic) spatial points data into a spatial (panel) data frame at any
-geographical resolution.
+An entirely data-driven cell type annotation tools, which requires
+training data to learn the classifier, but not biological knowledge to
+make subjective decisions. It consists of three steps: preprocessing
+training and test data, model fitting on training data, and cell
+classification on test data. See Xiangling Ji,Danielle Tsao, Kailun Bai,
+Min Tsao, Li Xing, Xuekui Zhang.(2022)<doi:10.1101/2022.02.19.481159> for
+more details.
 
 %prep
 %setup -q -c -n %{packname}

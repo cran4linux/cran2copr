@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  compound.Cox
-%global packver   3.21
+%global packver   3.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.21
+Version:          3.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Univariate Feature Selection and Compound Covariate for Predicting Survival
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-MASS 
 
 %description
 Univariate feature selection and compound covariate methods under the Cox

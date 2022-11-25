@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rasterdiv
-%global packver   0.2-5.2
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diversity Indices for Numerical Matrices
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-methods 
@@ -32,9 +33,9 @@ Requires:         R-CRAN-svMisc
 Requires:         R-CRAN-terra 
 
 %description
-Providing functions to calculate indices of diversity on numerical
-matrices based on information theory. The rationale behind the package is
-described in Rocchini, Marcantonio and Ricotta (2017)
+Methods to calculate indices of diversity on numerical matrices based on
+information theory. The rationale behind the package is described in
+Rocchini, Marcantonio and Ricotta (2017)
 <doi:10.1016/j.ecolind.2016.07.039> and Rocchini, Marcantonio,..., Ricotta
 (2021) <doi:10.1101/2021.01.23.427872>.
 

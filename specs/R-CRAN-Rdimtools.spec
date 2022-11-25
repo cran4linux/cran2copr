@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rdimtools
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dimension Reduction and Estimation Methods
 
@@ -19,10 +19,10 @@ Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-CVXR >= 1.0
 BuildRequires:    R-CRAN-maotai >= 0.2.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.15
+BuildRequires:    R-CRAN-ADMM 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-RcppDE 
-BuildRequires:    R-CRAN-Rcsdp 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-graphics 
@@ -34,10 +34,10 @@ BuildRequires:    R-CRAN-RcppDist
 Requires:         R-CRAN-CVXR >= 1.0
 Requires:         R-CRAN-maotai >= 0.2.4
 Requires:         R-CRAN-Rcpp >= 0.12.15
+Requires:         R-CRAN-ADMM 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-RcppDE 
-Requires:         R-CRAN-Rcsdp 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-graphics 
@@ -48,8 +48,8 @@ Requires:         R-utils
 %description
 We provide linear and nonlinear dimension reduction techniques. Intrinsic
 dimension estimation methods for exploratory analysis are also provided.
-For more details on the package, see the paper by You (2020)
-<arXiv:2005.11107>.
+For more details on the package, see the paper by You and Shung (2022)
+<doi:10.1016/j.simpa.2022.100414>.
 
 %prep
 %setup -q -c -n %{packname}

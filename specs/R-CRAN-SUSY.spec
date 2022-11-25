@@ -1,47 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geomerge
-%global packver   0.3.3
+%global packname  SUSY
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geospatial Data Integration
+Summary:          Surrogate Synchrony
 
-License:          LGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-scales 
 
 %description
-Geospatial data integration framework that merges raster, spatial polygon,
-and (dynamic) spatial points data into a spatial (panel) data frame at any
-geographical resolution.
+Computes synchrony as windowed cross-correlation based on two-dimensional
+time series in a text file you can upload. 'SUSY' works as described in
+Tschacher & Meier (2020) <doi:10.1080/10503307.2019.1612114>.
 
 %prep
 %setup -q -c -n %{packname}

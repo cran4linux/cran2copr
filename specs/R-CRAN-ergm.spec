@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ergm
-%global packver   4.3.1
+%global packver   4.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.1
+Version:          4.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-tibble >= 3.1.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-memoise >= 2.0.0
 BuildRequires:    R-CRAN-Matrix >= 1.3.2
-BuildRequires:    R-CRAN-network >= 1.17.0
+BuildRequires:    R-CRAN-network >= 1.18.0
 BuildRequires:    R-CRAN-robustbase >= 0.93.7
 BuildRequires:    R-CRAN-rle >= 0.9.2
 BuildRequires:    R-CRAN-rlang >= 0.4.10
@@ -41,7 +41,7 @@ Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-memoise >= 2.0.0
 Requires:         R-CRAN-Matrix >= 1.3.2
-Requires:         R-CRAN-network >= 1.17.0
+Requires:         R-CRAN-network >= 1.18.0
 Requires:         R-CRAN-robustbase >= 0.93.7
 Requires:         R-CRAN-rle >= 0.9.2
 Requires:         R-CRAN-rlang >= 0.4.10

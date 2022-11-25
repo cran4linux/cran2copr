@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cSEM
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite-Based Structural Equation Modeling
 
@@ -17,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-expm >= 0.999.5
-BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
@@ -37,10 +37,10 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-symmoments 
+BuildRequires:    R-CRAN-TruncatedNormal 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-expm >= 0.999.5
-Requires:         R-CRAN-abind 
 Requires:         R-CRAN-alabama 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
@@ -60,6 +60,7 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-symmoments 
+Requires:         R-CRAN-TruncatedNormal 
 Requires:         R-utils 
 Requires:         R-CRAN-lifecycle 
 
@@ -84,6 +85,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

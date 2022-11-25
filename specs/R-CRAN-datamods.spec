@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datamods
-%global packver   1.3.4
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modules to Import and Manipulate Data in 'Shiny'
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-shinyWidgets >= 0.5.3
+BuildRequires:    R-CRAN-shinyWidgets >= 0.7.3
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
@@ -29,8 +29,10 @@ BuildRequires:    R-CRAN-rio
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-shinybusy 
+BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-shinyWidgets >= 0.5.3
+Requires:         R-CRAN-shinyWidgets >= 0.7.3
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
@@ -41,6 +43,8 @@ Requires:         R-CRAN-rio
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-tools 
+Requires:         R-CRAN-shinybusy 
+Requires:         R-CRAN-writexl 
 
 %description
 'Shiny' modules to import data into an application or 'addin' from various

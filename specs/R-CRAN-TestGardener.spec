@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TestGardener
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Analysis of Test and Rating Scale Data
 
@@ -50,10 +51,7 @@ statistical knowledge beyond what would be provided by a first course in
 statistics in a social science department.  There the user would encounter
 the concept of probability and how it is used to model data and make
 decisions, and would become familiar with basic mathematical and
-statistical notation. Most of the output is in graphical form. Two recent
-papers on the methodology are Ramsay, James; Li, Juan; Wiberg, Marie
-(2020) <doi:10.3390/psych2040026> and Ramsay, James; Wiberg, Marie; Li,
-Juan (2019) <doi:10.3102/1076998619885636>.
+statistical notation. Most of the output is in graphical form.
 
 %prep
 %setup -q -c -n %{packname}

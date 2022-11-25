@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  vtree
-%global packver   5.4.6
+%global packver   5.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.6
+Version:          5.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Display Information About Nested Subsets of a Data Frame
 
@@ -21,11 +22,13 @@ BuildRequires:    R-CRAN-DiagrammeRsvg
 BuildRequires:    R-CRAN-rsvg 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-utf8 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-DiagrammeRsvg 
 Requires:         R-CRAN-rsvg 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-utf8 
 
 %description
 A tool for calculating and drawing "variable trees". Variable trees

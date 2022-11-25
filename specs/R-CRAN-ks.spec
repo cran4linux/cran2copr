@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ks
-%global packver   1.13.5
+%global packver   1.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.5
+Version:          1.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Smoothing
 
@@ -37,7 +38,8 @@ Requires:         R-CRAN-plot3D
 Requires:         R-CRAN-pracma 
 
 %description
-Kernel smoothers for univariate and multivariate data, including
+Kernel smoothers for univariate and multivariate data, with comprehensive
+visualisation and bandwidth selection capabilities, including for
 densities, density derivatives, cumulative distributions, clustering,
 classification, density ridges, significant modal regions, and two-sample
 hypothesis tests. Chacon & Duong (2018) <doi:10.1201/9780429485572>.

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ie2misc
-%global packver   0.8.8
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Irucka Embry's Miscellaneous USGS Functions
 
@@ -20,7 +21,6 @@ BuildRequires:    R-CRAN-openxlsx >= 4.1.4
 BuildRequires:    R-CRAN-readxl >= 1.3.1
 BuildRequires:    R-CRAN-data.table >= 1.10.2
 BuildRequires:    R-CRAN-gWidgets2 
-BuildRequires:    R-CRAN-gWidgets2tcltk 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-mgsub 
 BuildRequires:    R-CRAN-reader 
@@ -34,7 +34,6 @@ Requires:         R-CRAN-openxlsx >= 4.1.4
 Requires:         R-CRAN-readxl >= 1.3.1
 Requires:         R-CRAN-data.table >= 1.10.2
 Requires:         R-CRAN-gWidgets2 
-Requires:         R-CRAN-gWidgets2tcltk 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-mgsub 
 Requires:         R-CRAN-reader 

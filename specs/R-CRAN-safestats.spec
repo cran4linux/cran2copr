@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  safestats
-%global packver   0.8.6
+%global packver   0.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6
+Version:          0.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Safe Anytime-Valid Inference
 
@@ -22,16 +23,16 @@ BuildRequires:    R-CRAN-boot >= 1.3.28
 BuildRequires:    R-CRAN-hypergeo >= 1.2.13
 BuildRequires:    R-CRAN-BiasedUrn >= 1.07
 BuildRequires:    R-CRAN-dplyr >= 1.0.6
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-purrr >= 0.3.5
 Requires:         R-stats >= 3.6
 Requires:         R-CRAN-survival >= 3.2.13
 Requires:         R-CRAN-boot >= 1.3.28
 Requires:         R-CRAN-hypergeo >= 1.2.13
 Requires:         R-CRAN-BiasedUrn >= 1.07
 Requires:         R-CRAN-dplyr >= 1.0.6
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-purrr >= 0.3.5
 
 %description
 Functions to design and apply tests that are anytime valid. The functions
