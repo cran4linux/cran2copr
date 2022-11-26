@@ -1,43 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pulsar
-%global packver   0.3.8
+%global packname  json2aRgs
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Utilities for Lambda Selection along a Regularization Path
+Summary:          Parse Parameters Inside a Docker Container
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-yaml 
 Requires:         R-tools 
-Requires:         R-CRAN-Matrix 
 
 %description
-Model selection for penalized graphical models using the Stability
-Approach to Regularization Selection ('StARS'), with options for speed-ups
-including Bounded StARS (B-StARS), batch computing, and other stability
-metrics (e.g., graphlet stability G-StARS). Christian L. Müller, Richard
-Bonneau, Zachary Kurtz (2016) <arXiv:1605.07072>.
+The function get_parameters() is intended to be used within a docker
+container to read keyword arguments from a .json file automagically. A
+tool.yaml file contains specifications on these keyword arguments, which
+are then passed as input to containerized R tools in the [tool-runner
+framework](<https://github.com/hydrocode-de/tool-runner>). A template for
+a containerized R tool, which can be used as a basis for developing new
+tools, is available at the following URL:
+<https://github.com/VForWaTer/tool_template_r>.
 
 %prep
 %setup -q -c -n %{packname}

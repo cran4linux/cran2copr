@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIMICO
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Set-Based Inference for Multiple Interval-Censored Outcomes
 
@@ -18,15 +18,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bindata 
-BuildRequires:    R-CRAN-ICSKAT 
 BuildRequires:    R-CRAN-fastGHQuad 
 BuildRequires:    R-CRAN-CompQuadForm 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ICSKAT 
 Requires:         R-CRAN-bindata 
-Requires:         R-CRAN-ICSKAT 
 Requires:         R-CRAN-fastGHQuad 
 Requires:         R-CRAN-CompQuadForm 
 Requires:         R-stats 
+Requires:         R-CRAN-ICSKAT 
 
 %description
 Contains tests for association between a set of genetic variants and

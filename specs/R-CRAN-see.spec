@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  see
-%global packver   0.7.3
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Visualisation Toolbox for 'easystats' and 'ggplot2'
 
@@ -17,30 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
-BuildRequires:    R-CRAN-effectsize >= 0.7.0.5
-BuildRequires:    R-CRAN-datawizard >= 0.6.0
-BuildRequires:    R-CRAN-insight >= 0.18.3
-BuildRequires:    R-CRAN-parameters >= 0.18.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-modelbased >= 0.8.5
+BuildRequires:    R-CRAN-correlation >= 0.8.3
+BuildRequires:    R-CRAN-effectsize >= 0.8.2
+BuildRequires:    R-CRAN-datawizard >= 0.6.4
+BuildRequires:    R-CRAN-parameters >= 0.20.0
+BuildRequires:    R-CRAN-insight >= 0.18.8
 BuildRequires:    R-CRAN-bayestestR >= 0.13.0
+BuildRequires:    R-CRAN-performance >= 0.10.1
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.6
-Requires:         R-CRAN-effectsize >= 0.7.0.5
-Requires:         R-CRAN-datawizard >= 0.6.0
-Requires:         R-CRAN-insight >= 0.18.3
-Requires:         R-CRAN-parameters >= 0.18.2
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-modelbased >= 0.8.5
+Requires:         R-CRAN-correlation >= 0.8.3
+Requires:         R-CRAN-effectsize >= 0.8.2
+Requires:         R-CRAN-datawizard >= 0.6.4
+Requires:         R-CRAN-parameters >= 0.20.0
+Requires:         R-CRAN-insight >= 0.18.8
 Requires:         R-CRAN-bayestestR >= 0.13.0
+Requires:         R-CRAN-performance >= 0.10.1
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 
 %description
-Provides plotting utilities supporting easystats-packages
-(<https://github.com/easystats/easystats>) and some extra themes, geoms,
-and scales for 'ggplot2'. Color scales are based on
-<https://materialui.co/colors>.
+Provides plotting utilities supporting packages in the 'easystats'
+ecosystem (<https://github.com/easystats/easystats>) and some extra
+themes, geoms, and scales for 'ggplot2'. Color scales are based on
+<https://materialui.co/colors>. References: Lüdecke et al. (2021)
+<doi:10.21105/joss.03393>.
 
 %prep
 %setup -q -c -n %{packname}

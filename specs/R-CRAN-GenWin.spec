@@ -1,50 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  vsp
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  GenWin
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vintage Sparse PCA for Semi-Parametric Factor Analysis
+Summary:          Spline Based Window Boundaries for Genomic Analyses
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.1.1
+Requires:         R-core >= 3.1.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-invertiforms 
-BuildRequires:    R-CRAN-LRMF3 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-pspline 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-invertiforms 
-Requires:         R-CRAN-LRMF3 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RSpectra 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-pspline 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-withr 
+Requires:         R-graphics 
 
 %description
-Provides fast spectral estimation of latent factors in random dot product
-graphs using the vsp estimator. Under mild assumptions, the vsp estimator
-is consistent for (degree-corrected) stochastic blockmodels,
-(degree-corrected) mixed-membership stochastic blockmodels, and
-degree-corrected overlapping stochastic blockmodels.
+Defines window or bin boundaries for the analysis of genomic data.
+Boundaries are based on the inflection points of a cubic smoothing spline
+fitted to the raw data. Along with defining boundaries, a technique to
+evaluate results obtained from unequally-sized windows is provided.
+Applications are particularly pertinent for, though not limited to, genome
+scans for selection based on variability between populations (e.g. using
+Wright's fixations index, Fst, which measures variability in
+subpopulations relative to the total population).
 
 %prep
 %setup -q -c -n %{packname}

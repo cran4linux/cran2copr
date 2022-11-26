@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BSPBSS
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Spatial Blind Source Separation
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-glmnet
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-BayesGPfit 
 BuildRequires:    R-CRAN-svd 
-BuildRequires:    R-CRAN-RandomFieldsUtils 
 BuildRequires:    R-CRAN-neurobase 
 BuildRequires:    R-CRAN-oro.nifti 
 BuildRequires:    R-CRAN-gridExtra 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-glmnet
 Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-BayesGPfit 
 Requires:         R-CRAN-svd 
-Requires:         R-CRAN-RandomFieldsUtils 
 Requires:         R-CRAN-neurobase 
 Requires:         R-CRAN-oro.nifti 
 Requires:         R-CRAN-gridExtra 

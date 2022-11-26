@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  install.load
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
-Release:          3%{?dist}%{?buildtag}
+Version:          1.2.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Check, Install and Load CRAN & USGS GRAN Packages
 
 License:          CC BY-SA 4.0 | GPL-3 | file LICENSE
@@ -26,12 +27,12 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-assertthat 
 
 %description
-The function `install_load` checks the local R library(ies) to see if the
+The function 'install_load' checks the local R library(ies) to see if the
 required package(s) is/are installed or not. If the package(s) is/are not
 installed, then the package(s) will be installed along with the required
 dependency(ies). This function pulls source or binary packages from the
 Rstudio-sponsored CRAN mirror and/or the USGS GRAN Repository. Lastly, the
-chosen package(s) is/are loaded. The function `load_package` simply loads
+chosen package(s) is/are loaded. The function 'load_package' simply loads
 the provided packages. If this package does not fit your needs, then you
 may want to consider these other R packages: 'needs', 'easypackages',
 'pacman', 'pak', 'anyLib', and/or 'librarian'.
@@ -39,7 +40,15 @@ may want to consider these other R packages: 'needs', 'easypackages',
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -47,19 +56,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYRIGHT
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

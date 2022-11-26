@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QPmin
-%global packver   0.5-1
+%global __requires_exclude ^libmpi
+%global packname  GAGAs
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linearly Constrained Indefinite Quadratic Program Solver
+Summary:          Global Adaptive Generative Adjustment Algorithm for Generalized Linear Models
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-survival 
 
 %description
-Active set method solver for the solution of indefinite quadratic
-programs, subject to lower bounds on linear functions of the variables and
-simple bounds on the variables themselves. The function QPmin() implements
-an algorithm similar to the one described in Gould (1991)
-<doi:10.1093/imanum/11.3.299> with the exception that an efficient sparse
-internal representation of the basis matrix is maintained thus allowing
-the solution of somewhat large problems.
+Fits linear regression, logistic and multinomial regression models,
+Poisson regression, Cox model via Global Adaptive Generative Adjustment
+Algorithm. For more information, see Bin Wang, Xiaofei Wang and Jianhua
+Guo (2022) <arXiv:1911.00658>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
