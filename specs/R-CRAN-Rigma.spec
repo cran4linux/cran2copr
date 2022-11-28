@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rigma
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to the 'Figma' API
 
@@ -17,27 +17,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
 Requires:         R-CRAN-xml2 
 
 %description
-The 'Figma' API allows for interactions and read access to 'Figma' files
-<https://www.figma.com/developers/api>. This enables you to inspect any
-objects or layers, as well as their properties, and extract them so you
-may render them as images outside of 'Figma'. Then you can present your
-designs, extract design data that can be used for 'Shiny' and 'Rmarkdown',
-integrate them with other systems, or use them to realize your original
-ideas.
+The goal of Rigma is to provide a user friendly client to the 'Figma' API
+<https://www.figma.com/developers/api>. It uses the latest `httr2` for a
+stable interface with the REST API. More than 20 methods are provided to
+interact with 'Figma' files, and teams. Get design data into R by reading
+published components and styles, converting and downloading images,
+getting access to the full 'Figma' file as a hierarchical data structure,
+and much more. Enhance your creativity and streamline the application
+development by automating the extraction, transformation, and loading of
+design data to your applications and 'HTML' documents.
 
 %prep
 %setup -q -c -n %{packname}

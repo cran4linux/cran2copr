@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggstatsplot
-%global packver   0.9.5
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statsExpressions >= 1.3.4
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-statsExpressions >= 1.3.5
 BuildRequires:    R-CRAN-correlation >= 0.8.3
-BuildRequires:    R-CRAN-datawizard >= 0.6.2
-BuildRequires:    R-CRAN-parameters >= 0.19.0
-BuildRequires:    R-CRAN-insight >= 0.18.5
-BuildRequires:    R-CRAN-performance >= 0.10.0
+BuildRequires:    R-CRAN-datawizard >= 0.6.4
+BuildRequires:    R-CRAN-parameters >= 0.20.0
+BuildRequires:    R-CRAN-insight >= 0.18.8
+BuildRequires:    R-CRAN-performance >= 0.10.1
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggsignif 
 BuildRequires:    R-CRAN-glue 
@@ -35,14 +35,14 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-statsExpressions >= 1.3.4
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-statsExpressions >= 1.3.5
 Requires:         R-CRAN-correlation >= 0.8.3
-Requires:         R-CRAN-datawizard >= 0.6.2
-Requires:         R-CRAN-parameters >= 0.19.0
-Requires:         R-CRAN-insight >= 0.18.5
-Requires:         R-CRAN-performance >= 0.10.0
+Requires:         R-CRAN-datawizard >= 0.6.4
+Requires:         R-CRAN-parameters >= 0.20.0
+Requires:         R-CRAN-insight >= 0.18.8
+Requires:         R-CRAN-performance >= 0.10.1
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggsignif 
 Requires:         R-CRAN-glue 

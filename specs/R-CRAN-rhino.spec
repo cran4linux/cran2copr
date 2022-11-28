@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rhino
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Enterprise Shiny Applications
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lintr >= 3.0.0
 BuildRequires:    R-CRAN-testthat >= 3.0.0
-BuildRequires:    R-CRAN-lintr >= 2.0.0
 BuildRequires:    R-CRAN-box 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-config 
@@ -34,8 +34,8 @@ BuildRequires:    R-CRAN-styler
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-lintr >= 3.0.0
 Requires:         R-CRAN-testthat >= 3.0.0
-Requires:         R-CRAN-lintr >= 2.0.0
 Requires:         R-CRAN-box 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-config 
