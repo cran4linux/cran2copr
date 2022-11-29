@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jgsbook
-%global packver   1.0.1
+%global packname  sassy
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
+Summary:          Makes 'R' Easier for Everyone
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statip 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-statip 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-common 
+BuildRequires:    R-CRAN-logr 
+BuildRequires:    R-CRAN-fmtr 
+BuildRequires:    R-CRAN-libr 
+BuildRequires:    R-CRAN-reporter 
+Requires:         R-CRAN-common 
+Requires:         R-CRAN-logr 
+Requires:         R-CRAN-fmtr 
+Requires:         R-CRAN-libr 
+Requires:         R-CRAN-reporter 
 
 %description
-All datasets and functions used in the german book "Statistik mit R und
-RStudio" by Joerg grosse Schlarmann. You can read it online at
-<https://www.produnis.de/R/> .
+A meta-package that aims to make 'R' easier for everyone, especially
+programmers who have a background in 'SAS®' software. This set of packages
+brings many useful concepts to 'R', including data libraries, data
+dictionaries, formats and format catalogs, a data step, and a traceable
+log.  The 'flagship' package is a reporting package that can output in
+text, rich text, 'PDF', 'HTML', and 'DOCX' file formats.
 
 %prep
 %setup -q -c -n %{packname}

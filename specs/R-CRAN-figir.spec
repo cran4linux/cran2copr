@@ -1,31 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jgsbook
-%global packver   1.0.1
+%global packname  figir
+%global packver   0.1.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.6.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
+Summary:          Check Validity of FIGI, CUSIP, ISIN, SEDOL
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statip 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-statip 
-Requires:         R-CRAN-jsonlite 
 
 %description
-All datasets and functions used in the german book "Statistik mit R und
-RStudio" by Joerg grosse Schlarmann. You can read it online at
-<https://www.produnis.de/R/> .
+With the functions in this package you can check the validity of the
+following financial instrument identifiers: FIGI (Financial Instrument
+Global Identifier <https://www.openfigi.com/about/figi>), CUSIP (Committee
+on Uniform Security Identification Procedures
+<https://www.cusip.com/identifiers.html#/CUSIP>), ISIN (International
+Securities Identification Number
+<https://www.cusip.com/identifiers.html#/ISIN>), SEDOL (Stock Exchange
+Daily Official List
+<https://www2.lseg.com/SEDOL-masterfile-service-tech-guide-v8.6>). You can
+also calculate the FIGI checksum of 11-character strings, which can be
+useful if you want to create your own FIGI identifiers.
 
 %prep
 %setup -q -c -n %{packname}

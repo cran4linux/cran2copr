@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nhdplusTools
-%global packver   0.5.7
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NHDPlus Tools
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-units 
@@ -37,6 +38,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-pbapply 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-units 

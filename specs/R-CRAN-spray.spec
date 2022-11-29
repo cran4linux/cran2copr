@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spray
-%global packver   1.0-20
+%global packver   1.0-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.20
+Version:          1.0.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Arrays and Multivariate Polynomials
 
@@ -29,7 +30,10 @@ Requires:         R-CRAN-magic
 Requires:         R-CRAN-mathjaxr 
 
 %description
-Sparse arrays interpreted as multivariate polynomials.
+Sparse arrays interpreted as multivariate polynomials.  Uses 'disordR'
+discipline (Hankin, 2022, <doi:10.48550/ARXIV.2210.03856>).  To cite the
+package in publications please use Hankin (2022)
+<doi:10.48550/ARXIV.2210.10848>.
 
 %prep
 %setup -q -c -n %{packname}

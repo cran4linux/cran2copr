@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jgsbook
-%global packver   1.0.1
+%global packname  scellpam
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
+Summary:          Applying Partitioning Around Medoids to Single Cell Data with High Number of Cells
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-statip 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-statip 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-memuse >= 4.2.1
+BuildRequires:    R-CRAN-cluster >= 2.1.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-memuse >= 4.2.1
+Requires:         R-CRAN-cluster >= 2.1.4
+Requires:         R-CRAN-Rcpp >= 1.0.8
 
 %description
-All datasets and functions used in the german book "Statistik mit R und
-RStudio" by Joerg grosse Schlarmann. You can read it online at
-<https://www.produnis.de/R/> .
+PAM (Partitioning Around Medoids) algorithm application to samples of
+single cell sequencing techniques with a high number of cells (as many as
+the computer memory allows). The package uses a binary format to store
+matrices (either full, sparse or symmetric) in files written in the disk
+that can contain any data type (not just double) which allows its
+manipulation when memory is sufficient to load them as int or float, but
+not as double. The PAM implementation is done in parallel, using
+several/all the cores of the machine, if it has them. This package shares
+a great part of its code with packages 'jmatrix' and 'parallelpam' but
+their functionality is included here so there is no need to install them.
 
 %prep
 %setup -q -c -n %{packname}

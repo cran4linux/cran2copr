@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PKI
-%global packver   0.1-11
+%global packver   0.1-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Public Key Infrastucture for R Based on the X.509 Standard
 

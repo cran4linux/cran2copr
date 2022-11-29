@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jgsbook
-%global packver   1.0.1
+%global packname  boxfilter
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
+Summary:          Filter Noisy Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statip 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-statip 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 
 %description
-All datasets and functions used in the german book "Statistik mit R und
-RStudio" by Joerg grosse Schlarmann. You can read it online at
-<https://www.produnis.de/R/> .
+Noise filter based on determining the proportion of neighboring points. A
+false point will be rejected if it has only few neighbors, but accepted if
+the proportion of neighbors in a rectangular frame is high. The size of
+the rectangular frame as well as the cut-off value, i.e. of a minimum
+proportion of neighbor-points, may be supplied or can be calculated
+automatically. Originally designed for the cleaning of heart rates, but
+suitable for filtering any slowly-changing physiological variable.For more
+information see Signer (2010)<doi: 10.1111/j.2041-210X.2009.00010.x>.
 
 %prep
 %setup -q -c -n %{packname}

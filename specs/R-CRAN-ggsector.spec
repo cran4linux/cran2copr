@@ -1,31 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jgsbook
-%global packver   1.0.1
+%global packname  ggsector
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
+Summary:          Draw Sectors
 
-License:          GPL (>= 2)
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statip 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-statip 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-prettydoc 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Seurat 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-prettydoc 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Seurat 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-All datasets and functions used in the german book "Statistik mit R und
-RStudio" by Joerg grosse Schlarmann. You can read it online at
-<https://www.produnis.de/R/> .
+Some useful functions that can use 'grid' and 'ggplot2' to plot sectors
+and interact with 'Seurat' to plot gene expression percentages. Also,
+there are some examples of how to draw sectors in 'ComplexHeatmap'.
 
 %prep
 %setup -q -c -n %{packname}

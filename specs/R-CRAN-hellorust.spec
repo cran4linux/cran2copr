@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hellorust
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimal Example of Using 'Rust' Code in 'R'
+Summary:          Minimal Examples of Using Rust Code in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,9 +18,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Template 'R' package that calls out to 'Rust' code in a way that complies
-with 'CRAN' policy. Includes simple examples of passing numbers and
-strings from 'Rust' to 'R' and using threads.
+Template R package with minimal setup to use Rust code in R without hacks
+or frameworks. Includes basic examples of importing cargo dependencies,
+spawning threads and passing numbers or strings from Rust to R. The GitHub
+repository for this package has more details and also explains how to set
+up CI. This project was first presented at 'Erum2018' to showcase R-Rust
+integration <https://jeroen.github.io/erum2018/>; for a real world
+use-case, see the 'gifski' package on 'CRAN'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isopam
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering of Sites with Species Data using Indicative Species
+Summary:          Clustering of Sites with Species Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,20 +21,30 @@ BuildRequires:    R-CRAN-vegan
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-proxy 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-proxy 
+Requires:         R-CRAN-progressr 
 Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-proxy 
 
 %description
 Clustering algorithm developed for use with plot inventories of species.
-It groups plots by indicative species rather than overall species
+It groups plots by subsets of species rather than overall species
 composition. There is an unsupervised and a supervised mode, the latter
-accepting predefined indicative species and cluster medoids.
+accepting suggestions for species with greater weight and cluster medoids.
 
 %prep
 %setup -q -c -n %{packname}

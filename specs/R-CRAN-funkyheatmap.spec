@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BioStatR
-%global packver   4.0.0
+%global packname  funkyheatmap
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Initiation à La Statistique Avec R
+Summary:          Generating Funky Heatmaps for Data Frames
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dynutils 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dynutils 
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Datasets and functions for the book "Initiation à la Statistique avec R",
-F. Bertrand and M. Maumy-Bertrand (2022, ISBN:978-2100782826 Dunod, 4ème
-edition).
+Allows generating heatmap-like visualisations for benchmark data frames.
+Funky heatmaps can be fine-tuned by providing annotations of the columns
+and rows, which allows assigning multiple palettes or geometries or
+grouping rows and columns together in categories. Saelens et al. (2019)
+<doi:10.1038/s41587-019-0071-9>.
 
 %prep
 %setup -q -c -n %{packname}

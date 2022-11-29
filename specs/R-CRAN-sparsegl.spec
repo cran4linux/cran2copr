@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sparsegl
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Group Lasso
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dotCall64 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
@@ -25,7 +25,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dotCall64 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 

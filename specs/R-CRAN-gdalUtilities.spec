@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gdalUtilities
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrappers for 'GDAL' Utilities Executables
 
@@ -16,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-sf >= 1.0.9
+Requires:         R-CRAN-sf >= 1.0.9
 
 %description
 R's 'sf' package ships with self-contained 'GDAL' executables, including a
@@ -30,7 +31,7 @@ Therefore, to process data stored in any of R's more common spatial
 formats (i.e. those supported by the 'sp', 'sf', and 'raster' packages),
 first write them to disk, then process them with the package's wrapper
 functions before reading the outputted results back into R. GDAL function
-arguments introduced in GDAL version 3.2.1 or earlier are supported.
+arguments introduced in GDAL version 3.5.2 or earlier are supported.
 
 %prep
 %setup -q -c -n %{packname}

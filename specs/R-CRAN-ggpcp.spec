@@ -1,31 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jgsbook
-%global packver   1.0.1
+%global packname  ggpcp
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
+Summary:          Parallel Coordinate Plots in the 'ggplot2' Framework
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statip 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-statip 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-tibble >= 3.1.4
+BuildRequires:    R-CRAN-tidyr >= 1.1.3
+BuildRequires:    R-CRAN-tidyselect >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-tibble >= 3.1.4
+Requires:         R-CRAN-tidyr >= 1.1.3
+Requires:         R-CRAN-tidyselect >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-assertthat >= 0.2.1
 
 %description
-All datasets and functions used in the german book "Statistik mit R und
-RStudio" by Joerg grosse Schlarmann. You can read it online at
-<https://www.produnis.de/R/> .
+Modern Parallel Coordinate Plots have been introduced in the 1980s as a
+way to visualize arbitrarily many numeric variables. This Grammar of
+Graphics implementation also incorporates categorical variables into the
+plots in a principled manner. By separating the data managing part from
+the visual rendering, we give full access to the users while keeping the
+number of parameters manageably low.
 
 %prep
 %setup -q -c -n %{packname}

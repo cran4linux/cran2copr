@@ -1,31 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jgsbook
-%global packver   1.0.1
+%global packname  defineR
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
+Summary:          Creates Define XML Documents
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statip 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-statip 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-common 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-xslt 
+BuildRequires:    R-CRAN-reporter 
+BuildRequires:    R-CRAN-libr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-common 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-xslt 
+Requires:         R-CRAN-reporter 
+Requires:         R-CRAN-libr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-stats 
 
 %description
-All datasets and functions used in the german book "Statistik mit R und
-RStudio" by Joerg grosse Schlarmann. You can read it online at
-<https://www.produnis.de/R/> .
+Creates 'define.xml' documents used for regulatory submissions based on
+spreadsheet metadata.  Can also help create metadata and generate HTML
+data explorer.
 
 %prep
 %setup -q -c -n %{packname}

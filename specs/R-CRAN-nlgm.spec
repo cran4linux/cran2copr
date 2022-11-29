@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jgsbook
-%global packver   1.0.1
+%global packname  nlgm
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
+Summary:          Non Linear Growth Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statip 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-statip 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
+Requires:         R-stats 
 
 %description
-All datasets and functions used in the german book "Statistik mit R und
-RStudio" by Joerg grosse Schlarmann. You can read it online at
-<https://www.produnis.de/R/> .
+Six growth models are fitted using non-linear least squares. These are the
+Richards, the 3, 4 and 5 parameter logistic, the Gompetz and the Weibull
+growth models. Reference: Reddy T., Shkedy Z., van Rensburg C. J., Mwambi
+H., Debba P., Zuma K. and Manda, S. (2021). "Short-term real-time
+prediction of total number of reported COVID-19 cases and deaths in South
+Africa: a data driven approach". BMC medical research methodology, 21(1),
+1-11. <doi:10.1186/s12874-020-01165-x>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  haplo.stats
-%global packver   1.9.2
+%global packname  ETAS
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.2
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Analysis of Haplotypes with Traits and Covariates when Linkage Phase is Ambiguous
+Summary:          Modeling Earthquake Data Using 'ETAS' Model
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-arsenal 
-BuildRequires:    R-CRAN-rms 
-Requires:         R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-goftest 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-spatstat.random 
+BuildRequires:    R-CRAN-fields 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-arsenal 
-Requires:         R-CRAN-rms 
+Requires:         R-utils 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-goftest 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-spatstat.random 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-fields 
 
 %description
-Routines for the analysis of indirectly measured haplotypes. The
-statistical methods assume that all subjects are unrelated and that
-haplotypes are ambiguous (due to unknown linkage phase of the genetic
-markers). The main functions are: haplo.em(), haplo.glm(), haplo.score(),
-and haplo.power(); all of which have detailed examples in the vignette.
+Fits the space-time Epidemic Type Aftershock Sequence ('ETAS') model to
+earthquake catalogs using a stochastic 'declustering' approach. The 'ETAS'
+model is a 'spatio-temporal' marked point process model and a special case
+of the 'Hawkes' process. The package is based on a Fortran program by
+'Jiancang Zhuang' (available at
+<http://bemlar.ism.ac.jp/zhuang/software.html>), which is modified and
+translated into C++ and C such that it can be called from R. Parallel
+computing with 'OpenMP' is possible on supported platforms.
 
 %prep
 %setup -q -c -n %{packname}

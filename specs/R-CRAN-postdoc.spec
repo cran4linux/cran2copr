@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jgsbook
-%global packver   1.0.1
+%global packname  postdoc
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
+Summary:          Minimal and Uncluttered Package Documentation
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statip 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-statip 
+BuildRequires:    R-CRAN-katex 
+BuildRequires:    R-CRAN-prismjs 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-katex 
+Requires:         R-CRAN-prismjs 
+Requires:         R-CRAN-xml2 
 
 %description
-All datasets and functions used in the german book "Statistik mit R und
-RStudio" by Joerg grosse Schlarmann. You can read it online at
-<https://www.produnis.de/R/> .
+Generates simple and beautiful one-page HTML reference manuals with
+package documentation. Math rendering and syntax highlighting are done
+server-side in 'R' such that no 'JavaScript' libraries are needed in the
+browser, which makes the documentation portable and fast to load.
 
 %prep
 %setup -q -c -n %{packname}

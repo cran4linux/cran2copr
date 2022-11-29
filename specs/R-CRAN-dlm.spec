@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nsdr
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  dlm
+%global packver   1.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonlinear Sufficient Dimension Reduction
+Summary:          Bayesian and Likelihood Analysis of Dynamic Linear Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-Provides tools to implement both unsupervised and supervised nonlinear
-dimension reduction methods. Principal Component Analysis (PCA), Sliced
-Inverse Regression (SIR), and Sliced Average Variance Estimation (SAVE)
-are useful methods to reduce the dimensionality of covariates. However,
-they produce linear combinations of covariates. Kernel PCA, generalized
-SIR, and generalized SAVE address this problem by extending the
-applicability of the dimension reduction problem to nonlinear settings.
-This package includes a comprehensive algorithm for kernel PCA,
-generalized SIR, and generalized SAVE, including methods for choosing
-tuning parameters and some essential functions.
+Provides routines for Maximum likelihood, Kalman filtering and smoothing,
+and Bayesian analysis of Normal linear State Space models, also known as
+Dynamic Linear Models.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

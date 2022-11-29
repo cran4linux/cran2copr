@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  voluModel
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Species Distributions in Three Dimensions
 
@@ -17,36 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rangeBuilder >= 2.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dismo 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rangeBuilder 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-rangeBuilder >= 2.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dismo 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggtext 
 Requires:         R-grDevices 
-Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-methods 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rangeBuilder 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 
 %description
 Facilitates modeling species' ecological niches and geographic

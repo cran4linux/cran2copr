@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  msm
-%global packver   1.6.9
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.9
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-State Markov and Hidden Markov Models in Continuous Time
 
