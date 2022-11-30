@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MPBoost
-%global packver   0.1-5
+%global packname  goalp
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Treatment Allocation in Clinical Trials by the Maximal Procedure
+Summary:          Weighted and Lexicographic Goal Programming Interface
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lpSolve 
+Requires:         R-CRAN-lpSolve 
 
 %description
-Performs treatment allocation in two-arm clinical trials by the maximal
-procedure described by Berger et al. (2003) <doi:10.1002/sim.1538>. To
-that end, the algorithm provided by Salama et al. (2008)
-<doi:10.1002/sim.3014> is implemented.
+Solves goal programming problems of the weighted and lexicographic type,
+as well as combinations of the two, as described by Ignizio (1983)
+<doi:10.1016/0305-0548(83)90003-5>. Allows for a simple human-readable
+input describing the problem as a series of equations. Relies on the
+'lpSolve' package to solve the underlying linear optimisation problem.
 
 %prep
 %setup -q -c -n %{packname}

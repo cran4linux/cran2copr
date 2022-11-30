@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bonsai
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Wrappers for Tree-Based Models
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-parsnip >= 1.0.1
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -28,9 +28,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-parsnip >= 1.0.1
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 

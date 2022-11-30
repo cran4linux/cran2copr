@@ -1,30 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MPBoost
-%global packver   0.1-5
+%global packname  guiplot
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Treatment Allocation in Clinical Trials by the Maximal Procedure
+Summary:          User-Friendly GUI Plotting Tools
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-shiny >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.3.1
+BuildRequires:    R-CRAN-svglite 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-excelR 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-shiny >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.3.1
+Requires:         R-CRAN-svglite 
+Requires:         R-CRAN-DT 
+Requires:         R-stats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-excelR 
 
 %description
-Performs treatment allocation in two-arm clinical trials by the maximal
-procedure described by Berger et al. (2003) <doi:10.1002/sim.1538>. To
-that end, the algorithm provided by Salama et al. (2008)
-<doi:10.1002/sim.3014> is implemented.
+Create a user-friendly plotting GUI for 'R'. In addition, one purpose of
+creating the 'R' package is to facilitate third-party software to call 'R'
+for drawing, for example, 'Phoenix WinNonlin' software calls 'R' to draw
+the drug concentration versus time curve.
 
 %prep
 %setup -q -c -n %{packname}

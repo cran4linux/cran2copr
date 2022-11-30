@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DatabionicSwarm
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Swarm Intelligence for Self-Organized Clustering
 
@@ -47,8 +48,7 @@ sets with completely different structures drawn from diverse research
 fields. The comparison to common projection methods can be found in the
 book of Thrun, M.C.: "Projection Based Clustering through
 Self-Organization and Swarm Intelligence" (2018)
-<DOI:10.1007/978-3-658-20540-9>. A comparison to 26 common clustering
-algorithms on 15 datasets is presented on the website.
+<DOI:10.1007/978-3-658-20540-9>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

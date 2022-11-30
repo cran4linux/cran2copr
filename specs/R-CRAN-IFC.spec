@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IFC
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Imaging Flow Cytometry
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.10.0
-BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-tiff 
@@ -25,13 +24,13 @@ BuildRequires:    R-CRAN-jpeg
 BuildRequires:    R-utils 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gridGraphics 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-visNetwork 
 Requires:         R-CRAN-Rcpp >= 0.10.0
-Requires:         R-CRAN-RcppProgress 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-tiff 
@@ -39,6 +38,7 @@ Requires:         R-CRAN-jpeg
 Requires:         R-utils 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gridGraphics 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-KernSmooth 

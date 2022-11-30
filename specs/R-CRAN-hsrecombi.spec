@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hsrecombi
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Recombination Rate and Maternal LD in Half-Sibs
 
@@ -22,6 +23,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-hsphase 
 Requires:         R-CRAN-dplyr 
@@ -29,6 +31,7 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-Matrix 
 
 %description
 Paternal recombination rate and maternal linkage disequilibrium (LD) are

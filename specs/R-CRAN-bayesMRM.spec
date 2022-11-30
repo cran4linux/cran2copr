@@ -1,30 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MPBoost
-%global packver   0.1-5
+%global packname  bayesMRM
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Treatment Allocation in Clinical Trials by the Maximal Procedure
+Summary:          Bayesian Multivariate Receptor Modeling
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
 
 %description
-Performs treatment allocation in two-arm clinical trials by the maximal
-procedure described by Berger et al. (2003) <doi:10.1002/sim.1538>. To
-that end, the algorithm provided by Salama et al. (2008)
-<doi:10.1002/sim.3014> is implemented.
+Bayesian analysis of multivariate receptor modeling. The package consists
+of implementations of the methods of Park and Oh (2015)
+<doi:10.1016/j.chemolab.2015.08.021>.The package uses 'JAGS'(Just Another
+Gibbs Sampler) to generate Markov chain Monte Carlo samples of parameters.
 
 %prep
 %setup -q -c -n %{packname}
