@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survex
-%global packver   0.1.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explainable Machine Learning in Survival Analysis
 
@@ -18,17 +18,15 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DALEX >= 2.2.1
-BuildRequires:    R-CRAN-ingredients 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-pec 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-DALEX >= 2.2.1
-Requires:         R-CRAN-ingredients 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-pec 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-patchwork 
 
 %description
 Survival analysis models are commonly used in medicine and other areas.

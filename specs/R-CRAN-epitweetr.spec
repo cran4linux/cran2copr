@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  epitweetr
-%global packver   2.0.3
+%global packver   2.2.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.2.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Early Detection of Public Health Threats from Twitter Data
+Summary:          Early Detection of Public Health Threats from 'Twitter' Data
 
 License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,6 +22,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-crul 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-emayili 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-httr 
@@ -28,14 +30,16 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-emayili 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-rtweet 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rnaturalearthdata 
@@ -58,6 +62,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-crul 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-emayili 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-httr 
@@ -65,14 +70,16 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-emayili 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-processx 
 Requires:         R-CRAN-rtweet 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rnaturalearthdata 
@@ -97,6 +104,8 @@ topic aiming at detecting public health threats early through the
 detection of signals (e.g. an unusual increase in the number of tweets).
 It was designed to focus on infectious diseases, and it can be extended to
 all hazards or other fields of study by modifying the topics and keywords.
+More information is available in the 'epitweetr' peer-review publication
+(<https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2022.27.39.2200177>).
 
 %prep
 %setup -q -c -n %{packname}

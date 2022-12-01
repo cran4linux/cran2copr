@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nimbleSCR
-%global packver   0.2.1
+%global packname  rasterList
+%global packver   0.5.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.5.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Capture-Recapture (SCR) Methods Using 'nimble'
+Summary:          A Raster Where Cells are Generic Objects
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-nimble 
+Requires:         R-CRAN-raster 
 Requires:         R-methods 
 
 %description
-Provides utility functions, distributions, and fitting methods for
-Bayesian Spatial Capture-Recapture (SCR) and Open Population Spatial
-Capture-Recapture (OPSCR) modelling using the nimble package (de Valpine
-et al. 2017 <doi:10.1080/10618600.2016.1172487 >). Development of the
-package was motivated primarily by the need for flexible and efficient
-analysis of large-scale SCR data (Bischof et al. 2020
-<doi:10.1073/pnas.2011383117 >). Computational methods and techniques
-implemented in nimbleSCR include those discussed in Turek et al. 2021
-<doi:10.1002/ecs2.3385>; among others. For a recent application of
-nimbleSCR, see Milleret et al. (2021) <doi:10.1098/rsbl.2021.0128>.
+A S4 class has been created such that complex operations can be executed
+on each cells of a raster map. The raster of objects contains the
+traditional raster map with the addition of a list of generic objects: one
+object for each raster cells. It allows to write few lines of R code for
+complex map algebra. Two environmental applications about frequency
+analysis of raster map of precipitation and creation of a raster map of
+soil water retention curves have been presented.
 
 %prep
 %setup -q -c -n %{packname}

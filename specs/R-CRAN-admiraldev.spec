@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admiraldev
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Development Tools for the Admiral Package Family
 
@@ -17,33 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.2
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.4
+BuildRequires:    R-CRAN-hms >= 0.5.3
+BuildRequires:    R-CRAN-rlang >= 0.4.4
+BuildRequires:    R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-lifecycle >= 0.1.0
+Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-tidyr >= 1.0.2
+Requires:         R-CRAN-tidyselect >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.4
+Requires:         R-CRAN-hms >= 0.5.3
+Requires:         R-CRAN-rlang >= 0.4.4
+Requires:         R-CRAN-purrr >= 0.3.3
+Requires:         R-CRAN-lifecycle >= 0.1.0
 
 %description
 Utility functions to check data, variables and conditions for functions
 used in 'admiral' and 'admiral' extension packages.  Additional utility
-helper functions to to assist developers with maintaining documentation,
+helper functions to assist developers with maintaining documentation,
 testing and general upkeep of 'admiral' and 'admiral' extension packages.
 
 %prep

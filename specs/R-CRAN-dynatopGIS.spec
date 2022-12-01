@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dynatopGIS
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algorithms for Helping Build Dynamic TOPMODEL Implementations from Spatial Data
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-terra 
 Requires:         R-methods 
 Requires:         R-CRAN-jsonlite 
 

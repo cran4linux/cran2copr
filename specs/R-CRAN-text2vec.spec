@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  text2vec
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modern Text Mining Framework for R
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-R6 >= 2.3.0
 BuildRequires:    R-CRAN-data.table >= 1.9.6
+BuildRequires:    R-CRAN-Matrix >= 1.5
 BuildRequires:    R-CRAN-stringi >= 1.1.5
-BuildRequires:    R-CRAN-Matrix >= 1.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-digest >= 0.6.8
 BuildRequires:    R-CRAN-rsparse >= 0.3.3.4
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-mlapi >= 0.1.0
 BuildRequires:    R-methods 
 Requires:         R-CRAN-R6 >= 2.3.0
 Requires:         R-CRAN-data.table >= 1.9.6
+Requires:         R-CRAN-Matrix >= 1.5
 Requires:         R-CRAN-stringi >= 1.1.5
-Requires:         R-CRAN-Matrix >= 1.1
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-digest >= 0.6.8
 Requires:         R-CRAN-rsparse >= 0.3.3.4

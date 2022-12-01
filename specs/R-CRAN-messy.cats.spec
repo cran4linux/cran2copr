@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nimbleSCR
-%global packver   0.2.1
+%global packname  messy.cats
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Capture-Recapture (SCR) Methods Using 'nimble'
+Summary:          Employs String Distance Tools to Help Clean Categorical Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nimble 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-varhandle 
+BuildRequires:    R-CRAN-rapportools 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-gt 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-varhandle 
+Requires:         R-CRAN-rapportools 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-gt 
 
 %description
-Provides utility functions, distributions, and fitting methods for
-Bayesian Spatial Capture-Recapture (SCR) and Open Population Spatial
-Capture-Recapture (OPSCR) modelling using the nimble package (de Valpine
-et al. 2017 <doi:10.1080/10618600.2016.1172487 >). Development of the
-package was motivated primarily by the need for flexible and efficient
-analysis of large-scale SCR data (Bischof et al. 2020
-<doi:10.1073/pnas.2011383117 >). Computational methods and techniques
-implemented in nimbleSCR include those discussed in Turek et al. 2021
-<doi:10.1002/ecs2.3385>; among others. For a recent application of
-nimbleSCR, see Milleret et al. (2021) <doi:10.1098/rsbl.2021.0128>.
+Matching with string distance has never been easier! 'messy.cats' contains
+various functions that employ string distance tools in order to make data
+management easier for users working with categorical data. Categorical
+data, especially user inputted categorical data that often tends to be
+plagued by typos, can be difficult to work with. 'messy.cats' aims to
+provide functions that make cleaning categorical data simple and easy.
 
 %prep
 %setup -q -c -n %{packname}

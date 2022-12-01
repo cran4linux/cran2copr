@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Surrogate
-%global packver   2.4
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of Surrogate Endpoints in Clinical Trials
 
@@ -26,12 +26,16 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-logistf 
 BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-mixtools 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-kdecopula 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-rvinecopulib 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
@@ -41,12 +45,16 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-logistf 
 Requires:         R-CRAN-rms 
-Requires:         R-CRAN-mixtools 
 Requires:         R-parallel 
 Requires:         R-CRAN-ks 
-Requires:         R-CRAN-rootSolve 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-kdecopula 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-rvinecopulib 
+Requires:         R-CRAN-dplyr 
 
 %description
 In a clinical trial, it frequently occurs that the most credible outcome

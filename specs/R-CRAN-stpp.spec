@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  stpp
-%global packver   2.0-6
+%global packver   2.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Space-Time Point Pattern Simulation, Visualisation and Analysis
 
@@ -24,7 +25,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-stats 
@@ -37,7 +38,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.random 
 Requires:         R-stats 
