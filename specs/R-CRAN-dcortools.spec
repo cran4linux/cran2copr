@@ -1,33 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pqrfe
-%global packver   1.1
+%global packname  dcortools
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Quantile Regression with Fixed Effects
+Summary:          Providing Fast and Flexible Functions for Distance Correlation Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-MASS >= 7.3.49
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 3.3.3
+Requires:         R-core >= 3.3.3
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-MASS >= 7.3.49
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-stats 
 
 %description
-Quantile regression with fixed effects is a general model for longitudinal
-data. Here we proposed to solve it by several methods. The estimation
-methods include three loss functions as check, asymmetric least square and
-asymmetric Huber functions; and three structures as simple regression,
-fixed effects and fixed effects with penalized intercepts by LASSO.
+Provides methods for distance covariance and distance correlation
+(Szekely, et al. (2007) <doi:10.1214/009053607000000505>), generalized
+version thereof (Sejdinovic, et al. (2013) <doi:10.1214/13-AOS1140>) and
+corresponding tests (Berschneider, Bottcher (2018) <arXiv:1808.07280>.
+Distance standard deviation methods (Edelmann, et al. (2020)
+<doi:10.1214/19-AOS1935>) and distance correlation methods for survival
+endpoints (Edelmann, et al. (2021) <doi:10.1111/biom.13470>) are also
+included.
 
 %prep
 %setup -q -c -n %{packname}

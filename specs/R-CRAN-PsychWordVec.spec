@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PsychWordVec
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Word Embedding Research Framework for Psychological Science
 
@@ -21,44 +21,56 @@ BuildRequires:    R-CRAN-bruceR
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-rsparse 
 BuildRequires:    R-CRAN-text2vec 
 BuildRequires:    R-CRAN-word2vec 
 BuildRequires:    R-CRAN-fastTextR 
+BuildRequires:    R-CRAN-text 
+BuildRequires:    R-CRAN-reticulate 
 Requires:         R-CRAN-bruceR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-vroom 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-psych 
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-rsparse 
 Requires:         R-CRAN-text2vec 
 Requires:         R-CRAN-word2vec 
 Requires:         R-CRAN-fastTextR 
+Requires:         R-CRAN-text 
+Requires:         R-CRAN-reticulate 
 
 %description
 An integrated toolbox of word embedding research that provides: (1) a
-collection of 'pre-trained' word vectors in the '.RData' compressed format
-<https://psychbruce.github.io/WordVector_RData.pdf>; (2) a variety of
-functions to process, analyze, and visualize word vectors; (3) a range of
-tests to examine conceptual associations, including the Word Embedding
+collection of 'pre-trained' static word vectors in the '.RData' compressed
+format <https://psychbruce.github.io/WordVector_RData.pdf>; (2) a series
+of functions to process, analyze, and visualize word vectors; (3) a range
+of tests to examine conceptual associations, including the Word Embedding
 Association Test <doi:10.1126/science.aal4230> and the Relative Norm
 Distance <doi:10.1073/pnas.1720347115>, with permutation test of
-significance; (4) a set of training methods to locally train word vectors
-from text corpora, including 'Word2Vec' <arXiv:1301.3781>, 'GloVe'
-<doi:10.3115/v1/D14-1162>, and 'FastText' <arXiv:1607.04606>.
+significance; (4) a set of training methods to locally train (static) word
+vectors from text corpora, including 'Word2Vec' <arXiv:1301.3781>, 'GloVe'
+<doi:10.3115/v1/D14-1162>, and 'FastText' <arXiv:1607.04606>; (5) a group
+of functions to download 'pre-trained' language models (e.g., 'GPT',
+'BERT'), extract contextualized (dynamic) word vectors (based on the R
+package 'text'), and perform language analysis tasks (e.g., fill in the
+blank masks).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pqrfe
-%global packver   1.1
+%global packname  HTT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Quantile Regression with Fixed Effects
+Summary:          Hypothesis Testing Tree
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-MASS >= 7.3.49
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-MASS >= 7.3.49
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Quantile regression with fixed effects is a general model for longitudinal
-data. Here we proposed to solve it by several methods. The estimation
-methods include three loss functions as check, asymmetric least square and
-asymmetric Huber functions; and three structures as simple regression,
-fixed effects and fixed effects with penalized intercepts by LASSO.
+A novel decision tree algorithm in the hypothesis testing framework. The
+algorithm examines the distribution difference between two child nodes
+over all possible binary partitions. The test statistic of the hypothesis
+testing is equivalent to the generalized energy distance, which enables
+the algorithm to be more powerful in detecting the complex structure, not
+only the mean difference. It is applicable for numeric, nominal, ordinal
+explanatory variables and the response in general metric space of strong
+negative type. The algorithm has superior performance compared to other
+tree models in type I error, power, prediction accuracy, and complexity.
 
 %prep
 %setup -q -c -n %{packname}

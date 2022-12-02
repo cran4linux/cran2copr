@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pqrfe
-%global packver   1.1
+%global packname  VALIDICLUST
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Quantile Regression with Fixed Effects
+Summary:          VALID Inference for Clusters Separation Testing
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-MASS >= 7.3.49
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-MASS >= 7.3.49
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-diptest 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-diptest 
+Requires:         R-CRAN-dplyr 
 
 %description
-Quantile regression with fixed effects is a general model for longitudinal
-data. Here we proposed to solve it by several methods. The estimation
-methods include three loss functions as check, asymmetric least square and
-asymmetric Huber functions; and three structures as simple regression,
-fixed effects and fixed effects with penalized intercepts by LASSO.
+Given a partition resulting from any clustering algorithm, the implemented
+tests allow valid post-clustering inference by testing if a given variable
+significantly separates two of the estimated clusters. Methods are
+detailed in: Hivert B, Agniel D, Thiebaut R & Hejblum BP (2022).
+"Post-clustering difference testing: valid inference and practical
+considerations", <arXiv:2210.13172>.
 
 %prep
 %setup -q -c -n %{packname}

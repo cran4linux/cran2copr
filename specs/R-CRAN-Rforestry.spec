@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Rforestry
-%global packver   0.9.0.116
+%global packver   0.9.0.144
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.116
+Version:          0.9.0.144
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Forests, Linear Trees, and Gradient Boosting for Inference and Interpretability
 

@@ -1,48 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mclustAddons
-%global packver   0.7
+%global packname  rapidphylo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Addons for the 'mclust' Package
+Summary:          Rapidly Estimate Phylogeny from Large Allele Frequency Data Using Root Distances Method
 
-License:          GPL (>= 2)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-mclust >= 5.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-mclust >= 5.4
-Requires:         R-CRAN-Rcpp >= 0.12
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-phangorn 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-utils 
 
 %description
-Extend the functionality of the 'mclust' package for Gaussian finite
-mixture modeling by including: density estimation for data with bounded
-support (Scrucca, 2019 <doi:10.1002/bimj.201800174>); modal clustering
-using MEM algorithm for Gaussian mixtures (Scrucca, 2021
-<doi:10.1002/sam.11527>); entropy estimation via Gaussian mixture modeling
-(Robin & Scrucca, 2023 <doi:10.1016/j.csda.2022.107582>).
+Rapidly estimates tree-topology from large allele frequency data using
+Root Distances Method, under a Brownian Motion Model. See Jing Peng et al.
+(2021) <doi:10.1016/j.ympev.2021.107142>.
 
 %prep
 %setup -q -c -n %{packname}

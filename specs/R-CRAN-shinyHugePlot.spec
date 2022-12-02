@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyHugePlot
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Plotting of Large-Sized Data
 
@@ -55,10 +55,10 @@ Requires:         R-CRAN-lazyeval >= 0.2.2
 Requires:         R-CRAN-assertthat >= 0.2.1
 
 %description
-A tool to plot data with large sample size using 'shiny' and 'plotly'.
-Relatively small samples are chosen from the data using an appropriate
-algorithm according to a user-defined x range. Jonas Van Der Donckt,
-Jeroen Van Der Donckt, Emiel Deprost (2022)
+A tool to plot data with a large sample size using 'shiny' and 'plotly'.
+Relatively small samples are obtained from the original data using a
+specific algorithm. The samples are updated according to a user-defined x
+range. Jonas Van Der Donckt, Jeroen Van Der Donckt, Emiel Deprost (2022)
 <https://github.com/predict-idlab/plotly-resampler>.
 
 %prep

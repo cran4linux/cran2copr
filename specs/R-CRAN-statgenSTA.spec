@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  statgenSTA
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single Trial Analysis (STA) of Field Trials
 
@@ -13,12 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Requires:         /usr/bin/pdflatex
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-scales >= 1.1.0
-BuildRequires:    R-CRAN-SpATS >= 1.0.10
+BuildRequires:    R-CRAN-SpATS >= 1.0.18
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-gridExtra 
@@ -30,7 +32,7 @@ BuildRequires:    R-CRAN-qtl
 BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-scales >= 1.1.0
-Requires:         R-CRAN-SpATS >= 1.0.10
+Requires:         R-CRAN-SpATS >= 1.0.18
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-gridExtra 

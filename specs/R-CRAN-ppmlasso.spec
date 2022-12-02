@@ -1,39 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  canvasXpress
-%global packver   1.40.6-2
+%global packname  ppmlasso
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.40.6.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization Package for CanvasXpress in R
+Summary:          Point Process Models with LASSO-Type Penalties
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 1.0
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-spatstat >= 3.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-htmlwidgets >= 1.0
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-spatstat.model 
+BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat >= 3.0.0
+Requires:         R-methods 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lattice 
 Requires:         R-stats 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-spatstat.model 
+Requires:         R-CRAN-spatstat.geom 
 
 %description
-Enables creation of visualizations using the CanvasXpress framework in R.
-CanvasXpress is a standalone JavaScript library for reproducible research
-with complete tracking of data and end-user modifications stored in a
-single PNG image that can be played back. See
-<https://www.canvasxpress.org> for more information.
+Toolkit for fitting point process models with sequences of LASSO penalties
+("regularisation paths"), as described in Renner, I.W. and Warton, D.I.
+(2013) <doi:10.1111/j.1541-0420.2012.01824.x>. Regularisation paths of
+Poisson point process models or area-interaction models can be fitted with
+LASSO, adaptive LASSO or elastic net penalties. A number of criteria are
+available to judge the bias-variance tradeoff.
 
 %prep
 %setup -q -c -n %{packname}

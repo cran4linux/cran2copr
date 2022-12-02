@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  this.path
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Executing Script's Path, from 'RStudio', 'Rgui', 'VSCode', 'Rscript' (Shells Including Windows Command-Line / / Unix Terminal), and 'source'
 
@@ -20,8 +20,8 @@ Requires:         R-core
 %description
 Determine the full path of the executing script. Works when running a line
 or selection from a script in 'RStudio', 'Rgui', and 'VSCode', when using
-'source', 'sys.source', 'debugSource' in 'RStudio', and
-'testthat::source_file', and when running from a shell.
+'source', 'sys.source', 'debugSource' in 'RStudio',
+'testthat::source_file', and 'knitr::knit', and when running from a shell.
 
 %prep
 %setup -q -c -n %{packname}

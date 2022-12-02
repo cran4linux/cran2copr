@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ROpenCVLite
-%global packver   4.60.2
+%global packver   4.60.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.60.2
+Version:          4.60.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Package for Installing OpenCV with R
 
@@ -13,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
+Requires:         cmake
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
@@ -27,9 +28,9 @@ Requires:         R-parallel
 %description
 Installs 'OpenCV' for use by other packages. 'OpenCV'
 <https://opencv.org/> is library of programming functions mainly aimed at
-real-time computer vision. This 'Lite' version contains the stable base
-version of 'OpenCV' and does not contain any of its externally contributed
-modules.
+real-time computer vision. This 'Lite' version installs the stable base
+version of 'OpenCV' and some of its experimental externally contributed
+modules. It does not provide R bindings directly.
 
 %prep
 %setup -q -c -n %{packname}

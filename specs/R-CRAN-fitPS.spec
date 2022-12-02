@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pqrfe
-%global packver   1.1
+%global packname  fitPS
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Quantile Regression with Fixed Effects
+Summary:          Fit Zeta Distributions to Forensic Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-MASS >= 7.3.49
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-MASS >= 7.3.49
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-VGAM 
+Requires:         R-methods 
+Requires:         R-CRAN-readxl 
 
 %description
-Quantile regression with fixed effects is a general model for longitudinal
-data. Here we proposed to solve it by several methods. The estimation
-methods include three loss functions as check, asymmetric least square and
-asymmetric Huber functions; and three structures as simple regression,
-fixed effects and fixed effects with penalized intercepts by LASSO.
+Fits zeta distributions (discrete power laws) to data that arises from
+forensic surveys of clothing on the presence of glass and paint in various
+populations. The general method is described to some extent in Coulson,
+S.A., Buckleton, J.S., Gummer, A.B., and Triggs, C.M. (2001)
+<doi:10.1016/S1355-0306(01)71847-3>, although the implementation differs.
 
 %prep
 %setup -q -c -n %{packname}
