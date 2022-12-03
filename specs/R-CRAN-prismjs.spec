@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prismjs
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Server-Side Syntax Highlighting
 
@@ -23,10 +23,10 @@ Requires:         R-CRAN-V8
 Requires:         R-CRAN-xml2 
 
 %description
-'Prism' <https://prismjs.com/> is a lightweight, extensible syntax
+Prism <https://prismjs.com/> is a lightweight, extensible syntax
 highlighter, built with modern web standards in mind. This package
-provides server-side rendering in 'R' using 'V8' such that no 'JavaScript'
-library is required in the resulting 'HTML' documents. Over 400 languages
+provides server-side rendering in R using 'V8' such that no JavaScript
+library is required in the resulting HTML documents. Over 400 languages
 are supported.
 
 %prep

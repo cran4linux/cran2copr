@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  helsinki
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Tools for Helsinki Open Data
 
@@ -23,7 +24,6 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-httpcache 
 BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
@@ -32,16 +32,12 @@ Requires:         R-CRAN-xml2
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-httpcache 
 Requires:         R-CRAN-curl 
 
 %description
-Tools for accessing various open data sources in the Helsinki region in
-Finland. Current data sources include the Real Estate Department
-(<http://ptp.hel.fi/avoindata/>), Service Map API
-(<http://api.hel.fi/servicemap/v2/>), Linked Events API
-(<http://api.hel.fi/linkedevents/v1/>), Helsinki Region Infoshare
-statistics API (<https://dev.hel.fi/stats/>).
+Tools for accessing various open data APIs in the Helsinki region in
+Finland. Current data sources include the Service Map API, Linked Events
+API, and Helsinki Region Infoshare statistics API.
 
 %prep
 %setup -q -c -n %{packname}

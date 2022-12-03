@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mappoly
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Linkage Maps in Autopolyploids
 
@@ -22,13 +23,14 @@ BuildRequires:    R-CRAN-fields
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggsci 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-smacof 
 BuildRequires:    R-CRAN-princurve 
 BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-vcfR 
@@ -41,13 +43,14 @@ Requires:         R-CRAN-fields
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggsci 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-smacof 
 Requires:         R-CRAN-princurve 
 Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-vcfR 
@@ -58,10 +61,10 @@ Requires:         R-CRAN-plotly
 Construction of genetic maps in autopolyploid full-sib populations. Uses
 pairwise recombination fraction estimation as the first source of
 information to sequentially position allelic variants in specific
-homologues. For situations where pairwise analysis has limited power, the
-algorithm relies on the multilocus likelihood obtained through a hidden
-Markov model (HMM). For more detail, please see Mollinari and Garcia
-(2019) <doi:10.1534/g3.119.400378> and Mollinari et al. (2020)
+homologous chromosomes. For situations where pairwise analysis has limited
+power, the algorithm relies on the multilocus likelihood obtained through
+a hidden Markov model (HMM). For more detail, please see Mollinari and
+Garcia (2019) <doi:10.1534/g3.119.400378> and Mollinari et al. (2020)
 <doi:10.1534/g3.119.400620>.
 
 %prep

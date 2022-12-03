@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClimProjDiags
-%global packver   0.2.1
+%global packname  POMADE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Set of Tools to Compute Various Climate Indices
+Summary:          Power for Meta-Analysis of Dependent Effects
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiApply >= 2.0.0
-BuildRequires:    R-CRAN-PCICt 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-climdex.pcic 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-multiApply >= 2.0.0
-Requires:         R-CRAN-PCICt 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-climdex.pcic 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
 
 %description
-Set of tools to compute metrics and indices for climate analysis. The
-package provides functions to compute extreme indices, evaluate the
-agreement between models and combine theses models into an ensemble.
-Multi-model time series of climate indices can be computed either after
-averaging the 2-D fields from different models provided they share a
-common grid or by combining time series computed on the model native grid.
-Indices can be assigned weights and/or combined to construct new indices.
+Provides functions to compute and plot power levels, minimum detectable
+effect sizes, and minimum required sample sizes for the test of the
+overall average effect size in meta-analysis of dependent effect sizes.
 
 %prep
 %setup -q -c -n %{packname}

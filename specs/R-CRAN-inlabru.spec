@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inlabru
-%global packver   2.6.0
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Latent Gaussian Modelling using INLA and Extensions
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rgdal >= 1.5.8
 BuildRequires:    R-CRAN-sp >= 1.4.5
@@ -26,11 +26,11 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-rgdal >= 1.5.8
 Requires:         R-CRAN-sp >= 1.4.5
 Requires:         R-methods 
@@ -40,11 +40,11 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Facilitates spatial and general latent Gaussian modeling using integrated

@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClimProjDiags
-%global packver   0.2.1
+%global packname  dataset
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Set of Tools to Compute Various Climate Indices
+Summary:          Create Data Frames that are Easier to Exchange and Reuse
 
-License:          Apache License 2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiApply >= 2.0.0
-BuildRequires:    R-CRAN-PCICt 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-climdex.pcic 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-multiApply >= 2.0.0
-Requires:         R-CRAN-PCICt 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-climdex.pcic 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-ISOcodes 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-ISOcodes 
+Requires:         R-utils 
 
 %description
-Set of tools to compute metrics and indices for climate analysis. The
-package provides functions to compute extreme indices, evaluate the
-agreement between models and combine theses models into an ensemble.
-Multi-model time series of climate indices can be computed either after
-averaging the 2-D fields from different models provided they share a
-common grid or by combining time series computed on the model native grid.
-Indices can be assigned weights and/or combined to construct new indices.
+The aim of the 'dataset' package is to make tidy datasets easier to
+release, exchange and reuse. It organizes and formats data frame 'R'
+objects into well-referenced, well-described, interoperable datasets into
+release and reuse ready form. A subjective interpretation of the W3C
+DataSet recommendation and the datacube model
+<https://www.w3.org/TR/vocab-data-cube/>, which is also used in the global
+Statistical Data and Metadata eXchange standards, the application of the
+connected Dublin Core
+<https://www.dublincore.org/specifications/dublin-core/dcmi-terms/> and
+DataCite <https://support.datacite.org/docs/datacite-metadata-schema-44/>
+standards preferred by European open science repositories to improve the
+findability, accessibility, interoperability and reusability of the
+datasets.
 
 %prep
 %setup -q -c -n %{packname}

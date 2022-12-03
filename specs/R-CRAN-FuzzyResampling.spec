@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FuzzyResampling
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling Methods for Triangular and Trapezoidal Fuzzy Numbers
 
@@ -17,7 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 The classical (i.e. Efron's, see Efron and Tibshirani (1994,

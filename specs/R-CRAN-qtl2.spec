@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qtl2
-%global packver   0.28
+%global packver   0.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.28
+Version:          0.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Trait Locus Mapping in Experimental Crosses
 
@@ -17,8 +18,8 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-yaml >= 2.1.13
 BuildRequires:    R-CRAN-data.table >= 1.10.4.3
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-jsonlite >= 0.9.17
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -28,8 +29,8 @@ BuildRequires:    R-CRAN-RSQLite
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-yaml >= 2.1.13
 Requires:         R-CRAN-data.table >= 1.10.4.3
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-jsonlite >= 0.9.17
-Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 

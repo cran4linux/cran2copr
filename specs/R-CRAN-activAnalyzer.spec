@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  activAnalyzer
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Shiny' App to Analyze Accelerometer-Measured Daily Physical Behavior Data
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-rmarkdown >= 2.16
 BuildRequires:    R-CRAN-dbplyr >= 2.1.1
 BuildRequires:    R-CRAN-shinyjs >= 2.1.0
@@ -41,7 +41,7 @@ BuildRequires:    R-CRAN-modelr >= 0.1.9
 BuildRequires:    R-CRAN-PhysicalActivity 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-ggplot2 >= 3.3.6
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-rmarkdown >= 2.16
 Requires:         R-CRAN-dbplyr >= 2.1.1
 Requires:         R-CRAN-shinyjs >= 2.1.0

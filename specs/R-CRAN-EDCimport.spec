@@ -1,41 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClimProjDiags
+%global packname  EDCimport
 %global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Set of Tools to Compute Various Climate Indices
+Summary:          Import Data from EDC Software
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiApply >= 2.0.0
-BuildRequires:    R-CRAN-PCICt 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-climdex.pcic 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-multiApply >= 2.0.0
-Requires:         R-CRAN-PCICt 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-climdex.pcic 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Set of tools to compute metrics and indices for climate analysis. The
-package provides functions to compute extreme indices, evaluate the
-agreement between models and combine theses models into an ensemble.
-Multi-model time series of climate indices can be computed either after
-averaging the 2-D fields from different models provided they share a
-common grid or by combining time series computed on the model native grid.
-Indices can be assigned weights and/or combined to construct new indices.
+A convenient toolbox to import data exported from Electronic Data Capture
+(EDC) software 'TrialMaster' and 'Macro'.
 
 %prep
 %setup -q -c -n %{packname}

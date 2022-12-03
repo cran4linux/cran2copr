@@ -1,28 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stringr
-%global packver   1.4.1
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple, Consistent Wrappers for Common String Operations
 
-License:          GPL-2 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glue >= 1.2.0
-BuildRequires:    R-CRAN-stringi >= 1.1.7
+BuildRequires:    R-CRAN-glue >= 1.6.1
+BuildRequires:    R-CRAN-stringi >= 1.5.3
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-glue >= 1.2.0
-Requires:         R-CRAN-stringi >= 1.1.7
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-glue >= 1.6.1
+Requires:         R-CRAN-stringi >= 1.5.3
+Requires:         R-CRAN-lifecycle >= 1.0.3
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-vctrs 
 
 %description
 A consistent, simple and easy to use set of wrappers around the fantastic

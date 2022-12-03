@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tiledb
-%global packver   0.16.0
+%global packver   0.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          0.17.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Universal Storage Engine for Sparse and Dense Multidimensional Arrays
 
@@ -20,9 +20,12 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nanotime 
+BuildRequires:    R-CRAN-spdl 
+BuildRequires:    R-CRAN-RcppSpdlog 
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-methods 
 Requires:         R-CRAN-nanotime 
+Requires:         R-CRAN-spdl 
 
 %description
 The universal storage engine 'TileDB' introduces a powerful on-disk format

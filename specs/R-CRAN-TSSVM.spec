@@ -1,41 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClimProjDiags
-%global packver   0.2.1
+%global packname  TSSVM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Set of Tools to Compute Various Climate Indices
+Summary:          Time Series Forecasting using SVM Model
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.3.1
+Requires:         R-core >= 2.3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiApply >= 2.0.0
-BuildRequires:    R-CRAN-PCICt 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-climdex.pcic 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-multiApply >= 2.0.0
-Requires:         R-CRAN-PCICt 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-climdex.pcic 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-forecast 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-forecast 
 
 %description
-Set of tools to compute metrics and indices for climate analysis. The
-package provides functions to compute extreme indices, evaluate the
-agreement between models and combine theses models into an ensemble.
-Multi-model time series of climate indices can be computed either after
-averaging the 2-D fields from different models provided they share a
-common grid or by combining time series computed on the model native grid.
-Indices can be assigned weights and/or combined to construct new indices.
+Implementation and forecasting univariate time series data using the
+Support Vector Machine model. Support Vector Machine is one of the
+prominent machine learning approach for non-linear time series
+forecasting. For method details see Kim, K. (2003)
+<doi:10.1016/S0925-2312(03)00372-2>.
 
 %prep
 %setup -q -c -n %{packname}

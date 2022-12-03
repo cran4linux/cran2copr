@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sparrpowR
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis to Detect Spatial Relative Risk Clusters
 
@@ -51,9 +52,9 @@ Requires:         R-stats
 Calculate the statistical power to detect clusters using kernel-based
 spatial relative risk functions that are estimated using the 'sparr'
 package. Details about the 'sparr' package methods can be found in the
-tutorial: Davies et al. (2018) <doi:10.1002/sim.7577>.  Details about
+tutorial: Davies et al. (2018) <doi:10.1002/sim.7577>. Details about
 kernel density estimation can be found in J. F. Bithell (1990)
-<doi:10.1002/sim.4780090616>.  More information about relative risk
+<doi:10.1002/sim.4780090616>. More information about relative risk
 functions using kernel density estimation can be found in J. F. Bithell
 (1991) <doi:10.1002/sim.4780101112>.
 
