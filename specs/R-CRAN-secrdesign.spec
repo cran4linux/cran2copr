@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  secrdesign
-%global packver   2.6.0
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sampling Design for Spatially Explicit Capture-Recapture
 
@@ -16,11 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-secr >= 4.2.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.14
+BuildRequires:    R-CRAN-kofnGA 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-secr >= 4.2.0
+Requires:         R-CRAN-Rcpp >= 0.12.14
+Requires:         R-CRAN-kofnGA 
 Requires:         R-parallel 
-Requires:         R-CRAN-abind 
+Requires:         R-CRAN-sf 
 
 %description
 Tools for designing spatially explicit capture-recapture studies of animal

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  contFracR
-%global packver   1.0
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continued Fraction Generators and Evaluators
 
@@ -26,8 +27,13 @@ Requires:         R-CRAN-gmp
 Requires:         R-methods 
 
 %description
-This library provides functions to convert numbers to continued fractions
-and back again.
+Converts numbers to continued fractions and back again. A solver for
+Pell's Equation is provided.  The method for calculating roots in
+continued fraction form is provided without published attribution in such
+places as Professor Emeritus Jonathan Lubin,
+<http://www.math.brown.edu/jlubin/> and his post to StackOverflow,
+<https://math.stackexchange.com/questions/2215918> , or Professor Ron
+Knott, e.g., <https://r-knott.surrey.ac.uk/Fibonacci/cfINTRO.html> .
 
 %prep
 %setup -q -c -n %{packname}

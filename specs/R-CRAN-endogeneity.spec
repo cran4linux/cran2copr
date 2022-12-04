@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  endogeneity
-%global packver   2.0.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Two-Stage Models to Address Endogeneity
 
@@ -15,21 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-pbivnorm 
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-pbivnorm 
 Requires:         R-CRAN-maxLik 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-data.table 
 
 %description
 Various recursive two-stage models to address the endogeneity issue of
 treatment variables in observational study or mediators in experiments.
 The details of the models are discussed in Peng (2022)
-<doi:10.2139/ssrn.3494856>.
+<doi:10.1287/isre.2022.1113>.
 
 %prep
 %setup -q -c -n %{packname}

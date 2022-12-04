@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GAGAs
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Adaptive Generative Adjustment Algorithm for Generalized Linear Models
 
@@ -25,8 +25,12 @@ Requires:         R-CRAN-survival
 %description
 Fits linear regression, logistic and multinomial regression models,
 Poisson regression, Cox model via Global Adaptive Generative Adjustment
-Algorithm. For more information, see Bin Wang, Xiaofei Wang and Jianhua
-Guo (2022) <arXiv:1911.00658>.
+Algorithm. For more detailed information, see Bin Wang, Xiaofei Wang and
+Jianhua Guo (2022) <arXiv:1911.00658>. This paper provides the theoretical
+properties of Gaga linear model when the load matrix is orthogonal.
+Further study is going on for the nonorthogonal cases and generalized
+linear models. These works are in part supported by the National Natural
+Foundation of China (No.12171076).
 
 %prep
 %setup -q -c -n %{packname}
