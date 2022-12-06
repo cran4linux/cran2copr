@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EMVS
-%global packver   1.2.1
+%global __requires_exclude ^libmpi
+%global packname  BayesBEKK
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Expectation-Maximization Approach to Bayesian Variable Selection
+Summary:          Bayesian Estimation of Bivariate Volatility Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,16 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MTS 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-MTS 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-An efficient expectation-maximization algorithm for fitting Bayesian
-spike-and-slab regularization paths for linear regression. Rockova and
-George (2014) <doi:10.1080/01621459.2013.869223>.
+The Multivariate Generalized Autoregressive Conditional Heteroskedasticity
+(MGARCH) models are used for modelling the volatile multivariate data
+sets. In this package a variant of MGARCH called BEKK (Baba, Engle, Kraft,
+Kroner) proposed by Engle and Kroner (1995)
+<http://www.jstor.org/stable/3532933> has been used to estimate the
+bivariate time series data using Bayesian technique.
 
 %prep
 %setup -q -c -n %{packname}

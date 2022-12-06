@@ -1,56 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gompertztrunc
+%global packname  nlmixr2rpt
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conducting Maximum Likelihood Estimation with Truncated Mortality Data
+Summary:          Templated Word and PowerPoint Reporting of 'nlmixr2' Fitting Results
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-nlmixr2extra >= 2.0.7
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggsci 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-modelr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-onbrand 
+BuildRequires:    R-CRAN-rxode2 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xpose 
+BuildRequires:    R-CRAN-xpose.nlmixr2 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-nlmixr2extra >= 2.0.7
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggsci 
-Requires:         R-grid 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-modelr 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+Requires:         R-grDevices 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-onbrand 
+Requires:         R-CRAN-rxode2 
+Requires:         R-utils 
+Requires:         R-CRAN-xpose 
+Requires:         R-CRAN-xpose.nlmixr2 
+Requires:         R-CRAN-yaml 
 
 %description
-Estimates hazard ratios and mortality differentials for doubly-truncated
-data without population denominators.
+This allows you to generate reporting workflows around 'nlmixr2' analyses
+with outputs in Word and PowerPoint. You can specify figures, tables and
+report structure in a user-definable 'YAML' file. Also you can use the
+internal functions to access the figures and tables to allow their
+including in other outputs (e.g. R Markdown).
 
 %prep
 %setup -q -c -n %{packname}

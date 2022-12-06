@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fastCorrDiff
-%global packver   0.5
+%global __requires_exclude ^libmpi
+%global packname  DistatisR
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Differential Correlation Matrix Screening
+Summary:          DiSTATIS Three Way Metric Multidimensional Scaling
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RSpectra 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-plyr 
-Requires:         R-stats 
-Requires:         R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-prettyGraphs 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidytext 
+Requires:         R-CRAN-prettyGraphs 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidytext 
 
 %description
-Fast spectral algorithms for differential analysis on large-scale
-correlation matrices of Li et. al. (2021) <arXiv:2111.03721> are
-implemented. The methods can identify a group of genes exhibiting
-differential correlation patterns between two groups. For high-dimensional
-matrices, compressed spectral screening methods are also provided based on
-random subsampling. The work to build this package is partially supported
-by the NSF grant DMS-2015298.
+Implement DiSTATIS and CovSTATIS (three-way multidimensional scaling).
+DiSTATIS and CovSTATIS are used to analyze multiple distance/covariance
+matrices collected on the same set of observations. These methods are
+based on Abdi, H., Williams, L.J., Valentin, D., & Bennani-Dosse, M.
+(2012) <doi:10.1002/wics.198>.
 
 %prep
 %setup -q -c -n %{packname}

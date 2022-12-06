@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RandomFieldsUtils
-%global packver   1.2.5
+%global __requires_exclude ^libmpi
+%global packname  dsdp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for the Simulation and Analysis of Random Fields and Genetic Data
+Summary:          Density Estimation with Semidefinite Programming
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-Various utilities are provided that might be used in spatial statistics
-and elsewhere. It delivers a method for solving linear equations that
-checks the sparsity of the matrix before any algorithm is used.
+The models of probability density functions are Gaussian or exponential
+distributions with polynomial correction terms. Using a maximum likelihood
+method, 'dsdp' computes parameters of Gaussian or exponential
+distributions together with degrees of polynomials by a grid search, and
+coefficient of polynomials by a variant of semidefinite programming. It
+adopts Akaike Information Criterion for model selection. See a vignette
+for a tutorial and more on our 'Github' repository
+<https://github.com/tsuchiya-lab/dsdp/>.
 
 %prep
 %setup -q -c -n %{packname}

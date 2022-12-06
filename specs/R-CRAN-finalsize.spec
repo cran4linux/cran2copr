@@ -1,38 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  condSURV
-%global packver   2.0.2
+%global __requires_exclude ^libmpi
+%global packname  finalsize
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of the Conditional Survival Function for Ordered Multivariate Failure Time Data
+Summary:          Calculate the Final Size of an Epidemic
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-np 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-np 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Method to implement some newly developed methods for the estimation of the
-conditional survival function.
+Calculate the final size of a susceptible-infectious-recovered epidemic in
+a population with demographic variation in contact patterns and
+susceptibility to disease, as discussed in Miller (2012)
+<doi:10.1007/s11538-012-9749-6>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  insane
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          INsulin Secretion ANalysEr
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-readxl >= 1.3.1
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-patchwork >= 1.0.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-ggbeeswarm >= 0.6.0
 BuildRequires:    R-CRAN-broom >= 0.5.6
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-ggpubr >= 0.3.0
@@ -40,7 +39,6 @@ Requires:         R-CRAN-readxl >= 1.3.1
 Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-patchwork >= 1.0.1
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-ggbeeswarm >= 0.6.0
 Requires:         R-CRAN-broom >= 0.5.6
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-ggpubr >= 0.3.0

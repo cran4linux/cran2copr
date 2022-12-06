@@ -1,46 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  maple
-%global packver   0.99.5
+%global __requires_exclude ^libmpi
+%global packname  vsp
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Analysis of Multi-Sample Spatial Transcriptomics Experiments
+Summary:          Vintage Sparse PCA for Semi-Parametric Factor Analysis
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spruce 
-BuildRequires:    R-CRAN-Seurat 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dbarts 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggalluvial 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-invertiforms 
+BuildRequires:    R-CRAN-LRMF3 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-spruce 
-Requires:         R-CRAN-Seurat 
-Requires:         R-stats 
-Requires:         R-CRAN-dbarts 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggalluvial 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-invertiforms 
+Requires:         R-CRAN-LRMF3 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
 
 %description
-Allows for robust probabilistic analysis of multi-sample spatial
-transcriptomics experiments (Allen et. al, 2021
-<doi:10.1101/2021.06.23.449615>).
+Provides fast spectral estimation of latent factors in random dot product
+graphs using the vsp estimator. Under mild assumptions, the vsp estimator
+is consistent for (degree-corrected) stochastic blockmodels,
+(degree-corrected) mixed-membership stochastic blockmodels, and
+degree-corrected overlapping stochastic blockmodels.
 
 %prep
 %setup -q -c -n %{packname}

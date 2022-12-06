@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NACHO
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          NanoString Quality Control Dashboard
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-shiny >= 1.4.0
 BuildRequires:    R-CRAN-knitr >= 1.25
 BuildRequires:    R-CRAN-rmarkdown >= 1.16
 BuildRequires:    R-CRAN-ggrepel >= 0.8.1
-BuildRequires:    R-CRAN-ggbeeswarm >= 0.6.0
 BuildRequires:    R-CRAN-shinyWidgets >= 0.4.9
 BuildRequires:    R-CRAN-ggforce >= 0.3.1
 BuildRequires:    R-utils 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-shiny >= 1.4.0
 Requires:         R-CRAN-knitr >= 1.25
 Requires:         R-CRAN-rmarkdown >= 1.16
 Requires:         R-CRAN-ggrepel >= 0.8.1
-Requires:         R-CRAN-ggbeeswarm >= 0.6.0
 Requires:         R-CRAN-shinyWidgets >= 0.4.9
 Requires:         R-CRAN-ggforce >= 0.3.1
 Requires:         R-utils 

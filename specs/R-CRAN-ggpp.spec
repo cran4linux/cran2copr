@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpp
-%global packver   0.4.5
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar Extensions to 'ggplot2'
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.51.6
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
 BuildRequires:    R-CRAN-tibble >= 3.0.3
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-zoo >= 1.8.8
@@ -35,7 +35,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-MASS >= 7.3.51.6
-Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-ggplot2 >= 3.3.6
 Requires:         R-CRAN-tibble >= 3.0.3
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-zoo >= 1.8.8

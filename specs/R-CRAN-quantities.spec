@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  quantities
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantity Calculus for R Vectors
 
@@ -15,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-units >= 0.6.7
-BuildRequires:    R-CRAN-errors >= 0.3.4
+BuildRequires:    R-CRAN-units >= 0.8.0
+BuildRequires:    R-CRAN-errors >= 0.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
-Requires:         R-CRAN-units >= 0.6.7
-Requires:         R-CRAN-errors >= 0.3.4
+Requires:         R-CRAN-units >= 0.8.0
+Requires:         R-CRAN-errors >= 0.4.0
 Requires:         R-CRAN-Rcpp >= 0.12.10
 
 %description
@@ -40,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

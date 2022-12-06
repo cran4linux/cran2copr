@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scPOP
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  cstime
+%global packver   2022.11.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2022.11.22
 Release:          1%{?dist}%{?buildtag}
-Summary:          Metrics for Benchmarking scRNA-Seq Batch Correction
+Summary:          Date and Time Functions for Public Health Purposes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-cluster 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
 
 %description
-Evaluate batch effect correction algorithms for scRNA-seq using multiple
-established methods, including the Adjusted Rand Index, Normalized Mutual
-Information, Local Inverse Simpson Index, and Silhouette Width. Methods
-for aggregating and weighing multiple metrics together are also included.
-For further explanation of methods, see Swamy et al.
-(2021)<doi:10.1101/2021.03.26.437190> .
+Provides easy and consistent time conversion for public health purposes.
+The time conversion functions provided here are between date, ISO week,
+ISO yearweek, ISO year, calendar month/year, season, season week.
 
 %prep
 %setup -q -c -n %{packname}

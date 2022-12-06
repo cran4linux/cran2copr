@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  minval
-%global packver   0.8-2
+%global __requires_exclude ^libmpi
+%global packname  hcidata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          MINimal VALidation for Stoichiometric Reactions
+Summary:          HCI Datasets
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdpack 
 
 %description
-For a given set of stoichiometric reactions, this package evaluates the
-mass and charge balance, extracts all reactants, products, orphan
-metabolites, metabolite names and compartments. Also are included some
-options to characterize and write models in TSV and SBML formats.
+A collection of datasets of human-computer interaction (HCI) experiments.
+Each dataset is from an HCI paper, with all fields described and the
+original publication linked. All paper authors of included data have
+consented to the inclusion of their data in this package. The datasets
+include data from a range of HCI studies, such as pointing tasks, user
+experience ratings, and steering tasks. Dataset sources: Bergström et al.
+(2022) <doi:10.1145/3490493>; Dalsgaard et al. (2021)
+<doi:10.1145/3489849.3489853>; Larsen et al. (2019)
+<doi:10.1145/3338286.3340115>; Lilija et al. (2019)
+<doi:10.1145/3290605.3300676>; Pohl and Murray-Smith (2013)
+<doi:10.1145/2470654.2481307>; Pohl and Mottelson (2022)
+<doi:10.3389/frvir.2022.719506>.
 
 %prep
 %setup -q -c -n %{packname}

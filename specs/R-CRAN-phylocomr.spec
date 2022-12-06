@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  phylocomr
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
-Release:          3%{?dist}%{?buildtag}
+Version:          0.3.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Phylocom'
 
 License:          BSD_2_clause + file LICENSE
@@ -21,8 +22,8 @@ Requires:         R-CRAN-sys >= 3.2
 Requires:         R-CRAN-tibble 
 
 %description
-Interface to 'Phylocom' (<http://phylodiversity.net/phylocom/>), a library
-for analysis of 'phylogenetic' community structure and character
+Interface to 'Phylocom' (<https://phylodiversity.net/phylocom/>), a
+library for analysis of 'phylogenetic' community structure and character
 evolution. Includes low level methods for interacting with the three
 executables, as well as higher level interfaces for methods like 'aot',
 'ecovolve', 'bladj', 'phylomatic', and more.
@@ -30,6 +31,15 @@ executables, as well as higher level interfaces for methods like 'aot',
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -37,24 +47,10 @@ executables, as well as higher level interfaces for methods like 'aot',
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/AUTHORS
-%doc %{rlibdir}/%{packname}/COPYRIGHT
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
-%doc %{rlibdir}/%{packname}/bin
+%{rlibdir}/%{packname}

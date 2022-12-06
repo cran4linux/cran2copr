@@ -1,47 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regweight
-%global packver   1.0.2
+%global __requires_exclude ^libmpi
+%global packname  lmomPi
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convenience Functions for Implicit Regression Weights
+Summary:          (Precipitation) Frequency Analysis and Variability with L-Moments from 'lmom'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-lpdensity 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-lpdensity 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lmom 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-lmom 
+Requires:         R-CRAN-stringr 
 
 %description
-A simple wrapper for calculating regression weights as defined by Aronow
-and Samii (2015) <doi:10.1111/ajps.12185>. Given a model object and a term
-of interest, 'regweight' will calculate implicit regression weights and
-provide a variety of useful visualizations and summary statistics.
+It is an extension of 'lmom' R package: 'pel...()','cdf...()',qua...()'
+function families are lumped and called from one function per each family
+respectively in order to create robust automatic tools to fit data with
+different probability distributions and then to estimate probability
+values and return periods.  The implemented functions are able to manage
+time series with constant and/or missing values without stopping the
+execution with error messages. The package also contains tools to
+calculate several indices based on variability (e.g. 'SPI' , Standardized
+Precipitation Index, see
+<https://climatedataguide.ucar.edu/climate-data/standardized-precipitation-index-spi>
+and <http://spei.csic.es/>) for multiple time series or spatially gridded
+values.
 
 %prep
 %setup -q -c -n %{packname}

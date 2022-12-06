@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  interpret
-%global packver   0.1.26
+%global __requires_exclude ^libmpi
+%global packname  pcv
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.26
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Interpretable Machine Learning Models
+Summary:          Procrustes Cross-Validation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
-Package for training interpretable machine learning models. Historically,
-the most interpretable machine learning models were not very accurate, and
-the most accurate models were not very interpretable. Microsoft Research
-has developed an algorithm called the Explainable Boosting Machine (EBM)
-which has both high accuracy and interpretable characteristics. EBM uses
-machine learning techniques like bagging and boosting to breathe new life
-into traditional GAMs (Generalized Additive Models). This makes them as
-accurate as random forests and gradient boosted trees, and also enhances
-their intelligibility and editability. Details on the EBM algorithm can be
-found in the paper by Rich Caruana, Yin Lou, Johannes Gehrke, Paul Koch,
-Marc Sturm, and Noemie Elhadad (2015, <doi:10.1145/2783258.2788613>).
+Implements Procrustes cross-validation method for Principal Component
+Analysis, Principal Component Regression and Partial Least Squares
+regression models. S. Kucheryavskiy (2020)
+<doi:10.1016/j.chemolab.2020.103937>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

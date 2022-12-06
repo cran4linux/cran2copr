@@ -1,49 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  aphylo
-%global packver   0.2-1
+%global __requires_exclude ^libmpi
+%global packname  betaclust
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference and Prediction of Annotations in Phylogenetic Trees
+Summary:          A Family of Beta Mixture Models for Clustering Beta-Valued DNA Methylation Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ape >= 5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.1
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-fmcmc 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-ape >= 5.0
-Requires:         R-CRAN-Rcpp >= 0.12.1
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-fmcmc 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-scales 
 
 %description
-Implements a parsimonious evolutionary model to analyze and predict
-gene-functional annotations in phylogenetic trees as described in Vega Yon
-et al. (2021) <doi:10.1371/journal.pcbi.1007948>. With a focus on
-computational efficiency, 'aphylo' makes it possible to estimate pooled
-phylogenetic models, including thousands (hundreds) of annotations (trees)
-in the same run. The package also provides the tools for visualization of
-annotated phylogenies, calculation of posterior probabilities
-(prediction,) and goodness-of-fit assessment featured in Vega Yon et al.
-(2021).
+A family of novel beta mixture models (BMMs) has been developed by
+Majumdar et al. (2022) <arXiv:2211.01938v1> to appositely model the
+beta-valued cytosine-guanine dinucleotide (CpG) sites, to objectively
+identify methylation state thresholds and to identify the differentially
+methylated CpG (DMC) sites using a model-based clustering approach. The
+family of beta mixture models employs different parameter constraints
+applicable to different study settings. The EM algorithm is used for
+parameter estimation, with a novel approximation during the M-step
+providing tractability and ensuring computational feasibility.
 
 %prep
 %setup -q -c -n %{packname}

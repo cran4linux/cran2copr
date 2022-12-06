@@ -1,51 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cheem
-%global packver   0.2.0
+%global __requires_exclude ^libmpi
+%global packname  metanetwork
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactively Explore the Support of Local Explanations with the Radial Tour
+Summary:          Handling and Representing Trophic Networks in Space and Time
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spinifex >= 0.3.3
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-data.table 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-intergraph 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-spinifex >= 0.3.3
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggimage 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sna 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-network 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-intergraph 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-grDevices 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-DT 
+Requires:         R-CRAN-ggimage 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sna 
 
 %description
-Given a tree-based model, calculate the tree SHAP <arXiv:1802.03888>;
-<https://github.com/ModelOriented/treeshap> local explanation of every
-observation. View the data space, explanation space, and residual plot as
-ensemble graphic interactive on a shiny application. After an observation
-of interest is identified, the normalized variable importance of the local
-explanation is used as a 1D projection basis. The support of the local
-explanation is then explored by changing the basis with the use of the
-radial tour <doi:10.32614/RJ-2020-027>;
-<doi:10.1080/10618600.1997.10474754>.
+A toolbox to handle and represent trophic networks in space or time across
+aggregation levels. This package contains a layout algorithm specifically
+designed for trophic networks, using dimension reduction on a diffusion
+graph kernel and trophic levels. Importantly, this package provides a
+layout method applicable for large trophic networks.
 
 %prep
 %setup -q -c -n %{packname}

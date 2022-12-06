@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  postdoc
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimal and Uncluttered Package Documentation
 
@@ -29,7 +29,7 @@ Requires:         R-CRAN-xml2
 %description
 Generates simple and beautiful one-page HTML reference manuals with
 package documentation. Math rendering and syntax highlighting are done
-server-side in 'R' such that no 'JavaScript' libraries are needed in the
+server-side in R such that no JavaScript libraries are needed in the
 browser, which makes the documentation portable and fast to load.
 
 %prep
