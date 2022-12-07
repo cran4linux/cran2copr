@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GetLattesData
-%global packver   1.4.2
+%global packname  pct
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reading Bibliometric Data from Lattes Platform
+Summary:          Propensity to Cycle Tool
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stplanr >= 0.2.8
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-crul 
+Requires:         R-CRAN-stplanr >= 0.2.8
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-curl 
-Requires:         R-tools 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-crul 
 
 %description
-A simple API for downloading and reading xml data directly from Lattes
-<http://lattes.cnpq.br/>.
+Functions and example data to teach and increase the reproducibility of
+the methods and code underlying the Propensity to Cycle Tool (PCT), a
+research project and web application hosted at <https://www.pct.bike/>.
+For an academic paper on the methods, see Lovelace et al (2017)
+<doi:10.5198/jtlu.2016.862>.
 
 %prep
 %setup -q -c -n %{packname}

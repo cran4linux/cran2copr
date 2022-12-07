@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  antaresEditObject
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Edit an 'Antares' Simulation
 
@@ -16,18 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-antaresRead >= 2.2.7
+BuildRequires:    R-CRAN-antaresRead >= 2.2.95
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-antaresRead >= 2.2.7
+Requires:         R-CRAN-antaresRead >= 2.2.95
 Requires:         R-CRAN-assertthat 
-Requires:         R-grDevices 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-pbapply 

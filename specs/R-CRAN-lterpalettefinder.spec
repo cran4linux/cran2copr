@@ -1,40 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GetLattesData
-%global packver   1.4.2
+%global packname  lterpalettefinder
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reading Bibliometric Data from Lattes Platform
+Summary:          Extract Color Palettes from Photos and Pick Official LTER Palettes
 
-License:          GPL-2
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-stats 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tiff 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-png 
+Requires:         R-stats 
 Requires:         R-tools 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tiff 
 
 %description
-A simple API for downloading and reading xml data directly from Lattes
-<http://lattes.cnpq.br/>.
+Allows identification of palettes derived from LTER (Long Term Ecological
+Research) photographs based on user criteria. Also facilitates extraction
+of palettes from users' photos directly.
 
 %prep
 %setup -q -c -n %{packname}

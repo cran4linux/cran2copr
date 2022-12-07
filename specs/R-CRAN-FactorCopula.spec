@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FactorCopula
-%global packver   0.9
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor, Bi-Factor, Second-Order and Factor Tree Copula Models
 
@@ -36,8 +36,8 @@ Estimation, model selection and goodness-of-fit of (1) factor copula
 models for mixed continuous and discrete data in Kadhem and
 Nikoloulopoulos (2021) <doi:10.1111/bmsp.12231>; (2) bi-factor and
 second-order copula models for item response data in Kadhem and
-Nikoloulopoulos (2021) <arXiv:2102.10660>; (3) factor tree copula models
-for item response data in Kadhem and Nikoloulopoulos (2022)
+Nikoloulopoulos (2022) <doi:10.1007/s11336-022-09894-2>; (3) factor tree
+copula models for item response data in Kadhem and Nikoloulopoulos (2022)
 <arXiv:2201.00339>.
 
 %prep

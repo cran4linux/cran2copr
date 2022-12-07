@@ -1,60 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgbif
-%global packver   3.7.4
+%global packname  dafishr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the Global Biodiversity Information Facility API
+Summary:          Download, Wrangle, and Analyse Vessel Monitoring System Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-crul >= 0.7
-BuildRequires:    R-CRAN-oai >= 0.2.2
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fst 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-conditionz 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-wk 
-Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-crul >= 0.7
-Requires:         R-CRAN-oai >= 0.2.2
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fst 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mixtools 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-conditionz 
-Requires:         R-stats 
-Requires:         R-CRAN-wk 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
+Requires:         R-CRAN-vroom 
 
 %description
-A programmatic interface to the Web Service methods provided by the Global
-Biodiversity Information Facility (GBIF;
-<https://www.gbif.org/developer/summary>). GBIF is a database of species
-occurrence records from sources all over the globe. rgbif includes
-functions for searching for taxonomic names, retrieving information on
-data providers, getting species occurrence records, getting counts of
-occurrence records, and using the GBIF tile map service to make rasters
-summarizing huge amounts of data.
+Allows to download, clean and analyse raw Vessel Monitoring System, VMS,
+data from Mexican government. You can use the vms_download() function to
+download raw data, or you can use the sample_dataset provided within the
+package. You can follow the tutorial in the vignette available at
+<https://cbmc-gcmp.github.io/dafishr/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GetLattesData
-%global packver   1.4.2
+%global packname  Mestim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reading Bibliometric Data from Lattes Platform
+Summary:          Computes the Variance-Covariance Matrix of a Set of Parameters using M-Estimation
 
-License:          GPL-2
+License:          MIT + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-curl 
-Requires:         R-tools 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-A simple API for downloading and reading xml data directly from Lattes
-<http://lattes.cnpq.br/>.
+Provides a flexible framework for estimating the variance-covariance
+matrix of a set of estimated parameters. Estimation relies on unbiased
+estimating functions to compute the empirical sandwich variance. (i.e.,
+M-estimation in the vein of Stefanski and Boos (2002)
+<doi:10.1198/000313002753631330>.
 
 %prep
 %setup -q -c -n %{packname}

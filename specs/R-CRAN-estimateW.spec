@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GetLattesData
-%global packver   1.4.2
+%global packname  estimateW
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reading Bibliometric Data from Lattes Platform
+Summary:          Estimation of Spatial Weight Matrices
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-curl 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-plot.matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-plot.matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-R6 
 
 %description
-A simple API for downloading and reading xml data directly from Lattes
-<http://lattes.cnpq.br/>.
+Bayesian estimation of spatial weight matrices in spatial econometric
+panel models. Allows for estimation of spatial autoregressive (SAR),
+spatial Durbin (SDM), and spatially lagged explanatory variable (SLX) type
+specifications featuring an unknown spatial weight matrix. Methodological
+details are given in Krisztin and Piribauer (2022)
+<doi:10.1080/17421772.2022.2095426>.
 
 %prep
 %setup -q -c -n %{packname}

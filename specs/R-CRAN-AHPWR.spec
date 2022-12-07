@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgbif
-%global packver   3.7.4
+%global packname  AHPWR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the Global Biodiversity Information Facility API
+Summary:          Compute Analytic Hierarchy Process
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,44 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-crul >= 0.7
-BuildRequires:    R-CRAN-oai >= 0.2.2
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-formattable 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-conditionz 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-wk 
-Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-crul >= 0.7
-Requires:         R-CRAN-oai >= 0.2.2
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-xlsx 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-formattable 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-conditionz 
-Requires:         R-stats 
-Requires:         R-CRAN-wk 
+Requires:         R-CRAN-xlsx 
 
 %description
-A programmatic interface to the Web Service methods provided by the Global
-Biodiversity Information Facility (GBIF;
-<https://www.gbif.org/developer/summary>). GBIF is a database of species
-occurrence records from sources all over the globe. rgbif includes
-functions for searching for taxonomic names, retrieving information on
-data providers, getting species occurrence records, getting counts of
-occurrence records, and using the GBIF tile map service to make rasters
-summarizing huge amounts of data.
+Compute a tree level hierarchy, judgment matrix, consistency index and
+ratio, priority vectors, hierarchic synthesis and rank. Based on the book
+entitled "Models, Methods, Concepts and Applications of the Analytic
+Hierarchy Process" by Saaty and Vargas (2012, ISBN 978-1-4614-3597-6).
 
 %prep
 %setup -q -c -n %{packname}

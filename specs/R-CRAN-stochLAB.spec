@@ -1,66 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NetFACS
-%global packver   0.5.0
+%global packname  stochLAB
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Applications to Facial Communication Data
+Summary:          Stochastic Collision Risk Model
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-logr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-picante 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-logr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-patchwork 
-Requires:         R-parallel 
-Requires:         R-CRAN-picante 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
-Requires:         R-methods 
 
 %description
-Functions to analyze and visualize communication data, based on network
-theory and resampling methods. Farine, D. R. (2017)
-<doi:10.1111/2041-210X.12772>; Carsey, T., & Harden, J. (2014)
-<doi:10.4135/9781483319605>. Primarily targeted at datasets of facial
-expressions coded with the Facial Action Coding System. Ekman, P.,
-Friesen, W. V., & Hager, J. C. (2002). "Facial action coding system -
-investigator's guide"
-<https://www.paulekman.com/facial-action-coding-system/>.
+Collision Risk Models for avian fauna (seabird and migratory birds) at
+offshore wind farms. The base deterministic model is derived from Band
+(2012)
+<https://tethys.pnnl.gov/publications/using-collision-risk-model-assess-bird-collision-risks-offshore-wind-farms>.
+This was further expanded on by Masden (2015) <doi:10.7489/1659-1> and
+code used here is heavily derived from this work with input from Dr A.
+Cook at the British Trust for Ornithology.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GetLattesData
-%global packver   1.4.2
+%global packname  dscore
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reading Bibliometric Data from Lattes Platform
+Summary:          D-Score for Child Development
 
-License:          GPL-2
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.2
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-curl 
-Requires:         R-tools 
+Requires:         R-CRAN-tidyselect 
 
 %description
-A simple API for downloading and reading xml data directly from Lattes
-<http://lattes.cnpq.br/>.
+The D-score is a quantitative measure of child development. The D-score
+follows the Rasch model. See Jacobusse, van Buuren and Verkerk (2006)
+<doi:10.1002/sim.2351>. The user can convert milestone scores from many
+assessment instruments into the D-score and the DAZ (D-score adjusted for
+age). Several tools assist in mapping milestone names into the 9-position
+Global Scale of Early Development (GSED) convention. Supports calculation
+of the D-score using 'dutch' <doi:10.1177/0962280212473300>, 'gcdg'
+<doi:10.1136/bmjgh-2019-001724> and 'gsed' conversion keys. The user can
+calculate DAZ using 'phase1' (default), 'gcdg' and 'dutch' age-conditional
+references.
 
 %prep
 %setup -q -c -n %{packname}

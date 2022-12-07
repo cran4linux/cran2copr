@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  censusxy
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the U.S. Census Bureau's Geocoding A.P.I. System
+Summary:          Access the U.S. Census Bureau's Geocoding API System
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,7 +29,7 @@ Requires:         R-parallel
 Requires:         R-utils 
 
 %description
-Provides access to the U.S. Census Bureau's A.P.I for matching American
+Provides access to the U.S. Census Bureau's API for matching American
 street addresses with their longitude and latitude. This includes both
 single address matching as well as batch functionality for multiple
 addresses. Census geographies can be appended to addresses if desired, and

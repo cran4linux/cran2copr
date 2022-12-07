@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  exampletestr
-%global packver   1.6.5
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Help for Writing Unit Tests Based on Function Examples
 
@@ -22,9 +23,8 @@ BuildRequires:    R-CRAN-readr >= 2.0
 BuildRequires:    R-CRAN-usethis >= 2.0
 BuildRequires:    R-CRAN-fs >= 1.5
 BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.5
 BuildRequires:    R-CRAN-strex >= 1.4.2
-BuildRequires:    R-CRAN-ore >= 1.4
-BuildRequires:    R-CRAN-stringr >= 1.4
 BuildRequires:    R-CRAN-styler >= 1.2
 BuildRequires:    R-CRAN-rlang >= 0.4
 BuildRequires:    R-CRAN-rstudioapi >= 0.4
@@ -36,9 +36,8 @@ Requires:         R-CRAN-readr >= 2.0
 Requires:         R-CRAN-usethis >= 2.0
 Requires:         R-CRAN-fs >= 1.5
 Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringr >= 1.5
 Requires:         R-CRAN-strex >= 1.4.2
-Requires:         R-CRAN-ore >= 1.4
-Requires:         R-CRAN-stringr >= 1.4
 Requires:         R-CRAN-styler >= 1.2
 Requires:         R-CRAN-rlang >= 0.4
 Requires:         R-CRAN-rstudioapi >= 0.4
