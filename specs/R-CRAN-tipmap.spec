@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tipmap
-%global packver   0.3.7
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tipping Point Analysis for Bayesian Dynamic Borrowing
 

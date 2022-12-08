@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tigris
-%global packver   1.6.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load Census TIGER/Line Shapefiles
 
@@ -18,11 +19,8 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-sf 
@@ -30,11 +28,8 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-methods 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-sp 
 Requires:         R-utils 
 Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-sf 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3tuningspaces
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search Spaces for Hyperparameter Tuning
+Summary:          Search Spaces for 'mlr3'
 
 License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,9 +33,10 @@ Requires:         R-CRAN-mlr3 >= 0.11.0
 Requires:         R-CRAN-mlr3misc >= 0.11.0
 
 %description
-Collection of search spaces for hyperparameter tuning. Includes various
-search spaces that can be directly applied on an `mlr3` learner.
-Additionally, meta information about the search space can be queried.
+Collection of search spaces for hyperparameter optimization in the mlr3
+ecosystem. It features ready-to-use search spaces for many popular machine
+learning algorithms. The search spaces are from scientific articles and
+work for a wide range of data sets.
 
 %prep
 %setup -q -c -n %{packname}

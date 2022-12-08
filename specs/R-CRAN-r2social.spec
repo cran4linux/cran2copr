@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ecb
-%global packver   0.4.0
+%global __requires_exclude ^libmpi
+%global packname  r2social
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Programmatic Access to the European Central Bank's Statistical Data Warehouse
+Summary:          App Inclusion of Social Sharing and Connect Buttons
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rsdmx 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rsdmx 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-utils 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
 
 %description
-Provides an interface to the European Central Bank's Statistical Data
-Warehouse API, allowing for programmatic retrieval of a vast quantity of
-statistical data.
+Implementation of 'JavaScript' and 'CSS' styles to allow easy
+incorporation of various social media elements on a page. The elements
+include addition of share buttons or connect with us buttons or hyperlink
+buttons to 'Shiny' applications or dashboards and 'Rmardown' documents.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

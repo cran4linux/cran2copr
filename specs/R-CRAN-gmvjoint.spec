@@ -1,50 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  robustlmm
-%global packver   3.1-2
+%global packname  gmvjoint
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Linear Mixed Effects Models
+Summary:          Joint Models of Survival and Multivariate Longitudinal Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-lme4 >= 1.1.9
-BuildRequires:    R-CRAN-Matrix >= 1.0.13
-BuildRequires:    R-CRAN-robustbase >= 0.93
-BuildRequires:    R-CRAN-Rcpp >= 0.12.2
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-fastGHQuad 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-lme4 >= 1.1.9
-Requires:         R-CRAN-Matrix >= 1.0.13
-Requires:         R-CRAN-robustbase >= 0.93
-Requires:         R-CRAN-Rcpp >= 0.12.2
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-glmmTMB 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-fastGHQuad 
-Requires:         R-parallel 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-statmod 
 
 %description
-Implements the Robust Scoring Equations estimator to fit linear mixed
-effects models robustly. Robustness is achieved by modification of the
-scoring equations combined with the Design Adaptive Scale approach.
+Fit joint models of survival and multivariate longitudinal data. The
+longitudinal data is specified by generalised linear mixed models. The
+joint models are fit via maximum likelihood using an approximate
+expectation maximisation algorithm. Bernhardt (2015)
+<doi:10.1016/j.csda.2014.11.011>.
 
 %prep
 %setup -q -c -n %{packname}

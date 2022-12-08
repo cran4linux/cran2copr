@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  climetrics
-%global packver   1.0-5
+%global __requires_exclude ^libmpi
+%global packname  MfUSampler
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Climate Change Metrics
+Summary:          Multivariate-from-Univariate (MfU) MCMC Sampler
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp >= 1.2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rts 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-yaImpute 
-BuildRequires:    R-CRAN-xts 
-Requires:         R-CRAN-sp >= 1.2.0
-Requires:         R-methods 
-Requires:         R-CRAN-rts 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-yaImpute 
-Requires:         R-CRAN-xts 
+BuildRequires:    R-CRAN-ars 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-dlm 
+Requires:         R-CRAN-ars 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-dlm 
 
 %description
-A framework that facilitates spatio-temporal analysis of climate dynamics
-through exploring and measuring different dimensions of climate change in
-space and time.
+Convenience functions for multivariate MCMC using univariate samplers
+including: slice sampler with stepout and shrinkage (Neal (2003)
+<DOI:10.1214/aos/1056562461>), adaptive rejection sampler (Gilks and Wild
+(1992) <DOI:10.2307/2347565>), adaptive rejection Metropolis (Gilks et al
+(1995) <DOI:10.2307/2986138>), and univariate Metropolis with Gaussian
+proposal.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,66 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metacore
-%global packver   0.1.1
+%global packname  DependencyReviewer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Centralized Metadata Object Focus on Clinical Trial Data Programming Workflows
+Summary:          Tool Suite to Investigate Other Packages
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lintr 
+BuildRequires:    R-CRAN-pak 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyAce 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-GGally 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lintr 
+Requires:         R-CRAN-pak 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyAce 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-GGally 
 
 %description
-Create an immutable container holding metadata for the purpose of better
-enabling programming activities and functionality of other packages within
-the clinical programming workflow.
+Helps investigating other packages during code review by looking at their
+dependencies.
 
 %prep
 %setup -q -c -n %{packname}

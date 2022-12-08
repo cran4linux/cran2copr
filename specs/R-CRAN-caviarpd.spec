@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  purgeR
-%global packver   1.7
+%global packname  caviarpd
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inbreeding-Purging Estimation in Pedigreed Populations
+Summary:          Cluster Analysis via Random Partition Distributions
 
-License:          GPL-2
+License:          MIT + file LICENSE | Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-foreach >= 1.5.1
-BuildRequires:    R-CRAN-progress >= 1.2.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-doSNOW >= 1.0.19
-BuildRequires:    R-CRAN-RcppProgress >= 0.4.2
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-foreach >= 1.5.1
-Requires:         R-CRAN-progress >= 1.2.2
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-doSNOW >= 1.0.19
-Requires:         R-CRAN-RcppProgress >= 0.4.2
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 
 %description
-Inbreeding-purging analysis of pedigreed populations, including the
-computation of the inbreeding coefficient, partial, ancestral and purged
-inbreeding coefficients, and measures of the opportunity of purging
-related to the individual reduction of inbreeding load. In addition,
-functions to calculate the effective population size and other parameters
-relevant to population genetics are included. See López-Cortegano E.
-(2021) <doi:10.1093/bioinformatics/btab599>.
+Cluster analysis is performed using pairwise distance information and a
+random partition distribution. The method is implemented for two random
+partition distributions. It draws samples and then obtains and plots
+clustering estimates. An implementation of a selection algorithm is
+provided for the mass parameter of the partition distribution. Since
+pairwise distances are the principal input to this procedure, it is most
+comparable to the hierarchical and k-medoids clustering methods. The
+method is Dahl, Andros, Carter (2022+) <doi:10.1002/sam.11602>.
 
 %prep
 %setup -q -c -n %{packname}

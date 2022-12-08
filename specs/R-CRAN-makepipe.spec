@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  makepipe
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pipeline Tools Inspired by 'GNU Make'
 
@@ -20,10 +21,12 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-nomnoml 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-roxygen2 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-nomnoml 
 Requires:         R-CRAN-R6 
 Requires:         R-utils 
+Requires:         R-CRAN-roxygen2 
 
 %description
 A suite of tools for transforming an existing workflow into a

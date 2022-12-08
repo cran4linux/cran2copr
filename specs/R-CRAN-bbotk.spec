@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bbotk
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Black-Box Optimization Toolkit
 
@@ -32,10 +32,12 @@ Requires:         R-methods
 Requires:         R-CRAN-R6 
 
 %description
-Provides a common framework for optimization of black-box functions for
-other packages, e.g. 'mlr3tuning' or 'mlr3fselect'. It offers various
-optimization methods e.g. grid search, random search, generalized
-simulated annealing and iterated racing.
+Features highly configurable search spaces via the 'paradox' package and
+optimizes every user-defined objective function. The package includes
+several optimization algorithms e.g. Random Search, Iterated Racing,
+Bayesian Optimization (in 'mlr3mbo') and Hyperband (in 'mlr3hyperband').
+bbotk is the base package of 'mlr3tuning', 'mlr3fselect' and
+'miesmuschel'.
 
 %prep
 %setup -q -c -n %{packname}

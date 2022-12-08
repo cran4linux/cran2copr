@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nadiv
-%global packver   2.17.1
+%global packver   2.17.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.17.1
+Version:          2.17.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          (Non)Additive Genetic Relatedness Matrices
 
@@ -31,7 +32,7 @@ the 'animal model'). Also includes other functions to facilitate the use
 of animal models. Some functions have been created to be used in
 conjunction with the R package 'asreml' for the 'ASReml' software, which
 can be obtained upon purchase from 'VSN' international
-(<https://www.vsni.co.uk/software/asreml>).
+(<https://vsni.co.uk/software/asreml>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

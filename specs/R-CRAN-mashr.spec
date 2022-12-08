@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mashr
-%global packver   0.2.57
+%global packver   0.2.69
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.57
+Version:          0.2.69
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Adaptive Shrinkage
 
