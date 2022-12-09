@@ -1,36 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pensim
-%global packver   1.3.6
+%global packname  NPCox
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of High-Dimensional Data and Parallelized Repeated Penalized Regression
+Summary:          Nonparametric and Semiparametric Proportional Hazards Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-penalized 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-penalized 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Simulation of continuous, correlated high-dimensional data with time to
-event or binary response, and parallelized functions for Lasso, Ridge, and
-Elastic Net penalized regression with repeated starts and two-dimensional
-tuning of the Elastic Net.
+An estimation procedure for the analysis of nonparametric proportional
+hazards model (e.g. h(t) = h0(t)exp(b(t)'Z)), providing estimation of b(t)
+and its pointwise standard errors, and semiparametric proportional hazards
+model (e.g. h(t) = h0(t)exp(b(t)'Z1 + c*Z2)), providing estimation of
+b(t), c and their standard errors. More details can be found in Lu Tian et
+al. (2005) <doi:10.1198/016214504000000845>.
 
 %prep
 %setup -q -c -n %{packname}

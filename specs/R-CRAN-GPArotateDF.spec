@@ -1,36 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pensim
-%global packver   1.3.6
+%global packname  GPArotateDF
+%global packver   2022.12-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          2022.12.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of High-Dimensional Data and Parallelized Repeated Penalized Regression
+Summary:          Derivative Free Gradient Projection Factor Rotation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel >= 2.0.0
+Requires:         R-core >= 2.0.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-penalized 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-penalized 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-GPArotation 
+Requires:         R-CRAN-GPArotation 
 
 %description
-Simulation of continuous, correlated high-dimensional data with time to
-event or binary response, and parallelized functions for Lasso, Ridge, and
-Elastic Net penalized regression with repeated starts and two-dimensional
-tuning of the Elastic Net.
+Derivative Free Gradient Projection Algorithms for Factor Rotation. For
+more details see ?GPArotateDF. Theory for these functions can be found in
+the following publications: Jennrich (2004) <doi:10.1007/BF02295647>.
+Bernaards and Jennrich (2005) <doi:10.1177/0013164404272507>.
 
 %prep
 %setup -q -c -n %{packname}

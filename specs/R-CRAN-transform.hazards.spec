@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pensim
-%global packver   1.3.6
+%global packname  transform.hazards
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of High-Dimensional Data and Parallelized Repeated Penalized Regression
+Summary:          Transforms Cumulative Hazards to Parameter Specified by ODE System
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-penalized 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-penalized 
-Requires:         R-CRAN-MASS 
 
 %description
-Simulation of continuous, correlated high-dimensional data with time to
-event or binary response, and parallelized functions for Lasso, Ridge, and
-Elastic Net penalized regression with repeated starts and two-dimensional
-tuning of the Elastic Net.
+Targets parameters that solve Ordinary Differential Equations (ODEs)
+driven by a vector of cumulative hazard functions. The package provides a
+method for estimating these parameters using an estimator defined by a
+corresponding Stochastic Differential Equation (SDE) system driven by
+cumulative hazard estimates. By providing cumulative hazard estimates as
+input, the package gives estimates of the parameter as output, along with
+pointwise (co)variances derived from an asymptotic expression. Examples of
+parameters that can be targeted in this way include the survival function,
+the restricted mean survival function, cumulative incidence functions,
+among others; see Ryalen, Stensrud, and Røysland (2018)
+<doi:10.1093/biomet/asy035>, and further applications in Stensrud,
+Røysland, and Ryalen (2019) <doi:10.1111/biom.13102> and Ryalen et al.
+(2021) <doi:10.1093/biostatistics/kxab009>.
 
 %prep
 %setup -q -c -n %{packname}

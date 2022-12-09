@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MSbox
-%global packver   1.4.6
+%global packver   1.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mass Spectrometry Tools
 
@@ -20,18 +21,10 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggfortify 
-BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-xml2 
 Requires:         R-stats 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggfortify 
-Requires:         R-CRAN-plotly 
 
 %description
 Common mass spectrometry tools described in John Roboz (2013)

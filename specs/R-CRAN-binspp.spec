@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  binspp
-%global packver   0.1.24
+%global packver   0.1.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.24
+Version:          0.1.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference for Neyman-Scott Point Processes
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-VGAM
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.model 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-VGAM
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-spatstat 
-Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.model 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.random 
 
