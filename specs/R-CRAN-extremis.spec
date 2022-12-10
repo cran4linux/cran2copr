@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  extremis
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistics of Extremes
 
@@ -27,7 +28,7 @@ Requires:         R-CRAN-evd
 %description
 Conducts inference in statistical models for extreme values (de Carvalho
 et al (2012), <doi:10.1080/03610926.2012.709905>; de Carvalho and Davison
-(2014), <10.1080/01621459.2013.872651>; Einmahl et al (2016),
+(2014), <doi:10.1080/01621459.2013.872651>; Einmahl et al (2016),
 <doi:10.1111/rssb.12099>).
 
 %prep
@@ -38,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

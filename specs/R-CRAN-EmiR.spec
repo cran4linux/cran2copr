@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EmiR
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evolutionary Minimizer for R
 
@@ -29,7 +30,6 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-RcppProgress 
-BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-methods 
 Requires:         R-CRAN-Rdpack 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wk
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight Well-Known Geometry Parsing
 
@@ -21,9 +21,9 @@ Requires:         R-core >= 2.10
 Provides a minimal R and C++ API for parsing well-known binary and
 well-known text representation of geometries to and from R-native formats.
 Well-known binary is compact and fast to parse; well-known text is
-human-readable and is useful for writing tests. These formats are only
-useful in R if the information they contain can be accessed in R, for
-which high-performance functions are provided here.
+human-readable and is useful for writing tests. These formats are useful
+in R only if the information they contain can be accessed in R, for which
+high-performance functions are provided here.
 
 %prep
 %setup -q -c -n %{packname}

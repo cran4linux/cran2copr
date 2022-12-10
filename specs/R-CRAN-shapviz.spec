@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shapviz
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          SHAP Visualizations
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-ggfittext >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-gggenes 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grid 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-xgboost
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-ggfittext >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-gggenes 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-grid 

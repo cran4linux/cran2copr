@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DynComm
-%global packver   2020.1.6
+%global __requires_exclude ^libmpi
+%global packname  SpatialKWD
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.1.6
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Network Communities Detection and Generation
+Summary:          Spatial KWD for Large Spatial Maps
 
-License:          GPL-2
+License:          EUPL (>= 1.2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.15
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.15
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Used for evolving network analysis regarding community detection.
-Implements several algorithms that calculate communities for graphs whose
-nodes and edges change over time. Edges, which can have new nodes, can be
-added or deleted. Changes in the communities are calculated without
-recalculating communities for the entire graph. REFERENCE: M. Cordeiro et
-al. (2016) <DOI:10.1007/s13278-016-0325-1> G. Rossetti et al. (2017)
-<DOI:10.1007/s10994-016-5582-8> G. Rossetti (2017)
-<DOI:10.1093/comnet/cnx016> R. Sarmento (2019) <arXiv:1904.12593>.
+Contains efficient implementations of Discrete Optimal Transport
+algorithms for the computation of Kantorovich-Wasserstein distances
+between pairs of large spatial maps (Bassetti, Gualandi, Veneroni (2020),
+<doi:10.1137/19M1261195>). All the algorithms are based on an ad-hoc
+implementation of the Network Simplex algorithm. The package has four main
+helper functions: compareOneToOne() (to compare two spatial maps),
+compareOneToMany() (to compare a reference map with a list of other maps),
+compareAll() (to compute a matrix of distances between a list of maps),
+and focusArea() (to compute the KWD distance within a focus area). In
+non-convex maps, the helper functions first build the convex-hull of the
+input bins and pad the weights with zeros.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

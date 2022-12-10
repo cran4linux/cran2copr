@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  warbleR
-%global packver   1.1.27
+%global packver   1.1.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.27
+Version:          1.1.28
 Release:          1%{?dist}%{?buildtag}
 Summary:          Streamline Bioacoustic Analysis
 
@@ -34,7 +35,6 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-bioacoustics 
-BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-seewave >= 2.0.1
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-NatureSounds 
@@ -54,7 +54,6 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-bioacoustics 
-Requires:         R-CRAN-stringi 
 
 %description
 Functions aiming to facilitate the analysis of the structure of animal

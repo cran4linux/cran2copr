@@ -1,42 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fake
-%global packver   1.3.0
+%global packname  dynamAedes
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible Data Simulation Using the Multivariate Normal Distribution
+Summary:          A Unified Mechanistic Model for the Population Dynamics of Invasive Aedes Mosquitoes
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-withr >= 2.4.0
-BuildRequires:    R-CRAN-huge 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-withr >= 2.4.0
-Requires:         R-CRAN-huge 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-drc 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-insol 
+BuildRequires:    R-CRAN-slam 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-drc 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-insol 
+Requires:         R-CRAN-slam 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-sp 
 
 %description
-This R package can be used to generate artificial data conditionally on
-pre-specified (simulated or user-defined) relationships between the
-variables and/or observations. Each observation is drawn from a
-multivariate Normal distribution where the mean vector and covariance
-matrix reflect the desired relationships. Outputs can be used to evaluate
-the performances of variable selection, graphical modelling, or clustering
-approaches by comparing the true and estimated structures (B Bodinier et
-al (2021) <arXiv:2106.02521>).
+Generalised model for population dynamics of invasive Aedes mosquitoes.
+Rationale and model structure are described here: Da Re et al. (2021)
+<doi:10.1016/j.ecoinf.2020.101180> and Da Re et al. (2022)
+<doi:10.1101/2021.12.21.473628>.
 
 %prep
 %setup -q -c -n %{packname}

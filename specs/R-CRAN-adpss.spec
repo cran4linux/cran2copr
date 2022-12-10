@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fake
-%global packver   1.3.0
+%global packname  adpss
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible Data Simulation Using the Multivariate Normal Distribution
+Summary:          Design and Analysis of Locally or Globally Efficient Adaptive Designs
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-withr >= 2.4.0
-BuildRequires:    R-CRAN-huge 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-withr >= 2.4.0
-Requires:         R-CRAN-huge 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.17
+Requires:         R-CRAN-Rcpp >= 0.12.17
 
 %description
-This R package can be used to generate artificial data conditionally on
-pre-specified (simulated or user-defined) relationships between the
-variables and/or observations. Each observation is drawn from a
-multivariate Normal distribution where the mean vector and covariance
-matrix reflect the desired relationships. Outputs can be used to evaluate
-the performances of variable selection, graphical modelling, or clustering
-approaches by comparing the true and estimated structures (B Bodinier et
-al (2021) <arXiv:2106.02521>).
+Provides the functions for planning and conducting a clinical trial with
+adaptive sample size determination. Maximal statistical efficiency will be
+exploited even when dramatic or multiple adaptations are made. Such a
+trial consists of adaptive determination of sample size at an interim
+analysis and implementation of frequentist statistical test at the interim
+and final analysis with a prefixed significance level. The required
+assumptions for the stage-wise test statistics are independent and
+stationary increments and normality. Predetermination of adaptation rule
+is not required.
 
 %prep
 %setup -q -c -n %{packname}

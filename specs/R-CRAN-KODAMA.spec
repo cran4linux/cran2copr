@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KODAMA
-%global packver   2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Knowledge Discovery by Accuracy Maximization
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.4
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-minerva 
 BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-umap 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.4
 Requires:         R-stats 
 Requires:         R-CRAN-minerva 
 Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-umap 
 
 %description
 An unsupervised and semi-supervised learning algorithm that performs

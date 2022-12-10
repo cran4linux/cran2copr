@@ -1,47 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RSAGA
-%global packver   1.4.0
+%global packname  gadget3
+%global packver   0.8-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          SAGA Geoprocessing and Terrain Analysis
+Summary:          Globally-Applicable Area Disaggregated General Ecosystem Toolbox V3
 
-License:          GPL-2 | file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         saga
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gstat 
-BuildRequires:    R-CRAN-shapefiles 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-TMB >= 1.7.0
+BuildRequires:    R-CRAN-Matrix >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-gstat 
-Requires:         R-CRAN-shapefiles 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-TMB >= 1.7.0
+Requires:         R-CRAN-Matrix >= 1.2.0
+Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-digest 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
 
 %description
-Provides access to geocomputing and terrain analysis functions of the
-geographical information system (GIS) 'SAGA' (System for Automated
-Geoscientific Analyses) from within R by running the command line version
-of SAGA. This package furthermore provides several R functions for
-handling ASCII grids, including a flexible framework for applying local
-functions (including predict methods of fitted models) and focal functions
-to multiple grids. SAGA GIS is available under GPL-2 / LGPL-2 licences
-from <https://sourceforge.net/projects/saga-gis/>.
+A framework to assist creation of marine ecosystem models, generating
+either 'R' or 'C++' code which can then be optimised using the 'TMB'
+package and standard 'R' tools. Principally designed to reproduce gadget2
+models in 'TMB', but can be extended beyond gadget2's capabilities. Kasper
+Kristensen, Anders Nielsen, Casper W. Berg, Hans Skaug, Bradley M. Bell
+(2016) <doi:10.18637/jss.v070.i05> "TMB: Automatic Differentiation and
+Laplace Approximation.". Begley, J., & Howell, D. (2004)
+<https://core.ac.uk/download/pdf/225936648.pdf> "An overview of Gadget,
+the globally applicable area-disaggregated general ecosystem toolbox.
+ICES.".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sharp
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stability-enHanced Approaches using Resampling Procedures
 
@@ -18,37 +18,35 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 2.4.0
+BuildRequires:    R-CRAN-fake >= 1.3.0
 BuildRequires:    R-CRAN-glassoFast >= 1.0
-BuildRequires:    R-CRAN-fake 
+BuildRequires:    R-CRAN-beepr 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-huge 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-withr >= 2.4.0
+Requires:         R-CRAN-fake >= 1.3.0
 Requires:         R-CRAN-glassoFast >= 1.0
-Requires:         R-CRAN-fake 
+Requires:         R-CRAN-beepr 
 Requires:         R-CRAN-glmnet 
 Requires:         R-grDevices 
-Requires:         R-CRAN-huge 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mclust 
 Requires:         R-parallel 
 Requires:         R-CRAN-Rdpack 
 
 %description
-Implementation of stability selection for graphical modelling and variable
-selection in regression and dimensionality reduction. These models use on
-resampling approaches to estimate selection probabilities (N Meinshausen,
-P Bühlmann (2010) <doi:10.1111/j.1467-9868.2010.00740.x>). Calibration of
-the hyper-parameters is done via maximisation of a stability score
-measuring the likelihood of informative (non-uniform) selection (B
-Bodinier, S Filippi, TH Nost, J Chiquet, M Chadeau-Hyam (2021)
-<arXiv:2106.02521>).
+In stability selection (N Meinshausen, P Bühlmann (2010)
+<doi:10.1111/j.1467-9868.2010.00740.x>), resampling techniques are used to
+enhance the reliability of the results. In this package, hyper-parameters
+are calibrated by maximising model stability, which is measured by the
+negative log-likelihood under the null hypothesis that all selection
+probabilities are identical (B Bodinier et al (2021) <arXiv:2106.02521>).
+Functions are readily implemented for the use of LASSO regression, sparse
+PCA, sparse (group) PLS or graphical LASSO.
 
 %prep
 %setup -q -c -n %{packname}

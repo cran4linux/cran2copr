@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  stokes
-%global packver   1.1-3
+%global packver   1.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Exterior Calculus
 
@@ -17,24 +18,26 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-permutations >= 1.0.4
-BuildRequires:    R-CRAN-spray >= 1.0.18
+BuildRequires:    R-CRAN-spray >= 1.0.21
 BuildRequires:    R-CRAN-disordR >= 0.0.8
 BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-permutations >= 1.0.4
-Requires:         R-CRAN-spray >= 1.0.18
+Requires:         R-CRAN-spray >= 1.0.21
 Requires:         R-CRAN-disordR >= 0.0.8
 Requires:         R-CRAN-partitions 
 Requires:         R-methods 
 Requires:         R-CRAN-mathjaxr 
 
 %description
-Provides functionality for working with tensors, alternating tensors,
-wedge products, Stokes's theorem, and related concepts from the exterior
-calculus.  Functionality for Grassman algebra is provided.  The canonical
-reference would be: M. Spivak (1965, ISBN:0-8053-9021-9) "Calculus on
-Manifolds".
+Provides functionality for working with tensors, alternating forms, wedge
+products, Stokes's theorem, and related concepts from the exterior
+calculus.  Uses 'disordR' discipline (Hankin, 2022,
+<doi:10.48550/ARXIV.2210.03856>).  The canonical reference would be M.
+Spivak (1965, ISBN:0-8053-9021-9) "Calculus on Manifolds".  To cite the
+package in publications please use Hankin (2022)
+<doi:10.48550/ARXIV.2210.17008>.
 
 %prep
 %setup -q -c -n %{packname}

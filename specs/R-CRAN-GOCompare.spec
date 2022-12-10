@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GOCompare
-%global packver   1.0.2
+%global packver   1.0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive GO Terms Comparison Between Species
 
@@ -47,8 +47,8 @@ Requires:         R-CRAN-mathjaxr
 %description
 Supports the assessment of functional enrichment analyses obtained for
 several lists of genes and provides a workflow to analyze them between two
-species via weighted graphs. Methods are described in Sosa et al. (2022)
-(Submitted to Genomics).
+species via weighted graphs. Methods are described in Sosa et al. (2023)
+<doi:10.1016/j.ygeno.2022.110528>.
 
 %prep
 %setup -q -c -n %{packname}

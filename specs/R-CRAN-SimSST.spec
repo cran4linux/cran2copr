@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ReorderCluster
-%global packver   2.0
+%global __requires_exclude ^libmpi
+%global packname  SimSST
+%global packver   0.0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.0.4.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reordering the Dendrogram According to the Class Labels
+Summary:          Simulated Stop Signal Task Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.1
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 0.12.1
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-gplots 
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gamlss.dist 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gamlss.dist 
 
 %description
-Tools for performing the leaf reordering for the dendrogram that preserves
-the hierarchical clustering result and at the same time tries to group
-instances from the same class together.
+Stop signal task data of go and stop trials is generated per participant.
+The simulation process is based on the independent horse race model and
+fixed stop signal delay or tracking method. Each of go and stop process is
+assumed having exponentially modified Gaussian(ExG) or Shifted Wald (SW)
+distributions. The output data can be converted to 'BEESTS' software input
+data enabling researchers to test and evaluate various brain stopping
+processes manifested by ExG or SW distributional parameters of interest.
+Methods are described in: Soltanifar M (2020)
+<https://hdl.handle.net/1807/101208>, Matzke D, Love J, Wiecki TV, Brown
+SD, Logan GD and Wagenmakers E-J (2013) <doi:10.3389/fpsyg.2013.00918>,
+Logan GD, Van Zandt T, Verbruggen F, Wagenmakers EJ. (2014)
+<doi:10.1037/a0035230>.
 
 %prep
 %setup -q -c -n %{packname}
