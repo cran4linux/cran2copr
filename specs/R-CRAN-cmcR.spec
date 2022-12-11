@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cmcR
-%global packver   0.1.9
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of the 'Congruent Matching Cells' Method
 
@@ -16,47 +17,49 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-ggnewscale >= 0.4.6
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-x3ptools 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-ggplotify 
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-ggnewscale >= 0.4.6
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-x3ptools 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-imager 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-assertthat 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-ggplotify 
 
 %description
 An open-source implementation of the 'Congruent Matching Cells' method for
 cartridge case identification as proposed by Song (2013)
 <https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=911193> as well as
-an extension of the method proposed by Tong et al. (2015) <doi:10.6028>
-(10.6028/jres.120.008). Provides a wide range of pre, inter, and
+an extension of the method proposed by Tong et al. (2015)
+<doi:10.6028/jres.120.008>. Provides a wide range of pre, inter, and
 post-processing options when working with cartridge case scan data and
 their associated comparisons. See the cmcR package website for more
 details and examples.

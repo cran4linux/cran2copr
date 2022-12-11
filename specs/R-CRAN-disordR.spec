@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  disordR
-%global packver   0.0-9-2
+%global packver   0.0-9-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9.2
+Version:          0.0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Ordered Vectors
 
@@ -39,7 +39,8 @@ allowed to access or modify a disord object using a python list
 comprehension.  The idea is to prevent ill-defined operations on values
 (or keys) of associative maps, whose order is undefined or at best
 implementation-specific, while allowing and facilitating sensible
-operations.
+operations.  To cite the package in publications please use Hankin (2022)
+<doi:10.48550/ARXIV.2210.03856>.
 
 %prep
 %setup -q -c -n %{packname}
