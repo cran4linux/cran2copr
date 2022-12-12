@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  freealg
-%global packver   1.0-8
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Free Algebra
 
@@ -18,18 +18,20 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-partitions >= 1.9.22
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-disordR >= 0.0.8
+BuildRequires:    R-CRAN-disordR >= 0.0.9.3
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-partitions >= 1.9.22
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-disordR >= 0.0.8
+Requires:         R-CRAN-disordR >= 0.0.9.3
 Requires:         R-methods 
 Requires:         R-CRAN-mathjaxr 
 
 %description
-The free algebra in R; multivariate polynomials with non-commuting
-indeterminates.  Uses 'disordR' discipline.
+The free algebra in R with non-commuting indeterminates. Uses 'disordR'
+discipline (Hankin, 2022, <doi:10.48550/ARXIV.2210.03856>).  To cite the
+package in publications please use Hankin (2022)
+<doi:10.48550/ARXIV.2211.04002>.
 
 %prep
 %setup -q -c -n %{packname}

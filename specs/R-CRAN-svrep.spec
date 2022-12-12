@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  svrep
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Creating, Updating, and Analyzing Survey Replicate Weights
 
@@ -17,9 +18,11 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survey >= 4.1
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-survey >= 4.1
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -27,7 +30,7 @@ Requires:         R-utils
 Provides tools for creating and working with survey replicate weights,
 extending functionality of the 'survey' package from Lumley (2004)
 <doi:10.18637/jss.v009.i08>. Methods are provided for applying nonresponse
-adjustments to both full-sample and replicate weights as suggested by Rust
+adjustments to both full-sample and replicate weights as described by Rust
 and Rao (1996) <doi:10.1177/096228029600500305>. Implements methods for
 sample-based calibration described by Opsomer and Erciulescu (2021)
 <https://www150.statcan.gc.ca/n1/pub/12-001-x/2021002/article/00006-eng.htm>.

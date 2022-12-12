@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cellWise
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Data with Cellwise Outliers
 
@@ -27,6 +27,8 @@ BuildRequires:    R-CRAN-robustbase
 BuildRequires:    R-CRAN-rrcov 
 BuildRequires:    R-CRAN-svd 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-shape 
 Requires:         R-CRAN-Rcpp >= 0.12.10.14
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
@@ -37,6 +39,8 @@ Requires:         R-CRAN-robustbase
 Requires:         R-CRAN-rrcov 
 Requires:         R-CRAN-svd 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-shape 
 
 %description
 Tools for detecting cellwise outliers and robust methods to analyze data
@@ -44,12 +48,14 @@ which may contain them. Contains the implementation of the algorithms
 described in Rousseeuw and Van den Bossche (2018)
 <doi:10.1080/00401706.2017.1340909> (open access) Hubert et al. (2019)
 <doi:10.1080/00401706.2018.1562989> (open access), Raymaekers and
-Rousseeuw (2019) <doi:10.1080/00401706.2019.1677270> (open access),
-Raymaekers and Rousseeuw (2020) <doi:10.1007/s10994-021-05960-5> (open
-access), Raymaekers and Rousseeuw (2020) <doi:10.52933/jdssv.v1i3.18>
-(open access). Examples can be found in the vignettes: "DDC_examples",
-"MacroPCA_examples", "wrap_examples", "transfo_examples", "DI_examples"
-and "cellMCD_examples".
+Rousseeuw (2021) <doi:10.1080/00401706.2019.1677270> (open access),
+Raymaekers and Rousseeuw (2021) <doi:10.1007/s10994-021-05960-5> (open
+access), Raymaekers and Rousseeuw (2021) <doi:10.52933/jdssv.v1i3.18>
+(open access), Raymaekers and Rousseeuw (2022) <arXiv:2207.13493> (open
+access) Rousseeuw (2022) <arXiv:2209.12697> (open access). Examples can be
+found in the vignettes: "DDC_examples", "MacroPCA_examples",
+"wrap_examples", "transfo_examples", "DI_examples", "cellMCD_examples" ,
+"Correspondence_analysis_examples", and "cellwise_weights_examples".
 
 %prep
 %setup -q -c -n %{packname}
