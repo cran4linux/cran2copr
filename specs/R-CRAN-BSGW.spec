@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rKolada
-%global packver   0.2.1
+%global __requires_exclude ^libmpi
+%global packname  BSGW
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Kolada' Database
+Summary:          Bayesian Survival Model with Lasso Shrinkage Using Generalized Weibull Regression
 
-License:          AGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,33 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-urltools 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-MfUSampler 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-MfUSampler 
+Requires:         R-methods 
 
 %description
-Methods for downloading and processing data and metadata from 'Kolada',
-the official Swedish regions and municipalities database
-<https://kolada.se/>.
+Bayesian survival model using Weibull regression on both scale and shape
+parameters. Dependence of shape parameter on covariates permits deviation
+from proportional-hazard assumption, leading to dynamic - i.e.
+non-constant with time - hazard ratios between subjects. Bayesian Lasso
+shrinkage in the form of two Laplace priors - one for scale and one for
+shape coefficients - allows for many covariates to be included.
+Cross-validation helper functions can be used to tune the shrinkage
+parameters. Monte Carlo Markov Chain (MCMC) sampling using a Gibbs wrapper
+around Radford Neal's univariate slice sampler (R package MfUSampler) is
+used for coefficient estimation.
 
 %prep
 %setup -q -c -n %{packname}

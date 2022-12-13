@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pompp
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Presence-Only for Marked Point Process
 
@@ -39,7 +39,10 @@ Requires:         R-tools
 Inspired by Moreira and Gamerman (2022) <doi:10.1214/21-AOAS1569>, this
 methodology expands the idea by including Marks in the point process.
 Using efficient 'C++' code, the estimation is possible and made faster
-with 'OpenMP' <https://www.openmp.org/> enabled computers.
+with 'OpenMP' <https://www.openmp.org/> enabled computers. This package
+was developed under the project PTDC/MAT-STA/28243/2017, supported by
+Portuguese funds through the Portuguese Foundation for Science and
+Technology (FCT).
 
 %prep
 %setup -q -c -n %{packname}

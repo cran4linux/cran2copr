@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  IDSpatialStats
-%global packver   0.3.12
+%global __requires_exclude ^libmpi
+%global packname  Crosstabs.Loglinear
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.12
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Global Clustering in Infectious Disease
+Summary:          Cross Tabulation and Loglinear Analyses of Categorical Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Implements various novel and standard clustering statistics and other
-analyses useful for understanding the spread of infectious disease.
+Provides 'SPSS'- and 'SAS'-like output for cross tabulations of two
+categorical variables (CROSSTABS) and for hierarchical loglinear analyses
+of two or more categorical variables (LOGLINEAR). The methods are
+described in Agresti (2013, ISBN:978-0-470-46363-5), Ajzen & Walker (2021,
+ISBN:9780429330308), Field (2018, ISBN:9781526440273), Norusis (2012,
+ISBN:978-0-321-74843-0), Nussbaum (2015, ISBN:978-1-84872-603-1), Stevens
+(2009, ISBN:978-0-8058-5903-4), Tabachnik & Fidell (2019,
+ISBN:9780134790541), and von Eye & Mun (2013, ISBN:978-1-118-14640-8).
 
 %prep
 %setup -q -c -n %{packname}

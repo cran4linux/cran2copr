@@ -1,48 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ForestGapR
-%global packver   0.1.6
+%global __requires_exclude ^libmpi
+%global packname  GroupSeq
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tropical Forest Canopy Gaps Analysis
+Summary:          Group Sequential Design Probabilities - With Graphical User Interface
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    xorg-x11-server-Xvfb
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-poweRlaw 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-sp 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-poweRlaw 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-tcltk2 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-tcltk 
+Requires:         R-CRAN-tcltk2 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Set of tools for detecting and analyzing Airborne Laser Scanning-derived
-Tropical Forest Canopy Gaps. Details were published in Silva et al. (2019)
-<doi:10.1111/2041-210X.13211>.
+Computes probabilities related to group sequential designs for normally
+distributed test statistics. Enables to derive critical boundaries, power,
+drift, and confidence intervals of such designs. Supports the alpha
+spending approach by Lan-DeMets (1994) <doi:10.1002/sim.4780131308>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,7 +49,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

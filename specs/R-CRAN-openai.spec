@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openai
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Wrapper for OpenAI API
 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-assertthat >= 0.2.1
 %description
 An R wrapper of OpenAI API endpoints (see
 <https://beta.openai.com/docs/introduction> for details). This package
-covers Engines, Completions, Edits, Files, Fine-tunes, Embeddings and
-legacy Searches, Classifications, and Answers endpoints.
+covers Models, Completions, Edits, Images, Embeddings, Files, Fine-tunes,
+Moderations, and legacy Engines endpoints.
 
 %prep
 %setup -q -c -n %{packname}

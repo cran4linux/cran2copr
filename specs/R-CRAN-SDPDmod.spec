@@ -1,31 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jgsbook
-%global packver   1.0.1
+%global packname  SDPDmod
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
+Summary:          Spatial Dynamic Panel Data Modeling
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statip 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-statip 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-plm 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spdep 
+Requires:         R-stats 
 
 %description
-All datasets and functions used in the german book "Statistik mit R und
-RStudio" by Joerg grosse Schlarmann. You can read it online at
-<https://www.produnis.de/R/> .
+Spatial model calculation for static and dynamic panel data models,
+weights matrix creation and Bayesian model comparison. Bayesian model
+comparison methods were described by 'LeSage' (2014)
+<doi:10.1016/j.spasta.2014.02.002>. The 'Lee'-'Yu' transformation approach
+is described in 'Yu', 'De Jong' and 'Lee' (2008)
+<doi:10.1016/j.jeconom.2008.08.002>, 'Lee' and 'Yu' (2010)
+<doi:10.1016/j.jeconom.2009.08.001> and 'Lee' and 'Yu' (2010)
+<doi:10.1017/S0266466609100099>.
 
 %prep
 %setup -q -c -n %{packname}

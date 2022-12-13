@@ -1,39 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hht
-%global packver   2.1.5
+%global packname  AnxietySleep
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Hilbert-Huang Transform: Tools and Methods
+Summary:          Sleep Quality and Anxiety in Confinement
 
-License:          GPL (>= 3)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fields >= 6.7
-BuildRequires:    R-CRAN-EMD >= 1.5.5
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.core 
-Requires:         R-CRAN-fields >= 6.7
-Requires:         R-CRAN-EMD >= 1.5.5
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-data.table >= 1.14.2
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-data.table >= 1.14.2
+Requires:         R-CRAN-lifecycle 
 
 %description
-Builds on the EMD package to provide additional tools for empirical mode
-decomposition (EMD) and Hilbert spectral analysis. It also implements the
-ensemble empirical decomposition (EEMD) and the complete ensemble
-empirical mode decomposition (CEEMD) methods to avoid mode mixing and
-intermittency problems found in EMD analysis.  The package comes with
-several plotting methods that can be used to view intrinsic mode
-functions, the HHT spectrum, and the Fourier spectrum.
+Data from the anxiety and confinement study from Alvarado-Aravena et al.
+(2022) <doi:10.3390/bs12100398>.
 
 %prep
 %setup -q -c -n %{packname}
