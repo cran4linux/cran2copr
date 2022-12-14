@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppSpdlog
-%global packver   0.0.11
+%global packname  DLSSM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R and C++ Interfaces to 'spdlog' C++ Header Library for Logging
+Summary:          Dynamic Logistic State Space Prediction Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.10
+Requires:         R-core >= 3.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix 
 
 %description
-The mature and widely-used C++ logging library 'spdlog' by Gabi Melman
-provides many desirable features. This package bundles these header files
-for easy use by R packages from both their R and C or C++ code. Explicit
-use via 'LinkingTo:' is also supported.
+Implements the dynamic logistic state space model for binary outcome data
+proposed by Jiang et al. (2021) <doi:10.1111/biom.13593>. It provides a
+computationally efficient way to update the prediction whenever new data
+becomes available. It allows for both time-varying and time-invariant
+coefficients, and use cubic smoothing splines to model varying
+coefficients. The smoothing parameters are objectively chosen by maximum
+likelihood. The model is updated using batch data accumulated at
+pre-specified time intervals.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  statgenHTP
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Throughput Phenotyping (HTP) Data Analysis
 
@@ -24,11 +25,14 @@ BuildRequires:    R-CRAN-ggforce
 BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-LMMsolver 
 BuildRequires:    R-CRAN-locfit 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-spam 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-SpATS >= 1.0.13
 Requires:         R-CRAN-animation 
@@ -37,11 +41,14 @@ Requires:         R-CRAN-ggforce
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-LMMsolver 
 Requires:         R-CRAN-locfit 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
-Requires:         R-splines 
+Requires:         R-CRAN-spam 
 
 %description
 Phenotypic analysis of data coming from high throughput phenotyping (HTP)
@@ -50,7 +57,7 @@ analysis, and parameter estimation. The package is being developed within
 the EPPN2020 project (<https://eppn2020.plant-phenotyping.eu/>). Some
 functions have been created to be used in conjunction with the R package
 'asreml' for the 'ASReml' software, which can be obtained upon purchase
-from 'VSN' international (<https://www.vsni.co.uk/software/asreml>).
+from 'VSN' international (<https://vsni.co.uk/software/asreml>).
 
 %prep
 %setup -q -c -n %{packname}

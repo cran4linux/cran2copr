@@ -1,32 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  triangle
+%global packname  matchFeat
 %global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distribution Functions and Parameter Estimates for the Triangle Distribution
+Summary:          One-to-One Feature Matching
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.1
-Requires:         R-core >= 2.14.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-assertthat 
-Requires:         R-stats4 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-clue 
+Requires:         R-CRAN-foreach 
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Provides the "r, q, p, and d" distribution functions for the triangle
-distribution.  Also includes maximum likelihood estimation of parameters.
+Statistical methods to match feature vectors between multiple datasets in
+a one-to-one fashion. Given a fixed number of classes/distributions, for
+each unit, exactly one vector of each class is observed without label. The
+goal is to label the feature vectors using each label exactly once so to
+produce the best match across datasets, e.g. by minimizing the variability
+within classes. Statistical solutions based on empirical loss functions
+and probabilistic modeling are provided. The 'Gurobi' software and its 'R'
+interface package are required for one of the package functions
+(match.2x()) and can be obtained at <https://www.gurobi.com/> (free
+academic license). For more details, refer to Degras (2022)
+<doi:10.1080/10618600.2022.2074429> "Scalable feature matching for large
+data collections" and Bandelt, Maas, and Spieksma (2004)
+<doi:10.1057/palgrave.jors.2601723> "Local search heuristics for
+multi-index assignment problems with decomposable costs".
 
 %prep
 %setup -q -c -n %{packname}

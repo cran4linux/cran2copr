@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StrucDiv
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Structural Diversity Quantification in Raster Data
 
@@ -17,19 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-raster >= 3.1.5
+BuildRequires:    R-CRAN-foreach >= 1.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-doParallel >= 1.0.15
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-raster >= 3.1.5
+Requires:         R-CRAN-foreach >= 1.5.0
 Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-doParallel >= 1.0.15
+Requires:         R-CRAN-glue 
 
 %description
-Spatial structural diversity refers to the spatial arrangement of
-landscape elements and can reveal itself as landscape features, such as
-patches and line features. The 'R' package 'StrucDiv' provides methods to
-quantify spatial structural diversity in continuous remote sensing data,
-or in other data in gridded field format. The methods are based on
-second-order texture metrics, considering the spatial arrangement of pixel
-pairs.
+Spatial structural diversity refers to the spatial, i.e. horizontal
+arrangement of landscape elements and can reveal itself as landscape
+features, such as patches and linear features. The 'R' package 'StrucDiv'
+provides methods to quantify spatial structural diversity in continuous
+remote sensing data, or in other data in raster format. Structure is based
+on the spatial arrangement of value pairs. The 'R' package 'StrucDiv'
+includes methods to combine information from different spatial scales,
+which allows to quantify multi-scale spatial structural diversity.
 
 %prep
 %setup -q -c -n %{packname}

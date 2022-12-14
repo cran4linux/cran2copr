@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppSpdlog
-%global packver   0.0.11
+%global packname  jgsbook
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.11
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R and C++ Interfaces to 'spdlog' C++ Header Library for Logging
+Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-statip 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-statip 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
 
 %description
-The mature and widely-used C++ logging library 'spdlog' by Gabi Melman
-provides many desirable features. This package bundles these header files
-for easy use by R packages from both their R and C or C++ code. Explicit
-use via 'LinkingTo:' is also supported.
+All datasets and functions used in the german book "Statistik mit R und
+RStudio" by grosse Schlarmann (2022) <https://www.produnis.de/R/>.
 
 %prep
 %setup -q -c -n %{packname}

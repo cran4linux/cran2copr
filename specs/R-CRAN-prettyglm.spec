@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  prettyglm
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pretty Summaries of Generalized Linear Model Coefficients
 
@@ -22,7 +23,9 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidycat 
@@ -35,7 +38,9 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
+Requires:         R-methods 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidycat 
@@ -47,7 +52,10 @@ Requires:         R-CRAN-vip
 One of the main advantages of using Generalised Linear Models is their
 interpretability.  The goal of 'prettyglm' is to provide a set of
 functions which easily create beautiful coefficient summaries which can
-readily be shared and explained.
+readily be shared and explained. 'prettyglm' helps users create
+coefficient summaries which include categorical base levels, variable
+importance and type III p.values. 'prettyglm' also creates beautiful
+relativity plots for categorical, continuous and splined coefficients.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,6 +65,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

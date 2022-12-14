@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppSpdlog
-%global packver   0.0.11
+%global packname  nemBM
+%global packver   1.00.00
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.11
+Version:          1.00.00
 Release:          1%{?dist}%{?buildtag}
-Summary:          R and C++ Interfaces to 'spdlog' C++ Header Library for Logging
+Summary:          Using Network Evolution Models to Generate Networks with Selected Blockmodel Type
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ergm 
+BuildRequires:    R-CRAN-blockmodeling 
+Requires:         R-CRAN-ergm 
+Requires:         R-CRAN-blockmodeling 
 
 %description
-The mature and widely-used C++ logging library 'spdlog' by Gabi Melman
-provides many desirable features. This package bundles these header files
-for easy use by R packages from both their R and C or C++ code. Explicit
-use via 'LinkingTo:' is also supported.
+To study network evolution models and different blockmodeling approaches.
+Various functions enable generating (temporal) networks with a selected
+blockmodel type, taking into account selected local network mechanisms.
+The development of this package is financially supported by the Slovenian
+Research Agency (www.arrs.gov.si) within the research programs P5-0168 and
+the research project J7-8279 (Blockmodeling multilevel and temporal
+networks).
 
 %prep
 %setup -q -c -n %{packname}
