@@ -1,44 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eurodata
-%global packver   1.6.0
+%global packname  POMS
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Easy Eurostat Data Import and Search
+Summary:          Phylogenetic Organization of Metagenomic Signals
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-magrittr 
+BuildArch:        noarch
+BuildRequires:    R-parallel >= 3.3.0
+BuildRequires:    R-CRAN-ape >= 3.0
+BuildRequires:    R-CRAN-phylolm >= 2.6
+BuildRequires:    R-CRAN-phangorn >= 2.0.0
+BuildRequires:    R-CRAN-XNomial >= 1.0.4
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-utils 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-utils 
+Requires:         R-parallel >= 3.3.0
+Requires:         R-CRAN-ape >= 3.0
+Requires:         R-CRAN-phylolm >= 2.6
+Requires:         R-CRAN-phangorn >= 2.0.0
+Requires:         R-CRAN-XNomial >= 1.0.4
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-MASS 
+Requires:         R-utils 
 
 %description
-Interface to Eurostat’s Bulk Download Facility with fast data.table-based
-import of data, labels, and metadata. On top of the core functionality,
-data search and data description/comparison functions are also provided.
+Code to identify functional enrichments across diverse taxa in
+phylogenetic tree, particularly where these taxa differ in abundance
+across samples in a non-random pattern. The motivation for this approach
+is to identify microbial functions encoded by diverse taxa that are at
+higher abundance in certain samples compared to others, which could
+indicate that such functions are broadly adaptive under certain
+conditions. See 'GitHub' repository for tutorial and examples:
+<https://github.com/gavinmdouglas/POMS/wiki>. Citation: Gavin M. Douglas,
+Molly G. Hayes, Morgan G. I. Langille, Elhanan Borenstein (2022)
+<doi:10.1093/bioinformatics/btac655>.
 
 %prep
 %setup -q -c -n %{packname}

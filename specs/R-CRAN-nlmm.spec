@@ -1,45 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  castor
-%global packver   1.7.6
+%global packname  nlmm
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.6
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Phylogenetics on Large Trees
+Summary:          Generalized Laplace Mixed-Effects Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.10
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-naturalsort 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.13
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lqmm 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RSpectra 
-Requires:         R-CRAN-Rcpp >= 0.12.10
-Requires:         R-parallel 
-Requires:         R-CRAN-naturalsort 
+BuildRequires:    R-CRAN-Qtools 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.13
+Requires:         R-CRAN-nlme 
+Requires:         R-utils 
+Requires:         R-CRAN-lqmm 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-statmod 
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-Qtools 
 
 %description
-Efficient phylogenetic analyses on massive phylogenies comprising up to
-millions of tips. Functions include pruning, rerooting, calculation of
-most-recent common ancestors, calculating distances from the tree root and
-calculating pairwise distances. Calculation of phylogenetic signal and
-mean trait depth (trait conservatism), ancestral state reconstruction and
-hidden character prediction of discrete characters, simulating and fitting
-models of trait evolution, fitting and simulating diversification models,
-dating trees, comparing trees, and reading/writing trees in Newick format.
-Citation: Louca, Stilianos and Doebeli, Michael (2017)
-<doi:10.1093/bioinformatics/btx701>.
+Provides functions to fit linear mixed models based on convolutions of the
+generalized Laplace (GL) distribution. The GL mixed-effects model includes
+four special cases with normal random effects and normal errors (NN),
+normal random effects and Laplace errors (NL), Laplace random effects and
+normal errors (LN), and Laplace random effects and Laplace errors (LL).
+The methods are described in Geraci and Farcomeni (2020, Statistical
+Methods in Medical Research) <doi:10.1177/0962280220903763>.
 
 %prep
 %setup -q -c -n %{packname}

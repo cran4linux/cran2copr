@@ -1,31 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  r.proxy
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  gutenbergr
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Set Proxy in R Console
+Summary:          Download and Process Public Domain Works from Project Gutenberg
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-urltools 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-urltools 
 
 %description
-The use of proxies is required in certain network environments. Despite
-the power of system level software, it is still inconvenient to switch
-proxy networks at random in R's console. This package is designed to
-provide one-click switching between proxy and non-proxy states.
+Download and process public domain works in the Project Gutenberg
+collection <http://www.gutenberg.org/>. Includes metadata for all Project
+Gutenberg works, so that they can be searched and retrieved.
 
 %prep
 %setup -q -c -n %{packname}

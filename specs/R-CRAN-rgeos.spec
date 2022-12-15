@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rgeos
-%global packver   0.5-9
+%global packver   0.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.9
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to Geometry Engine - Open Source ('GEOS')
 
@@ -13,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    geos-devel >= 3.2.0
+BuildRequires:    geos-devel
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-sp >= 1.1.0
@@ -30,11 +31,11 @@ Requires:         R-graphics
 %description
 Interface to Geometry Engine - Open Source ('GEOS') using the C 'API' for
 topology operations on geometries. Please note that 'rgeos' will be
-retired by the end of 2023, plan transition to sf functions using 'GEOS'
-at your earliest convenience. The 'GEOS' library is external to the
-package, and, when installing the package from source, must be correctly
-installed first. Windows and Mac Intel OS X binaries are provided on
-'CRAN'. ('rgeos' >= 0.5-1): Up to and including 'GEOS' 3.7.1, topological
+retired during 2023, plan transition to sf functions using 'GEOS' at your
+earliest convenience. The 'GEOS' library is external to the package, and,
+when installing the package from source, must be correctly installed
+first. Windows and Mac Intel OS X binaries are provided on 'CRAN'.
+('rgeos' >= 0.5-1): Up to and including 'GEOS' 3.7.1, topological
 operations succeeded with some invalid geometries for which the same
 operations fail from and including 'GEOS' 3.7.2. The 'checkValidity='
 argument defaults and structure have been changed, from default FALSE to

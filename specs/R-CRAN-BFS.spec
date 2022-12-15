@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFS
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Data from the Swiss Statistical Office
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-tidyRSS 
 Requires:         R-CRAN-pxweb 
 Requires:         R-CRAN-jsonlite 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-rvest
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-tidyRSS 
 
 %description

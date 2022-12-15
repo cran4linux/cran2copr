@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  persDx
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Personalized Diagnostics Rules
 
@@ -20,8 +21,8 @@ BuildRequires:    R-CRAN-pROC
 Requires:         R-CRAN-pROC 
 
 %description
-Recommend the optimal biomarker (or test) for disease screening or
-diagnosis based on patients' individual characteristics.
+Recommend the optimal biomarker for disease screening or diagnosis based
+on patients' individual characteristics.
 
 %prep
 %setup -q -c -n %{packname}

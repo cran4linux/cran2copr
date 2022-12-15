@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  freegroup
-%global packver   1.1-3
+%global packver   1.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Free Group
 
@@ -13,14 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magic >= 1.5.9
+BuildRequires:    R-CRAN-freealg >= 1.0.4
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-magic >= 1.5.9
+Requires:         R-CRAN-freealg >= 1.0.4
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-plyr 
@@ -28,7 +31,8 @@ Requires:         R-CRAN-plyr
 %description
 The free group in R; juxtaposition is represented by a plus.  Includes
 inversion, multiplication by a scalar, group-theoretic power operation,
-and Tietze forms.
+and Tietze forms.  To cite the package in publications please use Hankin
+(2022) <doi:10.48550/ARXIV.2212.05883>.
 
 %prep
 %setup -q -c -n %{packname}

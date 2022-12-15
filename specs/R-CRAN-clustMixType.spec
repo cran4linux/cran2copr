@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  clustMixType
-%global packver   0.2-15
+%global packver   0.3-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.15
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          k-Prototypes Clustering for Mixed Variable-Type Data
 
@@ -25,7 +26,7 @@ Requires:         R-CRAN-tibble
 Functions to perform k-prototypes partitioning clustering for mixed
 variable-type data according to Z.Huang (1998): Extensions to the k-Means
 Algorithm for Clustering Large Data Sets with Categorical Variables, Data
-Mining and Knowledge Discovery 2, 283-304, <DOI:10.1023/A:1009769707641>.
+Mining and Knowledge Discovery 2, 283-304.
 
 %prep
 %setup -q -c -n %{packname}

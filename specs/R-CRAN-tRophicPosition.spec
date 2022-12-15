@@ -1,43 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clmplus
-%global packver   0.1.0
+%global packname  tRophicPosition
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool-Box of Chain Ladder Plus Models
+Summary:          Bayesian Trophic Position Estimation with Stable Isotopes
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-StMoMo 
-BuildRequires:    R-CRAN-ChainLadder 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-StMoMo 
-Requires:         R-CRAN-ChainLadder 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-hdrcde 
+BuildRequires:    R-CRAN-MCMCglmm 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-hdrcde 
+Requires:         R-CRAN-MCMCglmm 
+Requires:         R-methods 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-stats 
 
 %description
-Implementation of the chain ladder model under the reverse time framework
-introduced in Hiabu (2017) <doi:10.1080/03461238.2016.1240709>. It also
-implements extensions that add flexibility to the individual development
-factors modeling by allowing practitioners to set their own hazard rate
-model.
+Estimates the trophic position of a consumer relative to a baseline
+species. It implements a Bayesian approach which combines an interface to
+the 'JAGS' MCMC library of 'rjags' and stable isotopes. Users are
+encouraged to test the package and send bugs and/or errors to
+trophicposition-support@googlegroups.com.
 
 %prep
 %setup -q -c -n %{packname}

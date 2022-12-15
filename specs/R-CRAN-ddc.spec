@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EpiInvert
-%global packver   0.3.1
+%global packname  ddc
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variational Techniques in Epidemiology
+Summary:          Distance Density Clustering Algorithm
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
-Requires:         R-CRAN-Rcpp >= 1.0.8.3
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dtwclust >= 5.5
+BuildRequires:    R-parallel >= 4.2
+BuildRequires:    R-CRAN-magrittr >= 2.0
+BuildRequires:    R-CRAN-dtw >= 1.22
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dtwclust >= 5.5
+Requires:         R-parallel >= 4.2
+Requires:         R-CRAN-magrittr >= 2.0
+Requires:         R-CRAN-dtw >= 1.22
+Requires:         R-utils 
 
 %description
-Using variational techniques we address some epidemiological problems as
-the incidence curve decomposition by inverting the renewal equation as
-described in Alvarez et al. (2021) <doi:10.1073/pnas.2105112118> and
-Alvarez et al. (2022) <doi:10.3390/biology11040540> or the estimation of
-the functional relationship between epidemiological indicators. We also
-propose a learning method for the short time forecast of the trend
-incidence curve as described in Morel et al. (2022)
-<doi:10.1101/2022.11.05.22281904>.
+A distance density clustering (DDC) algorithm in R. DDC uses dynamic time
+warping (DTW) to compute a similarity matrix, based on which cluster
+centers and cluster assignments are found. DDC inherits dynamic time
+warping (DTW) arguments and constraints. The cluster centers are centroid
+points that are calculated using the DTW Barycenter Averaging (DBA)
+algorithm. The clustering process is divisive. At each iteration, cluster
+centers are updated and data is reassigned to cluster centers. Early
+stopping is possible. The output includes cluster centers and clustering
+assignment, as described in the paper (Ma et al (2017)
+<doi:10.1109/ICDMW.2017.11>).
 
 %prep
 %setup -q -c -n %{packname}

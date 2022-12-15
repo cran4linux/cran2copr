@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csodata
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Data from the CSO 'PxStat' API
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-rjstat
 BuildRequires:    R-CRAN-R.cache 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -33,6 +35,8 @@ Requires:         R-CRAN-rjstat
 Requires:         R-CRAN-R.cache 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Imports 'PxStat' data in JSON-stat format and (optionally) reshapes it

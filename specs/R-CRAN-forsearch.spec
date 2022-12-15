@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  forsearch
-%global packver   2.3.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Outlier Diagnostics for Some Linear Effects and Linear Mixed Effects Models
+Summary:          Diagnostic Analysis Using Forward Search Procedure for Various Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,11 +21,13 @@ BuildRequires:    R-CRAN-Hmisc >= 4.6.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-tibble >= 3.1.6
 BuildRequires:    R-CRAN-nlme >= 3.1.152
+BuildRequires:    R-CRAN-formula.tools >= 1.7.0
 BuildRequires:    R-CRAN-Cairo >= 1.5.14
 Requires:         R-CRAN-Hmisc >= 4.6.0
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-tibble >= 3.1.6
 Requires:         R-CRAN-nlme >= 3.1.152
+Requires:         R-CRAN-formula.tools >= 1.7.0
 Requires:         R-CRAN-Cairo >= 1.5.14
 
 %description

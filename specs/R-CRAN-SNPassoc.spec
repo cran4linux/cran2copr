@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bcfrailphdv
-%global packver   0.1.1
+%global packname  SNPassoc
+%global packver   2.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bivariate Correlated Frailty Models with Varied Variances
+Summary:          SNPs-Based Whole Genome Association Studies
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bcfrailph >= 0.1.1
+BuildRequires:    R-CRAN-haplo.stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-bcfrailph >= 0.1.1
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-poisbinom 
+Requires:         R-CRAN-haplo.stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-parallel 
 Requires:         R-CRAN-survival 
-Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-poisbinom 
 
 %description
-Fit and simulate bivariate correlated frailty models with proportional
-hazard structure. Frailty distributions, such as gamma and lognormal
-models are supported for semiparametric procedures. Frailty variances of
-the two subjects can be varied or equal. Details on the models are
-available in book of Wienke (2011,ISBN:978-1-4200-7388-1). Bivariate gamma
-fit is obtained using the approach given in Iachine (1995) with
-modifications. Lognormal fit is based on the approach by Ripatti and
-Palmgren (2000) <doi:10.1111/j.0006-341X.2000.01016.x>. Frailty
-distributions, such as gamma, inverse gaussian and power variance frailty
-models are supported for parametric approach.
+Functions to perform most of the common analysis in genome association
+studies are implemented. These analyses include descriptive statistics and
+exploratory analysis of missing values, calculation of Hardy-Weinberg
+equilibrium, analysis of association based on generalized linear models
+(either for quantitative or binary traits), and analysis of multiple SNPs
+(haplotype and epistasis analysis). Permutation test and related tests
+(sum statistic and truncated product) are also implemented. Max-statistic
+and genetic risk-allele score exact distributions are also possible to be
+estimated. The methods are described in Gonzalez JR et al., 2007 <doi:
+10.1093/bioinformatics/btm025>.
 
 %prep
 %setup -q -c -n %{packname}

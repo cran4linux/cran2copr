@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EpiInvert
-%global packver   0.3.1
+%global packname  ExNRuleEnsemble
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variational Techniques in Epidemiology
+Summary:          A k Nearest Neibour Ensemble Based on Extended Neighbourhood Rule
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
-Requires:         R-CRAN-Rcpp >= 1.0.8.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-FNN 
+Requires:         R-CRAN-FNN 
 
 %description
-Using variational techniques we address some epidemiological problems as
-the incidence curve decomposition by inverting the renewal equation as
-described in Alvarez et al. (2021) <doi:10.1073/pnas.2105112118> and
-Alvarez et al. (2022) <doi:10.3390/biology11040540> or the estimation of
-the functional relationship between epidemiological indicators. We also
-propose a learning method for the short time forecast of the trend
-incidence curve as described in Morel et al. (2022)
-<doi:10.1101/2022.11.05.22281904>.
+The extended neighbourhood rule for the k nearest neighbour ensemble where
+the neighbours are determined in k steps. Starting from the first nearest
+observation of the test point, the algorithm identifies a single
+observation that is closest to the observation at the previous step. At
+each base learner in the ensemble, this search is extended to k steps on a
+random bootstrap sample with a random subset of features selected from the
+feature space. The final predicted class of the test point is determined
+by using a majority vote in the predicted classes given by all base
+models. Amjad Ali, Muhammad Hamraz, Naz Gul, Dost Muhammad Khan, Saeed
+Aldahmani, Zardad Khan (2022) <doi:10.48550/arXiv.2205.15111>.
 
 %prep
 %setup -q -c -n %{packname}

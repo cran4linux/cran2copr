@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BlockmodelingGUI
-%global packver   1.8.3
+%global packver   1.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.3
+Version:          1.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          GUI for the Generalised Blockmodeling of Valued Networks
 
@@ -16,8 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-blockmodeling 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-intergraph 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-shinybusy 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-visNetwork 
+Requires:         R-CRAN-blockmodeling 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-intergraph 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-shinybusy 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-visNetwork 
 
 %description
 This app provides some useful tools for Offering an accessible GUI for
@@ -25,7 +46,11 @@ generalised blockmodeling of single-relation, one-mode networks. The user
 can execute blockmodeling without having to write a line code by using the
 app's visual helps. Moreover, there are several ways to visualisations
 networks and their partitions. Finally, the results can be exported as if
-they were produced by writing code.
+they were produced by writing code. The development of this package is
+financially supported by the Slovenian Research Agency (www.arrs.gov.si)
+within the research project J5-2557 (Comparison and evaluation of
+different approaches to blockmodeling dynamic networks by simulations with
+application to Slovenian co-authorship networks).
 
 %prep
 %setup -q -c -n %{packname}

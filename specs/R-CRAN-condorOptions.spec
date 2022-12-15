@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metaMix
-%global packver   0.3
+%global packname  condorOptions
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Mixture Analysis for Metagenomic Community Profiling
+Summary:          Trading Condor Options Strategies
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-data.table >= 1.9.2
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-Rmpi 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table >= 1.9.2
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-Rmpi 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
 
 %description
-Resolves complex metagenomic mixtures by analysing deep sequencing data,
-using a mixture model based approach. The use of parallel Monte Carlo
-Markov chains for the exploration of the species space enables the
-identification of the set of species more likely to contribute to the
-mixture.
+Trading of Condor Options Strategies is represented here through their
+Graphs. The graphic indicators, strategies, calculations, functions and
+all the discussions are for academic, research, and educational purposes
+only and should not be construed as investment advice and come with
+absolutely no Liability. Guy Cohen (“The Bible of Options Strategies (2nd
+ed.)”, 2015, ISBN: 9780133964028). Zura Kakushadze, Juan A. Serur (“151
+Trading Strategies”, 2018, ISBN: 9783030027919). John C. Hull (“Options,
+Futures, and Other Derivatives (11th ed.)”, 2022, ISBN: 9780136939979).
 
 %prep
 %setup -q -c -n %{packname}

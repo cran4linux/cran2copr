@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EpiInvert
-%global packver   0.3.1
+%global packname  etwfe
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variational Techniques in Epidemiology
+Summary:          Extended Two-Way Fixed Effects
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
-Requires:         R-CRAN-Rcpp >= 1.0.8.3
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-marginaleffects >= 0.8.1
+BuildRequires:    R-CRAN-fixest >= 0.11.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Formula 
+Requires:         R-CRAN-marginaleffects >= 0.8.1
+Requires:         R-CRAN-fixest >= 0.11.0
+Requires:         R-stats 
+Requires:         R-CRAN-Formula 
 
 %description
-Using variational techniques we address some epidemiological problems as
-the incidence curve decomposition by inverting the renewal equation as
-described in Alvarez et al. (2021) <doi:10.1073/pnas.2105112118> and
-Alvarez et al. (2022) <doi:10.3390/biology11040540> or the estimation of
-the functional relationship between epidemiological indicators. We also
-propose a learning method for the short time forecast of the trend
-incidence curve as described in Morel et al. (2022)
-<doi:10.1101/2022.11.05.22281904>.
+Convenience functions for implementing extended two-way fixed effect
+regressions a la Wooldridge (2021, 2022) <doi:10.2139/ssrn.3906345>,
+<doi:10.2139/ssrn.4183726>.
 
 %prep
 %setup -q -c -n %{packname}

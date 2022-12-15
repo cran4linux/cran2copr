@@ -1,43 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clmplus
-%global packver   0.1.0
+%global packname  nser
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool-Box of Chain Ladder Plus Models
+Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-StMoMo 
-BuildRequires:    R-CRAN-ChainLadder 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-StMoMo 
-Requires:         R-CRAN-ChainLadder 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RSelenium 
+BuildRequires:    R-CRAN-googleVis 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-reshape2 
+Requires:         R-utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RSelenium 
+Requires:         R-CRAN-googleVis 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-curl 
 
 %description
-Implementation of the chain ladder model under the reverse time framework
-introduced in Hiabu (2017) <doi:10.1080/03461238.2016.1240709>. It also
-implements extensions that add flexibility to the individual development
-factors modeling by allowing practitioners to set their own hazard rate
-model.
+Download Current & Historical Bhavcopy. Get Live Market data from NSE
+India of Equities and Derivatives (F&O) segment. Data source
+<https://www.nseindia.com/>.
 
 %prep
 %setup -q -c -n %{packname}

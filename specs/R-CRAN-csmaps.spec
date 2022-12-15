@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EpiInvert
-%global packver   0.3.1
+%global packname  csmaps
+%global packver   2022.12.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          2022.12.15
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variational Techniques in Epidemiology
+Summary:          Preformatted Maps of Norway that Don't Need Geolibraries
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
-Requires:         R-CRAN-Rcpp >= 1.0.8.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-utils 
 
 %description
-Using variational techniques we address some epidemiological problems as
-the incidence curve decomposition by inverting the renewal equation as
-described in Alvarez et al. (2021) <doi:10.1073/pnas.2105112118> and
-Alvarez et al. (2022) <doi:10.3390/biology11040540> or the estimation of
-the functional relationship between epidemiological indicators. We also
-propose a learning method for the short time forecast of the trend
-incidence curve as described in Morel et al. (2022)
-<doi:10.1101/2022.11.05.22281904>.
+Provides datasets containing preformatted maps of Norway at the county,
+municipality, and ward (Oslo only) level for redistricting in 2017, 2018,
+and 2020. Multiple layouts are provided (normal, split, and with an insert
+for Oslo), allowing the user to rapidly create choropleth maps of Norway
+without any geolibraries.
 
 %prep
 %setup -q -c -n %{packname}

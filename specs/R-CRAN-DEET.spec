@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DEET
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Differential Expression Enrichment Tool
 
@@ -37,29 +37,26 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-downloader 
 
 %description
-RNA sequencing (RNA-seq) followed by differential gene expression analyses
-is a fundamental approach for making biological discoveries. Ongoing
-large-scale efforts to systematically process and normalize publicly
-available gene expression data facilitate rapid reanalyses of specific
-studies and the development of new methods for querying it. While there
-are several powerful tools for querying systematically processed publicly
-available RNA-seq data at the individual sample level, there are fewer
-options for querying differentially expressed gene (DEG) lists generated
-from these experiments. Here, we present the Differential Expression
-Enrichment Tool (DEET), which allows users to interact with 3162
-consistently processed DEG lists curated from 142 RNA-seq datasets
-obtained from recount2 database, which contains data from consortiums
-(GTex, TCGA) and individual labs (SRA). To establish DEET we integrated
-systematically processed human RNA-seq data from recount2 with reported
-and predicted metadata from multiple sources and developed a CRAN R
-package and Shiny App where users can compare their genes, p-values, and
-coefficients against the DEG lists within DEET. Here we present DEET and
-demonstrate how it can facilitate hypothesis generation and provide
-biological insight from user-defined differential gene expression results.
-Reference: Sokolowski,D.J., Ahn J., Erdman,L., Hou,H., Ellis,K., Wang L.,
-Goldenberg,A., and Wilson,M.D. (2022) Differential Expression Enrichment
-Tool (DEET): An interactive atlas of human differential gene expression.
-(In Preparation).
+Abstract of Manuscript. Differential gene expression analysis using RNA
+sequencing (RNA-seq) data is a standard approach for making biological
+discoveries. Ongoing large-scale efforts to process and normalize publicly
+available gene expression data enable rapid and systematic reanalysis.
+While several powerful tools systematically process RNA-seq data, enabling
+their reanalysis, few resources systematically recompute differentially
+expressed genes (DEGs) generated from individual studies. We developed a
+robust differential expression analysis pipeline to recompute 3162 human
+DEG lists from The Cancer Genome Atlas, Genotype-Tissue Expression
+Consortium, and 142 studies within the Sequence Read Archive. After
+measuring the accuracy of the recomputed DEG lists, we built the
+Differential Expression Enrichment Tool (DEET), which enables users to
+interact with the recomputed DEG lists. DEET, available through CRAN and
+RShiny, systematically queries which of the recomputed DEG lists share
+similar genes, pathways, and TF targets to their own gene lists. DEET
+identifies relevant studies based on shared results with the user’s gene
+lists, aiding in hypothesis generation and data-driven literature review.
+Sokolowski, Dustin J., et al. "Differential Expression Enrichment Tool
+(DEET): an interactive atlas of human differential gene expression."
+bioRxiv (2022).
 
 %prep
 %setup -q -c -n %{packname}

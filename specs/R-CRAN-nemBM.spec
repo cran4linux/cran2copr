@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nemBM
-%global packver   1.00.00
+%global packver   1.00.01
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.00.00
+Version:          1.00.01
 Release:          1%{?dist}%{?buildtag}
 Summary:          Using Network Evolution Models to Generate Networks with Selected Blockmodel Type
 
@@ -26,10 +26,11 @@ Requires:         R-CRAN-blockmodeling
 To study network evolution models and different blockmodeling approaches.
 Various functions enable generating (temporal) networks with a selected
 blockmodel type, taking into account selected local network mechanisms.
-The development of this package is financially supported by the Slovenian
-Research Agency (www.arrs.gov.si) within the research programs P5-0168 and
-the research project J7-8279 (Blockmodeling multilevel and temporal
-networks).
+The development of this package is financially supported the Slovenian
+Research Agency (www.arrs.gov.si) within the research program P5<96>0168
+and the research project J5-2557 (Comparison and evaluation of different
+approaches to blockmodeling dynamic networks by simulations with
+application to Slovenian co-authorship networks).
 
 %prep
 %setup -q -c -n %{packname}

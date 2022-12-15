@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pkgdown
-%global packver   2.0.6
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Static HTML Documentation for a Package
 
@@ -13,12 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-callr >= 3.7.3
 BuildRequires:    R-CRAN-withr >= 2.4.3
-BuildRequires:    R-CRAN-callr >= 2.0.2
 BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-fs >= 1.4.0
 BuildRequires:    R-CRAN-xml2 >= 1.3.1
@@ -37,8 +37,8 @@ BuildRequires:    R-CRAN-ragg
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-callr >= 3.7.3
 Requires:         R-CRAN-withr >= 2.4.3
-Requires:         R-CRAN-callr >= 2.0.2
 Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-fs >= 1.4.0
 Requires:         R-CRAN-xml2 >= 1.3.1
