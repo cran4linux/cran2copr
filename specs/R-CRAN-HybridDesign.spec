@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  centrifugeR
-%global packver   0.1.7
+%global packname  HybridDesign
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Trivial Balance of Centrifuge Rotors
+Summary:          Hybrid Design for Phase I Dose-Finding Studies
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma >= 2.4.2
-BuildRequires:    R-CRAN-shiny >= 1.7.4
-BuildRequires:    R-CRAN-shinythemes >= 1.2.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pracma >= 2.4.2
-Requires:         R-CRAN-shiny >= 1.7.4
-Requires:         R-CRAN-shinythemes >= 1.2.0
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-testit 
+BuildRequires:    R-CRAN-ResourceSelection 
+Requires:         R-CRAN-testit 
+Requires:         R-CRAN-ResourceSelection 
 
 %description
-Find the numbers of test tubes that can be balanced in centrifuge rotors
-and show various ways to load them. Refer to Pham (2020)
-<doi:10.31224/osf.io/4xs38> for more information on package functionality.
+The Hybrid design is a combination of model-assisted design (e.g., the
+modified Toxicity Probability Interval design) with dose-toxicity
+model-based design for phase I dose-finding studies. The hybrid design
+controls the overdosing toxicity well and leads to a recommended dose
+closer to the true maximum tolerated dose (MTD) due to its ability to
+calibrate for an intermediate dose. More details can be found in Liao et
+al. 2022 <doi:10.1002/ijc.34203>.
 
 %prep
 %setup -q -c -n %{packname}

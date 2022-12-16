@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  deepgp
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deep Gaussian Processes using MCMC
 
@@ -52,8 +53,8 @@ optimization through expected improvement (EI; Gramacy, Sauer, and Wycoff,
 2021 <arXiv:2112.07457>).  Models extend up to three layers deep; a one
 layer model is equivalent to typical Gaussian process regression.
 Covariance kernel options are matern (default) and squared exponential.
-Applicable to both noisy and deterministic functions. Incorporates SNOW
-parallelization and utilizes C and C++ under the hood.
+Incorporates OpenMP and SNOW parallelization and utilizes C/C++ under the
+hood.
 
 %prep
 %setup -q -c -n %{packname}

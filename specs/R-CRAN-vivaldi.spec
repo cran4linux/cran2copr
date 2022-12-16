@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  centrifugeR
-%global packver   0.1.7
+%global packname  vivaldi
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Trivial Balance of Centrifuge Rotors
+Summary:          Viral Variant Location and Diversity
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma >= 2.4.2
-BuildRequires:    R-CRAN-shiny >= 1.7.4
-BuildRequires:    R-CRAN-shinythemes >= 1.2.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pracma >= 2.4.2
-Requires:         R-CRAN-shiny >= 1.7.4
-Requires:         R-CRAN-shinythemes >= 1.2.0
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-seqinr >= 4.2.8
+BuildRequires:    R-CRAN-plotly >= 4.10.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-glue >= 1.4.2
+BuildRequires:    R-CRAN-tidyverse >= 1.3.0
+BuildRequires:    R-CRAN-vcfR >= 1.12.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.2
+BuildRequires:    R-CRAN-tidyselect >= 1.1.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-seqinr >= 4.2.8
+Requires:         R-CRAN-plotly >= 4.10.0
+Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-glue >= 1.4.2
+Requires:         R-CRAN-tidyverse >= 1.3.0
+Requires:         R-CRAN-vcfR >= 1.12.0
+Requires:         R-CRAN-tidyr >= 1.1.2
+Requires:         R-CRAN-tidyselect >= 1.1.2
+Requires:         R-CRAN-dplyr >= 1.0.2
 
 %description
-Find the numbers of test tubes that can be balanced in centrifuge rotors
-and show various ways to load them. Refer to Pham (2020)
-<doi:10.31224/osf.io/4xs38> for more information on package functionality.
+Analysis of minor alleles in Illumina sequencing data of viral genomes.
+Functions in 'vivaldi' primarily operate on vcf files.
 
 %prep
 %setup -q -c -n %{packname}

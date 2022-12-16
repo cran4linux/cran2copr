@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PsychWordVec
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Word Embedding Research Framework for Psychological Science
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-corrplot
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-rsparse 
 BuildRequires:    R-CRAN-text2vec 
 BuildRequires:    R-CRAN-word2vec 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-corrplot
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-rsparse 
 Requires:         R-CRAN-text2vec 
 Requires:         R-CRAN-word2vec 

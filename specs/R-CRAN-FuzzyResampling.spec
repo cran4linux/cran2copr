@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FuzzyResampling
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling Methods for Triangular and Trapezoidal Fuzzy Numbers
 
@@ -39,10 +39,11 @@ are kept (like the value, the ambiguity, etc., see Grzegorzewski et al.
 these resampling methods are also provided, like calculation of the
 Bertoluzza et al.'s distance (aka the mid/spread distance, see Bertoluzza
 et al. (1995) "On a new class of distances between fuzzy numbers") and
-estimation of the p-value of the one-sample bootstrapped test for the mean
-(see Lubiano et al. (2016, <doi:10.1016/j.ejor.2015.11.016>)).
-Additionally, there are procedures which randomly generate trapezoidal
-fuzzy numbers using some well-known statistical distributions.
+estimation of the p-value of the one- and two- sample bootstrapped test
+for the mean (see Lubiano et al. (2016,
+<doi:10.1016/j.ejor.2015.11.016>)). Additionally, there are procedures
+which randomly generate trapezoidal fuzzy numbers using some well-known
+statistical distributions.
 
 %prep
 %setup -q -c -n %{packname}

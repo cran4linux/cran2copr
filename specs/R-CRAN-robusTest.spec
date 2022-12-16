@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robusTest
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calibrated Correlation, Two-Sample Tests
+Summary:          Calibrated Correlation and Two-Sample Tests
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,13 +24,13 @@ Requires:         R-stats
 %description
 Implementation of corrected two-sample tests. A corrected version of the
 Pearson and Kendall correlation tests, the Mann-Whitney (Wilcoxon) rank
-sum test, the Mann-Whitney (Wilcoxon) signed rank test and a variance test
-are implemented. The package also proposes a test for the median. All
-these corrected tests are asymptotically calibrated meaning that the
-probability of rejection under the null hypothesis is asymptotically equal
-to the level of the test. The package also proposes a test for
-independence between two continuous variables of Kolmogorov-Smirnov's
-type. This test is exact.
+sum test, the Wilcoxon signed rank test and a variance test are
+implemented. The package also proposes a test for the median and an
+independence test between two continuous variables of Kolmogorov-Smirnov's
+type. All these corrected tests are asymptotically calibrated in the sense
+that the probability of rejection under the null hypothesis is
+asymptotically equal to the level of the test. See <arXiv:2211.08784> for
+more details on the statistical tests.
 
 %prep
 %setup -q -c -n %{packname}

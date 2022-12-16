@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  centrifugeR
-%global packver   0.1.7
+%global packname  mcbette
+%global packver   1.15.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.15.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Trivial Balance of Centrifuge Rotors
+Summary:          Model Comparison Using 'babette'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma >= 2.4.2
-BuildRequires:    R-CRAN-shiny >= 1.7.4
-BuildRequires:    R-CRAN-shinythemes >= 1.2.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pracma >= 2.4.2
-Requires:         R-CRAN-shiny >= 1.7.4
-Requires:         R-CRAN-shinythemes >= 1.2.0
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-beautier >= 2.6.2
+BuildRequires:    R-CRAN-mauricer >= 2.5
+BuildRequires:    R-CRAN-beastier >= 2.4.6
+BuildRequires:    R-CRAN-babette >= 2.3
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-testit 
+BuildRequires:    R-CRAN-txtplot 
+Requires:         R-CRAN-beautier >= 2.6.2
+Requires:         R-CRAN-mauricer >= 2.5
+Requires:         R-CRAN-beastier >= 2.4.6
+Requires:         R-CRAN-babette >= 2.3
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-testit 
+Requires:         R-CRAN-txtplot 
 
 %description
-Find the numbers of test tubes that can be balanced in centrifuge rotors
-and show various ways to load them. Refer to Pham (2020)
-<doi:10.31224/osf.io/4xs38> for more information on package functionality.
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+tool, that uses DNA/RNA/protein data and many model priors to create a
+posterior of jointly estimated phylogenies and parameters. 'mcbette'
+allows to do a Bayesian model comparison over some site and clock models,
+using 'babette' (<https://github.com/ropensci/babette/>).
 
 %prep
 %setup -q -c -n %{packname}

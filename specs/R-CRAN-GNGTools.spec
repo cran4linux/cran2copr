@@ -1,56 +1,76 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesnec
-%global packver   2.1.0.0
+%global packname  GNGTools
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Bayesian No-Effect- Concentration (NEC) Algorithm
+Summary:          Tools for Go/No-Go Decision-Making Framework
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chk >= 0.7.0
-BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-evaluate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-chk >= 0.7.0
-Requires:         R-CRAN-brms 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-loo 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-plyr 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-reshape2 
+Requires:         R-grDevices 
+Requires:         R-utils 
 Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-janitor 
+Requires:         R-parallel 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-tictoc 
+Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-evaluate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-rlang 
 
 %description
-Implementation of No-Effect-Concentration estimation that uses 'brms' (see
-Burkner (2017)<doi:10.18637/jss.v080.i01>; Burkner
-(2018)<doi:10.32614/RJ-2018-017>; Carpenter 'et al.'
-(2017)<doi:10.18637/jss.v076.i01> to fit concentration(dose)-response data
-using Bayesian methods for the purpose of estimating 'ECX' values, but
-more particularly 'NEC' (see Fox (2010)<doi:10.1016/j.ecoenv.2009.09.012>.
-This package expands and supersedes an original version implemented in
-R2jags, see Fisher, Ricardo and Fox (2020)<doi:10.5281/ZENODO.3966864>.
+Go/No-Go Decision-making Framework based on Bayesian posterior
+probabilities linked to the target product profile.
 
 %prep
 %setup -q -c -n %{packname}

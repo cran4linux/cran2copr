@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  shinyGizmo
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom Components for Shiny Applications
 
@@ -16,19 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-shiny >= 1.5.0
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-shinyWidgets 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-shiny >= 1.5.0
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-shinyWidgets 
 
 %description

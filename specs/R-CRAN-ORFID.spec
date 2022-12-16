@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  centrifugeR
-%global packver   0.1.7
+%global packname  ORFID
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Trivial Balance of Centrifuge Rotors
+Summary:          Manage and Summarize Data from Oregon RFID ORMR and ORSR Antenna Readers
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma >= 2.4.2
-BuildRequires:    R-CRAN-shiny >= 1.7.4
-BuildRequires:    R-CRAN-shinythemes >= 1.2.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pracma >= 2.4.2
-Requires:         R-CRAN-shiny >= 1.7.4
-Requires:         R-CRAN-shinythemes >= 1.2.0
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-openxlsx 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-openxlsx 
 
 %description
-Find the numbers of test tubes that can be balanced in centrifuge rotors
-and show various ways to load them. Refer to Pham (2020)
-<doi:10.31224/osf.io/4xs38> for more information on package functionality.
+Automates and standardizes the import of raw data from Oregon RFID
+(radio-frequency identification) ORMR (Oregon RFID Multi-Reader) and ORSR
+(Oregon RFID Single Reader) antenna readers. Compiled data can then be
+combined within multi-reader arrays for further analysis, including
+summarizing tag and reader detections, determining tag direction, and
+calculating antenna efficiency.
 
 %prep
 %setup -q -c -n %{packname}

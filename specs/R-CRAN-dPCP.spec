@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dPCP
-%global packver   1.0.4
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Analysis of Multiplex Digital PCR Data
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-exactci 
@@ -30,6 +32,7 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-exactci 
