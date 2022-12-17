@@ -1,43 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oclust
-%global packver   0.2.0
+%global packname  sfdep
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Model-Based Clustering with Outliers
+Summary:          Spatial Dependence for Simple Features
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-entropy 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-mixture 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-entropy 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-spdep 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-mixture 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides a function to detect and trim outliers in Gaussian mixture
-model-based clustering using methods described in Clark and McNicholas
-(2022) <arXiv:1907.01136>.
+An interface to 'spdep' to integrate with 'sf' objects and the
+'tidyverse'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oclust
-%global packver   0.2.0
+%global packname  FormShare
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Model-Based Clustering with Outliers
+Summary:          A Simple Connection Between the 'FormShare App' and 'R' for Advanced Analytics
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-entropy 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-mixture 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-entropy 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-mixture 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Provides a function to detect and trim outliers in Gaussian mixture
-model-based clustering using methods described in Clark and McNicholas
-(2022) <arXiv:1907.01136>.
+Provides analytics directly from R. It requires: 'FormShare App':
+<https://github.com/qlands/FormShare >= 2.22.0> . Analytics plugin:
+<https://github.com/qlands/formshare_analytics_plugin> . Remote SQL
+plugin: <https://github.com/qlands/formshare_sql_plugin> .
 
 %prep
 %setup -q -c -n %{packname}

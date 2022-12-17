@@ -1,43 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oclust
-%global packver   0.2.0
+%global packname  erfe
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Model-Based Clustering with Outliers
+Summary:          Fits Expectile Regression for Panel Fixed Effect Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-entropy 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-mixture 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-entropy 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-mixture 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
 
 %description
-Provides a function to detect and trim outliers in Gaussian mixture
-model-based clustering using methods described in Clark and McNicholas
-(2022) <arXiv:1907.01136>.
+Fits the Expectile Regression for Fixed Effect (ERFE) estimator. The ERFE
+model extends the within-transformation strategy to solve the incidental
+parameter problem within the expectile regression framework. The ERFE
+model estimates the regressor effects on the expectiles of the response
+distribution.  The ERFE estimate corresponds to the classical fixed-effect
+within-estimator when the asymmetric point is 0.5. The paper by Barry,
+Oualkacha, and Charpentier (2021, <arXiv:2108.04737>) gives more details
+about the ERFE model.
 
 %prep
 %setup -q -c -n %{packname}

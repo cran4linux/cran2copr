@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CopulaCenR
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Copula-Based Regression Models for Multivariate Censored Data
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-copBasic 
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-flexsurv 
@@ -26,7 +28,10 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-VineCopula 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-caret 
+Requires:         R-CRAN-copBasic 
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-flexsurv 
@@ -35,6 +40,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-VineCopula 
 
 %description
 Copula-based regression models for multivariate censored data, including
@@ -44,9 +50,10 @@ Gumbel, Frank, Joe, AMH and Copula2 copula models. For marginal models, it
 supports parametric (Weibull, Loglogistic, Gompertz) and semiparametric
 (Cox and transformation) models. Includes methods for convenient
 prediction and plotting. Also provides a bivariate time-to-event
-simulation function. Method details can be found in Sun et.al (2019)
-Lifetime Data Analysis, Sun et.al (2021) Biostatistics, and Sun et.al
-(2022) Statistical Methods in Medical Research.
+simulation function and an information ratio-based goodness-of-fit test
+for copula. Method details can be found in Sun et.al (2019) Lifetime Data
+Analysis, Sun et.al (2021) Biostatistics, Sun et.al (2022) Statistical
+Methods in Medical Research, and Sun et.al (2022) Biometrics.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oclust
-%global packver   0.2.0
+%global packname  arf
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Model-Based Clustering with Outliers
+Summary:          Adversarial Random Forests
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-entropy 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-mixture 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-entropy 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-mixture 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Provides a function to detect and trim outliers in Gaussian mixture
-model-based clustering using methods described in Clark and McNicholas
-(2022) <arXiv:1907.01136>.
+Adversarial random forests (ARFs) recursively partition data into fully
+factorized leaves, where features are jointly independent. The procedure
+is iterative, with alternating rounds of generation and discrimination.
+Data becomes increasingly realistic at each round, until original and
+synthetic samples can no longer be reliably distinguished. This is useful
+for several unsupervised learning tasks, such as density estimation and
+data synthesis. Methods for both are implemented in this package. ARFs
+naturally handle unstructured data with mixed continuous and categorical
+covariates. They inherit many of the benefits of random forests, including
+speed, flexibility, and solid performance with default parameters. For
+details, see Watson et al. (2022) <arXiv:2205.09435>.
 
 %prep
 %setup -q -c -n %{packname}

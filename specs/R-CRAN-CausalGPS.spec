@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CausalGPS
-%global packver   0.2.8
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matching on Generalized Propensity Scores with Continuous Exposures
 
@@ -19,10 +20,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-SuperLearner 
 BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-earth 
-BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-gam 
-BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-polycor 
 BuildRequires:    R-CRAN-wCorr 
@@ -32,15 +30,13 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-gnm 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-locpol 
+BuildRequires:    R-CRAN-Ecume 
 Requires:         R-parallel 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-SuperLearner 
 Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-earth 
-Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-gam 
-Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-polycor 
 Requires:         R-CRAN-wCorr 
@@ -50,7 +46,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-logger 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-gnm 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-locpol 
+Requires:         R-CRAN-Ecume 
 
 %description
 Provides a framework for estimating causal effects of a continuous

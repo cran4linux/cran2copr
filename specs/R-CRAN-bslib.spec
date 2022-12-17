@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bslib
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom 'Bootstrap' 'Sass' Themes for 'shiny' and 'rmarkdown'
 
@@ -18,25 +18,29 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-memoise >= 2.0.1
-BuildRequires:    R-CRAN-htmltools >= 0.5.2
+BuildRequires:    R-CRAN-htmltools >= 0.5.4
 BuildRequires:    R-CRAN-sass >= 0.4.0
 BuildRequires:    R-CRAN-jquerylib >= 0.1.3
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-mime 
 Requires:         R-CRAN-memoise >= 2.0.1
-Requires:         R-CRAN-htmltools >= 0.5.2
+Requires:         R-CRAN-htmltools >= 0.5.4
 Requires:         R-CRAN-sass >= 0.4.0
 Requires:         R-CRAN-jquerylib >= 0.1.3
 Requires:         R-grDevices 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-mime 
 
 %description
 Simplifies custom 'CSS' styling of both 'shiny' and 'rmarkdown' via
-'Bootstrap' 'Sass'. Supports both 'Bootstrap' 3 and 4 as well as their
+'Bootstrap' 'Sass'. Supports 'Bootstrap' 3, 4 and 5 as well as their
 various 'Bootswatch' themes. An interactive widget is also provided for
 previewing themes in real time.
 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oclust
-%global packver   0.2.0
+%global packname  cthist
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Model-Based Clustering with Outliers
+Summary:          Clinical Trial Registry History
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-entropy 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-mixture 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-entropy 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-mixture 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-polite 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-polite 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides a function to detect and trim outliers in Gaussian mixture
-model-based clustering using methods described in Clark and McNicholas
-(2022) <arXiv:1907.01136>.
+Retrieves historical versions of clinical trial registry entries from
+<https://ClinicalTrials.gov>. Package functionality and implementation is
+documented in Carlisle (2022) <DOI:10.1371/journal.pone.0270909>.
 
 %prep
 %setup -q -c -n %{packname}

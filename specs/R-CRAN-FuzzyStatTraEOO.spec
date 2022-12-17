@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FuzzyStatTraEOO
-%global packver   0.1.0
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package 'FuzzyStatTra' in Encapsulated Object Oriented Programming
 
@@ -18,9 +18,7 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-testthat 
 
 %description
 The aim of the package is to contain the package 'FuzzyStatTra' in

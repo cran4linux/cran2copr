@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oclust
-%global packver   0.2.0
+%global packname  HEtools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Model-Based Clustering with Outliers
+Summary:          Homomorphic Encryption Polynomials
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-entropy 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-mixture 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-entropy 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-mixture 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-polynom 
+Requires:         R-CRAN-polynom 
 
 %description
-Provides a function to detect and trim outliers in Gaussian mixture
-model-based clustering using methods described in Clark and McNicholas
-(2022) <arXiv:1907.01136>.
+Homomorphic encryption (Brakerski and Vaikuntanathan (2014)
+<doi:10.1137/120868669>) using Ring Learning with Errors (Lyubashevsky et
+al. (2012) <https://eprint.iacr.org/2012/230>) is a form of Learning with
+Errors (Regev (2005) <doi:10.1145/1060590.1060603>) using polynomial rings
+over finite fields. Functions to generate the required polynomials (using
+"polynom"), with various distributions of coefficients are provided.
+Additionally, functions to generate and take coefficient modulo are
+provided.
 
 %prep
 %setup -q -c -n %{packname}
