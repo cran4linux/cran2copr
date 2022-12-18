@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  googletraffic
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Google Traffic
 
@@ -27,6 +27,8 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-webshot 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-ColorNameR 
+BuildRequires:    R-CRAN-schemr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-googleway 
 Requires:         R-CRAN-htmlwidgets 
@@ -37,6 +39,8 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-webshot 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-ColorNameR 
+Requires:         R-CRAN-schemr 
 
 %description
 Create geographically referenced traffic data from the Google Maps

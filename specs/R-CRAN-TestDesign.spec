@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TestDesign
-%global packver   1.3.4
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Test Design Approach to Fixed and Adaptive Test Construction
 
@@ -33,9 +34,9 @@ Requires:         R-CRAN-crayon
 Uses the optimal test design approach by Birnbaum (1968,
 ISBN:9781593119348) and van der Linden (2018) <doi:10.1201/9781315117430>
 to construct fixed, adaptive, and parallel tests. Supports the following
-mixed-integer programming (MIP) solver packages: 'lpsymphony',
-'Rsymphony', 'gurobi', 'lpSolve', and 'Rglpk'. The 'gurobi' package is not
-available from CRAN; see <https://www.gurobi.com/downloads/>.
+mixed-integer programming (MIP) solver packages: 'Rsymphony', 'gurobi',
+'lpSolve', and 'Rglpk'. The 'gurobi' package is not available from CRAN;
+see <https://www.gurobi.com/downloads/>.
 
 %prep
 %setup -q -c -n %{packname}

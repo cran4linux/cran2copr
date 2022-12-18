@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gllvm
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Linear Latent Variable Models
 
@@ -22,6 +23,8 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-fishMod 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-alabama 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB 
 Requires:         R-CRAN-mvabund 
@@ -30,6 +33,8 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-fishMod 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-alabama 
+Requires:         R-CRAN-nloptr 
 
 %description
 Analysis of multivariate data using generalized linear latent variable
