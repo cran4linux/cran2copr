@@ -1,41 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  svrep
-%global packver   0.4.1
+%global packname  FMAdist
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Creating, Updating, and Analyzing Survey Replicate Weights
+Summary:          Frequentist Model Averaging Distribution
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survey >= 4.1
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-survey >= 4.1
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-EnvStats 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-quadprog 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-EnvStats 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-quadprog 
 
 %description
-Provides tools for creating and working with survey replicate weights,
-extending functionality of the 'survey' package from Lumley (2004)
-<doi:10.18637/jss.v009.i08>. Methods are provided for applying nonresponse
-adjustments to both full-sample and replicate weights as described by Rust
-and Rao (1996) <doi:10.1177/096228029600500305>. Implements methods for
-sample-based calibration described by Opsomer and Erciulescu (2021)
-<https://www150.statcan.gc.ca/n1/pub/12-001-x/2021002/article/00006-eng.htm>.
-Diagnostic functions are included to compare weights and weighted
-estimates from different sets of replicate weights.
+Creation of an input model (fitted distribution) via the frequentist model
+averaging (FMA) approach and generate random-variates from the
+distribution specified by "myfit" which is the fitted input model via the
+FMA approach. See W. X. Jiang and B. L. Nelson (2018), "Better Input
+Modeling via Model Averaging," Proceedings of the 2018 Winter Simulation
+Conference, IEEE Press, 1575-1586.
 
 %prep
 %setup -q -c -n %{packname}

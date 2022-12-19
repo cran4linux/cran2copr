@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mbRes
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploration of Multiple Biomarker Responses using Effect Size
 
@@ -17,25 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-tibble >= 3.1.8
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-tidyr >= 1.2.1
-BuildRequires:    R-CRAN-data.table >= 1.14.2
+BuildRequires:    R-CRAN-scales >= 1.2.1
+BuildRequires:    R-CRAN-data.table >= 1.14.6
 BuildRequires:    R-CRAN-cowplot >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.10
 BuildRequires:    R-CRAN-forcats >= 0.5.2
-BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-purrr >= 0.3.5
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.6
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-tibble >= 3.1.8
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-tidyr >= 1.2.1
-Requires:         R-CRAN-data.table >= 1.14.2
+Requires:         R-CRAN-scales >= 1.2.1
+Requires:         R-CRAN-data.table >= 1.14.6
 Requires:         R-CRAN-cowplot >= 1.1.1
 Requires:         R-CRAN-dplyr >= 1.0.10
 Requires:         R-CRAN-forcats >= 0.5.2
-Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-purrr >= 0.3.5
 Requires:         R-stats 
 
 %description

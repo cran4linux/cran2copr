@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  annotator
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Image Annotation and Polygon Outlining using Free Drawing
 
@@ -19,20 +19,14 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-xfun 
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-imager 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-xfun 
 
 %description
 Provides functions to create image annotations through polygon outlining.

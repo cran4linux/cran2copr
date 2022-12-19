@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GJRM
-%global packver   0.2-6
+%global packver   0.2-6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalised Joint Regression Modelling
 
@@ -39,6 +40,7 @@ BuildRequires:    R-CRAN-distrEx
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-CRAN-ismev 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-VGAM 
@@ -62,6 +64,7 @@ Requires:         R-CRAN-distrEx
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-ismev 
+Requires:         R-methods 
 
 %description
 Routines for fitting various joint (and univariate) regression models,

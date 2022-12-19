@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hockeystick
-%global packver   0.6.3
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Visualize Essential Climate Change Data
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-treemapify 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-tools 
@@ -37,14 +38,15 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-treemapify 
 
 %description
 Provides easy access to essential climate change datasets to non-climate
 experts. Users can download the latest raw data from authoritative sources
 and view it via pre-defined 'ggplot2' charts. Datasets include atmospheric
-CO2, emissions, instrumental and proxy temperature records, sea levels,
-Arctic/Antarctic sea-ice, Hurricanes, and Paleoclimate data. Sources
-include: NOAA Mauna Loa Laboratory
+CO2, methane, emissions, instrumental and proxy temperature records, sea
+levels, Arctic/Antarctic sea-ice, Hurricanes, and Paleoclimate data.
+Sources include: NOAA Mauna Loa Laboratory
 <https://gml.noaa.gov/ccgg/trends/data.html>, Global Carbon Project
 <https://www.globalcarbonproject.org/carbonbudget/>, NASA GISTEMP
 <https://data.giss.nasa.gov/gistemp/>, National Snow and Sea Ice Data

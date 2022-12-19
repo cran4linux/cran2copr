@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Mestim
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computes the Variance-Covariance Matrix of a Set of Parameters using M-Estimation
+Summary:          Computes the Variance-Covariance Matrix of Multidimensional Parameters Using M-Estimation
 
 License:          MIT + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,10 +22,9 @@ Requires:         R-stats
 
 %description
 Provides a flexible framework for estimating the variance-covariance
-matrix of a set of estimated parameters. Estimation relies on unbiased
-estimating functions to compute the empirical sandwich variance. (i.e.,
-M-estimation in the vein of Stefanski and Boos (2002)
-<doi:10.1198/000313002753631330>.
+matrix of estimated parameters. Estimation relies on unbiased estimating
+functions to compute the empirical sandwich variance. (i.e., M-estimation
+in the vein of Tsiatis et al. (2019) <doi:10.1201/9780429192692>.
 
 %prep
 %setup -q -c -n %{packname}
