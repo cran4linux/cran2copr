@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ganDataModel
-%global packver   1.0.2
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create a Hierarchical, Categorical Data Model for a Data Source
+Summary:          Build a Metric Subspaces Data Model for a Data Source
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,12 +24,12 @@ Requires:         R-CRAN-Rcpp >= 1.0.3
 %description
 Neural networks are applied to create a density value function which
 approximates density values for a data source. The trained neural network
-is analysed for different levels. For each level subspaces with density
-values above a level are determined. The obtained set of subspaces
-categorizes the data source hierarchically. A prerequisite is the
-definition of a data source, the generation of generative data and the
-calculation of density values. These tasks are executed using package
-'ganGenerativeData'
+is analyzed for different levels. For each level metric subspaces with
+density values above a level are determined. The obtained set of metric
+subspaces and the trained neural network are assembled into a data model.
+A prerequisite is the definition of a data source, the generation of
+generative data and the calculation of density values. These tasks are
+executed using package 'ganGenerativeData'
 <https://cran.r-project.org/package=ganGenerativeData>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  peramo
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Permutation Tests for Randomization Model
 
@@ -18,15 +18,18 @@ BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.9
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-dplyr >= 1.0.9
+Requires:         R-CRAN-dplyr >= 1.0.10
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Perform permutation-based hypothesis testing for randomized experiments,
-as described in Ernst (2004) <doi:10.1214/088342304000000396>.
+Perform permutation-based hypothesis testing for randomized experiments as
+described in Ernst (2004) <doi:10.1214/088342304000000396> and Manly
+(2007) <isbn:978-1-58488-541-2>.
 
 %prep
 %setup -q -c -n %{packname}

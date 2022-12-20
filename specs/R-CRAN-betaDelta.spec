@@ -1,39 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TippingPoint
-%global packver   1.2.0
+%global __requires_exclude ^libmpi
+%global packname  betaDelta
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enhanced Tipping Point Displays the Results of Sensitivity Analysis for Missing Data
+Summary:          Confidence Intervals for Standardized Regression Coefficients
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 >= 2.0.0
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Using the idea of "tipping point" (proposed in Gregory Campbell, Gene
-Pennello and Lilly Yue(2011) <DOI:10.1080/10543406.2011.550094>) to
-visualize the results of sensitivity analysis for missing data, the
-package provides a set of functions to list out all the possible
-combinations of missing values in two treatment arms, calculate
-corresponding estimated treatment effects and p values, and draw a colored
-heat-map. It could deal with randomized experiments with a binary outcome
-or a continuous outcome. In addition, the package provides a visualized
-method to compare various imputation methods by adding the rectangles or
-convex hulls on the basic plot.
+Generates confidence intervals for standardized regression coefficients
+using delta method standard errors for models fitted by lm() as described
+in Yuan and Chan (2011) <doi:10.1007/s11336-011-9224-6> and Jones and
+Waller (2015) <doi:10.1007/s11336-013-9380-y>.
 
 %prep
 %setup -q -c -n %{packname}

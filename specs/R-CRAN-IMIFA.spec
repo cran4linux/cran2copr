@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IMIFA
-%global packver   2.1.9
+%global packver   2.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.9
+Version:          2.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infinite Mixtures of Infinite Factor Analysers and Related Models
 

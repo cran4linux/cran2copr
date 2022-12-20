@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jack
-%global packver   3.0.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Jack, Zonal, and Schur Polynomials
 
@@ -16,22 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-gmp 
-BuildRequires:    R-CRAN-mvp 
-BuildRequires:    R-CRAN-multicool 
 BuildRequires:    R-CRAN-JuliaConnectoR 
+BuildRequires:    R-CRAN-multicool 
+BuildRequires:    R-CRAN-mvp 
+BuildRequires:    R-CRAN-partitions 
+BuildRequires:    R-CRAN-qspray 
 BuildRequires:    R-CRAN-Ryacas 
-BuildRequires:    R-CRAN-gmpoly 
-Requires:         R-CRAN-partitions 
+BuildRequires:    R-CRAN-spray 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-gmp 
-Requires:         R-CRAN-mvp 
-Requires:         R-CRAN-multicool 
 Requires:         R-CRAN-JuliaConnectoR 
+Requires:         R-CRAN-multicool 
+Requires:         R-CRAN-mvp 
+Requires:         R-CRAN-partitions 
+Requires:         R-CRAN-qspray 
 Requires:         R-CRAN-Ryacas 
-Requires:         R-CRAN-gmpoly 
+Requires:         R-CRAN-spray 
 
 %description
 Symbolic calculation and evaluation of the Jack polynomials, zonal

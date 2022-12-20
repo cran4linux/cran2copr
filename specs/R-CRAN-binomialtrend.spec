@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OkNNE
-%global packver   1.0.1
+%global packname  binomialtrend
+%global packver   0.0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A k-Nearest Neighbours Ensemble via Optimal Model Selection for Regression
+Summary:          Calculates the Statistical Significance of a Trend in a Set of Measurements
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-pheatmap 
+Requires:         R-CRAN-pheatmap 
 
 %description
-Optimal k Nearest Neighbours Ensemble is an ensemble of base k nearest
-neighbour models each constructed on a bootstrap sample with a random
-subset of features. k closest observations are identified for a test point
-"x" (say), in each base k nearest neighbour model to fit a stepwise
-regression to predict the output value of "x". The final predicted value
-of "x" is the mean of estimates given by all the models. The implemented
-model takes training and test datasets and trains the model on training
-data to predict the test data. Ali, A., Hamraz, M., Kumam, P., Khan, D.M.,
-Khalil, U., Sulaiman, M. and Khan, Z. (2020)
-<DOI:10.1109/ACCESS.2020.3010099>.
+Detection of a statistically significant trend in the data provided by the
+user. This is based on the a signed test based on the binomial
+distribution. The package returns a trend test value, T, and also a
+p-value. A T value close to 1 indicates a rising trend, whereas a T value
+close to -1 indicates a decreasing trend. A T value close to 0 indicates
+no trend. There is also a command to visualize the trend. A test data set
+called gtsa_data is also available, which has global mean temperatures for
+January, April, July, and October for the years 1851 to 2022. Reference:
+Walpole, Myers, Myers, Ye. (2007, ISBN: 0-13-187711-9).
 
 %prep
 %setup -q -c -n %{packname}

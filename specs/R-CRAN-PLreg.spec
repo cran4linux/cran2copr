@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PLreg
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Logit Regression for Modeling Bounded Data
 
@@ -38,16 +39,16 @@ Requires:         R-CRAN-VGAM
 Requires:         R-CRAN-zipfR 
 
 %description
-Fitting power logit regression models for bounded continuous data, in
-which the density generator may be normal, Student-t, power exponential,
-slash, hyperbolic, sinh-normal, or type II logistic. Diagnostic tools
-associated with the fitted model, such as the residuals, local influence
-measures, leverage measures, and goodness-of-fit statistics, are
-implemented. The estimation process follows the maximum likelihood
-approach and, currently, the package supports two types of estimators: the
-usual maximum likelihood estimator and the penalized maximum likelihood
-estimator. More details about power logit regression models are described
-in Queiroz and Ferrari (2022) <arXiv:2202.01697>.
+Power logit regression models for bounded continuous data, in which the
+density generator may be normal, Student-t, power exponential, slash,
+hyperbolic, sinh-normal, or type II logistic. Diagnostic tools associated
+with the fitted model, such as the residuals, local influence measures,
+leverage measures, and goodness-of-fit statistics, are implemented. The
+estimation process follows the maximum likelihood approach and, currently,
+the package supports two types of estimators: the usual maximum likelihood
+estimator and the penalized maximum likelihood estimator. More details
+about power logit regression models are described in Queiroz and Ferrari
+(2022) <arXiv:2202.01697>.
 
 %prep
 %setup -q -c -n %{packname}

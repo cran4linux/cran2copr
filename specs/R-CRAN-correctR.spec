@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OkNNE
-%global packver   1.0.1
+%global packname  correctR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A k-Nearest Neighbours Ensemble via Optimal Model Selection for Regression
+Summary:          Corrected Test Statistics for Comparing Machine Learning Models on Correlated Samples
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-FNN 
 Requires:         R-stats 
 
 %description
-Optimal k Nearest Neighbours Ensemble is an ensemble of base k nearest
-neighbour models each constructed on a bootstrap sample with a random
-subset of features. k closest observations are identified for a test point
-"x" (say), in each base k nearest neighbour model to fit a stepwise
-regression to predict the output value of "x". The final predicted value
-of "x" is the mean of estimates given by all the models. The implemented
-model takes training and test datasets and trains the model on training
-data to predict the test data. Ali, A., Hamraz, M., Kumam, P., Khan, D.M.,
-Khalil, U., Sulaiman, M. and Khan, Z. (2020)
-<DOI:10.1109/ACCESS.2020.3010099>.
+Calculate a set of corrected test statistics for cases when samples are
+not independent, such as when classification accuracy values are obtained
+over resamples or through k-fold cross-validation, as proposed by Nadeau
+and Bengio (2003) <doi:10.1023/A:1024068626366> and presented in Bouckaert
+and Frank (2004) <doi:10.1007/978-3-540-24775-3_3>.
 
 %prep
 %setup -q -c -n %{packname}

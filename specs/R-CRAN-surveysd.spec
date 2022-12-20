@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  robFitConGraph
-%global packver   0.4.1
+%global packname  surveysd
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph-Constrained Robust Covariance Estimation
+Summary:          Survey Standard Error Estimation for Cumulated Estimates and their Differences in Complex Panel Designs
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-laeken 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-laeken 
+Requires:         R-methods 
 
 %description
-Contains a function by the same name, which provides two types of robust
-t-M-estimators of scatter subject to zero-constraints in the inverse. The
-methodology is described in Vogel & Tyler (2014)
-<doi:10.1093/biomet/asu041>. See the robFitConGraph function documentation
-for further details. A tutorial including background information is given
-by Vogel, Watt & Wiedemann (2022) <arXiv:2204.04291>.
+Calculate point estimates and their standard errors in complex household
+surveys using bootstrap replicates. Bootstrapping considers survey design
+with a rotating panel. A comprehensive description of the methodology can
+be found under
+<https://statistikat.github.io/surveysd/articles/methodology.html>.
 
 %prep
 %setup -q -c -n %{packname}

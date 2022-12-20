@@ -1,55 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mpwR
+%global __requires_exclude ^libmpi
+%global packname  palettes
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standardized Comparison of Workflows in Mass Spectrometry-Based Bottom-Up Proteomics
+Summary:          Methods for Colour Vectors and Colour Palettes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-comprehenr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flowTraceR 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-farver >= 2.0.3
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-prismatic 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-UpSetR 
-Requires:         R-CRAN-comprehenr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flowTraceR 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-farver >= 2.0.3
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-methods 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-prismatic 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-UpSetR 
 
 %description
-Useful functions to analyze proteomic workflows including number of
-identifications, data completeness, missed cleavages, quantitative and
-retention time precision etc. Various software outputs are supported such
-as 'ProteomeDiscoverer', 'Spectronaut', 'DIA-NN' and 'MaxQuant'.
+Provides a comprehensive library for colour vectors and colour palettes
+using a new family of colour classes (palettes_colour and
+palettes_palette) that always print as hex codes with colour previews.
+Capabilities include: formatting, casting and coercion, extraction and
+updating of components, plotting, colour mixing arithmetic, and colour
+interpolation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OkNNE
-%global packver   1.0.1
+%global packname  Hassani.SACF
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A k-Nearest Neighbours Ensemble via Optimal Model Selection for Regression
+Summary:          Computing Lower Bound of Ljung-Box Test
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-stats 
 
 %description
-Optimal k Nearest Neighbours Ensemble is an ensemble of base k nearest
-neighbour models each constructed on a bootstrap sample with a random
-subset of features. k closest observations are identified for a test point
-"x" (say), in each base k nearest neighbour model to fit a stepwise
-regression to predict the output value of "x". The final predicted value
-of "x" is the mean of estimates given by all the models. The implemented
-model takes training and test datasets and trains the model on training
-data to predict the test data. Ali, A., Hamraz, M., Kumam, P., Khan, D.M.,
-Khalil, U., Sulaiman, M. and Khan, Z. (2020)
-<DOI:10.1109/ACCESS.2020.3010099>.
+The Ljung-Box test is one of the most important tests for time series
+diagnostics and model selection. The Hassani SACF (Sum of the Sample
+Autocorrelation Function) Theorem , however, indicates that the sum of
+sample autocorrelation function is always fix for any stationary time
+series with arbitrary length. This package confirms for sensitivity of the
+Ljung-Box test to the number of lags involved in the test and therefore it
+should be used with extra caution. The Hassani SACF Theorem has been
+described in : Hassani, Yeganegi and M. R. (2019)
+<doi:10.1016/j.physa.2018.12.028>.
 
 %prep
 %setup -q -c -n %{packname}
