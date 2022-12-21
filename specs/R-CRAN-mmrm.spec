@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmrm
-%global packver   0.1.5
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed Models for Repeated Measures
 
@@ -23,9 +23,11 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-checkmate >= 2.0
@@ -35,9 +37,11 @@ Requires:         R-methods
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
 Mixed models for repeated measures (MMRM) are a popular choice for
@@ -50,8 +54,8 @@ MMRM based on the marginal linear model without random effects using
 Template Model Builder ('TMB') which enables fast and robust model
 fitting. Users can specify a variety of covariance matrices, weight
 observations, fit models with restricted or standard maximum likelihood
-inference, perform hypothesis testing with Satterthwaite adjusted degrees
-of freedom, and extract least square means estimates by using 'emmeans'.
+inference, perform hypothesis testing with Satterthwaite or Kenward-Roger
+adjustment, and extract least square means estimates by using 'emmeans'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hydroEvents
-%global packver   0.11
+%global packname  cargo
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Event Statistics in Hydrologic Time Series
+Summary:          Develop R Packages using Rust
 
-License:          GPL-3
+License:          MIT + file LICENSE | Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 
 %description
-Events from individual hydrologic time series are extracted, and events
-from multiple time series can be matched to each other. Tang, W. & Carey,
-S. K. (2017) <doi:10.1002/hyp.11185>. Kaur, S., Horne, A., Stewardson,
-M.J., Nathan, R., Costa, A.M., Szemis, J.M., & Webb, J.A. (2017)
-<doi:10.1080/24705357.2016.1276418>. Ladson, A., Brown, R., Neal, B., &
-Nathan, R. J. (2013) <doi:10.7158/W12-028.2013.17.1>.
+A framework is provided to develop R packages using 'Rust'
+<https://www.rust-lang.org/> with minimal overhead, and more wrappers are
+easily added. Help is provided to use 'Cargo'
+<https://doc.rust-lang.org/cargo/> in a manner consistent with CRAN
+policies. 'Rust' code can also be embedded directly in an R script. The
+package is not official, affiliated with, nor endorsed by the Rust
+project.
 
 %prep
 %setup -q -c -n %{packname}

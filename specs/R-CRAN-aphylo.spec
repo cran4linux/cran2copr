@@ -1,44 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RAthena
-%global packver   2.6.1
+%global packname  aphylo
+%global packver   0.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to 'AWS Athena' using 'Boto3' ('DBI' Interface)
+Summary:          Statistical Inference and Prediction of Annotations in Phylogenetic Trees
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.13
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-DBI >= 0.7
-BuildRequires:    R-CRAN-uuid >= 0.1.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-ape >= 5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.1
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-fmcmc 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-reticulate >= 1.13
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-DBI >= 0.7
-Requires:         R-CRAN-uuid >= 0.1.4
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-ape >= 5.0
+Requires:         R-CRAN-Rcpp >= 0.12.1
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-stats 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-fmcmc 
 Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-xml2 
 
 %description
-Designed to be compatible with the R package 'DBI' (Database Interface)
-when connecting to Amazon Web Service ('AWS') Athena
-<https://aws.amazon.com/athena/>. To do this 'Python' 'Boto3' Software
-Development Kit ('SDK')
-<https://boto3.amazonaws.com/v1/documentation/api/latest/index.html> is
-used as a driver.
+Implements a parsimonious evolutionary model to analyze and predict
+gene-functional annotations in phylogenetic trees as described in Vega Yon
+et al. (2021) <doi:10.1371/journal.pcbi.1007948>. With a focus on
+computational efficiency, 'aphylo' makes it possible to estimate pooled
+phylogenetic models, including thousands (hundreds) of annotations (trees)
+in the same run. The package also provides the tools for visualization of
+annotated phylogenies, calculation of posterior probabilities
+(prediction,) and goodness-of-fit assessment featured in Vega Yon et al.
+(2021).
 
 %prep
 %setup -q -c -n %{packname}

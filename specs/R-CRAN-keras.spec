@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  keras
-%global packver   2.9.0
+%global packver   2.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          2.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'Keras'
 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-zeallot
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tensorflow >= 2.8.0
 Requires:         R-CRAN-tfruns >= 1.0
@@ -36,7 +36,6 @@ Requires:         R-CRAN-zeallot
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-rlang 
 
 %description

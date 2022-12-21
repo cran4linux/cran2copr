@@ -1,30 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hydroEvents
-%global packver   0.11
+%global packname  SMOTEWB
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Event Statistics in Hydrologic Time Series
+Summary:          Imbalanced Resampling using SMOTE with Boosting
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-ada 
+Requires:         R-stats 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-ada 
 
 %description
-Events from individual hydrologic time series are extracted, and events
-from multiple time series can be matched to each other. Tang, W. & Carey,
-S. K. (2017) <doi:10.1002/hyp.11185>. Kaur, S., Horne, A., Stewardson,
-M.J., Nathan, R., Costa, A.M., Szemis, J.M., & Webb, J.A. (2017)
-<doi:10.1080/24705357.2016.1276418>. Ladson, A., Brown, R., Neal, B., &
-Nathan, R. J. (2013) <doi:10.7158/W12-028.2013.17.1>.
+Provides Random Oversampling, Random Undersampling, Synthetic Oversampling
+Minority Technique and SMOTE with Boosting by Saglam and Cengiz (2022)
+<doi:10.1016/j.eswa.2022.117023> for imbalanced data resampling. SMOTE
+with Boosting is a SMOTE-based oversampling method which can determine the
+number of links for each positive sample and robust to noise.
 
 %prep
 %setup -q -c -n %{packname}

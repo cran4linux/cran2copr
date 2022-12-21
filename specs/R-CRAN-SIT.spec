@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hydroEvents
-%global packver   0.11
+%global packname  SIT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Event Statistics in Hydrologic Time Series
+Summary:          Association Measurement Through Sliced Independence Test (SIT)
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Events from individual hydrologic time series are extracted, and events
-from multiple time series can be matched to each other. Tang, W. & Carey,
-S. K. (2017) <doi:10.1002/hyp.11185>. Kaur, S., Horne, A., Stewardson,
-M.J., Nathan, R., Costa, A.M., Szemis, J.M., & Webb, J.A. (2017)
-<doi:10.1080/24705357.2016.1276418>. Ladson, A., Brown, R., Neal, B., &
-Nathan, R. J. (2013) <doi:10.7158/W12-028.2013.17.1>.
+Computes the sit coefficient between two vectors x and y, possibly all
+paired coefficients for a matrix. The reference for the methods
+implemented here is Zhang, Yilin, Canyi Chen, and Liping Zhu. 2022.
+"Sliced Independence Test." Statistica Sinica.
+<doi:10.5705/ss.202021.0203>. This package incorporates the Galton peas
+example.
 
 %prep
 %setup -q -c -n %{packname}

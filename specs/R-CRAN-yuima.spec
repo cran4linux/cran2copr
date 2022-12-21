@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yuima
-%global packver   1.15.18
+%global packver   1.15.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.18
+Version:          1.15.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          The YUIMA Project Package for SDEs
 

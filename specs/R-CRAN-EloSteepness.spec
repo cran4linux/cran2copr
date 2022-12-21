@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EloSteepness
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Dominance Hierarchy Steepness via Elo Rating and David's Scores
 
@@ -38,7 +38,7 @@ Requires:         R-CRAN-rstantools
 
 %description
 Obtain Bayesian posterior distributions of dominance hierarchy steepness
-(Neumann and Fischer (2022) <doi:10.1101/2022.01.28.478016>). Steepness
+(Neumann and Fischer (2022) <doi:10.1111/2041-210X.14021>). Steepness
 estimation is based on Bayesian implementations of either Elo-rating or
 David's scores.
 

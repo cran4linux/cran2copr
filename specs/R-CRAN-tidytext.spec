@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidytext
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Mining using 'dplyr', 'ggplot2', and Other Tidy Tools
 
@@ -19,9 +19,9 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.1.1
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-hunspell 
 BuildRequires:    R-CRAN-janeaustenr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-Matrix 
@@ -32,9 +32,9 @@ BuildRequires:    R-CRAN-tokenizers
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.1.1
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-hunspell 
 Requires:         R-CRAN-janeaustenr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-Matrix 

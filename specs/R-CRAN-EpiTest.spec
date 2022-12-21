@@ -1,30 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hydroEvents
-%global packver   0.11
+%global packname  EpiTest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Event Statistics in Hydrologic Time Series
+Summary:          Test for Gene x Gene Interactions in Bi-Parental Populations
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MM4LMM 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MM4LMM 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-Events from individual hydrologic time series are extracted, and events
-from multiple time series can be matched to each other. Tang, W. & Carey,
-S. K. (2017) <doi:10.1002/hyp.11185>. Kaur, S., Horne, A., Stewardson,
-M.J., Nathan, R., Costa, A.M., Szemis, J.M., & Webb, J.A. (2017)
-<doi:10.1080/24705357.2016.1276418>. Ladson, A., Brown, R., Neal, B., &
-Nathan, R. J. (2013) <doi:10.7158/W12-028.2013.17.1>.
+Provides functions to test for gene x gene interactions in a bi-parental
+population of inbred lines. The data are fitted with the mixed linear
+model described in Rio et al. (2022) <doi:10.1101/2022.12.18.520958>, that
+accounts for gene x gene interactions at both the fixed effect and
+variance levels. The package also provides graphical tools to display the
+gene x gene interaction trend at the mean level and the variance component
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

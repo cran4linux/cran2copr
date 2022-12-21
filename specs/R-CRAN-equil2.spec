@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hydroEvents
-%global packver   0.11
+%global packname  equil2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Event Statistics in Hydrologic Time Series
+Summary:          Calculate Urinary Saturation with the EQUIL2 Algorithm
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-units 
+Requires:         R-CRAN-units 
 
 %description
-Events from individual hydrologic time series are extracted, and events
-from multiple time series can be matched to each other. Tang, W. & Carey,
-S. K. (2017) <doi:10.1002/hyp.11185>. Kaur, S., Horne, A., Stewardson,
-M.J., Nathan, R., Costa, A.M., Szemis, J.M., & Webb, J.A. (2017)
-<doi:10.1080/24705357.2016.1276418>. Ladson, A., Brown, R., Neal, B., &
-Nathan, R. J. (2013) <doi:10.7158/W12-028.2013.17.1>.
+Saturation of ionic substances in urine is calculated based on sodium,
+potassium, calcium, magnesium, ammonia, chloride, phosphate, sulfate,
+oxalate, citrate, ph, and urate.  This program is intended for research
+use, only.  The code within is translated from EQUIL2 Visual Basic code
+based on Werness, et al (1985) "EQUIL2: a BASIC computer program for the
+calculation of urinary saturation" <doi:10.1016/s0022-5347(17)47703-2> to
+R. The Visual Basic code was kindly provided by Dr. John Lieske of the
+Mayo Clinic.
 
 %prep
 %setup -q -c -n %{packname}

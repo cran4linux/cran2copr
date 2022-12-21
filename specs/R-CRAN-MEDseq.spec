@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MEDseq
-%global packver   1.3.3
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixtures of Exponential-Distance Models with Covariates
 
@@ -38,9 +39,9 @@ Murphy et al. (2021) <doi:10.1111/rssa.12712>. A range of flexible
 precision parameter settings corresponding to weighted generalisations of
 the Hamming distance metric are considered, along with the potential
 inclusion of a noise component. Gating covariates can be supplied in order
-to relate sequences to baseline characteristics. Sampling weights are also
-accommodated. The models are fitted using the EM algorithm and tools for
-visualising the results are also provided.
+to relate sequences to baseline characteristics and sampling weights are
+also accommodated. The models are fitted using the EM algorithm and tools
+for visualising the results are also provided.
 
 %prep
 %setup -q -c -n %{packname}
