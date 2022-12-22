@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  textrecipes
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra 'Recipes' for Text Processing
 
@@ -23,13 +23,13 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-SnowballC 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tokenizers 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-recipes >= 1.0.0
 Requires:         R-CRAN-generics >= 0.1.0
 Requires:         R-CRAN-lifecycle 
@@ -37,7 +37,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-SnowballC 
 Requires:         R-CRAN-tibble 

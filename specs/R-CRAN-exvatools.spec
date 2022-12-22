@@ -1,47 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PriceIndices
-%global packver   0.1.2
+%global packname  exvatools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Bilateral and Multilateral Price Indexes
+Summary:          Value Added in Exports with International Input-Output Table Tools
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-reclin2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-strex 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-reclin2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-strex 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-reshape2 
+Requires:         R-utils 
 
 %description
-Preparing a scanner data set for price dynamics calculations (data
-selecting, data classification, data matching, data filtering). Computing
-bilateral and multilateral indexes. For details on these methods see:
-Diewert and Fox (2020) <doi:10.1080/07350015.2020.1816176>, Białek (2019)
-<doi:10.2478/jos-2019-0014> or Białek (2020) <doi:10.2478/jos-2020-0037>.
+Decomposition of value added in exports in an international input-output
+table framework using the methodologies of Borin and Mancini (2019)
+<https://openknowledge.worldbank.org/handle/10986/31533>, Miroudot and Ye
+(2021) <doi:10.1080/09535314.2020.1730308>, Wang et al. (2013)
+<https://econpapers.repec.org/paper/nbrnberwo/19677.htm> and Koopman et
+al. (2014) <doi:10.1257/aer.104.2.459>. Includes commands for easy data
+extraction, calculation of complex matrices and other useful tools for
+geographical and sector trade analysis.
 
 %prep
 %setup -q -c -n %{packname}

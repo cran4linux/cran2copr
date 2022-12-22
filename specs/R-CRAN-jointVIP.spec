@@ -1,47 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PriceIndices
-%global packver   0.1.2
+%global packname  jointVIP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Bilateral and Multilateral Price Indexes
+Summary:          Prioritize Variables with Joint Variable Importance Plot in Observational Study Design
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-reclin2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-strex 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-reclin2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-strex 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggrepel >= 0.9.2
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggrepel >= 0.9.2
 
 %description
-Preparing a scanner data set for price dynamics calculations (data
-selecting, data classification, data matching, data filtering). Computing
-bilateral and multilateral indexes. For details on these methods see:
-Diewert and Fox (2020) <doi:10.1080/07350015.2020.1816176>, Białek (2019)
-<doi:10.2478/jos-2019-0014> or Białek (2020) <doi:10.2478/jos-2020-0037>.
+In the observational study design stage, matching/weighting methods are
+conducted. However, when many background variables are present, the
+decision as to which variables to prioritize for matching/weighting is not
+trivial. Thus, the joint treatment-outcome variable importance plots are
+created to guide variable selection. The joint variable importance plots
+enhance variable comparisons via bias curves, derived using the classical
+omitted variable bias framework. The joint variable importance plots
+translate variable importance into recommended values for tuning
+parameters in existing methods. Post-matching and/or weighting plots can
+also be used to visualize and assess the quality of the observational
+study design.
 
 %prep
 %setup -q -c -n %{packname}

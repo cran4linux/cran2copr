@@ -1,47 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PriceIndices
-%global packver   0.1.2
+%global packname  rworkflows
+%global packver   0.99.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.99.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Bilateral and Multilateral Price Indexes
+Summary:          Test, Document, Containerise, and Deploy R Packages
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-reclin2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-strex 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-reclin2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-strex 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-badger 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-yaml 
+Requires:         R-utils 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-badger 
 
 %description
-Preparing a scanner data set for price dynamics calculations (data
-selecting, data classification, data matching, data filtering). Computing
-bilateral and multilateral indexes. For details on these methods see:
-Diewert and Fox (2020) <doi:10.1080/07350015.2020.1816176>, Białek (2019)
-<doi:10.2478/jos-2019-0014> or Białek (2020) <doi:10.2478/jos-2020-0037>.
+Continuous integration for R packages. Automates testing, documentation
+website building, and containerised deployment.
 
 %prep
 %setup -q -c -n %{packname}

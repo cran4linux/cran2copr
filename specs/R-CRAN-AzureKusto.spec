@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AzureKusto
-%global packver   1.0.7
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Kusto'/'Azure Data Explorer'
 
@@ -47,7 +47,7 @@ Requires:         R-CRAN-dplyr
 %description
 An interface to 'Azure Data Explorer', also known as 'Kusto', a fast,
 highly scalable data exploration service from Microsoft:
-<https://azure.microsoft.com/en-us/services/data-explorer/>. Includes
+<https://azure.microsoft.com/en-us/products/data-explorer/>. Includes
 'DBI' and 'dplyr' interfaces, with the latter modelled after the 'dbplyr'
 package, whereby queries are translated from R into the native 'KQL' query
 language and executed lazily. On the admin side, the package extends the

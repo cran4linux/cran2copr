@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WeMix
-%global packver   3.2.4
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.4
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Mixed-Effects Models Using Multilevel Pseudo Maximum Likelihood Estimation
 

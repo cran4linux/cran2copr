@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyfst
-%global packver   1.7.5
+%global packver   1.7.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.5
+Version:          1.7.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Verbs for Fast Data Manipulation
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-stringr >= 1.5.0
 BuildRequires:    R-CRAN-data.table >= 1.13.0
 BuildRequires:    R-CRAN-fst >= 0.9.0
-Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-stringr >= 1.5.0
 Requires:         R-CRAN-data.table >= 1.13.0
 Requires:         R-CRAN-fst >= 0.9.0
 

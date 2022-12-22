@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3fselect
-%global packver   0.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Selection for 'mlr3'
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.9.4
+BuildRequires:    R-CRAN-bbotk >= 0.7.2
 BuildRequires:    R-CRAN-paradox >= 0.7.0
-BuildRequires:    R-CRAN-bbotk >= 0.5.2
 BuildRequires:    R-CRAN-mlr3pipelines >= 0.3.0
 BuildRequires:    R-CRAN-mlr3 >= 0.12.0
 BuildRequires:    R-CRAN-data.table 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-lgr
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-mlr3misc >= 0.9.4
+Requires:         R-CRAN-bbotk >= 0.7.2
 Requires:         R-CRAN-paradox >= 0.7.0
-Requires:         R-CRAN-bbotk >= 0.5.2
 Requires:         R-CRAN-mlr3pipelines >= 0.3.0
 Requires:         R-CRAN-mlr3 >= 0.12.0
 Requires:         R-CRAN-data.table 
@@ -37,8 +37,8 @@ Requires:         R-CRAN-lgr
 Requires:         R-CRAN-R6 
 
 %description
-Feature selection package of the mlr3 ecosystem. It selects the optimal
-feature set for any mlr3 learner. The package works with several
+Feature selection package of the 'mlr3' ecosystem. It selects the optimal
+feature set for any 'mlr3' learner. The package works with several
 optimization algorithms e.g. Random Search, Recursive Feature Elimination,
 and Genetic Search. Moreover, it can automatically optimize learners and
 estimate the performance of optimized feature sets with nested resampling.
