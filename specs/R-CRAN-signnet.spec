@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  signnet
-%global packver   0.8.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods to Analyse Signed Networks
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Methods for the analysis of signed networks. This includes several

@@ -1,59 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stochLAB
-%global packver   1.1.2
+%global packname  REDCapDM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stochastic Collision Risk Model
+Summary:          'REDCap' Data Management
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-logr 
+BuildRequires:    R-CRAN-REDCapR 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-logr 
+Requires:         R-CRAN-REDCapR 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-utils 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
-Collision Risk Models for avian fauna (seabird and migratory birds) at
-offshore wind farms. The base deterministic model is derived from Band
-(2012)
-<https://tethys.pnnl.gov/publications/using-collision-risk-model-assess-bird-collision-risks-offshore-wind-farms>.
-This was further expanded on by Masden (2015) <doi:10.7489/1659-1> and
-code used here is heavily derived from this work with input from Dr A.
-Cook at the British Trust for Ornithology. These collision risk models are
-useful for marine ornithologists who are working in the offshore wind
-industry, particularly in UK waters. However, many of the species included
-in the stochastic collision risk models can also be found in the North
-Atlantic in the United States and Canada, and could be applied there.
+Access and manage 'REDCap' data. 'REDCap' (Research Electronic Data
+CAPture; <https://projectredcap.org>) is a web application for building
+and managing online surveys and databases developed at Vanderbilt
+University. The API allows users to programmatic access data and project
+meta data (such as the data dictionary) from the web. This package allows
+us to read 'REDCap' data, exported or using an API connection, identify
+missing or extreme values, identify missing 'REDCap' events in each
+observation, do a follow-up of the queries initially identified and it
+also facilitates the process of data management.
 
 %prep
 %setup -q -c -n %{packname}

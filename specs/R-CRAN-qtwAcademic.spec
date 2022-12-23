@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgeedim
-%global packver   0.2.0
+%global packname  qtwAcademic
+%global packver   2022.12.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2022.12.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search, Composite, and Download 'Google Earth Engine' Imagery with the 'Python' Module 'geedim'
+Summary:          'Quarto' Website Templates for Academics
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-fs 
 
 %description
-Search, composite, and download 'Google Earth Engine' imagery with
-'reticulate' bindings for the 'Python' module 'geedim' by Dugal Harris.
-Read the 'geedim' documentation here: <https://geedim.readthedocs.io/>.
-Wrapper functions are provided to make it more convenient to use 'geedim'
-to download images larger than the 'Google Earth Engine' size limit
-<https://developers.google.com/earth-engine/apidocs/ee-image-getdownloadurl>.
-By default the "High Volume" API endpoint
-<https://developers.google.com/earth-engine/cloud/highvolume> is used to
-download data and this URL can be customized during initialization of the
-package.
+Provides three 'Quarto' website templates as an R project, which are
+commonly used by academics. Templates for personal websites and
+course/workshop websites are included, as well as a template with minimal
+content for customization.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgeedim
-%global packver   0.2.0
+%global packname  emailjsr
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search, Composite, and Download 'Google Earth Engine' Imagery with the 'Python' Module 'geedim'
+Summary:          'emailjs' Support
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shiny.i18n 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-shinybrowser 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shiny.i18n 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-shinybrowser 
 
 %description
-Search, composite, and download 'Google Earth Engine' imagery with
-'reticulate' bindings for the 'Python' module 'geedim' by Dugal Harris.
-Read the 'geedim' documentation here: <https://geedim.readthedocs.io/>.
-Wrapper functions are provided to make it more convenient to use 'geedim'
-to download images larger than the 'Google Earth Engine' size limit
-<https://developers.google.com/earth-engine/apidocs/ee-image-getdownloadurl>.
-By default the "High Volume" API endpoint
-<https://developers.google.com/earth-engine/cloud/highvolume> is used to
-download data and this URL can be customized during initialization of the
-package.
+Use 'emailjs' API easily in 'R'. This package is not official.
+<https://www.emailjs.com/docs/rest-api/send/>. You can send e-mail with
+'emailjs' with function, based on 'httr'. You can also make a 'shiny' ui
+and server function. It can be used for making feedback form, inquiry, and
+so on.
 
 %prep
 %setup -q -c -n %{packname}

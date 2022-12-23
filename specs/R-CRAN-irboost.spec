@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  irboost
-%global packver   0.1-1.1
+%global packver   0.1-1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.1
+Version:          0.1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Iteratively Reweighted Boosting for Robust Analysis
 
@@ -25,12 +26,13 @@ Requires:         R-CRAN-xgboost
 Fit a predictive model with the iteratively reweighted boosting (IRBoost)
 that minimizes the robust loss functions in the CC-family
 (concave-convex). The convex optimization is conducted by functional
-descent boosting algorithm in the R package xgboost. The IRBoost reduces
+descent boosting algorithm in the R package 'xgboost'. The IRBoost reduces
 the weight of the observation that leads to a large loss; it also provides
 weights to help identify outliers. Applications include the robust
 generalized linear models and extensions, where the mean is related to the
 predictors by boosting, and robust accelerated failure time models. The
-package supersedes the R package ccboost. Wang (2021) <arXiv:2101.07718>.
+package supersedes the R package 'ccboost'. Wang (2021)
+<arXiv:2101.07718>.
 
 %prep
 %setup -q -c -n %{packname}

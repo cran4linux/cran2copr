@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rQCC
-%global packver   2.22.5
+%global packver   2.22.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.22.5
+Version:          2.22.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Quality Control Chart
 
@@ -25,9 +26,9 @@ control charts are all unbiased with a sample of finite size. For more
 details, see Park, Kim and Wang (2022)
 <doi:10.1080/03610918.2019.1699114>. In addition, using this R package,
 the conventional quality control charts such as X-bar, S, R, p, np, u, c,
-g and h charts are also easily constructed. This work was partially
-supported by the National Research Foundation of Korea (NRF) grant funded
-by the Korea government (NRF-2017R1A2B4004169).
+g, h, and t charts are also easily constructed. This work was supported by
+the National Research Foundation of Korea (NRF) grant funded by the Korea
+government (MSIT) (No. 2022R1A2C1091319).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tokenizers
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast, Consistent Tokenization of Natural Language Text
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-Rcpp >= 0.12.3
 %description
 Convert natural language text into tokens. Includes tokenizers for
 shingled n-grams, skip n-grams, words, word stems, sentences, paragraphs,
-characters, shingled characters, lines, tweets, Penn Treebank, regular
+characters, shingled characters, lines, Penn Treebank, regular
 expressions, as well as functions for counting characters, words, and
 sentences, and a function for splitting longer texts into separate
 documents, each with the same number of words.  The tokenizers have a

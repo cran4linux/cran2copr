@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlmeVPC
-%global packver   2.5
+%global packver   2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visual Model Checking for Nonlinear Mixed Effect Model
 

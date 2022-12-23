@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  genpathmox
-%global packver   0.9
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pathmox Approach Segmentation Tree Analysis
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-diagram
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-matrixcalc 
 Requires:         R-stats 
 Requires:         R-CRAN-cSEM 
 Requires:         R-CRAN-diagram 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-matrixcalc 
 
 %description
 It provides an interesting solution for handling a high number of
