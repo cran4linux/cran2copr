@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gwasrapidd
-%global packver   0.99.13
+%global packver   0.99.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.13
+Version:          0.99.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          'REST' 'API' Client for the 'NHGRI'-'EBI' 'GWAS' Catalog
 

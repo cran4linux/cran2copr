@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grizbayr
-%global packver   1.3.3
+%global packname  stabilo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference for A|B and Bandit Marketing Tests
+Summary:          Stabilometric Signal Quantification
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
 
 %description
-Uses simple Bayesian conjugate prior update rules to calculate the win
-probability of each option, value remaining in the test, and percent lift
-over the baseline for various marketing objectives. References: Fink,
-Daniel (1997) "A Compendium of Conjugate Priors"
-<https://www.johndcook.com/CompendiumOfConjugatePriors.pdf>. Stucchio,
-Chris (2015) "Bayesian A/B Testing at VWO"
-<https://vwo.com/downloads/VWO_SmartStats_technical_whitepaper.pdf>.
+Functions for stabilometric signal quantification. The input is a data
+frame containing the x, y coordinates of the center-of-pressure
+displacement. Jose Magalhaes de Oliveira (2017)
+<doi:10.3758/s13428-016-0706-4> "Statokinesigram normalization method"; T
+E Prieto, J B Myklebust, R G Hoffmann, E G Lovett, B M Myklebust (1996)
+<doi:10.1109/10.532130> "Measures of postural steadiness: Differences
+between healthy young and elderly adults"; L F Oliveira et al (1996)
+<doi:10.1088/0967-3334/17/4/008> "Calculation of area of stabilometric
+signals using principal component analisys".
 
 %prep
 %setup -q -c -n %{packname}

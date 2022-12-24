@@ -1,43 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grizbayr
-%global packver   1.3.3
+%global packname  gompertztrunc
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference for A|B and Bandit Marketing Tests
+Summary:          Conducting Maximum Likelihood Estimation with Truncated Mortality Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggsci 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-modelr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggsci 
+Requires:         R-grid 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-modelr 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Uses simple Bayesian conjugate prior update rules to calculate the win
-probability of each option, value remaining in the test, and percent lift
-over the baseline for various marketing objectives. References: Fink,
-Daniel (1997) "A Compendium of Conjugate Priors"
-<https://www.johndcook.com/CompendiumOfConjugatePriors.pdf>. Stucchio,
-Chris (2015) "Bayesian A/B Testing at VWO"
-<https://vwo.com/downloads/VWO_SmartStats_technical_whitepaper.pdf>.
+Estimates hazard ratios and mortality differentials for doubly-truncated
+data without population denominators.
 
 %prep
 %setup -q -c -n %{packname}
