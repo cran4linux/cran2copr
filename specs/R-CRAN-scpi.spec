@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scpi
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Intervals for Synthetic Control Methods with Multiple Treated Units and Staggered Adoption
 
@@ -25,7 +25,6 @@ BuildRequires:    R-stats >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
 BuildRequires:    R-CRAN-tibble >= 3.1.2
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-doRNG >= 1.8.2
 BuildRequires:    R-CRAN-fastDummies >= 1.6.3
 BuildRequires:    R-CRAN-Qtools >= 1.5.6
 BuildRequires:    R-CRAN-foreach >= 1.5.1
@@ -48,7 +47,6 @@ Requires:         R-stats >= 4.1.0
 Requires:         R-CRAN-ggplot2 >= 3.3.3
 Requires:         R-CRAN-tibble >= 3.1.2
 Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-doRNG >= 1.8.2
 Requires:         R-CRAN-fastDummies >= 1.6.3
 Requires:         R-CRAN-Qtools >= 1.5.6
 Requires:         R-CRAN-foreach >= 1.5.1
@@ -65,7 +63,7 @@ Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Implementation of estimation and inference procedures for Synthetic
+Implementation of prediction and inference procedures for Synthetic
 Control methods using least square, lasso, ridge, or simplex-type
 constraints. Uncertainty is quantified with prediction intervals as
 developed in Cattaneo, Feng, and Titiunik (2021)
