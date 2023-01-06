@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cvms
-%global packver   1.3.7
+%global packver   1.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          1.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validation for Model Selection
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.3
-BuildRequires:    R-CRAN-groupdata2 >= 2.0.1
+BuildRequires:    R-CRAN-groupdata2 >= 2.0.2
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-MuMIn >= 1.43.17
 BuildRequires:    R-CRAN-pROC >= 1.16.0
@@ -38,7 +38,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 3.0.3
-Requires:         R-CRAN-groupdata2 >= 2.0.1
+Requires:         R-CRAN-groupdata2 >= 2.0.2
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-MuMIn >= 1.43.17
 Requires:         R-CRAN-pROC >= 1.16.0

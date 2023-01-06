@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  daymetr
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'Daymet' Web Services
 
@@ -17,14 +18,16 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 

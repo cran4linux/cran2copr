@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  documenter
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Documents Files
 
@@ -19,12 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-yaml 
 
 %description

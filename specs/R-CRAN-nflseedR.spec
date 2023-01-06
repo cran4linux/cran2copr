@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nflseedR
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Efficiently Simulate and Evaluate NFL Seasons
 
@@ -18,33 +19,27 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nflreadr >= 1.1.3
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-gsubfn 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-nflreadr >= 1.1.3
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-future 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-gsubfn 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

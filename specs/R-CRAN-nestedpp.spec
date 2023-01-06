@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nestedpp
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Performance Profiles and Nested Performance Profiles
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-xtable 
 
 %description
 Library to plot performance profiles (Dolan and More (2002)

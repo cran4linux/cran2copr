@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bcdata
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search and Retrieve Data from the BC Data Catalogue
 
@@ -16,44 +17,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.0.0
-BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-readr >= 1.3
-BuildRequires:    R-CRAN-crul >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-sf >= 0.7
-BuildRequires:    R-CRAN-rlang >= 0.3.1
-BuildRequires:    R-CRAN-tidyselect >= 0.2.5
-BuildRequires:    R-CRAN-purrr >= 0.2
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-cli >= 3.3.0
+BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-dbplyr >= 2.2.0
+BuildRequires:    R-CRAN-leaflet >= 2.1.0
+BuildRequires:    R-CRAN-readr >= 2.1
+BuildRequires:    R-CRAN-glue >= 1.6.0
+BuildRequires:    R-CRAN-jsonlite >= 1.6.0
+BuildRequires:    R-CRAN-readxl >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.3.0
+BuildRequires:    R-CRAN-DBI >= 1.1.0
+BuildRequires:    R-CRAN-crul >= 1.1
+BuildRequires:    R-CRAN-tidyselect >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-leaflet.extras >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0
+BuildRequires:    R-CRAN-sf >= 1.0
+BuildRequires:    R-CRAN-purrr >= 0.3
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dbplyr >= 2.0.0
-Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-readr >= 1.3
-Requires:         R-CRAN-crul >= 1.1.0
-Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-sf >= 0.7
-Requires:         R-CRAN-rlang >= 0.3.1
-Requires:         R-CRAN-tidyselect >= 0.2.5
-Requires:         R-CRAN-purrr >= 0.2
-Requires:         R-CRAN-cli 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-cli >= 3.3.0
+Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-dbplyr >= 2.2.0
+Requires:         R-CRAN-leaflet >= 2.1.0
+Requires:         R-CRAN-readr >= 2.1
+Requires:         R-CRAN-glue >= 1.6.0
+Requires:         R-CRAN-jsonlite >= 1.6.0
+Requires:         R-CRAN-readxl >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.3.0
+Requires:         R-CRAN-DBI >= 1.1.0
+Requires:         R-CRAN-crul >= 1.1
+Requires:         R-CRAN-tidyselect >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-leaflet.extras >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0
+Requires:         R-CRAN-sf >= 1.0
+Requires:         R-CRAN-purrr >= 0.3
 Requires:         R-methods 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-readxl 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-stats 
 
 %description
 Search, query, and download tabular and 'geospatial' data from the British

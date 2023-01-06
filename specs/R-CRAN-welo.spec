@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  welo
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted and Standard Elo Rates
 
@@ -19,13 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-reshape2 >= 1.4.4
 BuildRequires:    R-CRAN-boot >= 1.3
-BuildRequires:    R-CRAN-Rdpack >= 1.0.0
+BuildRequires:    R-CRAN-Rdpack >= 1.0
 BuildRequires:    R-CRAN-rio >= 0.5.29
 BuildRequires:    R-CRAN-xts >= 0.12.0
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-reshape2 >= 1.4.4
 Requires:         R-CRAN-boot >= 1.3
-Requires:         R-CRAN-Rdpack >= 1.0.0
+Requires:         R-CRAN-Rdpack >= 1.0
 Requires:         R-CRAN-rio >= 0.5.29
 Requires:         R-CRAN-xts >= 0.12.0
 

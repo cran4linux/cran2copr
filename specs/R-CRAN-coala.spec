@@ -1,57 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mppR
-%global packver   1.4.0
+%global packname  coala
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Parent Population QTL Analysis
+Summary:          A Framework for Coalescent Simulation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rehh >= 3.0.0
+BuildRequires:    R-CRAN-R6 >= 2.0.1
+BuildRequires:    R-CRAN-scrm >= 1.6.0.2
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.3.810.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-assertthat >= 0.1
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-qtl 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rehh >= 3.0.0
+Requires:         R-CRAN-R6 >= 2.0.1
+Requires:         R-CRAN-scrm >= 1.6.0.2
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-assertthat >= 0.1
+Requires:         R-CRAN-digest 
 Requires:         R-methods 
-Requires:         R-CRAN-nlme 
 Requires:         R-parallel 
-Requires:         R-CRAN-qtl 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Analysis of experimental multi-parent populations to detect regions of the
-genome (called quantitative trait loci, QTLs) influencing phenotypic
-traits measured in unique and multiple environments. The population must
-be composed of crosses between a set of at least three parents (e.g.
-factorial design, 'diallel', or nested association mapping). The functions
-cover data processing, QTL detection, and results visualization. The
-implemented methodology is described in Garin, Wimmer, Mezmouk, Malosetti
-and van Eeuwijk (2017) <doi:10.1007/s00122-017-2923-3> as well as in
-Garin, Malosetti and van Eeuwijk (2020) <doi: 10.1007/s00122-020-03621-0>.
+Coalescent simulators can rapidly simulate biological sequences evolving
+according to a given model of evolution. You can use this package to
+specify such models, to conduct the simulations and to calculate
+additional statistics from the results (Staab, Metzler, 2016
+<doi:10.1093/bioinformatics/btw098>). It relies on existing simulators for
+doing the simulation, and currently supports the programs 'ms', 'msms' and
+'scrm'. It also supports finite-sites mutation models by combining the
+simulators with the program 'seq-gen'. Coala provides functions for
+calculating certain summary statistics, which can also be applied to
+actual biological data. One possibility to import data is through the
+'PopGenome' package (<https://github.com/pievos101/PopGenome>).
 
 %prep
 %setup -q -c -n %{packname}

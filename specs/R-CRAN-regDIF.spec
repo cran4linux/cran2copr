@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  regDIF
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Differential Item Functioning
 
@@ -18,9 +19,13 @@ Requires:         R-core
 BuildRequires:    R-stats > 3.0.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-stats > 3.0.0
 Requires:         R-utils 
 Requires:         R-CRAN-statmod 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
 
 %description
 Performs regularization of differential item functioning (DIF) parameters
@@ -36,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

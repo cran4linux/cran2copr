@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iotarelr
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Iota Inter Coder Reliability for Content Analysis
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggalluvial 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggalluvial 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
@@ -41,7 +43,7 @@ corrections are implemented. This information can support the development
 process of a coding scheme and allows a detailed inspection of the quality
 of the generated data. Equations and formulas working in this package are
 part of Berding et al. (2022)<doi:10.3389/feduc.2022.818365> and Berding
-and Pargmann (2022,ISBN:978-3-8325-5581-8).
+and Pargmann (2022) <doi:10.30819/5581>.
 
 %prep
 %setup -q -c -n %{packname}

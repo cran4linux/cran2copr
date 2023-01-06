@@ -1,51 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MSEtool
-%global packver   3.6.1
+%global packname  ergm.multi
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Management Strategy Evaluation Toolkit
+Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Multiple or Multilayer Networks
 
-License:          GPL-3
+License:          GPL-3 + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-statnet.common >= 4.7.0
+BuildRequires:    R-CRAN-ergm >= 4.3.2
+BuildRequires:    R-CRAN-tibble >= 3.1.8
+BuildRequires:    R-CRAN-Rdpack >= 2.4
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-network >= 1.18.0
+BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-rle >= 0.9.2
+BuildRequires:    R-CRAN-purrr >= 0.3.5
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-statnet.common >= 4.7.0
+Requires:         R-CRAN-ergm >= 4.3.2
+Requires:         R-CRAN-tibble >= 3.1.8
+Requires:         R-CRAN-Rdpack >= 2.4
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-network >= 1.18.0
+Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-rle >= 0.9.2
+Requires:         R-CRAN-purrr >= 0.3.5
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Development, simulation testing, and implementation of management
-procedures for fisheries (see Carruthers & Hordyk (2018)
-<doi:10.1111/2041-210X.13081>).
+A set of extensions for the 'ergm' package to fit
+multilayer/multiplex/multirelational networks and samples of multiple
+networks. 'ergm.multi' is a part of the Statnet suite of packages for
+network analysis. See Krivitsky, Koehly, and Marcum (2020)
+<doi:10.1007/s11336-020-09720-7> and Krivitsky, Coletti, and Hens (2022)
+<doi:10.48550/arXiv.2202.03685>.
 
 %prep
 %setup -q -c -n %{packname}

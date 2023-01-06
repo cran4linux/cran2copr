@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  oddsapiR
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Live Sports Odds from the Odds API
 
@@ -13,27 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Requires:         pandoc
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.4.1
 BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-cli >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-httr >= 0.5
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-cli >= 3.4.1
 Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-cli >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.4
+Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-httr >= 0.5
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-jsonlite 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  naive
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Extrapolation of Time Feature Patterns
 
@@ -26,10 +26,10 @@ BuildRequires:    R-CRAN-lubridate >= 1.7.10
 BuildRequires:    R-CRAN-fastDummies >= 1.6.3
 BuildRequires:    R-CRAN-entropy >= 1.3.1
 BuildRequires:    R-CRAN-scales >= 1.1.1
+BuildRequires:    R-CRAN-greybox >= 1.0.7
 BuildRequires:    R-CRAN-tictoc >= 1.0
-BuildRequires:    R-CRAN-greybox >= 1.0.1
+BuildRequires:    R-CRAN-philentropy >= 0.7.0
 BuildRequires:    R-CRAN-fANCOVA >= 0.6.1
-BuildRequires:    R-CRAN-philentropy >= 0.5.0
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-moments >= 0.14
 Requires:         R-CRAN-ggplot2 >= 3.3.5
@@ -41,10 +41,10 @@ Requires:         R-CRAN-lubridate >= 1.7.10
 Requires:         R-CRAN-fastDummies >= 1.6.3
 Requires:         R-CRAN-entropy >= 1.3.1
 Requires:         R-CRAN-scales >= 1.1.1
+Requires:         R-CRAN-greybox >= 1.0.7
 Requires:         R-CRAN-tictoc >= 1.0
-Requires:         R-CRAN-greybox >= 1.0.1
+Requires:         R-CRAN-philentropy >= 0.7.0
 Requires:         R-CRAN-fANCOVA >= 0.6.1
-Requires:         R-CRAN-philentropy >= 0.5.0
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-moments >= 0.14
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmtoolbox
-%global packver   0.1.4
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Set of Tools to Data Analysis using Generalized Linear Models
 
@@ -38,10 +38,10 @@ Requires:         R-CRAN-Formula
 Set of tools to the statistical analysis of data using: (1) normal linear
 models; (2) generalized linear models; (3) negative binomial regression
 models as alternative to the Poisson regression models under the presence
-of overdispersion; (4) beta-binomial and random-cumpled binomial
+of overdispersion; (4) beta-binomial and random-clumped binomial
 regression models as alternative to the binomial regression models under
 the presence of overdispersion; (5) Zero-inflated and zero-altered
-regression models to deal with zero-excess in count data;(6) generalized
+regression models to deal with zero-excess in count data; (6) generalized
 estimating equations for cluster correlated data.
 
 %prep

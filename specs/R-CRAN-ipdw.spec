@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ipdw
-%global packver   1.0-0
+%global packver   2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Interpolation by Inverse Path Distance Weighting
 
@@ -17,14 +18,12 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gdistance 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-gdistance 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgeos 
 Requires:         R-methods 
 
 %description
