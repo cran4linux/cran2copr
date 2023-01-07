@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  officer
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulation of Microsoft Word and PowerPoint Documents
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -20,19 +20,21 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-zip >= 2.1.0
 BuildRequires:    R-CRAN-xml2 >= 1.1.0
 BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-zip >= 2.1.0
 Requires:         R-CRAN-xml2 >= 1.1.0
 Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-CRAN-R6 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-R6 
 
 %description
 Access and manipulate 'Microsoft Word' and 'Microsoft PowerPoint'

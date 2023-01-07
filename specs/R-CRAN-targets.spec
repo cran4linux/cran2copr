@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  targets
-%global packver   0.14.1
+%global packver   0.14.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.1
+Version:          0.14.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Function-Oriented 'Make'-Like Declarative Workflows
+Summary:          Dynamic Function-Oriented 'Make'-Like Declarative Pipelines
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -55,15 +55,14 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-As a pipeline toolkit for Statistics and data science in R, the 'targets'
-package brings together function-oriented programming and 'Make'-like
-declarative workflows. It analyzes the dependency relationships among the
-tasks of a workflow, skips steps that are already up to date, runs the
-necessary computation with optional parallel workers, abstracts files as R
-objects, and provides tangible evidence that the results match the
-underlying code and data. The methodology in this package borrows from GNU
-'Make' (2015, ISBN:978-9881443519) and 'drake' (2018,
-<doi:10.21105/joss.00550>).
+A pipeline toolkit for Statistics and data science in R, the 'targets'
+package brings function-oriented programming to 'Make'-like declarative
+pipelines. 'targets' orchestrates a pipeline as a graph of dependencies,
+skips steps that are already up to date, runs the necessary computation
+with optional parallel workers, abstracts files as R objects, and provides
+tangible evidence that the results are reproducible given the underlying
+code and data. The methodology in this package borrows from GNU 'Make'
+(2015, ISBN:978-9881443519) and 'drake' (2018, <doi:10.21105/joss.00550>).
 
 %prep
 %setup -q -c -n %{packname}

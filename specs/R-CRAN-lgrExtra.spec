@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lgrExtra
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Appenders for 'lgr'
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
+BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 
+Requires:         R-CRAN-R6 
 
 %description
 Additional appenders for the logging package 'lgr' that support logging to

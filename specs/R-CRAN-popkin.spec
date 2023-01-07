@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  popkin
-%global packver   1.3.17
+%global packver   1.3.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.17
+Version:          1.3.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Kinship and FST under Arbitrary Population Structure
 
@@ -15,13 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-graphics 
 Requires:         R-grDevices 

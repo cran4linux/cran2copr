@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Qardl
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Autoregressive Distributed Lag Model
 
@@ -22,15 +22,18 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 
 %description
-Fit the quantile autoregressive distributed lag model proposed by ( Cho et
-al. (2015) <doi:10.1016/j.jeconom.2015.05.003>).
+Compute the quantile autoregressive distributed lag model of Cho, Jin Seo
+& Kim, Tae-hwan & Shin, Yongcheol,(2015)
+<DOI:10.1016/j.jeconom.2015.05.003> and the short and long-run wald tests.
 
 %prep
 %setup -q -c -n %{packname}

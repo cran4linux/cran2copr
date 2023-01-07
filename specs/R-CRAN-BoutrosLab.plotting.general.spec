@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BoutrosLab.plotting.general
-%global packver   7.0.3
+%global packver   7.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0.3
+Version:          7.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Create Publication-Quality Plots
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-lattice >= 0.20.35
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-tools 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-e1071 
 Requires:         R-CRAN-MASS >= 7.3.29
@@ -33,6 +35,7 @@ Requires:         R-CRAN-lattice >= 0.20.35
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-tools 
+Requires:         R-methods 
 Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-e1071 
 
@@ -47,7 +50,7 @@ quality plots with standard colour schemes simpler. All functions within
 this package are capable of producing plots that are of the quality to be
 presented in scientific publications and journals. P'ng et al.; BPG:
 Seamless, automated and interactive visualization of scientific data; BMC
-Bioinformatics 2019 <doi: 10.1186/s12859-019-2610-2>.
+Bioinformatics 2019 <doi:10.1186/s12859-019-2610-2>.
 
 %prep
 %setup -q -c -n %{packname}

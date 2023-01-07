@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fitbitViz
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Fitbit' Visualizations
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-raster >= 3.6.3
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -36,11 +38,14 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-leafgl 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rayshader 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-raster >= 3.6.3
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -61,11 +66,13 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-grDevices 
 Requires:         R-CRAN-leafgl 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rayshader 
 Requires:         R-utils 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-reshape2 
 
 %description
 Connection to the 'Fitbit' Web API

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  climatrends
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Climate Variability Indices for Ecological Modelling
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-nasapower 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-nasapower 
 
 %description
 Supports analysis of trends in climate change, ecological and crop

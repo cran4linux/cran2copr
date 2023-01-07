@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Orcs
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Omnidirectional R Code Snippets
 
@@ -20,7 +20,6 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 0.11.3
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
@@ -29,13 +28,12 @@ BuildRequires:    R-CRAN-lattice
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-Rcpp >= 0.11.3
 Requires:         R-methods 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-bookdown 
 Requires:         R-grDevices 
 Requires:         R-grid 
@@ -44,10 +42,10 @@ Requires:         R-CRAN-lattice
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
 
 %description
 I tend to repeat the same code chunks over and over again. At first, this

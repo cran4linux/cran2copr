@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LPCM
-%global packver   0.46-7
+%global packver   0.47-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.46.7
+Version:          0.47.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Principal Curve Methods
 
@@ -20,14 +21,22 @@ BuildArch:        noarch
 %description
 Fitting multivariate data patterns with local principal curves, including
 tools for data compression (projection) and measuring goodness-of-fit;
-with some additional functions for mean shift clustering.
+with some additional functions for mean shift clustering.  See Einbeck,
+Tutz and Evers (2005) <doi:10.1007/s11222-005-4073-8> and Einbeck (2011)
+<doi:10.13176/11.288>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -37,6 +46,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  respR
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import, Process, Analyse, and Calculate Rates from Respirometry Data
 
@@ -55,7 +55,7 @@ Provides a structural, reproducible workflow for the processing and
 analysis of respirometry data. It contains analytical functions and
 utilities for working with oxygen time-series to determine respiration or
 oxygen production rates, and to make it easier to report and share
-analyses.
+analyses. See Harianto et al. 2019 <doi:10.1111/2041-210X.13162>.
 
 %prep
 %setup -q -c -n %{packname}

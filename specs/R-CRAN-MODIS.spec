@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MODIS
-%global packver   1.2.9
+%global packver   1.2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          1.2.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Acquisition and Processing of MODIS Products
 
@@ -30,8 +30,6 @@ BuildRequires:    R-CRAN-maptools
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ptw 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
@@ -49,8 +47,6 @@ Requires:         R-CRAN-maptools
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-ptw 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 

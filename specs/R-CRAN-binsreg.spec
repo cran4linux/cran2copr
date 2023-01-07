@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  binsreg
-%global packver   0.7
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Binscatter Estimation and Inference
 
@@ -29,8 +30,8 @@ Requires:         R-CRAN-matrixStats
 
 %description
 Provides tools for statistical analysis using the binscatter methods
-developed by Cattaneo, Crump, Farrell and Feng (2021a) <arXiv:1902.09608>
-and Cattaneo, Crump, Farrell and Feng (2021b) <arXiv:1902.09615>.
+developed by Cattaneo, Crump, Farrell and Feng (2022a) <arXiv:1902.09608>
+and Cattaneo, Crump, Farrell and Feng (2022b) <arXiv:1902.09615>.
 Binscatter provides a flexible way of describing the relationship between
 two variables based on partitioning/binning of the independent variable of
 interest. binsreg(), binsqreg() and binsglm() implement binscatter least

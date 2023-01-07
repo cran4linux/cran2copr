@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  misty
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions 'T. Yanagida'
 
@@ -40,14 +41,14 @@ Miscellaneous functions for descriptive statistics (e.g., frequency table,
 cross tabulation, multilevel descriptive statistics, multilevel R-squared
 measures, within-group and between-group correlation matrix, various
 effect size measures), data management (e.g., grand-mean and group-mean
-centering, recode variables and reverse code items, scale and group
+centering, coding variables and reverse coding items, scale and group
 scores, reading and writing SPSS and Excel files), missing data (e.g.,
 descriptive statistics for missing data, missing data pattern, Little's
 test of Missing Completely at Random, and auxiliary variable analysis),
 item analysis (e.g., coefficient alpha and omega, confirmatory factor
 analysis), and statistical analysis (e.g., confidence intervals,
-collinearity diagnostics, analysis of variance, Levene's test, t-test,
-z-test, sample size determination).
+collinearity diagnostics, analysis of variance, t-test, z-test, sample
+size determination).
 
 %prep
 %setup -q -c -n %{packname}

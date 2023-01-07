@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pcds
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Proximity Catch Digraphs and Their Applications
 
@@ -13,23 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-combinat 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-gMOIP 
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-stats 
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-combinat 
-Requires:         R-graphics 
 Requires:         R-CRAN-interp 
+Requires:         R-CRAN-gMOIP 
 Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-plotrix 
-Requires:         R-stats 
 
 %description
 Contains the functions for generating patterns of segregation,

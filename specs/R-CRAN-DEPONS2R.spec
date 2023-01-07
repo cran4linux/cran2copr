@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DEPONS2R
-%global packver   1.1.6
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read, Plot and Analyse Output from the DEPONS Model
 
@@ -20,26 +20,27 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-raster 
 Requires:         R-methods 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-jsonlite 
 
 %description
 Methods for analyzing population dynamics and movement tracks simulated
-using the DEPONS model <https://www.depons.eu>, and for manipulating input
-raster files and shipping routes.
+using the DEPONS model <https://www.depons.eu> (v.3.0), for manipulating
+input raster files, shipping routes and for analyzing sound propagated
+from ships.
 
 %prep
 %setup -q -c -n %{packname}

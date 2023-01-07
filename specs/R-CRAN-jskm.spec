@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jskm
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kaplan-Meier Plot with 'ggplot2'
 
@@ -17,12 +18,12 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-scales 

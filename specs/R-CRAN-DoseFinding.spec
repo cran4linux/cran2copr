@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DoseFinding
-%global packver   1.0-2
+%global packver   1.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Planning and Analyzing Dose Finding Experiments
 
@@ -15,8 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.15.0
 Requires:         R-core >= 2.15.0
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-mvtnorm 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semhelpinghands
-%global packver   0.1.4.4
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4.4
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Structural Equation Modeling
 
@@ -27,8 +27,8 @@ An assortment of helper functions for doing structural equation modeling,
 mainly by 'lavaan' for now. Most of them are time-saving functions for
 common tasks in doing structural equation modeling and reading the output.
 This package is not for functions that implement advanced statistical
-procedures. It is a light-weight package for simple functions to simple
-tasks conveniently, as few dependencies as possible.
+procedures. It is a light-weight package for simple functions that do
+simple tasks conveniently, with as few dependencies as possible.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FFTrees
-%global packver   1.7.5
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.5
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate, Visualise, and Evaluate Fast-and-Frugal Decision Trees
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-caret
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-scales 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-caret
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
 Requires:         R-graphics 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-scales 

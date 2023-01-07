@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RobinHood
-%global packver   1.6.5
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for the RobinHood.com No Commission Investing Platform
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-profvis 
@@ -30,6 +32,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-uuid 
+Requires:         R-methods 
 
 %description
 Execute API calls to the RobinHood <https://robinhood.com> investing

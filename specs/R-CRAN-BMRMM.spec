@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BMRMM
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of the Bayesian Markov (Renewal) Mixed Models
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-graphics 
@@ -56,8 +57,8 @@ times as well as relevant plots and graphs. It also includes a synthetic
 data set to demonstrate the desired format of input data set and the
 utility of various functions. Methods for Bayesian Markov renewal mixed
 models are as described in: Abhra Sarkar et al., (2018)
-<doi:10.1080/01621459.2018.1423986> and Yutong Wu et al., (2021)
-<arXiv:2107.07648>.
+<doi:10.1080/01621459.2018.1423986> and Yutong Wu et al., (2022)
+<doi:10.1093/biostatistics/kxac050>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sen2r
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find, Download and Process Sentinel-2 Data
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-stars >= 0.4.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-geojsonio 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-stars >= 0.4.1
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-geojsonio 

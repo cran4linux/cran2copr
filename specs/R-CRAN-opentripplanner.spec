@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  opentripplanner
-%global packver   0.4.0
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Setup and connect to 'OpenTripPlanner'
 
@@ -13,28 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-RcppSimdJson >= 0.1.2
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-geodist 
 BuildRequires:    R-CRAN-googlePolylines 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-sfheaders 
 Requires:         R-CRAN-sf >= 0.9.3
+Requires:         R-CRAN-RcppSimdJson >= 0.1.2
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-geodist 
 Requires:         R-CRAN-googlePolylines 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-sfheaders 
 
 %description

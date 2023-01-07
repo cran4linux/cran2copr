@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pRecipe
-%global packver   0.4.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Precipitation R Recipes
 
@@ -26,8 +26,10 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-openair 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 Requires:         R-grDevices 
 Requires:         R-methods 
@@ -38,8 +40,10 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-openair 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 
 %description

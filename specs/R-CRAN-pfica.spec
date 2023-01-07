@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pfica
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Independent Component Analysis for Univariate Functional Data
+Summary:          Independent Components Analysis Techniques for Functional Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +18,22 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-whitening 
 Requires:         R-CRAN-fda 
-Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-expm 
-Requires:         R-CRAN-moments 
+Requires:         R-CRAN-whitening 
 
 %description
-Performs penalized independent component analysis for univariate
-functional data [<doi:10.3390/math9111243>].
+Performs smoothed (and non-smoothed) principal/independent components
+analysis of functional data. Various functional pre-whitening approaches
+are implemented as discussed in Vidal and Aguilera (2022) “Novel whitening
+approaches in functional settings", <doi:10.1002/sta4.516>. Further
+whitening representations of functional data can be derived in terms of a
+few principal components, providing an avenue to explore hidden structures
+in low dimensional settings: see Vidal, Rosso and Aguilera (2021)
+“Bi-smoothed functional independent component analysis for EEG artifact
+removal”, <doi:10.3390/math9111243>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

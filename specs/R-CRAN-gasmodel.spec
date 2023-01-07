@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gasmodel
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Autoregressive Score Models
 
@@ -37,7 +37,8 @@ Estimation, forecasting, and simulation of generalized autoregressive
 score (GAS) models of Creal, Koopman, and Lucas (2013)
 <doi:10.1002/jae.1279> and Harvey (2013) <doi:10.1017/cbo9781139540933>.
 Model specification allows for various conditional distributions,
-different parametrizations, exogenous variables, higher score and
+different parametrizations, exogenous variables, joint and separate
+modeling of exogenous variables and dynamics,higher score and
 autoregressive orders, custom and unconditional initial values of
 time-varying parameters, fixed and bounded values of coefficients, and
 missing values. Model estimation is performed by the maximum likelihood

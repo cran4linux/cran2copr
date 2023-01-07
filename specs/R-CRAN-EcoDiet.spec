@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EcoDiet
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating a Diet Matrix from Biotracer and Stomach Content Data
 
@@ -17,22 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjags >= 4.10
 BuildRequires:    R-stats >= 3.6
 BuildRequires:    R-utils >= 3.6
 BuildRequires:    R-CRAN-ggplot2 >= 3.2
+BuildRequires:    R-CRAN-jagsUI >= 1.5.2
+BuildRequires:    R-CRAN-ggmcmc >= 1.1
 BuildRequires:    R-CRAN-coda >= 0.19
-Requires:         R-CRAN-rjags >= 4.10
 Requires:         R-stats >= 3.6
 Requires:         R-utils >= 3.6
 Requires:         R-CRAN-ggplot2 >= 3.2
+Requires:         R-CRAN-jagsUI >= 1.5.2
+Requires:         R-CRAN-ggmcmc >= 1.1
 Requires:         R-CRAN-coda >= 0.19
 
 %description
 Biotracers and stomach content analyses are combined in a Bayesian
 hierarchical model to estimate a probabilistic topology matrix (all
 trophic link probabilities) and a diet matrix (all diet proportions). The
-package relies on the JAGS software and the 'rjags' package to run a
+package relies on the JAGS software and the 'jagsUI' package to run a
 Markov chain Monte Carlo approximation of the different variables.
 
 %prep
