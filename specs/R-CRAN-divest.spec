@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  divest
-%global packver   0.10.2
+%global packver   0.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.10.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Images Out of DICOM Format Quickly
 
@@ -15,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-RNifti >= 0.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-RNifti >= 0.3.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RNifti 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RNifti 
 
 %description
 Provides tools to sort DICOM-format medical image files, and convert them

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Renvlp
-%global packver   3.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computing Envelope Estimators
 
@@ -20,9 +20,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-orthogonalsplinebasis 
+BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-Rsolnp 
 Requires:         R-stats 
 Requires:         R-CRAN-orthogonalsplinebasis 
+Requires:         R-CRAN-pls 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-Matrix 
 
 %description
 Provides a general routine, envMU, which allows estimation of the M
@@ -32,9 +38,12 @@ envelopes, partial response envelopes, envelopes in the predictor space,
 heteroscedastic envelopes, simultaneous envelopes, scaled response
 envelopes, scaled envelopes in the predictor space, groupwise envelopes,
 weighted envelopes, envelopes in logistic regression, envelopes in Poisson
-regression and envelopes in function-on-function linear regression. For
-each of these model-based routines the package provides inference tools
-including bootstrap, cross validation, estimation and prediction,
+regression envelopes in function-on-function linear regression,
+envelope-based Partial Partial Least Squares, envelopes with non-constant
+error covariance, envelopes with t-distributed errors, reduced rank
+envelopes and reduced rank envelopes with non-constant error covariance.
+For each of these model-based routines the package provides inference
+tools including bootstrap, cross validation, estimation and prediction,
 hypothesis testing on coefficients are included except for weighted
 envelopes. Tools for selection of dimension include AIC, BIC and
 likelihood ratio testing.  Background is available at Cook, R. D.,

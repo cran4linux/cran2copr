@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fCopulae
-%global packver   4021.84
+%global packver   4022.85
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4021.84
+Version:          4022.85
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rmetrics - Bivariate Dependence Structures with Copulae
 

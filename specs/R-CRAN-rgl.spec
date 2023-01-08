@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgl
-%global packver   0.110.2
+%global packver   0.111.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.110.2
+Version:          0.111.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Visualization Using OpenGL
 
@@ -21,25 +21,25 @@ BuildRequires:    libpng-devel
 BuildRequires:    freetype-devel
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-htmlwidgets >= 1.6.0
 BuildRequires:    R-CRAN-knitr >= 1.33
 BuildRequires:    R-CRAN-jsonlite >= 0.9.20
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-mime 
+Requires:         R-CRAN-htmlwidgets >= 1.6.0
 Requires:         R-CRAN-knitr >= 1.33
 Requires:         R-CRAN-jsonlite >= 0.9.20
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-R6 

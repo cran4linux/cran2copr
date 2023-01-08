@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IDSL.IPA
-%global packver   2.5
+%global packver   2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Intrinsic Peak Analysis (IPA) for HRMS Data
 
@@ -17,20 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IDSL.MXP >= 1.4
+BuildRequires:    R-CRAN-IDSL.MXP >= 1.8
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-readxl 
-Requires:         R-CRAN-IDSL.MXP >= 1.4
+Requires:         R-CRAN-IDSL.MXP >= 1.8
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-readxl 
 
 %description
-A sophisticated pipeline for processing LC/HRMS data to extract signals of
-organic compounds. The package performs ion pairing, peak detection,
-alignment, RT correction, gap filling, peak annotation and visualization
-of extracted ion chromatograms (EICs) and total ion chromatograms (TICs).
+A multi-layered untargeted pipeline for high-throughput LC/HRMS data
+processing to extract signals of organic small molecules. The package
+performs ion pairing, peak detection, peak table alignment, retention time
+correction, aligned peak table gap filling, peak annotation and
+visualization of extracted ion chromatograms (EICs) and total ion
+chromatograms (TICs).
 
 %prep
 %setup -q -c -n %{packname}

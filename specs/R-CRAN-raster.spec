@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  raster
-%global packver   3.6-11
+%global packver   3.6-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.11
+Version:          3.6.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Data Analysis and Modeling
 
@@ -27,9 +27,7 @@ Requires:         R-methods
 
 %description
 Reading, writing, manipulating, analyzing and modeling of spatial data.
-The package implements basic and high-level functions for raster data and
-for vector data operations such as intersections. This package has been
-superseded by the "terra" package
+This package has been superseded by the "terra" package
 <https://CRAN.R-project.org/package=terra>.
 
 %prep

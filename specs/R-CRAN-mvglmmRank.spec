@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mvglmmRank
-%global packver   1.2-3
+%global packver   1.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Generalized Linear Mixed Models for Ranking Sports Teams
 
@@ -32,7 +32,13 @@ Requires:         R-CRAN-MASS
 
 %description
 Maximum likelihood estimates are obtained via an EM algorithm with either
-a first-order or a fully exponential Laplace approximation.
+a first-order or a fully exponential Laplace approximation as documented
+by Broatch and Karl (2018) <doi:10.48550/arXiv.1710.05284>, Karl, Yang,
+and Lohr (2014) <doi:10.1016/j.csda.2013.11.019>, and by Karl (2012)
+<doi:10.1515/1559-0410.1471>. Karl and Zimmerman
+<doi:10.1016/j.jspi.2020.06.004> use this package to illustrate how the
+home field effect estimator from a mixed model can be biased under
+nonrandom scheduling.
 
 %prep
 %setup -q -c -n %{packname}

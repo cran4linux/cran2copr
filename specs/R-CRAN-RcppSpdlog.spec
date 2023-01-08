@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppSpdlog
-%global packver   0.0.11
+%global packver   0.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.11
+Version:          0.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          R and C++ Interfaces to 'spdlog' C++ Header Library for Logging
 
@@ -23,7 +23,8 @@ Requires:         R-CRAN-Rcpp
 The mature and widely-used C++ logging library 'spdlog' by Gabi Melman
 provides many desirable features. This package bundles these header files
 for easy use by R packages from both their R and C or C++ code. Explicit
-use via 'LinkingTo:' is also supported.
+use via 'LinkingTo:' is also supported. Also see the 'spdl' package which
+enhanced this package with a consistent R and C++ interface.
 
 %prep
 %setup -q -c -n %{packname}
