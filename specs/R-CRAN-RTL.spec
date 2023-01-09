@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RTL
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Tool Library - Trading, Risk, 'Analytics' for Commodities
 
@@ -39,6 +39,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-TTR 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr 
@@ -62,6 +63,7 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-TTR 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-PerformanceAnalytics 
 
 %description
 A toolkit for Commodities 'analytics', risk management and trading

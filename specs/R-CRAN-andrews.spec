@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  medfate
-%global packver   2.9.1
+%global packname  andrews
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mediterranean Forest Simulation
+Summary:          Various Andrews Curves
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-meteoland >= 0.8.1
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-meteoland >= 0.8.1
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-primes 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-primes 
 
 %description
-Functions to simulate Mediterranean forest functioning and dynamics using
-cohort-based description of vegetation [De Caceres et al. (2015)
-<doi:10.1016/j.agrformet.2015.06.012>; De Caceres et al. (2021)
-<doi:10.1016/j.agrformet.2020.108233>].
+Visualisation of multidimensional data through different Andrews curves.
 
 %prep
 %setup -q -c -n %{packname}

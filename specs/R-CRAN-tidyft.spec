@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  medfate
-%global packver   2.9.1
+%global packname  tidyft
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mediterranean Forest Simulation
+Summary:          Fast and Memory Efficient Data Operations in Tidy Syntax
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-meteoland >= 0.8.1
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-meteoland >= 0.8.1
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-fst >= 0.9.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-fst >= 0.9.0
 
 %description
-Functions to simulate Mediterranean forest functioning and dynamics using
-cohort-based description of vegetation [De Caceres et al. (2015)
-<doi:10.1016/j.agrformet.2015.06.012>; De Caceres et al. (2021)
-<doi:10.1016/j.agrformet.2020.108233>].
+Tidy syntax for 'data.table', using modification by reference whenever
+possible. This toolkit is designed for big data analysis in
+high-performance desktop or laptop computers. The syntax of the package is
+similar or identical to 'tidyverse'. It is user friendly, memory efficient
+and time saving. For more information, check its ancestor package
+'tidyfst'.
 
 %prep
 %setup -q -c -n %{packname}

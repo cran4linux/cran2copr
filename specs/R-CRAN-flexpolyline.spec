@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  medfate
-%global packver   2.9.1
+%global packname  flexpolyline
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mediterranean Forest Simulation
+Summary:          Flexible Polyline Encoding
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-meteoland >= 0.8.1
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-meteoland >= 0.8.1
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-sf >= 0.9.3
+Requires:         R-CRAN-Rcpp 
 
 %description
-Functions to simulate Mediterranean forest functioning and dynamics using
-cohort-based description of vegetation [De Caceres et al. (2015)
-<doi:10.1016/j.agrformet.2015.06.012>; De Caceres et al. (2021)
-<doi:10.1016/j.agrformet.2020.108233>].
+Binding to the C++ implementation of the flexible polyline encoding by
+HERE <https://github.com/heremaps/flexible-polyline>. The flexible
+polyline encoding is a lossy compressed representation of a list of
+coordinate pairs or coordinate triples. The encoding is achieved by: (1)
+Reducing the decimal digits of each value; (2) encoding only the offset
+from the previous point; (3) using variable length for each coordinate
+delta; and (4) using 64 URL-safe characters to display the result.
 
 %prep
 %setup -q -c -n %{packname}

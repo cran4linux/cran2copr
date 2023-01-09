@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  medfate
-%global packver   2.9.1
+%global packname  MOEADr
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mediterranean Forest Simulation
+Summary:          Component-Wise MOEA/D Implementation
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-meteoland >= 0.8.1
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-meteoland >= 0.8.1
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-assertthat 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-assertthat 
 
 %description
-Functions to simulate Mediterranean forest functioning and dynamics using
-cohort-based description of vegetation [De Caceres et al. (2015)
-<doi:10.1016/j.agrformet.2015.06.012>; De Caceres et al. (2021)
-<doi:10.1016/j.agrformet.2020.108233>].
+Modular implementation of Multiobjective Evolutionary Algorithms based on
+Decomposition (MOEA/D) [Zhang and Li (2007),
+<DOI:10.1109/TEVC.2007.892759>] for quick assembling and testing of new
+algorithmic components, as well as easy replication of published MOEA/D
+proposals. The full framework is documented in a paper published in the
+Journal of Statistical Software [<doi:10.18637/jss.v092.i06>].
 
 %prep
 %setup -q -c -n %{packname}

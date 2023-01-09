@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geocmeans
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementing Methods for Spatial Fuzzy Unsupervised Classification
 
@@ -20,13 +20,13 @@ BuildRequires:    R-CRAN-plotly >= 4.9.3
 BuildRequires:    R-stats >= 3.5
 BuildRequires:    R-grDevices >= 3.5
 BuildRequires:    R-methods >= 3.5
-BuildRequires:    R-CRAN-raster >= 3.4.10
 BuildRequires:    R-CRAN-tmap >= 3.3.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
 BuildRequires:    R-CRAN-fclust >= 2.1.1
 BuildRequires:    R-CRAN-Rdpack >= 2.1
 BuildRequires:    R-CRAN-leaflet >= 2.0.4.1
 BuildRequires:    R-CRAN-reldist >= 1.6.6
+BuildRequires:    R-CRAN-terra >= 1.6.47
 BuildRequires:    R-CRAN-shiny >= 1.6.0
 BuildRequires:    R-CRAN-reshape2 >= 1.4.4
 BuildRequires:    R-CRAN-future.apply >= 1.4.0
@@ -42,13 +42,13 @@ Requires:         R-CRAN-plotly >= 4.9.3
 Requires:         R-stats >= 3.5
 Requires:         R-grDevices >= 3.5
 Requires:         R-methods >= 3.5
-Requires:         R-CRAN-raster >= 3.4.10
 Requires:         R-CRAN-tmap >= 3.3.1
 Requires:         R-CRAN-ggplot2 >= 3.2.1
 Requires:         R-CRAN-fclust >= 2.1.1
 Requires:         R-CRAN-Rdpack >= 2.1
 Requires:         R-CRAN-leaflet >= 2.0.4.1
 Requires:         R-CRAN-reldist >= 1.6.6
+Requires:         R-CRAN-terra >= 1.6.47
 Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-reshape2 >= 1.4.4
 Requires:         R-CRAN-future.apply >= 1.4.0
