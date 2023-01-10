@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Numero
-%global packver   1.9.5
+%global packname  FisPro
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.5
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Framework to Define Subgroups in Complex Datasets
+Summary:          Fuzzy Inference System Design and Optimization
 
-License:          GPL (>= 2)
+License:          CeCILL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
 
 %description
-High-dimensional datasets that do not exhibit a clear intrinsic clustered
-structure pose a challenge to conventional clustering algorithms. For this
-reason, we developed an unsupervised framework that helps scientists to
-better subgroup their datasets based on visual cues, please see Gao S,
-Mutter S, Casey A, Makinen V-P (2019) Numero: a statistical framework to
-define multivariable subgroups in complex population-based datasets, Int J
-Epidemiology, 48:369-37, <doi:10.1093/ije/dyy113>. The framework includes
-the necessary functions to construct a self-organizing map of the data, to
-evaluate the statistical significance of the observed data patterns, and
-to visualize the results.
+Fuzzy inference systems are based on fuzzy rules, which have a good
+capability for managing progressive phenomenons. This package is a basic
+implementation of the main functions to use a Fuzzy Inference System (FIS)
+provided by the open source software 'FisPro' <https://www.fispro.org>.
+'FisPro' allows to create fuzzy inference systems and to use them for
+reasoning purposes, especially for simulating a physical or biological
+system.
 
 %prep
 %setup -q -c -n %{packname}

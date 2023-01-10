@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsconnect
-%global packver   0.8.28
+%global packver   0.8.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.28
+Version:          0.8.29
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deployment Interface for R Markdown Documents and Shiny Applications
 
@@ -35,9 +35,9 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-tools 
 
 %description
-Programmatic deployment interface for 'RPubs', 'shinyapps.io', and
-'RStudio Connect'. Supported content types include R Markdown documents,
-Shiny applications, Plumber APIs, plots, and static web content.
+Programmatic deployment interface for 'RPubs', 'shinyapps.io', and 'Posit
+Connect'. Supported content types include R Markdown documents, Shiny
+applications, Plumber APIs, plots, and static web content.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  enerscape
-%global packver   0.1.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Energy Landscapes
 
@@ -15,24 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-gdistance 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-gdistance 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-CRAN-terra 
 
 %description
 Compute energy landscapes using a digital elevation model raster and body
-mass of animals. Vignette available at:
-<https://emilio-berti.github.io/enerscape.html>.
+mass of animals.
 
 %prep
 %setup -q -c -n %{packname}

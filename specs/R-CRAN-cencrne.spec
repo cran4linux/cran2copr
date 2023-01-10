@@ -1,48 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BigVAR
-%global packver   1.1.2
+%global packname  cencrne
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dimension Reduction Methods for Multivariate Time Series
+Summary:          Consistent Estimation of the Number of Communities via Regularized Network Embedding
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-abind 
+Requires:         R-CRAN-Matrix 
 
 %description
-Estimates VAR and VARX models with Structured Penalties using the methods
-developed by Nicholson et al (2017)<doi:10.1016/j.ijforecast.2017.01.003>
-and Nicholson et al (2020) <doi:10.48550/arXiv.1412.5250>.
+The network analysis plays an important role in numerous application
+domains including biomedicine. Estimation of the number of communities is
+a fundamental and critical issue in network analysis. Most existing
+studies assume that the number of communities is known a priori, or lack
+of rigorous theoretical guarantee on the estimation consistency. This
+method proposes a regularized network embedding model to simultaneously
+estimate the community structure and the number of communities in a
+unified formulation. The proposed model equips network embedding with a
+novel composite regularization term, which pushes the embedding vector
+towards its center and collapses similar community centers with each
+other. A rigorous theoretical analysis is conducted, establishing
+asymptotic consistency in terms of community detection and estimation of
+the number of communities. Reference: Ren, M., Zhang S. and Wang J.
+(2022). "Consistent Estimation of the Number of Communities via
+Regularized Network Embedding". Biometrics, <doi:10.1111/biom.13815>.
 
 %prep
 %setup -q -c -n %{packname}

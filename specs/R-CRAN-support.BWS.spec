@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  support.BWS
-%global packver   0.4-4
+%global packver   0.4-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Case 1 Best-Worst Scaling
 
@@ -24,8 +25,9 @@ orthogonal main-effect design/balanced incomplete block design into
 questions; two functions for creating a data set suitable for analysis; a
 function for calculating count-based scores; a function for calculating
 shares of preference; and a function for generating artificial responses
-to questions. For details on best-worst scaling, see Louviere et al.
-(2015) <doi:10.1017/CBO9781107337855>.
+to questions. See Louviere et al. (2015) <doi:10.1017/CBO9781107337855>
+for details on best-worst scaling, and Aizaki and Fogarty (2023)
+<doi:10.1016/j.jocm.2022.100394> for the package.
 
 %prep
 %setup -q -c -n %{packname}

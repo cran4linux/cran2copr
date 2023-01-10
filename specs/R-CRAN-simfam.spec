@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  simfam
-%global packver   1.0.3
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate and Model Family Pedigrees with Structured Founders
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
@@ -34,8 +35,8 @@ target population size per generation.  Auxiliary functions calculate
 kinship matrices, admixture matrices, and draw random genotypes across
 arbitrary pedigree structures starting from the corresponding founder
 values.  The code is built around the plink FAM table format for
-pedigrees.  Partially described in Yao and Ochoa (2019)
-<doi:10.1101/858399>.
+pedigrees.  Described in Yao and Ochoa (2022)
+<doi:10.1101/2022.03.25.485885>.
 
 %prep
 %setup -q -c -n %{packname}

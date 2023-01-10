@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Numero
-%global packver   1.9.5
+%global packname  ukbnmr
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.5
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Framework to Define Subgroups in Complex Datasets
+Summary:          Removal of Unwanted Technical Variation from UK Biobank NMR Metabolomics Biomarker Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-MASS 
 
 %description
-High-dimensional datasets that do not exhibit a clear intrinsic clustered
-structure pose a challenge to conventional clustering algorithms. For this
-reason, we developed an unsupervised framework that helps scientists to
-better subgroup their datasets based on visual cues, please see Gao S,
-Mutter S, Casey A, Makinen V-P (2019) Numero: a statistical framework to
-define multivariable subgroups in complex population-based datasets, Int J
-Epidemiology, 48:369-37, <doi:10.1093/ije/dyy113>. The framework includes
-the necessary functions to construct a self-organizing map of the data, to
-evaluate the statistical significance of the observed data patterns, and
-to visualize the results.
+A suite of utilities for working with the UK Biobank
+<https://www.ukbiobank.ac.uk/> Nuclear Magnetic Resonance spectroscopy
+(NMR) metabolomics data
+<https://biobank.ndph.ox.ac.uk/showcase/label.cgi?id=220>. Includes
+functions for extracting biomarkers from decoded UK Biobank field data,
+removing unwanted technical variation from biomarker concentrations,
+computing an extended set of lipid, fatty acid, and cholesterol fractions,
+and for re-deriving composite biomarkers and ratios after adjusting data
+for unwanted biological variation. For further details on methods see
+Ritchie SC et al. medRxiv (2021) <doi:10.1101/2021.09.24.21264079>.
 
 %prep
 %setup -q -c -n %{packname}

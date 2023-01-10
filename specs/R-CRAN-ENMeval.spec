@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ENMeval
-%global packver   2.0.3
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Tuning and Evaluations of Ecological Niche Models
 
@@ -18,7 +19,6 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-dismo 
 BuildRequires:    R-CRAN-doSNOW 
@@ -26,20 +26,17 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-maxnet 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-rangeModelMetadata 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-dismo 
 Requires:         R-CRAN-doSNOW 
@@ -47,14 +44,12 @@ Requires:         R-CRAN-doParallel
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-utils 
-Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-CRAN-maxnet 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-rangeModelMetadata 
 Requires:         R-CRAN-rlang 
@@ -73,7 +68,7 @@ current version allows possible extensions for any modeling algorithm. The
 extensive vignette, which guides users through most package functionality
 but unfortunately has a file size too big for CRAN, can be found here on
 the package's Github Pages website:
-<https://jamiemkass.github.io/ENMeval/articles/ENMeval-2.0.0-vignette.html>.
+<https://jamiemkass.github.io/ENMeval/articles/ENMeval-2.0-vignette.html>.
 
 %prep
 %setup -q -c -n %{packname}

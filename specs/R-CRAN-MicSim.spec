@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MicSim
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Performing Continuous-Time Microsimulation
 
@@ -13,21 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chron 
 BuildRequires:    R-CRAN-snowfall 
 BuildRequires:    R-CRAN-rlecuyer 
-Requires:         R-CRAN-chron 
 Requires:         R-CRAN-snowfall 
 Requires:         R-CRAN-rlecuyer 
 
 %description
-This entry-level toolkit allows performing continuous-time microsimulation
-for a wide range of life science (demography, social sciences,
-epidemiology) applications. Individual life-courses are specified by a
-continuous-time multi-state model.
+This toolkit allows performing continuous-time microsimulation for a wide
+range of life science (demography, social sciences, epidemiology)
+applications. Individual life-courses are specified by a continuous-time
+multi-state model as described in Zinn (2014) <doi:10.34196/IJM.00105>.
 
 %prep
 %setup -q -c -n %{packname}

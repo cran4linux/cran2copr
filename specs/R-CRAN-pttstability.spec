@@ -1,30 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cli
-%global packver   3.6.0
+%global packname  pttstability
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helpers for Developing Command Line Interfaces
+Summary:          Particle-Takens Stability
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rEDM >= 1.7.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-rEDM >= 1.7.0
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-A suite of tools to build attractive command line interfaces ('CLIs'),
-from semantic elements: headings, lists, alerts, paragraphs, etc. Supports
-custom themes via a 'CSS'-like language. It also contains a number of
-lower level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols
-with 'ASCII' alternatives. It support ANSI colors and text styles as well.
+Includes a collection of functions presented in "Measuring stability in
+ecological systems without static equilibria" by Clark et al. (2022)
+<doi:10.1002/ecs2.4328> in Ecosphere. These can be used to estimate the
+parameters of a stochastic state space model (i.e. a model where a time
+series is observed with error). The goal of this package is to estimate
+the variability around a deterministic process, both in terms of
+observation error - i.e. variability due to imperfect observations that
+does not influence system state - and in terms of process noise - i.e.
+stochastic variation in the actual state of the process. Unlike classical
+methods for estimating variability, this package does not necessarily
+assume that the deterministic state is fixed (i.e. a fixed-point
+equilibrium), meaning that variability around a dynamic trajectory can be
+estimated (e.g. stochastic fluctuations during predator-prey dynamics).
 
 %prep
 %setup -q -c -n %{packname}

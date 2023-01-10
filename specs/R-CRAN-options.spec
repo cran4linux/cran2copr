@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Numero
-%global packver   1.9.5
+%global packname  options
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Framework to Define Subgroups in Complex Datasets
+Summary:          Simple, Consistent Package Options
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildArch:        noarch
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-High-dimensional datasets that do not exhibit a clear intrinsic clustered
-structure pose a challenge to conventional clustering algorithms. For this
-reason, we developed an unsupervised framework that helps scientists to
-better subgroup their datasets based on visual cues, please see Gao S,
-Mutter S, Casey A, Makinen V-P (2019) Numero: a statistical framework to
-define multivariable subgroups in complex population-based datasets, Int J
-Epidemiology, 48:369-37, <doi:10.1093/ije/dyy113>. The framework includes
-the necessary functions to construct a self-organizing map of the data, to
-evaluate the statistical significance of the observed data patterns, and
-to visualize the results.
+Simple mechanisms for defining and interpreting package options. Provides
+helpers for interpreting environment variables, global options, defining
+default values and more.
 
 %prep
 %setup -q -c -n %{packname}

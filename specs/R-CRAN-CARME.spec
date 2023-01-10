@@ -1,44 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SimSST
-%global packver   0.0.5.2
+%global packname  CARME
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulated Stop Signal Task Data
+Summary:          CAR-MM Modelling in Stan
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-methods 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-expm 
 Requires:         R-stats 
+Requires:         R-CRAN-rstantools
 
 %description
-Stop signal task data of go and stop trials is generated per participant.
-The simulation process is based on the generally non-independent horse
-race model and fixed stop signal delay or tracking method. Each of go and
-stop process is assumed having exponentially modified Gaussian(ExG) or
-Shifted Wald (SW) distributions. The output data can be converted to
-'BEESTS' software input data enabling researchers to test and evaluate
-various brain stopping processes manifested by ExG or SW distributional
-parameters of interest. Methods are described in: Soltanifar M (2020)
-<https://hdl.handle.net/1807/101208>, Matzke D, Love J, Wiecki TV, Brown
-SD, Logan GD and Wagenmakers E-J (2013) <doi:10.3389/fpsyg.2013.00918>,
-Logan GD, Van Zandt T, Verbruggen F, Wagenmakers EJ. (2014)
-<doi:10.1037/a0035230>.
+'Stan' based functions to estimate CAR-MM models. These models allow to
+estimate Generalised Linear Models with CAR (conditional autoregressive)
+spatial random effects for spatially and temporally misaligned data,
+provided a suitable Multiple Membership matrix. The main references are
+Gramatica, Liverani and Congdon (2022) <doi:10.48550/arXiv.2208.06738>,
+Petrof, Neyens, Nuyts, Nackaerts, Nemery and Faes (2020)
+<doi:10.1002/sim.8697> and Gramatica, Congdon and Liverani
+<doi:10.1111/rssc.12480>.
 
 %prep
 %setup -q -c -n %{packname}

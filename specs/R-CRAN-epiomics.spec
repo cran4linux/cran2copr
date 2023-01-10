@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sandwichr
-%global packver   1.0.3
+%global packname  epiomics
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Interpolation Based on Spatial Stratified Heterogeneity
+Summary:          Analysis of Omics Data in Observational Studies
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-qgcomp 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-geodetector 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-lwgeom 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-ggrepel 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-qgcomp 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-geodetector 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-lwgeom 
-Requires:         R-tools 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggrepel 
 
 %description
-Spatial interpolation is a common practice in social and environmental
-science. This package enables the implementation of SSH-based spatial
-interpolation proposed by Wang et al. (2013) <doi:10.1068/a44710>. It
-provides functions to (1) evaluate stratification schemes, (2) interpolate
-sampling data over user-defined reporting units, (3) assess interpolation
-uncertainties, and (4) evaluate overall accuracy using the k-fold
-cross-validation estimate.
+A collection of fast and flexible functions for analyzing omics data in
+observational studies. Multiple different approaches for integrating
+environmental/genetic factors, omics data, and/or phenotype data are
+implemented. This includes functions for performing omics wide association
+studies with one or more variables of interest as the exposure or outcome;
+a function for performing a meet in the middle analysis for linking
+exposures, omics, and outcomes (as described by Chadeau-Hyam et al.,
+(2010) <doi:10.3109/1354750X.2010.533285>); and a function for performing
+a mixtures analysis across all omics features using quantile-based
+g-Computation (as described by Keil et al., (2019) <doi:10.1289/EHP5838>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CAvariants
-%global packver   5.8
+%global packname  hyd1d
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.8
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correspondence Analysis Variants
+Summary:          Algorithms to Compute 1d Water Levels along the German Federal Waterways Elbe and Rhine
 
-License:          GPL (> 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel > 3.0.1
-Requires:         R-core > 3.0.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-plotrix >= 3.0.0
+BuildRequires:    R-CRAN-RCurl >= 1.95.4.10
+BuildRequires:    R-CRAN-RJSONIO >= 1.0.0
 BuildRequires:    R-methods 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-plotrix >= 3.0.0
+Requires:         R-CRAN-RCurl >= 1.95.4.10
+Requires:         R-CRAN-RJSONIO >= 1.0.0
 Requires:         R-methods 
-Requires:         R-tools 
-Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
+Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Provides six variants of two-way correspondence analysis (ca): simple ca,
-singly ordered ca, doubly ordered ca, non symmetrical ca, singly ordered
-non symmetrical ca, and doubly ordered non symmetrical ca.
+An S4 class and several functions which utilize internally stored datasets
+and gauging data enable 1d water level interpolation. The S4 class
+(WaterLevelDataFrame) structures the computation and visualisation of 1d
+water level information along the German federal waterways Elbe and Rhine.
+'hyd1d' delivers 1d water level data - extracted from the 'FLYS' database
+- and validated gauging data - extracted from the hydrological database
+'HyDaBa' - package-internally. For computations near real time gauging
+data are queried externally from the 'PEGELONLINE REST API'
+<https://pegelonline.wsv.de/webservice/dokuRestapi>.
 
 %prep
 %setup -q -c -n %{packname}

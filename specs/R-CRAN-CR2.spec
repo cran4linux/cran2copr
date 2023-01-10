@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CR2
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Cluster Robust Standard Errors with Degrees of Freedom Adjustments
 
@@ -21,11 +22,23 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-stats 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-performance 
+Requires:         R-CRAN-tibble 
 
 %description
 Estimate different types of cluster robust standard errors (CR0, CR1, CR2)

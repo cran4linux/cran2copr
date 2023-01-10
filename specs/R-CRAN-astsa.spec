@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  astsa
-%global packver   1.16
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Applied Statistical Time Series Analysis
 
@@ -19,10 +19,12 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 
 %description
-Data sets and scripts to accompany Time Series Analysis and Its
-Applications: With R Examples (4th ed), by R.H. Shumway and D.S. Stoffer.
-Springer Texts in Statistics, 2017, <DOI:10.1007/978-3-319-52452-8>, and
-Time Series: A Data Analysis Approach Using R. Chapman-Hall, 2019,
+Contains data sets and scripts for analyzing time series in both the
+frequency and time domains including state space modeling as well as
+supporting the texts Time Series Analysis and Its Applications: With R
+Examples (4th ed), by R.H. Shumway and D.S. Stoffer. Springer Texts in
+Statistics, 2017, <DOI:10.1007/978-3-319-52452-8>, and Time Series: A Data
+Analysis Approach Using R. Chapman-Hall, 2019,
 <DOI:10.1201/9780429273285>.
 
 %prep

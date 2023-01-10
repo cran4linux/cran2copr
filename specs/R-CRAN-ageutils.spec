@@ -1,35 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Numero
-%global packver   1.9.5
+%global packname  ageutils
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Framework to Define Subgroups in Complex Datasets
+Summary:          Collection of Functions for Working with Age Intervals
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-High-dimensional datasets that do not exhibit a clear intrinsic clustered
-structure pose a challenge to conventional clustering algorithms. For this
-reason, we developed an unsupervised framework that helps scientists to
-better subgroup their datasets based on visual cues, please see Gao S,
-Mutter S, Casey A, Makinen V-P (2019) Numero: a statistical framework to
-define multivariable subgroups in complex population-based datasets, Int J
-Epidemiology, 48:369-37, <doi:10.1093/ije/dyy113>. The framework includes
-the necessary functions to construct a self-organizing map of the data, to
-evaluate the statistical significance of the observed data patterns, and
-to visualize the results.
+Provides a collection of efficient functions for working with individual
+ages and corresponding intervals. These include functions for efficient
+conversion from an age to an interval, aggregation of ages with associated
+counts in to intervals and the splitting of interval counts based on
+specified age distributions.
 
 %prep
 %setup -q -c -n %{packname}

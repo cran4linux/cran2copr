@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Numero
-%global packver   1.9.5
+%global packname  IBFS
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Framework to Define Subgroups in Complex Datasets
+Summary:          Initial Basic Feasible Solution for Transportation Problem
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildArch:        noarch
 
 %description
-High-dimensional datasets that do not exhibit a clear intrinsic clustered
-structure pose a challenge to conventional clustering algorithms. For this
-reason, we developed an unsupervised framework that helps scientists to
-better subgroup their datasets based on visual cues, please see Gao S,
-Mutter S, Casey A, Makinen V-P (2019) Numero: a statistical framework to
-define multivariable subgroups in complex population-based datasets, Int J
-Epidemiology, 48:369-37, <doi:10.1093/ije/dyy113>. The framework includes
-the necessary functions to construct a self-organizing map of the data, to
-evaluate the statistical significance of the observed data patterns, and
-to visualize the results.
+The initial basic feasible solution (IBFS) is a significant step to
+achieve the minimal total cost (optimal solution) of the transportation
+problem. However, the existing methods of IBFS do not always provide a
+good feasible solution which can reduce the number of iterations to find
+the optimal solution. This initial basic feasible solution can be obtained
+by using any of the following methods. a) North West Corner Method. b)
+Least Cost Method. c) Row Minimum Method. d) Column Minimum Method. e)
+Vogel's Approximation Method. etc. For more technical details about the
+algorithms please refer below URLs.
+<https://theintactone.com/2018/05/24/ds-u2-topic-8-transportation-problems-initial-basic-feasible-solution/>.
+<https://www.brainkart.com/article/Methods-of-finding-initial-Basic-Feasible-Solutions_39037/>.
+<https://myhomeworkhelp.com/row-minima-method/>.
+<https://myhomeworkhelp.com/column-minima-method/>.
 
 %prep
 %setup -q -c -n %{packname}
