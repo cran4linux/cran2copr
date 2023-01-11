@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  inters
-%global packver   0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Tools for Estimating Interactions
 
@@ -26,7 +27,7 @@ Requires:         R-CRAN-glmnet
 %description
 A set of functions to estimate interactions flexibly in the face of
 possibly many controls. Implements the procedures described in Blackwell
-and Olson (2022) <doi:10.1093/restud/rdt044>.
+and Olson (2022) <doi:10.1017/pan.2021.19>.
 
 %prep
 %setup -q -c -n %{packname}

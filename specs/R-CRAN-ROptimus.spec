@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aorsf
-%global packver   0.0.6
+%global packname  ROptimus
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accelerated Oblique Random Survival Forests
+Summary:          A Parallel General-Purpose Adaptive Optimisation Engine
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-collapse 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-collapse 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-parallel >= 3.4.2
+BuildRequires:    R-CRAN-foreach >= 1.4.4
+BuildRequires:    R-CRAN-iterators >= 1.0.9
+BuildRequires:    R-CRAN-doParallel >= 1.0.11
+Requires:         R-parallel >= 3.4.2
+Requires:         R-CRAN-foreach >= 1.4.4
+Requires:         R-CRAN-iterators >= 1.0.9
+Requires:         R-CRAN-doParallel >= 1.0.11
 
 %description
-Fit, interpret, and make predictions with oblique random survival forests.
-Oblique decision trees are notoriously slow compared to their axis based
-counterparts, but 'aorsf' runs as fast or faster than axis-based decision
-tree algorithms for right-censored time-to-event outcomes. Methods to
-accelerate and interpret the oblique random survival forest are described
-in Jaeger et al., (2022) <arXiv:2208.01129>.
+A general-purpose optimisation engine that supports i) Monte Carlo
+optimisation with Metropolis criterion [Metropolis et al. (1953)
+<doi:10.1063/1.1699114>, Hastings (1970) <doi:10.1093/biomet/57.1.97>] and
+Acceptance Ratio Simulated Annealing [Kirkpatrick et al. (1983)
+<doi:10.1126/science.220.4598.671>, Černý (1985) <doi:10.1007/BF00940812>]
+on multiple cores, and ii) Acceptance Ratio Replica Exchange Monte Carlo
+Optimisation. In each case, the system pseudo-temperature is dynamically
+adjusted such that the observed acceptance ratio is kept near to the
+desired (fixed or changing) acceptance ratio.
 
 %prep
 %setup -q -c -n %{packname}

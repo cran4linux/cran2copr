@@ -1,44 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  datagovindia
-%global packver   1.0.5
+%global __requires_exclude ^libmpi
+%global packname  FuzzyDBScan
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data.gov.in API Wrapper
+Summary:          Run and Predict a Fuzzy DBScan
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-checkmate 
 
 %description
-This wrapper allows the user to communicate with more than 80,000 API
-posted on data.gov.in - open data platform of the government of India
-<https:data.gov.in/ogpl_apis>. It also allows the user to search for the
-API required through the universe of the API with a better interface than
-the one the official website provides. Once a user has the ID by using the
-API discovery functionalities, it allows one to converse with the API
-using a consistent format across all available API.
+An interface for training Fuzzy DBScan with both Fuzzy Core and Fuzzy
+Border. Therefore, the package provides a method to initialize and run the
+algorithm and a function to predict new data w.t.h. of 'R6'. The package
+is build upon the paper "Fuzzy Extensions of the DBScan algorithm" from
+Ienco and Bordogna (2018) <doi:10.1007/s00500-016-2435-0>. A predict
+function assigns new data according to the same criteria as the algorithm
+itself. However, the prediction function freezes the algorithm to preserve
+the trained cluster structure and treats each new prediction object
+individually.
 
 %prep
 %setup -q -c -n %{packname}

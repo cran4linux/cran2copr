@@ -1,41 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  layer
-%global packver   0.0.1
+%global __requires_exclude ^libmpi
+%global packname  SDGdetector
+%global packver   2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tilts your Maps and Turns Them into Ggplot Objects
+Summary:          Detecting Sustainable Development Goals (SDGs) in Text
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-scico 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggnewscale 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rnaturalearth 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-scico 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-tidyr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rnaturalearth 
+Requires:         R-utils 
 
 %description
-Simplifies the whole process of creating stacked tilted maps, that are
-often used in scientific publications to show different environmental
-layers for a geographical region. Tilting maps and layering them allows to
-easily draw visual correlations between these environmental layers.
+A tool for identifying 17 Sustainable Development Goals (SDGs) and
+associated 169 targets in text, as described in Yingjie Li (2022)
+<https://github.com/Yingjie4Science/SDGdetector/blob/main/paper/paper.pdf>
+. It uses natural language processing to transform unstructured text into
+normalized and structured data suitable for analysis and visualization. It
+thus enables a unique way to monitor individuals' and organizations'
+commitments and efforts towards advancing SDGs and targets.
 
 %prep
 %setup -q -c -n %{packname}

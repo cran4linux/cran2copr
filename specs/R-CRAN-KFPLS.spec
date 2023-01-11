@@ -1,27 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  buffeRs
-%global packver   0.31
+%global __requires_exclude ^libmpi
+%global packname  KFPLS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.31
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Buffer Generation for Spatial Models
+Summary:          Kernel Functional Partial Least Squares
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-fda 
+Requires:         R-splines 
+Requires:         R-stats 
 
 %description
-Generates non-circular simple feature geometries e.g. for the use as
-buffers in model-building.
+Implementation for kernel functional partial least squares (KFPLS) method.
+KFPLS method is developed for functional nonlinear models, and the method
+does not require strict constraints for the nonlinear structures. The
+crucial function of this package is KFPLS().
 
 %prep
 %setup -q -c -n %{packname}

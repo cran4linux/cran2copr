@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  robflreg
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Functional Linear Regression
 
@@ -24,7 +25,7 @@ BuildRequires:    R-CRAN-fda.usc
 BuildRequires:    R-CRAN-goffda 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-pcaPP 
-BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-fields 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-robustbase 
@@ -33,7 +34,7 @@ Requires:         R-CRAN-fda.usc
 Requires:         R-CRAN-goffda 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-pcaPP 
-Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-fields 
 
 %description
 Functions for implementing robust methods for functional linear

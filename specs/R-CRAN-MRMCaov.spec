@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  trackdf
+%global packname  MRMCaov
 %global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Frame Class for Tracking Data
+Summary:          Multi-Reader Multi-Case Analysis of Variance
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-trust 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-trust 
 
 %description
-Data frame class for storing collective movement data (e.g. fish schools,
-ungulate herds, baboon troops) collected from GPS trackers or computer
-vision tracking software.
+Estimation and comparison of the performances of diagnostic tests in
+multi-reader multi-case studies where true case statuses (or ground
+truths) are known and one or more readers provide test ratings for
+multiple cases.  Reader performance metrics are provided for area under
+and expected utility of ROC curves, likelihood ratio of positive or
+negative tests, and sensitivity and specificity.  ROC curves can be
+estimated empirically or with binormal or binormal likelihood-ratio
+models.  Statistical comparisons of diagnostic tests are based on the
+ANOVA model of Obuchowski-Rockette and the unified framework of Hillis
+(2005) <doi:10.1002/sim.2024>.  The ANOVA can be conducted with data from
+a full factorial, nested, or partially paired study design; with random or
+fixed readers or cases; and covariances estimated with the DeLong method,
+jackknifing, or an unbiased method.  Smith and Hillis (2020)
+<doi:10.1117/12.2549075>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,60 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  projpred
-%global packver   2.3.0
+%global packname  sdmTMB
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Projection Predictive Feature Selection
+Summary:          Spatial and Spatiotemporal SPDE-Based GLMMs with 'TMB'
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-loo >= 2.0.0
-BuildRequires:    R-CRAN-rstantools >= 2.0.0
+BuildRequires:    R-CRAN-TMB >= 1.8.0
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fishMod 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-gamm4 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-loo >= 2.0.0
-Requires:         R-CRAN-rstantools >= 2.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB >= 1.8.0
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fishMod 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-glmmTMB 
+Requires:         R-graphics 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-gamm4 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-Performs projection predictive feature selection for generalized linear
-and additive models as well as for generalized linear and additive
-multilevel models (see Piironen, Paasiniemi and Vehtari, 2020,
-<doi:10.1214/20-EJS1711>; Catalina, Bürkner and Vehtari, 2022,
-<https://proceedings.mlr.press/v151/catalina22a.html>). The package is
-compatible with the 'rstanarm' and 'brms' packages, but other reference
-models can also be used. See the documentation as well as the package
-vignette for more information and examples.
+Implements spatial and spatiotemporal predictive-process GLMMs
+(Generalized Linear Mixed Effect Models) using 'TMB', 'INLA', and the SPDE
+(Stochastic Partial Differential Equation) approximation to Gaussian
+random fields. One common application is for spatially explicit (and
+optionally dynamic) species distribution models (SDMs). See Anderson et
+al. (2022) <doi:10.1101/2022.03.24.485545>.
 
 %prep
 %setup -q -c -n %{packname}

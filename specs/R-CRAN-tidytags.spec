@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidytags
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Importing and Analyzing 'Twitter' Data Collected with 'Twitter Archiving Google Sheets'
 
@@ -18,15 +18,15 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr >= 1.4
+BuildRequires:    R-CRAN-rtweet >= 1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-CRAN-googlesheets4 >= 1.0
 BuildRequires:    R-CRAN-rlang >= 1.0
-BuildRequires:    R-CRAN-rtweet >= 1.0
 Requires:         R-CRAN-stringr >= 1.4
+Requires:         R-CRAN-rtweet >= 1.1
 Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-CRAN-googlesheets4 >= 1.0
 Requires:         R-CRAN-rlang >= 1.0
-Requires:         R-CRAN-rtweet >= 1.0
 
 %description
 The 'tidytags' package coordinates the simplicity of collecting tweets

@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FEA
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Finite Element Modeling for R
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,23 +22,26 @@ BuildRequires:    R-CRAN-geosphere
 BuildRequires:    R-CRAN-ptinpoly 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ptinpoly 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-MASS 
+Requires:         R-graphics 
 
 %description
-Finite element modeling of 2D geometries using constant strain triangles.
-Applies material properties and boundary conditions (load and constraint)
-to generate a finite element model. The model produces stress, strain, and
-nodal displacements; a heat map is available to demonstrate regions where
-output variables are high or low.  Also provides options for creating a
-triangular mesh of 2D geometries. Package developed with reference to:
-Bathe, K. J. (1996). Finite Element Procedures.[ISBN 978-0-9790049-5-7] --
-Seshu, P. (2012). Textbook of Finite Element Analysis.
-[ISBN-978-81-203-2315-5] -- Mustapha, K. B. (2018). Finite Element
-Computations in Mechanics with R. [ISBN 9781315144474].
+Finite element modeling of beam structures and 2D geometries using
+constant strain triangles. Applies material properties and boundary
+conditions (load and constraint) to generate a finite element model. The
+model produces stress, strain, and nodal displacements; a heat map is
+available to demonstrate regions where output variables are high or low.
+Also provides options for creating a triangular mesh of 2D geometries.
+Package developed with reference to: Bathe, K. J. (1996). Finite Element
+Procedures.[ISBN 978-0-9790049-5-7] -- Seshu, P. (2012). Textbook of
+Finite Element Analysis. [ISBN-978-81-203-2315-5] -- Mustapha, K. B.
+(2018). Finite Element Computations in Mechanics with R. [ISBN
+9781315144474].
 
 %prep
 %setup -q -c -n %{packname}

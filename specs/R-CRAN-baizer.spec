@@ -1,63 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  connectapi
-%global packver   0.1.2
+%global packname  baizer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Interacting with the 'RStudio Connect' Server API
+Summary:          Useful Functions for Data Processing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-config 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Provides a helpful 'R6' class and methods for interacting with the
-'RStudio Connect' Server API along with some meaningful utility functions
-for regular tasks. API documentation varies by 'RStudio Connect'
-installation and version, but the latest documentation is also hosted
-publicly at <https://docs.rstudio.com/connect/api/>.
+In ancient Chinese mythology, Bai Ze is a divine creature that knows the
+needs of everything. 'baizer' provides data processing functions
+frequently used by the author. Hope this package also knows what you want!
 
 %prep
 %setup -q -c -n %{packname}

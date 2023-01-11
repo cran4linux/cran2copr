@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  segmetric
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metrics for Assessing Segmentation Accuracy for Geospatial Data
 
@@ -16,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-units 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-magrittr 
 Requires:         R-graphics 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-units 
 
 %description

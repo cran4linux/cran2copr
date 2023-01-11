@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dssd
-%global packver   1.0.0
+%global packname  zoomr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance Sampling Survey Design
+Summary:          Connect to Your 'Zoom' Data
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-janitor >= 2.1.0
+BuildRequires:    R-CRAN-jsonlite >= 1.6.1
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-glue >= 1.4.2
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-tidyr >= 1.1.4
+BuildRequires:    R-CRAN-tidyselect >= 1.1.1
+BuildRequires:    R-CRAN-rlang >= 1.0.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-janitor >= 2.1.0
+Requires:         R-CRAN-jsonlite >= 1.6.1
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-glue >= 1.4.2
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-tidyr >= 1.1.4
+Requires:         R-CRAN-tidyselect >= 1.1.1
+Requires:         R-CRAN-rlang >= 1.0.4
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Creates survey designs for distance sampling surveys. These designs can be
-assessed for various effort and coverage statistics. Once the user is
-satisfied with the design characteristics they can generate a set of
-transects to use in their distance sampling survey. Many of the designs
-implemented in this R package were first made available in our 'Distance'
-for Windows software and are detailed in Chapter 7 of Advanced Distance
-Sampling, Buckland et. al. (2008, ISBN-13: 978-0199225873). Find out more
-about estimating animal/plant abundance with distance sampling at
-<http://distancesampling.org/>.
+Facilitates making a connection to the 'Zoom' API and executing various
+queries. You can use it to get data on 'Zoom' webinars and 'Zoom'
+meetings. The 'Zoom' documentation is available at
+<https://marketplace.zoom.us/docs/api-reference/zoom-api/>. This package
+is not supported by 'Zoom' (owner of the software).
 
 %prep
 %setup -q -c -n %{packname}

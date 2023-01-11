@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  HypergeoMat
-%global packver   4.0.1
+%global __requires_exclude ^libmpi
+%global packname  archeoViz
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hypergeometric Function of a Matrix Argument
+Summary:          Visualisation, Exploration, and Web Communication of Archaeological Excavation Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,20 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-JuliaConnectoR 
-BuildRequires:    R-CRAN-EigenR 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-JuliaConnectoR 
-Requires:         R-CRAN-EigenR 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-cxhull 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-svglite 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-cxhull 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-svglite 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
 
 %description
-Evaluates the hypergeometric functions of a matrix argument, which appear
-in random matrix theory. This is an implementation of Koev & Edelman's
-algorithm (2006) <doi:10.1090/S0025-5718-06-01824-2>.
+An R 'Shiny' application for the visualisation, interactive exploration,
+and web communication of archaeological excavation data. It includes
+interactive 3D and 2D visualisations, generation of cross sections and map
+of the remains, basic spatial analysis methods (convex hull, regression
+surfaces, 2D kernel density estimation), and excavation timeline
+visualisation. 'archeoViz' can be used locally or deployed on a server,
+either with interactive input of data or with a static data set.
 
 %prep
 %setup -q -c -n %{packname}

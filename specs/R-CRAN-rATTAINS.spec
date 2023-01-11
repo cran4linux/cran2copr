@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rATTAINS
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access EPA 'ATTAINS' Data
 
@@ -22,7 +23,6 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fauxpas 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-hoardr 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
@@ -37,7 +37,6 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fauxpas 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-hoardr 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 

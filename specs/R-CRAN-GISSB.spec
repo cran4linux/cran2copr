@@ -1,47 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dynConfiR
-%global packver   0.0.2
+%global packname  GISSB
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Models for Confidence and Response Time Distributions
+Summary:          Network Analysis on the Norwegian Road Network
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cppRouting 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-nabor 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-cppRouting 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-minqa 
-Requires:         R-parallel 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-nabor 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides density functions for the joint distribution of choice, response
-time and confidence for discrete confidence judgments as well as functions
-for parameter fitting, prediction and simulation for various dynamical
-models of decision confidence.  All models are explained in detail by
-Hellmann et al.  (preprint; <https://osf.io/9jfqr/>).  Implemented models
-are the dynWEV model, the 2DSD model (Pleskac & Busemeyer, 2010,
-<doi:10.1037/a0019737>), and various race models.  C++ code for dynWEV and
-2DSD is based on the 'rtdists' package by Henrik Singmann.
+A collection of GIS (Geographic Information System) functions in R,
+created for use in Statistics Norway. The functions are primarily related
+to network analysis on the Norwegian road network.
 
 %prep
 %setup -q -c -n %{packname}
