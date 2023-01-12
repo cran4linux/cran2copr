@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statgenSTA
-%global packver   1.0.10
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single Trial Analysis (STA) of Field Trials
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-mapproj 
 BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-qtl 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-scales >= 1.1.0
@@ -41,6 +42,7 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-mapproj 
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-qtl 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-xtable 
 
 %description

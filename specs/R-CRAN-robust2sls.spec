@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robust2sls
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Outlier Robust Two-Stage Least Squares Inference and Testing
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-exactci 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ivreg 
@@ -25,7 +24,6 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-exactci 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ivreg 

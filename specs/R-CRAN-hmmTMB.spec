@@ -1,29 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SCpubr
-%global packver   1.1.0
+%global packname  hmmTMB
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Publication Ready Visualizations of Single Cell Transcriptomics Data
+Summary:          Fit Hidden Markov Models using Template Model Builder
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-CircStats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-tmbstan 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-TMB 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-CircStats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-tmbstan 
+Requires:         R-methods 
 
 %description
-A system that provides a streamlined way of generating publication ready
-plots for known Single-Cell transcriptomics data in a “publication ready”
-format. This is, the goal is to automatically generate plots with the
-highest quality possible, that can be used right away or with minimal
-modifications for a research article.
+Fitting hidden Markov models using automatic differentiation and Laplace
+approximation, allowing for fast inference and flexible covariate effects
+(including random effects and smoothing splines) on model parameters. The
+package is described by Michelot (2022) <arXiv:2211.14139>.
 
 %prep
 %setup -q -c -n %{packname}

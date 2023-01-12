@@ -1,50 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FAMetA
-%global packver   0.1.5
+%global packname  plantTracker
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fatty Acid Metabolic Analysis
+Summary:          Extract Demographic and Competition Data from Fine-Scale Maps
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LipidMS 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-accucor 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-LipidMS 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-accucor 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-gplots 
+BuildRequires:    R-CRAN-units 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-sf 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-units 
 
 %description
-Fatty acid metabolic analysis aimed to the estimation of FA import (I), de
-novo synthesis (S), fractional contribution of the 13C-tracers (D0, D1,
-D2), elongation (E) and desaturation (Des) based on mass isotopologue
-data.
+Extracts growth, survival, and local neighborhood density information from
+repeated, fine-scale maps of organism occurrence. Further information
+about this package can be found in our journal article, "plantTracker: An
+R package to translate maps of plant occurrence into demographic data"
+published in 2022 in Methods in Ecology and Evolution (Stears, et al.,
+2022) <doi:10.1111/2041-210X.13950>.
 
 %prep
 %setup -q -c -n %{packname}

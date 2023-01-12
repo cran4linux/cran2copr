@@ -1,50 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FAMetA
-%global packver   0.1.5
+%global packname  BTSR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fatty Acid Metabolic Analysis
+Summary:          Bounded Time Series Regression
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-LipidMS 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-accucor 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-LipidMS 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-accucor 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-gplots 
-Requires:         R-grDevices 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 
 %description
-Fatty acid metabolic analysis aimed to the estimation of FA import (I), de
-novo synthesis (S), fractional contribution of the 13C-tracers (D0, D1,
-D2), elongation (E) and desaturation (Des) based on mass isotopologue
-data.
+Simulate, estimate and forecast a wide range of regression based dynamic
+models for bounded time series, covering the most commonly applied models
+in the literature. The main calculations are done in 'FORTRAN', which
+translates into very fast algorithms. The main references are Bayer et al.
+(2017) <doi:10.1016/j.jhydrol.2017.10.006>, Pumi et al. (2019)
+<doi:10.1016/j.jspi.2018.10.001>, Pumi et al. (2021)
+<doi:10.1111/sjos.12439> and Pumi et al. (2022) <arXiv:2211.02097>.
 
 %prep
 %setup -q -c -n %{packname}

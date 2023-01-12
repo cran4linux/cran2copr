@@ -1,50 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FAMetA
-%global packver   0.1.5
+%global packname  em
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fatty Acid Metabolic Analysis
+Summary:          Generic EM Algorithm
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-LipidMS 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-accucor 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-LipidMS 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-accucor 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-gplots 
-Requires:         R-grDevices 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-plm 
+Requires:         R-methods 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-magrittr 
 
 %description
-Fatty acid metabolic analysis aimed to the estimation of FA import (I), de
-novo synthesis (S), fractional contribution of the 13C-tracers (D0, D1,
-D2), elongation (E) and desaturation (Des) based on mass isotopologue
-data.
+A generic function for running the Expectation-Maximization (EM) algorithm
+within a maximum likelihood framework, based on Dempster, Laird, and Rubin
+(1977) <doi:10.1111/j.2517-6161.1977.tb01600.x> is implemented. It can be
+applied after a model fitting using R's existing functions and packages.
 
 %prep
 %setup -q -c -n %{packname}

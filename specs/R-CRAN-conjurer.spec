@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  conjurer
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Parametric Method for Generating Synthetic Data
 
@@ -24,9 +25,10 @@ Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-methods 
 
 %description
-Builds synthetic data applicable across multiple domains. This package
-also provides flexibility to control data distribution to make it relevant
-to many industry examples.
+Generates synthetic data distributions to enable testing various modelling
+techniques in ways that real data does not allow. Noise can be added in a
+controlled manner such that the data seems real. This methodology is
+generic and therefore benefits both the academic and industrial research.
 
 %prep
 %setup -q -c -n %{packname}

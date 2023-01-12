@@ -1,50 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FAMetA
-%global packver   0.1.5
+%global packname  timeLineGraphics
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fatty Acid Metabolic Analysis
+Summary:          HTML with Horizontal Strips Symbolizing Events in a Person's Life
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LipidMS 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-accucor 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-LipidMS 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-accucor 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-gplots 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-berryFunctions 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-R2HTML 
+BuildRequires:    R-CRAN-pdftools 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-berryFunctions 
+Requires:         R-graphics 
+Requires:         R-CRAN-R2HTML 
+Requires:         R-CRAN-pdftools 
 
 %description
-Fatty acid metabolic analysis aimed to the estimation of FA import (I), de
-novo synthesis (S), fractional contribution of the 13C-tracers (D0, D1,
-D2), elongation (E) and desaturation (Des) based on mass isotopologue
-data.
+Produce an HTML page containing horizontal strips that symbolize events in
+a person's lsife. Since this is entirely a visualization, the image
+<https://barryzee.github.io/henry-timeline/henry.html> will show the basic
+use to show a timeline of events. The image
+<https://barryzee.github.io/vermeer/cssOverlay.html> shows how to
+correlate two timelines of events. A brief description is available at
+<https://barryzee.github.io/timeLineGraphics_manuscript/golden_age.html>.
 
 %prep
 %setup -q -c -n %{packname}

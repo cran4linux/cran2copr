@@ -1,50 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FAMetA
-%global packver   0.1.5
+%global packname  datetimeoffset
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fatty Acid Metabolic Analysis
+Summary:          Datetimes with Optional UTC Offsets and/or Heterogeneous Time Zones
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LipidMS 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-accucor 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-LipidMS 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-accucor 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-gplots 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-vctrs >= 0.5.0
+BuildRequires:    R-CRAN-clock 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-vctrs >= 0.5.0
+Requires:         R-CRAN-clock 
+Requires:         R-methods 
 
 %description
-Fatty acid metabolic analysis aimed to the estimation of FA import (I), de
-novo synthesis (S), fractional contribution of the 13C-tracers (D0, D1,
-D2), elongation (E) and desaturation (Des) based on mass isotopologue
-data.
+Supports import/export for a number of datetime string standards and R
+datetime classes often including lossless re-export of any original
+reduced precision including 'ISO 8601'
+<https://en.wikipedia.org/wiki/ISO_8601> and 'pdfmark'
+<https://opensource.adobe.com/dc-acrobat-sdk-docs/library/pdfmark/>
+datetime strings. Supports local/global datetimes with optional UTC
+offsets and/or (possibly heterogeneous) time zones with up to nanosecond
+precision.
 
 %prep
 %setup -q -c -n %{packname}

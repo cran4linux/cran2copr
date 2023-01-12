@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  etwfe
+%global packname  triact
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Two-Way Fixed Effects
+Summary:          Analyzing the Lying Behavior of Cows from Accelerometer Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-marginaleffects >= 0.8.1
-BuildRequires:    R-CRAN-fixest >= 0.11.0
+BuildRequires:    R-parallel >= 4.1.2
+BuildRequires:    R-CRAN-R6 >= 2.5.0
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-lubridate >= 1.7.10
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Formula 
-Requires:         R-CRAN-marginaleffects >= 0.8.1
-Requires:         R-CRAN-fixest >= 0.11.0
+Requires:         R-parallel >= 4.1.2
+Requires:         R-CRAN-R6 >= 2.5.0
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-lubridate >= 1.7.10
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-Formula 
 
 %description
-Convenience functions for implementing extended two-way fixed effect
-regressions a la Wooldridge (2021, 2022) <doi:10.2139/ssrn.3906345>,
-<doi:10.2139/ssrn.4183726>.
+Assists in analyzing the lying behavior of cows from raw data recorded
+with a triaxial accelerometer attached to the hind leg of a cow. Allows
+the determination of common measures for lying behavior including total
+lying duration, the number of lying bouts, and the mean duration of lying
+bouts. Further capabilities are the description of lying laterality and
+the calculation of proxies for the level of physical activity of the cow.
+Reference: Simmler M., Brouwers S. (2023)
+<https://gitlab.com/AgroSimi/triact_manuscript>.
 
 %prep
 %setup -q -c -n %{packname}

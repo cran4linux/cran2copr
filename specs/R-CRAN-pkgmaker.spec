@@ -1,46 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parameters
-%global packver   0.20.1
+%global packname  pkgmaker
+%global packver   0.32.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.1
+Version:          0.32.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          Development Utilities for R Packages
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-datawizard >= 0.6.5
-BuildRequires:    R-CRAN-insight >= 0.18.8
-BuildRequires:    R-CRAN-bayestestR >= 0.13.0
-BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-registry 
+BuildRequires:    R-tools 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-datawizard >= 0.6.5
-Requires:         R-CRAN-insight >= 0.18.8
-Requires:         R-CRAN-bayestestR >= 0.13.0
-Requires:         R-graphics 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-codetools 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-assertthat 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-registry 
+Requires:         R-tools 
+Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-codetools 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-assertthat 
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see list of supported models using the function
-'insight::supported_models()'), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+Provides some low-level utilities to use for package development. It
+currently provides managers for multiple package specific options and
+registries, vignette, unit test and bibtex related utilities. It serves as
+a base package for packages like 'NMF', 'RcppOctave', 'doRNG', and as an
+incubator package for other general purposes utilities, that will
+eventually be packaged separately. It is still under heavy development and
+changes in the interface(s) are more than likely to happen.
 
 %prep
 %setup -q -c -n %{packname}

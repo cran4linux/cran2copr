@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pomp
-%global packver   4.5
+%global packver   4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5
+Version:          4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference for Partially Observed Markov Processes
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -23,8 +23,6 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plyr 
 Requires:         R-methods 
 Requires:         R-stats 
@@ -33,8 +31,6 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plyr 
 
 %description
