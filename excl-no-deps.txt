@@ -93,6 +93,7 @@ DNLC
 DrInsight
 DRomics
 dSVA
+ebvcube
 eclust
 edgeRun
 EMA

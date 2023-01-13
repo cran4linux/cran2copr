@@ -38,3 +38,7 @@ packagefinder internet
 elbird internet
 iriR internet
 nfl4th internet
+caviarpd cargo
+fangs cargo
+hellorust cargo
+rshift cargo
