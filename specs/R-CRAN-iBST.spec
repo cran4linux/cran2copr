@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  iBST
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Improper Bagging Survival Tree
 
@@ -25,14 +26,15 @@ Requires:         R-CRAN-rpart
 Requires:         R-parallel 
 
 %description
-Fit a bagging survival tree on a mixture of population (susceptible and
-nonsusceptible) using either a pseudo R2 criterion or an adjusted Logrank
-criterion. The predictor is evaluated using the Out Of Bag Integrated
-Brier Score (IBS) and several scores of importance are computed for
-variable selection. The thresholds values for variable selection are
-computed using a nonparametric permutation test. See 'Cyprien Mbogning'
-and 'Philippe Broet' (2016)<doi:10.1186/s12859-016-1090-x> for an overview
-about the methods implemented in this package.
+Fit a full or subsampling bagging survival tree on a mixture of population
+(susceptible and nonsusceptible) using either a pseudo R2 criterion or an
+adjusted Logrank criterion. The predictor is evaluated using the Out Of
+Bag Integrated Brier Score (IBS) and several scores of importance are
+computed for variable selection. The thresholds values for variable
+selection are computed using a nonparametric permutation test. See
+'Cyprien Mbogning' and 'Philippe Broet'
+(2016)<doi:10.1186/s12859-016-1090-x> for an overview about the methods
+implemented in this package.
 
 %prep
 %setup -q -c -n %{packname}

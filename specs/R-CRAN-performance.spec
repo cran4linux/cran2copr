@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  performance
-%global packver   0.10.1
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessment of Regression Models Performance
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-datawizard >= 0.6.2
-BuildRequires:    R-CRAN-insight >= 0.18.7
+BuildRequires:    R-CRAN-datawizard >= 0.6.5
+BuildRequires:    R-CRAN-insight >= 0.18.8
 BuildRequires:    R-CRAN-bayestestR >= 0.13.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-datawizard >= 0.6.2
-Requires:         R-CRAN-insight >= 0.18.7
+Requires:         R-CRAN-datawizard >= 0.6.5
+Requires:         R-CRAN-insight >= 0.18.8
 Requires:         R-CRAN-bayestestR >= 0.13.0
 Requires:         R-methods 
 Requires:         R-stats 
@@ -38,7 +38,8 @@ Johnson & Schielzeth (2017) <doi:10.1098/rsif.2017.0213>), root mean
 squared error or functions to check models for overdispersion, singularity
 or zero-inflation and more. Functions apply to a large variety of
 regression models, including generalized linear models, mixed effects
-models and Bayesian models.
+models and Bayesian models. References: Lüdecke et al. (2021)
+<doi:10.21105/joss.03139>.
 
 %prep
 %setup -q -c -n %{packname}

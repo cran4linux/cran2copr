@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scCustomize
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom Visualizations & Functions for Streamlined Analyses of Single Cell Sequencing
 
@@ -50,7 +50,6 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-Seurat >= 4.3.0
 Requires:         R-CRAN-SeuratObject >= 4.1.2
 Requires:         R-CRAN-cli >= 3.2.0
@@ -84,7 +83,6 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-viridis 
 
 %description
 Collection of functions created and/or curated to aid in the visualization

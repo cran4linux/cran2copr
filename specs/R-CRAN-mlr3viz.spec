@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3viz
-%global packver   0.5.10
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.10
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations for 'mlr3'
 
@@ -33,12 +33,12 @@ Requires:         R-utils
 Requires:         R-CRAN-viridis 
 
 %description
-Provides visualizations for 'mlr3' objects such as tasks, predictions,
-resample results or benchmark results via the autoplot() generic of
-'ggplot2'. The returned 'ggplot' objects are intended to provide sensible
-defaults, yet can easily be customized to create camera-ready figures.
-Visualizations include barplots, boxplots, histograms, ROC curves, and
-Precision-Recall curves.
+Visualization package of the 'mlr3' ecosystem. It features plots for mlr3
+objects such as task, learners, predictions, benchmark results, tuning
+instances and filters via the 'autoplot()' generic of 'ggplot2'. The
+package draws plots with the 'viridis' color palette and applies the
+minimal theme. Visualizations include barplots, boxplots, histograms, ROC
+curves, and Precision-Recall curves.
 
 %prep
 %setup -q -c -n %{packname}

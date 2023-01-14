@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  galah
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biodiversity Data from the Living Atlas Community
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-stringr >= 1.0.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.8
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
@@ -37,11 +39,13 @@ Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-stringr >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 0.9.8
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-crul 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
@@ -49,10 +53,10 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-utils 
 
 %description
-The living atlas community provides tools to enable users of biodiversity
-information to find, access, combine and visualise data on plants, animals
-and fungi. 'galah' enables the R community to directly access data and
-resources hosted by the living atlases.
+The living atlas community provides tools to enable users to find, access,
+combine and visualise data on biodiversity. 'galah' enables the R
+community to directly access data and resources hosted by the living
+atlases.
 
 %prep
 %setup -q -c -n %{packname}

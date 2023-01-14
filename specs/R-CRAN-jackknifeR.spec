@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jackknifeR
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Jackknife Linear Regression and Correlation
+Summary:          Delete-d Jackknife for Point and Interval Estimation
 
-License:          CC BY 4.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -20,12 +20,12 @@ BuildArch:        noarch
 
 %description
 This function creates jackknife samples from the data by sequentially
-removing d observations from the data, performs linear regression or
-correlation using the jackknife samples and estimates the jackknife
-coefficients bias standard error, standard error and confidence intervals
-based on the methodology discussed by Quenouille (1956)
-<doi:10.2307/2332914>, Tukey (1958) <doi:10.1214/aoms/1177706647> and Shi
-(1988) <doi:10.1016/0167-7152(88)90011-9>.
+removing d observations from the data, performs estimation using the
+jackknife samples and calculates the jackknife coefficients, bias,
+standard error and confidence intervals based on the methodology discussed
+by Quenouille (1956) <doi:10.2307/2332914>, Tukey (1958)
+<doi:10.1214/aoms/1177706647> and Shi (1988)
+<doi:10.1016/0167-7152(88)90011-9>.
 
 %prep
 %setup -q -c -n %{packname}

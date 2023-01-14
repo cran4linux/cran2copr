@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mSigTools
-%global packver   1.0.5
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mutational Signature Analysis Tools
 
@@ -19,18 +19,21 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-CRAN-philentropy 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-sets 
 Requires:         R-CRAN-clue 
 Requires:         R-CRAN-philentropy 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-sets 
 
 %description
-Utility functions for mutational signature analysis. This package provides
-two groups of functions. One is for dealing with mutational signature
-"exposures" (i.e. the counts of mutations in a sample that are due to each
-mutational signature). The other group of functions is for matching two
-sets of mutational signatures. The match minimizes the total distance
-between paired signatures by using the "Hungarian algorithm" described in
-: Kuhn, H. W. (1955) <doi:10.1002/nav.3800020109>. 'mSigTools' stands for
-mutational Signature analysis Tools.
+Utility functions for mutational signature analysis as described in
+Alexandrov, L. B. (2020) <doi:10.1038/s41586-020-1943-3>. This package
+provides two groups of functions. One is for dealing with mutational
+signature "exposures" (i.e. the counts of mutations in a sample that are
+due to each mutational signature). The other group of functions is for
+matching or comparing sets of mutational signatures. 'mSigTools' stands
+for mutational Signature analysis Tools.
 
 %prep
 %setup -q -c -n %{packname}

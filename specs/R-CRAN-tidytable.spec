@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidytable
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Interface to 'data.table'
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-glue >= 1.4.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-pillar >= 1.8.0
@@ -30,6 +31,7 @@ Requires:         R-CRAN-glue >= 1.4.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-vctrs >= 0.5.0
 
 %description

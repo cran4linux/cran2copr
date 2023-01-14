@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sendmailR
-%global packver   1.3-2
+%global packver   1.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Send Email Using R
 
@@ -21,8 +21,10 @@ BuildRequires:    R-CRAN-base64enc
 Requires:         R-CRAN-base64enc 
 
 %description
-Package contains a simple SMTP client which provides a portable solution
-for sending email, including attachment, from within R.
+Package contains a simple SMTP client with minimal dependencies which
+provides a portable solution for sending email, including file attachments
+and inline html reports, from within R. SMTP Authentication and
+SSL/STARTTLS is implemented using curl.
 
 %prep
 %setup -q -c -n %{packname}

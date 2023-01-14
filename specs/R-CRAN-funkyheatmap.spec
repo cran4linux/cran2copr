@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funkyheatmap
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generating Funky Heatmaps for Data Frames
 
@@ -25,8 +25,10 @@ BuildRequires:    R-CRAN-dynutils
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -38,8 +40,10 @@ Requires:         R-CRAN-dynutils
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

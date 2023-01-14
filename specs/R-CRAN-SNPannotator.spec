@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SNPannotator
-%global packver   0.2.5.0
+%global packver   0.2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5.0
+Version:          0.2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Investigating the Functional Characteristics of Selected SNPs and Their Vicinity Genomic Region
 

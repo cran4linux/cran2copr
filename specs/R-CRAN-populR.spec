@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  populR
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Population Downscaling
+Summary:          Population Downscaling Using Areal Interpolation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,14 +21,16 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-areal 
-BuildRequires:    R-CRAN-microbenchmark 
+BuildRequires:    R-CRAN-osmdata 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-areal 
-Requires:         R-CRAN-microbenchmark 
+Requires:         R-CRAN-osmdata 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-units 
 
 %description
 Downscaling of population data obtained by census surveys using areal

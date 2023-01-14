@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MetaLandSim
-%global packver   1.0.10
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Landscape and Range Expansion Simulation
 
@@ -13,20 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-fgui 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-googleVis 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-rgrass7 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-stats 
@@ -34,18 +29,13 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-zipfR 
 BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-knitr 
-Requires:         R-tcltk 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-fgui 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-googleVis 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-rgrass7 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.random 
 Requires:         R-stats 
@@ -53,6 +43,7 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-zipfR 
 Requires:         R-CRAN-coda 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-knitr 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  greeks
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivities of Prices of Financial Options and Implied Volatilites
 
@@ -19,14 +19,25 @@ Requires:         R-core
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dqrng 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dqrng 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-tidyr 
 
 %description
 Methods to calculate sensitivities of financial option prices for
 European, Asian, American and Digital Options options in the Black Scholes
-model, and in more general jump diffusion models. Furthermore, methods to
+model, and in more general jump diffusion models. A shiny app to
+interactively view plot the results is included. Furthermore, methods to
 compute implied volatilities are provided for a wide range of option types
 and custom payoff functions. Classical formulas are implemented for
 European options in the Black Scholes Model, as is presented in Hull, J.

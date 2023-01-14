@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  eaf
-%global packver   2.3
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plots of the Empirical Attainment Function
 
@@ -19,12 +20,12 @@ Requires:         R-core >= 3.2
 BuildRequires:    R-CRAN-modeltools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-modeltools 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-stats 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-Rdpack 
 
 %description

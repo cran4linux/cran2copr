@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MedianaDesigner
-%global packver   0.11
+%global packver   0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size Calculations for Clinical Trials
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-shinyMatrix
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-CRAN-lme4 
@@ -49,7 +48,6 @@ Requires:         R-CRAN-shinyMatrix
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-rootSolve 
 Requires:         R-CRAN-lme4 

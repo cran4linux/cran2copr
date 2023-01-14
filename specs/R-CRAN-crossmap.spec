@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crossmap
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply Functions to All Combinations of List Elements
 
@@ -21,18 +21,22 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-generics 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
 Provides an extension to the 'purrr' family of mapping functions to apply

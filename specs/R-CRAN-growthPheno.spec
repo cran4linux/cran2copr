@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  growthPheno
-%global packver   2.1.16
+%global packver   2.1.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.16
+Version:          2.1.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Analysis of Phenotypic Growth Data to Smooth and Extract Traits
 

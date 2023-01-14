@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pbapply
-%global packver   1.6-0
+%global packver   1.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adding Progress Bar to '*apply' Functions
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,7 +25,7 @@ A lightweight package that adds progress bar to vectorized R functions
 ('*apply'). The implementation can easily be added to functions where
 showing the progress is useful (e.g. bootstrap). The type and style of the
 progress bar (with percentages or remaining time) can be set through
-options. Supports several parallel processing backends.
+options. Supports several parallel processing backends including future.
 
 %prep
 %setup -q -c -n %{packname}

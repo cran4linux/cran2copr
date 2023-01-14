@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  APCtools
-%global packver   1.0.1
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Routines for Descriptive and Model-Based APC Analysis
 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-knitr 
@@ -34,6 +36,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
 
 %description
 Age-Period-Cohort (APC) analyses are used to differentiate relevant

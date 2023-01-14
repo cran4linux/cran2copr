@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rworkflows
-%global packver   0.99.3
+%global packver   0.99.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.3
+Version:          0.99.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test, Document, Containerise, and Deploy R Packages
 
@@ -17,11 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-badger 
+Requires:         R-stats 
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-yaml 
 Requires:         R-utils 
