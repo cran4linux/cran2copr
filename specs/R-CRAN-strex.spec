@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  strex
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra String Manipulation Functions
 
@@ -21,14 +21,12 @@ BuildRequires:    R-CRAN-stringi >= 1.7.8
 BuildRequires:    R-CRAN-stringr >= 1.5
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-rlang >= 0.3.3
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-stringi >= 1.7.8
 Requires:         R-CRAN-stringr >= 1.5
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-rlang >= 0.3.3
-Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 
 %description

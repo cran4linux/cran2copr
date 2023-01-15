@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RApiDatetime
-%global packver   0.0.8
+%global packname  sca
+%global packver   0.9-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R API for 'Date' and 'Datetime'
+Summary:          Simple Component Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,13 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Access to the C-level R date and 'datetime' code is provided for C-level
-API use by other packages via registration of native functions. Client
-packages simply include a single header 'RApiDatetime.h' provided by this
-package, and also 'import' it.  The R Core group is the original author of
-the code made available with slight modifications by this package.
+Simple Component Analysis (SCA) often provides much more interpretable
+components than Principal Components (PCA) while still representing much
+of the variability in the data.
 
 %prep
 %setup -q -c -n %{packname}
