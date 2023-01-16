@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fitODBOD
-%global packver   1.5.0
+%global packname  repoRter.nih
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modeling Over Dispersed Binomial Outcome Data Using BMD and ABD
+Summary:          R Interface to the 'NIH RePORTER Project' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,20 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bbmle 
-BuildRequires:    R-CRAN-hypergeo 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-bbmle 
-Requires:         R-CRAN-hypergeo 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-tibble >= 3.1.3
+BuildRequires:    R-CRAN-janitor >= 2.1.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-CRAN-lubridate >= 1.7.10
+BuildRequires:    R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-crayon >= 1.4.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+Requires:         R-CRAN-tibble >= 3.1.3
+Requires:         R-CRAN-janitor >= 2.1.0
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-lubridate >= 1.7.10
+Requires:         R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-crayon >= 1.4.1
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-assertthat >= 0.2.1
 
 %description
-Contains Probability Mass Functions, Cumulative Mass Functions, Negative
-Log Likelihood value, parameter estimation and modeling data using
-Binomial Mixture Distributions (BMD) (Manoj et al (2013)
-<doi:10.5539/ijsp.v2n2p24>) and Alternate Binomial Distributions (ABD)
-(Paul (1985) <doi:10.1080/03610928508828990>), also Journal article to use
-the package(<doi:10.21105/joss.01505>).
+Methods to easily build requests in the non-standard JSON schema required
+by the National Institute of Health (NIH)'s 'RePORTER Project API'
+<https://api.reporter.nih.gov/#/Search/post_v2_projects_search>. Also
+retrieve and process result sets as either a ragged or flattened 'tibble'.
 
 %prep
 %setup -q -c -n %{packname}

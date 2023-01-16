@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dataverse
-%global packver   0.3.12
+%global packname  IGP
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.12
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for Dataverse 4+ Repositories
+Summary:          Interchangeable Gaussian Process Models
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-reticulate 
 
 %description
-Provides access to Dataverse APIs <https://dataverse.org/> (versions 4-5),
-enabling data search, retrieval, and deposit. For Dataverse versions <=
-3.0, use the archived 'dvn' package
-<https://cran.r-project.org/package=dvn>.
+Creates a Gaussian process model using the specified package. Makes it
+easy to try different packages in same code, only the package argument
+needs to be changed. It is essentially a wrapper for the other Gaussian
+process software packages. For more info about Gaussian process software
+and comparison of various options, see Erickson et al. (2018)
+<doi:10.1016/j.ejor.2017.10.002>.
 
 %prep
 %setup -q -c -n %{packname}

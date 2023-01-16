@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  abmR
-%global packver   1.0.6
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Agent-Based Models in R
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-table1 
 BuildRequires:    R-CRAN-googledrive 
 BuildRequires:    R-CRAN-swfscMisc 
@@ -28,8 +27,6 @@ BuildRequires:    R-CRAN-gtsummary
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rnaturalearth 
-BuildRequires:    R-CRAN-rnaturalearthdata 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tmap 
 BuildRequires:    R-CRAN-raster 
@@ -37,8 +34,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-rnaturalearth 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-table1 
 Requires:         R-CRAN-googledrive 
 Requires:         R-CRAN-swfscMisc 
@@ -48,8 +45,6 @@ Requires:         R-CRAN-gtsummary
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gstat 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rnaturalearth 
-Requires:         R-CRAN-rnaturalearthdata 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tmap 
 Requires:         R-CRAN-raster 
@@ -57,6 +52,7 @@ Requires:         R-utils
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-rnaturalearth 
 
 %description
 Supplies tools for running agent-based models (ABM) in R, as discussed in

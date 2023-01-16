@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datagovsgR
-%global packver   0.3.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calls Real Time APIs from Data Gov Singapore
+Summary:          Call Real Time APIs from Data Gov Singapore
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,12 +29,12 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-purrr 
 
 %description
-A wrapper for the Data Gov Singapore developer resources endpoints
-developer tools, which provide real time and historical information,
-ranging from carpark availability to weather forecasts. This tools makes
-the API calls for a given date and time, before returning the relevant
-information in a data frame. Relevant information can be found here
-<https://data.gov.sg/developer>.
+A wrapper for the Data.gov.sg developer resources, which provide real time
+and historical information, ranging from carpark availability to weather
+forecasts. The functions makes the API calls for a given date and time,
+before returning the relevant information in a data frame. All APIs are
+supported, less the IPOS one which is not returning any data. Relevant
+information can be found here <https://data.gov.sg/developer>.
 
 %prep
 %setup -q -c -n %{packname}

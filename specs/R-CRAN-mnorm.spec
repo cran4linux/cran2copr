@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mnorm
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Normal Distribution
 
@@ -15,13 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-hpa >= 1.3.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-hpa >= 1.3.0
 Requires:         R-CRAN-Rcpp >= 1.0.6
 
 %description
 Calculates and differentiates probabilities and density of (conditional)
-multivariate normal distribution using methods described in A. Genz (2004)
+multivariate normal distribution and Gaussian copula (with various
+marginal distributions) using methods described in A. Genz (2004)
 <doi:10.1023/B:STCO.0000035304.20635.31>, A. Genz, F. Bretz (2009)
 <doi:10.1007/978-3-642-01689-9> and E. Kossova, B. Potanin (2018)
 <https:ideas.repec.org/a/ris/apltrx/0346.html>.

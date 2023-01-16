@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wflo
-%global packver   1.7
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Set and Helper Functions for Wind Farm Layout Optimization Problems
 
@@ -20,13 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-emstreeR 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-emstreeR 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-sf 
 
 %description
 Provides a convenient data set, a set of helper functions, and a benchmark

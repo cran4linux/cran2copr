@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gdtools
-%global packver   0.2.4
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Graphical Rendering
+Summary:          Utilities for Graphical Rendering and Fonts Management
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,15 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    cairo-devel
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    freetype-devel
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-systemfonts >= 0.1.1
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-gfonts 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-systemfonts >= 0.1.1
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-gfonts 
+Requires:         R-tools 
 
 %description
-Useful tools for writing vector graphics devices.
+Tools are provided to compute metrics of formatted strings and to check
+the availability of a font. Another set of functions is provided to
+support the collection of fonts from 'Google Fonts' in a cache. Their use
+is simple within 'R Markdown' documents and 'shiny' applications but also
+with graphic productions generated with the 'ggiraph', 'ragg' and
+'svglite' packages or with tabular productions from the 'flextable'
+package.
 
 %prep
 %setup -q -c -n %{packname}

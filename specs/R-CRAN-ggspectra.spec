@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggspectra
-%global packver   0.3.9
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.3.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensions to 'ggplot2' for Radiation Spectra
 
@@ -17,24 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-tibble >= 3.1.5
 BuildRequires:    R-CRAN-lubridate >= 1.8.0
-BuildRequires:    R-CRAN-tidyr >= 1.2.1
 BuildRequires:    R-CRAN-scales >= 1.2.0
 BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-ggrepel >= 0.9.1
-BuildRequires:    R-CRAN-photobiologyWavebands >= 0.4.3
-BuildRequires:    R-CRAN-photobiology >= 0.10.14
-Requires:         R-CRAN-ggplot2 >= 3.3.4
+BuildRequires:    R-CRAN-photobiologyWavebands >= 0.5.1
+BuildRequires:    R-CRAN-photobiology >= 0.10.15
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-tibble >= 3.1.5
 Requires:         R-CRAN-lubridate >= 1.8.0
-Requires:         R-CRAN-tidyr >= 1.2.1
 Requires:         R-CRAN-scales >= 1.2.0
 Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-ggrepel >= 0.9.1
-Requires:         R-CRAN-photobiologyWavebands >= 0.4.3
-Requires:         R-CRAN-photobiology >= 0.10.14
+Requires:         R-CRAN-photobiologyWavebands >= 0.5.1
+Requires:         R-CRAN-photobiology >= 0.10.15
 
 %description
 Additional annotations, stats, geoms and scales for plotting "light"

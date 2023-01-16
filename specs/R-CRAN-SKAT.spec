@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SKAT
-%global packver   2.2.4
+%global packver   2.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.4
+Version:          2.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          SNP-Set (Sequence) Kernel Association Test
 
@@ -26,14 +27,6 @@ Requires:         R-CRAN-RSpectra
 Functions for kernel-regression-based association tests including Burden
 test, SKAT and SKAT-O. These methods aggregate individual SNP score
 statistics in a SNP set and efficiently compute SNP-set level p-values.
-Methods available in this package include SKAT described in Micheal Wu,
-Seunggeun Lee et al. (2011) <doi:10.1016/j.ajhg.2011.05.029>, SKAT-O in
-Seunggeun Lee et al. (2012) <doi:10.1093/biostatistics/kxs014>, combined
-test of rare and common variants in Iuliana Ionita-Laza and Seunggeun Lee
-et al. (2013) <doi:10.1016/j.ajhg.2013.04.015>, efficient resampling for
-binary traits in Seunggeun Lee et al. (2016)
-<doi:10.1093/biostatistics/kxv033>, and robust test for binary traits in
-Zhangchen Zhao et al. (2020) <doi:10.1016/j.ajhg.2019.11.012>.
 
 %prep
 %setup -q -c -n %{packname}

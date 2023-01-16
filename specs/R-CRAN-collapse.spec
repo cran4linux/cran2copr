@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  collapse
-%global packver   1.8.9
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.9
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced and Fast Data Transformation
 
@@ -22,31 +22,22 @@ Requires:         R-CRAN-Rcpp >= 1.0.1
 %description
 A C/C++ based package for advanced data transformation and statistical
 computing in R that is extremely fast, class-agnostic, and programmer
-friendly through a flexible and parsimonious syntax. It is well integrated
-with base R, 'dplyr' / (grouped) 'tibble', 'data.table', 'sf', 'plm'
-(panel-series and data frames), and non-destructively handles other matrix
-or data frame based classes (like 'ts', 'xts' / 'zoo', 'tsibble', ...) ---
-Key Features: --- (1) Advanced statistical programming: A full set of fast
-statistical functions supporting grouped and weighted computations on
-vectors, matrices and data frames. Fast and programmable grouping,
-ordering, unique values/rows, factor generation and interactions. Fast and
-flexible functions for data manipulation, data object conversions, and
-memory efficient R programming. (2) Advanced aggregation: Fast and easy
-multi-data-type, multi-function, weighted and parallelized data
-aggregation. (3) Advanced transformations: Fast row/column arithmetic,
-(grouped) replacing and sweeping out of statistics (by reference),
-(grouped, weighted) scaling/standardizing, (higher-dimensional) between
-(averaging) and (quasi-)within (demeaning) transformations, linear
-prediction, model fitting and testing exclusion restrictions. (4) Advanced
-time-computations: Fast and flexible indexed time series and panel data
-classes. Fast (sequences of) lags/leads, and (lagged/leaded, iterated,
-quasi-, log-) differences and (compounded) growth rates on (irregular)
-time series and panels. Multivariate auto-, partial- and cross-correlation
-functions for panel data. Panel data to (ts-)array conversions. (5) List
-processing: Recursive list search, splitting, extraction/subsetting,
-apply, and generalized row-binding / unlisting to data frame. (6) Advanced
-data exploration: Fast (grouped, weighted, panel-decomposed) summary
-statistics and descriptive tools.
+friendly through a flexible, parsimonious, and robust API. Core
+functionality includes a rich set of S3 generic grouped and weighted
+statistical functions for vectors, matrices and data frames, which provide
+efficient low-level vectorizations and OpenMP multithreading (reducing the
+need for iteration/vectorization in R), and skip missing values by
+default. These are integrated with fast grouping and ordering algorithms
+(also callable from C), and efficient data manipulation functions. The
+package also provides a flexible and rigorous approach to time series and
+panel data in R. It further includes fast functions for common statistical
+procedures, detailed (grouped, weighted) summary statistics, powerful
+tools to work with nested data, fast data object conversions, functions
+for memory efficient R programming, and helpers to effectively deal with
+variable labels, attributes, and missing data. It is well integrated with
+basic R, 'dplyr'/'tibble', 'data.table', 'sf', 'plm' (panel-series and
+data frames), and accommodates (by virtue of smart internal attribute
+handling) many other classes (like 'ts', 'xts'/'zoo' or 'tsibble').
 
 %prep
 %setup -q -c -n %{packname}
