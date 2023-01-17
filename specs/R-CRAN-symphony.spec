@@ -1,53 +1,65 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatPomp
-%global packver   0.31.0.0
+%global packname  symphony
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.31.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Spatiotemporal Partially Observed Markov Processes
+Summary:          Efficient and Precise Single-Cell Reference Atlas Mapping
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-pomp >= 4.5
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-harmony 
+BuildRequires:    R-CRAN-uwot 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-class 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-pomp >= 4.5
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-methods 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-harmony 
+Requires:         R-CRAN-uwot 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-class 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-RANN 
 
 %description
-Inference on panel data using spatiotemporal partially-observed Markov
-process (SpatPOMP) models. To do so, it relies on and extends a number of
-facilities that the 'pomp' package provides for inference on time series
-data using partially-observed Markov process (POMP) models. Implemented
-methods include filtering and inference methods in Park and Ionides (2020)
-<doi:10.1007/s11222-020-09957-3>, Rebeschini and van Handel (2015)
-<doi:10.1214/14-AAP1061>, Evensen and van Leeuwen (1996)
-<doi:10.1029/94JC00572> and Ionides et al. (2021)
-<doi:10.1080/01621459.2021.1974867>. Pre-print statistical software
-article: Asfaw et al. (2021) <arXiv:2101.01157>.
+Implements the Symphony single-cell reference building and query mapping
+algorithms and additional functions described in Kang et al
+<https://www.nature.com/articles/s41467-021-25957-x>.
 
 %prep
 %setup -q -c -n %{packname}

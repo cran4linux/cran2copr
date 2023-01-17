@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spsurvey
-%global packver   5.4.0
+%global packver   5.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.0
+Version:          5.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Sampling Design and Analysis
 
@@ -58,7 +58,8 @@ variable analysis, attributable risk analysis, risk difference analysis,
 relative risk analysis, change analysis, and trend analysis. spsurvey can
 also be used to summarize objects, visualize objects, select samples that
 are not spatially balanced, select panel samples, measure the amount of
-spatial balance in a sample, adjust design weights, and more.
+spatial balance in a sample, adjust design weights, and more. For
+additional details, see Dumelle et al. (2023) <doi:10.18637/jss.v105.i03>.
 
 %prep
 %setup -q -c -n %{packname}

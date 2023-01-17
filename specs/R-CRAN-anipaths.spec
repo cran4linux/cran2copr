@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  anipaths
-%global packver   0.10.1
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Animation of Multiple Trajectories with Uncertainty
 
@@ -13,42 +14,46 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-animation 
+BuildRequires:    R-CRAN-crawl 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggmap 
-BuildRequires:    R-CRAN-crawl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-animation 
+Requires:         R-CRAN-crawl 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-mgcv 
 Requires:         R-grDevices 
 Requires:         R-CRAN-ggmap 
-Requires:         R-CRAN-crawl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
@@ -69,6 +74,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DiceView
-%global packver   2.0-2
+%global packver   2.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Visualization of Computer Experiments Design and Surrogate
 
@@ -22,23 +22,21 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-DiceEval 
 BuildRequires:    R-CRAN-DiceDesign 
 BuildRequires:    R-CRAN-R.cache 
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-parallel 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-DiceKriging 
-Requires:         R-CRAN-DiceEval 
 Requires:         R-CRAN-DiceDesign 
 Requires:         R-CRAN-R.cache 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-scatterplot3d 
+Requires:         R-parallel 
 
 %description
 View 2D/3D sections, contour plots, mesh of excursion sets for computer

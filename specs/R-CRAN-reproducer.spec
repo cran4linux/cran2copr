@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  reproducer
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproduce Statistical Analyses and Meta-Analyses
 
@@ -17,7 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.45
-BuildRequires:    R-stats >= 3.5.2
+BuildRequires:    R-stats >= 3.5.0
 BuildRequires:    R-CRAN-openxlsx >= 2.4.0
 BuildRequires:    R-CRAN-tibble >= 2.1.1
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
@@ -28,13 +29,14 @@ BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.3.1
 BuildRequires:    R-CRAN-lme4 >= 1.1.10
+BuildRequires:    R-CRAN-nortest >= 1.0.4
 BuildRequires:    R-CRAN-gridExtra >= 0.9
 BuildRequires:    R-CRAN-reshape >= 0.8.8
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
 BuildRequires:    R-CRAN-GetoptLong >= 0.1.7
 Requires:         R-CRAN-MASS >= 7.3.45
-Requires:         R-stats >= 3.5.2
+Requires:         R-stats >= 3.5.0
 Requires:         R-CRAN-openxlsx >= 2.4.0
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-ggplot2 >= 2.0.0
@@ -45,6 +47,7 @@ Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readr >= 1.3.1
 Requires:         R-CRAN-lme4 >= 1.1.10
+Requires:         R-CRAN-nortest >= 1.0.4
 Requires:         R-CRAN-gridExtra >= 0.9
 Requires:         R-CRAN-reshape >= 0.8.8
 Requires:         R-CRAN-tidyr >= 0.8.3
@@ -70,6 +73,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

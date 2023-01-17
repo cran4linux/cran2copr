@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survivoR
-%global packver   2.0.4
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data from all Seasons of Survivor (US) TV Series in Tidy Format
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-ggpath 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-prismatic 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-stringr 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-ggpath 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-prismatic 
+Requires:         R-utils 
 
 %description
 Several datasets which detail the results and events of each season of

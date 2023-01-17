@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shiny.i18n
-%global packver   0.3.0
+%global packname  SAME
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shiny Applications Internationalization
+Summary:          Seamless Adaptive Multi-Arm Multi-Stage Enrichment
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-expint 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-expint 
 
 %description
-It provides easy internationalization of Shiny applications. It can be
-used as standalone translation package to translate reports, interactive
-visualizations or graphical elements as well.
+Design a Bayesian seamless multi-arm biomarker-enriched phase II/III
+design with the survival endpoint with allowing sample size re-estimation.
+James M S Wason, Jean E Abraham, Richard D Baird, Ioannis Gournaris,
+Anne-Laure Vallier, James D Brenton, Helena M Earl, Adrian P Mander (2015)
+<doi:10.1038/bjc.2015.278>. Guosheng Yin, Nan Chen, J. Jack Lee (2018)
+<doi:10.1007/s12561-017-9199-7>. Ying Yuan, Beibei Guo, Mark Munsell,
+Karen Lu, Amir Jazaeri (2016) <doi:10.1002/sim.6971>.
 
 %prep
 %setup -q -c -n %{packname}

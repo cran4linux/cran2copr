@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shiny.i18n
-%global packver   0.3.0
+%global packname  chatgpt
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shiny Applications Internationalization
+Summary:          Interface to 'ChatGPT' from R
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
 Requires:         R-utils 
 
 %description
-It provides easy internationalization of Shiny applications. It can be
-used as standalone translation package to translate reports, interactive
-visualizations or graphical elements as well.
+'OpenAI's 'ChatGPT' <https://openai.com/blog/chatgpt/> coding assistant
+for 'RStudio'. A set of functions and 'RStudio' addins that aim to help
+the R developer in tedious coding tasks.
 
 %prep
 %setup -q -c -n %{packname}

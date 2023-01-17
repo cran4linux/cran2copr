@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  riverconn
-%global packver   0.3.22
+%global packver   0.3.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.22
+Version:          0.3.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Fragmentation and Connectivity Indices for Riverscapes
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-markdown 
 Requires:         R-parallel 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

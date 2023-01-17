@@ -1,45 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shiny.i18n
-%global packver   0.3.0
+%global packname  eoa3
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shiny Applications Internationalization
+Summary:          Wildlife Mortality Estimator for Low Fatality Rates and Imperfect Detection
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-GenEst 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-GenEst 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-VGAM 
 
 %description
-It provides easy internationalization of Shiny applications. It can be
-used as standalone translation package to translate reports, interactive
-visualizations or graphical elements as well.
+Evidence of Absence software (EoA) is a user-friendly application for
+estimating bird and bat fatalities at wind farms and designing search
+protocols. The software is particularly useful in addressing whether the
+number of fatalities has exceeded a given threshold and what search
+parameters are needed to give assurance that thresholds were not exceeded.
+The models are applicable even when zero carcasses have been found in
+searches, following Huso et al. (2015) <doi:10.1890/14-0764.1>, Dalthorp
+et al. (2017) <doi:10.3133/ds1055>, and Dalthorp and Huso (2015)
+<doi:10.3133/ofr20151227>.
 
 %prep
 %setup -q -c -n %{packname}

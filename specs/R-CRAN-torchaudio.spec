@@ -1,45 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shiny.i18n
-%global packver   0.3.0
+%global packname  torchaudio
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shiny Applications Internationalization
+Summary:          R Interface to 'pytorch''s 'torchaudio'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-torch >= 0.3.0
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rstudioapi 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-torch >= 0.3.0
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rlang 
 Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
-It provides easy internationalization of Shiny applications. It can be
-used as standalone translation package to translate reports, interactive
-visualizations or graphical elements as well.
+Provides access to datasets, models and processing facilities for deep
+learning in audio.
 
 %prep
 %setup -q -c -n %{packname}

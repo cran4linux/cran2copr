@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biomod2
-%global packver   4.1-2
+%global packver   4.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.2
+Version:          4.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Platform for Species Distribution Modeling
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gbm >= 2.1.3
+BuildRequires:    R-CRAN-terra >= 1.6.33
 BuildRequires:    R-CRAN-pROC >= 1.15.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-abind 
@@ -40,12 +40,12 @@ BuildRequires:    R-CRAN-PresenceAbsence
 BuildRequires:    R-CRAN-earth 
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-gbm >= 2.1.3
+Requires:         R-CRAN-terra >= 1.6.33
 Requires:         R-CRAN-pROC >= 1.15.0
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-abind 

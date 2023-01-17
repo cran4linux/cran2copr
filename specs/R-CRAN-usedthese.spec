@@ -1,45 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shiny.i18n
-%global packver   0.3.0
+%global packname  usedthese
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shiny Applications Internationalization
+Summary:          Summarises Package & Function Usage
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-highr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-highr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
 
 %description
-It provides easy internationalization of Shiny applications. It can be
-used as standalone translation package to translate reports, interactive
-visualizations or graphical elements as well.
+Consistent with 'knitr' syntax highlighting, 'usedthese' adds a summary
+table of R package & function usage to a Quarto document and enables
+aggregation of usage across a Quarto website. Learn more about 'usedthese'
+at <https://cgoo4.github.io/usedthese/>.
 
 %prep
 %setup -q -c -n %{packname}
