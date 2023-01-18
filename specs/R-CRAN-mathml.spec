@@ -1,35 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rage
-%global packver   1.3.0
+%global packname  mathml
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Life History Metrics from Matrix Population Models
+Summary:          Translate R Expressions to 'MathML' and 'LaTeX'/'MathJax'
 
-License:          GPL-3
+License:          FreeBSD
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-popdemo 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-popdemo 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rolog >= 0.9.10
+Requires:         R-CRAN-rolog >= 0.9.10
 
 %description
-Functions for calculating life history metrics using matrix population
-models ('MPMs'). Described in Jones et al. (2021)
-<doi:10.1101/2021.04.26.441330>.
+Translate R expressions to 'MathML' or 'MathJax' so that they can be
+rendered in 'rmarkdown' documents and shiny apps.
 
 %prep
 %setup -q -c -n %{packname}

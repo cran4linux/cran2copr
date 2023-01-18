@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RNetCDF
-%global packver   2.6-1
+%global packver   2.6-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.1
+Version:          2.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'NetCDF' Datasets
 
@@ -13,7 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    netcdf-devel udunits2-devel
+BuildRequires:    netcdf-devel
+BuildRequires:    udunits2-devel
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 

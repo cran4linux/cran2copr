@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deepregression
-%global packver   0.3.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Deep Distributional Regression
 
@@ -43,9 +43,9 @@ Requires:         R-methods
 %description
 Allows for the specification of semi-structured deep distributional
 regression models which are fitted in a neural network as proposed by
-Ruegamer et al. (2021) <arXiv:2104.02705>. Predictors can be modeled using
-structured (penalized) linear effects, structured non-linear effects or
-using an unstructured deep network model.
+Ruegamer et al. (2023) <doi:10.18637/jss.v105.i02>. Predictors can be
+modeled using structured (penalized) linear effects, structured non-linear
+effects or using an unstructured deep network model.
 
 %prep
 %setup -q -c -n %{packname}

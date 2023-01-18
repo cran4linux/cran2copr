@@ -1,35 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rage
-%global packver   1.3.0
+%global packname  hydflood
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Life History Metrics from Matrix Population Models
+Summary:          Flood Extents and Durations along the Rivers Elbe and Rhine
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-popdemo 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-hyd1d 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-popdemo 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-hyd1d 
 Requires:         R-stats 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-grDevices 
 
 %description
-Functions for calculating life history metrics using matrix population
-models ('MPMs'). Described in Jones et al. (2021)
-<doi:10.1101/2021.04.26.441330>.
+Raster based flood modelling internally using 'hyd1d', an R package to
+interpolate 1d water level and gauging data. The package computes flood
+extent and durations through strategies originally developed for 'INFORM',
+an 'ArcGIS'-based hydro-ecological modelling framework. It does not
+provide a full, physical hydraulic modelling algorithm, but a simplified,
+near real time 'GIS' approach for flood extent and duration modelling.
+Computationally demanding annual flood durations have been computed
+already and data products were published by Weber (2022)
+<doi:10.1594/PANGAEA.948042>.
 
 %prep
 %setup -q -c -n %{packname}

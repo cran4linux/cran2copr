@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  malaytextr
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Mining for Bahasa Malaysia
 
@@ -34,7 +35,9 @@ explained in Khan, Rehman Ullah, Fitri Suraya Mohamad, Muh Inam UlHaq,
 Shahren Ahmad Zadi Adruce, Philip Nuli Anding, Sajjad Nawaz Khan, and
 Abdulrazak Yahya Saleh Al-Hababi (2017)
 <https://ijrest.net/vol-4-issue-12.html> . This package includes a
-dictionary of Malay words that may be used to perform word stemming.
+dictionary of Malay words that may be used to perform word stemming, a
+dataset of Malay stop words, a dataset of sentiment words and a dataset of
+normalized words.
 
 %prep
 %setup -q -c -n %{packname}

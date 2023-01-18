@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RCMinification
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Coefficient Minification Time Series Models
 
@@ -16,10 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-locpol 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-locpol 
 
 %description
-Functions and data sets for simulating and fitting minification and random
-coefficient minification modelling.
+Data sets, and functions for simulating and fitting nonlinear time series
+with minification and nonparametric models.
 
 %prep
 %setup -q -c -n %{packname}

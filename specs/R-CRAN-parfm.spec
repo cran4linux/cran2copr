@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  comparer
-%global packver   0.2.2
+%global __requires_exclude ^libmpi
+%global packname  parfm
+%global packver   2.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          2.7.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compare Output and Run Time
+Summary:          Parametric Frailty Models
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-sn 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-msm 
+Requires:         R-graphics 
+Requires:         R-CRAN-sn 
 
 %description
-Quickly run experiments to compare the run time and output of code blocks.
-The function mbc() can make fast comparisons of code, and will calculate
-statistics comparing the resulting outputs. It can be used to compare
-model fits to the same data or see which function runs faster. The R6
-class ffexp$new() runs a function using all possible combinations of
-selected inputs. This is useful for comparing the effect of different
-parameter values. It can also run in parallel and automatically save
-intermediate results, which is very useful for long computations.
+Fits Parametric Frailty Models by maximum marginal likelihood. Possible
+baseline hazards: exponential, Weibull, inverse Weibull (Fréchet),
+Gompertz, lognormal, log-skew-normal, and loglogistic. Possible Frailty
+distributions: gamma, positive stable, inverse Gaussian and lognormal.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

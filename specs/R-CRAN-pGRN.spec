@@ -1,35 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rage
-%global packver   1.3.0
+%global packname  pGRN
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Life History Metrics from Matrix Population Models
+Summary:          Single-Cell RNA Sequencing Pseudo-Time Based Gene Regulatory Network Inference
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-popdemo 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-popdemo 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dtw 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-future 
+Requires:         R-CRAN-bigmemory 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dtw 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-proxy 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-future 
 
 %description
-Functions for calculating life history metrics using matrix population
-models ('MPMs'). Described in Jones et al. (2021)
-<doi:10.1101/2021.04.26.441330>.
+Inference and visualize gene regulatory network based on single-cell RNA
+sequencing pseudo-time information.
 
 %prep
 %setup -q -c -n %{packname}

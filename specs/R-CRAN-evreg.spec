@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rage
-%global packver   1.3.0
+%global packname  evreg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Life History Metrics from Matrix Population Models
+Summary:          Evidential Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-popdemo 
+BuildRequires:    R-CRAN-evclust 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-popdemo 
+Requires:         R-CRAN-evclust 
 Requires:         R-stats 
 
 %description
-Functions for calculating life history metrics using matrix population
-models ('MPMs'). Described in Jones et al. (2021)
-<doi:10.1101/2021.04.26.441330>.
+An implementation of the 'Evidential Neural Network for Regression' model
+recently introduced in Denoeux (2023) <doi:10.36227/techrxiv.21791831.v1>.
+In this model, prediction uncertainty is quantified by Gaussian random
+fuzzy numbers as introduced in Denoeux (2023)
+<doi:10.1016/j.fss.2022.06.004>. The package contains functions for
+training the network, tuning hyperparameters by cross-validation or the
+hold-out method, and making predictions. It also contains utilities for
+making calculations with Gaussian random fuzzy numbers (such as, e.g.,
+computing the degrees of belief and plausibility of an interval, or
+combining Gaussian random fuzzy numbers).
 
 %prep
 %setup -q -c -n %{packname}

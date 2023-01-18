@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mirai
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimalist Async Evaluation Framework for R
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5
-Requires:         R-core >= 2.5
+BuildRequires:    R-devel >= 2.12
+Requires:         R-core >= 2.12
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nanonext >= 0.7.0
 Requires:         R-CRAN-nanonext >= 0.7.0
@@ -24,9 +24,9 @@ Requires:         R-CRAN-nanonext >= 0.7.0
 Lightweight parallel code execution, local or distributed across the
 network. Designed for simplicity, a 'mirai' evaluates an arbitrary
 expression asynchronously, resolving automatically upon completion. Built
-on 'nanonext' and 'NNG' (Nanomsg Next Gen) scalability protocols, defaults
-to the optimal choice of abstract sockets, Unix domain sockets or named
-pipes in addition to TCP/IP.
+on 'nanonext' and 'NNG' (Nanomsg Next Gen), uses scalability protocols not
+subject to R connection limits and transports faster than TCP/IP where
+applicable.
 
 %prep
 %setup -q -c -n %{packname}

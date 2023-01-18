@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gslnls
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          GSL Nonlinear Least-Squares Fitting
 
@@ -25,7 +25,7 @@ Requires:         R-CRAN-Matrix
 %description
 An R interface to nonlinear least-squares optimization with the GNU
 Scientific Library (GSL), see M. Galassi et al. (2009, ISBN:0954612078).
-The available trust region methods include the Levenberg-Marquadt
+The available trust region methods include the Levenberg-Marquardt
 algorithm with and without geodesic acceleration, the Steihaug-Toint
 conjugate gradient algorithm for large systems and several variants of
 Powell's dogleg algorithm. Bindings are provided to tune a number of

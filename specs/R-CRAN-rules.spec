@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rules
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Wrappers for Rule-Based Models
 
@@ -16,24 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 0.2.1.9003
+BuildRequires:    R-CRAN-parsnip >= 0.2.1.9004
 BuildRequires:    R-CRAN-dials >= 0.1.1.9001
 BuildRequires:    R-CRAN-generics >= 0.1.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-parsnip >= 0.2.1.9003
+BuildRequires:    R-utils 
+Requires:         R-CRAN-parsnip >= 0.2.1.9004
 Requires:         R-CRAN-dials >= 0.1.1.9001
 Requires:         R-CRAN-generics >= 0.1.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
 Bindings for additional models for use with the 'parsnip' package.  Models

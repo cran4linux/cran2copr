@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rage
-%global packver   1.3.0
+%global packname  getspanel
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Life History Metrics from Matrix Population Models
+Summary:          General-to-Specific Modelling of Panel Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-popdemo 
+BuildRequires:    R-CRAN-gets 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-popdemo 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-gets 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Functions for calculating life history metrics using matrix population
-models ('MPMs'). Described in Jones et al. (2021)
-<doi:10.1101/2021.04.26.441330>.
+Uses several types of indicator saturation and automated
+General-to-Specific (GETS) modelling from the 'gets' package and applies
+it to panel data. This allows the detection of structural breaks in panel
+data, operationalising a reverse causal approach of causal inference, see
+Pretis and Schwarz (2022) <doi:10.2139/ssrn.4022745>.
 
 %prep
 %setup -q -c -n %{packname}

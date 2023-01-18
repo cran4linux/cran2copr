@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  surf
+%global __requires_exclude ^libmpi
+%global packname  evoTS
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Survey-Based Gross Flows Estimation
+Summary:          Analyses of Evolutionary Time-Series
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,31 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-paleoTS >= 0.4.4
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-survey 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-paleoTS >= 0.4.4
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-abind 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Estimation of gross flows under non-response and complex sampling designs,
-using Gutiérrez, Nascimento Silva and Trujillo (2014)
-<https://www150.statcan.gc.ca/n1/pub/12-001-x/2014002/article/14113-eng.pdf>
-complex sampling extension of the non-response model developed by Stasny
-(1987)
-<https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/some-markov-chain-models-for-nonresponse-in-estimating-gross-labor-force-flows.pdf>.
-It estimates the gross flows process under non-response by modelling the
-observable cross-tabulation counts as a two-stage Markov Chain process,
-combining (1) the unobservable Markov Chain describing the transition of
-states; and (2) the non-response process, given by the initial response
-probabilities and the response/non-response transition probabilities.
+Facilitates univariate and multivariate analysis of evolutionary sequences
+of phenotypic change. The package extends the modeling framework available
+in the 'paleoTS' package. Please see
+<https://klvoje.github.io/evoTS/index.html> for information about the
+package and the implemented models.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mets
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Multivariate Event Times
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-survival >= 2.43.1
 BuildRequires:    R-CRAN-timereg >= 1.9.4
-BuildRequires:    R-CRAN-lava >= 1.6.6
+BuildRequires:    R-CRAN-lava >= 1.7.1
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-Rcpp 
@@ -26,7 +26,7 @@ BuildRequires:    R-splines
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-survival >= 2.43.1
 Requires:         R-CRAN-timereg >= 1.9.4
-Requires:         R-CRAN-lava >= 1.6.6
+Requires:         R-CRAN-lava >= 1.7.1
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-Rcpp 
