@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  klassR
-%global packver   0.2.0
+%global packname  metabias
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classifications and Codelists for Statistics Norway
+Summary:          Meta-Analysis for Within-Study and/or Across-Study Biases
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Functions to search, retrieve and apply classifications and codelists
-using Statistics Norway's API <https://www.ssb.no/klass> from the system
-'KLASS'. Retrieves classifications by date with options to choose
-language, hierarchical level and formatting.
+Provides common components (classes, methods, documentation) for packages
+that conduct meta-analytic corrections and sensitivity analyses for
+within-study and/or across-study biases in meta-analysis. See the packages
+'PublicationBias', 'phacking', and 'multibiasmeta'. These package
+implement methods described in, respectively: Mathur & VanderWeele (2020)
+<doi:10.31219/osf.io/s9dp6>; Mathur (2022) <doi:10.31219/osf.io/ezjsx>;
+Mathur (2022) <doi:10.31219/osf.io/u7vcb>.
 
 %prep
 %setup -q -c -n %{packname}

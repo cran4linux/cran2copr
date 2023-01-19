@@ -1,49 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AgroReg
-%global packver   1.2.9
+%global packname  Sie2nts
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Analysis Linear and Nonlinear for Agriculture
+Summary:          Sieve Methods for Non-Stationary Time Series
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-drc 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rcompanion 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-egg 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-drc 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-splines 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rcompanion 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-egg 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-RCurl 
+Requires:         R-splines 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Linear and nonlinear regression analysis common in agricultural science
-articles (Archontoulis & Miguez (2015). <doi:10.2134/agronj2012.0506>).
-The package includes polynomial, exponential, gaussian, logistic,
-logarithmic, segmented, non-parametric models, among others. The functions
-return the model coefficients and their respective p values, coefficient
-of determination, root mean square error, AIC, BIC, as well as graphs with
-the equations automatically.
+We provide functions for estimation and inference of locally-stationary
+time series using the sieve methods and bootstrapping procedure. In
+addition, it also contains functions to generate Daubechies and Coiflet
+wavelet by Cascade algorithm and to process data visualization.
 
 %prep
 %setup -q -c -n %{packname}

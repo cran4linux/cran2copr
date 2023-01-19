@@ -1,49 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AgroReg
-%global packver   1.2.9
+%global packname  CopernicusMarine
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Analysis Linear and Nonlinear for Agriculture
+Summary:          Search Download and Handle Data from Copernicus Marine Service Information
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-drc 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rcompanion 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-egg 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-drc 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rcompanion 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-egg 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
 
 %description
-Linear and nonlinear regression analysis common in agricultural science
-articles (Archontoulis & Miguez (2015). <doi:10.2134/agronj2012.0506>).
-The package includes polynomial, exponential, gaussian, logistic,
-logarithmic, segmented, non-parametric models, among others. The functions
-return the model coefficients and their respective p values, coefficient
-of determination, root mean square error, AIC, BIC, as well as graphs with
-the equations automatically.
+Subset and download data from EU Copernicus Marine Service Information:
+<https://data.marine.copernicus.eu>. Import data on the oceans physical
+and biogeochemical state from Copernicus into R without the need of
+external software.
 
 %prep
 %setup -q -c -n %{packname}

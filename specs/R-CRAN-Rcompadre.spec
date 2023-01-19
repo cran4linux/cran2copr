@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Rcompadre
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for using the 'COM(P)ADRE' Matrix Model Database
 
@@ -19,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-popdemo 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-popdemo 
 Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
 Utility functions for interacting with the 'COMPADRE' and 'COMADRE'

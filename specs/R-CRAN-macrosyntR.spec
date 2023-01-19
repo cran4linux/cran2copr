@@ -1,49 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AgroReg
-%global packver   1.2.9
+%global packname  macrosyntR
+%global packver   0.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          0.2.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Analysis Linear and Nonlinear for Agriculture
+Summary:          Draw Ordered Oxford Grids
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-drc 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rcompanion 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-egg 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-drc 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rcompanion 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-egg 
-Requires:         R-CRAN-purrr 
 
 %description
-Linear and nonlinear regression analysis common in agricultural science
-articles (Archontoulis & Miguez (2015). <doi:10.2134/agronj2012.0506>).
-The package includes polynomial, exponential, gaussian, logistic,
-logarithmic, segmented, non-parametric models, among others. The functions
-return the model coefficients and their respective p values, coefficient
-of determination, root mean square error, AIC, BIC, as well as graphs with
-the equations automatically.
+Use standard genomics file format (BED) and a table of orthologs to
+illustrate pair-wise synteny conservation at the genome-wide scale.
+Significantly conserved linkage groups are identified as described in
+Simakov et al. (2020) <doi:10.1038/s41559-020-1156-z> and displayed on an
+Oxford Grid (Edwards (1991) <doi:10.1111/j.1469-1809.1991.tb00394.x>). The
+package provides a function that uses a network-based greedy algorithm to
+find communities (Clauset et al. (2004) <doi:10.1103/PhysRevE.70.066111>)
+and so automatically order the chromosomes on the plot to improve
+interpretability.
 
 %prep
 %setup -q -c -n %{packname}

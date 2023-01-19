@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arkhe
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Cleaning Rectangular Data
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 A dependency-free collection of simple functions for cleaning rectangular

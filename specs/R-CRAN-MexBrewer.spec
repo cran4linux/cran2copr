@@ -1,42 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  transfR
-%global packver   1.0.2
+%global packname  MexBrewer
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transfer of Hydrograph from Gauged to Ungauged Catchments
+Summary:          Color Palettes Inspired by Works of Mexican Painters and Muralists
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-sf >= 0.8.0
-BuildRequires:    R-CRAN-stars >= 0.4.0
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-sf >= 0.8.0
-Requires:         R-CRAN-stars >= 0.4.0
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-A geomorphology-based hydrological modelling for transferring streamflow
-measurements from gauged to ungauged catchments. Inverse modelling enables
-to estimate net rainfall from streamflow measurements following Boudhraâ
-et al. (2018) <doi:10.1080/02626667.2018.1425801>. Resulting net rainfall
-is then estimated on the ungauged catchments by spatial interpolation in
-order to finally simulate streamflow following de Lavenne et al. (2016)
-<doi:10.1002/2016WR018716>.
+Color palettes inspired by the works of Mexican painters and muralists.
+The package includes functions that return vectors of colors and also
+functions to use color and fill scales in 'ggplot2' visualizations.
 
 %prep
 %setup -q -c -n %{packname}

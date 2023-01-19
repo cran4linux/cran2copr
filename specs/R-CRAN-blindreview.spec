@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  klassR
-%global packver   0.2.0
+%global packname  blindreview
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classifications and Codelists for Statistics Norway
+Summary:          Blind Review Using Forward Search Procedures
 
-License:          Apache License 2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-Hmisc >= 4.7.2
+BuildRequires:    R-CRAN-forsearch >= 3.0.1
+Requires:         R-CRAN-Hmisc >= 4.7.2
+Requires:         R-CRAN-forsearch >= 3.0.1
 
 %description
-Functions to search, retrieve and apply classifications and codelists
-using Statistics Norway's API <https://www.ssb.no/klass> from the system
-'KLASS'. Retrieves classifications by date with options to choose
-language, hierarchical level and formatting.
+Randomly assigns identification to one of the variables of the dataset,
+say Treatment, and assigns random numbers to all the observations of the
+dataset. Reorders the database according to the random numbers, and then
+runs the appropriate forward search function on the blinded dataset. A
+file is created from which the user can identify any outliers using the
+graphics function in this package. An unmasking function is provided so
+that the user can identify the potential outliers in terms of their
+original values when blinding is no longer needed. Details of the forward
+search functions may be found in
+<https://CRAN.R-project.org/package=forsearch>.
 
 %prep
 %setup -q -c -n %{packname}

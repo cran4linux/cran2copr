@@ -1,49 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AgroReg
-%global packver   1.2.9
+%global packname  SafeVote
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Analysis Linear and Nonlinear for Agriculture
+Summary:          Election Vote Counting with Safety Features
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-drc 
+BuildRequires:    R-CRAN-formattable 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rcompanion 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-egg 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-drc 
+Requires:         R-CRAN-formattable 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-fields 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rcompanion 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-egg 
-Requires:         R-CRAN-purrr 
 
 %description
-Linear and nonlinear regression analysis common in agricultural science
-articles (Archontoulis & Miguez (2015). <doi:10.2134/agronj2012.0506>).
-The package includes polynomial, exponential, gaussian, logistic,
-logarithmic, segmented, non-parametric models, among others. The functions
-return the model coefficients and their respective p values, coefficient
-of determination, root mean square error, AIC, BIC, as well as graphs with
-the equations automatically.
+Fork of 'vote_2.3-2', Raftery et al. (2021) <DOI:10.32614/RJ-2021-086>,
+with additional support for stochastic experimentation.
 
 %prep
 %setup -q -c -n %{packname}

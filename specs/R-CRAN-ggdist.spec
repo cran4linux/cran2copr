@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggdist
-%global packver   3.2.0
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations of Distributions and Uncertainty
 
@@ -16,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
 BuildRequires:    R-CRAN-distributional >= 0.3.0
@@ -29,7 +30,8 @@ BuildRequires:    R-CRAN-vctrs
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-quadprog 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-distributional >= 0.3.0
@@ -42,6 +44,7 @@ Requires:         R-CRAN-vctrs
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-quadprog 
 
 %description
 Provides primitives for visualizing distributions using 'ggplot2' that are
