@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rstac
-%global packver   0.9.1-5
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1.5
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client Library for SpatioTemporal Asset Catalog
 
@@ -19,20 +20,20 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-crayon 
 Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
 
 %description
 Provides functions to access, search and download spacetime earth
 observation data via SpatioTemporal Asset Catalog (STAC). This package
-supports the version 1.0.0 of the STAC specification
+supports the version 1.0.0 (and older) of the STAC specification
 (<https://github.com/radiantearth/stac-spec>). For further details see
 Simoes et al. (2021) <doi:10.1109/IGARSS47720.2021.9553518>.
 

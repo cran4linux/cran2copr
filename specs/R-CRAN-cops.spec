@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cops
-%global packver   1.2-0
+%global packver   1.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Optimized Proximity Scaling
 
@@ -48,13 +49,12 @@ Requires:         R-CRAN-rgenoud
 Requires:         R-CRAN-GenSA 
 
 %description
-Cluster optimized proximity scaling (COPS) refers to multidimensional
-scaling (MDS) methods that aim at pronouncing the clustered appearance of
-the configuration (Rusch, Mair & Hornik, 2021,
-<doi:10.1080/10618600.2020.1869027> ). They achieve this by transforming
+Multidimensional scaling (MDS) methods that aim at pronouncing the
+clustered appearance of the configuration (Rusch, Mair & Hornik, 2021,
+<doi:10.1080/10618600.2020.1869027>). They achieve this by transforming
 proximities/distances with power functions and augment the fitting
 criterion with a clusteredness index, the OPTICS Cordillera (Rusch, Hornik
-& Mair, 2018, <doi:10.1080/10618600.2017.1349664> ). There are two
+& Mair, 2018, <doi:10.1080/10618600.2017.1349664>). There are two
 variants: One for finding the configuration directly (COPS-C) for ratio,
 power, interval and non-metric MDS (Borg & Groenen, 2005,
 ISBN:978-0-387-28981-6), and one for using the augmented fitting criterion
@@ -64,18 +64,18 @@ displaying different MDS models in a COPS framework like ratio, interval
 and non-metric MDS for COPS-C and P-COPS with Torgerson scaling
 (Torgerson, 1958, ISBN:978-0471879459), scaling by majorizing a complex
 function (SMACOF; de Leeuw, 1977,
-<https://escholarship.org/uc/item/4ps3b5mj> ), Sammon mapping (Sammon,
-1969, <doi:10.1109/T-C.1969.222678> ), elastic scaling (McGee, 1966,
-<doi:10.1111/j.2044-8317.1966.tb00367.x> ), s-stress (Takane, Young & de
-Leeuw, 1977, <doi:10.1007/BF02293745> ), r-stress (de Leeuw, Groenen &
-Mair, 2016, <https://rpubs.com/deleeuw/142619>), power-stress (Buja &
+<https://escholarship.org/uc/item/4ps3b5mj>), Sammon mapping (Sammon,
+1969, <doi:10.1109/T-C.1969.222678>), elastic scaling (McGee, 1966,
+<doi:10.1111/j.2044-8317.1966.tb00367.x>), s-stress (Takane, Young & de
+Leeuw, 1977, <doi:10.1007/BF02293745>), r-stress (de Leeuw, Groenen &
+Mair, 2016, <https://rpubs.com/deleeuw/142619>), power stress (Buja &
 Swayne, 2002 <doi:10.1007/s00357-001-0031-0>), restricted power stress,
-approximated power stress, power elastic scaling, power Sammon mapping
-(Rusch, Mair & Hornik, 2021, <doi:10.1080/10618600.2020.1869027> ). All of
-these models can also solely be fit as MDS with power transformations. The
-package further contains a function for pattern search optimization, the
-``Adaptive Luus-Jakola Algorithm'' (Rusch, Mair & Hornik, 2021,
-<doi:10.1080/10618600.2020.1869027> ).
+approximate power stress, power elastic scaling, power Sammon mapping (for
+all Rusch, Mair & Hornik, 2021, <doi:10.1080/10618600.2020.1869027>). All
+of these models can also solely be fit as MDS with power transformations.
+The package further contains a function for pattern search optimization,
+the ``Adaptive Luus-Jaakola Algorithm'' (Rusch, Mair & Hornik,
+2021,<doi:10.1080/10618600.2020.1869027>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -85,6 +85,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

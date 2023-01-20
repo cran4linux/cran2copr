@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  postdoc
-%global packver   1.2.0
+%global packname  rgudhi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimal and Uncluttered Package Documentation
+Summary:          An Interface to the GUDHI Library for Topological Data Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,20 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-katex 
-BuildRequires:    R-CRAN-prismjs 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-katex 
-Requires:         R-CRAN-prismjs 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-Rdpack >= 2.4
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-Rdpack >= 2.4
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
 
 %description
-Generates simple and beautiful one-page HTML reference manuals with
-package documentation. Math rendering and syntax highlighting are done
-server-side in R such that no JavaScript libraries are needed in the
-browser, which makes the documentation portable and fast to load.
+Provides an interface to the GUDHI library which is a generic open source
+C++ library, with a Python interface, for topological data analysis (TDA)
+and higher dimensional geometry understanding. The library offers
+state-of-the-art data structures and algorithms to construct simplicial
+complexes and compute persistent homology.
 
 %prep
 %setup -q -c -n %{packname}

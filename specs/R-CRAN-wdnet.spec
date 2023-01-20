@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wdnet
-%global packver   0.0.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted and Directed Networks
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
@@ -42,8 +42,10 @@ directed networks, Opsahl, Agneessens and Skvoretz (2010)
 <doi:10.1016/j.socnet.2010.03.006>, Zhang, Wang and Yan (2022)
 <doi:10.1016/j.physa.2021.126438>, (3) clustering coefficient of weighted
 and directed networks, Fagiolo (2007) <doi:10.1103/PhysRevE.76.026107> and
-Clemente and Grassi (2018) <doi:10.1016/j.chaos.2017.12.007>, (4) network
-rewiring, (5) preferential attachment network generation.
+Clemente and Grassi (2018) <doi:10.1016/j.chaos.2017.12.007>, (4) rewiring
+networks with given assortativity coefficients, Wang, Yan, Yuan and Zhang
+(2022) <doi:10.1007/s11222-022-10161-8>, (5) preferential attachment
+network generation.
 
 %prep
 %setup -q -c -n %{packname}

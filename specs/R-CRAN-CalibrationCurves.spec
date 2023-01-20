@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CalibrationCurves
-%global packver   0.1.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calibration Performance
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
@@ -26,6 +27,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-Hmisc 
 Requires:         R-CRAN-rms 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 

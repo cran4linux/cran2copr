@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pbkrtest
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Bootstrap, Kenward-Roger and Satterthwaite Based Methods for Test in Mixed Models
 
@@ -13,41 +14,34 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix >= 1.2.3
-BuildRequires:    R-CRAN-lme4 >= 1.1.10
+BuildRequires:    R-CRAN-lme4 >= 1.1.31
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-Matrix >= 1.2.3
-Requires:         R-CRAN-lme4 >= 1.1.10
+Requires:         R-CRAN-lme4 >= 1.1.31
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 
-Requires:         R-CRAN-knitr 
 
 %description
-Test in mixed effects models. Attention is on mixed effects models as
-implemented in the 'lme4' package. For linear mixed models, this package
-implements (1) a parametric bootstrap test, (2) a Kenward-Roger-typ
-modification of F-tests for linear mixed effects models and (3) a
-Satterthwaite-type modification of F-tests for linear mixed effects
-models. The package also implements a parametric bootstrap test for
-generalized linear mixed models.  The facilities of the package are
-documented in the paper by Halehoh and Højsgaard, (2012,
-<doi:10.18637/jss.v059.i09>).  Please see 'citation("pbkrtest")' for
-citation details.
+Computes p-values based on (a) Satterthwaite or Kenward-Rogers degree of
+freedom methods and (b) parametric bootstrap for mixed effects models as
+implemented in the 'lme4' package. Implements parametric bootstrap test
+for generalized linear mixed models as implemented in 'lme4' and
+generalized linear models. The package is documented in the paper by
+Halekoh and Højsgaard, (2012, <doi:10.18637/jss.v059.i09>).  Please see
+'citation("pbkrtest")' for citation details.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
