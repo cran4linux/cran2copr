@@ -1,46 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProAE
-%global packver   0.2.12
+%global packname  prqlr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          PRO-CTCAE Scoring, Analysis, and Graphical Tools
+Summary:          R Bindings for the 'prql-compiler' Rust Library
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggnewscale 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggpattern 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggnewscale 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggpattern 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-A collection of tools to facilitate standardized analysis and graphical
-procedures when using the National Cancer Institute’s Patient-Reported
-Outcomes version of the Common Terminology Criteria for Adverse Events
-(PRO-CTCAE).
+Provides a function to convert 'PRQL' strings to 'SQL' strings. Combined
+with other R functions that take 'SQL' as an argument, 'PRQL' can be used
+on R.
 
 %prep
 %setup -q -c -n %{packname}

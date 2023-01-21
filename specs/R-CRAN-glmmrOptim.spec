@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProAE
-%global packver   0.2.12
+%global packname  glmmrOptim
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          PRO-CTCAE Scoring, Analysis, and Graphical Tools
+Summary:          Approximate Optimal Experimental Designs Using Generalised Linear Mixed Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggnewscale 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggpattern 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggnewscale 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggpattern 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-glmmrBase >= 0.2.3
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-glmmrBase >= 0.2.3
+Requires:         R-methods 
+Requires:         R-CRAN-digest 
 
 %description
-A collection of tools to facilitate standardized analysis and graphical
-procedures when using the National Cancer Institute’s Patient-Reported
-Outcomes version of the Common Terminology Criteria for Adverse Events
-(PRO-CTCAE).
+Optimal design analysis algorithms for any study design that can be
+represented or modelled as a generalised linear mixed model including
+cluster randomised trials, cohort studies, spatial and temporal
+epidemiological studies, and split-plot designs. See
+<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
+detailed manual on model specification. A detailed discussion of the
+methods in this package can be found in Watson and Pan (2022)
+<arXiv:2207.09183>.
 
 %prep
 %setup -q -c -n %{packname}

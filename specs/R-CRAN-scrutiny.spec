@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scrutiny
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Error Detection in Science
 
@@ -38,8 +38,7 @@ Requires:         R-CRAN-tibble
 
 %description
 Test published summary statistics for consistency (Brown and Heathers,
-2017, <https://journals.sagepub.com/doi/10.1177/1948550616673876/>;
-Allard, 2018,
+2017, <doi:10.1177/1948550616673876>; Allard, 2018,
 <https://aurelienallard.netlify.app/post/anaytic-grimmer-possibility-standard-deviations/>;
 Heathers and Brown, 2019, <https://osf.io/5vb3u/>). The package also
 provides infrastructure for implementing new error detection techniques.

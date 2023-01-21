@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SPEI
-%global packver   1.8.0
+%global packname  occUncertain
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of the Standardized Precipitation-Evapotranspiration Index
+Summary:          Addressing Occurrence Point Uncertainty When Calculating Spatial Metrics
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lmomco 
-BuildRequires:    R-CRAN-lmom 
-BuildRequires:    R-CRAN-TLMoments 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-lmomco 
-Requires:         R-CRAN-lmom 
-Requires:         R-CRAN-TLMoments 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-ConR 
+BuildRequires:    R-CRAN-rgdal 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-ConR 
+Requires:         R-CRAN-rgdal 
 
 %description
-A set of functions for computing potential evapotranspiration and several
-widely used drought indices including the Standardized
-Precipitation-Evapotranspiration Index (SPEI).
+Repeatable processing of species occurrence datasets that makes it easier
+to propagate georeferencing imprecisions and data input mistakes to
+downstream analyses, allowing analysts to assess the impacts of these
+imprecisions in quantifying range of occurrence (EOO) or area of occupancy
+(AOO) . Users can use the software to: (a) change each coordinate record's
+uncertainty from meters to decimal degrees, The formula for converting
+from meters to decimal degrees is in part based on information from the
+ESRI ArcUser magazine "Measuring in Arc-Seconds" at this
+site<https://www.esri.com/news/arcuser/0400/wdside.html> (b) deal with
+records that don't have uncertainty values in multiple ways, (c) create a
+new random location for each occurrence using a uniform distribution with
+a defined interval within the occurrence location uncertainty, and (d) use
+repetitions to quantify EOO and AOO with attribute uncertainty.
 
 %prep
 %setup -q -c -n %{packname}

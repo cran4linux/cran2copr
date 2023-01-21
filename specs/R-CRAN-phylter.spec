@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProAE
-%global packver   0.2.12
+%global packname  phylter
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          PRO-CTCAE Scoring, Analysis, and Graphical Tools
+Summary:          Detect and Remove Outliers in Phylogenomics Datasets
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggnewscale 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggpattern 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-mrfDepth 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ape 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggnewscale 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggpattern 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-mrfDepth 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A collection of tools to facilitate standardized analysis and graphical
-procedures when using the National Cancer Institute’s Patient-Reported
-Outcomes version of the Common Terminology Criteria for Adverse Events
-(PRO-CTCAE).
+Analyzis and filtering of phylogenomics datasets. It takes an input either
+a collection of gene trees (then transformed to matrices) or directly a
+collection of gene matrices and performs an iterative process to identify
+what species in what genes are outliers, and whose elimination
+significantly improves the concordance between the input matrices. The
+methods builds upon the Distatis approach (Abdi et al. (2005)
+<doi:10.1101/2021.09.08.459421>), a generalization of classical
+multidimensional scaling to multiple distance matrices.
 
 %prep
 %setup -q -c -n %{packname}

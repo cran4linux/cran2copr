@@ -1,67 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  specr
-%global packver   1.0.0
+%global packname  convergEU
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conducting and Visualizing Specification Curve Analyses
+Summary:          Monitoring Convergence of EU Countries
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-eurostat 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cowplot 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-caTools 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-ggpubr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-parallelly 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-eurostat 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-caTools 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-ggpubr 
 
 %description
-Provides utilities for conducting specification curve analyses (Simonsohn,
-Simmons & Nelson (2020, <doi: 10.1038/s41562-020-0912-z>) or multiverse
-analyses (Steegen, Tuerlinckx, Gelman & Vanpaemel, 2016, <doi:
-10.1177/1745691616658637>) including functions to setup, run, evaluate,
-and plot all specifications.
+Indicators and measures by country and time describe what happens at
+economic and social levels. This package provides functions to calculate
+several measures of convergence after imputing missing values. The
+automated downloading of Eurostat data, followed by the production of
+country fiches and indicator fiches, makes possible to produce automated
+reports. The Eurofound report: Bisello, M., Eiffe, F., Dubois, H.,
+Mascherini, M. (2019) "Upward convergence in the EU: Concepts,
+measurements and indicators" (<doi:10.2806/68012>), is a detailed
+presentation of convergence.
 
 %prep
 %setup -q -c -n %{packname}

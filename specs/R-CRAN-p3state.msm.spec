@@ -1,46 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProAE
-%global packver   0.2.12
+%global packname  p3state.msm
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          PRO-CTCAE Scoring, Analysis, and Graphical Tools
+Summary:          Analyzing Survival Data from an Illness-Death Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.8.1
+Requires:         R-core >= 2.8.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggnewscale 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggpattern 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggnewscale 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggpattern 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-base 
+Requires:         R-CRAN-survival 
+Requires:         R-base 
 
 %description
-A collection of tools to facilitate standardized analysis and graphical
-procedures when using the National Cancer Institute’s Patient-Reported
-Outcomes version of the Common Terminology Criteria for Adverse Events
-(PRO-CTCAE).
+Contains functions for data preparation, prediction of transition
+probabilities, estimating semi-parametric regression models and for
+implementing nonparametric estimators for other quantities. See
+Meira-Machado and Roca-Pardiñas (2011) <doi:10.18637/jss.v038.i03>.
 
 %prep
 %setup -q -c -n %{packname}

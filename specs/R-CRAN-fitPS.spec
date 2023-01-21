@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitPS
-%global packver   0.2
+%global packver   0.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Zeta Distributions to Forensic Data
 
@@ -18,10 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-readxl 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-VGAM 
 Requires:         R-methods 
 Requires:         R-CRAN-readxl 

@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProAE
-%global packver   0.2.12
+%global packname  shiny.benchmark
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          PRO-CTCAE Scoring, Analysis, and Graphical Tools
+Summary:          Benchmark the Performance of 'shiny' Applications
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggnewscale 
-BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggpattern 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggnewscale 
-Requires:         R-CRAN-ggtext 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-shinytest2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggpattern 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-renv 
+Requires:         R-CRAN-shinytest2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-fs 
 
 %description
-A collection of tools to facilitate standardized analysis and graphical
-procedures when using the National Cancer Institute’s Patient-Reported
-Outcomes version of the Common Terminology Criteria for Adverse Events
-(PRO-CTCAE).
+Compare performance between different versions of a 'shiny' application
+based on 'git' references.
 
 %prep
 %setup -q -c -n %{packname}

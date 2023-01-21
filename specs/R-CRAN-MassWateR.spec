@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lterpalettefinder
-%global packver   1.1.0
+%global packname  MassWateR
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Color Palettes from Photos and Pick Official LTER Palettes
+Summary:          Quality Control and Analysis of Massachusetts Water Quality Data
 
-License:          BSD_3_clause + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,34 +18,45 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggspatial 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tiff 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-ggmap 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-png 
-Requires:         R-stats 
-Requires:         R-tools 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggspatial 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tiff 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-writexl 
 
 %description
-Allows identification of palettes derived from LTER (Long Term Ecological
-Research) photographs based on user criteria. Also facilitates extraction
-of palettes from users' photos directly.
+Methods for quality control and exploratory analysis of surface water
+quality data collected in Massachusetts, USA.  Functions are developed to
+facilitate data formatting for the Water Quality Exchange Network
+<https://www.epa.gov/waterdata/water-quality-data-upload-wqx> and
+reporting of data quality objectives to state agencies. Quality control
+methods are from Massachusetts Department of Environmental Protection
+(2020)
+<https://www.mass.gov/orgs/massachusetts-department-of-environmental-protection>.
 
 %prep
 %setup -q -c -n %{packname}

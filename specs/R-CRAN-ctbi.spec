@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctbi
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Procedure to Clean, Decompose and Aggregate Timeseries
 
@@ -28,9 +28,9 @@ Requires:         R-CRAN-data.table >= 1.14.2
 Clean, decompose and aggregate univariate time series following the
 procedure "Cyclic/trend decomposition using bin interpolation" and the
 Logbox method for flagging outliers, both detailed in Ritter, F.:
-Technical note: A procedure to clean, decompose and aggregate time series,
-Hydrol. Earth Syst. Sci. Discuss. [preprint], <doi:10.5194/hess-2021-609>,
-in review.
+Technical note: A procedure to clean, decompose, and aggregate time
+series, Hydrol. Earth Syst. Sci., 27, 349–361,
+<doi:10.5194/hess-27-349-2023>, 2023.
 
 %prep
 %setup -q -c -n %{packname}

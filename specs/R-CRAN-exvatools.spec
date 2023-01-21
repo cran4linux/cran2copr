@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exvatools
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Value Added in Exports with International Input-Output Table Tools
 
@@ -32,13 +32,14 @@ Requires:         R-utils
 
 %description
 Decomposition of value added in exports in an international input-output
-table framework using the methodologies of Borin and Mancini (2019)
-<https://openknowledge.worldbank.org/handle/10986/31533>, Miroudot and Ye
-(2021) <doi:10.1080/09535314.2020.1730308>, Wang et al. (2013)
+table framework, using the methodologies of Borin and Mancini (2023)
+<doi:10.1080/09535314.2022.2153221>, Miroudot and Ye (2021)
+<doi:10.1080/09535314.2020.1730308>, Wang et al. (2013)
 <https://econpapers.repec.org/paper/nbrnberwo/19677.htm> and Koopman et
 al. (2014) <doi:10.1257/aer.104.2.459>. Includes commands for easy data
-extraction, calculation of complex matrices and other useful tools for
-geographical and sector trade analysis.
+extraction, matrix manipulation, calculation of various value added
+indicators, and other useful tools for geographical and sector trade
+analysis.
 
 %prep
 %setup -q -c -n %{packname}
