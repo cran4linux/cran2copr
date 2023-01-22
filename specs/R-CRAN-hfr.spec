@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hfr
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Hierarchical Feature Regression Models
 
@@ -17,13 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-corpcor 
-Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-quadprog 
 Requires:         R-stats 
 Requires:         R-CRAN-dendextend 

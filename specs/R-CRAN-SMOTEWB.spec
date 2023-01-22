@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SMOTEWB
-%global packver   0.1.0
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imbalanced Resampling using SMOTE with Boosting
+Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,17 +19,14 @@ Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-ada 
+BuildRequires:    R-CRAN-rpart 
 Requires:         R-stats 
 Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-ada 
+Requires:         R-CRAN-rpart 
 
 %description
-Provides Random Oversampling, Random Undersampling, Synthetic Oversampling
-Minority Technique and SMOTE with Boosting by Saglam and Cengiz (2022)
-<doi:10.1016/j.eswa.2022.117023> for imbalanced data resampling. SMOTE
-with Boosting is a SMOTE-based oversampling method which can determine the
-number of links for each positive sample and robust to noise.
+Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
+Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>.
 
 %prep
 %setup -q -c -n %{packname}

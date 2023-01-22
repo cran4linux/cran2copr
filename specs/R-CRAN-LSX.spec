@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LSX
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semisupervised Document Scaling with Word-Embedding Models
+Summary:          Semi-Supervised Algorithm for Document Scaling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -51,9 +51,9 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-locfit 
 
 %description
-A word embeddings-based semisupervised model for document scaling Watanabe
-(2020) <doi:10.1080/19312458.2020.1832976>. LSS allows users to analyze
-large and complex corpora on arbitrary dimensions with seed words
+A word embeddings-based semi-supervised model for document scaling
+Watanabe (2020) <doi:10.1080/19312458.2020.1832976>. LSS allows users to
+analyze large and complex corpora on arbitrary dimensions with seed words
 exploiting efficiency of word embeddings (SVD, Glove). It can generate
 word vectors on a users-provided corpus or incorporate a pre-trained word
 vectors.

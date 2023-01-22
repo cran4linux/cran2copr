@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dipsaus
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Dipping Sauce for Data Analysis and Visualizations
 
@@ -33,10 +33,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-base64url 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-startup 
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-fastmap >= 1.1.0
 Requires:         R-CRAN-rlang >= 0.4.0
@@ -54,10 +52,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-base64url 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-startup 
 
 %description
 Works as an "add-on" to packages like 'shiny', 'future', as well as

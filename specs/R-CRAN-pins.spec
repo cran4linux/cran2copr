@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pins
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pin, Discover and Share Resources
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
