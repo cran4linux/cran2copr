@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trackdf
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Frame Class for Tracking Data
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
 
 %description
 Data frame class for storing collective movement data (e.g. fish schools,

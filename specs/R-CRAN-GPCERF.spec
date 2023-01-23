@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GPCERF
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Processes for Estimating Causal Exposure Response Curves
 
@@ -16,28 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-SuperLearner 
 Requires:         R-parallel 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-xgboost 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-logger 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-SuperLearner 
 
 %description
 Provides a non-parametric Bayesian framework based on Gaussian process

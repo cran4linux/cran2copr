@@ -1,36 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lingmatch
-%global packver   1.0.5
+%global packname  transfR
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linguistic Matching and Accommodation
+Summary:          Transfer of Hydrograph from Gauged to Ungauged Catchments
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-sf >= 0.8.0
+BuildRequires:    R-CRAN-stars >= 0.4.0
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-sf >= 0.8.0
+Requires:         R-CRAN-stars >= 0.4.0
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Measure similarity between texts. Offers a variety of processing tools and
-similarity metrics to facilitate flexible representation of texts and
-matching. Implements forms of Language Style Matching (Ireland &
-Pennebaker, 2010) <doi:10.1037/a0020386> and Latent Semantic Analysis
-(Landauer & Dumais, 1997) <doi:10.1037/0033-295X.104.2.211>.
+A geomorphology-based hydrological modelling for transferring streamflow
+measurements from gauged to ungauged catchments. Inverse modelling enables
+to estimate net rainfall from streamflow measurements following Boudhraâ
+et al. (2018) <doi:10.1080/02626667.2018.1425801>. Resulting net rainfall
+is then estimated on the ungauged catchments by spatial interpolation in
+order to finally simulate streamflow following de Lavenne et al. (2016)
+<doi:10.1002/2016WR018716>.
 
 %prep
 %setup -q -c -n %{packname}

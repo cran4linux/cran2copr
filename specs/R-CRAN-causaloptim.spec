@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  causaloptim
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to Specify Causal Graphs and Compute Bounds on Causal Effects
 
@@ -42,9 +43,8 @@ causal query using a text interface. The program converts this user
 defined DAG, query, and constraints, and returns tight bounds. The bounds
 can be converted to R functions to evaluate them for specific datasets,
 and to latex code for publication. The methods and proofs of tightness and
-validity of the bounds are described in a preprint by Sachs, Gabriel, and
-Sjölander (2021)
-<https://sachsmc.github.io/causaloptim/articles/CausalBoundsMethods.pdf>.
+validity of the bounds are described in a preprint by Sachs, Jonzon,
+Gabriel, and Sjölander (2022) <doi:10.1080/10618600.2022.2071905>.
 
 %prep
 %setup -q -c -n %{packname}
