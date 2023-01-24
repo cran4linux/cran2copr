@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DQAgui
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical User Interface for Data Quality Assessment
 
@@ -55,7 +56,8 @@ Requires:         R-CRAN-waiter
 
 %description
 A graphical user interface (GUI) to the functions implemented in the R
-package 'DQAstats'.
+package 'DQAstats'. . Publication: Mang et al. (2021)
+<doi:10.1186/s12911-022-01961-z>.
 
 %prep
 %setup -q -c -n %{packname}

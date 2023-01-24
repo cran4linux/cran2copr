@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cancensus
-%global packver   0.5.5
+%global packname  vDiveR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access, Retrieve, and Work with Canadian Census Data and Geography
+Summary:          Visualization of Viral Protein Sequence Diversity Dynamics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,27 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 1.0
-BuildRequires:    R-CRAN-dplyr >= 0.7
-BuildRequires:    R-CRAN-digest >= 0.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gghalves 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 1.0
-Requires:         R-CRAN-dplyr >= 0.7
-Requires:         R-CRAN-digest >= 0.1
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gghalves 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
 
 %description
-Integrated, convenient, and uniform access to Canadian Census data and
-geography retrieved using the 'CensusMapper' API. This package produces
-analysis-ready tidy data frames and spatial data in multiple formats, as
-well as convenience functions for working with Census variables, variable
-hierarchies, and region selection. API keys are freely available with free
-registration at <https://censusmapper.ca/api>. Census data and boundary
-geometries are reproduced and distributed on an "as is" basis with the
-permission of Statistics Canada (Statistics Canada 2001; 2006; 2011; 2016;
-2021).
+To ease the visualization of outputs from Diversity Motif Analyser
+('DiMA'; <https://github.com/PU-SDS/DiMA>). 'vDiveR' allows visualization
+of the diversity motifs (index and its variants – major, minor and unique)
+for elucidation of the underlying inherent dynamics. Please refer
+<https://vdiver-manual.readthedocs.io/en/latest/> for more information.
 
 %prep
 %setup -q -c -n %{packname}

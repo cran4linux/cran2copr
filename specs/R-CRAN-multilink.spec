@@ -1,57 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  torch
-%global packver   0.9.1
+%global packname  multilink
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tensors and Neural Networks with 'GPU' Acceleration
+Summary:          Multifile Record Linkage and Duplicate Detection
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-coro >= 1.0.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-RecordLinkage 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ellipsis 
-Requires:         R-CRAN-coro >= 1.0.2
+BuildRequires:    R-CRAN-mcclust 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-RecordLinkage 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-magrittr 
-Requires:         R-tools 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-mcclust 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides functionality to define and train neural networks similar to
-'PyTorch' by Paszke et al (2019) <arXiv:1912.01703> but written entirely
-in R using the 'libtorch' library. Also supports low-level tensor
-operations and 'GPU' acceleration.
+Implementation of the methodology of Aleshin-Guendel & Sadinle (2022)
+<doi:10.1080/01621459.2021.2013242>. It handles the general problem of
+multifile record linkage and duplicate detection, where any number of
+files are to be linked, and any of the files may have duplicates.
 
 %prep
 %setup -q -c -n %{packname}

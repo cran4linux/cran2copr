@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3viz
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations for 'mlr3'
 
@@ -34,7 +34,7 @@ Requires:         R-CRAN-viridis
 
 %description
 Visualization package of the 'mlr3' ecosystem. It features plots for mlr3
-objects such as task, learners, predictions, benchmark results, tuning
+objects such as tasks, learners, predictions, benchmark results, tuning
 instances and filters via the 'autoplot()' generic of 'ggplot2'. The
 package draws plots with the 'viridis' color palette and applies the
 minimal theme. Visualizations include barplots, boxplots, histograms, ROC

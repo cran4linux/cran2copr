@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pulsar
-%global packver   0.3.9
+%global packname  stim
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Utilities for Lambda Selection along a Regularization Path
+Summary:          Incorporating Stability Information into Cross-Sectional Estimates
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-Ryacas 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-graphics 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-Ryacas 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-Matrix 
 
 %description
-Model selection for penalized graphical models using the Stability
-Approach to Regularization Selection ('StARS'), with options for speed-ups
-including Bounded StARS (B-StARS), batch computing, and other stability
-metrics (e.g., graphlet stability G-StARS). Christian L. Müller, Richard
-Bonneau, Zachary Kurtz (2016) <arXiv:1605.07072>.
+The goal of 'stim' is to provide a function for estimating the Stability
+Informed Model. The Stability Informed Model integrates stability
+information (how much a variable correlates with itself in the future)
+into cross-sectional estimates. Wysocki and Rhemtulla (2022)
+<https://psyarxiv.com/vg5as>.
 
 %prep
 %setup -q -c -n %{packname}

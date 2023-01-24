@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  medfate
-%global packver   2.9.1
+%global packname  rdracor
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mediterranean Forest Simulation
+Summary:          Access to the 'DraCor' API
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-meteoland >= 0.8.1
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-meteoland >= 0.8.1
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.1.8
+BuildRequires:    R-CRAN-Rdpack >= 2.4
+BuildRequires:    R-CRAN-jsonlite >= 1.6
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-stringr >= 1.4.1
+BuildRequires:    R-CRAN-igraph >= 1.2.4.1
+BuildRequires:    R-CRAN-xml2 >= 1.2.2
+BuildRequires:    R-CRAN-tidyr >= 1.2.1
+BuildRequires:    R-CRAN-data.table >= 1.12.2
+BuildRequires:    R-CRAN-purrr >= 0.3.5
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tibble >= 3.1.8
+Requires:         R-CRAN-Rdpack >= 2.4
+Requires:         R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-stringr >= 1.4.1
+Requires:         R-CRAN-igraph >= 1.2.4.1
+Requires:         R-CRAN-xml2 >= 1.2.2
+Requires:         R-CRAN-tidyr >= 1.2.1
+Requires:         R-CRAN-data.table >= 1.12.2
+Requires:         R-CRAN-purrr >= 0.3.5
+Requires:         R-utils 
 
 %description
-Functions to simulate Mediterranean forest functioning and dynamics using
-cohort-based description of vegetation [De Caceres et al. (2015)
-<doi:10.1016/j.agrformet.2015.06.012>; De Caceres et al. (2021)
-<doi:10.1016/j.agrformet.2020.108233>].
+Provide an interface for 'Drama Corpora Project' ('DraCor') API:
+<https://dracor.org/documentation/api>.
 
 %prep
 %setup -q -c -n %{packname}

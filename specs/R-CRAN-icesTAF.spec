@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  icesTAF
-%global packver   4.0.2
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Support the ICES Transparent Assessment Framework
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-TAF 
+BuildRequires:    R-CRAN-TAF >= 4.1.0
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-roxygen2 
-Requires:         R-CRAN-TAF 
+BuildRequires:    R-CRAN-data.tree 
+Requires:         R-CRAN-TAF >= 4.1.0
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-data.tree 
 
 %description
 Functions to support the ICES Transparent Assessment Framework

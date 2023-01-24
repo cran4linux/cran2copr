@@ -1,43 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cancensus
-%global packver   0.5.5
+%global packname  IDSL.NPA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access, Retrieve, and Work with Canadian Census Data and Geography
+Summary:          Nominal Peak Analysis (NPA)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 1.0
-BuildRequires:    R-CRAN-dplyr >= 0.7
-BuildRequires:    R-CRAN-digest >= 0.1
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 1.0
-Requires:         R-CRAN-dplyr >= 0.7
-Requires:         R-CRAN-digest >= 0.1
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-IDSL.IPA >= 2.6
+BuildRequires:    R-CRAN-IDSL.MXP >= 1.8
+BuildRequires:    R-CRAN-IDSL.FSA 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-IDSL.IPA >= 2.6
+Requires:         R-CRAN-IDSL.MXP >= 1.8
+Requires:         R-CRAN-IDSL.FSA 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-readxl 
 
 %description
-Integrated, convenient, and uniform access to Canadian Census data and
-geography retrieved using the 'CensusMapper' API. This package produces
-analysis-ready tidy data frames and spatial data in multiple formats, as
-well as convenience functions for working with Census variables, variable
-hierarchies, and region selection. API keys are freely available with free
-registration at <https://censusmapper.ca/api>. Census data and boundary
-geometries are reproduced and distributed on an "as is" basis with the
-permission of Statistics Canada (Statistics Canada 2001; 2006; 2011; 2016;
-2021).
+A pipeline for processing nominal mass spectrometry data to create .msp
+files for untargeted nominal mass data processing.
 
 %prep
 %setup -q -c -n %{packname}

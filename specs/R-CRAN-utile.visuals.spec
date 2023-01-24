@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  utile.visuals
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Visuals for Publication
 
@@ -27,9 +27,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-purrr 
 
 %description
-A small set of functions to aid in the production of visuals in ggplot2.
-Includes minimalist themes with transparent backgrounds and tools for
-building survival curves with risk tables.
+A set of functions to aid in the production of visuals in ggplot2.
 
 %prep
 %setup -q -c -n %{packname}

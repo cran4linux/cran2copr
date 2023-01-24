@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GillespieSSA2
-%global packver   0.2.10
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gillespie's Stochastic Simulation Algorithm for Impatient People
 
@@ -48,7 +48,7 @@ the spiritual successor to the 'GillespieSSA' package originally written
 by Mario Pineda-Krch. Benefits of this package include major speed
 improvements (>100x), easier to understand documentation, and many unit
 tests that try to ensure the package works as intended. Cannoodt and
-Saelens et al. (2020) <doi:10.1101/2020.02.06.936971>.
+Saelens et al. (2021) <doi:10.1038/s41467-021-24152-2>.
 
 %prep
 %setup -q -c -n %{packname}

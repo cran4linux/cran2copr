@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mergedblocks
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  mixbox
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Merged Block Randomization
+Summary:          Observed Fisher Information Matrix for Finite Mixture Model
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomizeR 
-Requires:         R-CRAN-randomizeR 
+BuildRequires:    R-CRAN-GIGrvg 
+BuildRequires:    R-CRAN-stabledist 
+Requires:         R-CRAN-GIGrvg 
+Requires:         R-CRAN-stabledist 
 
 %description
-Package to carry out merged block randomization (Van der Pas (2019),
-<doi:10.1177/1740774519827957>), a restricted randomization method
-designed for small clinical trials (at most 100 subjects) or trials with
-small strata, for example in multicentre trials. It can be used for more
-than two groups or unequal randomization ratios.
+Developed for approximating the observed Fisher information matrix,
+asymptotic standard error, and the corresponding confidence intervals for
+parameters of the canonical, restricted, and unrestricted finite mixture
+models using the method proposed by Basford et al. (1997)
+<https://espace.library.uq.edu.au/view/UQ:57525>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,47 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dail
-%global packver   1.5
+%global packname  interca
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from Access to Information Law
+Summary:          Multiple Correspondence Analysis Based on Interpretive Coordinates
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-deflateBR 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyFeedback 
+BuildRequires:    R-CRAN-waiter 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stopwords 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-deflateBR 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyFeedback 
+Requires:         R-CRAN-waiter 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stopwords 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Downloads the public data available from the Brazilian Access to
-Information Law and and performs a search on information requests and
-appeals made since 2015.
+Various functions and a Shiny app to enrich the results of Multiple
+Correspondence Analysis with interpretive axes and planes (see Moschidis,
+Markos, and Thanopoulos, 2022; <doi:10.1108/ACI-07-2022-0191>).
 
 %prep
 %setup -q -c -n %{packname}

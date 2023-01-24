@@ -1,43 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cancensus
-%global packver   0.5.5
+%global packname  fsemipar
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access, Retrieve, and Work with Canadian Census Data and Geography
+Summary:          Estimation, Variable Selection and Prediction for Functional Semiparametric Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 1.0
-BuildRequires:    R-CRAN-dplyr >= 0.7
-BuildRequires:    R-CRAN-digest >= 0.1
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 1.0
-Requires:         R-CRAN-dplyr >= 0.7
-Requires:         R-CRAN-digest >= 0.1
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-grpreg 
+BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-splines 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-grpreg 
+Requires:         R-CRAN-DiceKriging 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Integrated, convenient, and uniform access to Canadian Census data and
-geography retrieved using the 'CensusMapper' API. This package produces
-analysis-ready tidy data frames and spatial data in multiple formats, as
-well as convenience functions for working with Census variables, variable
-hierarchies, and region selection. API keys are freely available with free
-registration at <https://censusmapper.ca/api>. Census data and boundary
-geometries are reproduced and distributed on an "as is" basis with the
-permission of Statistics Canada (Statistics Canada 2001; 2006; 2011; 2016;
-2021).
+Routines for estimation or simultaneous estimation and variable selection
+of several functional semiparametric models with scalar response, such as
+the functional single-index model, the semi-functional partial linear
+model or the semi-functional partial linear single-index model. In
+addition, it includes algorithms for dealing with scalar covariates with
+linear effect coming from the discretization of a curve in the cases of
+the linear model, the multi-functional partial linear model and the
+multi-functional partial linear single-index model.
 
 %prep
 %setup -q -c -n %{packname}

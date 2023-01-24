@@ -1,43 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cancensus
-%global packver   0.5.5
+%global packname  taxotools
+%global packver   0.0.132
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.0.132
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access, Retrieve, and Work with Canadian Census Data and Geography
+Summary:          Taxonomic List Processing
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 1.0
-BuildRequires:    R-CRAN-dplyr >= 0.7
-BuildRequires:    R-CRAN-digest >= 0.1
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 1.0
-Requires:         R-CRAN-dplyr >= 0.7
-Requires:         R-CRAN-digest >= 0.1
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-taxize 
+BuildRequires:    R-CRAN-wikitaxa 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-taxize 
+Requires:         R-CRAN-wikitaxa 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-sqldf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-stringi 
 
 %description
-Integrated, convenient, and uniform access to Canadian Census data and
-geography retrieved using the 'CensusMapper' API. This package produces
-analysis-ready tidy data frames and spatial data in multiple formats, as
-well as convenience functions for working with Census variables, variable
-hierarchies, and region selection. API keys are freely available with free
-registration at <https://censusmapper.ca/api>. Census data and boundary
-geometries are reproduced and distributed on an "as is" basis with the
-permission of Statistics Canada (Statistics Canada 2001; 2006; 2011; 2016;
-2021).
+Taxonomic lists matching and merging, casting and melting scientific
+names, managing taxonomic lists from Global Biodiversity Information
+Facility 'GBIF' or Integrated Taxonomic Information System 'ITIS',
+harvesting names from Wikipedia and fuzzy matching.
 
 %prep
 %setup -q -c -n %{packname}

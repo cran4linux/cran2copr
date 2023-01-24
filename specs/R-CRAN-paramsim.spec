@@ -1,37 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  R2sample
-%global packver   1.1.0
+%global packname  paramsim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two Sample Problem Routines using Permutation
+Summary:          Parameterized Simulation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-microbenchmark 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-microbenchmark 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-future 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-The routine twosample_test() in this package runs the two sample test
-using various test statistic. The p values are found via permutation. The
-routine twosample_power() allows the calculation of the power in various
-cases, and plot_power() draws the corresponding power graphs.
+This function obtains a Random Number Generator (RNG) or collection of
+RNGs that replicate the required parameter(s) of a distribution for a time
+series of data. Consider the case of reproducing a time series data set of
+size 20 that uses an autoregressive (AR) model with phi = 0.8 and standard
+deviation equal to 1. When one checks the arima.sin() function's estimated
+parameters, it's possible that after a single trial or a few more, one
+won't find the precise parameters. This enables one to look for the ideal
+RNG setting for a simulation that will accurately duplicate the desired
+parameters.
 
 %prep
 %setup -q -c -n %{packname}
