@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.random
-%global packver   3.0-1
+%global packver   3.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Generation Functionality for the 'spatstat' Family
 
@@ -16,16 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.geom >= 2.4.0.023
-BuildRequires:    R-CRAN-spatstat.utils >= 2.3.1.003
-BuildRequires:    R-CRAN-spatstat.data >= 2.2.0.003
+BuildRequires:    R-CRAN-spatstat.geom >= 3.0.5
+BuildRequires:    R-CRAN-spatstat.data >= 3.0
+BuildRequires:    R-CRAN-spatstat.utils >= 3.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-spatstat.geom >= 2.4.0.023
-Requires:         R-CRAN-spatstat.utils >= 2.3.1.003
-Requires:         R-CRAN-spatstat.data >= 2.2.0.003
+Requires:         R-CRAN-spatstat.geom >= 3.0.5
+Requires:         R-CRAN-spatstat.data >= 3.0
+Requires:         R-CRAN-spatstat.utils >= 3.0
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
@@ -37,14 +37,15 @@ family of packages. Generates random spatial patterns of points according
 to many simple rules (complete spatial randomness, Poisson, binomial,
 random grid, systematic, cell), randomised alteration of patterns
 (thinning, random shift, jittering), simulated realisations of random
-point processes (simple sequential inhibition, Matern inhibition models,
-Matern cluster process, Neyman-Scott cluster processes, log-Gaussian Cox
-processes, product shot noise cluster processes) and simulation of Gibbs
-point processes (Metropolis-Hastings birth-death-shift algorithm,
-alternating Gibbs sampler). Also generates random spatial patterns of line
-segments, random tessellations, and random images (random noise, random
-mosaics). Excludes random generation on a linear network, which is covered
-by the separate package 'spatstat.linnet'.
+point processes including simple sequential inhibition, Matern inhibition
+models, Neyman-Scott cluster processes (using direct, Brix-Kendall, or
+hybrid algorithms), log-Gaussian Cox processes, product shot noise cluster
+processes and Gibbs point processes (using Metropolis-Hastings
+birth-death-shift algorithm, alternating Gibbs sampler, or
+coupling-from-the-past perfect simulation). Also generates random spatial
+patterns of line segments, random tessellations, and random images (random
+noise, random mosaics). Excludes random generation on a linear network,
+which is covered by the separate package 'spatstat.linnet'.
 
 %prep
 %setup -q -c -n %{packname}

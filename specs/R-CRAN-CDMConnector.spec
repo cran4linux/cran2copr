@@ -1,58 +1,66 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ontologics
-%global packver   0.6.4
+%global packname  CDMConnector
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Code-Logics to Handle Ontologies
+Summary:          Connect to an OMOP Common Data Model
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-DBI >= 0.3.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rdflib 
-BuildRequires:    R-CRAN-fuzzyjoin 
-BuildRequires:    R-CRAN-beepr 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-waldo 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-SqlRender 
+Requires:         R-CRAN-DBI >= 0.3.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rdflib 
-Requires:         R-CRAN-fuzzyjoin 
-Requires:         R-CRAN-beepr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-waldo 
+Requires:         R-CRAN-arrow 
+Requires:         R-methods 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-SqlRender 
 
 %description
-Provides tools to build and work with an ontology of linked (open) data in
-a tidy workflow. It is inspired by the Food and Agrilculture Organizations
-(FAO) caliper platform <https://www.fao.org/statistics/caliper/web/> and
-makes use of the Simple Knowledge Organisation System (SKOS).
+Provides tools for working with observational health data in the
+Observational Medical Outcomes Partnership (OMOP) Common Data Model format
+with a pipe friendly syntax. Common data model database table references
+are stored in a single compound object along with metadata.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  phyloTop
-%global packver   2.1.2
+%global packname  hbal
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Topological Properties of Phylogenies
+Summary:          Hierarchically Regularized Entropy Balancing
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-NHPoisson 
-BuildRequires:    R-CRAN-phylobase 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
-Requires:         R-CRAN-NHPoisson 
-Requires:         R-CRAN-phylobase 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-estimatr 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-estimatr 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-nloptr 
 
 %description
-Tools for calculating and viewing topological properties of phylogenetic
-trees.
+Implements hierarchically regularized entropy balancing proposed by Xu and
+Yang (2022) <doi:10.1017/pan.2022.12>. The method adjusts the covariate
+distributions of the control group to match those of the treatment group.
+'hbal' automatically expands the covariate space to include higher order
+terms and uses cross-validation to select variable penalties for the
+balancing conditions.
 
 %prep
 %setup -q -c -n %{packname}

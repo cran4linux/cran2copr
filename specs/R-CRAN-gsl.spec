@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gsl
-%global packver   2.1-7.1
+%global packver   2.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7.1
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper for the Gnu Scientific Library
 
@@ -13,9 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel >= 2.1
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    gsl-devel
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 
 %description
 An R wrapper for some of the functionality of the Gnu Scientific Library.

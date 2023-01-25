@@ -1,30 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ordinalgmifs
-%global packver   1.0.7
+%global __requires_exclude ^libmpi
+%global packname  accumulate
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ordinal Regression for High-Dimensional Data
+Summary:          Split-Apply-Combine with Dynamic Groups
 
-License:          GPL (>= 2)
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-survival 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Provides a function for fitting cumulative link, adjacent category,
-forward and backward continuation ratio, and stereotype ordinal response
-models when the number of parameters exceeds the sample size, using the
-the generalized monotone incremental forward stagewise method.
+Estimate group aggregates, where one can set user-defined conditions that
+each group of records must satisfy to be suitable for aggregation. If a
+group of records is not suitable, it is expanded using a collapsing scheme
+defined by the user.
 
 %prep
 %setup -q -c -n %{packname}

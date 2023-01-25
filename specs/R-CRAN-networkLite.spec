@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  qmvs
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  networkLite
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Queueing Model of Visual Search
+Summary:          An Simplified Implementation of the 'network' Package Functionality
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-statnet.common >= 4.6.0
+BuildRequires:    R-CRAN-network >= 1.17.2
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-statnet.common >= 4.6.0
+Requires:         R-CRAN-network >= 1.17.2
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 
 %description
-The queueing model of visual search models the accuracy and response time
-data in a visual search experiment using queueing models with finite
-customer population and stopping criteria of completing the service for
-finite number of customers. It implements the conceptualization of a
-hybrid model proposed by Moore and Wolfe (2001), in which visual stimuli
-enter the processing one after the other and then are identified in
-parallel. This package provides functions that simulate the specified
-queueing process and calculate the Wasserstein distance between the
-empirical response times and the model prediction.
+An implementation of some of the core 'network' package functionality
+based on a simplified data structure that is faster in many research
+applications. This package is designed for back-end use in the 'statnet'
+family of packages, including 'EpiModel'. Support is provided for binary
+and weighted, directed and undirected, bipartite and unipartite networks;
+no current support for multigraphs, hypergraphs, or loops.
 
 %prep
 %setup -q -c -n %{packname}

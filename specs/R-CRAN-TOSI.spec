@@ -1,34 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  UComp
-%global packver   2.2.3
+%global packname  TOSI
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Unobserved Components Models
+Summary:          Two-Directional Simultaneous Inference for High-Dimensional Models
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-hdi 
+BuildRequires:    R-CRAN-scalreg 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-hdi 
+Requires:         R-CRAN-scalreg 
+Requires:         R-CRAN-glmnet 
 
 %description
-Comprehensive analysis and forecasting of univariate time series using
-automatic unobserved components models and algorithms. Pedregal, DJ (2022)
-<doi:10.18637/jss.v103.i09>, Harvey, AC (1989)
-<doi:10.1017/CBO9781107049994>. Pedregal, DJ and Young PC (2002)
-<doi:10.1002/9780470996430>. Durbin J and Koopman SJ (2012)
-<doi:10.1093/acprof:oso/9780199641178.001.0001>.
+A general framework of two directional simultaneous inference is provided
+for high-dimensional as well as the fixed dimensional models with manifest
+variable or latent variable structure, such as high-dimensional mean
+models, high- dimensional sparse regression models, and high-dimensional
+latent factors models. It is making the simultaneous inference on a set of
+parameters from two directions, one is testing whether the estimated zero
+parameters indeed are zero and the other is testing whether there exists
+zero in the parameter set of non-zero. More details can be referred to Wei
+Liu, et al. (2022) <doi:10.48550/arXiv.2012.11100>.
 
 %prep
 %setup -q -c -n %{packname}

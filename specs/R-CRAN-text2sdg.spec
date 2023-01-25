@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  text2sdg
-%global packver   0.1.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detecting UN Sustainable Development Goals in Text
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ranger 
 Requires:         R-CRAN-corpustools >= 0.4.2
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ranger 
 
 %description
 The United Nations’ Sustainable Development Goals (SDGs) have become an

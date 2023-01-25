@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tibbletime
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Aware Tibbles
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-tibble >= 3.1.8
+BuildRequires:    R-CRAN-lubridate >= 1.9.1
 BuildRequires:    R-CRAN-zoo >= 1.8.11
 BuildRequires:    R-CRAN-pillar >= 1.8.1
-BuildRequires:    R-CRAN-lubridate >= 1.8.0
 BuildRequires:    R-CRAN-glue >= 1.6.2
 BuildRequires:    R-CRAN-hms >= 1.1.2
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
@@ -30,9 +30,9 @@ BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-CRAN-purrr >= 0.3.5
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-tibble >= 3.1.8
+Requires:         R-CRAN-lubridate >= 1.9.1
 Requires:         R-CRAN-zoo >= 1.8.11
 Requires:         R-CRAN-pillar >= 1.8.1
-Requires:         R-CRAN-lubridate >= 1.8.0
 Requires:         R-CRAN-glue >= 1.6.2
 Requires:         R-CRAN-hms >= 1.1.2
 Requires:         R-CRAN-Rcpp >= 1.0.9

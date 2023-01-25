@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nVennR
-%global packver   0.2.3
+%global __requires_exclude ^libmpi
+%global packname  shiny.fluent
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create n-Dimensional, Quasi-Proportional Venn Diagrams
+Summary:          Microsoft Fluent UI for Shiny Apps
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny.react >= 0.3.0
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-shiny.react >= 0.3.0
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
 
 %description
-Provides an interface for the "nVenn"" algorithm (Perez-Silva,
-Araujo-Voces and Quesada (2018), <doi:10.1093/bioinformatics/bty109>).
-This algorithm works for any number of sets, and usually yields pleasing
-and informative Venn diagrams with proportionality information. However,
-representing more than six sets takes a long time and is hard to
-interpret, unless many of the regions are empty. If you cannot make sense
-of the result, you may want to consider 'UpSetR'.
+A rich set of UI components for building Shiny applications, including
+inputs, containers, overlays, menus, and various utilities. All components
+from Fluent UI (the underlying JavaScript library) are available and have
+usage examples in R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

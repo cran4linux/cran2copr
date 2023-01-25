@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  usincometaxes
-%global packver   0.5.4
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Federal and State Income Taxes in the United States
 
@@ -19,18 +19,14 @@ Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-datasets 
 BuildRequires:    R-CRAN-vroom 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-V8 
-BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-datasets 
 Requires:         R-CRAN-vroom 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-V8 
-Requires:         R-CRAN-tidyselect 
 
 %description
 Calculates federal and state income taxes in the United States. It acts as

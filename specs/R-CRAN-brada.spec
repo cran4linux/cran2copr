@@ -1,34 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  httpgd
-%global packver   1.3.0
+%global __requires_exclude ^libmpi
+%global packname  brada
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'HTTP' Server Graphics Device
+Summary:          Bayesian Response-Adaptive Design Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-BH >= 1.75.0
-BuildRequires:    R-CRAN-later >= 1.1.0
-BuildRequires:    R-CRAN-systemfonts >= 1.0.0
-BuildRequires:    R-CRAN-cpp11 >= 0.2.4
-Requires:         R-CRAN-later >= 1.1.0
-Requires:         R-CRAN-systemfonts >= 1.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-fbst 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-methods 
+Requires:         R-CRAN-fbst 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-cli 
 
 %description
-A graphics device for R that is accessible via network protocols. This
-package was created to make it easier to embed live R graphics in
-integrated development environments and other applications. The included
-'HTML/JavaScript' client (plot viewer) aims to provide a better overall
-user experience when dealing with R graphics. The device asynchronously
-serves graphics via 'HTTP' and 'WebSockets'.
+Provides access to a range of functions for analyzing, applying and
+visualizing Bayesian response-adaptive trial designs for a binary
+endpoint. Includes the predictive probability approach and the predictive
+evidence value designs for binary endpoints.
 
 %prep
 %setup -q -c -n %{packname}

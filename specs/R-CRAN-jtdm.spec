@@ -1,30 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nfer
-%global packver   1.1.1
+%global packname  jtdm
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Event Stream Abstraction using Interval Logic
+Summary:          Joint Modelling of Functional Traits
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-mniw 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-mniw 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-reshape2 
 
 %description
-This is the R API for the 'nfer' formalism (<http://nfer.io/>). 'nfer' was
-developed to specify event stream abstractions for spacecraft telemetry
-such as the Mars Science Laboratory.  Users write rules using a syntax
-that borrows heavily from Allen's Temporal Logic that, when applied to an
-event stream, construct a hierarchy of temporal intervals with data.  The
-R API supports loading rules from a file or mining them from historical
-data.  Traces of events or pools of intervals are provided as data frames.
+Fitting and analyzing a Joint Trait Distribution Model. The Joint Trait
+Distribution Model is implemented in the Bayesian framework using
+conjugate priors and posteriors, thus guaranteeing fast inference. In
+particular the package computes joint probabilities and multivariate
+confidence intervals, and enables the investigation of how they depend on
+the environment through partial response curves.
 
 %prep
 %setup -q -c -n %{packname}

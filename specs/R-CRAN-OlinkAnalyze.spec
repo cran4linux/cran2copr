@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OlinkAnalyze
-%global packver   3.2.2
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilitate Analysis of Proteomic Data from Olink
 
@@ -72,13 +72,13 @@ Requires:         R-CRAN-zip
 
 %description
 A collection of functions to facilitate analysis of proteomic data from
-Olink, primarily NPX data that has been exported from Olink NPX Manager or
-MyData. The functions also work on QUANT data from Olink by log-
-transforming the QUANT data. The functions are focused on reading data,
-facilitating data wrangling and quality control analysis, performing
-statistical analysis and generating figures to visualize the results of
-the statistical analysis. The goal of this package is to help users
-extract biological insights from proteomic data run on the Olink platform.
+Olink, primarily NPX data that has been exported from Olink Software. The
+functions also work on QUANT data from Olink by log- transforming the
+QUANT data. The functions are focused on reading data, facilitating data
+wrangling and quality control analysis, performing statistical analysis
+and generating figures to visualize the results of the statistical
+analysis. The goal of this package is to help users extract biological
+insights from proteomic data run on the Olink platform.
 
 %prep
 %setup -q -c -n %{packname}

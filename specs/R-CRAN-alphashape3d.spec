@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  alphashape3d
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of the 3D Alpha-Shape for the Reconstruction of 3D Sets from a Point Cloud
 
@@ -17,8 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-RANN 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-RANN 
 
 %description
 Implementation in R of the alpha-shape of a finite set of points in the
@@ -38,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rstoat
-%global packver   1.0.2
+%global __requires_exclude ^libmpi
+%global packname  CDSS
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the 'STOAT' Platform
+Summary:          Course-Dependent Skill Structures
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-keyring 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-keyring 
+BuildRequires:    R-CRAN-openxlsx >= 4.2.0
+BuildRequires:    R-CRAN-readODS >= 1.7.0
+Requires:         R-CRAN-openxlsx >= 4.2.0
+Requires:         R-CRAN-readODS >= 1.7.0
 
 %description
-A wrapper for the 'Spatiotemporal Observation Annotation Tool' ('STOAT',
-<https://www.mol.org/stoat>) which allows users to run annotation jobs and
-retrieve results in the R environment.
+Deriving skill structures from skill assignment data for courses (sets of
+learning objects).
 
 %prep
 %setup -q -c -n %{packname}

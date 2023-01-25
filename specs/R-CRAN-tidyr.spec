@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyr
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Messy Data
 
@@ -14,30 +14,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-cli >= 3.4.1
 BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.0.4
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-purrr >= 1.0.1
+BuildRequires:    R-CRAN-vctrs >= 0.5.2
 BuildRequires:    R-CRAN-cpp11 >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.7
-BuildRequires:    R-CRAN-ellipsis >= 0.1.0
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.4.1
 Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-vctrs >= 0.3.7
-Requires:         R-CRAN-ellipsis >= 0.1.0
+Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.0.4
+Requires:         R-CRAN-lifecycle >= 1.0.3
+Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-purrr >= 1.0.1
+Requires:         R-CRAN-vctrs >= 0.5.2
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 
 %description

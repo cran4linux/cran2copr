@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DataGraph
-%global packver   1.2.8
+%global packname  StochBlock
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Export Data from R so 'DataGraph' can Read it
+Summary:          Stochastic Blockmodeling of One-Mode and Linked Networks
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,15 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.10
-Requires:         R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-blockmodeling 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-blockmodeling 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-foreach 
 
 %description
-Functions to save either '.dtable' or '.dtbin' files that can be read by
-'DataGraph', a graphing and analysis application for mac OS. Can save a
-data frame, collection of data frames and sequences of data frames and
-individual vectors. For more information see
-<https://community.visualdatatools.com/datagraph/knowledge-base/r-package/>.
+Stochastic blockmodeling of one-mode and linked networks as implemented in
+Škulj and Žiberna (2022) <doi:10.1016/j.socnet.2022.02.001>. The
+optimization is done via CEM (Classification Expectation Maximization)
+algorithm that can be initialized by random partitions or the results of
+k-means algorithm. The development of this package is financially
+supported by the Slovenian Research Agency (<https://www.arrs.si/>) within
+the research programs P5-0168 and the research projects J7-8279
+(Blockmodeling multilevel and temporal networks) and J5-2557 (Comparison
+and evaluation of different approaches to blockmodeling dynamic networks
+by simulations with application to Slovenian co-authorship networks).
 
 %prep
 %setup -q -c -n %{packname}
