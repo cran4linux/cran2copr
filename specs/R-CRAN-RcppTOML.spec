@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppTOML
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings to Parser for "Tom's Obvious Markup Language"
 
@@ -24,7 +24,7 @@ The configuration format defined by 'TOML' (which expands to "Tom's
 Obvious Markup Language") specifies an excellent format (described at
 <https://toml.io/en/>) suitable for both human editing as well as the
 common uses of a machine-readable format. This package uses 'Rcpp' to
-connect the 'cpptoml' parser written by Chase Geigle (in C++11) to R.
+connect to the 'toml++' parser written by Mark Gillard to R.
 
 %prep
 %setup -q -c -n %{packname}

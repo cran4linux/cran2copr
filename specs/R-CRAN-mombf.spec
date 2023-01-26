@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mombf
-%global packver   3.2.0
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Model Selection and Averaging for Non-Local and Local Priors
+Summary:          Model Selection with Bayesian Methods and Information Criteria
 
 License:          GPL (>= 2) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -39,8 +39,8 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-pracma 
 
 %description
-Bayesian model selection and averaging for regression and mixtures for
-non-local and selected local priors.
+Model selection and averaging for regression and mixtures, inclusing
+Bayesian model selection and information criteria (BIC, EBIC, AIC, GIC).
 
 %prep
 %setup -q -c -n %{packname}

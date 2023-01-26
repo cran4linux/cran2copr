@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fMRIscrub
-%global packver   0.11.2
+%global packver   0.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          0.12.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scrubbing and Other Data Cleaning Routines for fMRI
 
@@ -16,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fMRItools >= 0.2.2
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-pesel 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-fMRItools >= 0.2.2
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-pesel 
@@ -37,8 +40,8 @@ VARianceS) (Afyouni and Nichols (2018)
 (2012) <doi:10.1016/j.neuroimage.2011.10.018>), aCompCor (anatomical
 Components Correction) (Muschelli et al (2014)
 <doi:10.1016/j.neuroimage.2014.03.028>), detrending, and nuisance
-regression. Projection scrubbing and DVARS are also applicable to other
-outlier detection tasks involving high-dimensional data.
+regression. Projection scrubbing is also applicable to other outlier
+detection tasks involving high-dimensional data.
 
 %prep
 %setup -q -c -n %{packname}

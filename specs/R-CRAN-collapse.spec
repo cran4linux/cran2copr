@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  collapse
-%global packver   1.9.0
+%global packver   1.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced and Fast Data Transformation
 
@@ -22,22 +22,21 @@ Requires:         R-CRAN-Rcpp >= 1.0.1
 %description
 A C/C++ based package for advanced data transformation and statistical
 computing in R that is extremely fast, class-agnostic, and programmer
-friendly through a flexible, parsimonious, and robust API. Core
-functionality includes a rich set of S3 generic grouped and weighted
-statistical functions for vectors, matrices and data frames, which provide
-efficient low-level vectorizations and OpenMP multithreading (reducing the
-need for iteration/vectorization in R), and skip missing values by
-default. These are integrated with fast grouping and ordering algorithms
-(also callable from C), and efficient data manipulation functions. The
-package also provides a flexible and rigorous approach to time series and
-panel data in R. It further includes fast functions for common statistical
+friendly through a flexible and robust API. Core functionality includes a
+rich set of S3 generic grouped and weighted statistical functions for
+vectors, matrices and data frames, which provide efficient low-level
+vectorizations, OpenMP multithreading, and skip missing values by default.
+These are integrated with fast grouping and ordering algorithms (also
+callable from C), and efficient data manipulation functions. The package
+also provides a flexible and rigorous approach to time series and panel
+data in R. It further includes fast functions for common statistical
 procedures, detailed (grouped, weighted) summary statistics, powerful
 tools to work with nested data, fast data object conversions, functions
 for memory efficient R programming, and helpers to effectively deal with
 variable labels, attributes, and missing data. It is well integrated with
 basic R, 'dplyr'/'tibble', 'data.table', 'sf', 'plm' (panel-series and
-data frames), and accommodates (by virtue of smart internal attribute
-handling) many other classes (like 'ts', 'xts'/'zoo' or 'tsibble').
+data frames), and accommodates, by virtue of smart internal attribute
+handling, many other classes (like 'ts', 'xts'/'zoo' or 'tsibble').
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GauPro
-%global packver   0.2.6
+%global packname  amazonspR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Process Fitting
+Summary:          Get Amazon Sp Data via the 'Windsor.ai' API
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-lbfgs 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-lbfgs 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-Fits a Gaussian process model to data. Gaussian processes are commonly
-used in computer experiments to fit an interpolating model. The model is
-stored as an 'R6' object and can be easily updated with new data. There
-are options to run in parallel, and 'Rcpp' has been used to speed up
-calculations. For more info about Gaussian process software, see Erickson
-et al. (2018) <doi:10.1016/j.ejor.2017.10.002>.
+Collect your data on digital marketing campaigns from Amazon Sp using the
+'Windsor.ai' API <https://windsor.ai/api-fields/>.
 
 %prep
 %setup -q -c -n %{packname}

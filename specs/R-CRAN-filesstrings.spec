@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  filesstrings
-%global packver   3.2.3
+%global packver   3.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          3.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handy File and String Manipulation
 
@@ -20,17 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 2.1.0
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-stringi >= 1.7.8
+BuildRequires:    R-CRAN-strex >= 1.6
+BuildRequires:    R-CRAN-stringr >= 1.5
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-strex >= 1.4.3
-BuildRequires:    R-CRAN-stringr >= 1.4
 BuildRequires:    R-CRAN-rlang >= 0.3.3
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-withr >= 2.1.0
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-stringi >= 1.7.8
+Requires:         R-CRAN-strex >= 1.6
+Requires:         R-CRAN-stringr >= 1.5
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-strex >= 1.4.3
-Requires:         R-CRAN-stringr >= 1.4
 Requires:         R-CRAN-rlang >= 0.3.3
 Requires:         R-CRAN-purrr >= 0.3.0
 

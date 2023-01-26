@@ -1,38 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  networkLite
-%global packver   1.0.1
+%global packname  play
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Simplified Implementation of the 'network' Package Functionality
+Summary:          Visualize Sports Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statnet.common >= 4.8.0
-BuildRequires:    R-CRAN-network >= 1.18.1
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-statnet.common >= 4.8.0
-Requires:         R-CRAN-network >= 1.18.1
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-worldfootballR 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-worldfootballR 
 
 %description
-An implementation of some of the core 'network' package functionality
-based on a simplified data structure that is faster in many research
-applications. This package is designed for back-end use in the 'statnet'
-family of packages, including 'EpiModel'. Support is provided for binary
-and weighted, directed and undirected, bipartite and unipartite networks;
-no current support for multigraphs, hypergraphs, or loops.
+Provides functions to visualise sports data. Converts data into a format
+suitable for plotting charts. Helps to ease the process of working with
+messy sports data to a more user friendly format. Football data is
+accessed through 'worldfootballR'
+'<https://github.com/JaseZiv/worldfootballR>' which gets data from 'FBref'
+<https://fbref.com/en>, 'Transfermarkt' <https://www.transfermarkt.com/>,
+'Understat' <https://understat.com/>, and 'fotmob'
+<https://www.fotmob.com/>.
 
 %prep
 %setup -q -c -n %{packname}

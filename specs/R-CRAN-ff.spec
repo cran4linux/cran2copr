@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ff
-%global packver   4.0.7
+%global packver   4.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.7
+Version:          4.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Memory-Efficient Storage of Large Data on Disk and Fast Access Functions
 

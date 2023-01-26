@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  groundhog
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Version-Control for CRAN, GitHub, and GitLab Packages
 
@@ -30,7 +30,11 @@ This is achieved by using the command groundhog.library() instead of the
 base command library(), and including a date in the call. The date is used
 to call on the same version of the package every time (the most recent
 version available at that date). Load packages from CRAN, GitHub, or
-Gitlab.
+Gitlab. ======================================= Note: groundhog relied on
+Microsoft's MRAN archive which is being discontinued. This version of
+groundhog is transitioning away from MRAN, relying on it only for dates
+prior to Jan 31, 2023. A future release of groundhog, v2.3.0, expected by
+May 2023, will discontinue relying on MRAN entirely.
 
 %prep
 %setup -q -c -n %{packname}

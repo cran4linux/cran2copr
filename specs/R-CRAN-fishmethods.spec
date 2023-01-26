@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fishmethods
-%global packver   1.11-3
+%global packver   1.12-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.3
+Version:          1.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fishery Science Methods and Models
 
@@ -15,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.7.0
 Requires:         R-core >= 2.7.0
-BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-MASS 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-bootstrap 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-TMB 
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-MASS 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-boot
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-bootstrap 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-TMB 
 
 %description
 Functions for applying a wide range of fisheries stock assessment methods.

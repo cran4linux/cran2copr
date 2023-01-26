@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IGP
-%global packver   0.2.1
+%global packname  poolHelper
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interchangeable Gaussian Process Models
+Summary:          Simulates Pooled Sequencing Genetic Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-scrm 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-scrm 
+Requires:         R-stats 
 
 %description
-Creates a Gaussian process model using the specified package. Makes it
-easy to try different packages in same code, only the package argument
-needs to be changed. It is essentially a wrapper for the other Gaussian
-process software packages. For more info about Gaussian process software
-and comparison of various options, see Erickson et al. (2018)
-<doi:10.1016/j.ejor.2017.10.002>.
+Simulates pooled sequencing data under a variety of conditions. Also
+allows for the evaluation of the average absolute difference between
+allele frequencies computed from genotypes and those computed from pooled
+data. Carvalho et al., (2022) <doi:10.1101/2023.01.20.524733>.
 
 %prep
 %setup -q -c -n %{packname}

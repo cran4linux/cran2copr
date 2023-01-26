@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sapfluxnetr
-%global packver   0.1.4
+%global packname  clarify
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Working with 'Sapfluxnet' Project Data
+Summary:          Simulation-Based Inference for Regression Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-chk >= 0.8.1
+BuildRequires:    R-CRAN-marginaleffects >= 0.8.1
+BuildRequires:    R-CRAN-insight >= 0.18.8
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
+BuildRequires:    R-CRAN-mvnfast 
+Requires:         R-CRAN-chk >= 0.8.1
+Requires:         R-CRAN-marginaleffects >= 0.8.1
+Requires:         R-CRAN-insight >= 0.18.8
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-mvnfast 
 
 %description
-Access, modify, aggregate and plot data from the 'Sapfluxnet' project
-(<http://sapfluxnet.creaf.cat>), the first global database of sap flow
-measurements.
+Performs simulation-based inference as an alternative to the delta method
+for obtaining valid confidence intervals and p-values for regression
+post-estimation quantities, such as average marginal effects and
+predictions at representative values. This framework for simulation-based
+inference is especially useful when the resulting quantity is not normally
+distributed and the delta method approximation fails. The methodology is
+described in King, Tomz, and Wittenberg (2000) <doi:10.2307/2669316>.
+'clarify' is meant to replace some of the functionality of the archived
+package 'Zelig'; see the vignette "Translating Zelig to clarify" for
+replicating this functionality.
 
 %prep
 %setup -q -c -n %{packname}

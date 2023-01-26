@@ -1,46 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scanstatistics
-%global packver   1.1.0
+%global packname  actuaRE
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Space-Time Anomaly Detection using Scan Statistics
+Summary:          Handling Hierarchically Structured Risk Factors using Random Effects Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ismev 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ismev 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cplm 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-speedglm 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-knitr 
 Requires:         R-stats 
-Requires:         R-CRAN-sets 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-methods 
+Requires:         R-CRAN-cplm 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-speedglm 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-knitr 
 
 %description
-Detection of anomalous space-time clusters using the scan statistics
-methodology. Focuses on prospective surveillance of data streams, scanning
-for clusters with ongoing anomalies. Hypothesis testing is made possible
-by Monte Carlo simulation. Allévius (2018) <doi:10.21105/joss.00515>.
+Using this package, you can fit a random effects model using either the
+hierarchical credibility model, a combination of the hierarchical
+credibility model with a generalized linear model or a Tweedie generalized
+linear mixed model. See Campo, B.D.C. and Antonio, K. (2022)
+<arXiv:2206.15244>.
 
 %prep
 %setup -q -c -n %{packname}
