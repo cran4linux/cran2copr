@@ -1,74 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iNZightTools
-%global packver   1.13.0
+%global packname  injurytools
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for 'iNZight'
+Summary:          A Toolkit for Sports Injury Data Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 1.2.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-metR 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-srvyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-readr >= 1.2.0
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-glue 
-Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
+Requires:         R-CRAN-metR 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-srvyr 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-units 
-Requires:         R-utils 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-withr 
 
 %description
-Provides a collection of wrapper functions for common variable and dataset
-manipulation workflows primarily used by 'iNZight', a graphical user
-interface providing easy exploration and visualisation of data for
-students of statistics, available in both desktop and online versions.
-Additionally, many of the functions return the 'tidyverse' code used to
-obtain the result in an effort to bridge the gap between GUI and coding.
+Sports Injury Data analysis aims to identify and describe the magnitude of
+the injury problem, and to gain more insights (e.g. determine potential
+risk factors) by statistical modelling approaches. The 'injurytools'
+package provides standardized routines and utilities that simplify such
+analyses. It offers functions for data preparation, informative
+visualizations and descriptive and model-based analyses.
 
 %prep
 %setup -q -c -n %{packname}

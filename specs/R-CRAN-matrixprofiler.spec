@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TOSI
-%global packver   0.3.0
+%global packname  matrixprofiler
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two-Directional Simultaneous Inference for High-Dimensional Models
+Summary:          Matrix Profile for R
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-hdi 
-BuildRequires:    R-CRAN-scalreg 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-hdi 
-Requires:         R-CRAN-scalreg 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.5
+BuildRequires:    R-CRAN-RcppThread >= 2.1.3
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-RcppProgress >= 0.4.2
+Requires:         R-CRAN-RcppParallel >= 5.1.5
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-Rcpp >= 1.0.9
 
 %description
-A general framework of two directional simultaneous inference is provided
-for high-dimensional as well as the fixed dimensional models with manifest
-variable or latent variable structure, such as high-dimensional mean
-models, high- dimensional sparse regression models, and high-dimensional
-latent factors models. It is making the simultaneous inference on a set of
-parameters from two directions, one is testing whether the estimated zero
-parameters indeed are zero and the other is testing whether there exists
-zero in the parameter set of non-zero. More details can be referred to Wei
-Liu, et al. (2022) <doi:10.48550/arXiv.2012.11100>.
+This is the core functions needed by the 'tsmp' package.  The low level
+and carefully checked mathematical functions are here. These are
+implementations of the Matrix Profile concept that was created by CS-UCR
+<http://www.cs.ucr.edu/~eamonn/MatrixProfile.html>.
 
 %prep
 %setup -q -c -n %{packname}

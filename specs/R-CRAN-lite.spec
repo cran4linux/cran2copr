@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lite
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Likelihood-Based Inference for Time Series Extremes
 
@@ -20,12 +21,14 @@ BuildRequires:    R-CRAN-chandwich
 BuildRequires:    R-CRAN-exdex 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-revdbayes 
+BuildRequires:    R-CRAN-rust 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-chandwich 
 Requires:         R-CRAN-exdex 
 Requires:         R-graphics 
 Requires:         R-CRAN-revdbayes 
+Requires:         R-CRAN-rust 
 Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
 
@@ -38,7 +41,8 @@ Bate (2007) <doi:10.1093/biomet/asm015>, producing an adjusted
 log-likelihood for the model parameters.  A log-likelihood for the
 extremal index is produced using the K-gaps model of Suveges and Davison
 (2010) <doi:10.1214/09-AOAS292>. These log-likelihoods are combined to
-make inferences about return levels.
+make inferences about extreme values. Both maximum likelihood and Bayesian
+approaches are available.
 
 %prep
 %setup -q -c -n %{packname}

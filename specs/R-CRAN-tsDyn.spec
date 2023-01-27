@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tsDyn
-%global packver   11.0.2
+%global packver   11.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.0.2
+Version:          11.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Time Series Models with Regime Switching
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13
-Requires:         R-core >= 2.13
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-nnet 

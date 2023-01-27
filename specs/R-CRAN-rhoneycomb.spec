@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fRLR
-%global packver   1.2.2
+%global packname  rhoneycomb
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Repeated Linear Regressions
+Summary:          Analysis of Honeycomb Selection Designs
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-When fitting a set of linear regressions which have some same variables,
-we can separate the matrix and reduce the computation cost. This package
-aims to fit a set of repeated linear regressions faster. More details can
-be found in this blog Lijun Wang (2017)
-<https://stats.hohoweiya.xyz/regression/2017/09/26/An-R-Package-Fit-Repeated-Linear-Regressions/>.
+A useful statistical tool for the construction and analysis of Honeycomb
+Selection Designs. More information about this type of designs: Fasoula V.
+(2013) <doi:10.1002/9781118497869.ch6> Fasoula V.A., and Tokatlidis I.S.
+(2012) <doi:10.1007/s13593-011-0034-0> Fasoulas A.C., and Fasoula V.A.
+(1995) <doi:10.1002/9780470650059.ch3> Tokatlidis I. (2016)
+<doi:10.1017/S0014479715000150> Tokatlidis I., and Vlachostergios D.
+(2016) <doi:10.3390/d8040029>.
 
 %prep
 %setup -q -c -n %{packname}

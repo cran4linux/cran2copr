@@ -1,41 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TOSI
-%global packver   0.3.0
+%global packname  fnets
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two-Directional Simultaneous Inference for High-Dimensional Models
+Summary:          Factor-Adjusted Network Estimation and Forecasting for High-Dimensional Time Series
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-hdi 
-BuildRequires:    R-CRAN-scalreg 
-BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-hdi 
-Requires:         R-CRAN-scalreg 
-Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-A general framework of two directional simultaneous inference is provided
-for high-dimensional as well as the fixed dimensional models with manifest
-variable or latent variable structure, such as high-dimensional mean
-models, high- dimensional sparse regression models, and high-dimensional
-latent factors models. It is making the simultaneous inference on a set of
-parameters from two directions, one is testing whether the estimated zero
-parameters indeed are zero and the other is testing whether there exists
-zero in the parameter set of non-zero. More details can be referred to Wei
-Liu, et al. (2022) <doi:10.48550/arXiv.2012.11100>.
+Implements methods for network estimation and forecasting of
+high-dimensional time series exhibiting strong serial and cross-sectional
+correlations under a factor-adjusted vector autoregressive model. See
+Barigozzi, Cho and Owens (2022) <arXiv:2201.06110> for further
+descriptions of FNETS methodology and Owens, Cho and Barigozzi (2023)
+<https://drive.google.com/file/d/1Rw-xgpijF8ZIBUzjIU9emr-ucAvAhKL4/view?usp=sharing>
+accompanying the R package.
 
 %prep
 %setup -q -c -n %{packname}

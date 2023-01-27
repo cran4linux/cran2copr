@@ -1,33 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rgeolocate
-%global packver   1.4.2
+%global __requires_exclude ^libmpi
+%global packname  pulsar
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.3.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          IP Address Geolocation
+Summary:          Parallel Utilities for Lambda Selection along a Regularization Path
 
-License:          Apache License (== 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-Matrix 
 
 %description
-Connectors to online and offline sources for taking IP addresses and
-geolocating them to country, city, timezone and other geographic ranges.
-For individual connectors, see the package index.
+Model selection for penalized graphical models using the Stability
+Approach to Regularization Selection ('StARS'), with options for speed-ups
+including Bounded StARS (B-StARS), batch computing, and other stability
+metrics (e.g., graphlet stability G-StARS). Christian L. Müller, Richard
+Bonneau, Zachary Kurtz (2016) <arXiv:1605.07072>.
 
 %prep
 %setup -q -c -n %{packname}
-echo "PKG_LIBS += -lrt" >> %{packname}/src/Makevars.in
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

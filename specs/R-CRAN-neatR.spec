@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TOSI
-%global packver   0.3.0
+%global packname  neatR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two-Directional Simultaneous Inference for High-Dimensional Models
+Summary:          Neat Data for Presentation
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-hdi 
-BuildRequires:    R-CRAN-scalreg 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-hdi 
-Requires:         R-CRAN-scalreg 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-tools 
 
 %description
-A general framework of two directional simultaneous inference is provided
-for high-dimensional as well as the fixed dimensional models with manifest
-variable or latent variable structure, such as high-dimensional mean
-models, high- dimensional sparse regression models, and high-dimensional
-latent factors models. It is making the simultaneous inference on a set of
-parameters from two directions, one is testing whether the estimated zero
-parameters indeed are zero and the other is testing whether there exists
-zero in the parameter set of non-zero. More details can be referred to Wei
-Liu, et al. (2022) <doi:10.48550/arXiv.2012.11100>.
+Utilities for unambiguous, neat and legible representation of data (date,
+time stamp, numbers, percentages and strings) for presentation of analysis
+, aiming for elegance and consistency. The purpose of this package is to
+format data, that is better for presentation and any automation jobs that
+reports numbers.
 
 %prep
 %setup -q -c -n %{packname}

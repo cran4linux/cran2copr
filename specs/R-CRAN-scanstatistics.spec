@@ -1,41 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TOSI
-%global packver   0.3.0
+%global packname  scanstatistics
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two-Directional Simultaneous Inference for High-Dimensional Models
+Summary:          Space-Time Anomaly Detection using Scan Statistics
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-hdi 
-BuildRequires:    R-CRAN-scalreg 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-hdi 
-Requires:         R-CRAN-scalreg 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ismev 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sets 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ismev 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-sets 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-A general framework of two directional simultaneous inference is provided
-for high-dimensional as well as the fixed dimensional models with manifest
-variable or latent variable structure, such as high-dimensional mean
-models, high- dimensional sparse regression models, and high-dimensional
-latent factors models. It is making the simultaneous inference on a set of
-parameters from two directions, one is testing whether the estimated zero
-parameters indeed are zero and the other is testing whether there exists
-zero in the parameter set of non-zero. More details can be referred to Wei
-Liu, et al. (2022) <doi:10.48550/arXiv.2012.11100>.
+Detection of anomalous space-time clusters using the scan statistics
+methodology. Focuses on prospective surveillance of data streams, scanning
+for clusters with ongoing anomalies. Hypothesis testing is made possible
+by Monte Carlo simulation. Allévius (2018) <doi:10.21105/joss.00515>.
 
 %prep
 %setup -q -c -n %{packname}

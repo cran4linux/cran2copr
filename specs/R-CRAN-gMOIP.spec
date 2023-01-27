@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gMOIP
-%global packver   1.4.7
+%global packver   1.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          1.4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for 2D and 3D Plots of Single and Multi-Objective Linear/Integer Programming Models
 

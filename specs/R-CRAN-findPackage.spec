@@ -1,41 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TOSI
-%global packver   0.3.0
+%global packname  findPackage
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two-Directional Simultaneous Inference for High-Dimensional Models
+Summary:          Find 'CRAN' Package by Topic
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-hdi 
-BuildRequires:    R-CRAN-scalreg 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-hdi 
-Requires:         R-CRAN-scalreg 
-Requires:         R-CRAN-glmnet 
 
 %description
-A general framework of two directional simultaneous inference is provided
-for high-dimensional as well as the fixed dimensional models with manifest
-variable or latent variable structure, such as high-dimensional mean
-models, high- dimensional sparse regression models, and high-dimensional
-latent factors models. It is making the simultaneous inference on a set of
-parameters from two directions, one is testing whether the estimated zero
-parameters indeed are zero and the other is testing whether there exists
-zero in the parameter set of non-zero. More details can be referred to Wei
-Liu, et al. (2022) <doi:10.48550/arXiv.2012.11100>.
+Finds 'CRAN' packages by the topic requested. The topic can be given as a
+character string or as a regular expression and will help users to locate
+'CRAN' packages matching their specified requirement.
+findPackage(<string>) returns a data frame of packages with description
+containing the input string.
 
 %prep
 %setup -q -c -n %{packname}

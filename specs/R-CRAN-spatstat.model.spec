@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.model
-%global packver   3.0-2
+%global packver   3.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametric Statistical Modelling for the 'spatstat' Family
+Summary:          Parametric Statistical Modelling and Inference for the 'spatstat' Family
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-spatstat.random >= 3.1.3
+BuildRequires:    R-CRAN-spatstat.geom >= 3.0.5
 BuildRequires:    R-CRAN-spatstat.data >= 3.0
-BuildRequires:    R-CRAN-spatstat.geom >= 3.0
-BuildRequires:    R-CRAN-spatstat.random >= 3.0
 BuildRequires:    R-CRAN-spatstat.explore >= 3.0
 BuildRequires:    R-CRAN-spatstat.utils >= 3.0
 BuildRequires:    R-CRAN-spatstat.sparse >= 3.0
@@ -34,9 +34,9 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-tensor 
+Requires:         R-CRAN-spatstat.random >= 3.1.3
+Requires:         R-CRAN-spatstat.geom >= 3.0.5
 Requires:         R-CRAN-spatstat.data >= 3.0
-Requires:         R-CRAN-spatstat.geom >= 3.0
-Requires:         R-CRAN-spatstat.random >= 3.0
 Requires:         R-CRAN-spatstat.explore >= 3.0
 Requires:         R-CRAN-spatstat.utils >= 3.0
 Requires:         R-CRAN-spatstat.sparse >= 3.0
@@ -54,19 +54,25 @@ Requires:         R-CRAN-abind
 Requires:         R-CRAN-tensor 
 
 %description
-Functionality for exploratory data analysis and nonparametric analysis of
+Functionality for parametric statistical modelling and inference for
 spatial data, mainly spatial point patterns, in the 'spatstat' family of
 packages. (Excludes analysis of spatial data on a linear network, which is
-covered by the separate package 'spatstat.linnet'.) Methods include
-quadrat counts, K-functions and their simulation envelopes, nearest
-neighbour distance and empty space statistics, Fry plots, pair correlation
-function, kernel smoothed intensity, relative risk estimation with
-cross-validated bandwidth selection, mark correlation functions,
-segregation indices, mark dependence diagnostics, and kernel estimates of
-covariate effects. Formal hypothesis tests of random pattern (chi-squared,
-Kolmogorov-Smirnov, Monte Carlo, Diggle-Cressie-Loosmore-Ford, Dao-Genton,
-two-stage Monte Carlo) and tests for covariate effects
-(Cox-Berman-Waller-Lawson, Kolmogorov-Smirnov, ANOVA) are also supported.
+covered by the separate package 'spatstat.linnet'.) Supports parametric
+modelling, formal statistical inference, and model validation. Parametric
+models include Poisson point processes, Cox point processes, Neyman-Scott
+cluster processes, Gibbs point processes and determinantal point
+processes. Models can be fitted to data using maximum likelihood, maximum
+pseudolikelihood, maximum composite likelihood and the method of minimum
+contrast. Fitted models can be simulated and predicted. Formal inference
+includes hypothesis tests (quadrat counting tests, Cressie-Read tests,
+Clark-Evans test, Berman test, Diggle-Cressie-Loosmore-Ford test, scan
+test, studentised permutation test, segregation test, ANOVA tests of
+fitted models, adjusted composite likelihood ratio test, envelope tests,
+Dao-Genton test, balanced independent two-stage test), confidence
+intervals for parameters, and prediction intervals for point counts. Model
+validation techniques include leverage, influence, partial residuals,
+added variable plots, diagnostic plots, pseudoscore residual plots, model
+compensators and Q-Q plots.
 
 %prep
 %setup -q -c -n %{packname}

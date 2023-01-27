@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TOSI
-%global packver   0.3.0
+%global packname  interpret
+%global packver   0.1.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.28
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two-Directional Simultaneous Inference for High-Dimensional Models
+Summary:          Fit Interpretable Machine Learning Models
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-hdi 
-BuildRequires:    R-CRAN-scalreg 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-hdi 
-Requires:         R-CRAN-scalreg 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 
 %description
-A general framework of two directional simultaneous inference is provided
-for high-dimensional as well as the fixed dimensional models with manifest
-variable or latent variable structure, such as high-dimensional mean
-models, high- dimensional sparse regression models, and high-dimensional
-latent factors models. It is making the simultaneous inference on a set of
-parameters from two directions, one is testing whether the estimated zero
-parameters indeed are zero and the other is testing whether there exists
-zero in the parameter set of non-zero. More details can be referred to Wei
-Liu, et al. (2022) <doi:10.48550/arXiv.2012.11100>.
+Package for training interpretable machine learning models. Historically,
+the most interpretable machine learning models were not very accurate, and
+the most accurate models were not very interpretable. Microsoft Research
+has developed an algorithm called the Explainable Boosting Machine (EBM)
+which has both high accuracy and interpretable characteristics. EBM uses
+machine learning techniques like bagging and boosting to breathe new life
+into traditional GAMs (Generalized Additive Models). This makes them as
+accurate as random forests and gradient boosted trees, and also enhances
+their intelligibility and editability. Details on the EBM algorithm can be
+found in the paper by Rich Caruana, Yin Lou, Johannes Gehrke, Paul Koch,
+Marc Sturm, and Noemie Elhadad (2015, <doi:10.1145/2783258.2788613>).
 
 %prep
 %setup -q -c -n %{packname}

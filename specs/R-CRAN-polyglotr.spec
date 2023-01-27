@@ -1,36 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  poismf
-%global packver   0.4.0-3
+%global packname  polyglotr
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Factorization of Sparse Counts Matrices Through Poisson Likelihood
+Summary:          Translate Text
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Matrix >= 1.3
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix >= 1.3
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
 
 %description
-Creates a non-negative low-rank approximate factorization of a sparse
-counts matrix by maximizing Poisson likelihood with L1/L2 regularization
-(e.g. for implicit-feedback recommender systems or bag-of-words-based
-topic modeling) (Cortes, (2018) <arXiv:1811.01908>), which usually leads
-to very sparse user and item factors (over 90%% zero-valued). Similar to
-hierarchical Poisson factorization (HPF), but follows an
-optimization-based approach with regularization instead of a hierarchical
-prior, and is fit through gradient-based methods instead of variational
-inference.
+The goal of the this package is to provide easy methods to translate
+pieces of text. Functions send requests to translation services online.
 
 %prep
 %setup -q -c -n %{packname}

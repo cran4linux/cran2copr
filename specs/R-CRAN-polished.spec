@@ -1,74 +1,81 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iNZightTools
-%global packver   1.13.0
+%global packname  polished
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for 'iNZight'
+Summary:          Authentication and Hosting for 'shiny' Apps
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 1.2.0
+BuildRequires:    R-CRAN-automagic 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-otp 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-srvyr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyFeedback 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-units 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-readr >= 1.2.0
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-automagic 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-glue 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jose 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-otp 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-srvyr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyFeedback 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyWidgets 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-survey 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-units 
 Requires:         R-utils 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-yaml 
 
 %description
-Provides a collection of wrapper functions for common variable and dataset
-manipulation workflows primarily used by 'iNZight', a graphical user
-interface providing easy exploration and visualisation of data for
-students of statistics, available in both desktop and online versions.
-Additionally, many of the functions return the 'tidyverse' code used to
-obtain the result in an effort to bridge the gap between GUI and coding.
+Authentication, user administration, hosting, and additional
+infrastructure for 'shiny' apps. See <https://polished.tech> for
+additional documentation and examples.
 
 %prep
 %setup -q -c -n %{packname}
