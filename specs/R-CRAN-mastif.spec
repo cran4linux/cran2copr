@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mastif
-%global packver   1.0.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mast Inference and Forecasting
 
@@ -20,12 +21,18 @@ BuildRequires:    R-CRAN-RANN
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-repmis 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.11.5
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-repmis 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
 
 %description
 Analyzes production and dispersal of seeds dispersed from trees and
@@ -41,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

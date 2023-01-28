@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  link2GI
-%global packver   0.5-0
+%global packver   0.5-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linking Geographic Information Systems, Remote Sensing and Other Command Line Tools
 
@@ -22,17 +22,19 @@ BuildRequires:    R-CRAN-devtools
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-sf >= 0.9
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-roxygen2 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-terra 
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
 Functions to simplify the linking of open source GIS and remote sensing

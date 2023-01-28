@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  signnet
-%global packver   1.0.1
+%global packname  mritc
+%global packver   0.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods to Analyse Signed Networks
+Summary:          MRI Tissue Classification
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
+BuildRequires:    R-CRAN-misc3d >= 0.8.1
+BuildRequires:    R-CRAN-oro.nifti >= 0.4.0
+BuildRequires:    R-CRAN-lattice >= 0.18.8
+BuildRequires:    R-methods 
+Requires:         R-CRAN-misc3d >= 0.8.1
+Requires:         R-CRAN-oro.nifti >= 0.4.0
+Requires:         R-CRAN-lattice >= 0.18.8
+Requires:         R-methods 
 
 %description
-Methods for the analysis of signed networks. This includes several
-measures for structural balance as introduced by Cartwright and Harary
-(1956) <doi:10.1037/h0046049>, blockmodeling algorithms from Doreian
-(2008) <doi:10.1016/j.socnet.2008.03.005>, various centrality indices, and
-projections of signed two-mode networks introduced by Schoch (2020)
-<doi:10.1080/0022250X.2019.1711376>.
+Implements various methods for tissue classification in magnetic resonance
+(MR) images of the brain, including normal mixture models and hidden
+Markov normal mixture models, as outlined in Feng & Tierney (2011)
+<doi:10.18637/jss.v044.i07>. These methods allow a structural MR image to
+be classified into gray matter, white matter and cerebrospinal fluid
+tissue types.
 
 %prep
 %setup -q -c -n %{packname}

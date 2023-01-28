@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  L2DensityGoFtest
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density Goodness-of-Fit Test
 
@@ -19,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-fGarch 
 BuildRequires:    R-CRAN-nor1mix 
 BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-fGarch 
 Requires:         R-CRAN-nor1mix 
 Requires:         R-CRAN-boot 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Provides functions for the implementation of a density goodness-of-fit

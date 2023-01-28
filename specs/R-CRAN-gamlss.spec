@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gamlss
-%global packver   5.4-10
+%global packver   5.4-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.10
+Version:          5.4.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalised Additive Models for Location Scale and Shape
 

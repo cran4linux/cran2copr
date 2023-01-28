@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  signnet
-%global packver   1.0.1
+%global packname  clugenr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods to Analyse Signed Networks
+Summary:          Multidimensional Cluster Generation Using Support Lines
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mathjaxr 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-Methods for the analysis of signed networks. This includes several
-measures for structural balance as introduced by Cartwright and Harary
-(1956) <doi:10.1037/h0046049>, blockmodeling algorithms from Doreian
-(2008) <doi:10.1016/j.socnet.2008.03.005>, various centrality indices, and
-projections of signed two-mode networks introduced by Schoch (2020)
-<doi:10.1080/0022250X.2019.1711376>.
+An implementation of the clugen algorithm for generating multidimensional
+clusters. Each cluster is supported by a line segment, the position,
+orientation and length of which guide where the respective points are
+placed. This package is described in Fachada & de Andrade (2023)
+<doi:10.48550/arXiv.2301.10327>.
 
 %prep
 %setup -q -c -n %{packname}

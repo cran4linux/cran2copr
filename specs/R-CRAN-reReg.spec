@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  reReg
-%global packver   1.4.4
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recurrent Event Regression
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-reda >= 0.5.0
 BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-CRAN-nleqslv 
@@ -48,9 +49,10 @@ Requires:         R-CRAN-rootSolve
 %description
 A comprehensive collection of practical and easy-to-use tools for
 regression analysis of recurrent events, with or without the presence of a
-(possibly) informative terminal event. The modeling framework is based on
-a joint frailty scale-change model, that includes models described in Wang
-et al. (2001) <doi:10.1198/016214501753209031>, Huang and Wang (2004)
+(possibly) informative terminal event described in Chiou et al. (2023)
+<doi:10.18637/jss.v105.i05>. The modeling framework is based on a joint
+frailty scale-change model, that includes models described in Wang et al.
+(2001) <doi:10.1198/016214501753209031>, Huang and Wang (2004)
 <doi:10.1198/016214504000001033>, Xu et al. (2017)
 <doi:10.1080/01621459.2016.1173557>, and Xu et al. (2019)
 <doi:10.5705/SS.202018.0224> as special cases. The implemented estimating

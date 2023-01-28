@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  OwenQ
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Owen Q-Function
 
@@ -18,15 +19,15 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppNumerical 
 BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppNumerical 
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-stats 
 
 %description
 Evaluates the Owen Q-function for an integer value of the degrees of
 freedom, by applying Owen's algorithm (1965)
-<doi:10.1093/biomet/52.3-4.437>. It is useful for the calculation of the
+<doi:10.1093/biomet/52.3-4.437>.  It is useful for the calculation of the
 power of equivalence tests.
 
 %prep

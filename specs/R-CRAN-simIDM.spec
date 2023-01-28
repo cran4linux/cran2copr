@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  signnet
-%global packver   1.0.1
+%global packname  simIDM
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods to Analyse Signed Networks
+Summary:          Simulating Oncology Trials using an Illness-Death Model
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-checkmate 
+Requires:         R-stats 
 
 %description
-Methods for the analysis of signed networks. This includes several
-measures for structural balance as introduced by Cartwright and Harary
-(1956) <doi:10.1037/h0046049>, blockmodeling algorithms from Doreian
-(2008) <doi:10.1016/j.socnet.2008.03.005>, various centrality indices, and
-projections of signed two-mode networks introduced by Schoch (2020)
-<doi:10.1080/0022250X.2019.1711376>.
+Based on the illness-death model a large number of clinical trials with
+oncology endpoints progression-free survival (PFS) and overall survival
+(OS) can be simulated, see Meller, Beyersmann and Rufibach (2019)
+<doi:10.1002/sim.8295>.  The simulation set-up allows for random and
+event-driven censoring, an arbitrary number of treatment arms, staggered
+study entry and drop-out.  Exponentially, Weibull and piecewise
+exponentially distributed survival times can be generated.
 
 %prep
 %setup -q -c -n %{packname}

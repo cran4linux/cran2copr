@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rscala
-%global packver   3.2.19
+%global packver   3.2.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.19
-Release:          4%{?dist}%{?buildtag}
+Version:          3.2.21
+Release:          1%{?dist}%{?buildtag}
 Summary:          Bridge Between 'R' and 'Scala' with Callbacks
 
 License:          Apache License 2.0 | file LICENSE
@@ -23,9 +23,9 @@ BuildRequires:    R-utils
 Requires:         R-utils 
 
 %description
-'Scala' <http://www.scala-lang.org/> is embedded in 'R' and callbacks from
-'Scala' to 'R' are available. Support is provided to write 'R' packages
-that access 'Scala'. After installation, please run
+'Scala' <https://www.scala-lang.org/> is embedded in 'R' and callbacks
+from 'Scala' to 'R' are available. Support is provided to write 'R'
+packages that access 'Scala'. After installation, please run
 'rscala::scalaConfig()'.  The vignette provides an update of the original
 paper <doi:10.18637/jss.v092.i04>.
 

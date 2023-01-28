@@ -1,36 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  signnet
-%global packver   1.0.1
+%global packname  idarps
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods to Analyse Signed Networks
+Summary:          Datasets and Functions for the Class "Modelling and Data Analysis for Pharmaceutical Sciences"
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Methods for the analysis of signed networks. This includes several
-measures for structural balance as introduced by Cartwright and Harary
-(1956) <doi:10.1037/h0046049>, blockmodeling algorithms from Doreian
-(2008) <doi:10.1016/j.socnet.2008.03.005>, various centrality indices, and
-projections of signed two-mode networks introduced by Schoch (2020)
-<doi:10.1080/0022250X.2019.1711376>.
+Provides datasets and functions for the class "Modelling and Data Analysis
+for Pharmaceutical Sciences". The datasets can be used to present various
+methods of data analysis and statistical modeling. Functions for data
+visualization and allowing to analyze the empirical distribution of the
+data are also implemented.
 
 %prep
 %setup -q -c -n %{packname}

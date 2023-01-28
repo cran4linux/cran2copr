@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  adegraphics
-%global packver   1.0-16
+%global packver   1.0-17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          1.0.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          An S4 Lattice-Based Package for the Representation of Multivariate Data
 

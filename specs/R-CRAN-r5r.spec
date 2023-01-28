@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  r5r
-%global packver   0.7.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rapid Realistic Routing with 'R5'
 
@@ -16,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-sf >= 1.0.6
 BuildRequires:    R-CRAN-rJava >= 0.9.10
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-sf >= 1.0.6
 Requires:         R-CRAN-rJava >= 0.9.10
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-httr 
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-sfheaders 
 Requires:         R-utils 
+Requires:         R-CRAN-zip 
 
 %description
 Rapid realistic routing on multimodal transport networks (walk, bike,
@@ -43,8 +44,8 @@ public transport and car) using 'R5', the Rapid Realistic Routing on
 Real-world and Reimagined networks engine
 <https://github.com/conveyal/r5>. The package allows users to generate
 detailed routing analysis or calculate travel time matrices using seamless
-parallel computing on top of the R5 Java machine. While R5 is developed by
-Conveyal, the package r5r is independently developed by a team at the
+parallel computing on top of the R5 Java machine.  While R5 is developed
+by Conveyal, the package r5r is independently developed by a team at the
 Institute for Applied Economic Research (Ipea) with contributions from
 collaborators. Apart from the documentation in this package, users will
 find additional information on R5 documentation at

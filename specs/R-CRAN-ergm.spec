@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ergm
-%global packver   4.3.2
+%global packver   4.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.2
+Version:          4.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks
 
@@ -14,12 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-MASS >= 7.3.53.1
 BuildRequires:    R-CRAN-lpSolveAPI >= 5.5.2.0.17.7
-BuildRequires:    R-CRAN-statnet.common >= 4.7.0
+BuildRequires:    R-CRAN-statnet.common >= 4.8.0
 BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-Rdpack >= 2.4
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-memoise >= 2.0.0
 BuildRequires:    R-CRAN-Matrix >= 1.3.2
@@ -36,8 +37,9 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-MASS >= 7.3.53.1
 Requires:         R-CRAN-lpSolveAPI >= 5.5.2.0.17.7
-Requires:         R-CRAN-statnet.common >= 4.7.0
+Requires:         R-CRAN-statnet.common >= 4.8.0
 Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-Rdpack >= 2.4
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-memoise >= 2.0.0
 Requires:         R-CRAN-Matrix >= 1.3.2
@@ -58,7 +60,7 @@ An integrated set of tools to analyze and simulate networks based on
 exponential-family random graph models (ERGMs). 'ergm' is a part of the
 Statnet suite of packages for network analysis. See Hunter, Handcock,
 Butts, Goodreau, and Morris (2008) <doi:10.18637/jss.v024.i03> and
-Krivitsky, Hunter, Morris, and Klumb (2021) <arXiv:2106.04997>.
+Krivitsky, Hunter, Morris, and Klumb (2023) <doi:10.18637/jss.v105.i06>.
 
 %prep
 %setup -q -c -n %{packname}
