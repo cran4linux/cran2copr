@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nat
-%global packver   1.8.19
+%global packver   1.8.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.19
+Version:          1.8.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          NeuroAnatomy Toolbox for Analysis of 3D Image Data
 
@@ -17,8 +18,8 @@ BuildRequires:    R-devel >= 2.15.1
 Requires:         R-core >= 2.15.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-filehash >= 2.3
+BuildRequires:    R-CRAN-igraph >= 1.3.0
 BuildRequires:    R-CRAN-rgl >= 0.98.1
-BuildRequires:    R-CRAN-igraph >= 0.7.1
 BuildRequires:    R-CRAN-nat.utils >= 0.4.2
 BuildRequires:    R-CRAN-nabor 
 BuildRequires:    R-methods 
@@ -26,8 +27,8 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-filehash >= 2.3
+Requires:         R-CRAN-igraph >= 1.3.0
 Requires:         R-CRAN-rgl >= 0.98.1
-Requires:         R-CRAN-igraph >= 0.7.1
 Requires:         R-CRAN-nat.utils >= 0.4.2
 Requires:         R-CRAN-nabor 
 Requires:         R-methods 

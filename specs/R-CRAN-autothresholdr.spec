@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  autothresholdr
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Port of the 'ImageJ' Plugin 'Auto Threshold'
 
@@ -38,7 +39,7 @@ Requires:         R-stats
 Algorithms for automatically finding appropriate thresholds for numerical
 data, with special functions for thresholding images. Provides the
 'ImageJ' 'Auto Threshold' plugin functionality to R users. See
-<https://imagej.net/plugins/auto-threshold> and Landini et al. (2017)
+<https://imagej.net/plugins/auto-threshold> and Landini et al.  (2017)
 <DOI:10.1111/jmi.12474>.
 
 %prep

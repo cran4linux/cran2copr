@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat
-%global packver   3.0-2
+%global packver   3.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Point Pattern Analysis, Model-Fitting, Simulation, Tests
 
@@ -17,21 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.data >= 3.0
-BuildRequires:    R-CRAN-spatstat.geom >= 3.0
-BuildRequires:    R-CRAN-spatstat.random >= 3.0
-BuildRequires:    R-CRAN-spatstat.explore >= 3.0
-BuildRequires:    R-CRAN-spatstat.model >= 3.0
-BuildRequires:    R-CRAN-spatstat.linnet >= 3.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.0
+BuildRequires:    R-CRAN-spatstat.random >= 3.1.3
+BuildRequires:    R-CRAN-spatstat.model >= 3.1.2
+BuildRequires:    R-CRAN-spatstat.explore >= 3.0.6
+BuildRequires:    R-CRAN-spatstat.geom >= 3.0.5
+BuildRequires:    R-CRAN-spatstat.linnet >= 3.0.4
+BuildRequires:    R-CRAN-spatstat.utils >= 3.0.1
+BuildRequires:    R-CRAN-spatstat.data >= 3.0.0
 BuildRequires:    R-utils 
-Requires:         R-CRAN-spatstat.data >= 3.0
-Requires:         R-CRAN-spatstat.geom >= 3.0
-Requires:         R-CRAN-spatstat.random >= 3.0
-Requires:         R-CRAN-spatstat.explore >= 3.0
-Requires:         R-CRAN-spatstat.model >= 3.0
-Requires:         R-CRAN-spatstat.linnet >= 3.0
-Requires:         R-CRAN-spatstat.utils >= 3.0
+Requires:         R-CRAN-spatstat.random >= 3.1.3
+Requires:         R-CRAN-spatstat.model >= 3.1.2
+Requires:         R-CRAN-spatstat.explore >= 3.0.6
+Requires:         R-CRAN-spatstat.geom >= 3.0.5
+Requires:         R-CRAN-spatstat.linnet >= 3.0.4
+Requires:         R-CRAN-spatstat.utils >= 3.0.1
+Requires:         R-CRAN-spatstat.data >= 3.0.0
 Requires:         R-utils 
 
 %description

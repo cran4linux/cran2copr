@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  farr
-%global packver   0.2.27
+%global packver   0.2.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.27
+Version:          0.2.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data and Code for Financial Accounting Research
 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rpart 
 Requires:         R-CRAN-dbplyr >= 2.2.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
@@ -36,6 +38,7 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rpart 
 
 %description
 Provides handy functions and data to support a course book for accounting

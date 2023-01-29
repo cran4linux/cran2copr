@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lddmm
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Longitudinal Drift-Diffusion Mixed Models (LDDMM)
 
@@ -13,11 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-rgen 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-dplyr 
@@ -31,6 +33,7 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-CRAN-RcppProgress 
 Requires:         R-CRAN-rgen 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-dplyr 
@@ -43,7 +46,7 @@ Requires:         R-CRAN-RColorBrewer
 
 %description
 Implementation of the drift-diffusion mixed model for category learning as
-described in Paulon et al. (2021).
+described in Paulon et al. (2021) <doi:10.1080/01621459.2020.1801448>.
 
 %prep
 %setup -q -c -n %{packname}
