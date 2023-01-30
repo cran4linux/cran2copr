@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  simplevis
-%global packver   6.4.0
+%global packver   7.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.4.0
+Version:          7.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrappers to Simplify Beautiful 'ggplot2' and 'leaflet' Visualisation
+Summary:          Wrappers to Simplify 'leaflet' Visualisation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +18,12 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-leafem 
 BuildRequires:    R-CRAN-leafpop 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-santoku 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
@@ -38,19 +33,14 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-leafem 
 Requires:         R-CRAN-leafpop 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-santoku 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
@@ -60,11 +50,12 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Wrapper functions around the amazing 'ggplot2' and 'leaflet' packages that
-aims to simplify beautiful 'ggplot2' and 'leaflet' visualisation.
-Precursor package to the 'ggblanket' package.
+Wrapper functions around the amazing 'leaflet' package that aims to
+simplify 'leaflet' visualisation. See the 'ggblanket' package for
+'ggplot2' wrappers.
 
 %prep
 %setup -q -c -n %{packname}

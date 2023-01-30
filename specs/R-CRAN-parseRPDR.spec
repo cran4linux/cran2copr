@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  parseRPDR
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse and Manipulate Research Patient Data Registry ('RPDR') Text Queries
 
@@ -16,18 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bigmemory >= 4.5.36
 BuildRequires:    R-CRAN-foreach >= 1.5.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.4.0
-BuildRequires:    R-CRAN-reticulate >= 1.20
 BuildRequires:    R-CRAN-data.table >= 1.13.2
 BuildRequires:    R-CRAN-doParallel >= 1.0.16
-Requires:         R-CRAN-bigmemory >= 4.5.36
 Requires:         R-CRAN-foreach >= 1.5.1
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readr >= 1.4.0
-Requires:         R-CRAN-reticulate >= 1.20
 Requires:         R-CRAN-data.table >= 1.13.2
 Requires:         R-CRAN-doParallel >= 1.0.16
 

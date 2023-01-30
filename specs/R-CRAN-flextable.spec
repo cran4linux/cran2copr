@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flextable
-%global packver   0.8.4
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Tabular Reporting
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-officer >= 0.5.1
-BuildRequires:    R-CRAN-gdtools >= 0.1.6
+BuildRequires:    R-CRAN-officer >= 0.5.2
+BuildRequires:    R-CRAN-gdtools >= 0.3.0
 BuildRequires:    R-CRAN-uuid >= 0.1.4
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -33,8 +33,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-grid 
 Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-officer >= 0.5.1
-Requires:         R-CRAN-gdtools >= 0.1.6
+Requires:         R-CRAN-officer >= 0.5.2
+Requires:         R-CRAN-gdtools >= 0.3.0
 Requires:         R-CRAN-uuid >= 0.1.4
 Requires:         R-stats 
 Requires:         R-utils 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EnrichIntersect
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enrichment Analysis and Intersecting Sankey Diagram
 
@@ -43,7 +43,8 @@ among any specified ranked feature list, hence making enrichment analysis
 applicable to various types of data from different scientific fields.
 'EnrichIntersect' also enables an interactive means to visualize
 identified associations based on, for example, the mix-lasso model (Zhao
-et al. (2022) <doi:10.1016/j.isci.2022.104767>) or similar methods.
+et al., iScience, 2022 <doi:10.1016/j.isci.2022.104767>) or similar
+methods.
 
 %prep
 %setup -q -c -n %{packname}
