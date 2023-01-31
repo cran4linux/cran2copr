@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SMOTEWB
-%global packver   0.1.5
+%global packname  httpgd
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
+Summary:          A 'HTTP' Server Graphics Device
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-rpart 
+BuildRequires:    libpng-devel
+BuildRequires:    cairo-devel
+BuildRequires:    freetype-devel
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-BH >= 1.75.0
+BuildRequires:    R-CRAN-later >= 1.1.0
+BuildRequires:    R-CRAN-systemfonts >= 1.0.0
+BuildRequires:    R-CRAN-cpp11 >= 0.2.4
+Requires:         R-CRAN-later >= 1.1.0
+Requires:         R-CRAN-systemfonts >= 1.0.0
 
 %description
-Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
-Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>.
+A graphics device for R that is accessible via network protocols. This
+package was created to make it easier to embed live R graphics in
+integrated development environments and other applications. The included
+'HTML/JavaScript' client (plot viewer) aims to provide a better overall
+user experience when dealing with R graphics. The device asynchronously
+serves graphics via 'HTTP' and 'WebSockets'.
 
 %prep
 %setup -q -c -n %{packname}

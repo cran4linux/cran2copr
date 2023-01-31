@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  anticlust
-%global packver   0.6.1
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subset Partitioning via Anticlustering
 
@@ -13,6 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    glpk-devel
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-RANN >= 2.6.0
@@ -23,7 +25,7 @@ Requires:         R-CRAN-Matrix
 %description
 The method of anticlustering partitions a pool of elements into groups
 (i.e., anticlusters) with the goal of maximizing between-group similarity
-or within-group heterogeneity. The anticlustering approach thereby
+or within-group heterogeneity.  The anticlustering approach thereby
 reverses the logic of cluster analysis that strives for high within-group
 homogeneity and low similarity of the different groups. Computationally,
 anticlustering is accomplished by maximizing instead of minimizing a
@@ -35,9 +37,11 @@ algorithms as described in Papenberg and Klau (2021;
 linear programming kit (<https://www.gnu.org/software/glpk/glpk.html>) is
 available and the R package 'Rglpk'
 (<https://cran.R-project.org/package=Rglpk>) is installed. A bicriterion
-anticlustering method proposed by Brusco et al. (2020;
+anticlustering method proposed by Brusco et al.  (2020;
 <doi:10.1111/bmsp.12186>) is available through the function
-bicriterion_anticlustering(). Some other functions are available to solve
+bicriterion_anticlustering(), kplus_anticlustering() implements the k-plus
+anticlustering approach proposed by Papenberg (2023;
+<doi:10.31234/osf.io/7jw6v>).  Some other functions are available to solve
 classical clustering problems. The function balanced_clustering() applies
 a cluster analysis under size constraints, i.e., creates equal-sized
 clusters. The function matching() can be used for (unrestricted,

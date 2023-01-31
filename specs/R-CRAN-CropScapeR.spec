@@ -1,32 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SMOTEWB
-%global packver   0.1.5
+%global packname  CropScapeR
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
+Summary:          Access Cropland Data Layer Data via the 'CropScape' Web Service
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-rpart 
+BuildRequires:    R-utils >= 3.6.1
+BuildRequires:    R-CRAN-raster >= 3.0
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-RJSONIO >= 1.3
+BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-sf >= 0.8
+Requires:         R-utils >= 3.6.1
+Requires:         R-CRAN-raster >= 3.0
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-RJSONIO >= 1.3
+Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-dplyr >= 0.8.3
+Requires:         R-CRAN-sf >= 0.8
 
 %description
-Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
-Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>.
+Interface to easily access Cropland Data Layer (CDL) data for any area of
+interest via the 'CropScape' <https://nassgeodata.gmu.edu/CropScape/> web
+service.
 
 %prep
 %setup -q -c -n %{packname}

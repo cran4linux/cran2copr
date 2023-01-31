@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cffr
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Citation File Format ('cff') Metadata for R Packages
 
@@ -18,13 +18,13 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-yaml >= 2.2.1
+BuildRequires:    R-CRAN-cli >= 2.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.7.2
-BuildRequires:    R-CRAN-crayon >= 1.4.1
 BuildRequires:    R-CRAN-desc >= 1.3.0
 BuildRequires:    R-CRAN-jsonvalidate >= 1.1.0
 Requires:         R-CRAN-yaml >= 2.2.1
+Requires:         R-CRAN-cli >= 2.0.0
 Requires:         R-CRAN-jsonlite >= 1.7.2
-Requires:         R-CRAN-crayon >= 1.4.1
 Requires:         R-CRAN-desc >= 1.3.0
 Requires:         R-CRAN-jsonvalidate >= 1.1.0
 

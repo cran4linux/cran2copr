@@ -1,32 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SMOTEWB
-%global packver   0.1.5
+%global packname  CensMFM
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
+Summary:          Finite Mixture of Multivariate Censored/Missing Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-rpart 
+BuildRequires:    R-CRAN-MomTrunc >= 5.87
+BuildRequires:    R-CRAN-tlrmvnmvt >= 1.1.0
+BuildRequires:    R-CRAN-mvtnorm >= 1.0.11
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-MomTrunc >= 5.87
+Requires:         R-CRAN-tlrmvnmvt >= 1.1.0
+Requires:         R-CRAN-mvtnorm >= 1.0.11
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
-Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>.
+It fits finite mixture models for censored or/and missing data using
+several multivariate distributions. Point estimation and asymptotic
+inference (via empirical information matrix) are offered as well as
+censored data generation. Pairwise scatter and contour plots can be
+generated. Possible multivariate distributions are the well-known normal,
+Student-t and skew-normal distributions. This package is an complement of
+Lachos, V. H., Moreno, E. J. L., Chen, K. & Cabral, C. R. B. (2017)
+<doi:10.1016/j.jmva.2017.05.005> for the multivariate skew-normal case.
 
 %prep
 %setup -q -c -n %{packname}

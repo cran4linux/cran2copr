@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SMOTEWB
-%global packver   0.1.5
+%global packname  baygel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
+Summary:          Bayesian Estimators for Gaussian Graphical Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-rpart 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.11.1.1.0
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-RcppArmadillo >= 0.11.1.1.0
 
 %description
-Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
-Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>.
+Implements a Bayesian graphical ridge data-augmented block Gibbs sampler.
+The sampler simulates the posterior distribution of precision matrices of
+a Gaussian Graphical Model. This sampler is proposed in Smith, Arashi, and
+Bekker (2022) <doi:10.48550/arXiv.2210.16290>.
 
 %prep
 %setup -q -c -n %{packname}

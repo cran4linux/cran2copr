@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SMOTEWB
-%global packver   0.1.5
+%global packname  simplanonym
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
+Summary:          Consistent Anonymisation Across Datasets
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-rpart 
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-forcats >= 0.5.1
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-forcats >= 0.5.1
 
 %description
-Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
-Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>.
+A simple function that anonymises a list of variables in a consistent way:
+anonymised factors are not recycled and the same original levels receive
+the same anonymised factor even if located in different datasets.
 
 %prep
 %setup -q -c -n %{packname}

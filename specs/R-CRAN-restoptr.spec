@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  restoptr
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Restoration Planning
 
@@ -17,17 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.5.12
+BuildRequires:    R-CRAN-terra >= 1.6.17
 BuildRequires:    R-CRAN-crayon >= 1.4.1
-BuildRequires:    R-CRAN-rJava >= 1.0.5
+BuildRequires:    R-CRAN-rJava >= 1.0.6
 BuildRequires:    R-CRAN-units >= 0.8.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-terra >= 1.5.12
+Requires:         R-CRAN-terra >= 1.6.17
 Requires:         R-CRAN-crayon >= 1.4.1
-Requires:         R-CRAN-rJava >= 1.0.5
+Requires:         R-CRAN-rJava >= 1.0.6
 Requires:         R-CRAN-units >= 0.8.0
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-utils 

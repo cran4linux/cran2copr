@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SMOTEWB
-%global packver   0.1.5
+%global packname  fedz1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
+Summary:          An Easier Access to Financial Accounts of the United States(Z.1)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-rpart 
 
 %description
-Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
-Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>.
+Flow of funds are financial accounts that are provided by Federal Reserve
+quarterly. The package contains all datasets
+<https://www.federalreserve.gov/datadownload/Choose.aspx?rel=z1>, tables
+<https://www.federalreserve.gov/apps/fof/FOFTables.aspx> and descriptions
+<https://www.federalreserve.gov/apps/fof/Guide/z1_tables_description.pdf>
+with functions to understand series
+<https://www.federalreserve.gov/apps/fof/SeriesStructure.aspx> and explore
+them.
 
 %prep
 %setup -q -c -n %{packname}

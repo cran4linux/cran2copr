@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tigris
-%global packver   2.0.1
+%global packname  LGDtoolkit
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Load Census TIGER/Line Shapefiles
+Summary:          Collection of Tools for LGD Rating Model Development
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-monobin 
 Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
+Requires:         R-CRAN-monobin 
 
 %description
-Download TIGER/Line shapefiles from the United States Census Bureau
-(<https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html>)
-and load into R as 'sf' objects.
+The goal of this package is to cover the most common steps in Loss Given
+Default (LGD) rating model development. The main procedures available are
+those that refer to bivariate and multivariate analysis. In particular two
+statistical methods for multivariate analysis are currently implemented –
+OLS regression and fractional logistic regression. Both methods are also
+available within different blockwise model designs and both have
+customized stepwise algorithms. Descriptions of these customized designs
+are available in Siddiqi (2016) <doi:10.1002/9781119282396.ch10> and
+Anderson, R.A. (2021) <doi:10.1093/oso/9780192844194.001.0001>. Although
+they are explained for PD model, the same designs are applicable for LGD
+model with different underlying regression methods (OLS and fractional
+logistic regression). To cover other important steps for LGD model
+development, it is recommended to use 'LGDtoolkit' package along with
+'PDtoolkit', and 'monobin' (or 'monobinShiny') packages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parquetize
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Files to Parquet Format
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-haven 
@@ -34,15 +33,14 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-cli 
 
 %description
 Collection of functions to get files in parquet format. Parquet is a
 columnar storage file format <https://parquet.apache.org/>. The files to
-convert can be of several formats ("csv", "duckdb", "RData", "rds",
-"RSQLite", "json", "ndjson", "SAS", "SPSS"...).
+convert can be of several formats ("csv", "RData", "rds", "RSQLite",
+"json", "ndjson", "SAS", "SPSS"...).
 
 %prep
 %setup -q -c -n %{packname}

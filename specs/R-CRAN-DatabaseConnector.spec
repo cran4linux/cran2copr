@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DatabaseConnector
-%global packver   5.1.0
+%global packver   6.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.0
+Version:          6.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connecting to Various Database Platforms
 
@@ -14,10 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SqlRender >= 1.8.3
+BuildRequires:    R-CRAN-dbplyr >= 2.3.0
+BuildRequires:    R-CRAN-SqlRender >= 1.12.0
 BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-methods 
@@ -27,7 +28,10 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-CRAN-bit64 
-Requires:         R-CRAN-SqlRender >= 1.8.3
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-dbplyr >= 2.3.0
+Requires:         R-CRAN-SqlRender >= 1.12.0
 Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-rJava 
 Requires:         R-methods 
@@ -37,14 +41,17 @@ Requires:         R-CRAN-rlang
 Requires:         R-utils 
 Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-digest 
 
 %description
 An R 'DataBase Interface' ('DBI') compatible interface to various database
 platforms ('PostgreSQL', 'Oracle', 'Microsoft SQL Server', 'Amazon
 Redshift', 'Microsoft Parallel Database Warehouse', 'IBM Netezza', 'Apache
 Impala', 'Google BigQuery', 'Snowflake', 'Spark', and 'SQLite'). Also
-includes support for fetching data as 'Andromeda' objects. Uses 'Java
-Database Connectivity' ('JDBC') to connect to databases (except SQLite).
+includes support for fetching data as 'Andromeda' objects. Uses either
+'Java Database Connectivity' ('JDBC') or other DB I drivers to connect to
+databases.
 
 %prep
 %setup -q -c -n %{packname}
