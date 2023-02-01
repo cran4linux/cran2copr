@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  iNZightPlots
-%global packver   2.14.0
+%global packver   2.15.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.0
+Version:          2.15.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Tools for Exploring Data with 'iNZight'
 
@@ -16,13 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-iNZightMR >= 2.2.5
+BuildRequires:    R-CRAN-iNZightMR >= 2.2.7
 BuildRequires:    R-CRAN-iNZightTools >= 1.9
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-chron 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dichromat 
 BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-expss 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-hexbin 
@@ -34,15 +36,18 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-s20x 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-iNZightMR >= 2.2.5
+Requires:         R-CRAN-iNZightMR >= 2.2.7
 Requires:         R-CRAN-iNZightTools >= 1.9
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-chron 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dichromat 
 Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-expss 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-hexbin 
@@ -54,6 +59,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-s20x 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-units 
 Requires:         R-CRAN-survey 
 Requires:         R-utils 
 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  vannstats
-%global packver   1.2.7.14
+%global packver   1.3.1.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7.14
+Version:          1.3.1.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Statistics for PA 606
 
@@ -17,13 +18,10 @@ BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-plm 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -31,14 +29,12 @@ BuildRequires:    R-CRAN-formula.tools
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-plm 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-car 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -46,6 +42,7 @@ Requires:         R-CRAN-formula.tools
 Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-rstatix 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggrepel 
 
 %description
 Simplifies functions assess normality for bivariate and multivariate

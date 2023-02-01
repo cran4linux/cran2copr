@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidywikidatar
-%global packver   0.5.5
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore 'Wikidata' Through Tidy Data Frames
 
@@ -59,7 +59,7 @@ Requires:         R-CRAN-vctrs
 %description
 Query 'Wikidata' API <https://www.wikidata.org/wiki/Wikidata:Main_Page>
 with ease, get tidy data frames in response, and cache data in a local
-'SQLite' database.
+database.
 
 %prep
 %setup -q -c -n %{packname}

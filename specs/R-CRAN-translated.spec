@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rintcal
-%global packver   0.5.3
+%global packname  translated
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Radiocarbon Calibration Curves
+Summary:          Simple and Robust Translation System
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
 
 %description
-The IntCal20 radiocarbon calibration curves (Reimer et al. 2020
-<doi:10.1017/RDC.2020.68>) are provided as a data package, together with
-previous IntCal curves (IntCal13, IntCal09, IntCal04, IntCal98) and
-postbomb curves. Also provided are functions to copy the curves into
-memory, to plot the curves and their underlying data, to calibrate
-radiocarbon dates and to transform between different radiocarbon
-'domains'.
+Allows translating with formatted string literals, grouped entries, and
+configurable system of plurals. Have a separate file for each locale and
+use inheritance to handle dialect differences.
 
 %prep
 %setup -q -c -n %{packname}

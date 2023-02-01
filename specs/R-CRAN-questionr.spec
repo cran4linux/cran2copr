@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  questionr
-%global packver   0.7.7
+%global packver   0.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Make Surveys Processing Easier
 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-labelled >= 2.6.0
 Requires:         R-CRAN-shiny >= 1.0.5
 Requires:         R-CRAN-miniUI 
@@ -39,6 +41,7 @@ Requires:         R-CRAN-htmltools
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-rlang 
 
 %description
 Set of functions to make the processing and analysis of surveys easier :

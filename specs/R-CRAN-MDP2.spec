@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rintcal
-%global packver   0.5.3
+%global packname  MDP2
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Radiocarbon Calibration Curves
+Summary:          Markov Decision Processes (MDPs)
 
-License:          GPL (>= 2)
+License:          GPL (>= 3.3.2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-CRAN-diagram 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-Rcpp >= 0.11.5
+Requires:         R-CRAN-diagram 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-The IntCal20 radiocarbon calibration curves (Reimer et al. 2020
-<doi:10.1017/RDC.2020.68>) are provided as a data package, together with
-previous IntCal curves (IntCal13, IntCal09, IntCal04, IntCal98) and
-postbomb curves. Also provided are functions to copy the curves into
-memory, to plot the curves and their underlying data, to calibrate
-radiocarbon dates and to transform between different radiocarbon
-'domains'.
+Create and optimize (semi) MDPs with discrete time steps and state space.
+Both hierarchical and ordinary-traditional MDPs can be modeled.
 
 %prep
 %setup -q -c -n %{packname}

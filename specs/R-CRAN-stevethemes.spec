@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rintcal
-%global packver   0.5.3
+%global packname  stevethemes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Radiocarbon Calibration Curves
+Summary:          Steve's 'ggplot2' Themes and Related Theme Elements
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-systemfonts 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-systemfonts 
 
 %description
-The IntCal20 radiocarbon calibration curves (Reimer et al. 2020
-<doi:10.1017/RDC.2020.68>) are provided as a data package, together with
-previous IntCal curves (IntCal13, IntCal09, IntCal04, IntCal98) and
-postbomb curves. Also provided are functions to copy the curves into
-memory, to plot the curves and their underlying data, to calibrate
-radiocarbon dates and to transform between different radiocarbon
-'domains'.
+This is a compilation of my preferred themes and related theme elements
+for 'ggplot2'. I believe these themes and theme elements are aesthetically
+pleasing, both for pedagogical instruction and for the presentation of
+applied statistical research to a wide audience. These themes imply
+routine use of easily obtained/free fonts, simple forms of which are
+included in this package.
 
 %prep
 %setup -q -c -n %{packname}

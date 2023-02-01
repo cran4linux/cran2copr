@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  date
-%global packver   1.2-41
+%global packver   1.2-42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.41
+Version:          1.2.42
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Handling Dates
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hlaR
-%global packver   0.1.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for HLA Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-schoolmath 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-schoolmath 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 

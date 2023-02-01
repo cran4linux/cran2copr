@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fpp3
-%global packver   0.4.0
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data for "Forecasting: Principles and Practice" (3rd Edition)
 
@@ -13,15 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-tibble >= 1.4.2
 BuildRequires:    R-CRAN-crayon >= 1.3.4
-BuildRequires:    R-CRAN-urca >= 1.3.0
 BuildRequires:    R-CRAN-cli >= 1.0.0
 BuildRequires:    R-CRAN-tsibble >= 0.9.3
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
@@ -37,7 +37,6 @@ Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-tibble >= 1.4.2
 Requires:         R-CRAN-crayon >= 1.3.4
-Requires:         R-CRAN-urca >= 1.3.0
 Requires:         R-CRAN-cli >= 1.0.0
 Requires:         R-CRAN-tsibble >= 0.9.3
 Requires:         R-CRAN-tidyr >= 0.8.3
@@ -63,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

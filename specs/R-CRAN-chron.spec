@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chron
-%global packver   2.3-58
+%global packver   2.3-59
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.58
+Version:          2.3.59
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chronological Objects which can Handle Dates and Times
+Summary:          Chronological Objects which Can Handle Dates and Times
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}

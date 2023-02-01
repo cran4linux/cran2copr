@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  caracas
-%global packver   1.1.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computer Algebra
 
@@ -16,11 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-doBy >= 4.6.15
 BuildRequires:    R-CRAN-reticulate >= 1.14
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-doBy >= 4.6.15
 Requires:         R-CRAN-reticulate >= 1.14
 Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-magrittr 
 
 %description

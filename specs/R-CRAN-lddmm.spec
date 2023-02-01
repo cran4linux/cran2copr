@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lddmm
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Longitudinal Drift-Diffusion Mixed Models (LDDMM)
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-rgen 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-dplyr 
@@ -33,7 +32,6 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-CRAN-RcppProgress 
 Requires:         R-CRAN-rgen 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-dplyr 

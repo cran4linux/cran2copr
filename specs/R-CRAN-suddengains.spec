@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  suddengains
-%global packver   0.4.4
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Sudden Gains in Longitudinal Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-rlang >= 0.3.4
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-naniar 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 >= 3.1.1
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-psych >= 1.8.12
@@ -44,6 +46,7 @@ Requires:         R-CRAN-rlang >= 0.3.4
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-naniar 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-cli 
 
 %description
 Identify sudden gains based on the three criteria outlined by Tang and

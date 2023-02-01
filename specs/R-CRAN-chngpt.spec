@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  chngpt
-%global packver   2022.4-6
+%global packver   2023.1-30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.4.6
+Version:          2023.1.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Hypothesis Testing for Threshold Regression
 

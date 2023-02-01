@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RWeka
-%global packver   0.4-44
+%global packver   0.4-45
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.44
+Version:          0.4.45
 Release:          1%{?dist}%{?buildtag}
 Summary:          R/Weka Interface
 
@@ -35,7 +36,7 @@ learning algorithms for data mining tasks written in Java, containing
 tools for data pre-processing, classification, regression, clustering,
 association rules, and visualization.  Package 'RWeka' contains the
 interface code, the Weka jar is in a separate package 'RWekajars'.  For
-more information on Weka see <http://www.cs.waikato.ac.nz/ml/weka/>.
+more information on Weka see <https://www.cs.waikato.ac.nz/ml/weka/>.
 
 %prep
 %setup -q -c -n %{packname}

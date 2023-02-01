@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  activAnalyzer
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Shiny' App to Analyze Accelerometer-Measured Daily Physical Behavior Data
 
@@ -23,13 +23,14 @@ BuildRequires:    R-CRAN-dbplyr >= 2.1.1
 BuildRequires:    R-CRAN-shinyjs >= 2.1.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.3
+BuildRequires:    R-CRAN-plyr >= 1.8.7
 BuildRequires:    R-CRAN-lubridate >= 1.8.0
 BuildRequires:    R-CRAN-shiny >= 1.7.2
 BuildRequires:    R-CRAN-stringr >= 1.4.1
 BuildRequires:    R-CRAN-tidyr >= 1.2.1
 BuildRequires:    R-CRAN-hms >= 1.1.2
 BuildRequires:    R-CRAN-patchwork >= 1.1.2
-BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-shinycssloaders >= 1.0.0
 BuildRequires:    R-CRAN-flextable >= 0.8.2
 BuildRequires:    R-CRAN-shinydashboard >= 0.7.2
@@ -47,13 +48,14 @@ Requires:         R-CRAN-dbplyr >= 2.1.1
 Requires:         R-CRAN-shinyjs >= 2.1.0
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-shinydashboardPlus >= 2.0.3
+Requires:         R-CRAN-plyr >= 1.8.7
 Requires:         R-CRAN-lubridate >= 1.8.0
 Requires:         R-CRAN-shiny >= 1.7.2
 Requires:         R-CRAN-stringr >= 1.4.1
 Requires:         R-CRAN-tidyr >= 1.2.1
 Requires:         R-CRAN-hms >= 1.1.2
 Requires:         R-CRAN-patchwork >= 1.1.2
-Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-shinycssloaders >= 1.0.0
 Requires:         R-CRAN-flextable >= 0.8.2
 Requires:         R-CRAN-shinydashboard >= 0.7.2

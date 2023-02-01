@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ukbnmr
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Removal of Unwanted Technical Variation from UK Biobank NMR Metabolomics Biomarker Data
 
@@ -32,7 +32,7 @@ removing unwanted technical variation from biomarker concentrations,
 computing an extended set of lipid, fatty acid, and cholesterol fractions,
 and for re-deriving composite biomarkers and ratios after adjusting data
 for unwanted biological variation. For further details on methods see
-Ritchie SC et al. medRxiv (2021) <doi:10.1101/2021.09.24.21264079>.
+Ritchie SC et al. Sci Data (2023) <doi:10.1038/s41597-023-01949-y>.
 
 %prep
 %setup -q -c -n %{packname}

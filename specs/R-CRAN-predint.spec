@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  predint
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Intervals
 
@@ -16,10 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lme4 
 Requires:         R-stats 
 Requires:         R-graphics 

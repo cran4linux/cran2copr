@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rmpfr
-%global packver   0.9-0
+%global packver   0.9-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R MPFR - Multiple Precision Floating-Point Reliable
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    gmp-devel
 BuildRequires:    mpfr-devel
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-gmp >= 0.6.1
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
