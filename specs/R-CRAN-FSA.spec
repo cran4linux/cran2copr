@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FSA
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Fisheries Stock Assessment Methods
 
@@ -38,8 +39,7 @@ Requires:         R-CRAN-plotrix
 Requires:         R-CRAN-withr 
 
 %description
-A variety of simple fish stock assessment methods. Detailed vignettes are
-available on the fishR website <http://derekogle.com/fishR/>.
+A variety of simple fish stock assessment methods.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tinytex
-%global packver   0.44
+%global packname  otrKM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.44
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents
+Summary:          Optimal Treatment Regimes in Survival Contexts with Kaplan-Meier-Like Estimators
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.10
+Requires:         R-core >= 3.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.29
-Requires:         R-CRAN-xfun >= 0.29
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-survival 
 
 %description
-Helper functions to install and maintain the 'LaTeX' distribution named
-'TinyTeX' (<https://yihui.org/tinytex/>), a lightweight, cross-platform,
-portable, and easy-to-maintain version of 'TeX Live'. This package also
-contains helper functions to compile 'LaTeX' documents, and install
-missing 'LaTeX' packages automatically.
+Provide methods for estimating optimal treatment regimes in survival
+contexts with Kaplan-Meier-like estimators when no unmeasured confounding
+assumption is satisfied (Jiang, R., Lu, W., Song, R., and Davidian, M.
+(2017) <doi:10.1111/rssb.12201>) and when no unmeasured confounding
+assumption fails to hold and a binary instrument is available (Xia, J.,
+Zhan, Z., Zhang, J. (2022) <arXiv:2210.05538>).
 
 %prep
 %setup -q -c -n %{packname}

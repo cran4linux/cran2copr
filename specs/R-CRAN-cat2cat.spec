@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cat2cat
-%global packver   0.4.5
+%global packver   0.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling an Inconsistently Coded Categorical Variable in a Panel Dataset
+Summary:          Handling an Inconsistently Coded Categorical Variable in a Longitudinal Dataset
 
-License:          GPL (>= 2)
+License:          GPL (>= 2) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,13 +21,13 @@ BuildRequires:    R-CRAN-MASS
 Requires:         R-CRAN-MASS 
 
 %description
-Unifying of an inconsistently coded categorical variable between two
+Unifying an inconsistently coded categorical variable between two
 different time points in accordance with a mapping table. The main rule is
-to replicate the observation if it could be assign to a few categories.
-Then using simple frequencies or statistical methods to approximate
-probabilities of being assign to each of them. This procedure was invented
-and implemented in the paper by (Nasinski, Majchrowska and Broniatowska
-(2020) <doi:10.24425/cejeme.2020.134747>).
+to replicate the observation if it could be assigned to a few categories.
+Then using frequencies or statistical methods to approximate the
+probabilities of being assigned to each of them. This procedure was
+invented and implemented in the paper by Nasinski, Majchrowska, and
+Broniatowska (2020) <doi:10.24425/cejeme.2020.134747>.
 
 %prep
 %setup -q -c -n %{packname}

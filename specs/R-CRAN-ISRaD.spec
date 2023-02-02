@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ISRaD
-%global packver   1.7.8
+%global packver   2.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.8
+Version:          2.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and Data for the International Soil Radiocarbon Database
 
@@ -25,6 +26,9 @@ BuildRequires:    R-CRAN-RCurl
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-rworldmap 
+BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-tidyr >= 1.0
 Requires:         R-CRAN-dplyr >= 0.8
 Requires:         R-CRAN-readxl 
@@ -34,6 +38,9 @@ Requires:         R-CRAN-RCurl
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rio 
+Requires:         R-CRAN-rworldmap 
+Requires:         R-CRAN-sp 
 
 %description
 This is the central location for data and tools for the development,
@@ -54,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

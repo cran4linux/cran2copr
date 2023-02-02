@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RInside
-%global packver   0.2.17
+%global packver   0.2.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.17
+Version:          0.2.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          C++ Classes to Embed R in C++ (and C) Applications
 

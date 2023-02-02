@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MachineShop
-%global packver   3.6.0
+%global packver   3.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.0
+Version:          3.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Models and Tools
 
@@ -16,16 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-cli >= 3.1.0
-BuildRequires:    R-CRAN-recipes >= 0.2.0
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-recipes >= 1.0.0
 BuildRequires:    R-CRAN-rsample >= 0.1.0
 BuildRequires:    R-CRAN-dials >= 0.0.4
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-party 
@@ -36,16 +36,16 @@ BuildRequires:    R-CRAN-Rsolnp
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-cli >= 3.1.0
-Requires:         R-CRAN-recipes >= 0.2.0
+Requires:         R-CRAN-Matrix >= 1.5.0
+Requires:         R-CRAN-recipes >= 1.0.0
 Requires:         R-CRAN-rsample >= 0.1.0
 Requires:         R-CRAN-dials >= 0.0.4
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-party 

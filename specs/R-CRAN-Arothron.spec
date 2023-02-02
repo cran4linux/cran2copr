@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Arothron
-%global packver   2.0.3
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometric Morphometric Methods and Virtual Anthropology Tools
 
@@ -30,8 +31,8 @@ BuildRequires:    R-CRAN-abind >= 1.4
 BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-alphashape3d >= 1.3
 BuildRequires:    R-CRAN-doParallel >= 1.0.11
+BuildRequires:    R-CRAN-rgl >= 1.0.1
 BuildRequires:    R-parallel >= 1.0
-BuildRequires:    R-CRAN-rgl >= 0.93.0
 BuildRequires:    R-CRAN-geometry >= 0.3.6
 BuildRequires:    R-CRAN-Rvcg >= 0.17
 Requires:         R-stats4 >= 4.0
@@ -48,8 +49,8 @@ Requires:         R-CRAN-abind >= 1.4
 Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-alphashape3d >= 1.3
 Requires:         R-CRAN-doParallel >= 1.0.11
+Requires:         R-CRAN-rgl >= 1.0.1
 Requires:         R-parallel >= 1.0
-Requires:         R-CRAN-rgl >= 0.93.0
 Requires:         R-CRAN-geometry >= 0.3.6
 Requires:         R-CRAN-Rvcg >= 0.17
 

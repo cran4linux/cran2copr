@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidytransit
-%global packver   1.4
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read, Validate, Analyze, and Map GTFS Feeds
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-gtfsio >= 0.1.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-hms 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-geodist
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-gtfsio >= 0.1.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-hms 

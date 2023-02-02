@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tinytex
-%global packver   0.44
+%global packname  imprecise101
+%global packver   0.2.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.44
+Version:          0.2.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents
+Summary:          Introduction to Imprecise Probabilities
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.29
-Requires:         R-CRAN-xfun >= 0.29
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tolerance 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-pscl 
+Requires:         R-stats 
+Requires:         R-CRAN-tolerance 
+Requires:         R-graphics 
+Requires:         R-CRAN-pscl 
 
 %description
-Helper functions to install and maintain the 'LaTeX' distribution named
-'TinyTeX' (<https://yihui.org/tinytex/>), a lightweight, cross-platform,
-portable, and easy-to-maintain version of 'TeX Live'. This package also
-contains helper functions to compile 'LaTeX' documents, and install
-missing 'LaTeX' packages automatically.
+An imprecise inference presented in the study of Walley (1996)
+<doi:10.1111/j.2517-6161.1996.tb02065.x> is one of the statistical
+reasoning methods when prior information is unavailable. Functions and
+utils needed for illustrating this inferential paradigm are implemented
+for classroom teaching and further comprehensive research. Two imprecise
+models are demonstrated using multinomial data and 2x2 contingency table
+data. The concepts of prior ignorance and imprecision are discussed in
+lower and upper probabilities. Representation invariance principle,
+hypothesis testing, decision-making, and further generalization are also
+illustrated.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tinytex
-%global packver   0.44
+%global packname  vvconverter
+%global packver   0.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.44
+Version:          0.5.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents
+Summary:          Apply Transformations to Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,15 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.29
-Requires:         R-CRAN-xfun >= 0.29
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
 
 %description
-Helper functions to install and maintain the 'LaTeX' distribution named
-'TinyTeX' (<https://yihui.org/tinytex/>), a lightweight, cross-platform,
-portable, and easy-to-maintain version of 'TeX Live'. This package also
-contains helper functions to compile 'LaTeX' documents, and install
-missing 'LaTeX' packages automatically.
+Provides a set of functions for data transformations. Transformations are
+performed on character and numeric data. As the scope of the package is
+within Student Analytics, there are functions focused around the academic
+year.
 
 %prep
 %setup -q -c -n %{packname}

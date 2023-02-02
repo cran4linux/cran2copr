@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tinytex
-%global packver   0.44
+%global packname  readNSx
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.44
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents
+Summary:          Read 'Blackrock-Microsystems' Files ('NEV', 'NSx')
 
-License:          MIT + file LICENSE
+License:          MPL-2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.29
-Requires:         R-CRAN-xfun >= 0.29
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fastmap 
+BuildRequires:    R-CRAN-hdf5r 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fastmap 
+Requires:         R-CRAN-hdf5r 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-R6 
 
 %description
-Helper functions to install and maintain the 'LaTeX' distribution named
-'TinyTeX' (<https://yihui.org/tinytex/>), a lightweight, cross-platform,
-portable, and easy-to-maintain version of 'TeX Live'. This package also
-contains helper functions to compile 'LaTeX' documents, and install
-missing 'LaTeX' packages automatically.
+Loads 'Blackrock' <https://blackrockneurotech.com> neural signal data
+files into the memory, provides utility tools to extract the data into
+common formats such as plain-text 'tsv' and 'HDF5'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ip2location
-%global packver   8.1.1
+%global packver   8.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.1.1
+Version:          8.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lookup for IP Address Information
 

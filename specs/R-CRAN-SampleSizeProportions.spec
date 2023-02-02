@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tinytex
-%global packver   0.44
+%global packname  SampleSizeProportions
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.44
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents
+Summary:          Calculating Sample Size Requirements when Estimating the Difference Between Two Binomial Proportions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.29
-Requires:         R-CRAN-xfun >= 0.29
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Helper functions to install and maintain the 'LaTeX' distribution named
-'TinyTeX' (<https://yihui.org/tinytex/>), a lightweight, cross-platform,
-portable, and easy-to-maintain version of 'TeX Live'. This package also
-contains helper functions to compile 'LaTeX' documents, and install
-missing 'LaTeX' packages automatically.
+Sample size requirements calculation using three different Bayesian
+criteria in the context of designing an experiment to estimate the
+difference between two binomial proportions. Functions for calculation of
+required sample sizes for the Average Length Criterion, the Average
+Coverage Criterion and the Worst Outcome Criterion in the context of
+binomial observations are provided. In all cases, estimation of the
+difference between two binomial proportions is considered. Functions for
+both the fully Bayesian and the mixed Bayesian/likelihood approaches are
+provided. For reference see Joseph L., du Berger R. and B'elisle P.
+(1997)
+<doi:10.1002/(sici)1097-0258(19970415)16:7%%3C769::aid-sim495%%3E3.0.co;2-v>.
 
 %prep
 %setup -q -c -n %{packname}

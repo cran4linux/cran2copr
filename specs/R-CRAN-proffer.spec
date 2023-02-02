@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  proffer
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Profile R Code and Visualize with 'Pprof'
 
@@ -13,6 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Requires:         graphviz
+Requires:         pprof
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
@@ -20,6 +23,7 @@ BuildRequires:    R-CRAN-processx >= 3.4.0
 BuildRequires:    R-CRAN-withr >= 2.1.2
 BuildRequires:    R-CRAN-pingr >= 2.0.1
 BuildRequires:    R-CRAN-cli >= 2.0.0
+BuildRequires:    R-CRAN-parallelly >= 1.26.0
 BuildRequires:    R-CRAN-profile >= 1.0
 BuildRequires:    R-CRAN-RProtoBuf >= 0.4.14
 BuildRequires:    R-utils 
@@ -27,6 +31,7 @@ Requires:         R-CRAN-processx >= 3.4.0
 Requires:         R-CRAN-withr >= 2.1.2
 Requires:         R-CRAN-pingr >= 2.0.1
 Requires:         R-CRAN-cli >= 2.0.0
+Requires:         R-CRAN-parallelly >= 1.26.0
 Requires:         R-CRAN-profile >= 1.0
 Requires:         R-CRAN-RProtoBuf >= 0.4.14
 Requires:         R-utils 

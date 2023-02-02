@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ndi
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neighborhood Deprivation Indices
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tidycensus 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-car 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
@@ -58,10 +60,21 @@ spatial Educational Isolation Index (EI) based on Bravo et al. (2021)
 <doi:10.3390/ijerph18179384>, (3) compute the aspatial Index of
 Concentration at the Extremes (ICE) based on Feldman et al. (2015)
 <doi:10.1136/jech-2015-205728> and Krieger et al. (2016)
-<doi:10.2105/AJPH.2015.302955>, (4) compute the aspatial Dissimilarity
-Index based on Duncan & Duncan (1955) <doi:10.2307/2088328>, and (5)
-retrieve the aspatial Gini Index based on Gini (1921)
-<doi:10.2307/2223319>.
+<doi:10.2105/AJPH.2015.302955>, (4) compute the aspatial racial/ethnic
+Dissimilarity Index based on Duncan & Duncan (1955) <doi:10.2307/2088328>,
+(5) compute the aspatial income or racial/ethnic Atkinson Index based on
+Atkinson (1970) <doi:10.1016/0022-0531(70)90039-6>, (6) aspatial
+racial/ethnic Isolation Index (II) based on Shevky & Williams (1949;
+ISBN-13:978-0-837-15637-8) and Bell (1954) <doi:10.2307/2574118>, (7)
+aspatial racial/ethnic Correlation Ratio based on Bell (1954)
+<doi:10.2307/2574118> and White (1986) <doi:10.2307/3644339>, (8) aspatial
+racial/ethnic Location Quotient (LQ) based on Merton (1939)
+<doi:10.2307/2084686> and Sudano et al. (2013)
+<doi:10.1016/j.healthplace.2012.09.015>, and (9) aspatial racial/ethnic
+Local Exposure and Isolation metric based on Bemanian & Beyer (2017)
+<doi:10.1158/1055-9965.EPI-16-0926>. Also using data from the ACS-5
+(2005-2009 onward), the package can retrieve the aspatial Gini Index based
+Gini (1921) <doi:10.2307/2223319>.
 
 %prep
 %setup -q -c -n %{packname}

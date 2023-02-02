@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tinytex
-%global packver   0.44
+%global packname  hexFinder
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.44
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents
+Summary:          Find Hex Logos for CRAN Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,15 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.29
-Requires:         R-CRAN-xfun >= 0.29
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-hexSticker 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pkgsearch 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-hexSticker 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-pkgsearch 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr2 
 
 %description
-Helper functions to install and maintain the 'LaTeX' distribution named
-'TinyTeX' (<https://yihui.org/tinytex/>), a lightweight, cross-platform,
-portable, and easy-to-maintain version of 'TeX Live'. This package also
-contains helper functions to compile 'LaTeX' documents, and install
-missing 'LaTeX' packages automatically.
+Scavenge the web for possible hex logos for CRAN packages.
 
 %prep
 %setup -q -c -n %{packname}

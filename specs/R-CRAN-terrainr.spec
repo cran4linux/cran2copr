@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  terrainr
-%global packver   0.7.2
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Landscape Visualizations in R and 'Unity'
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster >= 3.5.19
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-magick >= 2.5.0
 BuildRequires:    R-CRAN-sf >= 1.0.5
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-unifir 
 BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-raster >= 3.5.19
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-magick >= 2.5.0
 Requires:         R-CRAN-sf >= 1.0.5

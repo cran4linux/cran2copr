@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  envi
-%global packver   0.1.15
+%global packver   0.1.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.15
+Version:          0.1.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Environmental Interpolation using Spatial Kernel Density Estimation
 
@@ -28,13 +28,12 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sparr 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-cvAUC 
 Requires:         R-CRAN-doFuture 
@@ -46,13 +45,12 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-iterators 
 Requires:         R-CRAN-pls 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-ROCR 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sparr 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
 
 %description
 Estimates an ecological niche using occurrence data, covariates, and

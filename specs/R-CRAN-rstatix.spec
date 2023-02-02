@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rstatix
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pipe-Friendly Framework for Basic Statistical Tests
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-broom >= 0.7.4
 BuildRequires:    R-CRAN-dplyr >= 0.7.1
 BuildRequires:    R-CRAN-rlang >= 0.3.1
@@ -31,8 +31,8 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-car 
 Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-broom >= 0.7.4
 Requires:         R-CRAN-dplyr >= 0.7.1
 Requires:         R-CRAN-rlang >= 0.3.1
