@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rlibkriging
-%global packver   0.7-4.2
+%global packname  SampleSizeMeans
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4.2
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kriging Models using the 'libKriging' Library
+Summary:          Sample Size Calculations for Normal Means
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.11
-Requires:         R-methods 
-Requires:         R-CRAN-DiceKriging 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
-that should provide most standard Kriging / Gaussian process regression
-features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
-'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
-by Conrad Sanderson, and 'lbfgsb_cpp' is a 'C++' wrapper by Colin Fang
-around 'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge
-Nocedal and Jose Luis Morales used for hyperparameters optimization.
+Sample size requirements calculation using three different Bayesian
+criteria in the context of designing an experiment to estimate a normal
+mean or the difference between two normal means.  Functions for
+calculation of required sample sizes for the Average Length Criterion, the
+Average Coverage Criterion and the Worst Outcome Criterion in the context
+of normal means are provided. Functions for both the fully Bayesian and
+the mixed Bayesian/likelihood approaches are provided. For reference see
+Joseph L. and B'elisle P. (1997) <https://www.jstor.org/stable/2988525>.
 
 %prep
 %setup -q -c -n %{packname}

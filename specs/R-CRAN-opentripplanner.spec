@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opentripplanner
-%global packver   0.5
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Setup and connect to 'OpenTripPlanner'
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 0.9.3
 BuildRequires:    R-CRAN-RcppSimdJson >= 0.1.2
 BuildRequires:    R-CRAN-checkmate 
@@ -25,9 +26,9 @@ BuildRequires:    R-CRAN-geodist
 BuildRequires:    R-CRAN-googlePolylines 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-sfheaders 
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-sf >= 0.9.3
 Requires:         R-CRAN-RcppSimdJson >= 0.1.2
 Requires:         R-CRAN-checkmate 
@@ -36,7 +37,6 @@ Requires:         R-CRAN-geodist
 Requires:         R-CRAN-googlePolylines 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-sfheaders 
 

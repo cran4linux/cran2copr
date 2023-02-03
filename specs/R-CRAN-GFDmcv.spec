@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mully
-%global packver   2.1.34
+%global __requires_exclude ^libmpi
+%global packname  GFDmcv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.34
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create, Modify and Visualize Multi-Layered Networks
+Summary:          General Hypothesis Testing Problems for Multivariate Coefficients of Variation
 
-License:          GPL (>= 2)
+License:          LGPL-2 | LGPL-3 | GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-randomcoloR 
-BuildRequires:    R-CRAN-shape 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-randomcoloR 
-Requires:         R-CRAN-shape 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-HSAUR 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-HSAUR 
 
 %description
-Allows the user to create graph with multiple layers. The user can also
-modify the layers, the nodes, and the edges. The graph can also be
-visualized. Zaynab Hammoud and Frank Kramer (2018)
-<doi:10.3390/genes9110519>. More about multilayered graphs and their usage
-can be found in our review paper: Zaynab Hammoud and Frank Kramer (2020)
-<doi:10.1186/s41044-020-00046-0>.
+Performs test procedures for general hypothesis testing problems for four
+multivariate coefficients of variation (Ditzhaus and Smaga, 2023
+<arXiv:2301.12009>). We can verify the global hypothesis about equality as
+well as the particular hypotheses defined by contrasts, e.g., we can
+conduct post hoc tests. We also provide the simultaneous confidence
+intervals for contrasts.
 
 %prep
 %setup -q -c -n %{packname}

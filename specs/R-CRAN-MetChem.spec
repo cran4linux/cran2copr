@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rlibkriging
-%global packver   0.7-4.2
+%global packname  MetChem
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4.2
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kriging Models using the 'libKriging' Library
+Summary:          Chemical Structural Similarity Analysis
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.11
-Requires:         R-methods 
-Requires:         R-CRAN-DiceKriging 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rcdk >= 3.4.3
+BuildRequires:    R-CRAN-KODAMA >= 2.3
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-fingerprint 
+Requires:         R-CRAN-rcdk >= 3.4.3
+Requires:         R-CRAN-KODAMA >= 2.3
+Requires:         R-stats 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-fingerprint 
 
 %description
-Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
-that should provide most standard Kriging / Gaussian process regression
-features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
-'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
-by Conrad Sanderson, and 'lbfgsb_cpp' is a 'C++' wrapper by Colin Fang
-around 'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge
-Nocedal and Jose Luis Morales used for hyperparameters optimization.
+A new pipeline to explore chemical structural similarity across
+metabolite. It allows to classify metabolites in structurally-related
+modules and identify common shared functional groups. KODAMA algorithm is
+used to highlight structural similarity between metabolites. See
+Cacciatore S, Tenori L, Luchinat C, Bennett PR, MacIntyre DA. (2017)
+Bioinformatics <doi:10.1093/bioinformatics/btw705> and Cacciatore S,
+Luchinat C, Tenori L. (2014) Proc Natl Acad Sci USA
+<doi:10.1073/pnas.1220873111>.
 
 %prep
 %setup -q -c -n %{packname}

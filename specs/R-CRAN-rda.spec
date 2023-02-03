@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rForest
-%global packver   0.1.4
+%global __requires_exclude ^libmpi
+%global packname  rda
+%global packver   1.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Inventory and Analysis
+Summary:          Shrunken Centroids Regularized Discriminant Analysis
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-alphashape3d 
-BuildRequires:    R-CRAN-geometry 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-alphashape3d 
-Requires:         R-CRAN-geometry 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Set of tools designed for forest inventory analysis.
+Provides functions implementing the shrunken centroids regularized
+discriminant analysis for classification purpose in high dimensional data.
+The method is described in Guo at al. (2013)
+<doi:10.1093/biostatistics/kxj035>.
 
 %prep
 %setup -q -c -n %{packname}

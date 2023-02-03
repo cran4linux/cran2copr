@@ -1,63 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  naniar
-%global packver   1.0.0
+%global packname  echoice2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Structures, Summaries, and Visualisations for Missing Data
+Summary:          Choice Models with Economic Foundation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-parallel >= 4.0
+BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-norm 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-visdat 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-UpSetR 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-tibble >= 2.0.0
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-parallel >= 4.0
+Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-norm 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
-Requires:         R-CRAN-visdat 
-Requires:         R-CRAN-rlang 
+Requires:         R-graphics 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-UpSetR 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-vctrs 
 
 %description
-Missing values are ubiquitous in data and need to be explored and handled
-in the initial stages of analysis. 'naniar' provides data structures and
-functions that facilitate the plotting of missing values and examination
-of imputations. This allows missing data dependencies to be explored with
-minimal deviation from the common work patterns of 'ggplot2' and tidy
-data. The work is fully discussed at Tierney & Cook (2023)
-<doi:10.18637/jss.v105.i07>.
+Implements choice models based on economic theory, including estimation
+using Markov chain Monte Carlo (MCMC), prediction, and more. Its usability
+is inspired by ideas from 'tidyverse'. Models include versions of the
+Hierarchical Multinomial Logit and Multiple Discrete-Continous
+(Volumetric) models with and without screening. The foundations of these
+models are described in Allenby, Hardt and Rossi (2019)
+<doi:10.1016/bs.hem.2019.04.002>. Models with conjunctive screening are
+described in Kim, Hardt, Kim and Allenby (2022)
+<doi:10.1016/j.ijresmar.2022.04.001>. Models with set-size variation are
+described in Hardt and Kurz (2020) <doi:10.2139/ssrn.3418383>.
 
 %prep
 %setup -q -c -n %{packname}

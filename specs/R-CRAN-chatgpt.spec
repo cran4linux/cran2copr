@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chatgpt
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'ChatGPT' from R
 
@@ -31,9 +31,9 @@ Requires:         R-CRAN-shiny
 Requires:         R-utils 
 
 %description
-'OpenAI's 'ChatGPT' <https://openai.com/blog/chatgpt/> coding assistant
-for 'RStudio'. A set of functions and 'RStudio' addins that aim to help
-the R developer in tedious coding tasks.
+'OpenAI's 'ChatGPT' <https://chat.openai.com/> coding assistant for
+'RStudio'. A set of functions and 'RStudio' addins that aim to help the R
+developer in tedious coding tasks.
 
 %prep
 %setup -q -c -n %{packname}

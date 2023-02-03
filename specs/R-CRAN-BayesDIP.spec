@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rlibkriging
-%global packver   0.7-4.2
+%global packname  BayesDIP
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kriging Models using the 'libKriging' Library
+Summary:          Bayesian Decreasingly Informative Priors for Early Termination Phase II Trials
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.11
-Requires:         R-methods 
-Requires:         R-CRAN-DiceKriging 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
-that should provide most standard Kriging / Gaussian process regression
-features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
-'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
-by Conrad Sanderson, and 'lbfgsb_cpp' is a 'C++' wrapper by Colin Fang
-around 'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge
-Nocedal and Jose Luis Morales used for hyperparameters optimization.
+Provide early termination phase II trial designs with a decreasingly
+informative prior (DIP) or a regular Bayesian prior chosen by the user.
+The program can determine the minimum planned sample size necessary to
+achieve the user-specified admissible designs. The program can also
+perform power and expected sample size calculations for the tests in early
+termination Phase II trials. See Wang C and Sabo RT (2022)
+<doi:10.18203/2349-3259.ijct20221110>; Sabo RT (2014)
+<doi:10.1080/10543406.2014.888441>.
 
 %prep
 %setup -q -c -n %{packname}

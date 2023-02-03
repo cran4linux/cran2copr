@@ -1,38 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rlibkriging
-%global packver   0.7-4.2
+%global packname  roads
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kriging Models using the 'libKriging' Library
+Summary:          Road Network Projection
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.11
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-rlang 
 Requires:         R-methods 
-Requires:         R-CRAN-DiceKriging 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-terra 
 
 %description
-Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
-that should provide most standard Kriging / Gaussian process regression
-features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
-'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
-by Conrad Sanderson, and 'lbfgsb_cpp' is a 'C++' wrapper by Colin Fang
-around 'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge
-Nocedal and Jose Luis Morales used for hyperparameters optimization.
+Project road network development based on an existing road network, target
+locations to be connected by roads and a cost surface. Road projection
+methods include minimum spanning tree with least cost path (Kruskal's
+algorithm (1956) <doi:10.2307/2033241>), least cost path (Dijkstra's
+algorithm (1959) <doi:10.1007/BF01386390>) or snapping. These road network
+projection methods are ideal for use with land cover change projection
+models.
 
 %prep
 %setup -q -c -n %{packname}

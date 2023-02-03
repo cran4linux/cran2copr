@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  appler
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Apple App Store' and 'iTunes' Data Extraction
 
@@ -14,25 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-xml2 
 
 %description
 Using 'Apple App Store' <https://www.apple.com/app-store/> web scraping
-and 'iTunes' API
-<https://performance-partners.apple.com/resources/documentation/itunes-store-web-service-search-api.html>
-to extract content information, app ratings and reviews.
+and 'iTunes' API <https://performance-partners.apple.com/search-api> to
+extract content information, app ratings and reviews.
 
 %prep
 %setup -q -c -n %{packname}

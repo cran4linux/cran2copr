@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DecomposeR
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Mode Decomposition for Cyclostratigraphy
 
@@ -47,11 +47,10 @@ compute instantaneous amplitude, frequency and ratios of frequencies, and
 functions to verify and visualise the outputs. The functions were
 developed during the CRASH project (Checking the Reproducibility of
 Astrochronology in the Hauterivian). When using for publication please
-cite Wouters, S., Da Silva, A.C. Crucifix, M., Sinnesael, M., Zivanovic,
-M., Boulvain, F., Devleeschouwer, X., 2019, "Litholog generation with the
-'StratigrapheR' package and signal decomposition for cyclostratigraphic
-purposes". Geophysical Research Abstracts Vol. 21, EGU2019-5520, 2019, EGU
-General Assembly 2019. <http://hdl.handle.net/2268/234402>.
+cite Wouters, S., Crucifix, M., Sinnesael, M., Da Silva, A.C., Zeeden, C.,
+Zivanovic, M., Boulvain, F., Devleeschouwer, X., 2022, "A decomposition
+approach to cyclostratigraphic signal processing". Earth-Science Reviews
+225 (103894). <doi:10.1016/j.earscirev.2021.103894>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rlibkriging
-%global packver   0.7-4.2
+%global packname  cols4all
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4.2
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kriging Models using the 'libKriging' Library
+Summary:          Colors for all
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-colorspace >= 2.1
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.11
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-stringdist 
+Requires:         R-CRAN-colorspace >= 2.1
 Requires:         R-methods 
-Requires:         R-CRAN-DiceKriging 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-stringdist 
 
 %description
-Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
-that should provide most standard Kriging / Gaussian process regression
-features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
-'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
-by Conrad Sanderson, and 'lbfgsb_cpp' is a 'C++' wrapper by Colin Fang
-around 'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge
-Nocedal and Jose Luis Morales used for hyperparameters optimization.
+Color palettes for all people, including those with color vision
+deficiency. Popular color palette series have been organized by type and
+have been scored on several properties such as color-blind-friendliness
+and fairness (i.e. do colors stand out equally?). Own palettes can also be
+loaded and analysed. Besides the common palette types (categorical,
+sequential, and diverging) it also includes bivariate color palettes.
+Furthermore, a color for missing values is assigned to each palette.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  presenter
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Present Data with Style
 
@@ -34,7 +35,6 @@ BuildRequires:    R-CRAN-berryFunctions
 BuildRequires:    R-CRAN-rvg 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-formattable 
-BuildRequires:    R-CRAN-badger 
 BuildRequires:    R-CRAN-framecleaner 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-magrittr 
@@ -54,7 +54,6 @@ Requires:         R-CRAN-berryFunctions
 Requires:         R-CRAN-rvg 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-formattable 
-Requires:         R-CRAN-badger 
 Requires:         R-CRAN-framecleaner 
 
 %description

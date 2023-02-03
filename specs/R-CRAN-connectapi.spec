@@ -1,56 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  janitor
-%global packver   2.2.0
+%global packname  connectapi
+%global packver   0.1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Tools for Examining and Cleaning Dirty Data
+Summary:          Utilities for Interacting with the 'Posit Connect' Server API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
-BuildRequires:    R-CRAN-snakecase >= 0.9.2
-BuildRequires:    R-CRAN-tidyr >= 0.7.0
-BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-rlang >= 0.4.2
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyselect >= 1.0.0
-Requires:         R-CRAN-snakecase >= 0.9.2
-Requires:         R-CRAN-tidyr >= 0.7.0
-Requires:         R-CRAN-hms 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang >= 0.4.2
+Requires:         R-CRAN-vctrs >= 0.3.0
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-jsonlite 
 
 %description
-The main janitor functions can: perfectly format data.frame column names;
-provide quick counts of variable combinations (i.e., frequency tables and
-crosstabs); and explore duplicate records. Other janitor functions nicely
-format the tabulation results. These tabulate-and-report functions
-approximate popular features of SPSS and Microsoft Excel. This package
-follows the principles of the "tidyverse" and works well with the pipe
-function %%>%%. janitor was built with beginning-to-intermediate R users in
-mind and is optimized for user-friendliness.
+Provides a helpful 'R6' class and methods for interacting with the 'Posit
+Connect' Server API along with some meaningful utility functions for
+regular tasks. API documentation varies by 'Posit Connect' installation
+and version, but the latest documentation is also hosted publicly at
+<https://docs.posit.co/connect/api/>.
 
 %prep
 %setup -q -c -n %{packname}
