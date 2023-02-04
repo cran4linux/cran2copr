@@ -1,45 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chronicler
-%global packver   0.2.1
+%global packname  whitewater
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Logging to Functions
+Summary:          Parallel Processing Options for Package 'dataRetrieval'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-diffobj 
+BuildRequires:    R-CRAN-dataRetrieval 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-maybe 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-diffobj 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-future 
+Requires:         R-CRAN-dataRetrieval 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-maybe 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-future 
 
 %description
-Decorate functions to make them return enhanced output. The enhanced
-output consists in an object of type 'chronicle' containing the result of
-the function applied to its arguments, as well as a log detailing when the
-function was run, what were its inputs, what were the errors (if the
-function failed to run) and other useful information. Tools to handle
-decorated functions are included, such as a forward pipe operator that
-makes chaining decorated functions possible.
+Provides methods for retrieving United States Geological Survey (USGS)
+water data using sequential and parallel processing (Bengtsson, 2022
+<doi:10.32614/RJ-2021-048>). In addition to parallel methods, data
+wrangling and additional statistical attributes are provided.
 
 %prep
 %setup -q -c -n %{packname}

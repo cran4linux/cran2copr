@@ -1,45 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chronicler
-%global packver   0.2.1
+%global packname  CARM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Logging to Functions
+Summary:          Covariate-Adjusted Adaptive Randomization via Mahalanobis-Distance
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-diffobj 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-arrangements 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-maybe 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-diffobj 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-arrangements 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-maybe 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-MASS 
 
 %description
-Decorate functions to make them return enhanced output. The enhanced
-output consists in an object of type 'chronicle' containing the result of
-the function applied to its arguments, as well as a log detailing when the
-function was run, what were its inputs, what were the errors (if the
-function failed to run) and other useful information. Tools to handle
-decorated functions are included, such as a forward pipe operator that
-makes chaining decorated functions possible.
+In randomized controlled trial (RCT), balancing covariate is often one of
+the most important concern. CARM package provides functions to balance the
+covariates and generate allocation sequence by covariate-adjusted Adaptive
+Randomization via Mahalanobis-distance (ARM) for RCT. About what ARM is
+and how it works please see Y. Qin, Y. Li, W. Ma, H. Yang, and F. Hu
+(2022). "Adaptive randomization via Mahalanobis distance" Statistica
+Sinica. <doi:10.5705/ss.202020.0440>. In addition, the package is also
+suitable for the randomization process of multi-arm trials. For details,
+please see Yang H, Qin Y, Wang F, et al. (2023). "Balancing covariates in
+multi-arm trials via adaptive randomization" Computational Statistics &
+Data Analysis.<doi:10.1016/j.csda.2022.107642>.
 
 %prep
 %setup -q -c -n %{packname}

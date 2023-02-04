@@ -1,58 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  logrx
-%global packver   0.2.1
+%global packname  stxplore
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Logging Utility Focus on Clinical Trial Programming Workflows
+Summary:          Exploration of Spatio-Temporal Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sessioninfo >= 1.2
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-ggmap 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spacetime 
+BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-waiter 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-lintr 
-Requires:         R-CRAN-sessioninfo >= 1.2
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-ggmap 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spacetime 
+Requires:         R-CRAN-stars 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-waiter 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-lintr 
 
 %description
-A utility to facilitate the logging and review of R programs in clinical
-trial programming workflows.
+A set of statistical tools for spatio-temporal data exploration. Includes
+simple plotting functions, covariance calculations and computations
+similar to principal component analysis for spatio-temporal data. Can use
+both dataframes and stars objects for all plots and computations. For more
+details refer 'Spatio-Temporal Statistics with R' (Christopher K. Wikle,
+Andrew Zammit-Mangion, Noel Cressie, 2019, ISBN:9781138711136).
 
 %prep
 %setup -q -c -n %{packname}

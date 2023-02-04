@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chronicler
-%global packver   0.2.1
+%global packname  formatBibtex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Logging to Functions
+Summary:          Format BibTeX Entries and Files
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-diffobj 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-maybe 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-diffobj 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-maybe 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Decorate functions to make them return enhanced output. The enhanced
-output consists in an object of type 'chronicle' containing the result of
-the function applied to its arguments, as well as a log detailing when the
-function was run, what were its inputs, what were the errors (if the
-function failed to run) and other useful information. Tools to handle
-decorated functions are included, such as a forward pipe operator that
-makes chaining decorated functions possible.
+Format BibTeX entries and files in an opinionated way.
 
 %prep
 %setup -q -c -n %{packname}

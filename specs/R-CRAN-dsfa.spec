@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsfa
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributional Stochastic Frontier Analysis
 
@@ -14,23 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-gratia 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-gratia 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-gratia 
-Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-sn 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-gratia 
 
 %description
 Framework to fit distributional stochastic frontier models. Casts the

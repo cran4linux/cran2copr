@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stan4bart
-%global packver   0.0-6
+%global packname  smallsets
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Additive Regression Trees with Stan-Sampled Parametric Extensions
+Summary:          The Smallset Timeline Builder
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,29 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.1.1
-BuildRequires:    R-CRAN-BH >= 1.72.0.3
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-dbarts >= 0.9.21
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.7.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-RcppParallel >= 5.1.1
-Requires:         R-CRAN-dbarts >= 0.9.21
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-parallel 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-reticulate 
 
 %description
-Fits semiparametric linear and multilevel models with non-parametric
-additive Bayesian additive regression tree (BART; Chipman, George, and
-McCulloch (2010) <doi:10.1214/09-AOAS285>) components and Stan (Stan
-Development Team (2021) <https://mc-stan.org/>) sampled parametric ones.
-Multilevel models can be expressed using 'lme4' syntax (Bates, Maechler,
-Bolker, and Walker (2015) <doi:10.18637/jss.v067.i01>).
+Data practitioners regularly use the 'R' and 'Python' programming
+languages to prepare data for analyses. Thus, they encode data
+preprocessing decisions in 'R' and 'Python' scripts. The 'smallsets'
+package subsequently decodes these decisions into a Smallset Timeline, a
+visualisation proposed in Lucchesi et al. (2022)
+<doi:10.1145/3531146.3533175>. A Smallset Timeline is a series of small
+data snapshots of different preprocessing steps. The 'smallsets' package
+builds this figure from a user's dataset and 'R'/'Python' preprocessing
+script, which contains structured comments with snapshot instructions.
 
 %prep
 %setup -q -c -n %{packname}

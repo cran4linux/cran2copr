@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggrepel
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Position Non-Overlapping Text Labels with 'ggplot2'
 
@@ -16,11 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-withr >= 2.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
 BuildRequires:    R-CRAN-scales >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-withr >= 2.5.0
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-CRAN-scales >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.3.0

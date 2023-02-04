@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesXsrc
-%global packver   3.0-3
+%global packver   3.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Package Distribution of the BayesX C++ Sources
+Summary:          Distribution of the 'BayesX' C++ Sources
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 2.8.0
 Requires:         R-core >= 2.8.0
 
 %description
-BayesX performs Bayesian inference in structured additive regression
-(STAR) models. The R package BayesXsrc provides the BayesX command line
+'BayesX' performs Bayesian inference in structured additive regression
+(STAR) models. The R package BayesXsrc provides the 'BayesX' command line
 tool for easy installation. A convenient R interface is provided in
 package R2BayesX.
 

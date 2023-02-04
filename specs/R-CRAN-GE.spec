@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GE
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Equilibrium Modeling
 
@@ -31,9 +31,9 @@ and are built by the methods of new structural economics (see
 <https://www.nse.pku.edu.cn/> and LI Wu, 2019, ISBN: 9787521804225,
 General Equilibrium and Structural Dynamics: Perspectives of New
 Structural Economics. Beijing: Economic Science Press). The model form and
-mathematical methods can be traced back to von Neumann, J. (1945, A Model
+mathematical methods can be traced back to J. von Neumann (1945, A Model
 of General Economic Equilibrium. The Review of Economic Studies, 13. pp.
-1-9) and Kemeny, J. G., O. Morgenstern and G. L. Thompson (1956, A
+1-9), J. G. Kemeny, O. Morgenstern and G. L. Thompson (1956, A
 Generalization of the von Neumann Model of an Expanding Economy,
 Econometrica, 24, pp. 115-135) et al. By the way, J. G. Kemeny is a
 co-inventor of the computer language BASIC.

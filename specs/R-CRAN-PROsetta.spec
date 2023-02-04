@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PROsetta
-%global packver   0.3.5
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linking Patient-Reported Outcomes Measures
 
@@ -15,7 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-TestDesign >= 1.5.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-equate 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-mirt 
@@ -23,6 +25,9 @@ BuildRequires:    R-CRAN-plink
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-TestDesign >= 1.5.1
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-equate 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-mirt 

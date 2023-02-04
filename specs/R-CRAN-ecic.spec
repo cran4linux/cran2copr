@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chronicler
-%global packver   0.2.1
+%global packname  ecic
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Logging to Functions
+Summary:          Extended Changes-in-Changes
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-diffobj 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-maybe 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-diffobj 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-maybe 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-stats 
 
 %description
-Decorate functions to make them return enhanced output. The enhanced
-output consists in an object of type 'chronicle' containing the result of
-the function applied to its arguments, as well as a log detailing when the
-function was run, what were its inputs, what were the errors (if the
-function failed to run) and other useful information. Tools to handle
-decorated functions are included, such as a forward pipe operator that
-makes chaining decorated functions possible.
+Extends the Changes-in-Changes model a la Athey and Imbens (2006)
+<doi:10.1111/j.1468-0262.2006.00668.x> to multiple cohorts and time
+periods, which generalizes difference-in-differences estimation techniques
+to the entire distribution. Computes quantile treatment effects for every
+possible two-by-two combination in ecic(). Then, aggregating all bootstrap
+runs adds the standard errors in summary_ecic(). Results can be plotted
+with plot_ecic() aggregated over all cohort-group combinations or in an
+event-study style for either individual periods or individual quantiles.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  InflectSSP
-%global packver   1.4.5
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Melt Curve Fitting and Melt Shift Analysis
 
@@ -47,7 +47,7 @@ Requires:         R-CRAN-svglite
 %description
 Analyzes raw abundance data from a cellular thermal shift experiment and
 calculates melt temperatures and melt shifts for each protein in the
-experiment. McCracken (2021) <doi:10.1021/acs.jproteome.0c00872>.
+experiment. McCracken (2022) <doi:10.1101/2022.12.30.522131>.
 
 %prep
 %setup -q -c -n %{packname}

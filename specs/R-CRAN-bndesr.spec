@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chronicler
-%global packver   0.2.1
+%global packname  bndesr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Logging to Functions
+Summary:          Access Data from the Brazilian Development Bank (BNDES)
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-diffobj 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-maybe 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-diffobj 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-maybe 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 
 %description
-Decorate functions to make them return enhanced output. The enhanced
-output consists in an object of type 'chronicle' containing the result of
-the function applied to its arguments, as well as a log detailing when the
-function was run, what were its inputs, what were the errors (if the
-function failed to run) and other useful information. Tools to handle
-decorated functions are included, such as a forward pipe operator that
-makes chaining decorated functions possible.
+Allows access to data on BNDES disbursements and contracts since 1995. The
+package makes it easy to import data from the bank into
+R.<https://www.bndes.gov.br/SiteBNDES/bndes/bndes_en>.
 
 %prep
 %setup -q -c -n %{packname}

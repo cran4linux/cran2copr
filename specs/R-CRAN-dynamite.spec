@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dynamite
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Modeling and Causal Inference for Multivariate Longitudinal Data
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.0.0
-BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
@@ -27,6 +26,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstan 
@@ -34,7 +34,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-tibble >= 2.0.0
-Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
@@ -43,6 +42,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-loo 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstan 

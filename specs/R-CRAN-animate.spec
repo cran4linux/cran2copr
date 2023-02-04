@@ -1,45 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chronicler
-%global packver   0.2.1
+%global packname  animate
+%global packver   0.3.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Logging to Functions
+Summary:          A Web-Based Graphics Device for Animated Visualisations
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-diffobj 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-maybe 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-diffobj 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-maybe 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-R.utils 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-httpuv 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-R.utils 
 
 %description
-Decorate functions to make them return enhanced output. The enhanced
-output consists in an object of type 'chronicle' containing the result of
-the function applied to its arguments, as well as a log detailing when the
-function was run, what were its inputs, what were the errors (if the
-function failed to run) and other useful information. Tools to handle
-decorated functions are included, such as a forward pipe operator that
-makes chaining decorated functions possible.
+Implements a web-based graphics device for animated visualisations.
+Modelled on the 'base' syntax, it extends the 'base' graphics functions to
+support frame-by-frame animation and keyframes animation. The target use
+cases are real-time animated visualisations, including agent-based models,
+dynamical systems, and animated diagrams. The generated visualisations can
+be deployed as GIF images / MP4 videos, as 'Shiny' apps (with
+interactivity) or as HTML documents through embedding into R Markdown
+documents.
 
 %prep
 %setup -q -c -n %{packname}
