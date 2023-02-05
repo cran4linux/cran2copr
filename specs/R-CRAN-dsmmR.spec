@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsmmR
-%global packver   0.0.96
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.96
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Simulation of Drifting Semi-Markov Models
 
@@ -22,12 +22,12 @@ Requires:         R-CRAN-DiscreteWeibull
 
 %description
 Performs parametric and non-parametric estimation and simulation of
-Drifting semi-Markov processes. The definition of parametric and
+drifting semi-Markov processes. The definition of parametric and
 non-parametric model specifications is also possible. Furthermore, three
-different types of Drifting semi-Markov models are considered. These
+different types of drifting semi-Markov models are considered. These
 models differ in the number of transition matrices and sojourn time
 distributions used for the computation of a number of semi-Markov kernels,
-which in turn characterize the Drifting semi-Markov kernel. For the
+which in turn characterize the drifting semi-Markov kernel. For the
 parametric model estimation and specification, several discrete
 distributions are considered for the sojourn times: Uniform, Poisson,
 Geometric, Discrete Weibull and Negative Binomial. The non-parametric

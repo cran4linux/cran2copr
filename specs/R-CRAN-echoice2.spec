@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  echoice2
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Choice Models with Economic Foundation
 
@@ -16,34 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-parallel >= 4.0
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-rlang >= 1.0.6
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-parallel >= 4.0
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-rlang >= 1.0.6
-Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-parallel 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-forcats 
 
 %description

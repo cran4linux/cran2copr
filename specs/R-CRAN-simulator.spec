@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dcmodifydb
-%global packver   0.3.1
+%global __requires_exclude ^libmpi
+%global packname  simulator
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modifying Rules on a DataBase
+Summary:          An Engine for Running Simulations
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dcmodify >= 0.1.9
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-validate 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-dcmodify >= 0.1.9
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-validate 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
 
 %description
-Apply modification rules from R package 'dcmodify' to the database,
-prescribing and documenting deterministic data cleaning steps on records
-in a database. The rules are translated into SQL statements using R
-package 'dbplyr'.
+A framework for performing simulations such as those common in
+methodological statistics papers.  The design principles of this package
+are described in greater depth in Bien, J. (2016) "The simulator: An
+Engine to Streamline Simulations," which is available at
+<arXiv:1607.00021>.
 
 %prep
 %setup -q -c -n %{packname}

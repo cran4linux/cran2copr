@@ -1,34 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  validatedb
-%global packver   0.1.4
+%global __requires_exclude ^libmpi
+%global packname  mateable
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Validate Data in a Database using 'validate'
+Summary:          Assess Mating Potential in Space and Time
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-validate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-validate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-FNN 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-sn 
+Requires:         R-stats 
 
 %description
-Check whether records in a database table are valid using validation rules
-in R syntax specified with R package 'validate'. R validation checks are
-automatically translated to SQL using 'dbplyr'.
+Simulate, manage, visualize, and analyze spatially and temporally explicit
+datasets of mating potential. Implements methods to calculate synchrony,
+proximity, and compatibility.Synchrony calculations are based on methods
+described in Augspurger (1983) <doi:10.2307/2387650>, Kempenaers (1993)
+<doi:10.2307/3676415>, Ison et al. (2014) <doi:10.3732/ajb.1300065>, and
+variations on these, as described.
 
 %prep
 %setup -q -c -n %{packname}
