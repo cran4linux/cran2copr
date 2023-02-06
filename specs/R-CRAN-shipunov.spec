@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  shipunov
-%global packver   1.17
+%global packver   1.17.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17
+Version:          1.17.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions from Alexey Shipunov
 
@@ -24,13 +25,14 @@ Requires:         R-methods
 %description
 A collection of functions for data manipulation, plotting and statistical
 computing, to use separately or with the book "Visual Statistics. Use R!":
-Shipunov (2020) <http://ashipunov.info/shipunov/software/r/r-en.htm>. Most
-useful functions: Bclust(), Jclust() and BootA() which bootstrap
-hierarchical clustering; Recode() which does multiple recoding in a fast,
-simple and flexible way; Misclass() which outputs confusion matrix even if
-classes are not concerted; Overlap() which measures group separation on
-any projection; Biarrows() which converts any scatterplot into biplot; and
-Pleiad() which is fast and flexible correlogram.
+Shipunov (2020) <http://ashipunov.info/shipunov/software/r/r-en.htm>. Dr
+Alexey Shipunov died in December 2022. Most useful functions: Bclust(),
+Jclust() and BootA() which bootstrap hierarchical clustering; Recode()
+which does multiple recoding in a fast, simple and flexible way;
+Misclass() which outputs confusion matrix even if classes are not
+concerted; Overlap() which measures group separation on any projection;
+Biarrows() which converts any scatterplot into biplot; and Pleiad() which
+is fast and flexible correlogram.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  andrews
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Andrews Curves
 
@@ -25,7 +25,9 @@ Requires:         R-graphics
 Requires:         R-CRAN-primes 
 
 %description
-Visualisation of multidimensional data through different Andrews curves.
+Visualisation of multidimensional data through different Andrews curves:
+Andrews, D. F. (1972) Plots of High-Dimensional Data. Biometrics, 28(1),
+125-136. <doi:10.2307/2528964>.
 
 %prep
 %setup -q -c -n %{packname}

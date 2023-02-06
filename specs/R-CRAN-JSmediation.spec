@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  JSmediation
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediation Analysis Using Joint Significance
 
@@ -27,7 +28,6 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-data.table 
@@ -39,7 +39,6 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
 
 %description
 A set of helper functions to conduct joint-significance tests for
