@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  colourvalues
-%global packver   0.3.8
+%global packname  blockTools
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assigns Colours to Values
+Summary:          Block, Assign, and Diagnose Potential Interference in Randomized Experiments
 
-License:          GPL-3
+License:          GPL (>= 2) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-BH >= 1.81.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-tibble 
 
 %description
-Maps one of the viridis colour palettes, or a user-specified palette to
-values. Viridis colour maps are created by Stéfan van der Walt and
-Nathaniel Smith, and were set as the default palette for the 'Python'
-'Matplotlib' library <https://matplotlib.org/>. Other palettes available
-in this library have been derived from 'RColorBrewer'
-<https://CRAN.R-project.org/package=RColorBrewer> and 'colorspace'
-<https://CRAN.R-project.org/package=colorspace> packages.
+Blocks units into experimental blocks, with one unit per treatment
+condition, by creating a measure of multivariate distance between all
+possible pairs of units.  Maximum, minimum, or an allowable range of
+differences between units on one variable can be set.  Randomly assign
+units to treatment conditions.  Diagnose potential interference between
+units assigned to different treatment conditions.  Write outputs to .tex
+and .csv files.
 
 %prep
 %setup -q -c -n %{packname}

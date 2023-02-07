@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  blockCV
-%global packver   2.1.4
+%global packver   3.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial and Environmental Blocking for K-Fold Cross-Validation
+Summary:          Spatial and Environmental Blocking for K-Fold and LOO Cross-Validation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-raster >= 2.5.8
-BuildRequires:    R-CRAN-sf >= 0.8.0
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-raster >= 2.5.8
-Requires:         R-CRAN-sf >= 0.8.0
-Requires:         R-CRAN-progress 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-sf >= 1.0
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-sf >= 1.0
 
 %description
 Creating spatially or environmentally separated folds for cross-validation
 to provide a robust error estimation in spatially structured environments;
 Investigating and visualising the effective range of spatial
-autocorrelation in continuous raster covariates to find an initial
-realistic distance band to separate training and testing datasets
-spatially described in Valavi, R. et al. (2019)
+autocorrelation in continuous raster covariates and point samples to find
+an initial realistic distance band to separate training and testing
+datasets spatially described in Valavi, R. et al. (2019)
 <doi:10.1111/2041-210X.13107>.
 
 %prep
@@ -40,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rempsyc
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convenience Functions for Psychology
 
@@ -14,23 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.4
-BuildRequires:    R-CRAN-flextable >= 0.7.1
-BuildRequires:    R-CRAN-insight >= 0.18.4
-BuildRequires:    R-CRAN-performance >= 0.10.0
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-effectsize 
 Requires:         R-CRAN-dplyr >= 1.0.4
-Requires:         R-CRAN-flextable >= 0.7.1
-Requires:         R-CRAN-insight >= 0.18.4
-Requires:         R-CRAN-performance >= 0.10.0
-Requires:         R-methods 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-effectsize 
 
 %description
 Make your workflow faster and easier. Easily customizable plots (via

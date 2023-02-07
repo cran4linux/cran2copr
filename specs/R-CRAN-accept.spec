@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  accept
-%global packver   0.9.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Acute COPD Exacerbation Prediction Tool (ACCEPT)
 
@@ -28,8 +29,9 @@ Requires:         R-splines
 %description
 Allows clinicians to predict the rate and severity of future acute
 exacerbation in Chronic Obstructive Pulmonary Disease (COPD) patients,
-based on the clinical prediction model published in Adibi et al. (2020)
-<doi:10.1016/S2213-2600(19)30397-2>.
+based on the clinical prediction models published in Adibi et al. (2020)
+<doi:10.1016/S2213-2600(19)30397-2> and Safari et al. (2022)
+<doi:10.1016/j.eclinm.2022.101574>.
 
 %prep
 %setup -q -c -n %{packname}

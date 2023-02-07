@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  colourvalues
-%global packver   0.3.8
+%global packname  nblR
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assigns Colours to Values
+Summary:          Data Extraction of Australian NBL Basketball Statistics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-BH >= 1.81.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-cli 
 
 %description
-Maps one of the viridis colour palettes, or a user-specified palette to
-values. Viridis colour maps are created by Stéfan van der Walt and
-Nathaniel Smith, and were set as the default palette for the 'Python'
-'Matplotlib' library <https://matplotlib.org/>. Other palettes available
-in this library have been derived from 'RColorBrewer'
-<https://CRAN.R-project.org/package=RColorBrewer> and 'colorspace'
-<https://CRAN.R-project.org/package=colorspace> packages.
+Allow users to obtain basketball statistics for the Australian basketball
+league 'NBL'<https://nbl.com.au/>. Stats include play-by-play, shooting
+locations, results and box scores for teams and players.
 
 %prep
 %setup -q -c -n %{packname}

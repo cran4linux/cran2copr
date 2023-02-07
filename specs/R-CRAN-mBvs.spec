@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mBvs
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Variable Selection Methods for Multivariate Data
 
@@ -21,9 +22,8 @@ Requires:         R-core >= 3.5.0
 Bayesian variable selection methods for data with multivariate responses
 and multiple covariates. The package contains implementations of
 multivariate Bayesian variable selection methods for continuous data (Lee
-et al., Biometrics, 2017 <doi: 10.1111/biom.12557>) and zero-inflated
-count data (Lee et al., Biostatistics, 2020
-<doi:10.1093/biostatistics/kxy067>).
+et al., Biometrics, 2017 <doi:10.1111/biom.12557>) and zero-inflated count
+data (Lee et al., Biostatistics, 2020 <doi:10.1093/biostatistics/kxy067>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -33,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

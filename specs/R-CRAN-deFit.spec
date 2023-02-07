@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  colourvalues
-%global packver   0.3.8
+%global packname  deFit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assigns Colours to Values
+Summary:          Fitting Differential Equations to Time Series Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-BH >= 1.81.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-R6 
 
 %description
-Maps one of the viridis colour palettes, or a user-specified palette to
-values. Viridis colour maps are created by Stéfan van der Walt and
-Nathaniel Smith, and were set as the default palette for the 'Python'
-'Matplotlib' library <https://matplotlib.org/>. Other palettes available
-in this library have been derived from 'RColorBrewer'
-<https://CRAN.R-project.org/package=RColorBrewer> and 'colorspace'
-<https://CRAN.R-project.org/package=colorspace> packages.
+Use numerical optimization to fit ordinary differential equations (ODEs)
+to time series data to examine the dynamic relationships between variables
+or the characteristics of a dynamical system. It can now be used to
+estimate the parameters of ODEs up to second order. See
+<https://github.com/yueqinhu/defit> for details.
 
 %prep
 %setup -q -c -n %{packname}

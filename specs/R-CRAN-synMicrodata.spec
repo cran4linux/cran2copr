@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  colourvalues
-%global packver   0.3.8
+%global packname  synMicrodata
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assigns Colours to Values
+Summary:          Synthetic Microdata Generator
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-BH >= 1.81.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Maps one of the viridis colour palettes, or a user-specified palette to
-values. Viridis colour maps are created by Stéfan van der Walt and
-Nathaniel Smith, and were set as the default palette for the 'Python'
-'Matplotlib' library <https://matplotlib.org/>. Other palettes available
-in this library have been derived from 'RColorBrewer'
-<https://CRAN.R-project.org/package=RColorBrewer> and 'colorspace'
-<https://CRAN.R-project.org/package=colorspace> packages.
+This tool fits a non-parametric Bayesian model called "hierarchically
+coupled mixture model (HCMM)" to the original microdata in order to
+generate synthetic microdata for privacy protection. The non-parametric
+feature of the adopted model is useful for catching the joint distribution
+of the original data in a highly flexible manner, leading to the
+generation of synthetic data very similar to the original data. Important
+reference papers on this method include Murray & Reiter (2016)
+<doi:10.1080/01621459.2016.1174132>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  interplex
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  mmstat4
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Coercion Methods for Simplicial Complex Data Structures
+Summary:          Access to Teaching Materials from a ZIP File or GitHub
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,20 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-tcltk 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rio 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
 
 %description
-Computational topology, which includes topological data analysis (TDA),
-makes pervasive use of abstract mathematical objects called simplicial
-complexes; see Edelsbrunner and Harer (2010) <doi:10.1090/mbk/069>.
-Several R packages and other software libraries used through an R
-interface construct and use data structures that represent simplicial
-complexes, including mathematical graphs viewed as 1-dimensional
-complexes. This package provides coercers (converters) between these data
-structures. Currently supported structures are complete lists of simplices
-as used by 'TDA'; the simplex trees of Boissonnat and Maria (2014)
-<doi:10.1007/s00453-014-9887-3> as implemented in 'simplextree' and in
-Python GUDHI (by way of 'reticulate'); and the graph classes of 'igraph'
-and 'network', by way of the 'intergraph' package.
+Teaching materials, e.g. R programs, Shiny apps, data and PDF/HTML
+documents, which are stored on the Internet in a ZIP file (e.g. as a
+GitHub repository) can be downloaded. They can be displayed or run
+locally. The content of the ZIP file is temporarily (or permanently)
+stored. The GitHub repository 'sigbertklinke/mmstat4.data' is used as the
+default repository. In addition, some auxiliary functions are implemented.
 
 %prep
 %setup -q -c -n %{packname}

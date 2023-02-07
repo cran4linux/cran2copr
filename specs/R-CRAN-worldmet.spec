@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  worldmet
-%global packver   0.9.6
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import Surface Meteorological Data from NOAA Integrated Surface Database (ISD)
 
@@ -17,30 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-openair 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-openair 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
 
 %description
 Functions to import data from more than 30,000 surface meteorological
 sites around the world managed by the National Oceanic and Atmospheric
-Administration (NOAA) Integrated Surface Database (ISD, see
-<https://www.ncei.noaa.gov/products/land-based-station/integrated-surface-database>).
+Administration (NOAA) Integrated Surface Database.
 
 %prep
 %setup -q -c -n %{packname}

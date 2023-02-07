@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  brglm2
-%global packver   0.8.2
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bias Reduction in Generalized Linear Models
 
