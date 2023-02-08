@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecochange
-%global packver   2.9.1
+%global packver   2.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          2.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrating Ecosystem Remote Sensing Products to Derive EBV Indicators
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-landscapemetrics
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-geodata 
 BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-landscapemetrics
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-geodata 
 Requires:         R-CRAN-getPass 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 

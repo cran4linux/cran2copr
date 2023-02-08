@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  optmatch
-%global packver   0.10.5
+%global packver   0.10.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.5
+Version:          0.10.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Optimal Matching
 
@@ -14,27 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.1
-Requires:         R-core >= 2.15.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-rlemon 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-CRAN-rlemon 
 
 %description
 Distance based bipartite matching using minimum cost flow, oriented to
-matching of treatment and control groups in observational studies (Hansen
-and Klopfer 2006 <doi:10.1198/106186006X137047>). Routines are provided to
-generate distances from generalised linear models (propensity score
-matching), formulas giving variables on which to limit matched distances,
-stratified or exact matching directives, or calipers, alone or in
-combination.
+matching of treatment and control groups in observational studies
+('Hansen' and 'Klopfer' 2006 <doi:10.1198/106186006X137047>). Routines are
+provided to generate distances from generalised linear models (propensity
+score matching), formulas giving variables on which to limit matched
+distances, stratified or exact matching directives, or calipers, alone or
+in combination.
 
 %prep
 %setup -q -c -n %{packname}

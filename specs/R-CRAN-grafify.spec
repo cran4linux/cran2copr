@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grafify
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Graphs for Data Visualisation and Linear Models for ANOVA
 
@@ -53,7 +53,7 @@ ordinary (lm()) or mixed-effects linear models (lmer()), including
 randomised-block or repeated-measures designs, and fit non-linear outcomes
 as a generalised additive model (gam) using mgcv(). Obtain estimated
 marginal means and perform post-hoc comparisons on fitted models (via
-emmeans()). Also includes small datasets for practicing code and teaching
+emmeans()). Also includes small datasets for practising code and teaching
 basics before users move on to more complex designs. See vignettes for
 details on usage <https://grafify-vignettes.netlify.app/>. Citation:
 <doi:10.5281/zenodo.5136508>.

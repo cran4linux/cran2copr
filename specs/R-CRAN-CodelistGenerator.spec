@@ -1,31 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mmand
-%global packver   1.6.3
+%global packname  CodelistGenerator
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mathematical Morphology in Any Number of Dimensions
+Summary:          Generate Code Lists for the OMOP Common Data Model
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-glue >= 1.5.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-DBI >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-CDMConnector >= 0.4.1
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-glue >= 1.5.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-DBI >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-CDMConnector >= 0.4.1
 
 %description
-Provides tools for performing mathematical morphology operations, such as
-erosion and dilation, on data of arbitrary dimensionality. Can also be
-used for finding connected components, resampling, filtering, smoothing
-and other image processing-style operations.
+Generate a candidate code list for the Observational Medical Outcomes
+Partnership (OMOP) common data model based on string matching. For a given
+search strategy, a candidate code list will be returned.
 
 %prep
 %setup -q -c -n %{packname}

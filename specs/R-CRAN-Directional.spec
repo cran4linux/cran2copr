@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Directional
-%global packver   5.7
+%global packver   5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.7
+Version:          5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Functions for Directional Data Analysis
 
@@ -62,7 +62,9 @@ Statistics and Computing 30(1): 153--165.
 <doi:10.1007/s11222-019-09872-2>. d) Tsagris M. and Alenazi A. (2022). An
 investigation of hypothesis testing procedures for circular and spherical
 mean vectors. Communications in Statistics-Simulation and Computation
-(Accepted for publication). <doi:10.1080/03610918.2022.2045499>.
+(Accepted for publication). <doi:10.1080/03610918.2022.2045499>. e)
+Tsagris M. and Alzeley O. (2023). Circular and spherical projected Cauchy
+distributions. <arXiv:2302.02468>.
 
 %prep
 %setup -q -c -n %{packname}

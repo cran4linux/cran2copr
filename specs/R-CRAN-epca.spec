@@ -1,50 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  blscrapeR
-%global packver   3.2.2
+%global packname  epca
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An API Wrapper for the Bureau of Labor Statistics (BLS)
+Summary:          Exploratory Principal Component Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-GPArotation 
+Requires:         R-CRAN-clue 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-GPArotation 
 
 %description
-Scrapes various data from <https://www.bls.gov/>. The U.S. Bureau of Labor
-Statistics is the statistical branch of the United States Department of
-Labor. The package has additional functions to help parse, analyze and
-visualize the data.
+Exploratory principal component analysis for large-scale dataset,
+including sparse principal component analysis and sparse matrix
+approximation.
 
 %prep
 %setup -q -c -n %{packname}

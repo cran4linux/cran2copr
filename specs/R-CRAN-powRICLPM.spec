@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  powRICLPM
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Power Analysis for the Random Intercept Cross-Lagged Panel Model
 
@@ -20,23 +20,23 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-lavaan >= 0.6.7
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-future 
 Requires:         R-CRAN-lavaan >= 0.6.7
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-future 
 
 %description
 Perform user-friendly power analyses for the bivariate random intercept

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ptools
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Poisson Data
 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.utils 
-BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-partitions 
@@ -34,7 +34,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.utils 
-Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-methods 
 

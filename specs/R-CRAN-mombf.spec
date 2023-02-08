@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mombf
-%global packver   3.3.0
+%global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Selection with Bayesian Methods and Information Criteria
 
@@ -21,6 +21,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-ncvreg 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-sgd 
@@ -32,6 +33,7 @@ Requires:         R-methods
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ncvreg 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-sgd 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  logitr
-%global packver   0.8.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Logit Models w/Preference & WTP Space Utility Parameterizations
 
@@ -46,8 +46,9 @@ preference space and WTP space models and for predicting expected choices
 and choice probabilities for sets of alternatives based on an estimated
 model. Mixed logit models can include uncorrelated or correlated
 heterogeneity covariances and are estimated using maximum simulated
-likelihood based on the algorithms in Train (2009) "Discrete Choice
-Methods with Simulation, 2nd Edition" <doi:10.1017/CBO9780511805271>.
+likelihood based on the algorithms in Train (2009)
+<doi:10.1017/CBO9780511805271>. More details can be found in Helveston
+(2023) <doi:10.18637/jss.v105.i10>.
 
 %prep
 %setup -q -c -n %{packname}
