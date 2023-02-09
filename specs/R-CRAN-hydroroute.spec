@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hydroroute
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trace Longitudinal Hydropeaking Waves
 
@@ -48,9 +49,9 @@ method is based on the identification of associated events and uses
 (linear) regression models to describe translation and retention processes
 between neighboring hydrographs. Several regression model results are
 combined to arrive at a power plant-specific model. The approach is
-proposed and validated in Greimel et al. (2022, accepted with minor
-revisions). The identification of associated events is based on the event
-detection implemented in 'hydropeak'.
+proposed and validated in Greimel et al. (2022) <doi:10.1002/rra.3978>.
+The identification of associated events is based on the event detection
+implemented in 'hydropeak'.
 
 %prep
 %setup -q -c -n %{packname}

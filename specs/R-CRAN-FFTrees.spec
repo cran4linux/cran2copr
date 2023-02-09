@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FFTrees
-%global packver   1.8.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate, Visualise, and Evaluate Fast-and-Frugal Decision Trees
 
@@ -50,11 +50,12 @@ Requires:         R-CRAN-tidyselect
 
 %description
 Create, visualize, and test fast-and-frugal decision trees (FFTs) using
-the algorithms and methods described in Phillips, Neth, Woike & Gaissmaier
-(2017). FFTs are simple and transparent decision trees for solving binary
-classification problems. FFTs can be preferable to more complex algorithms
-because they require very little information, are easy to communicate, and
-are robust against overfitting.
+the algorithms and methods described by Phillips, Neth, Woike & Gaissmaier
+(2017), <doi:10.1017/S1930297500006239>. FFTs are simple and transparent
+decision trees for solving binary classification problems. FFTs can be
+preferable to more complex algorithms because they require very little
+information, are easy to understand and communicate, and are robust
+against overfitting.
 
 %prep
 %setup -q -c -n %{packname}

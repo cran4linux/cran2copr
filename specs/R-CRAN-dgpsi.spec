@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dgpsi
-%global packver   2.1.5
+%global packver   2.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          2.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'dgpsi' for Deep and Linked Gaussian Process Emulations
 
@@ -21,22 +21,32 @@ BuildRequires:    R-CRAN-reticulate >= 1.26
 BuildRequires:    R-CRAN-benchmarkme >= 1.0.8
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-bitops 
 Requires:         R-CRAN-reticulate >= 1.26
 Requires:         R-CRAN-benchmarkme >= 1.0.8
 Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-lhs 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-bitops 
 
 %description
 Interface to the 'python' package 'dgpsi' for Gaussian process, deep
 Gaussian process, and linked Gaussian process emulations of computer
 models and systems of computer models. The implementations follow Ming &
 Guillas (2021) <doi:10.1137/20M1323771> and Ming, Williamson, & Guillas
-(2022) <arXiv:2107.01590>. To get started with the package, see
-<https://mingdeyu.github.io/dgpsi-R/>.
+(2022) <doi:10.1080/00401706.2022.2124311>. To get started with the
+package, see <https://mingdeyu.github.io/dgpsi-R/>.
 
 %prep
 %setup -q -c -n %{packname}

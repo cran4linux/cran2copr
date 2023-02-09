@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nlsr
-%global packver   2023.2.8
+%global packname  CoronaNetR
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.2.8
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Nonlinear Least Squares Solutions - Updated 2022
+Summary:          API Access to 'CoronaNet' Data
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-readr 
 
 %description
-Provides tools for working with nonlinear least squares problems. For the
-estimation of models reliable and robust tools than nls(), where the the
-Gauss-Newton method frequently stops with 'singular gradient' messages.
-This is accomplished by using, where possible, analytic derivatives to
-compute the matrix of derivatives and a stabilization of the solution of
-the estimation equations. Tools for approximate or externally supplied
-derivative matrices are included. Bounds and masks on parameters are
-handled properly.
+Offers access to a database on government responses to the COVID-19
+pandemic. To date, the 'CoronaNet' dataset provides the most comprehensive
+and granular documentation of such government policies in the world,
+capturing data for 20 broad policy categories alongside many other
+dimensions, including the initiator, target, and timing of a policy. This
+package is a programmatic front-end to up-to-date 'CoronaNet' policy
+records and the 'CoronaNet' policy intensity index scores. For more
+information, see Cheng et al. (2020) <doi:10.1038/s41562-020-0909-7>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nlsr
-%global packver   2023.2.8
+%global packname  morpheus
+%global packver   1.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.2.8
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Nonlinear Least Squares Solutions - Updated 2022
+Summary:          Estimate Parameters of Mixtures of Logistic Regressions
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-jointDiag 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-jointDiag 
+Requires:         R-methods 
+Requires:         R-CRAN-pracma 
 
 %description
-Provides tools for working with nonlinear least squares problems. For the
-estimation of models reliable and robust tools than nls(), where the the
-Gauss-Newton method frequently stops with 'singular gradient' messages.
-This is accomplished by using, where possible, analytic derivatives to
-compute the matrix of derivatives and a stabilization of the solution of
-the estimation equations. Tools for approximate or externally supplied
-derivative matrices are included. Bounds and masks on parameters are
-handled properly.
+Mixture of logistic regressions parameters (H)estimation with (U)spectral
+methods. The main methods take d-dimensional inputs and a vector of binary
+outputs, and return parameters according to the GLMs mixture model
+(General Linear Model). For more details see chapter 3 in the PhD thesis
+of Mor-Absa Loum: <https://www.theses.fr/s156435>, available here
+<https://theses.hal.science/tel-01877796/document>.
 
 %prep
 %setup -q -c -n %{packname}

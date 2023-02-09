@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  paws.networking
-%global packver   0.1.12
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Amazon Web Services' Networking & Content Delivery Services
 
@@ -16,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
+BuildRequires:    R-CRAN-paws.common >= 0.5.4
+Requires:         R-CRAN-paws.common >= 0.5.4
 
 %description
 Interface to 'Amazon Web Services' networking and content delivery

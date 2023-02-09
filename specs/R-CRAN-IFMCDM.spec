@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nlsr
-%global packver   2023.2.8
+%global packname  IFMCDM
+%global packver   0.1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.2.8
+Version:          0.1.15
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Nonlinear Least Squares Solutions - Updated 2022
+Summary:          Intuitionistic Fuzzy Multi-Criteria Decision Making Methods
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Provides tools for working with nonlinear least squares problems. For the
-estimation of models reliable and robust tools than nls(), where the the
-Gauss-Newton method frequently stops with 'singular gradient' messages.
-This is accomplished by using, where possible, analytic derivatives to
-compute the matrix of derivatives and a stabilization of the solution of
-the estimation equations. Tools for approximate or externally supplied
-derivative matrices are included. Bounds and masks on parameters are
-handled properly.
+Implementation of two multi-criteria decision making methods (MCDM):
+Intuitionistic Fuzzy Synthetic Measure (IFSM) and Intuitionistic Fuzzy
+Technique for Order of Preference by Similarity to Ideal Solution
+(IFTOPSIS) for intuitionistic fuzzy data sets for multi-criteria decision
+making problems. References describing the methods: Jefmański (2020)
+<doi:10.1007/978-3-030-52348-0_4>; Jefmański, Roszkowska,
+Kusterka-Jefmańska (2021) <doi:10.3390/e23121636>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nlsr
-%global packver   2023.2.8
+%global packname  ispdata
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.2.8
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Nonlinear Least Squares Solutions - Updated 2022
+Summary:          Access Data from the Public Security Institute of the State of Rio De Janeiro
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-readr 
 
 %description
-Provides tools for working with nonlinear least squares problems. For the
-estimation of models reliable and robust tools than nls(), where the the
-Gauss-Newton method frequently stops with 'singular gradient' messages.
-This is accomplished by using, where possible, analytic derivatives to
-compute the matrix of derivatives and a stabilization of the solution of
-the estimation equations. Tools for approximate or externally supplied
-derivative matrices are included. Bounds and masks on parameters are
-handled properly.
+Allows access to data from the Rio de Janeiro Public Security Institute
+(ISP), such as criminal statistics, data on gun seizures and femicide. The
+package also contains the spatial data of Pacifying Police Units (UPPs)
+and Integrated Public Safety Regions, Areas and Circumscriptions.
 
 %prep
 %setup -q -c -n %{packname}

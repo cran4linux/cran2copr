@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nlsr
-%global packver   2023.2.8
+%global packname  ruijter
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.2.8
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Nonlinear Least Squares Solutions - Updated 2022
+Summary:          Technical Data Sets by 'Ruijter et al.' (2013)
 
-License:          GPL-2
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
 
 %description
-Provides tools for working with nonlinear least squares problems. For the
-estimation of models reliable and robust tools than nls(), where the the
-Gauss-Newton method frequently stops with 'singular gradient' messages.
-This is accomplished by using, where possible, analytic derivatives to
-compute the matrix of derivatives and a stabilization of the solution of
-the estimation equations. Tools for approximate or externally supplied
-derivative matrices are included. Bounds and masks on parameters are
-handled properly.
+The real-time quantitative polymerase chain reaction ('PCR') technical
+data sets by 'Ruijter et al.' (2013) <doi:10.1016/j.ymeth.2012.08.011>:
+(i) the four-point 10-fold dilution series; (ii) 380 replicates; and (iii)
+the 'competimer' data set. These three data sets can be used to benchmark
+'qPCR' methods. Original data set is available at
+<https://medischebiologie.nl/wp-content/uploads/2019/02/qpcrdatamethods.zip>.
+This package fixes incorrect annotations in the original data sets.
 
 %prep
 %setup -q -c -n %{packname}

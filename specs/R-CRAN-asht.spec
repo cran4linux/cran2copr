@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asht
-%global packver   0.9.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Applied Statistical Hypothesis Tests
 
@@ -44,8 +44,9 @@ two-sample melding tests [see Fay, Proschan, and Brittain
 <doi:10.1111/biom.12231>], one-way ANOVA allowing var.equal=FALSE [see
 Brown and Forsythe, 1974, Biometrics]), prevalence confidence intervals
 that adjust for sensitivity and specificity [see Lang and Reiczigel, 2014
-<doi:10.1016/j.prevetmed.2013.09.015>]). The focus is on hypothesis tests
-that have compatible confidence intervals, but some functions only have
+<doi:10.1016/j.prevetmed.2013.09.015>] or Bayer, Fay, and Graubard, 2023
+<doi:10.48550/arXiv.2205.13494>). The focus is on hypothesis tests that
+have compatible confidence intervals, but some functions only have
 confidence intervals (e.g., prevSeSp).
 
 %prep
