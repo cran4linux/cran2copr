@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PRISMA2020
-%global packver   0.0.3
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Interactive 'PRISMA' Flow Diagrams
 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-webp
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-DiagrammeRsvg 
 Requires:         R-CRAN-htmltools 
@@ -48,6 +50,7 @@ Requires:         R-CRAN-webp
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-rio 
 Requires:         R-tools 
+Requires:         R-CRAN-zip 
 
 %description
 Systematic reviews should be described in a high degree of methodological

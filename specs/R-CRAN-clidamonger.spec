@@ -1,36 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  filehash
-%global packver   2.4-5
+%global packname  clidamonger
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Key-Value Database
+Summary:          Monthly Climate Data for Germany, Usable for Heating and Cooling Calculations
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Implements a simple key-value style database where character string keys
-are associated with data values that are stored on the disk. A simple
-interface is provided for inserting, retrieving, and deleting data from
-the database. Utilities are provided that allow 'filehash' databases to be
-treated much like environments and lists are already used in R. These
-utilities are provided to encourage interactive and exploratory analysis
-on large datasets. Three different file formats for representing the
-database are currently available and new formats can easily be
-incorporated by third parties for use in the 'filehash' framework.
+This data package contains monthly climate data for Germany, it can be
+used for heating and cooling calculations (external temperature, heating /
+cooling days, solar radiation).
 
 %prep
 %setup -q -c -n %{packname}

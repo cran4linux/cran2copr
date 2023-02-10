@@ -1,36 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  filehash
-%global packver   2.4-5
+%global packname  PieGlyph
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Key-Value Database
+Summary:          Axis Invariant Scatter Pie Plots
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-plyr 
+Requires:         R-grid 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-cli 
+Requires:         R-utils 
 
 %description
-Implements a simple key-value style database where character string keys
-are associated with data values that are stored on the disk. A simple
-interface is provided for inserting, retrieving, and deleting data from
-the database. Utilities are provided that allow 'filehash' databases to be
-treated much like environments and lists are already used in R. These
-utilities are provided to encourage interactive and exploratory analysis
-on large datasets. Three different file formats for representing the
-database are currently available and new formats can easily be
-incorporated by third parties for use in the 'filehash' framework.
+Extends 'ggplot2' to help replace points in a scatter plot with pie-chart
+glyphs showing the relative proportions of different categories. The pie
+glyphs are independent of the axes and plot dimensions, to prevent
+distortions when the plot dimensions are changed.
 
 %prep
 %setup -q -c -n %{packname}

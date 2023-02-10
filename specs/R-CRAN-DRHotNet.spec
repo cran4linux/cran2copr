@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DRHotNet
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Differential Risk Hotspots in a Linear Network
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-PBSmapping 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
@@ -32,7 +31,6 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-PBSmapping 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 

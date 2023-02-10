@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  filehash
-%global packver   2.4-5
+%global packname  aggTrees
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Key-Value Database
+Summary:          Aggregation Trees
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-estimatr 
+BuildRequires:    R-CRAN-grf 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-rpart.plot 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-estimatr 
+Requires:         R-CRAN-grf 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-rpart.plot 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 
 %description
-Implements a simple key-value style database where character string keys
-are associated with data values that are stored on the disk. A simple
-interface is provided for inserting, retrieving, and deleting data from
-the database. Utilities are provided that allow 'filehash' databases to be
-treated much like environments and lists are already used in R. These
-utilities are provided to encourage interactive and exploratory analysis
-on large datasets. Three different file formats for representing the
-database are currently available and new formats can easily be
-incorporated by third parties for use in the 'filehash' framework.
+Nonparametric data-driven approach to discovering heterogeneous subgroups
+in a selection-on-observables framework. Aggregation trees allow
+researchers to assess whether there is relevant heterogeneity in treatment
+effects. The approach generates a sequence of optimal groupings, one for
+each level of granularity. For each grouping, we obtain point estimation
+and inference about the Group Average Treatment Effects. Please reference
+the use as Di Francesco (2022) <doi:10.2139/ssrn.4304256>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readxl
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Excel Files
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-tibble >= 2.0.1
 BuildRequires:    R-CRAN-cpp11 >= 0.4.0
 BuildRequires:    R-CRAN-cellranger 
@@ -28,7 +28,7 @@ Requires:         R-utils
 %description
 Import excel files into R. Supports '.xls' via the embedded 'libxls' C
 library <https://github.com/libxls/libxls> and '.xlsx' via the embedded
-'RapidXML' C++ library <http://rapidxml.sourceforge.net>. Works on
+'RapidXML' C++ library <https://rapidxml.sourceforge.net/>. Works on
 Windows, Mac and Linux without external dependencies.
 
 %prep

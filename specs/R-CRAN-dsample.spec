@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  filehash
-%global packver   2.4-5
+%global packname  dsample
+%global packver   0.91.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          0.91.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Key-Value Database
+Summary:          Discretization-Based Direct Random Sample Generation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mnormt 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mnormt 
 
 %description
-Implements a simple key-value style database where character string keys
-are associated with data values that are stored on the disk. A simple
-interface is provided for inserting, retrieving, and deleting data from
-the database. Utilities are provided that allow 'filehash' databases to be
-treated much like environments and lists are already used in R. These
-utilities are provided to encourage interactive and exploratory analysis
-on large datasets. Three different file formats for representing the
-database are currently available and new formats can easily be
-incorporated by third parties for use in the 'filehash' framework.
+Discretization-based random sampling algorithm that is useful for a
+complex model in high dimension is implemented. The normalizing constant
+of a target distribution is not needed. Posterior summaries are compared
+with those by 'OpenBUGS'. The method is described: Wang and Lee (2014)
+<doi:10.1016/j.csda.2013.06.011> and exercised in Lee (2009)
+<http://hdl.handle.net/1993/21352>.
 
 %prep
 %setup -q -c -n %{packname}

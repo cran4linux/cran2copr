@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openairmaps
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Web Maps of Air Pollution Data
+Summary:          Create Maps of Air Pollution Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,30 +18,36 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-openair >= 2.13
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggmap 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-openair >= 2.13
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggmap 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-tidyselect 
 
 %description

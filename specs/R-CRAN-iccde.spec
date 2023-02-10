@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iccde
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of the Double-Entry Intraclass Correlation
 
@@ -19,7 +19,7 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-The function computes the double-entry intraclass correlation, which is an
+The functions compute the double-entry intraclass correlation, which is an
 index of profile similarity (Furr, 2010; McCrae, 2008). The double-entry
 intraclass correlation is a more precise index of the agreement of two
 empirically observed profiles than the often-used intraclass correlation
@@ -27,9 +27,10 @@ empirically observed profiles than the often-used intraclass correlation
 according to the Fisher z-transformation before the double-entry
 intraclass correlation is calculated. If the profiles comprise scores such
 as sum scores from various personality scales, it is recommended to
-standardize each individual score before entering into the function
-(McCrae, 2008). See Furr (2010) <doi:10.1080/00223890903379134> or McCrae
-(2008) <doi:10.1080/00223890701845104> for details.
+standardize each individual score prior to computation of the double-entry
+intraclass correlation (McCrae, 2008). See Furr (2010)
+<doi:10.1080/00223890903379134> or McCrae (2008)
+<doi:10.1080/00223890701845104> for details.
 
 %prep
 %setup -q -c -n %{packname}

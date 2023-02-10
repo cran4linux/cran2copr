@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Hmisc
-%global packver   4.7-2
+%global packver   4.8-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7.2
+Version:          4.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harrell Miscellaneous
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-colorspace 
 Requires:         R-CRAN-survival >= 3.1.6
 Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-htmlTable >= 1.11.0
@@ -52,6 +53,7 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-colorspace 
 
 %description
 Contains many functions useful for data analysis, high-level graphics,

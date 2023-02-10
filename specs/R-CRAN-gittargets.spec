@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gittargets
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Version Control for the Targets Package
 
@@ -19,6 +19,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.1.0
+BuildRequires:    R-CRAN-callr >= 3.0.0
 BuildRequires:    R-CRAN-processx >= 3.0.0
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-data.table >= 1.12.8
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-uuid >= 0.1.4
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.1.0
+Requires:         R-CRAN-callr >= 3.0.0
 Requires:         R-CRAN-processx >= 3.0.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-data.table >= 1.12.8

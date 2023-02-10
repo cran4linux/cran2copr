@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doconv
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Document Conversion to 'PDF' or 'PNG'
 
@@ -30,13 +30,15 @@ Requires:         R-CRAN-processx
 Requires:         R-tools 
 
 %description
-Functions to convert 'Microsoft Word' or 'Microsoft PowerPoint' documents
-to 'PDF' format and also for converting them into a thumbnail. In order to
-work, 'LibreOffice' must be installed on the machine and or 'Microsoft
-Word'. If the latter is available, it can be used to produce PDF documents
-identical to the originals, otherwise, 'LibreOffice' is used. A function
-is also provided to update all fields and table of contents of a Word
-document using 'Microsoft Word'.
+It provides the ability to generate images from documents of different
+types. Three main features are provided: functions for generating document
+thumbnails, functions for performing visual tests of documents and a
+function for updating fields and table of contents of a 'Microsoft Word'
+or 'RTF' document. In order to work, 'LibreOffice' must be installed on
+the machine and or 'Microsoft Word'. If the latter is available, it can be
+used to produce PDF documents or images identical to the originals;
+otherwise, 'LibreOffice' is used and the rendering can be sometimes
+different from the original documents.
 
 %prep
 %setup -q -c -n %{packname}

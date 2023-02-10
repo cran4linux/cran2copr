@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fruclimadapt
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation Tools for Assessing Climate Adaptation of Fruit Tree Species
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,11 +18,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-lubridate 
 
@@ -39,7 +42,7 @@ for grapevines and fruit trees. Procedures in the package allow to i)
 downscale daily meteorological variables to hourly values (Forster et al
 (2016) <doi:10.5194/gmd-9-2315-2016>), ii) estimate chilling and forcing
 heat accumulation (Miranda et al (2019)
-<https://ec.europa.eu/eip/agriculture/sites/agri-eip/files/fg30_mp5_phenology_critical_temperatures.pdf>),
+<https://ec.europa.eu/eip/agriculture/sites/default/files/fg30_mp5_phenology_critical_temperatures.pdf>),
 iii) estimate plant phenology (Schwartz (2012)
 <doi:10.1007/978-94-007-6925-0>), iv) calculate bioclimatic indices to
 evaluate fruit tree and grapevine adaptation (e.g. Badr et al (2017)
@@ -56,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

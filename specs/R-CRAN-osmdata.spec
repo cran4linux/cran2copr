@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  osmdata
-%global packver   0.1.10
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import 'OpenStreetMap' Data as Simple Features or Spatial Objects
 
@@ -23,7 +24,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-reproj 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
@@ -35,7 +35,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-CRAN-reproj 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 

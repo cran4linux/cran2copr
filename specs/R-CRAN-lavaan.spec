@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lavaan
-%global packver   0.6-13
+%global packver   0.6-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.13
+Version:          0.6.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Variable Analysis
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-pbivnorm 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-quadprog 
 Requires:         R-methods 
 Requires:         R-stats4 
 Requires:         R-stats 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-pbivnorm 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-quadprog 
 
 %description
 Fit a variety of latent variable models, including confirmatory factor

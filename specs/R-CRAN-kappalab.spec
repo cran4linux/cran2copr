@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kappalab
-%global packver   0.4-8
+%global packver   0.4-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.8
+Version:          0.4.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Additive Measure and Integral Manipulation Functions
 

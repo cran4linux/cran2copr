@@ -1,32 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SCIBER
-%global packver   0.1.6
+%global packname  supportR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single-Cell Integrator and Batch Effect Remover
+Summary:          Support Functions for Wrangling and Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-googledrive 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vegan 
 Requires:         R-CRAN-dplyr 
-Requires:         R-parallel 
-Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-googledrive 
+Requires:         R-graphics 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vegan 
 
 %description
-Remove batch effects by projecting query batches into the reference batch
-space.
+Suite of helper functions for data wrangling and visualization. The only
+theme for these functions is that they tend towards simple, short, and
+narrowly-scoped. These functions are built for tasks that often recur but
+are not large enough in scope to warrant an ecosystem of interdependent
+functions.
 
 %prep
 %setup -q -c -n %{packname}
