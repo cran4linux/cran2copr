@@ -1,58 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  microeco
-%global packver   0.14.0
+%global packname  EpiForsk
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microbial Community Ecology Data Analysis
+Summary:          Code Sharing at the Department of Epidemiological Research at Statens Serum Institut
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-glue 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-A series of statistical and plotting approaches in microbial community
-ecology based on the R6 class. The classes are designed for data
-preprocessing, taxa abundance plotting, alpha diversity analysis, beta
-diversity analysis, differential abundance test, null model analysis,
-network analysis, machine learning, environmental data analysis and
-functional analysis.
+This is a collection of assorted functions and examples collected from
+various projects. Currently we have functionalities for simplifying
+overlapping time intervals, Charlson comorbidity score constructors for
+Danish data, sibling design linear regression functionalities, and a
+method for calculating the confidence intervals for functions of
+parameters from a GLM.
 
 %prep
 %setup -q -c -n %{packname}

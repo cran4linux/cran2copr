@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  USA.state.boundaries
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Replacement of the 'USGSstates2k' Package
+Summary:          WGS84 Datum Map of the USA, Including Puerto Rico and the U.S. Virgin Islands
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-sp 
 
 %description
-This is a replacement of the archived 'USGSstates2k' package. It contains
-a map with the state boundaries of the USA obtained from the USGS. Irucka
-worked with this data set while a Cherokee Nation Technology Solutions
-(CNTS) USGS Contractor and/or USGS employee. This package contains a
-subset of the data included in the 'USA.state.boundaries.data' package,
-which is available in a 'drat' repository. To install that data package,
-please follow the instructions at
-<https://gitlab.com/iembry/usa.state.boundaries.data>.
+Contains a WGS84 datum map of the USA, which includes all Commonwealth and
+State boundaries & also includes Puerto Rico and the U.S. Virgin Islands.
+This map is a reprojection of the NAD83 datum map from the USGS National
+Map. This package contains a subset of the data included in the
+'USA.state.boundaries.data' package, which is available in a 'drat'
+repository. To install that data package, please follow the instructions
+at <https://gitlab.com/iembry/usa.state.boundaries.data>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ANOVAreplication
-%global packver   1.1.5
+%global __requires_exclude ^libmpi
+%global packname  hidecan
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test ANOVA Replications by Means of the Prior Predictive p-Value
+Summary:          Create HIDECAN Plots for Visualising Genome-Wide Association Studies and Differential Expression Results
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-quadprog 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-shiny 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-vroom 
 
 %description
-Allows for the computation of a prior predictive p-value to test
-replication of relevant features of original ANOVA studies. Relevant
-features are captured in informative hypotheses. The package also allows
-for the computation of sample sizes for new studies, post-hoc power
-calculations, and comes with a Shiny application in which all calculations
-can be conducted as well. The statistical underpinnings are described in
-Zondervan-Zwijnenburg (2019) <doi:10.31234/osf.io/6myqh>.
+Generates HIDECAN plots that summarise and combine the results of
+genome-wide association studies (GWAS) and transcriptomics differential
+expression analyses (DE), along with manually curated candidate genes of
+interest. The HIDECAN plot is presented in Angelin-Bonnet et al. (2023)
+(currently in review).
 
 %prep
 %setup -q -c -n %{packname}

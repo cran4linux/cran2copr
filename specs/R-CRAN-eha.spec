@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eha
-%global packver   2.10.1
+%global packver   2.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.1
+Version:          2.10.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Event History Analysis
 
@@ -29,8 +29,8 @@ censoring for common families of distributions, piecewise constant
 hazards, and discrete models. Parametric accelerated failure time models
 for left truncated and right censored data. Proportional hazards models
 for tabular and register data. Sampling of risk sets in Cox regression,
-selections in the Lexis diagram, bootstrapping. Broström (2012)
-<doi:10.1201/9781315373942>.
+selections in the Lexis diagram, bootstrapping. Broström (2022)
+<doi:10.1201/9780429503764>.
 
 %prep
 %setup -q -c -n %{packname}

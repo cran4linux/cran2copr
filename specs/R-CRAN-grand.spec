@@ -1,25 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  randomizr
-%global packver   0.24.0
+%global packname  grand
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy-to-Use Tools for Common Forms of Random Assignment and Sampling
+Summary:          Guidelines for Reporting About Network Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-methods 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-methods 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Generates random assignments for common experimental designs and random
-samples for common sampling designs.
+Interactively applies the Guidelines for Reporting About Network Data
+(GRAND) to an 'igraph' object, and generates a uniform narrative or
+tabular description of the object.
 
 %prep
 %setup -q -c -n %{packname}

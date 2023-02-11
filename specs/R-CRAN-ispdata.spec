@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ispdata
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Data from the Public Security Institute of the State of Rio De Janeiro
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-sf 
 
 %description
 Allows access to data from the Rio de Janeiro Public Security Institute

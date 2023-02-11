@@ -1,60 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datazoom.amazonia
-%global packver   1.0.0
+%global packname  Isinglandr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify Access to Data from the Amazon Region
+Summary:          Landscape Construction and Simulation for Ising Networks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-gganimate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sidrar 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-simlandr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-gganimate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sidrar 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-simlandr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-XML 
 
 %description
-Functions to download and treat data regarding the Brazilian Amazon region
-from a variety of official sources.
+A toolbox for constructing potential landscapes for Ising networks. The
+parameters of the networks can be directly supplied by users or estimated
+by the 'IsingFit' package by van Borkulo and Epskamp (2016)
+<https://CRAN.R-project.org/package=IsingFit> from empirical data. The
+Ising model's Boltzmann distribution is preserved for the potential
+landscape function. The landscape functions can be used for quantifying
+and visualizing the stability of network states, as well as visualizing
+the simulation process.
 
 %prep
 %setup -q -c -n %{packname}

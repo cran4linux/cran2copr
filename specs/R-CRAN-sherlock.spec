@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sherlock
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Displays to Aid Structured Problem Solving and Diagnosis
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggh4x 
@@ -29,11 +30,15 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggh4x 
@@ -41,6 +46,9 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 Powerful graphical displays and statistical tools for structured problem

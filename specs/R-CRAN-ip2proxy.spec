@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ip2proxy
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lookup for IP Address Proxy Information
 
@@ -16,15 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-maps >= 3.4.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.4
 BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-scales >= 1.2.1
 BuildRequires:    R-CRAN-reticulate >= 1.13
+Requires:         R-CRAN-maps >= 3.4.1
+Requires:         R-CRAN-ggplot2 >= 3.4
 Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-scales >= 1.2.1
 Requires:         R-CRAN-reticulate >= 1.13
 
 %description
-A R package to find the IP addresses which are used as VPN anonymizer,
+Enable user to find the IP addresses which are used as VPN anonymizer,
 open proxies, web proxies and Tor exits. The package lookup the proxy IP
 address from IP2Proxy BIN Data file. You may visit
 <https://lite.ip2location.com> for free database download.

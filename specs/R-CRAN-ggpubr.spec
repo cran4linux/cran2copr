@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpubr
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Publication Ready Plots
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,17 +18,17 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-cowplot >= 1.1.1
+BuildRequires:    R-CRAN-ggrepel >= 0.9.2
+BuildRequires:    R-CRAN-rstatix >= 0.7.2
 BuildRequires:    R-CRAN-dplyr >= 0.7.1
-BuildRequires:    R-CRAN-rstatix >= 0.7.1
 BuildRequires:    R-CRAN-rlang >= 0.4.6
-BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggsci 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-ggsignif 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-gridExtra 
@@ -37,17 +37,17 @@ BuildRequires:    R-CRAN-polynom
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-cowplot >= 1.1.1
+Requires:         R-CRAN-ggrepel >= 0.9.2
+Requires:         R-CRAN-rstatix >= 0.7.2
 Requires:         R-CRAN-dplyr >= 0.7.1
-Requires:         R-CRAN-rstatix >= 0.7.1
 Requires:         R-CRAN-rlang >= 0.4.6
-Requires:         R-CRAN-ggrepel 
 Requires:         R-grid 
 Requires:         R-CRAN-ggsci 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-ggsignif 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-gridExtra 

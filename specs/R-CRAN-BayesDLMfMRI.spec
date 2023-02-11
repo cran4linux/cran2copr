@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesDLMfMRI
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Analysis for Task-Based Fmri Data
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-oro.nifti 
+BuildRequires:    R-CRAN-neurobase 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-mathjaxr 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-RcppDist
 Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-oro.nifti 
+Requires:         R-CRAN-neurobase 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-mathjaxr 
@@ -43,8 +45,8 @@ functions with different algorithms to perform inference on the state
 parameter to assess brain activation for both individual and group stages.
 Those functions allow for parallel computation when the analysis is
 performed for the entire brain as well as analysis at specific voxels when
-it is required. References: Cardona-Jiménez (2017)
-<doi:10.1016/j.csda.2021.107297>; Cardona-Jiménez (2018)
+it is required. References: Cardona-Jiménez (2021)
+<doi:10.1016/j.csda.2021.107297>; Cardona-Jiménez (2021)
 <arXiv:2111.01318>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hockeystick
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Visualize Essential Climate Change Data
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-treemapify 
+BuildRequires:    R-CRAN-RColorBrewer 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-tools 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-treemapify 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
 Provides easy access to essential climate change datasets to non-climate

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bayesLife
-%global packver   5.0-3
+%global packver   5.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.3
+Version:          5.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Projection of Life Expectancy
 
@@ -13,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-bayesTFR >= 7.0.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-bayesTFR >= 7.3.0
 BuildRequires:    R-CRAN-wpp2019 
 BuildRequires:    R-CRAN-hett 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-bayesTFR >= 7.0.5
+Requires:         R-CRAN-bayesTFR >= 7.3.0
 Requires:         R-CRAN-wpp2019 
 Requires:         R-CRAN-hett 
 Requires:         R-CRAN-car 

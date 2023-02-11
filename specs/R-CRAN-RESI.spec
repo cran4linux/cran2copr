@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RESI
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Effect Size Index (RESI) Estimation
 
@@ -22,14 +22,12 @@ BuildRequires:    R-CRAN-car
 BuildRequires:    R-CRAN-clubSandwich 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-regtools 
 BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-aod 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-clubSandwich 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-regtools 
 Requires:         R-CRAN-sandwich 
 
 %description
