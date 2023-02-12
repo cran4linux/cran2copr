@@ -1,33 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multinet
-%global packver   4.1.1
+%global packname  oesr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and Mining of Multilayer Social Networks
+Summary:          Methods for the Office of Evaluation Sciences
 
-License:          Apache License (== 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-igraph >= 1.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-igraph >= 1.2
-Requires:         R-CRAN-Rcpp >= 1.0
-Requires:         R-methods 
-Requires:         R-CRAN-RColorBrewer 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-estimatr 
+BuildRequires:    R-CRAN-extrafont 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-estimatr 
+Requires:         R-CRAN-extrafont 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Functions for the creation/generation and analysis of multilayer social
-networks <doi:10.18637/jss.v098.i08>.
+Methods for statistical analysis and reporting preferred by the US Office
+of Evaluation Sciences (OES). This package prepares data from standard
+model output objects (such as from code{lm()} and
+code{estimatr::lm_robust()}) and creates visualizations of treatment
+effects from the prepared quantities, according to the standards of the US
+Office of Evaluation Sciences.
 
 %prep
 %setup -q -c -n %{packname}

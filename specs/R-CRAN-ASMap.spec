@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sbde
-%global packver   1.0-0
+%global packname  ASMap
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semiparametric Bayesian Density Estimation
+Summary:          Linkage Map Construction using the MSTmap Algorithm
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6
-Requires:         R-core >= 2.6
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-extremefit 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-extremefit 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-qtl 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-qtl 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-gtools 
 
 %description
-Offers Bayesian semiparametric density estimation and tail-index
-estimation for heavy tailed data, by using a parametric, tail-respecting
-transformation of the data to the unit interval and then modeling the
-transformed data with a purely nonparametric logistic Gaussian process
-density prior. Based on Tokdar et al. (2022)
-<doi:10.1080/01621459.2022.2104727>.
+Functions for Accurate and Speedy linkage map construction, manipulation
+and diagnosis of Doubled Haploid, Backcross and Recombinant Inbred 'R/qtl'
+objects. This includes extremely fast linkage map clustering and optimal
+marker ordering using 'MSTmap' (see Wu et al.,2008).
 
 %prep
 %setup -q -c -n %{packname}

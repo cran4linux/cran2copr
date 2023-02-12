@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jpgrid
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for the Grid Square Codes in Japan
 
@@ -14,43 +14,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
-BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-stickyr >= 0.1.1
 BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-units 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
-Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-stickyr >= 0.1.1
 Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stars 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-units 
-Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-cli 
 
 %description
 Provides functions for grid square codes in Japan

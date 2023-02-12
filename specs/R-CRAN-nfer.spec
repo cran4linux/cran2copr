@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TukeyRegion
-%global packver   0.1.5.5
+%global __requires_exclude ^libmpi
+%global packname  nfer
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5.5
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tukey Region and Median
+Summary:          Event Stream Abstraction using Interval Logic
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,30 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-ddalpha 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-bfp 
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-ddalpha 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-bfp 
-Requires:         R-CRAN-Rglpk 
 
 %description
-Tukey regions are polytopes in the Euclidean space, viz. upper-level sets
-of the Tukey depth function on given data. The bordering hyperplanes of a
-Tukey region are computed as well as its vertices, facets, centroid, and
-volume. In addition, the Tukey median set, which is the non-empty Tukey
-region having highest depth level, and its barycenter (= Tukey median) are
-calculated. Tukey regions are visualized in dimension two and three. For
-details see Liu, Mosler, and Mozharovskyi (2019,
-<doi:10.1080/10618600.2018.1546595>). See file LICENSE.note for additional
-license information.
+This is the R API for the 'nfer' formalism (<http://nfer.io/>). 'nfer' was
+developed to specify event stream abstractions for spacecraft telemetry
+such as the Mars Science Laboratory.  Users write rules using a syntax
+that borrows heavily from Allen's Temporal Logic that, when applied to an
+event stream, construct a hierarchy of temporal intervals with data.  The
+R API supports loading rules from a file or mining them from historical
+data.  Traces of events or pools of intervals are provided as data frames.
 
 %prep
 %setup -q -c -n %{packname}

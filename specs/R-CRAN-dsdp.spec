@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  qrjoint
-%global packver   2.0-6
+%global __requires_exclude ^libmpi
+%global packname  dsdp
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Joint Estimation in Linear Quantile Regression
+Summary:          Density Estimation with Semidefinite Programming
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6
-Requires:         R-core >= 2.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-quantreg 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-splines 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-quantreg 
 
 %description
-Joint estimation of quantile specific intercept and slope parameters in a
-linear regression setting.
+The models of probability density functions are Gaussian or exponential
+distributions with polynomial correction terms. Using a maximum likelihood
+method, 'dsdp' computes parameters of Gaussian or exponential
+distributions together with degrees of polynomials by a grid search, and
+coefficient of polynomials by a variant of semidefinite programming. It
+adopts Akaike Information Criterion for model selection. See a vignette
+for a tutorial and more on our 'Github' repository
+<https://github.com/tsuchiya-lab/dsdp/>.
 
 %prep
 %setup -q -c -n %{packname}

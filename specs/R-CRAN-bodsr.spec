@@ -1,32 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ifultools
-%global packver   2.0-26
+%global __requires_exclude ^libmpi
+%global packname  bodsr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.26
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Insightful Research Tools
+Summary:          Call the Bus Open Data Service ('BODS') API Through R
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-splus2R >= 1.2.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-splus2R >= 1.2.0
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
-Insightful Research Tools is a collection of signal processing, image
-processing, and time series modeling routines written in the C language
-for speed and efficiency. The routines were originally developed at
-Insightful for use in S-PLUS.
+A wrapper to allow users to download Bus Open Data Service 'BODS'
+transport information from the API (<https://www.bus-data.dft.gov.uk/>).
+This includes timetable and fare metadata (including links for full
+datasets), timetable data at line level, and real-time location data.
 
 %prep
 %setup -q -c -n %{packname}

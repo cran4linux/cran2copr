@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RLT
-%global packver   3.2.4
+%global __requires_exclude ^libmpi
+%global packname  OCA
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reinforcement Learning Trees
+Summary:          Optimal Capital Allocations
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mathjaxr 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-Random forest with a variety of additional features for regression,
-classification and survival analysis. The features include: parallel
-computing with OpenMP, embedded model for selecting the splitting variable
-(based on Zhu, Zeng & Kosorok, 2015), subject weight, variable weight,
-tracking subjects used in each tree, etc.
+Computes optimal capital allocations based on some standard principles
+such as Haircut, Overbeck type II and the Covariance Allocation Principle.
+It also provides some shortcuts for obtaining the Value at Risk and the
+Expectation Shortfall, using both the normal and the t-student
+distribution, see Urbina and Guillén
+(2014)<doi:10.1016/j.eswa.2014.05.017> and Urbina
+(2013)<http://hdl.handle.net/2099.1/19443>.
 
 %prep
 %setup -q -c -n %{packname}

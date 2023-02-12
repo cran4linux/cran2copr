@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rconfig
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manage R Configuration at the Command Line
 
@@ -26,7 +26,8 @@ Requires:         R-CRAN-jsonlite
 Configuration management using files (JSON, YAML, separated text), JSON
 strings, and command line arguments. Command line arguments can be used to
 override configuration. Period-separated command line flags are parsed as
-hierarchical lists.
+hierarchical lists. Environment variables, R global variables, and
+configuration values can be substituted.
 
 %prep
 %setup -q -c -n %{packname}

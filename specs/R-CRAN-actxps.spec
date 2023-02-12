@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actxps
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Actuarial Experience Studies: Prepare Data, Summarize Results, and Create Reports
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-bslib 
@@ -45,7 +44,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-gt 
 Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-bslib 

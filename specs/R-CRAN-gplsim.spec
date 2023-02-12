@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gplsim
-%global packver   0.9.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Spline Estimation for GPLSIM
+Summary:          Spline Estimation for GPLSIM
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,11 +25,11 @@ Requires:         R-stats
 Requires:         R-CRAN-minpack.lm 
 
 %description
-We provides functions that employ penalized spline (P-spline) to estimate
-generalized partially linear single index models (GPLSIM), which extend
-the generalized linear models to include nonlinear effect for some
-predictors. Please see Y. (2017) at <doi:10.1007/s11222-016-9639-0> and
-Y., and R. (2002) at <doi:10.1198/016214502388618861> for more details.
+We provides functions that employ splines to estimate generalized
+partially linear single index models (GPLSIM), which extend the
+generalized linear models to include nonlinear effect for some predictors.
+Please see Y. (2017) at <doi:10.1007/s11222-016-9639-0> and Y., and R.
+(2002) at <doi:10.1198/016214502388618861> for more details.
 
 %prep
 %setup -q -c -n %{packname}
