@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pre
-%global packver   1.0.6
+%global packname  gremes
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prediction Rule Ensembles
+Summary:          Estimation of Tail Dependence in Graphical Models
 
-License:          GPL-2 | GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-partykit >= 1.2.0
-BuildRequires:    R-CRAN-earth 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-quadprog >= 1.5.5
+BuildRequires:    R-CRAN-abind >= 1.4.5
+BuildRequires:    R-CRAN-mev >= 1.13
+BuildRequires:    R-CRAN-mvtnorm >= 1.0.8
+BuildRequires:    R-CRAN-copula >= 0.999.19
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MatrixModels 
-Requires:         R-CRAN-partykit >= 1.2.0
-Requires:         R-CRAN-earth 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-glmnet 
-Requires:         R-graphics 
+Requires:         R-CRAN-quadprog >= 1.5.5
+Requires:         R-CRAN-abind >= 1.4.5
+Requires:         R-CRAN-mev >= 1.13
+Requires:         R-CRAN-mvtnorm >= 1.0.8
+Requires:         R-CRAN-copula >= 0.999.19
+Requires:         R-CRAN-igraph 
 Requires:         R-methods 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MatrixModels 
 
 %description
-Derives prediction rule ensembles (PREs). Largely follows the procedure
-for deriving PREs as described in Friedman & Popescu (2008;
-<DOI:10.1214/07-AOAS148>), with adjustments and improvements. The main
-function pre() derives prediction rule ensembles consisting of rules
-and/or linear terms for continuous, binary, count, multinomial, and
-multivariate continuous responses. Function gpe() derives generalized
-prediction ensembles, consisting of rules, hinge and linear functions of
-the predictor variables.
+Provides tools for estimation of edge weights on graphical models with
+respect to trees and block graphs and parameterized by a particular family
+of max-stable copulas. The edge weights are parameters of tail dependence
+between adjacent variables and these edge weights determine the joint tail
+dependence between all variables in the context of a particular parametric
+model. For methods of moment estimator, composite likelihood estimator
+please see Asenova et al. (2021) <doi:10.1007/s10687-021-00407-5>. For
+estimation based on extremal coefficients see Asenova et al. (2021) as
+well as Einmahl et al. (2016) <doi:10.2139/ssrn.2717531>. For cliquewise
+estimation please see Engelke and Hitz (2020) <doi:10.1111/rssb.12355>.
 
 %prep
 %setup -q -c -n %{packname}

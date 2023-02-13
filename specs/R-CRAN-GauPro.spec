@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcites
-%global packver   1.3.0
+%global packname  GauPro
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the Species+ Database
+Summary:          Gaussian Process Fitting
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-lbfgs 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-lbfgs 
 
 %description
-A programmatic interface to the Species+ <https://speciesplus.net/>
-database via the Species+/CITES Checklist API
-<https://api.speciesplus.net/>.
+Fits a Gaussian process model to data. Gaussian processes are commonly
+used in computer experiments to fit an interpolating model. The model is
+stored as an 'R6' object and can be easily updated with new data. There
+are options to run in parallel, and 'Rcpp' has been used to speed up
+calculations. For more info about Gaussian process software, see Erickson
+et al. (2018) <doi:10.1016/j.ejor.2017.10.002>.
 
 %prep
 %setup -q -c -n %{packname}

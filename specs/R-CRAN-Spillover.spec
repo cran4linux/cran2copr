@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcites
-%global packver   1.3.0
+%global packname  Spillover
+%global packver   0.1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the Species+ Database
+Summary:          Spillover/Connectedness Index Based on VAR Modelling
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-vars 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-fastSOM 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-vars 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-fastSOM 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-zoo 
 
 %description
-A programmatic interface to the Species+ <https://speciesplus.net/>
-database via the Species+/CITES Checklist API
-<https://api.speciesplus.net/>.
+A user-friendly tool for estimating both total and directional
+connectedness spillovers based on Diebold and Yilmaz (2009, 2012). It also
+provides the user with rolling estimation for total and net indices. User
+can find both orthogonalized and generalized versions for each kind of
+measures. See Diebold and Yilmaz (2009, 2012) find them at
+<doi:10.1111/j.1468-0297.2008.02208.x> and
+<doi:10.1016/j.ijforecast.2011.02.006>.
 
 %prep
 %setup -q -c -n %{packname}

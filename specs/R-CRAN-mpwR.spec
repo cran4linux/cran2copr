@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tornado
+%global packname  mpwR
 %global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plots for Model Sensitivity and Variable Importance
+Summary:          Standardized Comparison of Workflows in Mass Spectrometry-Based Bottom-Up Proteomics
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-comprehenr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flowTraceR 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-UpSetR 
+Requires:         R-CRAN-comprehenr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flowTraceR 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-UpSetR 
 
 %description
-Draws tornado plots for model sensitivity to univariate changes.
-Implements methods for many modeling methods including linear models,
-generalized linear models, survival regression models, and arbitrary
-machine learning models in the caret package.  Also draws variable
-importance plots.
+Useful functions to analyze proteomic workflows including number of
+identifications, data completeness, missed cleavages, quantitative and
+retention time precision etc. Various software outputs are supported such
+as 'ProteomeDiscoverer', 'Spectronaut', 'DIA-NN' and 'MaxQuant'.
 
 %prep
 %setup -q -c -n %{packname}

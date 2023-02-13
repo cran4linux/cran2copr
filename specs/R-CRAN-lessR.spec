@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lessR
-%global packver   4.2.5
+%global packver   4.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.5
+Version:          4.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Less Code, More Results
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -46,7 +45,6 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-viridisLite 
 
 %description
 Each function accomplishes the work of several or more standard R

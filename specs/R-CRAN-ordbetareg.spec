@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ordbetareg
-%global packver   0.5.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ordered Beta Regression Models with Brms
 
@@ -17,18 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-brms >= 2.18.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-transformr 
 BuildRequires:    R-CRAN-faux 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-gganimate 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-brms >= 2.18.0
+Requires:         R-stats 
+Requires:         R-CRAN-transformr 
 Requires:         R-CRAN-faux 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-brms 
+Requires:         R-CRAN-gganimate 
 Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
 
 %description
 Implements ordered beta regression models, which are for modeling

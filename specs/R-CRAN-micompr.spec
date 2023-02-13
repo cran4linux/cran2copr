@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  micompr
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Independent Comparison of Observations
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
@@ -34,7 +35,8 @@ procedure is independent of the distributional properties of samples and
 automatically selects features that best explain their differences,
 avoiding manual selection of specific points or summary statistics. It is
 appropriate for comparing samples of time series, images, spectrometric
-measures or similar multivariate observations.
+measures or similar multivariate observations. This package is described
+in Fachada et al. (2016) <doi:10.32614/RJ-2016-055>.
 
 %prep
 %setup -q -c -n %{packname}

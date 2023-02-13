@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcites
-%global packver   1.3.0
+%global packname  DataFakeR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the Species+ Database
+Summary:          Generate Fake Data for Relational Databases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-R6 
 
 %description
-A programmatic interface to the Species+ <https://speciesplus.net/>
-database via the Species+/CITES Checklist API
-<https://api.speciesplus.net/>.
+Based on provided database description and/or database connection generate
+data sample preserving source structure.
 
 %prep
 %setup -q -c -n %{packname}

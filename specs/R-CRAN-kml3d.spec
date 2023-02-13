@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcites
-%global packver   1.3.0
+%global packname  kml3d
+%global packver   2.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.4.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the Species+ Database
+Summary:          K-Means for Joint Longitudinal Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-longitudinalData >= 2.4.2
+BuildRequires:    R-CRAN-kml >= 2.4.1
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-clv 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-misc3d 
+Requires:         R-CRAN-longitudinalData >= 2.4.2
+Requires:         R-CRAN-kml >= 2.4.1
+Requires:         R-methods 
+Requires:         R-CRAN-clv 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-misc3d 
 
 %description
-A programmatic interface to the Species+ <https://speciesplus.net/>
-database via the Species+/CITES Checklist API
-<https://api.speciesplus.net/>.
+An implementation of k-means specifically design to cluster joint
+trajectories (longitudinal data on several variable-trajectories). Like
+'kml', it provides facilities to deal with missing value, compute several
+quality criterion (Calinski and Harabatz, Ray and Turie, Davies and
+Bouldin, BIC,...) and propose a graphical interface for choosing the
+'best' number of clusters. In addition, the 3D graph representing the mean
+joint-trajectories of each cluster can be exported through LaTeX in a 3D
+dynamic rotating PDF graph.
 
 %prep
 %setup -q -c -n %{packname}

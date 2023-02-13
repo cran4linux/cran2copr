@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arrow
-%global packver   10.0.1
+%global packver   11.0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.0.1
+Version:          11.0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integration to 'Apache' 'Arrow'
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    libarrow-dataset-devel
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-bit64 >= 0.9.7
 BuildRequires:    R-CRAN-cpp11 >= 0.4.2
@@ -25,10 +26,10 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-bit64 >= 0.9.7
 Requires:         R-CRAN-assertthat 
@@ -36,7 +37,6 @@ Requires:         R-CRAN-glue
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 

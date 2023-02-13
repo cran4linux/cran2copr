@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  macroBiome
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool for Mapping the Distribution of the Biomes and Bioclimate
 
@@ -32,17 +32,19 @@ Requires:         R-CRAN-strex
 
 %description
 Procedures for simulating biomes by equilibrium vegetation models, with a
-special focus on paleoenvironmental applications. Two widely used
+special focus on paleoenvironmental applications. Three widely used
 equilibrium biome models are currently implemented in the package: the
 Holdridge Life Zone (HLZ) system (Holdridge 1947,
-<doi:10.1126/science.105.2727.367>) and the BIOME model (Prentice et al.
-1992, <doi:10.2307/2845499>). Three climatic forest-steppe models are also
-implemented. An approach for estimating monthly time series of relative
-sunshine duration from temperature and precipitation data (Yin 1999,
-<doi:10.1007/s007040050111>) is also adapted, allowing process-based biome
-models to be combined with high-resolution paleoclimate simulation
-datasets (e.g., CHELSA-TraCE21k v1.0 dataset:
-<https://chelsa-climate.org/chelsa-trace21k/>).
+<doi:10.1126/science.105.2727.367>), the Köppen-Geiger classification
+(KGC) system (Köppen 1936,
+<http://koeppen-geiger.vu-wien.ac.at/pdf/Koppen_1936.pdf>) and the BIOME
+model (Prentice et al. 1992, <doi:10.2307/2845499>). Three climatic
+forest-steppe models are also implemented. An approach for estimating
+monthly time series of relative sunshine duration from temperature and
+precipitation data (Yin 1999, <doi:10.1007/s007040050111>) is also
+adapted, allowing process-based biome models to be combined with
+high-resolution paleoclimate simulation datasets (e.g., CHELSA-TraCE21k
+v1.0 dataset: <https://chelsa-climate.org/chelsa-trace21k/>).
 
 %prep
 %setup -q -c -n %{packname}
