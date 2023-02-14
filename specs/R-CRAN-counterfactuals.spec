@@ -1,51 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vivid
-%global packver   0.2.5
+%global packname  counterfactuals
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Importance and Variable Interaction Displays
+Summary:          Counterfactual Explanations
 
-License:          GPL (>= 2)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-condvis2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DendSer 
-BuildRequires:    R-CRAN-ggalt 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-flashlight 
-BuildRequires:    R-CRAN-ggnewscale 
-Requires:         R-CRAN-condvis2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-colorspace 
-Requires:         R-stats 
-Requires:         R-CRAN-DendSer 
-Requires:         R-CRAN-ggalt 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-flashlight 
-Requires:         R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-StatMatch 
+BuildRequires:    R-CRAN-iml 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-miesmuschel 
+BuildRequires:    R-CRAN-bbotk 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-StatMatch 
+Requires:         R-CRAN-iml 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-miesmuschel 
+Requires:         R-CRAN-bbotk 
 
 %description
-A suite of plots for displaying variable importance and two-way variable
-interaction jointly. Can also display partial dependence plots laid out in
-a pairs plot or 'zenplots' style.
+Modular and unified R6-based interface for counterfactual explanation
+methods. The following methods are currently implemented: Burghmans et al.
+(2022) <arXiv:2104.07411>, Dandl et al. (2020)
+<doi:10.1007/978-3-030-58112-1_31> and Wexler et al. (2019)
+<doi:10.1109/TVCG.2019.2934619>. Optional extensions allow these methods
+to be applied to a variety of models and use cases. Once generated, the
+counterfactuals can be analyzed and visualized by provided
+functionalities.
 
 %prep
 %setup -q -c -n %{packname}

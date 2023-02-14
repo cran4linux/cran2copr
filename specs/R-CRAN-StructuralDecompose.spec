@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tfrmt
-%global packver   0.0.2
+%global packname  StructuralDecompose
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Applies Display Metadata to Analysis Results Datasets
+Summary:          Decomposes a Level Shifted Time Series
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gt >= 0.6.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-gt >= 0.6.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-changepoint 
+BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-strucchange 
+Requires:         R-CRAN-changepoint 
+Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-strucchange 
 
 %description
-Creates a framework to store and apply display metadata to Analysis
-Results Datasets (ARDs). The use of 'tfrmt' allows users to define table
-format and styling without the data, and later apply the format to the
-data.
+Explains the behavior of a time series by decomposing it into its trend,
+seasonality and residuals. It is built to perform very well in the
+presence of significant level shifts. It is designed to play well with any
+breakpoint algorithm and any smoothing algorithm. Currently defaults to
+'lowess' for smoothing and 'strucchange' for breakpoint identification.
+The package is useful in areas such as trend analysis, time series
+decomposition, breakpoint identification and anomaly detection.
 
 %prep
 %setup -q -c -n %{packname}

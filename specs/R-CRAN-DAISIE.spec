@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DAISIE
-%global packver   4.2.0
+%global packver   4.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamical Assembly of Islands by Speciation, Immigration and Extinction
 
@@ -13,10 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DDD >= 4.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-DDD >= 5.0
+BuildRequires:    R-CRAN-BH >= 1.81.0.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
@@ -31,9 +33,8 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-DDD >= 4.4
-Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-DDD >= 5.0
+Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-deSolve 
 Requires:         R-graphics 
 Requires:         R-stats 

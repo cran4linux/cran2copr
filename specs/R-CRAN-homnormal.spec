@@ -1,51 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vivid
-%global packver   0.2.5
+%global packname  homnormal
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Importance and Variable Interaction Displays
+Summary:          Tests of Homogeneity of Variances
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-condvis2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-huxtable >= 5.4.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DendSer 
-BuildRequires:    R-CRAN-ggalt 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-flashlight 
-BuildRequires:    R-CRAN-ggnewscale 
-Requires:         R-CRAN-condvis2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-colorspace 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-huxtable >= 5.4.0
 Requires:         R-stats 
-Requires:         R-CRAN-DendSer 
-Requires:         R-CRAN-ggalt 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-flashlight 
-Requires:         R-CRAN-ggnewscale 
+Requires:         R-graphics 
 
 %description
-A suite of plots for displaying variable importance and two-way variable
-interaction jointly. Can also display partial dependence plots laid out in
-a pairs plot or 'zenplots' style.
+Most common exact, asymptotic and resample based tests are provided for
+testing the homogeneity of variances of k normal distributions under
+normality. These tests are Barlett, Bhandary & Dai, Brown & Forsythe,
+Chang et al., Gokpinar & Gokpinar, Levene, Liu and Xu, Gokpinar. Also, a
+data generation function from multiple normal distribution is provided
+using any multiple normal parameters. Bartlett, M. S. (1937)
+<doi:10.1098/rspa.1937.0109> Bhandary, M., & Dai, H. (2008)
+<doi:10.1080/03610910802431011> Brown, M. B., & Forsythe, A. B.
+(1974).<doi:10.1080/01621459.1974.10482955> Chang, C. H., Pal, N., & Lin,
+J. J. (2017) <doi:10.1080/03610918.2016.1202277> Gokpinar E. & Gokpinar F.
+(2017) <doi:10.1080/03610918.2014.955110> Liu, X., & Xu, X. (2010)
+<doi:10.1016/j.spl.2010.05.017> Levene, H. (1960)
+<https://cir.nii.ac.jp/crid/1573950400526848896> Gökpınar, E. (2020)
+<doi:10.1080/03610918.2020.1800037>.
 
 %prep
 %setup -q -c -n %{packname}

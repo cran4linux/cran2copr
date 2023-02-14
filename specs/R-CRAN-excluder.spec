@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  excluder
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Checks for Exclusion Criteria in Online Data
 
@@ -19,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-iptools 
+BuildRequires:    R-CRAN-ipaddress 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
@@ -31,7 +32,7 @@ BuildRequires:    R-CRAN-tidyselect
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-iptools 
+Requires:         R-CRAN-ipaddress 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 

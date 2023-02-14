@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  funcharts
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Control Charts
 
@@ -17,7 +18,6 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-parallel 
@@ -25,8 +25,10 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-roahd 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-fda 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-parallel 
@@ -34,6 +36,9 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-roahd 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
 
 %description
 Provides functional control charts for statistical process monitoring of

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MIIPW
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          IPW and Mean Score Methods for Time-Course Missing Data
 
@@ -16,22 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R2jags 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-matlib 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-R2jags 
-Requires:         R-utils 
-Requires:         R-CRAN-matlib 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
 
 %description
-Contains functions for data analysis of Repeated measurement
-continuous,categorical data using MCMC. Data may contain missing value in
-response and covariates. Mean Score Method and Inverse Probability
-Weighted method for parameter estimation when there is missing value in
-covariates are also included. Reference for mean score method, inverse
-probability weighted method is Wang et
+Contains functions for data analysis of Repeated measurement using GEE.
+Data may contain missing value in response and covariates. For parameter
+estimation through Fisher Scoring algorithm, Mean Score and Inverse
+Probability Weighted method combining with Multiple Imputation are used
+when there is missing value in covariates/response. Reference for mean
+score method, inverse probability weighted method is Wang et
 al(2007)<doi:10.1093/biostatistics/kxl024>.
 
 %prep
@@ -42,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

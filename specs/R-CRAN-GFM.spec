@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GFM
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Factor Model
 
@@ -15,23 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-doSNOW 
 Requires:         R-parallel 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
-Generalized factor model for ultra-high dimensional variables with mixed
-types. We develop a two-step iterative procedure so that each update can
-be carried out in parallel across all variables and samples. The fast
-computation version is provided for ultra-high dimensional data, see
-examples for more details. More details can be referred to Wei Liu,
-Huazhen Lin, Shurong Zheng and Jin Liu. (2021)
+Generalized factor model is implemented for ultra-high dimensional data
+with mixed-type variables. Two algorithms, variational EM and alternate
+maximization, are designed to implement the generalized factor model,
+respectively. The factor matrix and loading matrix together with the
+number of factors can be well estimated. This model can be employed in
+social and behavioral sciences, economy and finance, and genomics, to
+extract interpretable nonlinear factors. More details can be referred to
+Wei Liu, Huazhen Lin, Shurong Zheng and Jin Liu. (2021)
 <doi:10.1080/01621459.2021.1999818>.
 
 %prep

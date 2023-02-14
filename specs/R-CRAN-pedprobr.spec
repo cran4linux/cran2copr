@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pedprobr
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probability Computations on Pedigrees
 
@@ -17,9 +18,9 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pedtools >= 1.1.0
-BuildRequires:    R-CRAN-pedmut 
+BuildRequires:    R-CRAN-pedmut >= 0.5.0
 Requires:         R-CRAN-pedtools >= 1.1.0
-Requires:         R-CRAN-pedmut 
+Requires:         R-CRAN-pedmut >= 0.5.0
 
 %description
 An implementation of the Elston-Stewart algorithm for calculating pedigree

@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rlibkriging
-%global packver   0.7-4.3
+%global packname  clickb
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4.3
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kriging Models using the 'libKriging' Library
+Summary:          Web Data Analysis by Bayesian Mixture of Markov Models
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.11
-Requires:         R-methods 
-Requires:         R-CRAN-DiceKriging 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DiscreteWeibull 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-DiscreteWeibull 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-parallel 
 
 %description
-Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
-that should provide most standard Kriging / Gaussian process regression
-features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
-'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
-by Conrad Sanderson, and 'lbfgsb_cpp' is a 'C++' wrapper by Colin Fang
-around 'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge
-Nocedal and Jose Luis Morales used for hyperparameters optimization.
+Designed for web usage data analysis, it implements tools to process web
+sequences and identify web browsing profiles through sequential
+classification. Sequences' clusters are identified by using a model-based
+approach, specifically mixture of discrete time first-order Markov models
+for categorical web sequences. A Bayesian approach is used to estimate
+model parameters and identify sequences classification as proposed by
+Fruehwirth-Schnatter and Pamminger (2010) <doi:10.1214/10-BA606>.
 
 %prep
 %setup -q -c -n %{packname}

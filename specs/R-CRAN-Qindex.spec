@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Qindex
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile-Based Predictors for Survival Outcome
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-grDevices 
 Requires:         R-stats 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-mgcv 
+Requires:         R-grDevices 
 
 %description
 Select optimal quantile-based predictors for survival outcome, to include

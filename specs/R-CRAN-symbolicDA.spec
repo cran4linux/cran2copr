@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  symbolicDA
-%global packver   0.6-3
+%global packver   0.7-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Symbolic Data
 
@@ -18,7 +19,6 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-clusterSim 
 BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-shapes 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-ade4 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-cluster
 BuildRequires:    R-CRAN-RSDA 
 Requires:         R-CRAN-clusterSim 
 Requires:         R-CRAN-XML 
-Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-shapes 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-ade4 
