@@ -1,34 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  loadings
-%global packver   0.3.1
+%global packname  HYDROCAL
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Loadings for Principal Component Analysis and Partial Least Squares
+Summary:          Hydraulic Roughness Calculator
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geigen 
-Requires:         R-CRAN-geigen 
 
 %description
-Computing statistical hypothesis testing for principal component (PC)
-loading (Yamamoto, H. et al. (2014)), orthogonal smoothed PC (OS-PC)
-loading (Yamamoto, H. et al. (2021) <doi:10.3390/metabo11030149>),
-one-sided kernel PC loading (Yamamoto, H. (2023) <doi:10.51094/jxiv.262>)
-, partial least squares (PLS) loading (Yamamoto, H. (2017)
-<doi:10.1002/cem.2883>), PLS with rank order of groups (PLS-ROG) loading
-(Yamamoto, H. (2017), multiset PLS and PLS-ROG loading (Yamamoto, H.
-(2022) <doi:10.1101/2022.08.30.505949>).
+Estimates frictional constants for hydraulic analysis of rivers. This
+HYDRaulic ROughness CALculator (HYDROCAL) was previously developed as a
+spreadsheet tool and accompanying documentation by McKay and Fischenich
+(2011,
+<https://erdc-library.erdc.dren.mil/jspui/bitstream/11681/2034/1/CHETN-VII-11.pdf>).
 
 %prep
 %setup -q -c -n %{packname}

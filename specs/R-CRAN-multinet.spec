@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  loadings
-%global packver   0.3.1
+%global packname  multinet
+%global packver   4.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          4.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Loadings for Principal Component Analysis and Partial Least Squares
+Summary:          Analysis and mining of multilayer social networks
 
-License:          LGPL-3
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-geigen 
-Requires:         R-CRAN-geigen 
+BuildRequires:    R-CRAN-igraph >= 1.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-igraph >= 1.2
+Requires:         R-CRAN-Rcpp >= 1.0
+Requires:         R-methods 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Computing statistical hypothesis testing for principal component (PC)
-loading (Yamamoto, H. et al. (2014)), orthogonal smoothed PC (OS-PC)
-loading (Yamamoto, H. et al. (2021) <doi:10.3390/metabo11030149>),
-one-sided kernel PC loading (Yamamoto, H. (2023) <doi:10.51094/jxiv.262>)
-, partial least squares (PLS) loading (Yamamoto, H. (2017)
-<doi:10.1002/cem.2883>), PLS with rank order of groups (PLS-ROG) loading
-(Yamamoto, H. (2017), multiset PLS and PLS-ROG loading (Yamamoto, H.
-(2022) <doi:10.1101/2022.08.30.505949>).
+Functions for the creation/generation and analysis of multilayer social
+networks <doi:10.18637/jss.v098.i08>.
 
 %prep
 %setup -q -c -n %{packname}

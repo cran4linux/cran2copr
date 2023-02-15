@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  loadings
-%global packver   0.3.1
+%global packname  tablexlsx
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Loadings for Principal Component Analysis and Partial Least Squares
+Summary:          Export Data Frames to Excel Workbook
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geigen 
-Requires:         R-CRAN-geigen 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-openxlsx 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-methods 
+Requires:         R-CRAN-openxlsx 
 
 %description
-Computing statistical hypothesis testing for principal component (PC)
-loading (Yamamoto, H. et al. (2014)), orthogonal smoothed PC (OS-PC)
-loading (Yamamoto, H. et al. (2021) <doi:10.3390/metabo11030149>),
-one-sided kernel PC loading (Yamamoto, H. (2023) <doi:10.51094/jxiv.262>)
-, partial least squares (PLS) loading (Yamamoto, H. (2017)
-<doi:10.1002/cem.2883>), PLS with rank order of groups (PLS-ROG) loading
-(Yamamoto, H. (2017), multiset PLS and PLS-ROG loading (Yamamoto, H.
-(2022) <doi:10.1101/2022.08.30.505949>).
+Collection of functions that allow to export data frames to excel
+workbook.
 
 %prep
 %setup -q -c -n %{packname}

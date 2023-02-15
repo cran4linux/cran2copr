@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  heemod
-%global packver   0.14.4
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.4
+Version:          0.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Markov Models for Health Economic Evaluations
 
@@ -20,8 +21,8 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
 BuildRequires:    R-CRAN-tibble >= 3.0.6
 BuildRequires:    R-CRAN-memoise >= 2.0.0
 BuildRequires:    R-CRAN-plyr >= 1.8.6
-BuildRequires:    R-CRAN-dplyr >= 1.0.4
-BuildRequires:    R-CRAN-rlang >= 0.4.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.9
+BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-mvnfast >= 0.2.5
 BuildRequires:    R-CRAN-lazyeval >= 0.2.2
@@ -30,8 +31,8 @@ Requires:         R-CRAN-ggplot2 >= 3.3.3
 Requires:         R-CRAN-tibble >= 3.0.6
 Requires:         R-CRAN-memoise >= 2.0.0
 Requires:         R-CRAN-plyr >= 1.8.6
-Requires:         R-CRAN-dplyr >= 1.0.4
-Requires:         R-CRAN-rlang >= 0.4.1
+Requires:         R-CRAN-dplyr >= 1.0.9
+Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-mvnfast >= 0.2.5
 Requires:         R-CRAN-lazyeval >= 0.2.2

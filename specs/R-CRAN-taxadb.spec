@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxadb
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A High-Performance Local Taxonomic Database Interface
 
@@ -17,40 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkdb >= 0.0.16
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-contentid 
-BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-arkdb >= 0.0.16
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-memoise 
 Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-progress 
-Requires:         R-utils 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-contentid 
-Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-memoise 
 
 %description
 Creates a local database of many commonly used taxonomic authorities and

@@ -1,43 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rpact
-%global packver   3.3.4
+%global packname  TangledFeatures
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confirmatory Adaptive Clinical Trial Design and Analysis
+Summary:          Feature Selection in Highly Correlated Spaces
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-correlation 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ranger 
+Requires:         R-CRAN-correlation 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-tools 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ranger 
 
 %description
-Design and analysis of confirmatory adaptive clinical trials with
-continuous, binary, and survival endpoints according to the methods
-described in the monograph by Wassmer and Brannath (2016)
-<doi:10.1007/978-3-319-32562-0>. This includes classical group sequential
-as well as multi-stage adaptive hypotheses tests that are based on the
-combination testing principle.
+Feature selection algorithm that extracts features in highly correlated
+spaces. The extracted features are meant to be fed into simple explainable
+models such as linear or logistic regressions. The package is useful in
+the field of explainable modelling as a way to understand variable
+behavior.
 
 %prep
 %setup -q -c -n %{packname}

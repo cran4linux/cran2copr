@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HTRX
-%global packver   1.1.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Haplotype Trend Regression with eXtra Flexibility (HTRX)
 
@@ -23,18 +23,23 @@ BuildRequires:    R-parallel
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-tune 
+BuildRequires:    R-CRAN-recipes 
 Requires:         R-CRAN-fastglm 
 Requires:         R-CRAN-caret 
 Requires:         R-parallel 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-tune 
+Requires:         R-CRAN-recipes 
 
 %description
 Detection of haplotype patterns that include single nucleotide
 polymorphisms (SNPs) and non-contiguous haplotypes that are associated
-with a phenotype. Methods for implementing HTRX are described in Barrie W,
-Yang Y, Attfield K E, et al (2022) <doi:10.1101/2022.09.23.509097>.
+with a phenotype. Methods for implementing HTRX are described in Yang Y,
+Lawson DJ (2022) <doi:10.1101/2022.11.29.518395> and Barrie W, Yang Y,
+Attfield K E, et al (2022) <doi:10.1101/2022.09.23.509097>.
 
 %prep
 %setup -q -c -n %{packname}

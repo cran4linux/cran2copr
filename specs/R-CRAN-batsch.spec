@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  loadings
-%global packver   0.3.1
+%global packname  batsch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Loadings for Principal Component Analysis and Partial Least Squares
+Summary:          Real-Time PCR Data Sets by Batsch et al. (2008)
 
-License:          LGPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geigen 
-Requires:         R-CRAN-geigen 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
 
 %description
-Computing statistical hypothesis testing for principal component (PC)
-loading (Yamamoto, H. et al. (2014)), orthogonal smoothed PC (OS-PC)
-loading (Yamamoto, H. et al. (2021) <doi:10.3390/metabo11030149>),
-one-sided kernel PC loading (Yamamoto, H. (2023) <doi:10.51094/jxiv.262>)
-, partial least squares (PLS) loading (Yamamoto, H. (2017)
-<doi:10.1002/cem.2883>), PLS with rank order of groups (PLS-ROG) loading
-(Yamamoto, H. (2017), multiset PLS and PLS-ROG loading (Yamamoto, H.
-(2022) <doi:10.1101/2022.08.30.505949>).
+Real-time quantitative polymerase chain reaction (qPCR) data sets by
+Batsch et al. (2008) <doi:10.1186/1471-2105-9-95>. This package provides
+five data sets, one for each PCR target: (i) rat SLC6A14, (ii) human
+SLC22A13, (iii) pig EMT, (iv) chicken ETT, and (v) human GAPDH. Each data
+set comprises a five-point, four-fold dilution series. For each
+concentration there are three replicates. Each amplification curve is 45
+cycles long. Original raw data file:
+<https://static-content.springer.com/esm/art%%3A10.1186%%2F1471-2105-9-95/MediaObjects/12859_2007_2080_MOESM5_ESM.xls>.
 
 %prep
 %setup -q -c -n %{packname}

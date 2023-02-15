@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  apyramid
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
-Release:          3%{?dist}%{?buildtag}
+Version:          0.1.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize Population Pyramids Aggregated by Age
 
 License:          GPL-3
@@ -17,16 +18,16 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-forcats >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-forcats >= 1.0.0
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-glue 
@@ -37,12 +38,20 @@ aggregated census data stratified by age and one or two categorical
 variables (e.g. gender and health status) with any number of values. It
 returns a 'ggplot' object, allowing the user to further customize the
 output. This package is part of the 'R4Epis' project
-<https://r4epis.netlify.com>.
+<https://r4epis.netlify.app/>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -50,19 +59,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

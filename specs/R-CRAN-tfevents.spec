@@ -1,34 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  loadings
-%global packver   0.3.1
+%global packname  tfevents
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Loadings for Principal Component Analysis and Partial Least Squares
+Summary:          Write Events for 'TensorBoard'
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-geigen 
-Requires:         R-CRAN-geigen 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-blob 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-zeallot 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-blob 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-zeallot 
 
 %description
-Computing statistical hypothesis testing for principal component (PC)
-loading (Yamamoto, H. et al. (2014)), orthogonal smoothed PC (OS-PC)
-loading (Yamamoto, H. et al. (2021) <doi:10.3390/metabo11030149>),
-one-sided kernel PC loading (Yamamoto, H. (2023) <doi:10.51094/jxiv.262>)
-, partial least squares (PLS) loading (Yamamoto, H. (2017)
-<doi:10.1002/cem.2883>), PLS with rank order of groups (PLS-ROG) loading
-(Yamamoto, H. (2017), multiset PLS and PLS-ROG loading (Yamamoto, H.
-(2022) <doi:10.1101/2022.08.30.505949>).
+Provides a convenient way to log scalars, images, audio, and histograms in
+the 'tfevent' record file format. Logged data can be visualized on the fly
+using 'TensorBoard', a web based tool that focuses on visualizing the
+training progress of machine learning models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nplyr
-%global packver   0.2.0
+%global packname  OralOpioids
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Grammar of Nested Data Manipulation
+Summary:          Retrieving Oral Opioid Information
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,23 +18,48 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
+Requires:         R-utils 
 Requires:         R-CRAN-rlang 
 
 %description
-Provides functions for manipulating nested data frames in a list-column
-using 'dplyr' <https://dplyr.tidyverse.org/> syntax. Rather than
-unnesting, then manipulating a data frame, 'nplyr' allows users to
-manipulate each nested data frame directly. 'nplyr' is a wrapper for
-'dplyr' functions that provide tools for common data manipulation steps:
-filtering rows, selecting columns, summarising grouped data, among others.
+Provides details such as Morphine Equivalent Dose (MED), brand name and
+opioid content which are calculated of all oral opioids authorized for
+sale by Health Canada based on their Drug Identification Number (DIN).
+MEDs are calculated based on recommendations by Canadian Institute for
+Health Information (CIHI) and information obtained from Health Canada's
+Drug Product Database's monthly data dump. Please note in no way should
+output from this package be a substitute for medical advise. All
+medications should only be consumed on prescription from a licensed
+healthcare provider.
 
 %prep
 %setup -q -c -n %{packname}

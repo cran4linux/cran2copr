@@ -1,34 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  loadings
-%global packver   0.3.1
+%global packname  ggrain
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Loadings for Principal Component Analysis and Partial Least Squares
+Summary:          A Rainclouds Geom for 'ggplot2'
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geigen 
-Requires:         R-CRAN-geigen 
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-vctrs >= 0.5.0
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gghalves 
+BuildRequires:    R-CRAN-ggpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-vctrs >= 0.5.0
+Requires:         R-grid 
+Requires:         R-CRAN-gghalves 
+Requires:         R-CRAN-ggpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
 
 %description
-Computing statistical hypothesis testing for principal component (PC)
-loading (Yamamoto, H. et al. (2014)), orthogonal smoothed PC (OS-PC)
-loading (Yamamoto, H. et al. (2021) <doi:10.3390/metabo11030149>),
-one-sided kernel PC loading (Yamamoto, H. (2023) <doi:10.51094/jxiv.262>)
-, partial least squares (PLS) loading (Yamamoto, H. (2017)
-<doi:10.1002/cem.2883>), PLS with rank order of groups (PLS-ROG) loading
-(Yamamoto, H. (2017), multiset PLS and PLS-ROG loading (Yamamoto, H.
-(2022) <doi:10.1101/2022.08.30.505949>).
+The 'gg_rain()' function adds different geoms together using 'ggplot2' to
+create raincloud plots.
 
 %prep
 %setup -q -c -n %{packname}

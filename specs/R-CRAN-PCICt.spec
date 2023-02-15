@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PCICt
-%global packver   0.5-4.3
+%global packver   0.5-4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4.3
+Version:          0.5.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of POSIXct Work-Alike for 365 and 360 Day Calendars
 

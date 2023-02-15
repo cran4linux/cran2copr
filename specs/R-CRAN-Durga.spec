@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  loadings
-%global packver   0.3.1
+%global packname  Durga
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Loadings for Principal Component Analysis and Partial Least Squares
+Summary:          Effect Size Estimation and Visualisation
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geigen 
-Requires:         R-CRAN-geigen 
+BuildRequires:    R-CRAN-vipor 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-vipor 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-methods 
 
 %description
-Computing statistical hypothesis testing for principal component (PC)
-loading (Yamamoto, H. et al. (2014)), orthogonal smoothed PC (OS-PC)
-loading (Yamamoto, H. et al. (2021) <doi:10.3390/metabo11030149>),
-one-sided kernel PC loading (Yamamoto, H. (2023) <doi:10.51094/jxiv.262>)
-, partial least squares (PLS) loading (Yamamoto, H. (2017)
-<doi:10.1002/cem.2883>), PLS with rank order of groups (PLS-ROG) loading
-(Yamamoto, H. (2017), multiset PLS and PLS-ROG loading (Yamamoto, H.
-(2022) <doi:10.1101/2022.08.30.505949>).
+An easy-to-use yet powerful system for plotting grouped data effect sizes.
+Various types of effect size can be estimated, then plotted together with
+a representation of the original data. Select from many possible data
+representations (box plots, violin plots, raw data points etc.), and
+combine as desired. 'Durga' plots are implemented in base R, so are
+compatible with base R methods for combining plots, such as 'layout()'.
+See Khan & McLean (2023) <doi:10.1101/2023.02.06.526960>.
 
 %prep
 %setup -q -c -n %{packname}
