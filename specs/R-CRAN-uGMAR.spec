@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  uGMAR
-%global packver   3.4.3
+%global packver   3.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.3
+Version:          3.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Univariate Gaussian and Student's t Mixture Autoregressive Models
 
@@ -34,8 +35,8 @@ Gaussian and Student's t Mixture Autoregressive (G-StMAR) models, quantile
 residual tests, graphical diagnostics, forecast and simulate from GMAR,
 StMAR and G-StMAR processes. Leena Kalliovirta, Mika Meitz, Pentti
 Saikkonen (2015) <doi:10.1111/jtsa.12108>, Mika Meitz, Daniel Preve,
-Pentti Saikkonen (2021) <doi:10.1080/03610926.2021.1916531>, Savi
-Virolainen (2021) <doi:10.1515/snde-2020-0060>.
+Pentti Saikkonen (2023) <doi:10.1080/03610926.2021.1916531>, Savi
+Virolainen (2022) <doi:10.1515/snde-2020-0060>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CausalGPS
-%global packver   0.2.9
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matching on Generalized Propensity Scores with Continuous Exposures
 
@@ -53,8 +53,9 @@ Requires:         R-CRAN-Ecume
 Provides a framework for estimating causal effects of a continuous
 exposure using observational data, and implementing matching and weighting
 on the generalized propensity score. Wu, X., Mealli, F., Kioumourtzoglou,
-M.A., Dominici, F. and Braun, D., 2018. Matching on generalized propensity
-scores with continuous exposures. arXiv preprint <arXiv:1812.06575>.
+M.A., Dominici, F. and Braun, D., 2022. Matching on generalized propensity
+scores with continuous exposures. Journal of the American Statistical
+Association, pp.1-29.
 
 %prep
 %setup -q -c -n %{packname}

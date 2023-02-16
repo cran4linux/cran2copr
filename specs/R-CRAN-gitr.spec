@@ -1,41 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmmrMCML
-%global packver   0.2.2
+%global packname  gitr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Markov Chain Monte Carlo Maximum Likelihood for Generalised Linear Mixed Models
+Summary:          A Lightweight API for 'Git'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-glmmrBase >= 0.2.3
-BuildRequires:    R-CRAN-rminqa >= 0.2.2
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-SparseChol 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-glmmrBase >= 0.2.3
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 
 %description
-Markov Chain Monte Carlo Maximum Likelihood model fitting for generalised
-linear mixed models. Uses the package 'glmmrBase' for model specification,
-see <https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for
-a detailed manual on model specification.
+A light-weight, dependency-free, application programming interface (API)
+to access system-level 'Git' commands from within 'R'. Contains wrappers
+and defaults for common data science workflows as well as 'Zsh' plugin
+aliases. A generalized API syntax is also available. A system installation
+of 'Git' <https://git-scm.com/downloads> is required.
 
 %prep
 %setup -q -c -n %{packname}

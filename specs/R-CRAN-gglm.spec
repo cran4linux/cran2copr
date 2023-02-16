@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gglm
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar of Graphics for Linear Model Diagnostic Plots
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-broom.mixed 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-broom
 Requires:         R-CRAN-broom.mixed 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 

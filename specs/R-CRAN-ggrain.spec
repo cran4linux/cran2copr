@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggrain
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Rainclouds Geom for 'ggplot2'
 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-cli 
 
 %description
-The 'gg_rain()' function adds different geoms together using 'ggplot2' to
-create raincloud plots.
+The 'geom_rain()' function adds different geoms together using 'ggplot2'
+to create raincloud plots.
 
 %prep
 %setup -q -c -n %{packname}

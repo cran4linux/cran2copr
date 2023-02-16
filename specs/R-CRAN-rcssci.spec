@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcssci
-%global packver   0.2.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of Restricted Cubic Splines
 
@@ -39,11 +39,13 @@ Requires:         R-CRAN-Cairo
 %description
 Restricted Cubic Splines were performed to explore the shape of
 association form of "U, inverted U, L" shape and test linearity or
-non-linearity base on "Cox,Logistic,linear" regression, and auto output
-Restricted Cubic Splines figures. The Restricted Cubic Splines method were
-based on Suli Huang (2022) <doi:10.1016/j.ecoenv.2022.113183>,Amit Kaura
-(2019) <doi:10.1136/bmj.l6055>, and Harrell Jr (2015,
-ISBN:978-3-319-19424-0 (Print) 978-3-319-19425-7 (Online)).
+non-linearity base on "Cox,Logistic,linear,quasipoisson" regression, and
+auto output Restricted Cubic Splines figures. rcssci package could
+automatically draw RCS graphics with Y-axis "OR,HR,RR,beta". The
+Restricted Cubic Splines method were based on Suli Huang (2022)
+<doi:10.1016/j.ecoenv.2022.113183>,Amit Kaura (2019)
+<doi:10.1136/bmj.l6055>, and Harrell Jr (2015, ISBN:978-3-319-19424-0
+(Print) 978-3-319-19425-7 (Online)).
 
 %prep
 %setup -q -c -n %{packname}

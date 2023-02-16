@@ -1,43 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nnTensor
-%global packver   1.1.12
+%global packname  PoolDilutionR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Negative Tensor Decomposition
+Summary:          Calculate Gross Biogeochemical Flux Rates from Isotope Pool Dilution Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-rTensor 
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-tagcloud 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-rTensor 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-tagcloud 
-Requires:         R-CRAN-ggplot2 
 
 %description
-Some functions for performing non-negative matrix factorization,
-non-negative CANDECOMP/PARAFAC (CP) decomposition, non-negative Tucker
-decomposition, and generating toy model data. See Andrzej Cichock et al
-(2009) and the reference section of GitHub README.md
-<https://github.com/rikenbit/nnTensor>, for details of the methods.
+Pool dilution is a isotope tracer technique wherein a biogeochemical pool
+is artifically enriched with its heavy isotopologue and the gross
+productive and consumptive fluxes of that pool are quantified by the
+change in pool size and isotopic composition over time. This package
+calculates gross production and consumption rates from closed-system
+isotopic pool dilution time series data. Pool size concentrations and
+heavy isotope (e.g., 15N) content are measured over time and the model
+optimizes production rate (P) and the first order rate constant (k) by
+minimizing error in the model-predicted total pool size, as well as the
+isotopic signature. The model optimizes rates by weighting information
+against the signal:noise ratio of concentration and heavy- isotope
+signatures using measurement precision as well as the magnitude of change
+over time. The calculations used here are based on von Fischer and Hedin
+(2002) <doi:10.1029/2001GB001448> with some modifications.
 
 %prep
 %setup -q -c -n %{packname}

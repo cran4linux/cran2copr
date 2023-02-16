@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  multimorbidity
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harmonizing Various Comorbidity, Multimorbidity, and Frailty Measures
 
@@ -16,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
@@ -24,10 +24,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
@@ -35,9 +32,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-sqldf 
-Requires:         R-stats 
 
 %description
 Identifying comorbidities, frailty, and multimorbidity in claims and

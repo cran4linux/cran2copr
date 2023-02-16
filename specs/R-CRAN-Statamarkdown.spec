@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  kmscv
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  Statamarkdown
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          K-Means Based Stratified Resampling
+Summary:          'Stata' Markdown
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,20 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-rsample 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-knitr >= 1.15
+BuildRequires:    R-CRAN-xfun >= 0.4
+Requires:         R-CRAN-knitr >= 1.15
+Requires:         R-CRAN-xfun >= 0.4
 
 %description
-An 'rsample' extension to create cluster based stratified resamples for
-cross-validation.
+Settings and functions to extend the 'knitr' 'Stata' engine.
 
 %prep
 %setup -q -c -n %{packname}

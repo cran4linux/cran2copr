@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  usedthese
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summarises Package & Function Usage
 
@@ -17,8 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-conflicted 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-conflicted >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-highr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-kableExtra 
@@ -29,11 +30,11 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-conflicted 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-conflicted >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-highr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-kableExtra 
@@ -44,7 +45,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-withr 
 

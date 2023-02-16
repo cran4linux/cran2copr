@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  markovMSM
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Checking the Markov Condition in Multi-State Survival Data
 
@@ -17,10 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survidm 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-mstate 
-Requires:         R-CRAN-survidm 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-mstate 
 

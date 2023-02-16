@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phenofit
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Remote Sensing Vegetation Phenology
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-lubridate 
@@ -32,9 +32,9 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-zeallot 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-lubridate 

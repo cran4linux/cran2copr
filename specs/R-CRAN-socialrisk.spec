@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  socialrisk
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identifying Patient Social Risk from Administrative Health Care Data
 
@@ -16,24 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-devtools 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
-Requires:         R-CRAN-devtools 
 
 %description
 Social risks are increasingly becoming a critical component of health care
@@ -43,9 +38,8 @@ taxonomies of ICD-10-CM Z-codes from administrative health care data. The
 conceptual taxonomies come from: Centers for Medicare and Medicaid
 Services (2021)
 <https://www.cms.gov/files/document/zcodes-infographic.pdf>, Reidhead
-(2018)
-<https://www.mhanet.com/mhaimages/Policy_Briefs/PolicyBrief_SDOH.pdf>, A
-Arons, S DeSilvey, C Fichtenberg, L Gottlieb (2018)
+(2018) <https://web.mhanet.com/>, A Arons, S DeSilvey, C Fichtenberg, L
+Gottlieb (2018)
 <https://sirenetwork.ucsf.edu/tools-resources/resources/compendium-medical-terminology-codes-social-risk-factors>.
 
 %prep
