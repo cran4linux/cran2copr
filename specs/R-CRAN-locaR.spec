@@ -1,45 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geofi
-%global packver   1.0.8
+%global packname  locaR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Finnish Geospatial Data
+Summary:          A Set of Tools for Sound Localization
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httpcache 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httpcache 
-Requires:         R-CRAN-httr 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-oce 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-SynchWave 
+Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-oce 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-SynchWave 
 
 %description
-Tools for reading Finnish open geospatial data in R.
+A set of functions and tools to conduct acoustic source localization, as
+well as organize and check localization data and results. The localization
+functions implement the modified steered response power algorithm
+described by Cobos et al. (2010) <doi:10.1109/LSP.2010.2091502>.
 
 %prep
 %setup -q -c -n %{packname}

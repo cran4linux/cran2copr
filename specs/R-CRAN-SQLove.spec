@@ -1,45 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geofi
-%global packver   1.0.8
+%global packname  SQLove
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Finnish Geospatial Data
+Summary:          Execute 'SQL' Scripts in 'R' Containing Multiple Queries
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httpcache 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httpcache 
-Requires:         R-CRAN-httr 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-RJDBC 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-RJDBC 
 
 %description
-Tools for reading Finnish open geospatial data in R.
+The nature of working with structured query language ('SQL') scripts
+efficiently often requires the creation of temporary tables and there are
+few clean and simple 'R' 'SQL' execution approaches that allow you to
+complete this kind of work with the 'R' environment. This package seeks to
+give 'SQL' implementations in 'R' a little love by deploying functions
+that allow you to deploy complex 'SQL' scripts within a typical 'R'
+workflow.
 
 %prep
 %setup -q -c -n %{packname}

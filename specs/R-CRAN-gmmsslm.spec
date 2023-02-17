@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  L1mstate
-%global packver   1.0.1
+%global __requires_exclude ^libmpi
+%global packname  gmmsslm
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          L1-Regularized Multi-State Models
+Summary:          Semi-Supervised Gaussian Mixture Model with a Missing-Data Mechanism
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Matrix >= 1.2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mstate 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Matrix >= 1.2.10
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mstate 
-Requires:         R-CRAN-colorspace 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
 
 %description
-Fitting the regularization path of the L1-regularized multi-state models
-since they can exploit sparsity structure of input. Different tuning
-regularization parameter methods are provided. The cumulative hazard rate
-estimation and the transition probability predictions can be made from the
-fitted models.
+The algorithm of semi-supervised learning is based on finite Gaussian
+mixture models and includes a mechanism for handling missing data. It aims
+to fit a g-class Gaussian mixture model using maximum likelihood. The
+algorithm treats the labels of unclassified features as missing data,
+building on the framework introduced by Rubin (1976) <doi:10.2307/2335739>
+for missing data analysis. By taking into account the dependencies in the
+missing pattern, the algorithm provides more information for determining
+the optimal classifier, as specified by Bayes' rule.
 
 %prep
 %setup -q -c -n %{packname}

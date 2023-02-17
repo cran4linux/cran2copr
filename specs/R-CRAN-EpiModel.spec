@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EpiModel
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mathematical Modeling of Infectious Disease Dynamics
 
@@ -16,17 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-statnet.common >= 4.6.0
-BuildRequires:    R-CRAN-ergm >= 4.2.2
-BuildRequires:    R-CRAN-tergm >= 4.1.0
+BuildRequires:    R-CRAN-statnet.common >= 4.8.0
+BuildRequires:    R-CRAN-ergm >= 4.4.0
+BuildRequires:    R-CRAN-tergm >= 4.1.1
 BuildRequires:    R-CRAN-deSolve >= 1.21
-BuildRequires:    R-CRAN-network >= 1.17.2
-BuildRequires:    R-CRAN-networkDynamic >= 0.11.2
+BuildRequires:    R-CRAN-network >= 1.18.1
+BuildRequires:    R-CRAN-ergm.ego >= 1.0.1
+BuildRequires:    R-CRAN-networkLite >= 1.0.1
+BuildRequires:    R-CRAN-networkDynamic >= 0.11.3
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-egor 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-ape 
@@ -38,17 +41,20 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-statnet.common >= 4.6.0
-Requires:         R-CRAN-ergm >= 4.2.2
-Requires:         R-CRAN-tergm >= 4.1.0
+Requires:         R-CRAN-statnet.common >= 4.8.0
+Requires:         R-CRAN-ergm >= 4.4.0
+Requires:         R-CRAN-tergm >= 4.1.1
 Requires:         R-CRAN-deSolve >= 1.21
-Requires:         R-CRAN-network >= 1.17.2
-Requires:         R-CRAN-networkDynamic >= 0.11.2
+Requires:         R-CRAN-network >= 1.18.1
+Requires:         R-CRAN-ergm.ego >= 1.0.1
+Requires:         R-CRAN-networkLite >= 1.0.1
+Requires:         R-CRAN-networkDynamic >= 0.11.3
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-egor 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-ape 

@@ -1,45 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MASSExtra
-%global packver   1.2.2
+%global packname  exdqlm
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Some 'MASS' Enhancements
+Summary:          Extended Dynamic Quantile Linear Models
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dlm 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-magic 
+BuildRequires:    R-CRAN-crch 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-HyperbolicDist 
+BuildRequires:    R-CRAN-GeneralizedHyperbolic 
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-demoKde 
+Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-utils 
+Requires:         R-CRAN-dlm 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-magic 
+Requires:         R-CRAN-crch 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-HyperbolicDist 
+Requires:         R-CRAN-GeneralizedHyperbolic 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-grDevices 
-Requires:         R-CRAN-demoKde 
 
 %description
-Some enhancements, extensions and additions to the facilities of the
-recommended 'MASS' package that are useful mainly for teaching purposes,
-with more convenient default settings and user interfaces. Key functions
-from 'MASS' are imported and re-exported to avoid masking conflicts.  In
-addition we provide some additional functions mainly used to illustrate
-coding paradigms and techniques, such as Gramm-Schmidt orthogonalisation
-and generalised eigenvalue problems.
+Routines for Bayesian estimation and analysis of dynamic quantile linear
+models utilizing the extended asymmetric Laplace error distribution, also
+known as extended dynamic quantile linear models (exDQLM) described in
+Barata et al (2020) <doi:10.1214/21-AOAS1497>.
 
 %prep
 %setup -q -c -n %{packname}

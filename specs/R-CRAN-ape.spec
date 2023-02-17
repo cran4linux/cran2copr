@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ape
-%global packver   5.6-2
+%global packver   5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.6.2
+Version:          5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyses of Phylogenetics and Evolution
 
@@ -21,18 +22,18 @@ BuildRequires:    R-CRAN-lattice
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-lattice 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-parallel 
+Requires:         R-CRAN-digest 
 
 %description
 Functions for reading, writing, plotting, and manipulating phylogenetic

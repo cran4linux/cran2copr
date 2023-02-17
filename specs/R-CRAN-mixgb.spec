@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mixgb
-%global packver   0.1.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Imputation Through 'XGBoost'
 
@@ -40,13 +41,16 @@ Requires:         R-utils
 Requires:         R-CRAN-xgboost 
 
 %description
-Multiple imputation using 'XGBoost', bootstrapping and predictive mean
-matching as described in Deng and Lumley (2021) <arXiv:2106.01574>. It is
-built under Fully Conditional Specification, where 'XGBoost' imputation
-models are built for each incomplete variable. It supports various types
-of variables and offers different settings regarding bootstrapping and
-predictive mean matching. Visual diagnostic functions are also provided
-for inspecting multiply imputed values for incomplete variables.
+Multiple imputation using 'XGBoost', subsampling, and predictive mean
+matching as described in Deng and Lumley (2023) <arXiv:2106.01574>. Our
+method utilizes the capabilities of XGBoost, a highly efficient
+implementation of gradient boosted trees, to capture interactions and
+non-linear relations automatically. Moreover, we have integrated
+subsampling and predictive mean matching to minimize bias and reflect
+appropriate imputation variability. This package supports various types of
+variables and offers flexible settings for subsampling and predictive mean
+matching. Additionally, it includes diagnostic tools for evaluating the
+quality of the imputed values.
 
 %prep
 %setup -q -c -n %{packname}

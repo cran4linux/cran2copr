@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adjustedCurves
-%global packver   0.9.1
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Confounder-Adjusted Survival Curves and Cumulative Incidence Functions
 
@@ -34,14 +34,13 @@ Requires:         R-CRAN-rlang
 Estimate and plot confounder-adjusted survival curves using either 'Direct
 Adjustment', 'Direct Adjustment with Pseudo-Values', various forms of
 'Inverse Probability of Treatment Weighting', two forms of 'Augmented
-Inverse Probability of Treatment Weighting', 'Empirical Likelihood
-Estimation' and 'Targeted Maximum Likelihood Estimation'. Also includes a
-significance test for the difference between two adjusted survival curves
-and the calculation of adjusted restricted mean survival times.
-Additionally enables the user to estimate and plot cause-specific
-confounder-adjusted cumulative incidence functions in the competing risks
-setting using the same methods (with some exceptions). For details, see
-Denz et. al (2022) <arXiv:2203.10002v1>.
+Inverse Probability of Treatment Weighting' and 'Empirical Likelihood
+Estimation'. Also includes a significance test for the difference between
+two adjusted survival curves and the calculation of adjusted restricted
+mean survival times.  Additionally enables the user to estimate and plot
+cause-specific confounder-adjusted cumulative incidence functions in the
+competing risks setting using the same methods (with some exceptions). For
+details, see Denz et. al (2023) <doi:10.1002/sim.9681>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yfR
-%global packver   1.0.6
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Downloads and Organizes Financial Data from Yahoo Finance
 
@@ -35,6 +35,9 @@ BuildRequires:    R-CRAN-humanize
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pingr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-quantmod >= 0.4.20
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
@@ -53,6 +56,9 @@ Requires:         R-CRAN-humanize
 Requires:         R-methods 
 Requires:         R-CRAN-pingr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Facilitates download of financial data from Yahoo Finance

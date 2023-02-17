@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geofi
-%global packver   1.0.8
+%global packname  rWCVP
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Finnish Geospatial Data
+Summary:          Generating Summaries, Reports and Plots from the World Checklist of Vascular Plants
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httpcache 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-phonics 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RecordLinkage 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httpcache 
-Requires:         R-CRAN-httr 
-Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-phonics 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RecordLinkage 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
 
 %description
-Tools for reading Finnish open geospatial data in R.
+A companion to the World Checklist of Vascular Plants (WCVP). It includes
+functions to generate maps and species lists, as well as match names to
+the WCVP. For more details and to cite the package, see: Brown M.J.M.,
+Walker B.E., Black N., Govaerts R., Ondo I., Turner R., Nic Lughadha E.
+(in press). "rWCVP: A companion R package to the World Checklist of
+Vascular Plants". New Phytologist.
 
 %prep
 %setup -q -c -n %{packname}

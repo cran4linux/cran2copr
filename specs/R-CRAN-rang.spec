@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geofi
-%global packver   1.0.8
+%global packname  rang
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Finnish Geospatial Data
+Summary:          Reconstructing Reproducible R Computational Environments with Ease
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httpcache 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httpcache 
-Requires:         R-CRAN-httr 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-anytime 
+BuildRequires:    R-CRAN-fastmap 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-pkgsearch 
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-gh 
+Requires:         R-CRAN-anytime 
+Requires:         R-CRAN-fastmap 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-pkgsearch 
+Requires:         R-CRAN-remotes 
+Requires:         R-utils 
+Requires:         R-CRAN-gh 
 
 %description
-Tools for reading Finnish open geospatial data in R.
+Resolve the dependency graph of R packages at a specific time point based
+on the information from various 'R-hub' web services
+<https://blog.r-hub.io/>. The dependency graph can then be used to
+reconstruct the R computational environment with 'Rocker'
+<https://rocker-project.org>.
 
 %prep
 %setup -q -c -n %{packname}

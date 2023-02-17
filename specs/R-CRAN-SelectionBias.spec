@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  L0Learn
-%global packver   2.0.3
+%global __requires_exclude ^libmpi
+%global packname  SelectionBias
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Algorithms for Best Subset Selection
+Summary:          Calculates Bounds for the Selection Bias for Binary Treatment and Outcome Variables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.13
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.13
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-arm 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-arm 
+Requires:         R-stats 
 
 %description
-Highly optimized toolkit for approximately solving L0-regularized learning
-problems (a.k.a. best subset selection). The algorithms are based on
-coordinate descent and local combinatorial search. For more details, check
-the paper by Hazimeh and Mazumder (2020); the link is provided in the URL
-field below.
+Computes bounds and sensitivity parameters as part of sensitivity analysis
+for selection bias. Two bounds are provided: the SV (Smith and
+VanderWeele) bound and the AF (assumption-free) bound. The SV bound
+assumes an additional dependence structure in form of a generalized
+M-structure whereas the AF bound holds for general assumptions in the
+potential outcomes framework. See Smith and VanderWeele (2019)
+<doi:10.1097/EDE.0000000000001032> and Zetterstrom and Waernbaum (2022)
+<doi:10.1515/em-2022-0108>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
