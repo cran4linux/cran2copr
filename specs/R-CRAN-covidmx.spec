@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  covidmx
-%global packver   0.7.2
+%global packver   0.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descarga y analiza datos de COVID-19 en México
 
@@ -56,10 +56,10 @@ de México (DGE)
 Infecciones Respiratorias Agudas Graves (Red IRAG)
 <https://www.gits.igg.unam.mx/red-irag-dashboard/reviewHome> y la
 Iniciativa Global para compartir todos los datos de influenza (GISAID)
-<https://www.gisaid.org/>. English: Downloads and analyzes data of
-COVID-19 from the Mexican General Directorate of Epidemiology (DGE), the
-Network of Severe Acute Respiratory Infections (IRAG network),and the
-Global Initiative on Sharing All Influenza Data GISAID.
+<https://gisaid.org/>. English: Downloads and analyzes data of COVID-19
+from the Mexican General Directorate of Epidemiology (DGE), the Network of
+Severe Acute Respiratory Infections (IRAG network),and the Global
+Initiative on Sharing All Influenza Data GISAID.
 
 %prep
 %setup -q -c -n %{packname}

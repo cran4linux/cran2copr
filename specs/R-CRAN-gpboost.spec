@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gpboost
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combining Tree-Boosting with Gaussian Process and Mixed Effects Models
 
@@ -37,7 +37,7 @@ and mixed effects models. It also allows for independently doing
 tree-boosting as well as inference and prediction for Gaussian process and
 mixed effects models. See <https://github.com/fabsig/GPBoost> for more
 information on the software and Sigrist (2022, JMLR)
-<https://www.jmlr.org/papers/v23/20-322.html> and Sigrist (2022, TPAMI)
+<https://www.jmlr.org/papers/v23/20-322.html> and Sigrist (2023, TPAMI)
 <doi:10.1109/TPAMI.2022.3168152> for more information on the methodology.
 
 %prep

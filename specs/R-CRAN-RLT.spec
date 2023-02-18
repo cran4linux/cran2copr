@@ -1,42 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  forsearch
-%global packver   3.1.0
+%global packname  RLT
+%global packver   3.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Analysis Using Forward Search Procedure for Various Models
+Summary:          Reinforcement Learning Trees
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc >= 4.7.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-tibble >= 3.1.8
-BuildRequires:    R-CRAN-nlme >= 3.1.157
-BuildRequires:    R-CRAN-formula.tools >= 1.7.0
-BuildRequires:    R-CRAN-Cairo >= 1.6.0
-Requires:         R-CRAN-Hmisc >= 4.7.0
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-tibble >= 3.1.8
-Requires:         R-CRAN-nlme >= 3.1.157
-Requires:         R-CRAN-formula.tools >= 1.7.0
-Requires:         R-CRAN-Cairo >= 1.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Identifies potential data outliers and their impact on estimates and
-analyses. Uses the forward search approach of Atkinson and Riani, "Robust
-Diagnostic Regression Analysis", 2000,<ISBN: o-387-95017-6> to prepare
-descriptive statistics of a dataset that is to be analyzed by stats::lm(),
-stats::glm(), or nlme::lme().  Includes graphics functions to display the
-descriptive statistics.
+Random forest with a variety of additional features for regression,
+classification and survival analysis. The features include: parallel
+computing with OpenMP, embedded model for selecting the splitting
+variable, based on Zhu, Zeng & Kosorok (2015)
+<doi:10.1080/01621459.2015.1036994>, subject weight, variable weight,
+tracking subjects used in each tree, etc.
 
 %prep
 %setup -q -c -n %{packname}

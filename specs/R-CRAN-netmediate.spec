@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netmediate
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Micro-Macro Analysis for Social Networks
 
@@ -48,12 +48,7 @@ Requires:         R-CRAN-intergraph
 
 %description
 Estimates micro effects on macro structures (MEMS) and average micro
-mediated effects (AMME) when using statistical models for network
-structure. URL: <https://github.com/sduxbury/netmediate>. BugReports:
-<https://github.com/sduxbury/netmediate/issues>. Long, J. Scott, and Sarah
-Mustillo (2018) <doi:10.1177/0049124118799374>. Mize, Trenton D. (2019)
-<doi:10.15195/v6.a4>. Imai, Kosuke (2010) <doi:10.1037/a0020761>. Imai,
-Kosuke (2010) <doi:10.1214/10-STS321>.
+mediated effects (AMME).
 
 %prep
 %setup -q -c -n %{packname}

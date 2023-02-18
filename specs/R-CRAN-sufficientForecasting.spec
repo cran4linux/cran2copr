@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  forsearch
-%global packver   3.1.0
+%global packname  sufficientForecasting
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Analysis Using Forward Search Procedure for Various Models
+Summary:          Sufficient Forecasting using Factor Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc >= 4.7.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-tibble >= 3.1.8
-BuildRequires:    R-CRAN-nlme >= 3.1.157
-BuildRequires:    R-CRAN-formula.tools >= 1.7.0
-BuildRequires:    R-CRAN-Cairo >= 1.6.0
-Requires:         R-CRAN-Hmisc >= 4.7.0
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-tibble >= 3.1.8
-Requires:         R-CRAN-nlme >= 3.1.157
-Requires:         R-CRAN-formula.tools >= 1.7.0
-Requires:         R-CRAN-Cairo >= 1.6.0
+BuildRequires:    R-CRAN-gam 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-gam 
+Requires:         R-stats 
 
 %description
-Identifies potential data outliers and their impact on estimates and
-analyses. Uses the forward search approach of Atkinson and Riani, "Robust
-Diagnostic Regression Analysis", 2000,<ISBN: o-387-95017-6> to prepare
-descriptive statistics of a dataset that is to be analyzed by stats::lm(),
-stats::glm(), or nlme::lme().  Includes graphics functions to display the
-descriptive statistics.
+The sufficient forecasting (SF) method is implemented by this package for
+a single time series forecasting using many predictors and a possibly
+nonlinear forecasting function. Assuming that the predictors are driven by
+some latent factors, the SF first conducts factor analysis and then
+performs sufficient dimension reduction on the estimated factors to derive
+predictive indices for forecasting. The package implements several
+dimension reduction approaches, including principal components (PC),
+sliced inverse regression (SIR), and directional regression (DR). Methods
+for dimension reduction are as described in: Fan, J., Xue, L. and Yao, J.
+(2017) <doi:10.1016/j.jeconom.2017.08.009>, Luo, W., Xue, L., Yao, J. and
+Yu, X. (2022) <doi:10.1093/biomet/asab037> and Yu, X., Yao, J. and Xue, L.
+(2022) <doi:10.1080/07350015.2020.1813589>.
 
 %prep
 %setup -q -c -n %{packname}

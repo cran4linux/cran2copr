@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MPV
-%global packver   1.59
+%global packver   1.61
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.59
+Version:          1.61
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Sets from Montgomery, Peck and Vining
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 2.0.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-randomForest 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-randomForest 
 
 %description
 Most of this package consists of data sets from the textbook Introduction

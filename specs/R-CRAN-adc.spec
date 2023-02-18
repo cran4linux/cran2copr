@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  forsearch
-%global packver   3.1.0
+%global packname  adc
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Analysis Using Forward Search Procedure for Various Models
+Summary:          Calculate Antecedent Discharge Conditions
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc >= 4.7.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-tibble >= 3.1.8
-BuildRequires:    R-CRAN-nlme >= 3.1.157
-BuildRequires:    R-CRAN-formula.tools >= 1.7.0
-BuildRequires:    R-CRAN-Cairo >= 1.6.0
-Requires:         R-CRAN-Hmisc >= 4.7.0
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-tibble >= 3.1.8
-Requires:         R-CRAN-nlme >= 3.1.157
-Requires:         R-CRAN-formula.tools >= 1.7.0
-Requires:         R-CRAN-Cairo >= 1.6.0
+BuildRequires:    R-CRAN-runner 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-runner 
+Requires:         R-stats 
 
 %description
-Identifies potential data outliers and their impact on estimates and
-analyses. Uses the forward search approach of Atkinson and Riani, "Robust
-Diagnostic Regression Analysis", 2000,<ISBN: o-387-95017-6> to prepare
-descriptive statistics of a dataset that is to be analyzed by stats::lm(),
-stats::glm(), or nlme::lme().  Includes graphics functions to display the
-descriptive statistics.
+Calculates some antecedent discharge conditions useful in water quality
+modeling. Includes methods for calculating flow anomalies, base flow, and
+smooth discounted flows from daily flow measurements. Antecedent discharge
+algorithms are described and reviewed in Zhang and Ball (2017)
+<doi:10.1016/j.jhydrol.2016.12.052>.
 
 %prep
 %setup -q -c -n %{packname}

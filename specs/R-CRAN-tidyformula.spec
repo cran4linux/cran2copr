@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  forsearch
-%global packver   3.1.0
+%global packname  tidyformula
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Analysis Using Forward Search Procedure for Various Models
+Summary:          Build Formulas Using Tidy Selection Helpers
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc >= 4.7.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-tibble >= 3.1.8
-BuildRequires:    R-CRAN-nlme >= 3.1.157
-BuildRequires:    R-CRAN-formula.tools >= 1.7.0
-BuildRequires:    R-CRAN-Cairo >= 1.6.0
-Requires:         R-CRAN-Hmisc >= 4.7.0
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-tibble >= 3.1.8
-Requires:         R-CRAN-nlme >= 3.1.157
-Requires:         R-CRAN-formula.tools >= 1.7.0
-Requires:         R-CRAN-Cairo >= 1.6.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-Identifies potential data outliers and their impact on estimates and
-analyses. Uses the forward search approach of Atkinson and Riani, "Robust
-Diagnostic Regression Analysis", 2000,<ISBN: o-387-95017-6> to prepare
-descriptive statistics of a dataset that is to be analyzed by stats::lm(),
-stats::glm(), or nlme::lme().  Includes graphics functions to display the
-descriptive statistics.
+Provides the function 'tidyformula()', which translates formulas
+containing 'tidyselect'-style selection helpers. It expands these helpers
+by evaluating 'dplyr::select()' with the relevant selection helper and a
+supplied data frame. The package contains methods for traversing abstract
+syntax trees from Wickham, Hadley (2019) <doi:10.1201/9781351201315>.
 
 %prep
 %setup -q -c -n %{packname}

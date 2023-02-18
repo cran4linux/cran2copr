@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  forsearch
-%global packver   3.1.0
+%global packname  SubTS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Analysis Using Forward Search Procedure for Various Models
+Summary:          Positive Tempered Stable Distributions and Related Subordinators
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc >= 4.7.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-tibble >= 3.1.8
-BuildRequires:    R-CRAN-nlme >= 3.1.157
-BuildRequires:    R-CRAN-formula.tools >= 1.7.0
-BuildRequires:    R-CRAN-Cairo >= 1.6.0
-Requires:         R-CRAN-Hmisc >= 4.7.0
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-tibble >= 3.1.8
-Requires:         R-CRAN-nlme >= 3.1.157
-Requires:         R-CRAN-formula.tools >= 1.7.0
-Requires:         R-CRAN-Cairo >= 1.6.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tweedie 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-gsl 
+Requires:         R-stats 
+Requires:         R-CRAN-tweedie 
 
 %description
-Identifies potential data outliers and their impact on estimates and
-analyses. Uses the forward search approach of Atkinson and Riani, "Robust
-Diagnostic Regression Analysis", 2000,<ISBN: o-387-95017-6> to prepare
-descriptive statistics of a dataset that is to be analyzed by stats::lm(),
-stats::glm(), or nlme::lme().  Includes graphics functions to display the
-descriptive statistics.
+Contains methods for the simulation of positive tempered stable
+distributions and related subordinators. Including classical tempered
+stable, rapidly deceasing tempered stable, truncated stable, truncated
+tempered stable, generalized Dickman, truncated gamma, generalized gamma,
+and p-gamma. For details, see Dassios et al (2019)
+<doi:10.1017/jpr.2019.6>, Dassios et al (2020) <doi:10.1145/3368088>,
+Grabchak (2021) <doi:10.1016/j.spl.2020.109015>.
 
 %prep
 %setup -q -c -n %{packname}

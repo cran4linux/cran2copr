@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opa
-%global packver   0.7.3
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Ordinal Pattern Analysis
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-Rcpp 
 
 %description

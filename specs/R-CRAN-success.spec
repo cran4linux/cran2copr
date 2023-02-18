@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  success
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survival Control Charts Estimation Software
 
@@ -33,7 +33,7 @@ Requires:         R-CRAN-survival
 %description
 Quality control charts for survival outcomes. Allows users to construct
 the Continuous Time Generalized Rapid Response CUSUM (CGR-CUSUM)
-<doi:10.48550/ARXIV.2205.07618>, the Biswas & Kalbfleisch (2008)
+<doi:10.1093/biostatistics/kxac041>, the Biswas & Kalbfleisch (2008)
 <doi:10.1002/sim.3216> CUSUM, the Bernoulli CUSUM and the risk-adjusted
 funnel plot for survival data. These procedures can be used to monitor
 survival processes for a change in the failure rate.
