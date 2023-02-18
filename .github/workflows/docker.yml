@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [36, 37, rawhide]
+        release: [37, 38, rawhide]
 
     env:
       REGISTRY: ghcr.io
