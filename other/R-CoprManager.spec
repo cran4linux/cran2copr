@@ -6,7 +6,7 @@
 %global selinuxtype targeted
 
 Name:           R-%{packname}
-Version:        0.4.2
+Version:        0.4.2.3
 Release:        1%{?dist}%{?buildtag}
 Summary:        Package Manager for the 'cran2copr' Project
 
@@ -43,9 +43,10 @@ This package contains the SELinux policy module for %{name}.
 rm -rf inst/tinytest tests
 rename %{projname} %{packname} man/* inst/service/%{projname}.py
 sed -i 's/%{projname}/%{packname}/' DESCRIPTION
-sed -i 's/%{projname}/%{packname}/g' man/* R/* inst/service/dbus.service.in
+sed -i 's/%{projname}/%{packname}/g' man/* R/* inst/scripts/*
+sed -i 's/%{projname}/%{packname}/g' inst/service/dbus.service.in
 sed -i 's@Enchufa2/%{packname}@Enchufa2/%{projname}@g' man/* R/*
-sed -i 's/_sys/_copr/g' NAMESPACE man/* R/*
+sed -i 's/_sys/_copr/g' NAMESPACE man/* R/* inst/scripts/*
 # do not update cache every time the installer runs
 sed -i '/update_cache/d' inst/service/backend/dnf.py
 
@@ -86,7 +87,6 @@ rm -f %{buildroot}%{rlibdir}/%{packname}/service/*.in
 mkdir -p %{buildroot}%{_libdir}/R/etc/Rprofile.site.d
 cat <<EOF > %{buildroot}%{_libdir}/R/etc/Rprofile.site.d/50-%{packname}.site
 options(%{packname}.sudo.autodetect=TRUE)
-options(%{packname}.always.install.deps=TRUE)
 options(%{packname}.backend.check=FALSE)
 suppressMessages(%{packname}::enable())
 EOF
@@ -125,6 +125,7 @@ install -D -m 0644 selinux/%{modulename}.pp.bz2 \
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/scripts
 # python service
 %dir %{rlibdir}/%{packname}/service
 %config %{rlibdir}/%{packname}/service/%{projname}.excl
