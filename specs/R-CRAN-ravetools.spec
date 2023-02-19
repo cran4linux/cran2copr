@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ravetools
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Signal Processing Toolbox for Analyzing 'Electrophysiology' Data
+Summary:          Signal and Image Processing Toolbox for Analyzing Intracranial 'Electroencephalography' Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,32 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    fftw-devel
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-RNiftyReg >= 2.7.1
 BuildRequires:    R-CRAN-waveslim >= 1.8.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-signal >= 0.7.7
 BuildRequires:    R-CRAN-digest >= 0.6.29
+BuildRequires:    R-CRAN-Rvcg >= 0.22.1
 BuildRequires:    R-CRAN-filearray >= 0.1.3
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-splines 
+Requires:         R-CRAN-RNiftyReg >= 2.7.1
 Requires:         R-CRAN-waveslim >= 1.8.2
-Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-signal >= 0.7.7
 Requires:         R-CRAN-digest >= 0.6.29
+Requires:         R-CRAN-Rvcg >= 0.22.1
 Requires:         R-CRAN-filearray >= 0.1.3
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-pracma 
 Requires:         R-splines 
 
 %description
 Implemented fast and memory-efficient 'Notch'-filter, 'Welch-periodogram',
-and discrete wavelet transform algorithm for hours of high-resolution
-signals; providing fundamental toolbox for 'iEEG' preprocess pipelines.
-Documentation and examples about 'RAVE' project are provided at
-<https://openwetware.org/wiki/RAVE>, and the paper by John F. Magnotti,
-Zhengjia Wang, Michael S. Beauchamp (2020)
+discrete wavelet transform algorithm for hours of high-resolution signals,
+fast 3D convolution, and image alignment; providing fundamental toolbox
+for 'iEEG' pipelines. Documentation and examples about 'RAVE' project are
+provided at <https://openwetware.org/wiki/RAVE>, and the paper by John F.
+Magnotti, Zhengjia Wang, Michael S. Beauchamp (2020)
 <doi:10.1016/j.neuroimage.2020.117341>; see 'citation("ravetools")' for
 details.
 

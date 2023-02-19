@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  convergEU
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monitoring Convergence of EU Countries
 
@@ -30,6 +30,8 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
@@ -43,6 +45,8 @@ Requires:         R-CRAN-broom
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Indicators and measures by country and time describe what happens at
@@ -50,9 +54,8 @@ economic and social levels. This package provides functions to calculate
 several measures of convergence after imputing missing values. The
 automated downloading of Eurostat data, followed by the production of
 country fiches and indicator fiches, makes possible to produce automated
-reports. The Eurofound report: Bisello, M., Eiffe, F., Dubois, H.,
-Mascherini, M. (2019) "Upward convergence in the EU: Concepts,
-measurements and indicators" (<doi:10.2806/68012>), is a detailed
+reports. The Eurofound report (<doi:10.2806/68012>) "Upward convergence in
+the EU: Concepts, measurements and indicators", 2018, is a detailed
 presentation of convergence.
 
 %prep

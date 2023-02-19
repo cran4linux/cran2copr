@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rUM
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Templates from the University of Miami
 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-tidyverse
 Requires:         R-CRAN-usethis 
 
 %description
-This holds some r markdown templates and a template to create a research
-project in RStudio.
+This holds some r markdown and quarto templates and a template to create a
+research project in "R Studio".
 
 %prep
 %setup -q -c -n %{packname}
