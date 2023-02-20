@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsos
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dataset Shift with Outlier Scores
 
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats >= 3.6.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
+BuildRequires:    R-stats >= 4.2.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-simctest >= 2.6
-BuildRequires:    R-CRAN-future.apply >= 1.9.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-scales >= 1.1.1
-Requires:         R-stats >= 3.6.1
-Requires:         R-CRAN-ggplot2 >= 3.3.3
+BuildRequires:    R-CRAN-scales >= 1.2.1
+BuildRequires:    R-CRAN-data.table >= 1.14.6
+BuildRequires:    R-CRAN-future.apply >= 1.10.0
+Requires:         R-stats >= 4.2.1
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-simctest >= 2.6
-Requires:         R-CRAN-future.apply >= 1.9.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-scales >= 1.1.1
+Requires:         R-CRAN-scales >= 1.2.1
+Requires:         R-CRAN-data.table >= 1.14.6
+Requires:         R-CRAN-future.apply >= 1.10.0
 
 %description
 Test for no adverse shift in two-sample comparison when we have a training
 set, the reference distribution, and a test set. The approach is flexible
-(extensible) and relies on a robust and powerful test statistic, the
-weighted AUC. See Kamulete, V. M. (2021) <arXiv:2107.02990> for details.
-Outlier scores such as trust scores and prediction uncertainty can be used
-as the basis for comparison for example.
+and relies on a robust and powerful test statistic, the weighted AUC.
+Technical details are in Kamulete, V. M. (2021) <arXiv:1908.04000>. Modern
+notions of outlyingness such as trust scores and prediction uncertainty
+can be used as the underlying scores for example.
 
 %prep
 %setup -q -c -n %{packname}

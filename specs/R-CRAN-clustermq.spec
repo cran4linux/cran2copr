@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clustermq
-%global packver   0.8.95.4
+%global packver   0.8.95.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.95.4
+Version:          0.8.95.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluate Function Calls on HPC Schedulers (LSF, SGE, SLURM, PBS/Torque)
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    zeromq-devel
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.2
+Requires:         R-core >= 3.6.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-narray 
 BuildRequires:    R-CRAN-progress 

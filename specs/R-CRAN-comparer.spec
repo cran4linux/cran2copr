@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  measurements
-%global packver   1.5.0
+%global packname  comparer
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Units of Measurement
+Summary:          Compare Output and Run Time
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,11 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-R6 
 
 %description
-Collection of tools to make working with physical measurements easier.
-Convert between metric and imperial units, or calculate a dimension's
-unknown value from other dimensions' measurements.
+Quickly run experiments to compare the run time and output of code blocks.
+The function mbc() can make fast comparisons of code, and will calculate
+statistics comparing the resulting outputs. It can be used to compare
+model fits to the same data or see which function runs faster. The R6
+class ffexp$new() runs a function using all possible combinations of
+selected inputs. This is useful for comparing the effect of different
+parameter values. It can also run in parallel and automatically save
+intermediate results, which is very useful for long computations.
 
 %prep
 %setup -q -c -n %{packname}
