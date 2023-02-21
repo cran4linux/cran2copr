@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mctq
-%global packver   0.3.2
+%global packname  netcox
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Process the Munich ChronoType Questionnaire (MCTQ)
+Summary:          Structural Learning in Cox Models with Time-Dependent Covariates
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.1
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-lubridate >= 1.9.2
-BuildRequires:    R-CRAN-hms >= 1.1.2
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-ggplot2 >= 3.4.1
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-lubridate >= 1.9.2
-Requires:         R-CRAN-hms >= 1.1.2
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 1.0.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-glmnet 
 
 %description
-A complete toolkit to process the Munich ChronoType Questionnaire (MCTQ)
-for its three versions (standard, micro, and shift). MCTQ is a
-quantitative and validated tool to assess chronotypes using peoples' sleep
-behavior, originally presented by Till Roenneberg, Anna Wirz-Justice, and
-Martha Merrow (2003, <doi:10.1177/0748730402239679>).
+Efficient procedures for fitting and cross-validating the overlapping
+group Lasso (implemented in C++) for Cox models with time-dependent
+covariates. The penalty term is a weighted sum of infinity norms of
+(overlapping) groups of coefficients, which can select variables
+structurally with a specific grouping structure.
 
 %prep
 %setup -q -c -n %{packname}

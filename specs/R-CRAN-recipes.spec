@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  recipes
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preprocessing and Feature Engineering Steps for Modeling
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-lubridate >= 1.8.0
 BuildRequires:    R-CRAN-hardhat >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-rlang >= 1.0.3
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-clock >= 0.6.1
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-CRAN-purrr >= 0.2.3
 BuildRequires:    R-CRAN-generics >= 0.1.2
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-glue 
@@ -43,6 +43,7 @@ BuildRequires:    R-CRAN-withr
 Requires:         R-CRAN-lubridate >= 1.8.0
 Requires:         R-CRAN-hardhat >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-rlang >= 1.0.3
 Requires:         R-CRAN-tidyr >= 1.0.0
@@ -51,7 +52,6 @@ Requires:         R-CRAN-clock >= 0.6.1
 Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-CRAN-purrr >= 0.2.3
 Requires:         R-CRAN-generics >= 0.1.2
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-glue 

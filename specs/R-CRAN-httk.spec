@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  httk
-%global packver   2.2.1
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Throughput Toxicokinetics
 
@@ -49,15 +49,19 @@ species using chemical-specific in vitro data and physiological
 information. These tools allow incorporation of chemical toxicokinetics
 ("TK") and in vitro-in vivo extrapolation ("IVIVE") into bioinformatics,
 as described by Pearce et al. (2017) (<doi:10.18637/jss.v079.i04>).
-Chemical-specific in vitro data characterizing toxicokinetics can be been
-obtained from relatively high-throughput experiments. The
+Chemical-specific in vitro data characterizing toxicokinetics have been
+obtained from relatively high-throughput experiments.  The
 chemical-independent ("generic") physiologically-based ("PBTK") and
 empirical (for example, one compartment) "TK" models included here can be
 parameterized with in vitro data or in silico predictions which are
 provided for thousands of chemicals, multiple exposure routes, and various
-species. The models are systems of ordinary differential equations that
-are solved using compiled (C-based) code for speed. A Monte Carlo sampler
-is included for simulating human biological variability (Ring et al., 2017
+species. High throughput toxicokinetics ("HTTK") is the combination of in
+vitro data and generic models. We establish the expected accuracy of HTTK
+for chemicals without in vivo data through statistical evaluation of HTTK
+predictions for chemicals where in vivo data do exist. The models are
+systems of ordinary differential equations that are developed in MCSim and
+solved using compiled (C-based) code for speed. A Monte Carlo sampler is
+included for simulating human biological variability (Ring et al., 2017
 <doi:10.1016/j.envint.2017.06.004>) and propagating parameter uncertainty
 (Wambaugh et al., 2019 <doi:10.1093/toxsci/kfz205>). Empirically
 calibrated methods are included for predicting tissue:plasma partition

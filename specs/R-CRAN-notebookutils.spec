@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  kgrams
-%global packver   0.1.2
+%global __requires_exclude ^libmpi
+%global packname  notebookutils
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical k-gram Language Models
+Summary:          Dummy R APIs Used in 'Azure Synapse Analytics' for Local Developments
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-RcppProgress >= 0.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-RcppProgress >= 0.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Tools for training and evaluating k-gram language models in R, supporting
-several probability smoothing techniques, perplexity computations, random
-text generation and more.
+This is a pure dummy interfaces package which mirrors 'MsSparkUtils' APIs
+<https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/microsoft-spark-utilities?pivots=programming-language-r>
+of 'Azure Synapse Analytics'
+<https://learn.microsoft.com/en-us/azure/synapse-analytics/> for R users,
+customer of Azure Synapse can download this package from CRAN for local
+development.
 
 %prep
 %setup -q -c -n %{packname}

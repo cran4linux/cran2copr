@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wrappedtools
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Wrappers Around Commonly Used Functions
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-knitr 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-stats 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-knitr 

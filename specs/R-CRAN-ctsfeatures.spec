@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mctq
-%global packver   0.3.2
+%global packname  ctsfeatures
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Process the Munich ChronoType Questionnaire (MCTQ)
+Summary:          Analyzing Categorical Time Series
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.1
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-lubridate >= 1.9.2
-BuildRequires:    R-CRAN-hms >= 1.1.2
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-ggplot2 >= 3.4.1
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-lubridate >= 1.9.2
-Requires:         R-CRAN-hms >= 1.1.2
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 1.0.3
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-astsa 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Bolstad2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-astsa 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-Bolstad2 
 
 %description
-A complete toolkit to process the Munich ChronoType Questionnaire (MCTQ)
-for its three versions (standard, micro, and shift). MCTQ is a
-quantitative and validated tool to assess chronotypes using peoples' sleep
-behavior, originally presented by Till Roenneberg, Anna Wirz-Justice, and
-Martha Merrow (2003, <doi:10.1177/0748730402239679>).
+An implementation of several functions for feature extraction in
+categorical time series datasets. Specifically, some features related to
+marginal distributions and serial dependence patterns can be computed.
+These features can be used to feed clustering and classification
+algorithms for categorical time series, among others. The package also
+includes some interesting datasets containing biological sequences.
+Practitioners from a broad variety of fields could benefit from the
+general framework provided by 'ctsfeatures'.
 
 %prep
 %setup -q -c -n %{packname}

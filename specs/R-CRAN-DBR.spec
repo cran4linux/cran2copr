@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mctq
-%global packver   0.3.2
+%global packname  DBR
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Process the Munich ChronoType Questionnaire (MCTQ)
+Summary:          Discrete Beta Regression
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.1
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-lubridate >= 1.9.2
-BuildRequires:    R-CRAN-hms >= 1.1.2
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-ggplot2 >= 3.4.1
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-lubridate >= 1.9.2
-Requires:         R-CRAN-hms >= 1.1.2
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 1.0.3
+BuildRequires:    R-CRAN-MfUSampler 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-MfUSampler 
+Requires:         R-methods 
+Requires:         R-CRAN-coda 
 
 %description
-A complete toolkit to process the Munich ChronoType Questionnaire (MCTQ)
-for its three versions (standard, micro, and shift). MCTQ is a
-quantitative and validated tool to assess chronotypes using peoples' sleep
-behavior, originally presented by Till Roenneberg, Anna Wirz-Justice, and
-Martha Merrow (2003, <doi:10.1177/0748730402239679>).
+Bayesian Beta Regression, adapted for bounded discrete responses, commonly
+seen in survey responses. Estimation is done via Markov Chain Monte Carlo
+sampling, using a Gibbs wrapper around univariate slice sampler (Neal
+(2003) <DOI:10.1214/aos/1056562461>), as implemented in the R package
+MfUSampler (Mahani and Sharabiani (2017) <DOI: 10.18637/jss.v078.c01>).
 
 %prep
 %setup -q -c -n %{packname}

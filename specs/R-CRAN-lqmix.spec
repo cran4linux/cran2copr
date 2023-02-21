@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iptools
-%global packver   0.7.2
+%global __requires_exclude ^libmpi
+%global packname  lqmix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate, Validate and Resolve 'IP' Addresses
+Summary:          Linear Quantile Mixture Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.2
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-AsioHeaders 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-triebeard 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.11.2
-Requires:         R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-quantreg 
 Requires:         R-stats 
-Requires:         R-CRAN-AsioHeaders 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-triebeard 
+Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A toolkit for manipulating, validating and testing 'IP' addresses and
-ranges, along with datasets relating to 'IP' addresses. Tools are also
-provided to map 'IPv4' blocks to country codes. While it primarily has
-support for the 'IPv4' address space, more extensive 'IPv6' support is
-intended.
+Estimate linear quantile mixtures based on discrete, Time-Constant (TC)
+and/or Time-Varying (TV), random coefficients.
 
 %prep
 %setup -q -c -n %{packname}
