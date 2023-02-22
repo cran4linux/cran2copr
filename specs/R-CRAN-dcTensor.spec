@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  s20x
-%global packver   3.1-35
+%global packname  dcTensor
+%global packver   0.99.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.35
+Version:          0.99.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for University of Auckland Course STATS 201/208 Data Analysis
+Summary:          Discrete Matrix/Tensor Decomposition
 
-License:          GPL-2 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-nnTensor 
 Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-nnTensor 
 
 %description
-A set of functions used in teaching STATS 201/208 Data Analysis at the
-University of Auckland. The functions are designed to make parts of R more
-accessible to a large undergraduate population who are mostly not
-statistics majors.
+Semi-Binary and Semi-Ternary Matrix Decomposition are performed based on
+Non-negative Matrix Factorization (NMF) and Gradient Descent-based
+Singular Value Decomposition (GD-SVD). For the details of the methods, see
+the reference section of GitHub README.md
+<https://github.com/rikenbit/dcTensor>.
 
 %prep
 %setup -q -c -n %{packname}

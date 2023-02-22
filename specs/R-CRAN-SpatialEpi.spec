@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SpatialEpi
-%global packver   1.2.7
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods and Data for Spatial Epidemiology
 
@@ -18,13 +19,11 @@ Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-spdep 
 
 %description

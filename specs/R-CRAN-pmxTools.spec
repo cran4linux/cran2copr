@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pmxTools
-%global packver   1.2.3
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pharmacometric and Pharmacokinetic Toolkit
 
@@ -13,37 +14,37 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-chron 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-gghalves 
 BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-PKNCA 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-data.tree 
 Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-chron 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-gghalves 
 Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-PKNCA 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-data.tree 
 
 %description
 Pharmacometric tools for common data analytical tasks; closed-form

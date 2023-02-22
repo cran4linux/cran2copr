@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  s20x
-%global packver   3.1-35
+%global packname  ags
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.35
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for University of Auckland Course STATS 201/208 Data Analysis
+Summary:          Crosswalk Municipality and District Statistics in Germany
 
-License:          GPL-2 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
+BuildRequires:    R-stats >= 4.2.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.9
+BuildRequires:    R-CRAN-rlang >= 1.0.4
+Requires:         R-stats >= 4.2.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.0.9
+Requires:         R-CRAN-rlang >= 1.0.4
 
 %description
-A set of functions used in teaching STATS 201/208 Data Analysis at the
-University of Auckland. The functions are designed to make parts of R more
-accessible to a large undergraduate population who are mostly not
-statistics majors.
+Construct time series for Germany's municipalities (Gemeinden) and
+districts (Kreise) using a annual crosswalk constructed by the Federal
+Office for Building and Regional Planning (BBSR).
 
 %prep
 %setup -q -c -n %{packname}

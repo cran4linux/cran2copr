@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DependencyReviewer
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tool Suite to Investigate Other Packages
 
@@ -19,44 +19,28 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lintr 
 BuildRequires:    R-CRAN-pak 
+BuildRequires:    R-CRAN-pkgdepends 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyAce 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-GGally 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-desc 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-here 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lintr 
 Requires:         R-CRAN-pak 
+Requires:         R-CRAN-pkgdepends 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyAce 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-GGally 
 
 %description
 Helps investigating other packages during code review by looking at their

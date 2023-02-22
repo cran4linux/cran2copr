@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  s20x
-%global packver   3.1-35
+%global packname  ggmapinset
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.35
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for University of Auckland Course STATS 201/208 Data Analysis
+Summary:          Add Inset Panels to Maps
 
-License:          GPL-2 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 1.0
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-sf >= 1.0
 
 %description
-A set of functions used in teaching STATS 201/208 Data Analysis at the
-University of Auckland. The functions are designed to make parts of R more
-accessible to a large undergraduate population who are mostly not
-statistics majors.
+Helper to add insets based on geom_sf() from 'ggplot2'. This package gives
+you a drop-in replacement for geom_sf() that supports adding a zoomed
+inset map without having to create and embed a separate plot.
 
 %prep
 %setup -q -c -n %{packname}

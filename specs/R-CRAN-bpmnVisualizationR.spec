@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  s20x
-%global packver   3.1-35
+%global packname  bpmnVisualizationR
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.35
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for University of Auckland Course STATS 201/208 Data Analysis
+Summary:          Visualize Process Execution Data on 'BPMN' Diagrams
 
-License:          GPL-2 | file LICENSE
+License:          Apache License (== 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xml2 
 
 %description
-A set of functions used in teaching STATS 201/208 Data Analysis at the
-University of Auckland. The functions are designed to make parts of R more
-accessible to a large undergraduate population who are mostly not
-statistics majors.
+To visualize the execution data of the processes on 'BPMN' (Business
+Process Model and Notation) diagrams, using overlays, style customization
+and interactions, with the 'bpmn-visualization' 'TypeScript' library.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  srvyr
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'dplyr'-Like Syntax for Summary Statistics of Survey Data
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survey >= 4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-survey >= 4.1
-Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 

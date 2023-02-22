@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecic
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Changes-in-Changes
 
@@ -21,11 +21,15 @@ BuildRequires:    R-CRAN-furrr
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-progressr 
 Requires:         R-stats 
 
 %description
