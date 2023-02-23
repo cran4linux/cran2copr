@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SDGdetector
-%global packver   2.7.1
+%global packname  xmpdf
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detect SDGs and Targets in Text
+Summary:          Edit 'XMP' Metadata and 'PDF' Bookmarks and Documentation Info
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-datetimeoffset >= 0.2.1
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rnaturalearth 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-magick 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-datetimeoffset >= 0.2.1
 Requires:         R-grDevices 
-Requires:         R-CRAN-rnaturalearth 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-magick 
 
 %description
-Identify 17 Sustainable Development Goals and associated 169 targets in
-text.
+Edit 'XMP' metadata
+<https://en.wikipedia.org/wiki/Extensible_Metadata_Platform> in a variety
+of media file formats as well as edit bookmarks (aka outline aka table of
+contents) and documentation info entries in 'pdf' files. Can detect and
+use a variety of command-line tools to perform these operations such as
+'exiftool' <https://exiftool.org/>, 'ghostscript'
+<https://www.ghostscript.com/>, and/or 'pdftk'
+<https://gitlab.com/pdftk-java/pdftk>.
 
 %prep
 %setup -q -c -n %{packname}

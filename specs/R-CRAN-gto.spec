@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kimfilter
-%global packver   1.0.1
+%global packname  gto
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kim Filter
+Summary:          Insert 'gt' Tables into Word Documents
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gt >= 0.8.0
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-gt >= 0.8.0
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xml2 
 
 %description
-'Rcpp' implementation of the multivariate Kim filter, which combines the
-Kalman and Hamilton filters for state probability inference. The filter is
-designed for state space models and can handle missing values and
-exogenous data in the observation and state equations. Kim, Chang-Jin and
-Charles R. Nelson (1999) "State-Space Models with Regime Switching:
-Classical and Gibbs-Sampling Approaches with Applications"
-<doi:10.7551/mitpress/6444.001.0001><http://econ.korea.ac.kr/~cjkim/>.
+Insert tables created by the 'gt' R package into 'Microsoft Word'
+documents. This gives users the ability to add to their existing word
+documents the tables made in 'gt' using the familiar 'officer' package and
+syntax from the 'officeverse'.
 
 %prep
 %setup -q -c -n %{packname}

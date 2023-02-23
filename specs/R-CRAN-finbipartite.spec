@@ -1,42 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  covid19br
-%global packver   0.1.4
+%global __requires_exclude ^libmpi
+%global packname  finbipartite
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Brazilian COVID-19 Pandemic Data
+Summary:          Learning Bipartite Graphs: Heavy Tails and Multiple Components
 
-License:          AGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-spectralGraphTopology 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-CVXR 
+Requires:         R-CRAN-spectralGraphTopology 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-CVXR 
 
 %description
-Set of functions to import COVID-19 pandemic data into R. The Brazilian
-COVID-19 data, obtained from the official Brazilian repository at
-<https://covid.saude.gov.br/>, is available at country, region, state, and
-city-levels. The package also downloads the world-level COVID-19 data from
-the John Hopkins University's repository.
+Learning bipartite and k-component bipartite graphs from financial
+datasets. This package contains implementations of the algorithms
+described in the paper: Cardoso JVM, Ying J, and Palomar DP (2022).
+<https://openreview.net/pdf?id=WNSyF9qZaMd> "Learning bipartite graphs:
+heavy tails and multiple components, Advances in Neural Informations
+Processing Systems" (NeurIPS).
 
 %prep
 %setup -q -c -n %{packname}

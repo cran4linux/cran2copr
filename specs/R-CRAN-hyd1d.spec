@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hyd1d
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Algorithms to Compute 1d Water Levels along the German Federal Waterways Elbe and Rhine
+Summary:          1d Water Level Interpolation along the Rivers Elbe and Rhine
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

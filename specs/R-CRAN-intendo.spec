@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kimfilter
-%global packver   1.0.1
+%global packname  intendo
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kim Filter
+Summary:          A Group of Fun Datasets of Various Sizes and Differing Levels of Quality
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-'Rcpp' implementation of the multivariate Kim filter, which combines the
-Kalman and Hamilton filters for state probability inference. The filter is
-designed for state space models and can handle missing values and
-exogenous data in the observation and state equations. Kim, Chang-Jin and
-Charles R. Nelson (1999) "State-Space Models with Regime Switching:
-Classical and Gibbs-Sampling Approaches with Applications"
-<doi:10.7551/mitpress/6444.001.0001><http://econ.korea.ac.kr/~cjkim/>.
+Four datasets are provided here from the 'Intendo' game 'Super Jetroid'.
+It is data from the 2015 year of operation and it comprises a revenue
+table ('all_revenue'), a daily users table ('users_daily'), a user summary
+table ('user_summary'), and a table with data on all user sessions
+('all_sessions'). These core datasets come in different sizes, and, each
+of them has a variant that was intentionally made faulty (totally riddled
+with errors and inconsistencies). This suite of tables is useful for
+testing with packages that focus on data validation and data
+documentation.
 
 %prep
 %setup -q -c -n %{packname}

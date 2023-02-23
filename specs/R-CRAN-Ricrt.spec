@@ -1,33 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kimfilter
-%global packver   1.0.1
+%global packname  Ricrt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kim Filter
+Summary:          Randomization Inference of Clustered Randomized Trials
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-stats 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rdpack 
 
 %description
-'Rcpp' implementation of the multivariate Kim filter, which combines the
-Kalman and Hamilton filters for state probability inference. The filter is
-designed for state space models and can handle missing values and
-exogenous data in the observation and state equations. Kim, Chang-Jin and
-Charles R. Nelson (1999) "State-Space Models with Regime Switching:
-Classical and Gibbs-Sampling Approaches with Applications"
-<doi:10.7551/mitpress/6444.001.0001><http://econ.korea.ac.kr/~cjkim/>.
+Methods for randomization inference in group-randomized trials.
+Specifically, it can be used to analyze the treatment effect of stratified
+data with multiple clusters in each stratum with treatment given on
+cluster level. User may also input as many covariates as they want to fit
+the data. Methods are described by Dylan S Small et al., (2012)
+<doi:10.1198/016214507000000897>.
 
 %prep
 %setup -q -c -n %{packname}

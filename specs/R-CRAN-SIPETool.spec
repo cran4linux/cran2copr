@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kimfilter
-%global packver   1.0.1
+%global packname  SIPETool
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kim Filter
+Summary:          SIFT-MS and CPET Data Processor
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Convolutioner 
+Requires:         R-CRAN-Convolutioner 
 
 %description
-'Rcpp' implementation of the multivariate Kim filter, which combines the
-Kalman and Hamilton filters for state probability inference. The filter is
-designed for state space models and can handle missing values and
-exogenous data in the observation and state equations. Kim, Chang-Jin and
-Charles R. Nelson (1999) "State-Space Models with Regime Switching:
-Classical and Gibbs-Sampling Approaches with Applications"
-<doi:10.7551/mitpress/6444.001.0001><http://econ.korea.ac.kr/~cjkim/>.
+Processor for selected ion flow tube mass spectrometer (SIFT-MS) output
+file from breath analysis. It allows the filtering of the SIFT output file
+(i.e., variation over time of the target analyte concentration) and the
+following analysis for the determination of: maximum, average, and
+standard deviation value of target concentration measured at each
+exhalation, and the respiratory rate over the measurement. Additionally,
+it is possible to align the SIFT-MS data with other on-line techniques
+such as cardio pulmonary exercise test (CPET) for a comprehensive
+characterization of breath samples.
 
 %prep
 %setup -q -c -n %{packname}

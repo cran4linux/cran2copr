@@ -1,43 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppArmadillo
-%global packver   0.12.0.1.0
+%global packname  setartree
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra Library
+Summary:          SETAR-Tree: A Novel and Accurate Tree Algorithm for Global Time Series Forecasting
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
 
 %description
-'Armadillo' is a templated C++ linear algebra library (by Conrad
-Sanderson) that aims towards a good balance between speed and ease of use.
-Integer, floating point and complex numbers are supported, as well as a
-subset of trigonometric and statistics functions. Various matrix
-decompositions are provided through optional integration with LAPACK and
-ATLAS libraries.  The 'RcppArmadillo' package includes the header files
-from the templated 'Armadillo' library. Thus users do not need to install
-'Armadillo' itself in order to use 'RcppArmadillo'. From release 7.800.0
-on, 'Armadillo' is licensed under Apache License 2; previous releases were
-under licensed as MPL 2.0 from version 3.800.0 onwards and LGPL-3 prior to
-that; 'RcppArmadillo' (the 'Rcpp' bindings/bridge to Armadillo) is
-licensed under the GNU GPL version 2 or later, as is the rest of 'Rcpp'.
+The implementation of a forecasting-specific tree-based model that is in
+particular suitable for global time series forecasting, as proposed in
+Godahewa et al. (2022) <arXiv:2211.08661v1>. The model uses the concept of
+Self Exciting Threshold Autoregressive (SETAR) models to define the node
+splits and thus, the model is named SETAR-Tree. The SETAR-Tree uses some
+time-series-specific splitting and stopping procedures. It trains global
+pooled regression models in the leaves allowing the models to learn
+cross-series information. The depth of the tree is controlled by
+conducting a statistical linearity test as well as measuring the error
+reduction percentage at each node split. Thus, the SETAR-Tree requires
+minimal external hyperparameter tuning and provides competitive results
+under its default configuration. A forest is developed by extending the
+SETAR-Tree. The SETAR-Forest combines the forecasts provided by a
+collection of diverse SETAR-Trees during the forecasting process.
 
 %prep
 %setup -q -c -n %{packname}

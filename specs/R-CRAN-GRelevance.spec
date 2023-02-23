@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MrSGUIDE
-%global packver   0.1.2
+%global __requires_exclude ^libmpi
+%global packname  GRelevance
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Responses Subgroup Identification using 'GUIDE' Algorithm
+Summary:          Graph-Based k-Sample Comparisons and Relevance Analysis in High Dimensions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-philentropy 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-philentropy 
 
 %description
-An R implementation of 'GUIDE' style algorithm focusing on subgroup
-identification problem under multiple responses of Loh et al. (2019)
-<doi:10.1002/widm.1326>. This package is intended for use for randomized
-trials and observational studies.
+We propose two distribution-free test statistics based on between-sample
+edge counts and measure the degree of relevance by standardized counts.
+Users can set edge costs in the graph to compare the parameters of the
+distributions. Methods for comparing distributions are as described in:
+Xiaoping Shi (2021) <arXiv:2107.00728>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

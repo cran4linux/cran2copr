@@ -1,33 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kimfilter
-%global packver   1.0.1
+%global packname  expowo
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kim Filter
+Summary:          Data Mining of Plant Diversity and Distribution for R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+BuildArch:        noarch
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rnaturalearth 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rnaturalearth 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
+Requires:         R-utils 
 
 %description
-'Rcpp' implementation of the multivariate Kim filter, which combines the
-Kalman and Hamilton filters for state probability inference. The filter is
-designed for state space models and can handle missing values and
-exogenous data in the observation and state equations. Kim, Chang-Jin and
-Charles R. Nelson (1999) "State-Space Models with Regime Switching:
-Classical and Gibbs-Sampling Approaches with Applications"
-<doi:10.7551/mitpress/6444.001.0001><http://econ.korea.ac.kr/~cjkim/>.
+Produces diversity estimates and species lists with associated global
+distribution for any angiosperm family and genus from 'Plants of the World
+Online' database <https://powo.science.kew.org/>, by interacting with the
+source code of each plant taxon page, and creates global maps of species
+richness.
 
 %prep
 %setup -q -c -n %{packname}

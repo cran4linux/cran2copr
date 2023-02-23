@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kimfilter
-%global packver   1.0.1
+%global packname  mully
+%global packver   2.1.38
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.1.38
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kim Filter
+Summary:          Create, Modify and Visualize Multi-Layered Networks
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 1.3.5.9097
+BuildRequires:    R-CRAN-rgl >= 1.0.0
+BuildRequires:    R-CRAN-randomcoloR 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-igraph >= 1.3.5.9097
+Requires:         R-CRAN-rgl >= 1.0.0
+Requires:         R-CRAN-randomcoloR 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-'Rcpp' implementation of the multivariate Kim filter, which combines the
-Kalman and Hamilton filters for state probability inference. The filter is
-designed for state space models and can handle missing values and
-exogenous data in the observation and state equations. Kim, Chang-Jin and
-Charles R. Nelson (1999) "State-Space Models with Regime Switching:
-Classical and Gibbs-Sampling Approaches with Applications"
-<doi:10.7551/mitpress/6444.001.0001><http://econ.korea.ac.kr/~cjkim/>.
+Allows the user to create graphs with multiple layers. The user can also
+modify the layers, the nodes, and the edges. The graph can also be
+visualized. Zaynab Hammoud and Frank Kramer (2018)
+<doi:10.3390/genes9110519>. More about multilayered graphs and their usage
+can be found in our review paper: Zaynab Hammoud and Frank Kramer (2020)
+<doi:10.1186/s41044-020-00046-0>.
 
 %prep
 %setup -q -c -n %{packname}

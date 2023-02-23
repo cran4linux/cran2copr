@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kimfilter
-%global packver   1.0.1
+%global packname  MortalityLaws
+%global packver   1.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.9.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kim Filter
+Summary:          Parametric Mortality Models, Life Tables and HMD
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-RCurl >= 1.95
+BuildRequires:    R-CRAN-pbapply >= 1.3.4
+BuildRequires:    R-CRAN-minpack.lm >= 1.2
+BuildRequires:    R-CRAN-tidyr >= 0.8.1
+Requires:         R-CRAN-RCurl >= 1.95
+Requires:         R-CRAN-pbapply >= 1.3.4
+Requires:         R-CRAN-minpack.lm >= 1.2
+Requires:         R-CRAN-tidyr >= 0.8.1
 
 %description
-'Rcpp' implementation of the multivariate Kim filter, which combines the
-Kalman and Hamilton filters for state probability inference. The filter is
-designed for state space models and can handle missing values and
-exogenous data in the observation and state equations. Kim, Chang-Jin and
-Charles R. Nelson (1999) "State-Space Models with Regime Switching:
-Classical and Gibbs-Sampling Approaches with Applications"
-<doi:10.7551/mitpress/6444.001.0001><http://econ.korea.ac.kr/~cjkim/>.
+Fit the most popular human mortality 'laws', and construct full and
+abridge life tables given various input indices. A mortality law is a
+parametric function that describes the dying-out process of individuals in
+a population during a significant portion of their life spans. For a
+comprehensive review of the most important mortality laws see Tabeau
+(2001) <doi:10.1007/0-306-47562-6_1>. Practical functions for downloading
+data from various human mortality databases are provided as well.
 
 %prep
 %setup -q -c -n %{packname}

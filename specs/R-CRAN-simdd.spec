@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kimfilter
-%global packver   1.0.1
+%global packname  simdd
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kim Filter
+Summary:          Simulation of Fisher Bingham and Related Directional Distributions
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-'Rcpp' implementation of the multivariate Kim filter, which combines the
-Kalman and Hamilton filters for state probability inference. The filter is
-designed for state space models and can handle missing values and
-exogenous data in the observation and state equations. Kim, Chang-Jin and
-Charles R. Nelson (1999) "State-Space Models with Regime Switching:
-Classical and Gibbs-Sampling Approaches with Applications"
-<doi:10.7551/mitpress/6444.001.0001><http://econ.korea.ac.kr/~cjkim/>.
+Simulation methods for the Fisher Bingham distribution on the unit sphere,
+the matrix Bingham distribution on a Grassmann manifold, the matrix Fisher
+distribution on SO(3), and the bivariate von Mises sine model on the
+torus. The methods use the first ever general purpose acceptance/rejection
+simulation algorithm for the Bingham distribution and are described fully
+by Kent, Ganeiber and Mardia (2018) <doi:10.1080/10618600.2017.1390468>.
+These methods superseded earlier MCMC simulation methods and are more
+general than earlier simulation methods. The methods can be slower in
+specific situations where there are existing non-MCMC simulation methods
+(see Section 8 of Kent, Ganeiber and Mardia (2018)
+<doi:10.1080/10618600.2017.1390468> for further details).
 
 %prep
 %setup -q -c -n %{packname}

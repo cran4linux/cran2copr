@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kimfilter
-%global packver   1.0.1
+%global packname  SLCARE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kim Filter
+Summary:          Semiparametric Latent Class Analysis for Recurrent Event
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reReg 
+BuildRequires:    R-CRAN-nnet 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reReg 
+Requires:         R-CRAN-nnet 
 
 %description
-'Rcpp' implementation of the multivariate Kim filter, which combines the
-Kalman and Hamilton filters for state probability inference. The filter is
-designed for state space models and can handle missing values and
-exogenous data in the observation and state equations. Kim, Chang-Jin and
-Charles R. Nelson (1999) "State-Space Models with Regime Switching:
-Classical and Gibbs-Sampling Approaches with Applications"
-<doi:10.7551/mitpress/6444.001.0001><http://econ.korea.ac.kr/~cjkim/>.
+An easy-to-use tool for latent class analysis for recurrent events. The
+modeling framework is based on the semiparametric multiplicative modeling
+in Zhao et al. (2022) <doi:10.1111/rssb.12499>. Our package provides an
+alternative method to define initial values in the estimation algorithm
+based on a joint frailty scale-change model described in Wang et al.
+(2001) <doi:10.1198/016214501753209031> and K-means. Users are also
+allowed to specify different initial values by themselves. Our package
+also provides an alternative algorithm to solving the estimating equation
+for unobservable latent class membership by fitting a "pseudo" weighted
+multinomial regression which speeds up the rate of convergence.
 
 %prep
 %setup -q -c -n %{packname}

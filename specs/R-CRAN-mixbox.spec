@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mixbox
-%global packver   1.1.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Observed Fisher Information Matrix for Finite Mixture Model
 
@@ -23,11 +23,13 @@ Requires:         R-CRAN-GIGrvg
 Requires:         R-CRAN-stabledist 
 
 %description
-Developed for approximating the observed Fisher information matrix,
+Developed for the following tasks. 1- simulating realizations from the
+canonical, restricted, and unrestricted finite mixture models. 2- Monte
+Carlo approximation for density function of the finite mixture models. 3-
+Monte Carlo approximation for the observed Fisher information matrix,
 asymptotic standard error, and the corresponding confidence intervals for
-parameters of the canonical, restricted, and unrestricted finite mixture
-models using the method proposed by Basford et al. (1997)
-<https://espace.library.uq.edu.au/view/UQ:57525>.
+parameters of the mixture models sing the method proposed by Basford et
+al. (1997) <https://espace.library.uq.edu.au/view/UQ:57525>.
 
 %prep
 %setup -q -c -n %{packname}

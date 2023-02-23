@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pivmet
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pivotal Methods for Bayesian Relabelling and k-Means Clustering
 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-bayesmix
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-mclust 
@@ -38,16 +40,15 @@ Requires:         R-CRAN-bayesmix
 Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-bayesplot 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rstantools
 
 %description
 Collection of pivotal algorithms for: relabelling the MCMC chains in order
-to undo the label switching problem in Bayesian mixture models, as
-proposed in Egidi, Pappadà, Pauli and Torelli
-(2018a)<doi:10.1007/s11222-017-9774-2>; initializing the centers of the
-classical k-means algorithm in order to obtain a better clustering
-solution. For further details see Egidi, Pappadà, Pauli and Torelli
-(2018b)<ISBN:9788891910233>.
+to undo the label switching problem in Bayesian mixture models; fitting
+sparse finite mixtures; initializing the centers of the classical k-means
+algorithm in order to obtain a better clustering solution. For further
+details see Egidi, Pappadà, Pauli and Torelli (2018b)<ISBN:9788891910233>.
 
 %prep
 %setup -q -c -n %{packname}

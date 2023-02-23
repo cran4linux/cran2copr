@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IFMCDM
-%global packver   0.1.15
+%global packname  ohsome
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.15
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Intuitionistic Fuzzy Multi-Criteria Decision Making Methods
+Summary:          An 'ohsome API' Client
 
-License:          GPL (>= 2)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-sf 
+Requires:         R-utils 
 
 %description
-Implementation of two multi-criteria decision making methods (MCDM):
-Intuitionistic Fuzzy Synthetic Measure (IFSM) and Intuitionistic Fuzzy
-Technique for Order of Preference by Similarity to Ideal Solution
-(IFTOPSIS) for intuitionistic fuzzy data sets for multi-criteria decision
-making problems. References describing the methods: Jefmański (2020)
-<doi:10.1007/978-3-030-52348-0_4>; Jefmański, Roszkowska,
-Kusterka-Jefmańska (2021) <doi:10.3390/e23121636>.
+A client that grants access to the power of the 'ohsome API' from R. It
+lets you analyze the rich data source of the 'OpenStreetMap (OSM)'
+history. You can retrieve the geometry of 'OSM' data at specific points in
+time, and you can get aggregated statistics on the evolution of 'OSM'
+elements and specify your own temporal, spatial and/or thematic filters.
 
 %prep
 %setup -q -c -n %{packname}

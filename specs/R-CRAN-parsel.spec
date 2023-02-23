@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parsel
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Dynamic Web-Scraping Using 'RSelenium'
 
@@ -38,7 +38,10 @@ A system to increase the efficiency of dynamic web-scraping with
 wrapper for your 'RSelenium' scraping routine with a set of inputs, and
 'parsel' runs it in several browser instances. Chunked input processing as
 well as error catching and logging ensures seamless execution and minimal
-data loss, even when unforeseen 'RSelenium' errors occur.
+data loss, even when unforeseen 'RSelenium' errors occur. You can
+additionally build safe scraping functions with minimal coding by
+utilizing constructor functions that act as wrappers around 'RSelenium'
+methods.
 
 %prep
 %setup -q -c -n %{packname}

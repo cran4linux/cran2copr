@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ttdo
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extend 'tinytest' with 'diffobj'
 
@@ -16,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tinytest >= 1.3.1
+BuildRequires:    R-CRAN-tinytest >= 1.4.1
 BuildRequires:    R-CRAN-diffobj 
-Requires:         R-CRAN-tinytest >= 1.3.1
+Requires:         R-CRAN-tinytest >= 1.4.1
 Requires:         R-CRAN-diffobj 
 
 %description
