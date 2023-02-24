@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pegas
-%global packver   1.2
+%global packname  translate.logit
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Population and Evolutionary Genetics Analysis System
+Summary:          Translation of Logit Regression Coefficients into Percentages
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-ape >= 5.3
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ape >= 5.3
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-nnet 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-nnet 
 
 %description
-Functions for reading, writing, plotting, analysing, and manipulating
-allelic and haplotypic data, including from VCF files, and for the
-analysis of population nucleotide sequences and micro-satellites including
-coalescent analyses, linkage disequilibrium, population structure (Fst,
-Amova) and equilibrium (HWE), haplotype networks, minimum spanning tree
-and network, and median-joining networks.
+Translation of logit models coefficients into percentages, following
+Deauvieau (2010) <doi:10.1177/0759106309352586>.
 
 %prep
 %setup -q -c -n %{packname}

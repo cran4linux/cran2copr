@@ -1,55 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AQEval
-%global packver   0.5.2
+%global packname  worldriskpollr
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Air Quality Evaluation
+Summary:          Aggregated Survey Data from the World Risk Poll
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openair 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-loa 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-strucchange 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-sjlabelled 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-openair 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-loa 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-strucchange 
-Requires:         R-CRAN-segmented 
-Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-sjlabelled 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-parallel 
 
 %description
-Developed for use by those tasked with the routine detection,
-characterisation and quantification of discrete changes in air quality
-time-series, such as identifying the impacts of air quality policy
-interventions. The main functions use signal isolation then
-break-point/segment (BP/S) methods based on 'strucchange' and 'segmented'
-methods to detect and quantify change events (Ropkins & Tate, 2021,
-<doi:10.1016/j.scitotenv.2020.142374>).
+Provides users with programmatic access to aggregated survey data from the
+World Risk Poll, conveniently packaged for consumption by R users. It
+first downloads and formats the Lloyd's Register Foundation World Risk
+Poll individual survey responses. It then processes this data and provides
+weighting functions for users to select questions of interest and
+aggregate to national levels, by gender, age, income, education
+urban/rural and household composition. The method of aggregation can be
+found at <https://www.gallup.com/178667/gallup-world-poll-work.aspx/>.
+More information about the World Risk Poll Survey can be found here
+<https://wrp.lrfoundation.org.uk/>.
 
 %prep
 %setup -q -c -n %{packname}

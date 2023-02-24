@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flextable
-%global packver   0.8.5
+%global packver   0.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Tabular Reporting
 
@@ -18,42 +18,47 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-officer >= 0.5.2
-BuildRequires:    R-CRAN-gdtools >= 0.3.0
+BuildRequires:    R-CRAN-officer >= 0.6.0
+BuildRequires:    R-CRAN-gdtools >= 0.3.1
 BuildRequires:    R-CRAN-uuid >= 0.1.4
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ragg 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-officer >= 0.5.2
-Requires:         R-CRAN-gdtools >= 0.3.0
+Requires:         R-CRAN-officer >= 0.6.0
+Requires:         R-CRAN-gdtools >= 0.3.1
 Requires:         R-CRAN-uuid >= 0.1.4
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-grid 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-base64enc 
-Requires:         R-grid 
+Requires:         R-CRAN-ragg 
+Requires:         R-CRAN-xml2 
 
 %description
-Create pretty tables for 'HTML', 'PDF', 'Microsoft Word', 'Microsoft
-PowerPoint' documents from 'R Markdown' and as 'Grid Graphics' objects.
-Functions are provided to let users create tables, modify and format their
-content. It also extends package 'officer' that does not contain any
-feature for customized tabular reporting.
+Use a grammar for creating and customizing pretty tables. The following
+formats are supported: 'HTML', 'PDF', 'RTF', 'Microsoft Word', 'Microsoft
+PowerPoint' and R 'Grid Graphics'. 'R Markdown', 'Quarto' and the package
+'officer' can be used to produce the result files. The syntax is the same
+for the user regardless of the type of output to be produced. A set of
+functions allows the creation, definition of cell arrangement, addition of
+headers or footers, formatting and definition of cell content with text
+and or images. The package also offers a set of high-level functions that
+allow tabular reporting of statistical models and the creation of complex
+cross tabulations.
 
 %prep
 %setup -q -c -n %{packname}

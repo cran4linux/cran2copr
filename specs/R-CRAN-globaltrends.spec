@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  globaltrends
-%global packver   0.0.12
+%global packver   0.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.0.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Measure Global Trends Through Google Search Volumes
 
@@ -13,16 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.1
-Requires:         R-core >= 2.15.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast >= 8.12
-BuildRequires:    R-stats >= 4.0.2
-BuildRequires:    R-utils >= 4.0.2
+BuildRequires:    R-stats >= 3.5.0
+BuildRequires:    R-utils >= 3.5.0
 BuildRequires:    R-CRAN-maps >= 3.4.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-tibble >= 3.0.3
-BuildRequires:    R-CRAN-WDI >= 2.7.1
 BuildRequires:    R-CRAN-RSQLite >= 2.2.0
 BuildRequires:    R-CRAN-zoo >= 1.8.8
 BuildRequires:    R-CRAN-lubridate >= 1.7.9
@@ -38,12 +38,11 @@ BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-ineq >= 0.2.13
 Requires:         R-CRAN-forecast >= 8.12
-Requires:         R-stats >= 4.0.2
-Requires:         R-utils >= 4.0.2
+Requires:         R-stats >= 3.5.0
+Requires:         R-utils >= 3.5.0
 Requires:         R-CRAN-maps >= 3.4.0
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-tibble >= 3.0.3
-Requires:         R-CRAN-WDI >= 2.7.1
 Requires:         R-CRAN-RSQLite >= 2.2.0
 Requires:         R-CRAN-zoo >= 1.8.8
 Requires:         R-CRAN-lubridate >= 1.7.9
@@ -68,9 +67,10 @@ countries. The package allows researchers and analysts to use these search
 scores to investigate global trends based on patterns within these scores.
 This offers insights such as degree of internationalization of firms and
 organizations or dissemination of political, social, or technological
-trends across the globe or within single countries. An outline of the
+trends across the globe or within single countries.  An outline of the
 package's methodological foundations and potential applications is
-available as a working paper: <https://www.ssrn.com/abstract=3969013>.
+available as a working paper:
+<https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3969013>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brranching
-%global packver   0.7.0
+%global __requires_exclude ^libmpi
+%global packname  IFMCDM
+%global packver   0.1.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.17
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fetch 'Phylogenies' from Many Sources
+Summary:          Intuitionistic Fuzzy Multi-Criteria Decision Making Methods
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-taxize >= 0.9.97
-BuildRequires:    R-CRAN-crul >= 0.4.0
-BuildRequires:    R-CRAN-phylocomr >= 0.1.4
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-CRAN-conditionz 
-Requires:         R-CRAN-taxize >= 0.9.97
-Requires:         R-CRAN-crul >= 0.4.0
-Requires:         R-CRAN-phylocomr >= 0.1.4
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-phytools 
-Requires:         R-CRAN-conditionz 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Includes methods for fetching 'phylogenies' from a variety of sources,
-including the 'Phylomatic' web service
-(<http://phylodiversity.net/phylomatic/>), and 'Phylocom'
-(<https://github.com/phylocom/phylocom/>).
+Implementation of two multi-criteria decision making methods (MCDM):
+Intuitionistic Fuzzy Synthetic Measure (IFSM) and Intuitionistic Fuzzy
+Technique for Order of Preference by Similarity to Ideal Solution
+(IFTOPSIS) for intuitionistic fuzzy data sets for multi-criteria decision
+making problems. References describing the methods: Jefmański (2020)
+<doi:10.1007/978-3-030-52348-0_4>; Jefmański, Roszkowska,
+Kusterka-Jefmańska (2021) <doi:10.3390/e23121636>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

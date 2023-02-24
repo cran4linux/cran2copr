@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pegas
-%global packver   1.2
+%global packname  qPCRhelper
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Population and Evolutionary Genetics Analysis System
+Summary:          qPCR Ct Values to Expression Values
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-ape >= 5.3
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ape >= 5.3
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rstatix >= 0.7.2
+BuildRequires:    R-CRAN-ggpubr >= 0.5.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rstatix >= 0.7.2
+Requires:         R-CRAN-ggpubr >= 0.5.0
 
 %description
-Functions for reading, writing, plotting, analysing, and manipulating
-allelic and haplotypic data, including from VCF files, and for the
-analysis of population nucleotide sequences and micro-satellites including
-coalescent analyses, linkage disequilibrium, population structure (Fst,
-Amova) and equilibrium (HWE), haplotype networks, minimum spanning tree
-and network, and median-joining networks.
+Computes normalized cycle threshold (Ct) values (delta Ct) from raw
+quantitative polymerase chain reaction (qPCR) Ct values and conducts test
+of significance using t.test(). Plots expression values based from
+log2(2^(-1*delta delta Ct)) across groups per gene of interest. Methods
+for calculation of delta delta Ct and relative expression (2^(-1*delta
+delta Ct)) values are described in: Livak & Schmittgen, (2001)
+<doi:10.1006/meth.2001.1262>.
 
 %prep
 %setup -q -c -n %{packname}

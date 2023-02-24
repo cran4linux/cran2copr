@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  phylocomr
-%global packver   0.3.3
+%global packname  DTComPair
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Phylocom'
+Summary:          Comparison of Binary Diagnostic Tests in a Paired Study Design
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-sys >= 3.2
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-sys >= 3.2
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-PropCIs 
+BuildRequires:    R-CRAN-gee 
+Requires:         R-CRAN-PropCIs 
+Requires:         R-CRAN-gee 
 
 %description
-Interface to 'Phylocom' (<https://phylodiversity.net/phylocom/>), a
-library for analysis of 'phylogenetic' community structure and character
-evolution. Includes low level methods for interacting with the three
-executables, as well as higher level interfaces for methods like 'aot',
-'ecovolve', 'bladj', 'phylomatic', and more.
+Comparison of the accuracy of two binary diagnostic tests in a "paired"
+study design, i.e. when each test is applied to each subject in the study.
 
 %prep
 %setup -q -c -n %{packname}

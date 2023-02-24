@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  twowaytests
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Way Tests in Independent Groups Designs
 
@@ -21,20 +22,24 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-wesanderson 
 Requires:         R-CRAN-onewaytests 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-wesanderson 
 
 %description
-Performs two-way tests in independent groups designs; Parametric Bootstrap
-based Generalized Test and Generalized Pivotal Quantity based Generalized
-Test (Weerahandi and Krishnamoorthy, 2019)
-<doi:10.1080/03610926.2017.1419264>. The package performs descriptive
-statistics and graphical approaches. Moreover, it assesses variance
-homogeneity and normality of data in each group via tests and plots. All
-'twowaytests' functions are designed for two-way layout.
+Performs two-way tests in independent groups designs. These are two-way
+ANOVA, two-way ANOVA under heteroscedasticity: parametric bootstrap based
+generalized test and generalized pivotal quantity based generalized test
+(Ananda et al., 2022) <doi:10.1080/03610926.2022.2059682>, two-way ANOVA
+for medians, trimmed means, M-estimators (Wilcox, 2011;
+ISBN:978-0-12-386983-8). The package performs descriptive statistics and
+graphical approaches. Moreover, it assesses variance homogeneity and
+normality of data in each group via tests and plots. All 'twowaytests'
+functions are designed for two-way layout.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

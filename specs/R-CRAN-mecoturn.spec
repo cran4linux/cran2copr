@@ -1,37 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pegas
-%global packver   1.2
+%global packname  mecoturn
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Population and Evolutionary Genetics Analysis System
+Summary:          Decipher Microbial Turnover along a Gradient
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-ape >= 5.3
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ape >= 5.3
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-microeco >= 0.14.0
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggpubr 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-microeco >= 0.14.0
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggpubr 
 
 %description
-Functions for reading, writing, plotting, analysing, and manipulating
-allelic and haplotypic data, including from VCF files, and for the
-analysis of population nucleotide sequences and micro-satellites including
-coalescent analyses, linkage disequilibrium, population structure (Fst,
-Amova) and equilibrium (HWE), haplotype networks, minimum spanning tree
-and network, and median-joining networks.
+Two pipelines are provided to study microbial turnover along a gradient,
+including the beta diversity and microbial abundance change. The
+'betaturn' class consists of the steps of community dissimilarity matrix
+generation, matrix conversion, differential test and visualization. The
+workflow of 'taxaturn' class includes the taxonomic abundance calculation,
+abundance transformation, abundance change summary, statistical analysis
+and visualization. Multiple statistical approaches can contribute to the
+analysis of microbial turnover.
 
 %prep
 %setup -q -c -n %{packname}
