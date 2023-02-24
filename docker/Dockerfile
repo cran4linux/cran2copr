@@ -17,7 +17,8 @@ RUN dnf -y install 'dnf-command(copr)' \
     && dnf -y install R-CoprManager \
     && dnf -y clean all \
     && echo "options(repos='https://cloud.r-project.org')" > \
-        /usr/lib64/R/etc/Rprofile.site.d/00-repos.site
+        /usr/lib64/R/etc/Rprofile.site.d/00-repos.site \
+    && mkdir -p /usr/local/lib/R/site-library
 
 # install littler scripts
 RUN dnf -y install R-littler-examples R-remotes \

@@ -678,7 +678,7 @@ redist,gmp-devel libxml2-devel,python3,TRUE,"OpenMPI, gmp, libxml2, python,"
 redland,redland-devel,,TRUE,"Mac OSX: redland ; Linux: librdf0, librdf0-dev"
 redux,hiredis-devel,,TRUE,hiredis
 remiod,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net/)
-remotes,,subversion git,TRUE,"Subversion for install_svn, git for install_git"
+remotes,,,TRUE,"Subversion for install_svn, git for install_git"
 REPLesentR,,,TRUE,Presentations written in (R)Markdown require Pandoc(http://pandoc.org).
 RepoGenerator,,,TRUE,"GitHub, 'RStudio'"
 reportfactory,,,TRUE,pandoc - http://pandoc.org
