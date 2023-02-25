@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dtplyr
-%global packver   1.2.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Table Back-End for 'dplyr'
 
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.3
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.4
+BuildRequires:    R-CRAN-vctrs >= 0.4.1
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-dplyr >= 1.0.3
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.4
+Requires:         R-CRAN-vctrs >= 0.4.1
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-vctrs 
 
 %description
 Provides a data.table backend for 'dplyr'. The goal of 'dtplyr' is to

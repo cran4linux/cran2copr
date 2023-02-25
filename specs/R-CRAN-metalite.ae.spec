@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastmap
-%global packver   1.1.1
+%global packname  metalite.ae
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Data Structures
+Summary:          Adverse Events Analysis Using 'metalite'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-metalite 
+BuildRequires:    R-CRAN-r2rtf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-metalite 
+Requires:         R-CRAN-r2rtf 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 
 %description
-Fast implementation of data structures, including a key-value store,
-stack, and queue. Environments are commonly used as key-value stores in R,
-but every time a new key is used, it is added to R's global symbol table,
-causing a small amount of memory leakage. This can be problematic in cases
-where many different keys are used. Fastmap avoids this memory leak issue
-by implementing the map using data structures in C++.
+Analyzes adverse events in clinical trials using the 'metalite' data
+structure. The package simplifies the workflow to create production-ready
+tables, listings, and figures discussed in the adverse events analysis
+chapters of "R for Clinical Study Reports and Submission" by Zhang et al.
+(2022) <https://r4csr.org/>.
 
 %prep
 %setup -q -c -n %{packname}

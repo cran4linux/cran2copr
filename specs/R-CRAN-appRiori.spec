@@ -1,46 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DSMolgenisArmadillo
-%global packver   2.0.0
+%global packname  appRiori
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'DataSHIELD' Client for 'MOLGENIS Armadillo'
+Summary:          Code and Obtain Customized Planned Comparisons with 'appRiori'
 
-License:          LGPL (>= 2.1)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DSI >= 1.3.0
-BuildRequires:    R-CRAN-MolgenisAuth >= 0.0.25
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-hypr 
+BuildRequires:    R-CRAN-markdown 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-rhandsontable 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-sortable 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-DSI >= 1.3.0
-Requires:         R-CRAN-MolgenisAuth >= 0.0.25
-Requires:         R-methods 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-hypr 
+Requires:         R-CRAN-markdown 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-rhandsontable 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-sortable 
 Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-urltools 
 
 %description
-'DataSHIELD' is an infrastructure and series of R packages that enables
-the remote and 'non-disclosive' analysis of sensitive research data. This
-package is the 'DataSHIELD' interface implementation to analyze data
-shared on a 'MOLGENIS Armadillo' server. 'MOLGENIS Armadillo' is a
-light-weight 'DataSHIELD' server using a file store and an 'RServe'
-server.
+With 'appRiori', users upload the research variables and the app guides
+them to the best set of comparisons fitting the hypotheses, for both main
+and interaction effects. Through a graphical explanation and empirical
+examples on reproducible data, it is shown that it is possible to
+understand both the logic behind the planned comparisons and the way to
+interpret them when a model is tested.
 
 %prep
 %setup -q -c -n %{packname}

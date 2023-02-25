@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastmap
-%global packver   1.1.1
+%global packname  readysignal
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Data Structures
+Summary:          'Ready Signal' API Wrapper
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,14 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-progress 
 
 %description
-Fast implementation of data structures, including a key-value store,
-stack, and queue. Environments are commonly used as key-value stores in R,
-but every time a new key is used, it is added to R's global symbol table,
-causing a small amount of memory leakage. This can be problematic in cases
-where many different keys are used. Fastmap avoids this memory leak issue
-by implementing the map using data structures in C++.
+A simple way to interact with the 'Ready Signal' API without leaving your
+'R' environment. Discover features, manage signals, and retrieve data
+easily. View the full API documentation at
+<https://readysignal.com/ready-signal-api-documentation>.
 
 %prep
 %setup -q -c -n %{packname}

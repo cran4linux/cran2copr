@@ -1,29 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastmap
-%global packver   1.1.1
+%global packname  RSStest
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Data Structures
+Summary:          Testing the Equality of Two Means Using RSS and MRSS
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-huxtable >= 5.4.0
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-huxtable >= 5.4.0
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Fast implementation of data structures, including a key-value store,
-stack, and queue. Environments are commonly used as key-value stores in R,
-but every time a new key is used, it is added to R's global symbol table,
-causing a small amount of memory leakage. This can be problematic in cases
-where many different keys are used. Fastmap avoids this memory leak issue
-by implementing the map using data structures in C++.
+Testing the equality of two means using Ranked Set Sampling and Median
+Ranked Set Sampling are provided under normal distribution. Data
+generation functions are also given RSS and MRSS. Also, data generation
+functions are given under imperfect ranking data for Ranked Set Sampling
+and Median Ranked Set Sampling. Ozdemir Y.A., Ebegil M., & Gokpinar F.
+(2019), <doi:10.1007/s40995-018-0558-0> Ozdemir Y.A., Ebegil M., &
+Gokpinar F. (2017), <doi:10.1080/03610918.2016.1263736>.
 
 %prep
 %setup -q -c -n %{packname}

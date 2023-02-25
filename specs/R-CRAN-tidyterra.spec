@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyterra
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-terra >= 1.5.12
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-terra >= 1.5.12
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 

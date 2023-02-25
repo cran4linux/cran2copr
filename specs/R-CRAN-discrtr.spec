@@ -1,29 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastmap
-%global packver   1.1.1
+%global packname  discrtr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Data Structures
+Summary:          A Companion Package for the Book "Discrete Choice Analysis with 'R'"
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rmdformats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rmdformats 
 
 %description
-Fast implementation of data structures, including a key-value store,
-stack, and queue. Environments are commonly used as key-value stores in R,
-but every time a new key is used, it is added to R's global symbol table,
-causing a small amount of memory leakage. This can be problematic in cases
-where many different keys are used. Fastmap avoids this memory leak issue
-by implementing the map using data structures in C++.
+Templates and data files to support "Discrete Choice Analysis with R",
+Páez, A. and Boisjoly, G. (2023) <doi:10.1007/978-3-031-20719-8>.
 
 %prep
 %setup -q -c -n %{packname}

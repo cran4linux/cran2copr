@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyGizmo
-%global packver   0.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom Components for Shiny Applications
 
@@ -18,21 +18,21 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-shinyWidgets >= 0.7.0
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-shinyWidgets 
 Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-shinyWidgets >= 0.7.0
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-shinyWidgets 
 
 %description
 Provides useful UI components and input widgets for 'Shiny' applications.

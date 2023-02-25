@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nmarank
-%global packver   0.2-3
+%global packver   0.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Complex Hierarchy Questions in Network Meta-Analysis
 
@@ -13,25 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.1
-Requires:         R-core >= 3.3.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 4.19.1
-BuildRequires:    R-CRAN-netmeta >= 1.5.0
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-netmeta >= 2.7.0
+BuildRequires:    R-CRAN-meta 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-meta >= 4.19.1
-Requires:         R-CRAN-netmeta >= 1.5.0
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-netmeta >= 2.7.0
+Requires:         R-CRAN-meta 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-tidyr 
 
 %description
 Derives the most frequent hierarchies along with their probability of

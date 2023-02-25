@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dbplyr
-%global packver   2.3.0
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'dplyr' Back End for Databases
 
@@ -21,16 +21,16 @@ BuildRequires:    R-CRAN-cli >= 3.4.1
 BuildRequires:    R-CRAN-R6 >= 2.2.2
 BuildRequires:    R-CRAN-pillar >= 1.5.0
 BuildRequires:    R-CRAN-tibble >= 1.4.2
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-blob >= 1.2.0
 BuildRequires:    R-CRAN-glue >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.10
 BuildRequires:    R-CRAN-purrr >= 1.0.1
 BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
-BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
@@ -39,16 +39,16 @@ Requires:         R-CRAN-cli >= 3.4.1
 Requires:         R-CRAN-R6 >= 2.2.2
 Requires:         R-CRAN-pillar >= 1.5.0
 Requires:         R-CRAN-tibble >= 1.4.2
+Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-blob >= 1.2.0
 Requires:         R-CRAN-glue >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.6
 Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-dplyr >= 1.0.10
 Requires:         R-CRAN-purrr >= 1.0.1
 Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-vctrs >= 0.5.0
-Requires:         R-CRAN-assertthat >= 0.2.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-utils 

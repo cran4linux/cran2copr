@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actuaRE
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Hierarchically Structured Risk Factors using Random Effects Models
 
@@ -44,8 +44,8 @@ Requires:         R-CRAN-knitr
 Using this package, you can fit a random effects model using either the
 hierarchical credibility model, a combination of the hierarchical
 credibility model with a generalized linear model or a Tweedie generalized
-linear mixed model. See Campo, B.D.C. and Antonio, K. (2022)
-<arXiv:2206.15244>.
+linear mixed model. See Campo, B.D.C. and Antonio, K. (2023)
+<doi:10.1080/03461238.2022.2161413>.
 
 %prep
 %setup -q -c -n %{packname}

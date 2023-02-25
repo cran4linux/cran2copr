@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastmap
-%global packver   1.1.1
+%global packname  hpfilter
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Data Structures
+Summary:          The One- And Two-Sided Hodrick-Prescott Filter
 
-License:          MIT + file LICENSE
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix 
 
 %description
-Fast implementation of data structures, including a key-value store,
-stack, and queue. Environments are commonly used as key-value stores in R,
-but every time a new key is used, it is added to R's global symbol table,
-causing a small amount of memory leakage. This can be problematic in cases
-where many different keys are used. Fastmap avoids this memory leak issue
-by implementing the map using data structures in C++.
+Provides two functions that implement the one-sided and two-sided versions
+of the Hodrick-Prescott filter. The one-sided version is a Kalman
+filter-based implementation, whereas the two- sided version uses sparse
+matrices for improved efficiency. References: Hodrick, R. J., and
+Prescott, E. C. (1997) <doi:10.2307/2953682> Mcelroy, T. (2008)
+<doi:10.1111/j.1368-423X.2008.00230.x> Meyer-Gohde, A. (2010)
+<https://ideas.repec.org/c/dge/qmrbcd/181.html> For more references, see
+the vignette.
 
 %prep
 %setup -q -c -n %{packname}
