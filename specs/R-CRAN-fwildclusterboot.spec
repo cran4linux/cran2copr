@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fwildclusterboot
-%global packver   0.12.1
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Wild Cluster Bootstrap Inference for Linear Models
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-JuliaConnectoR
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-summclust 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-collapse 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-JuliaConnectoR
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-summclust 
+Requires:         R-CRAN-rlang 
 
 %description
 Implementation of fast algorithms for wild cluster bootstrap inference
@@ -54,11 +56,10 @@ restricted ('WCR') and unrestricted ('WCU') bootstrap are supported.
 Methods are provided for a variety of fitted models, including 'lm()',
 'feols()' (from package 'fixest') and 'felm()' (from package 'lfe').
 Additionally implements a 'heteroskedasticity-robust' ('HC1') wild
-bootstrap. Further, the package provides an R binding to
-'WildBootTests.jl', which provides additional speed gains and
-functionality, including the 'WRE' bootstrap for instrumental variable
-models (based on models of type 'ivreg()' from package 'ivreg') and
-hypotheses with q > 1.
+bootstrap. Last, the package provides an R binding to 'WildBootTests.jl',
+which provides additional speed gains and functionality, including the
+'WRE' bootstrap for instrumental variable models (based on models of type
+'ivreg()' from package 'ivreg') and hypotheses with q > 1.
 
 %prep
 %setup -q -c -n %{packname}

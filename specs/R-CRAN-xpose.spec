@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xpose
-%global packver   0.4.14
+%global packver   0.4.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.14
+Version:          0.4.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostics for Pharmacometric Models
 
@@ -14,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
+BuildRequires:    R-CRAN-readr >= 2.1.0
 BuildRequires:    R-CRAN-tibble >= 2.1.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-readr >= 1.3.0
 BuildRequires:    R-CRAN-vpc >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.0
@@ -31,9 +31,9 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
+Requires:         R-CRAN-readr >= 2.1.0
 Requires:         R-CRAN-tibble >= 2.1.0
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-readr >= 1.3.0
 Requires:         R-CRAN-vpc >= 1.1.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-tidyr >= 0.8.0

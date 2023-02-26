@@ -1,49 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ICD10gm
-%global packver   1.2.5
+%global packname  simaerep
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Metadata Processing for the German Modification of the ICD-10 Coding System
+Summary:          Find Clinical Trial Sites Under-Reporting Adverse Events
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-furrr >= 0.2.1
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-furrr >= 0.2.1
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-tibble 
 
 %description
-Provides convenient access to the German modification of the International
-Classification of Diagnoses, 10th revision (ICD-10-GM). It provides
-functionality to aid in the identification, specification and
-historisation of ICD-10 codes. Its intended use is the analysis of
-routinely collected data in the context of epidemiology, medical research
-and health services research. The underlying metadata are released by the
-German Institute for Medical Documentation and Information
-<https://www.dimdi.de>, and are redistributed in accordance with their
-license.
+Monitoring of Adverse Event (AE) reporting in clinical trials is important
+for patient safety. Sites that are under-reporting AEs can be detected
+using Bootstrap-based simulations that simulate overall AE reporting.
+Based on the simulation an AE under-reporting probability is assigned to
+each site in a given trial (Koneswarakantha 2021
+<doi:10.1007/s40264-020-01011-5>).
 
 %prep
 %setup -q -c -n %{packname}
