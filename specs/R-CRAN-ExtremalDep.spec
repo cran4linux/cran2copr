@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ExtremalDep
-%global packver   0.0.3-5
+%global packver   0.0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3.5
+Version:          0.0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extremal Dependence Models
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-CRAN-sn 
@@ -24,6 +25,10 @@ BuildRequires:    R-CRAN-nloptr
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-sn 
@@ -33,33 +38,25 @@ Requires:         R-CRAN-nloptr
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-fda 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-sp 
 
 %description
-A set of procedures for modelling parametrically and non-parametrically
-the dependence structure of multivariate extreme-values is provided. The
+A set of procedures for parametric and non-parametric modelling of the
+dependence structure of multivariate extreme-values is provided. The
 statistical inference is performed with non-parametric estimators,
-likelihood-based estimators and Bayesian techniques. Adapts the
-methodologies derived in Beranger et al. (2019) <arxiv:1904.08251>,
-Beranger et al. (2017) <doi:10.1111/sjos.12240>, Beranger and Padoan
-(2015) <arxiv:1508.05561>, Marcon et al. (2017) <doi:10.1002/sta4.145>,
-Marcon et al. (2017) <doi:10.1016/j.jspi.2016.10.004> and Marcon et al.
-(2016) <doi:10.1214/16-EJS1162>. It also refers to the works of Bortot
-(2010)
-<https://www.semanticscholar.org/paper/Tail-dependence-in-bivariate-skew-Normal-and-skew-t-Bortot/b0dc1cb608d35bf515c76e39aacc14b4de82e281?p2df>,
-Padoan (2011) <doi:10.1016/j.jmva.2011.01.014>, Cooley et al. (2010)
-<doi:10.1016/j.jmva.2010.04.007>, Husler and Reiss (1989)
-<doi:10.1016/0167-7152(89)90106-5>, Engelke et al. (2015)
-<doi:10.1111/rssb.12074>, Coles and Tawn (1991)
-<doi:10.1111/j.2517-6161.1991.tb01830.x>, Nikoloulopoulos et al. (2011)
-<doi:10.1007/s10687-008-0072-4>, Opitz (2013)
-<doi:10.1016/j.jmva.2013.08.008>, Tawn (1990) <doi:10.2307/2336802>,
-Azzalini and Capitanio (2014) <doi:10.1017/CBO9781139248891>, Azzalini
-(2003) <doi:10.1111/1467-9469.00322>, Azzalini and Capitanio (1999)
-<doi:10.1111/1467-9868.00194>, Azzalini and Dalla Valle (1996)
-<doi:10.1093/biomet/83.4.715>, Einmahl et al. (2013)
-<doi:10.1007/s10687-012-0156-z>, Naveau et al (2009)
-<doi:10.1093/biomet/asp001> and Heffernan and Tawn (2004)
-<doi:10.1111/j.1467-9868.2004.02050.x>.
+likelihood-based estimators and Bayesian techniques. It adapts the
+methodologies of Beranger and Padoan (2015) <arxiv:1508.05561>, Marcon et
+al. (2016) <doi:10.1214/16-EJS1162>, Marcon et al. (2017)
+<doi:10.1002/sta4.145>, Marcon et al. (2017)
+<doi:10.1016/j.jspi.2016.10.004> and Beranger et al. (2021)
+<doi:10.1007/s10687-019-00364-0>. This package also allows for the
+modelling of spatial extremes using flexible max-stable processes. It
+provides simulation algorithms and fitting procedures relying on the
+Stephenson-Tawn likelihood as per Beranger at al. (2021)
+<doi:10.1007/s10687-020-00376-1>.
 
 %prep
 %setup -q -c -n %{packname}

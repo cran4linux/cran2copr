@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pdfetch
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fetch Economic and Financial Time Series Data from Public Sources
 
@@ -22,20 +23,26 @@ BuildRequires:    R-CRAN-xts
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
 
 %description
 Download economic and financial time series from public sources, including
