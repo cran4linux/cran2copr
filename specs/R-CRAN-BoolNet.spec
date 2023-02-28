@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BoolNet
-%global packver   2.1.7
+%global packver   2.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construction, Simulation and Analysis of Boolean Networks
 
@@ -22,9 +22,10 @@ Requires:         R-CRAN-igraph >= 0.6
 Requires:         R-CRAN-XML 
 
 %description
-Provides methods to reconstruct and generate synchronous, asynchronous,
-probabilistic and temporal Boolean networks, and to analyze and visualize
-attractors in Boolean networks.
+Functions to reconstruct, generate, and simulate synchronous,
+asynchronous, probabilistic, and temporal Boolean networks. Provides also
+functions to analyze and visualize attractors in Boolean networks
+<doi:10.1093/bioinformatics/btq124>.
 
 %prep
 %setup -q -c -n %{packname}

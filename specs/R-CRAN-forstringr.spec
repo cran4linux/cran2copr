@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  NetOrigin
-%global packver   1.1-4
+%global __requires_exclude ^libmpi
+%global packname  forstringr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Origin Estimation for Propagation Processes on Complex Networks
+Summary:          String Manipulation Package for Those Familiar with 'Microsoft Excel'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Performs network-based source estimation. Different approaches are
-available: effective distance median (Manitz et al., 2014;
-<doi:10.1371/currents.outbreaks.f3fdeb08c5b9de7c09ed9cbcef5f01f2>),
-recursive backtracking (Manitz et al., 2016; <doi:10.1111/rssc.12176>),
-and centrality-based source estimation (Li et al., 2021;
-<doi:10.1371/journal.pcbi.1008545>). Additionally, we provide public
-transportation network data as well as methods for data preparation,
-source estimation performance analysis and visualization.
+The goal of 'forstringr' is to enable complex string manipulation in R
+especially to those more familiar with LEFT(), RIGHT(), and MID()
+functions in Microsoft Excel. The package combines the power of 'stringr'
+with other manipulation packages such as 'dplyr' and 'tidyr'.
 
 %prep
 %setup -q -c -n %{packname}

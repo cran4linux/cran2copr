@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  listdown
-%global packver   0.5.4
+%global packname  saeHB.panel.beta
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create R Markdown from Lists
+Summary:          Small Area Estimation using HB for Rao Yu Model under Beta Distribution
 
-License:          Apache License (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-fs 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-fs 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rjags 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-dplyr 
 
 %description
-Programmatically create R Markdown documents from lists.
+Several functions are provided for small area estimation at the area level
+using the hierarchical bayesian (HB) method with panel data under beta
+distribution for variable interest. This package also provides a dataset
+produced by data generation. The "rjags" package is employed to obtain
+parameter estimates. Model-based estimators involve the HB estimators,
+which include the mean and the variation of the mean. For the reference,
+see Rao and Molina (2015, ISBN: 978-1-118-73578-7).
 
 %prep
 %setup -q -c -n %{packname}

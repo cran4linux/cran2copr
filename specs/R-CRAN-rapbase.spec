@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rapbase
-%global packver   1.23.0
+%global packver   1.24.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23.0
+Version:          1.24.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Base Functions and Resources for Rapporteket
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sship >= 0.8.0
-BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-sship >= 0.9.0
+BuildRequires:    R-CRAN-blob 
 BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-digest 
@@ -38,8 +38,8 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinyalert 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-sship >= 0.8.0
-Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-sship >= 0.9.0
+Requires:         R-CRAN-blob 
 Requires:         R-CRAN-bookdown 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-digest 

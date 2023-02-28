@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgugik
-%global packver   0.4.0
+%global packname  foundry
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Spatial Data from 'GUGiK'
+Summary:          'Palantir Foundry' Software Development Kit
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-arrow >= 0.14.0
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-arrow >= 0.14.0
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-yaml 
 
 %description
-Automatic open data acquisition from resources of Polish Head Office of
-Geodesy and Cartography ('Główny Urząd Geodezji i Kartografii')
-(<https://www.gov.pl/web/gugik>). Available datasets include various types
-of numeric, raster and vector data, such as orthophotomaps, digital
-elevation models (digital terrain models, digital surface model, point
-clouds), state register of borders, spatial databases, geometries of
-cadastral parcels, 3D models of buildings, and more. It is also possible
-to geocode addresses or objects using the geocodePL_get() function.
+Interface to 'Palantir Foundry', including reading and writing structured
+or unstructured datasets, and more
+<https://www.palantir.com/platforms/foundry/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  activity
-%global packver   1.3.2
+%global __requires_exclude ^libmpi
+%global packname  egcm
+%global packver   1.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.0.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Animal Activity Statistics
+Summary:          Engle-Granger Cointegration Models
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,19 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-urca 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-quantmod 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-insol 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-xts 
+Requires:         R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tseries 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-urca 
+Requires:         R-parallel 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-quantmod 
 Requires:         R-methods 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-insol 
 
 %description
-Provides functions to express clock time data relative to anchor points
-(typically solar); fit kernel density functions to animal activity time
-data; plot activity distributions; quantify overall levels of activity;
-statistically compare activity metrics through bootstrapping; evaluate
-variation in linear variables with time (or other circular variables).
+An easy-to-use implementation of the Engle-Granger two-step procedure for
+identifying pairs of cointegrated series.  It is geared towards the
+analysis of pairs of securities.  Summary and plot functions are provided,
+and the package is able to fetch closing prices of securities from Yahoo.
+A variety of unit root tests are supported, and an improved unit root test
+is included.
 
 %prep
 %setup -q -c -n %{packname}

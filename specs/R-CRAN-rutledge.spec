@@ -1,44 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dynamAedes
-%global packver   2.1.1
+%global packname  rutledge
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Unified Mechanistic Model for the Population Dynamics of Invasive Aedes Mosquitoes
+Summary:          Real-Time PCR Data Sets by Rutledge et al. (2004)
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-drc 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-insol 
-BuildRequires:    R-CRAN-slam 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-drc 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-insol 
-Requires:         R-CRAN-slam 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
 
 %description
-Generalised model for population dynamics of invasive Aedes mosquitoes.
-Rationale and model structure are described here: Da Re et al. (2021)
-<doi:10.1016/j.ecoinf.2020.101180> and Da Re et al. (2022)
-<doi:10.1101/2021.12.21.473628>.
+Real-time quantitative polymerase chain reaction (qPCR) data by Rutledge
+et al. (2004) <doi:10.1093/nar/gnh177> in tidy format. The data comprises
+a six-point, ten-fold dilution series, repeated in five independent runs,
+for two different amplicons. In each run, each standard concentration is
+replicated four times. Original raw data file:
+<https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/nar/32/22/10.1093_nar_gnh177/1/gnh177_Supplementary_Data.zip?Expires=1680370010&Signature=xxk4VxX0C4yr3UWzxgh7ieCt7QQmpFMRauvsVEwtGXYGCcyQY7uhNCE-M8zx9kpyDPoS8NR7fjBuMx2Xz2ANFwF1VqnjQ4AfO37klnJ3CHRIJ7bj01n2mycHDnvJ3XawHdWT8TqJxTxVC9CpYEkH2xGeJBnnpcnXLbc94A8KB8FCtg2WR3O~ULkaOQQ8uJAiVdJhnBHH~XfBRkfoKHSuyJgX7n7M2~gwXnZH9n3vUyo~CHrpIax7Hi0xUSCBbQM571hxA7JIHkhZ0HBm2aXFuAru2yJ~o8jMEnnguOJg8T7mGqTDzUBtW0hJhmQDksdJoyeAFzU84QRUIZj9q3-tXg__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA>.
 
 %prep
 %setup -q -c -n %{packname}

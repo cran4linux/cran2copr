@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dynamicSDM
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution and Abundance Modelling at High Spatio-Temporal Resolution
 
@@ -35,6 +35,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geodist 
 Requires:         R-CRAN-geosphere 
@@ -53,6 +54,7 @@ Requires:         R-graphics
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-readr 
 
 %description
 A collection of novel tools for generating species distribution and

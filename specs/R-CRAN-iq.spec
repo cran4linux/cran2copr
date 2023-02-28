@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iq
-%global packver   1.9.7
+%global packver   1.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.7
+Version:          1.9.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Protein Quantification in Mass Spectrometry-Based Proteomics
 

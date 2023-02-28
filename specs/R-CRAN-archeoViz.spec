@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  archeoViz
-%global packver   0.2.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualisation, Exploration, and Web Communication of Archaeological Excavation Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-cxhull 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-svglite 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
 Requires:         R-CRAN-ggplot2 
@@ -31,17 +32,18 @@ Requires:         R-CRAN-mgcv
 Requires:         R-CRAN-cxhull 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-svglite 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
 
 %description
 An R 'Shiny' application for the visualisation, interactive exploration,
 and web communication of archaeological excavation data. It includes
-interactive 3D and 2D visualisations, generation of cross sections and map
-of the remains, basic spatial analysis methods (convex hull, regression
-surfaces, 2D kernel density estimation), and excavation timeline
-visualisation. 'archeoViz' can be used locally or deployed on a server,
-either with interactive input of data or with a static data set.
+interactive 3D and 2D visualisations, generation of cross sections and
+maps of the remains, basic spatial analysis methods (convex hull,
+regression surfaces, 2D kernel density estimation), and excavation
+timeline visualisation. 'archeoViz' can be used locally or deployed on a
+server, either with interactive input of data or with a static data set.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgugik
-%global packver   0.4.0
+%global packname  rsnell
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Spatial Data from 'GUGiK'
+Summary:          Snell Scoring
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Automatic open data acquisition from resources of Polish Head Office of
-Geodesy and Cartography ('Główny Urząd Geodezji i Kartografii')
-(<https://www.gov.pl/web/gugik>). Available datasets include various types
-of numeric, raster and vector data, such as orthophotomaps, digital
-elevation models (digital terrain models, digital surface model, point
-clouds), state register of borders, spatial databases, geometries of
-cadastral parcels, 3D models of buildings, and more. It is also possible
-to geocode addresses or objects using the geocodePL_get() function.
+The Snell scoring procedure, implemented in R. This procedure was first
+described by E.J Snell (1964) <doi:10.2307/2528498> and was later used by
+Tong et al (1977) <doi:10.4141/cjas77-001> in dairy.
 
 %prep
 %setup -q -c -n %{packname}

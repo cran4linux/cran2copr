@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  disordR
-%global packver   0.0-9-4
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9.4
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Ordered Vectors
 
@@ -25,22 +25,12 @@ Requires:         R-methods
 Requires:         R-CRAN-digest 
 
 %description
-Functionality for manipulating values of associative maps.  Ordinary R
-vectors are unsuitable for working with values of associative maps because
-elements of an R vector may be accessed by reference to their location in
-the vector, but associative maps are stored in arbitrary order.  However,
-when associating keys with values one needs both parts to be in 1-1
-correspondence, so one cannot dispense with the order entirely.  The
-'disordR' package includes a single S4 class, disord.  This class allows
-one to perform only those operations appropriate for manipulating values
-of associative maps and prevents any other operation (such as accessing an
-element at a particular location).  A useful heuristic is that one is only
-allowed to access or modify a disord object using a python list
-comprehension.  The idea is to prevent ill-defined operations on values
-(or keys) of associative maps, whose order is undefined or at best
-implementation-specific, while allowing and facilitating sensible
-operations.  To cite the package in publications please use Hankin (2022)
-<doi:10.48550/ARXIV.2210.03856>.
+Functionality for manipulating values of associative maps.  The package is
+designed to be used with the 'mvp' class of packages that use the STL map
+class: its purpose is to trap plausible idiom that is ill-defined
+(implementation-specific) and return an informative error, rather than
+returning a possibly incorrect result.  To cite the package in
+publications please use Hankin (2022) <doi:10.48550/ARXIV.2210.03856>.
 
 %prep
 %setup -q -c -n %{packname}

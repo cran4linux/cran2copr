@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  metamedian
-%global packver   0.1.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis of Medians
 
@@ -13,25 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-estmeansd 
 BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-metaBLUE 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-estmeansd 
 Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-metaBLUE 
 Requires:         R-CRAN-metafor 
 Requires:         R-stats 
 
 %description
 Implements several methods to meta-analyze studies that report the sample
 median of the outcome. When the primary studies are one-group studies, the
-methods of McGrath et al. (2019) <doi:10.1002/sim.8013> can be applied to
-estimate the pooled median. In the two-group context, the methods of
-McGrath et al. (2020) <doi:10.1002/bimj.201900036> can be applied to
-estimate the pooled raw difference of medians across groups.
+methods of McGrath et al. (2019) <doi:10.1002/sim.8013> and Ozturk and
+Balakrishnan (2020) <doi:10.1002/sim.8738> can be applied to estimate the
+pooled median. In the two-group context, the methods of McGrath et al.
+(2020a) <doi:10.1002/bimj.201900036> can be applied to estimate the pooled
+difference of medians across groups. Additionally, a number of methods
+(e.g., McGrath et al. (2020b) <doi:10.1177/0962280219889080>, Cai et al.
+(2021) <doi:10.1177/09622802211047348>, and McGrath et al. (2023)
+<doi:10.1177/09622802221139233>) are implemented to estimate
+study-specific (difference of) means and their standard errors in order to
+estimate the pooled (difference of) means.
 
 %prep
 %setup -q -c -n %{packname}

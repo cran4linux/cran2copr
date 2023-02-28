@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgugik
-%global packver   0.4.0
+%global packname  ScreeNOT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Spatial Data from 'GUGiK'
+Summary:          'ScreeNOT': MSE-Optimal Singular Value Thresholding in Correlated Noise
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Automatic open data acquisition from resources of Polish Head Office of
-Geodesy and Cartography ('Główny Urząd Geodezji i Kartografii')
-(<https://www.gov.pl/web/gugik>). Available datasets include various types
-of numeric, raster and vector data, such as orthophotomaps, digital
-elevation models (digital terrain models, digital surface model, point
-clouds), state register of borders, spatial databases, geometries of
-cadastral parcels, 3D models of buildings, and more. It is also possible
-to geocode addresses or objects using the geocodePL_get() function.
+Optimal hard thresholding of singular values. The procedure adaptively
+estimates the best singular value threshold under unknown noise
+characteristics. The threshold chosen by 'ScreeNOT' is optimal
+(asymptotically, in the sense of minimum Frobenius error) under the the
+so-called "Spiked model" of a low-rank matrix observed in additive noise.
+In contrast to previous works, the noise is not assumed to be i.i.d. or
+white; it can have an essentially arbitrary and unknown correlation
+structure, across either rows, columns or both. 'ScreeNOT' is proposed to
+practitioners as a mathematically solid alternative to Cattell's
+ever-popular but vague Scree Plot heuristic from 1966. If you use this
+package, please cite our paper: David L. Donoho, Matan Gavish and Elad
+Romanov (2023). "ScreeNOT: Exact MSE-optimal singular value thresholding
+in correlated noise." Annals of Statistics, 2023 (To appear).
+<arXiv:2009.12297>.
 
 %prep
 %setup -q -c -n %{packname}

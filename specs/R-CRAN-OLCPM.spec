@@ -1,48 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  phylter
-%global packver   0.9.7
+%global packname  OLCPM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detect and Remove Outliers in Phylogenomics Datasets
+Summary:          Online Change Point Detection for Matrix-Valued Time Series
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mrfDepth 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mrfDepth 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Analyzis and filtering of phylogenomics datasets. It takes an input either
-a collection of gene trees (then transformed to matrices) or directly a
-collection of gene matrices and performs an iterative process to identify
-what species in what genes are outliers, and whose elimination
-significantly improves the concordance between the input matrices. The
-methods builds upon the Distatis approach (Abdi et al. (2005)
-<doi:10.1101/2021.09.08.459421>), a generalization of classical
-multidimensional scaling to multiple distance matrices.
+We provide two algorithms for monitoring change points with online
+matrix-valued time series, under the assumption of a two-way factor
+structure. The algorithms are based on different calculations of the
+second moment matrices. One is based on stacking the columns of matrix
+observations, while another is by a more delicate projected approach. A
+well-known fact is that, in the presence of a change point, a factor model
+can be rewritten as a model with a larger number of common factors. In
+turn, this entails that, in the presence of a change point, the number of
+spiked eigenvalues in the second moment matrix of the data increases.
+Based on this, we propose two families of procedures - one based on the
+fluctuations of partial sums, and one based on extreme value theory - to
+monitor whether the first non-spiked eigenvalue diverges after a point in
+time in the monitoring horizon, thereby indicating the presence of a
+change point. See more details in He et al. (2021)<arXiv:2112.13479>.
 
 %prep
 %setup -q -c -n %{packname}

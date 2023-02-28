@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grandR
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Analysis of Nucleotide Conversion Sequencing Data
 
@@ -14,36 +14,43 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-lfc 
+BuildRequires:    R-CRAN-labeling 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-plyr 
 Requires:         R-parallel 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-lfc 
+Requires:         R-CRAN-labeling 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-numDeriv 

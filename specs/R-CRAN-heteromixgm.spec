@@ -1,46 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SimEngine
-%global packver   1.2.0
+%global packname  heteromixgm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Modular Framework for Statistical Simulations in R
+Summary:          Copula Graphical Models for Heterogeneous Mixed Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.10
+Requires:         R-core >= 3.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-BDgraph 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-igraph 
 Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tmvtnorm 
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-BDgraph 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-MASS 
 
 %description
-An open-source R package for structuring, maintaining, running, and
-debugging statistical simulations on both local and cluster-based
-computing environments.See full documentation at
-<https://avi-kenny.github.io/SimEngine/>.
+A multi-core R package that allows for the statistical modeling of
+multi-group multivariate mixed data using Gaussian graphical models.
+Combining the Gaussian copula framework with the fused graphical lasso
+penalty, the 'heteromixgm' package can handle a wide variety of datasets
+found in various sciences. The package also includes an option to perform
+model selection using the AIC, BIC and EBIC information criteria, as well
+as simulate mixed heterogeneous data for exploratory or simulation
+purposes and one multi-group multivariate mixed agricultural dataset
+pertaining to maize yields. The package implements the methodological
+developments found in Hermes et al. (2022)
+<doi:10.48550/arXiv.2210.13140>.
 
 %prep
 %setup -q -c -n %{packname}

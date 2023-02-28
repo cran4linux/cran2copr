@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JATSdecoder
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Metadata and Text Extraction and Manipulation Tool Set
 
@@ -42,8 +42,9 @@ based on reports within the abstract and the reported degrees of freedom
 within statistical results. In addition, the package contains some useful
 functions to process text (text2sentences(), text2num(), ngram(),
 strsplit2(), grep2()). See Böschen, I. (2021)
-<doi:10.1007/s11192-021-04162-z> and Böschen, I. (2021)
-<doi:10.1038/s41598-021-98782-3>.
+<doi:10.1007/s11192-021-04162-z> Böschen, I. (2021)
+<doi:10.1038/s41598-021-98782-3> and Böschen, I (2023)
+<doi:10.1038/s41598-022-27085-y>.
 
 %prep
 %setup -q -c -n %{packname}

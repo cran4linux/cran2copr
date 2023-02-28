@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netmeta
-%global packver   2.7-0
+%global packver   2.8-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          2.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Meta-Analysis using Frequentist Methods
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 5.5.0
+BuildRequires:    R-CRAN-meta >= 6.2.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-metafor 
-Requires:         R-CRAN-meta >= 5.5.0
+Requires:         R-CRAN-meta >= 6.2.0
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-MASS 

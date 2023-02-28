@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgugik
-%global packver   0.4.0
+%global packname  PPLasso
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Spatial Data from 'GUGiK'
+Summary:          Prognostic Predictive Lasso for Biomarker Selection
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-genlasso 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cvCovEst 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-genlasso 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cvCovEst 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
 
 %description
-Automatic open data acquisition from resources of Polish Head Office of
-Geodesy and Cartography ('Główny Urząd Geodezji i Kartografii')
-(<https://www.gov.pl/web/gugik>). Available datasets include various types
-of numeric, raster and vector data, such as orthophotomaps, digital
-elevation models (digital terrain models, digital surface model, point
-clouds), state register of borders, spatial databases, geometries of
-cadastral parcels, 3D models of buildings, and more. It is also possible
-to geocode addresses or objects using the geocodePL_get() function.
+We provide new tools for the identification of prognostic and predictive
+biomarkers. For further details we refer the reader to the paper: Zhu et
+al. Identification of prognostic and predictive biomarkers in
+high-dimensional data with PPLasso. BMC Bioinformatics. 2023 Jan
+23;24(1):25.
 
 %prep
 %setup -q -c -n %{packname}

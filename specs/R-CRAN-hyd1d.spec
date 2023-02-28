@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hyd1d
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          1d Water Level Interpolation along the Rivers Elbe and Rhine
 
@@ -18,13 +18,11 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotrix >= 3.0.0
-BuildRequires:    R-CRAN-RCurl >= 1.95.4.10
 BuildRequires:    R-CRAN-RJSONIO >= 1.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-plotrix >= 3.0.0
-Requires:         R-CRAN-RCurl >= 1.95.4.10
 Requires:         R-CRAN-RJSONIO >= 1.0.0
 Requires:         R-methods 
 Requires:         R-utils 

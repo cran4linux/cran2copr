@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  forceR
-%global packver   1.0.15
+%global packver   1.0.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
+Version:          1.0.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Force Measurement Analyses
 
@@ -38,13 +39,13 @@ Requires:         R-stats
 Requires:         R-CRAN-stringr 
 
 %description
-For cleaning and analyses of animal closing force measurements. 'forceR'
-was initially written and optimized to deal with insect bite force
-measurements, but can be used for any time series. Includes a full
-workflow to load, plot and crop data, correct amplifier and baseline
-drifts, identify individual peak shapes (bites), rescale (normalize) peak
-curves, and find best polynomial fits to describe and analyze force curve
-shapes.
+For cleaning and analysis of graphs, such as animal closing force
+measurements. 'forceR' was initially written and optimized to deal with
+insect bite force measurements, but can be used for any time series.
+Includes a full workflow to load, plot and crop data, correct amplifier
+and baseline drifts, identify individual peak shapes (bites), rescale
+(normalize) peak curves, and find best polynomial fits to describe and
+analyze force curve shapes.
 
 %prep
 %setup -q -c -n %{packname}

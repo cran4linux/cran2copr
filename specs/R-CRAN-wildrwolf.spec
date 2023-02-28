@@ -1,27 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  insol
-%global packver   1.2.2
+%global __requires_exclude ^libmpi
+%global packname  wildrwolf
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solar Radiation
+Summary:          Fast Computation of Romano-Wolf Corrected p-Values for Linear Regression Models
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fixest 
+BuildRequires:    R-CRAN-fwildclusterboot 
+BuildRequires:    R-CRAN-dreamerr 
+BuildRequires:    R-CRAN-fabricatr 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-fixest 
+Requires:         R-CRAN-fwildclusterboot 
+Requires:         R-CRAN-dreamerr 
+Requires:         R-CRAN-fabricatr 
+Requires:         R-CRAN-MASS 
 
 %description
-Functions to compute insolation on complex terrain.
+Fast Routines to Compute Romano-Wolf corrected p-Values (Romano and Wolf
+(2005a) <DOI:10.1198/016214504000000539>, Romano and Wolf (2005b)
+<DOI:10.1111/j.1468-0262.2005.00615.x>) for objects of type 'fixest' and
+'fixest_multi' from the 'fixest' package via a wild (cluster) bootstrap.
 
 %prep
 %setup -q -c -n %{packname}
@@ -31,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
