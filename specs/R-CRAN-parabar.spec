@@ -1,41 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  windex
-%global packver   2.0.4
+%global packname  parabar
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysing Convergent Evolution using the Wheatsheaf Index
+Summary:          Progress Bar for Parallel Tasks
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape >= 4.0
-BuildRequires:    R-CRAN-geiger >= 2.0
-BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ape >= 4.0
-Requires:         R-CRAN-geiger >= 2.0
-Requires:         R-CRAN-phytools 
-Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-progress 
+Requires:         R-parallel 
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-filelock 
 Requires:         R-utils 
-Requires:         R-methods 
 
 %description
-Analysing convergent evolution using the Wheatsheaf index, described in
-Arbuckle et al. (2014) <doi: 10.1111/2041-210X.12195>, and some other
-unrelated but perhaps useful functions.
+A simple interface in the form of R6 classes for executing tasks in
+parallel, tracking their progress, and displaying accurate progress bars.
 
 %prep
 %setup -q -c -n %{packname}

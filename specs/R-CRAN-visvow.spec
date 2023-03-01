@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  visvow
-%global packver   1.3.5
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visible Vowels: Visualization of Vowel Variation
 
@@ -18,10 +19,11 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-splitstackshape 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-PBSmapping 
+BuildRequires:    R-CRAN-splitstackshape 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-formattable 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plot3D 
@@ -34,7 +36,6 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-Rtsne 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-CRAN-Cairo 
@@ -43,10 +44,11 @@ BuildRequires:    R-CRAN-shinybusy
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-splitstackshape 
-Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-PBSmapping 
+Requires:         R-CRAN-splitstackshape 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-formattable 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plot3D 
@@ -59,7 +61,6 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-Rtsne 
-Requires:         R-CRAN-plyr 
 Requires:         R-grid 
 Requires:         R-CRAN-svglite 
 Requires:         R-CRAN-Cairo 

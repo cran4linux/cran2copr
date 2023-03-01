@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stream
-%global packver   2.0-0
+%global packver   2.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infrastructure for Data Stream Mining
 
@@ -29,6 +29,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mlbench 
+BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
@@ -45,6 +46,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mlbench 
+Requires:         R-CRAN-rpart 
 Requires:         R-stats 
 Requires:         R-utils 
 

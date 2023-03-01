@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  robber
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Using Block Model to Estimate the Robustness of Ecological Network
 
@@ -38,8 +39,8 @@ Requires:         R-stats
 %description
 Implementation of a variety of methods to compute the robustness of
 ecological interaction networks with binary interactions as described in
-<arXiv:1910.10512>. In particular, using the Stochastic Block Model and
-its bipartite counterpart, the Latent Block Model to put a parametric
+<doi:10.1002/env.2709>. In particular, using the Stochastic Block Model
+and its bipartite counterpart, the Latent Block Model to put a parametric
 model on the network, allows the comparison of the robustness of networks
 differing in species richness and number of interactions. It also deals
 with networks that are partially sampled and/or with missing values.

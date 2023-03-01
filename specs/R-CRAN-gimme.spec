@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gimme
-%global packver   0.7-10
+%global packver   0.7-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.10
+Version:          0.7.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Iterative Multiple Model Estimation
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-data.tree
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-aTSA 
 Requires:         R-CRAN-imputeTS >= 3.0
@@ -38,7 +37,6 @@ Requires:         R-CRAN-data.tree
 Requires:         R-CRAN-nloptr 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-aTSA 
 

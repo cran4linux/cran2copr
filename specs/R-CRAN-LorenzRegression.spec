@@ -1,44 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MetChem
-%global packver   0.3
+%global packname  LorenzRegression
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chemical Structural Similarity Analysis
+Summary:          Lorenz and Penalized Lorenz Regressions
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rcdk >= 3.4.3
-BuildRequires:    R-CRAN-KODAMA >= 2.3
+BuildRequires:    R-devel >= 3.3.1
+Requires:         R-core >= 3.3.1
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-fingerprint 
-Requires:         R-CRAN-rcdk >= 3.4.3
-Requires:         R-CRAN-KODAMA >= 2.3
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-locpol 
+BuildRequires:    R-CRAN-Rearrangement 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-stats 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-fingerprint 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-GA 
+Requires:         R-CRAN-locpol 
+Requires:         R-CRAN-Rearrangement 
+Requires:         R-CRAN-knitr 
 
 %description
-A new pipeline to explore chemical structural similarity across
-metabolite. It allows to classify metabolites in structurally-related
-modules and identify common shared functional groups. KODAMA algorithm is
-used to highlight structural similarity between metabolites. See
-Cacciatore S, Tenori L, Luchinat C, Bennett PR, MacIntyre DA. (2017)
-Bioinformatics <doi:10.1093/bioinformatics/btw705> and Cacciatore S,
-Luchinat C, Tenori L. (2014) Proc Natl Acad Sci USA
-<doi:10.1073/pnas.1220873111>.
+Inference for the Lorenz and penalized Lorenz regressions. More broadly,
+the package proposes functions to assess inequality and graphically
+represent it. The Lorenz Regression procedure is introduced in Heuchenne
+and Jacquemain (2022) <doi:10.1016/j.csda.2021.107347>.
 
 %prep
 %setup -q -c -n %{packname}

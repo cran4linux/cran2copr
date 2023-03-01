@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mirt
-%global packver   1.37.1
+%global packver   1.38.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.37.1
+Version:          1.38.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Item Response Theory
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-CRAN-pbapply >= 1.3.0
 BuildRequires:    R-stats 
 BuildRequires:    R-stats4 
@@ -23,7 +24,6 @@ BuildRequires:    R-CRAN-lattice
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-vegan 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-Deriv
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-dcurver 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-pbapply >= 1.3.0
 Requires:         R-stats 
 Requires:         R-stats4 
@@ -38,7 +39,6 @@ Requires:         R-CRAN-lattice
 Requires:         R-methods 
 Requires:         R-CRAN-GPArotation 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-vegan 

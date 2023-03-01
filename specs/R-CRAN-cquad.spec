@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cquad
-%global packver   2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Maximum Likelihood for Quadratic Exponential Models for Binary Panel Data
 
@@ -18,8 +19,10 @@ Requires:         R-core >= 2.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-CRAN-Formula 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-plm 
+Requires:         R-CRAN-Formula 
 
 %description
 Estimation, based on conditional maximum likelihood, of the quadratic
@@ -43,8 +46,10 @@ estimator based on the quadratic exponential model, as proposed by
 Bartolucci, F. & Nigro, V. (2012, Journal of Econometrics)
 <DOI:10.1016/j.jeconom.2012.03.004>. For large time dimensions of the
 panel, the computation of the proposed models involves a recursive
-function adapted from Krailo M. D., & Pike M. C. (1984, Journal of the
-Royal Statistical Society. Series C (Applied Statistics)).
+function from Krailo M. D., & Pike M. C. (1984, Journal of the Royal
+Statistical Society. Series C (Applied Statistics)) and Bartolucci F.,
+Valentini, F. & Pigini C. (2021, Computational Economics
+<DOI:10.1007/s10614-021-10218-2>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

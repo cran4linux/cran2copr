@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  windex
-%global packver   2.0.4
+%global packname  NTSS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysing Convergent Evolution using the Wheatsheaf Index
+Summary:          Nonparametric Tests in Spatial Statistics
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape >= 4.0
-BuildRequires:    R-CRAN-geiger >= 2.0
-BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ape >= 4.0
-Requires:         R-CRAN-geiger >= 2.0
-Requires:         R-CRAN-phytools 
-Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.random 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.model 
+BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-ks 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.random 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.model 
+Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-ks 
 
 %description
-Analysing convergent evolution using the Wheatsheaf index, described in
-Arbuckle et al. (2014) <doi: 10.1111/2041-210X.12195>, and some other
-unrelated but perhaps useful functions.
+Nonparametric test of independence between a pair of spatial objects
+(random fields, point processes) based on random shifts with torus or
+variance correction. See Mrkvička et al. (2021)
+<doi:10.1016/j.spasta.2020.100430>, Dvořák et al. (2022)
+<doi:10.1111/insr.12503>, Dvořák and Mrkvička (2022) <arxiv:2210.05424>.
 
 %prep
 %setup -q -c -n %{packname}

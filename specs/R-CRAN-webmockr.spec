@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  webmockr
-%global packver   0.8.2
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stubbing and Setting Expectations on 'HTTP' Requests
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.1.3
 BuildRequires:    R-CRAN-urltools >= 1.6.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-crul >= 0.7.0
+BuildRequires:    R-CRAN-crul >= 0.7
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-fauxpas 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-base64enc
 Requires:         R-CRAN-R6 >= 2.1.3
 Requires:         R-CRAN-urltools >= 1.6.0
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-crul >= 0.7.0
+Requires:         R-CRAN-crul >= 0.7
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-fauxpas 

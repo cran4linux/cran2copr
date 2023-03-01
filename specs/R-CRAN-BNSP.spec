@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BNSP
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Non- And Semi-Parametric Model Fitting
 
@@ -47,8 +47,9 @@ multivariate response multiple regression, with nonparametric models for
 the means, the variances and the correlation matrix, with variable
 selection, see Papageorgiou, G. and Marshall, B. C. (2020) <doi:
 10.1080/10618600.2020.1739534>, 3. joint mean-covariance models for
-multivariate responses, see Papageorgiou, G. (2020), and 4.Dirichlet
-process mixtures, see Papageorgiou, G. (2019) <doi: 10.1111/anzs.12273>.
+multivariate responses, see Papageorgiou, G. (2022) <doi:
+10.1002/sim.9376>, and 4.Dirichlet process mixtures, see Papageorgiou, G.
+(2019) <doi: 10.1111/anzs.12273>.
 
 %prep
 %setup -q -c -n %{packname}

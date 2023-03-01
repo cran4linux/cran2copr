@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  automap
-%global packver   1.0-16
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Interpolation Package
 
@@ -16,20 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp >= 0.9.55
 BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-maptools 
-Requires:         R-CRAN-sp >= 0.9.55
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-gstat 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-reshape 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
+Requires:         R-graphics 
 
 %description
 Performs an automatic interpolation by automatically estimating the

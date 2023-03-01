@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cohortBuilder
-%global packver   0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Source Agnostic Filtering Tools
 
@@ -18,24 +19,24 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0
-BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-formatR 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-formatR 
 
