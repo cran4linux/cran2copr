@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  helda
-%global packver   1.1.5
+%global __requires_exclude ^libmpi
+%global packname  scperturbR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Preprocess Data and Get Better Insights from Machine Learning Models
+Summary:          E-Statistics for Seurat Objects
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,26 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-stringr >= 1.3.1
-BuildRequires:    R-CRAN-dplyr >= 0.7.8
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-sqldf >= 0.4.11
-Requires:         R-stats >= 3.5.0
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-stringr >= 1.3.1
-Requires:         R-CRAN-dplyr >= 0.7.8
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-sqldf >= 0.4.11
+BuildRequires:    R-CRAN-Seurat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rdist 
+BuildRequires:    R-CRAN-energy 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Seurat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rdist 
+Requires:         R-CRAN-energy 
+Requires:         R-stats 
 
 %description
-The main focus is on preprocessing and data visualization of machine
-learning models performances. Some functions allow to fill in gaps in time
-series using linear interpolation on panel data, some functions permit to
-draw lift effect and lift curve in order to benchmark machine learning
-models or you can even find the optimal number of clusters in
-agglomerative clustering algorithm.
+R version of 'scperturb' tool for single-cell perturbation analysis.
+Contains wrappers for performing E-statistics for Seurat objects. More
+details on the method can be found in Peidli et al. (2023)
+<doi:10.1101/2022.08.20.504663> and in Székely and Rizzo (2004).
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

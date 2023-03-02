@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataquieR
-%global packver   1.0.13
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.13
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality in Epidemiological Research
 
@@ -19,34 +19,38 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-MultinomialCI 
 BuildRequires:    R-CRAN-parallelMap 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-R.devices 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-qmrparser 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-MultinomialCI 
 Requires:         R-CRAN-parallelMap 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-R.devices 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-qmrparser 
 Requires:         R-utils 
+Requires:         R-CRAN-rio 
+Requires:         R-CRAN-scales 
 
 %description
 Data quality assessments guided by a 'data quality framework introduced by

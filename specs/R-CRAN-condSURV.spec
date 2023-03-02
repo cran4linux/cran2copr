@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MortalityLaws
-%global packver   1.9.9
+%global packname  condSURV
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.9
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametric Mortality Models, Life Tables and HMD
+Summary:          Estimation of the Conditional Survival Function for Ordered Multivariate Failure Time Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-RCurl >= 1.95
-BuildRequires:    R-CRAN-pbapply >= 1.3.4
-BuildRequires:    R-CRAN-minpack.lm >= 1.2
-BuildRequires:    R-CRAN-tidyr >= 0.8.1
-Requires:         R-CRAN-RCurl >= 1.95
-Requires:         R-CRAN-pbapply >= 1.3.4
-Requires:         R-CRAN-minpack.lm >= 1.2
-Requires:         R-CRAN-tidyr >= 0.8.1
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-np 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-foreach 
 
 %description
-Fit the most popular human mortality 'laws', and construct full and
-abridge life tables given various input indices. A mortality law is a
-parametric function that describes the dying-out process of individuals in
-a population during a significant portion of their life spans. For a
-comprehensive review of the most important mortality laws see Tabeau
-(2001) <doi:10.1007/0-306-47562-6_1>. Practical functions for downloading
-data from various human mortality databases are provided as well.
+Method to implement some newly developed methods for the estimation of the
+conditional survival function. See Meira-Machado, Sestelo and Goncalves
+(2016) <doi:10.1002/bimj.201500038>.
 
 %prep
 %setup -q -c -n %{packname}

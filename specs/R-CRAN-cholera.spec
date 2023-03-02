@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cholera
-%global packver   0.7.9
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.9
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Amend, Augment and Aid Analysis of John Snow's Cholera Map
 
@@ -18,15 +19,18 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-deldir >= 1.0.2
 BuildRequires:    R-CRAN-HistData >= 0.7.8
+BuildRequires:    R-CRAN-elevatr 
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tanaka 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-threejs 
 BuildRequires:    R-CRAN-TSP 
@@ -34,15 +38,18 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-deldir >= 1.0.2
 Requires:         R-CRAN-HistData >= 0.7.8
+Requires:         R-CRAN-elevatr 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-tanaka 
+Requires:         R-CRAN-terra 
 Requires:         R-tools 
 Requires:         R-CRAN-threejs 
 Requires:         R-CRAN-TSP 

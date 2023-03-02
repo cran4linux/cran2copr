@@ -1,45 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  JumpeR
-%global packver   0.3.0
+%global __requires_exclude ^libmpi
+%global packname  smdocker
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Importing and Working with Track and Field Data
+Summary:          Build 'Docker Images' in 'Amazon SageMaker Studio' using 'Amazon Web Service CodeBuild'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-SwimmeR 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-SwimmeR 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-paws.compute 
+BuildRequires:    R-CRAN-paws.developer.tools 
+BuildRequires:    R-CRAN-paws.machine.learning 
+BuildRequires:    R-CRAN-paws.management 
+BuildRequires:    R-CRAN-paws.storage 
+BuildRequires:    R-CRAN-paws.security.identity 
+BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-paws.compute 
+Requires:         R-CRAN-paws.developer.tools 
+Requires:         R-CRAN-paws.machine.learning 
+Requires:         R-CRAN-paws.management 
+Requires:         R-CRAN-paws.storage 
+Requires:         R-CRAN-paws.security.identity 
+Requires:         R-CRAN-zip 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Primarily used to convert human readable track and field results into
-dataframes for further analysis.  Results can come from central
-repositories like <https://www.flashresults.com/> or
-<http://www.deltatiming.com/>, or from individual team sites, like those
-for colleges.  Also contains functions useful for working with track and
-field data.
+Allows users to easily build custom 'docker images'
+<https://docs.docker.com/> from 'Amazon Web Service Sagemaker'
+<https://aws.amazon.com/sagemaker/> using 'Amazon Web Service CodeBuild'
+<https://aws.amazon.com/codebuild/>.
 
 %prep
 %setup -q -c -n %{packname}

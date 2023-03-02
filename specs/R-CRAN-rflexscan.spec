@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rflexscan
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Flexible Spatial Scan Statistic
 
@@ -17,14 +18,12 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sf 
 Requires:         R-grDevices 
-Requires:         R-CRAN-sp 
 
 %description
 Functions for the detection of spatial clusters using the flexible spatial

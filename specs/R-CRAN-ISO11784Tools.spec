@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  LARGB
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  ISO11784Tools
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Leaf Area Determination from Visual Image
+Summary:          ISO11784 PIT Tag ID Format Converters
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,27 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-imager 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 
 %description
-Measurements of leaf area are important in the studies of plant biological
-characteristics. High-throughput plant phenotyping using image analysis is
-the key area in the domain of plant phenotyping. For determining the leaf
-area, the RGB image is converted into the grayscale image by simply
-averaging the Red(R), Green (G) and Blue (B) pixel values. Grayscale image
-is then converted into a binary image using Otsu’s thresholding method
-Otsu, N. (1979) <doi:10.1109/TSMC.1979.4310076> to separate plant area
-from the background (image segmentation). The segmentation process was
-accomplished by selecting the pixels with values over the threshold value
-belonging to the plant region and other pixels to the background region.
-The resulting binary image consists of white and black pixels representing
-the plant and background regions, respectively. Finally, the number of
-pixels inside the plant region was counted and converted to square
-centimetres (cm2) using the reference object (any object whose actual area
-is known previously) to get the projected leaf area.
+Some tools to assist with converting International Organization for
+Standardization (ISO) standard 11784 (ISO11784) animal ID codes between 4
+recognised formats commonly displayed on Passive Integrated Transponder
+(PIT) tag readers. The most common formats are 15 digit decimal, e.g.,
+999123456789012, and 13 character hexadecimal 'dot' format, e.g.,
+3E7.1CBE991A14. These are referred to in this package as isodecimal and
+isodothex. The other two formats are the raw hexadecimal representation of
+the ISO11784 binary structure (see
+<https://en.wikipedia.org/wiki/ISO_11784_and_ISO_11785>). There are two
+'flavours' of this format, a left and a right variation. Which flavour a
+reader happens to output depends on if the developers decided to reverse
+the binary number or not before converting to hexadecimal, a decision
+based on the fact that the PIT tags will transmit their binary code Least
+Significant Bit (LSB) first, or backwards basically.
 
 %prep
 %setup -q -c -n %{packname}

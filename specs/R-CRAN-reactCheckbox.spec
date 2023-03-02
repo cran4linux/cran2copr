@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  wcep
+%global __requires_exclude ^libmpi
+%global packname  reactCheckbox
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Survival Analysis for Weighted Composite Endpoints
+Summary:          Checkbox Group Input for 'Shiny'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics >= 3.6.1
-BuildRequires:    R-grDevices >= 3.6.1
-BuildRequires:    R-stats >= 3.6.1
-BuildRequires:    R-CRAN-coin >= 1.3.1
-BuildRequires:    R-CRAN-progress >= 1.2.2
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-Requires:         R-graphics >= 3.6.1
-Requires:         R-grDevices >= 3.6.1
-Requires:         R-stats >= 3.6.1
-Requires:         R-CRAN-coin >= 1.3.1
-Requires:         R-CRAN-progress >= 1.2.2
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-reactR 
+Requires:         R-utils 
 
 %description
-Analyze given data frame with multiple endpoints and return Kaplan-Meier
-survival probabilities together with the specified confidence interval.
+Provides a checkbox group input for usage in a 'Shiny' application. The
+checkbox group has a head checkbox allowing to check or uncheck all the
+checkboxes in the group. The checkboxes are customizable.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

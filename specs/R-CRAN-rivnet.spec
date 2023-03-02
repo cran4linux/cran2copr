@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metatools
-%global packver   0.1.4
+%global packname  rivnet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enable the Use of 'metacore' to Help Create and Check Dataset
+Summary:          Extract and Analyze Rivers from Elevation Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-metacore >= 0.0.4
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-metacore >= 0.0.4
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-traudem 
+BuildRequires:    R-CRAN-elevatr 
+BuildRequires:    R-CRAN-OCNet 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-spam 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-traudem 
+Requires:         R-CRAN-elevatr 
+Requires:         R-CRAN-OCNet 
+Requires:         R-methods 
 
 %description
-Uses the metadata information stored in 'metacore' objects to check and
-build metadata associated columns.
+Seamless extraction of river networks from digital elevation models data.
+The package allows analysis of digital elevation models that can be either
+externally provided or downloaded from open source repositories (thus
+interfacing with the 'elevatr' package). Extraction is performed via the
+'D8' flow direction algorithm of TauDEM (Terrain Analysis Using Digital
+Elevation Models), thus interfacing with the 'traudem' package. Resulting
+river networks are compatible with functions from the 'OCNet' package.
 
 %prep
 %setup -q -c -n %{packname}

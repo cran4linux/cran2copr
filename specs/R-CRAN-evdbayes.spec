@@ -1,40 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ldt
-%global packver   0.2.0.0
+%global packname  evdbayes
+%global packver   1.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0.0
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Let Data Talk
+Summary:          Bayesian Analysis in Extreme Value Theory
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 1.8.0
+Requires:         R-core >= 1.8.0
 
 %description
-Methods and tools for creating a model set and estimating and evaluating
-the explanation or prediction power of its members. 'SUR' modelling (for
-parameter estimation), 'logit'/'probit' modelling (for binary
-classification), and 'VARMA' modelling (for time-series forecasting) are
-implemented. Evaluations are both in-sample and out-of-sample. It can be
-used for stepwise regression analysis
-<https://en.wikipedia.org/wiki/Stepwise_regression>, automatic model
-selection and model averaging (Claeskens and Hjort (2008, ISBN:1139471805,
-9781139471800)), calculating benchmarks, and doing sensitivity analysis
-(Leamer (1983) <https://www.jstor.org/stable/1803924> proposal).
+Provides functions for the Bayesian analysis of extreme value models,
+using Markov chain Monte Carlo methods. Allows the construction of both
+uninformative and informed prior distributions for common statistical
+models applied to extreme event data, including the generalized extreme
+value distribution.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggrcs
-%global packver   0.2.8
+%global packname  RegCombin
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Draw Histograms and Restricted Cubic Splines (RCS)
+Summary:          Partially Linear Regression under Data Combination
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-snowfall 
+BuildRequires:    R-CRAN-RationalExp 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-snowfall 
+Requires:         R-CRAN-RationalExp 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-pracma 
 
 %description
-You can use this function to easily draw a combined histogram and
-restricted cubic spline. The function draws the graph through 'ggplot2'.
-RCS fitting requires the use of the rcs() function of the 'rms' package.
-Can fit cox regression, logistic regression. This method was described by
-Per Kragh (2003) <doi:10.1002/sim.1497>.
+We implement linear regression when the outcome of interest and some of
+the covariates are observed in two different datasets that cannot be
+linked, based on D'Haultfoeuille, Gaillac, Maurel (2022)
+<doi:10.3386/w29953>. The package allows for common regressors observed in
+both datasets, and for various shape constraints on the effect of
+covariates on the outcome of interest. It also provides the tools to
+perform a test of point identification. See the associated vignette
+<https://github.com/cgaillac/RegCombin/blob/master/RegCombin_vignette.pdf>
+for theory and code examples.
 
 %prep
 %setup -q -c -n %{packname}

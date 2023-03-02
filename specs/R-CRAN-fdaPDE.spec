@@ -1,59 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DAISIE
-%global packver   4.3.1
+%global packname  fdaPDE
+%global packver   1.1-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.1
+Version:          1.1.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamical Assembly of Islands by Speciation, Immigration and Extinction
+Summary:          Physics-Informed Spatial and Functional Data Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-DDD >= 5.0
-BuildRequires:    R-CRAN-BH >= 1.81.0.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-subplex 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-tensor 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-testit 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-DDD >= 5.0
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-deSolve 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-subplex 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-tensor 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-testit 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
+Requires:         R-CRAN-plot3D 
+Requires:         R-methods 
 
 %description
-Simulates and computes the (maximum) likelihood of a dynamical model of
-island biota assembly through speciation, immigration and extinction. See
-e.g. Valente et al. 2015. Ecology Letters 18: 844-852,
-<DOI:10.1111/ele.12461>.
+An implementation of regression models with partial differential
+regularizations, making use of the Finite Element Method. The models
+efficiently handle data distributed over irregularly shaped domains and
+can comply with various conditions at the boundaries of the domain. A
+priori information about the spatial structure of the phenomenon under
+study can be incorporated in the model via the differential
+regularization. See Sangalli, L. M. (2021) <doi:10.1111/insr.12444>
+"Spatial Regression With Partial Differential Equation Regularisation" for
+an overview. The release 1.1-9 requires R (>= 4.2.0) to be installed on
+windows machines.
 
 %prep
 %setup -q -c -n %{packname}

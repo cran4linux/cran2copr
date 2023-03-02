@@ -1,49 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tfevents
-%global packver   0.0.1
+%global packname  rvMF
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Write Events for 'TensorBoard'
+Summary:          Fast Generation of von Mises-Fisher Distributed Pseudo-Random Vectors
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-blob 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-blob 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-zeallot 
+BuildRequires:    R-CRAN-Rfast >= 2.0.6
+BuildRequires:    R-CRAN-scModels >= 1.0.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-Bessel >= 0.6.0
+Requires:         R-CRAN-Rfast >= 2.0.6
+Requires:         R-CRAN-scModels >= 1.0.4
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-Bessel >= 0.6.0
 
 %description
-Provides a convenient way to log scalars, images, audio, and histograms in
-the 'tfevent' record file format. Logged data can be visualized on the fly
-using 'TensorBoard', a web based tool that focuses on visualizing the
-training progress of machine learning models.
+Generates pseudo-random vectors that follow an arbitrary von Mises-Fisher
+distribution on a sphere. This method is fast and efficient when
+generating a large number of pseudo-random vectors. Functions to generate
+random variates and compute density for the distribution of an inner
+product between von Mises-Fisher random vector and its mean direction are
+also provided.
 
 %prep
 %setup -q -c -n %{packname}

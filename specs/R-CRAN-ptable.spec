@@ -1,57 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  funkyheatmap
-%global packver   0.3.0
+%global packname  ptable
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generating Funky Heatmaps for Data Frames
+Summary:          Generation of Perturbation Tables for the Cell-Key Method
 
-License:          MIT + file LICENSE
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-flexdashboard 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggforce 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-flexdashboard 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
+Requires:         R-methods 
+Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Allows generating heatmap-like visualisations for benchmark data frames.
-Funky heatmaps can be fine-tuned by providing annotations of the columns
-and rows, which allows assigning multiple palettes or geometries or
-grouping rows and columns together in categories. Saelens et al. (2019)
-<doi:10.1038/s41587-019-0071-9>.
+Tabular data from statistical institutes and agencies are mostly
+confidential and must be protected prior to publications. The cell-key
+method is a post-tabular Statistical Disclosure Control perturbation
+technique that adds random noise to tabular data. The statistical
+properties of the perturbations are defined by some noise probability
+distributions - also referred to as perturbation tables. This tool can be
+used to create the perturbation tables based on a maximum entropy approach
+as described for example in Giessing (2016)
+<doi:10.1007/978-3-319-45381-1_18>. The perturbation tables created can
+finally be used to apply a cell-key method to frequency count or magnitude
+tables.
 
 %prep
 %setup -q -c -n %{packname}
