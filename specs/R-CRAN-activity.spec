@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pomp
-%global packver   4.7
+%global packname  activity
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference for Partially Observed Markov Processes
+Summary:          Animal Activity Statistics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-pbapply 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-pbapply 
 
 %description
-Tools for data analysis with partially observed Markov process (POMP)
-models (also known as stochastic dynamical systems, hidden Markov models,
-and nonlinear, non-Gaussian, state-space models).  The package provides
-facilities for implementing POMP models, simulating them, and fitting them
-to time series data by a variety of frequentist and Bayesian methods.  It
-is also a versatile platform for implementation of inference methods for
-general POMP models.
+Provides functions to express clock time data relative to anchor points
+(typically solar); fit kernel density functions to animal activity time
+data; plot activity distributions; quantify overall levels of activity;
+statistically compare activity metrics through bootstrapping; evaluate
+variation in linear variables with time (or other circular variables).
 
 %prep
 %setup -q -c -n %{packname}

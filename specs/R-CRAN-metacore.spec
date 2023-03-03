@@ -1,46 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pomp
-%global packver   4.7
+%global packname  metacore
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference for Partially Observed Markov Processes
+Summary:          A Centralized Metadata Object Focus on Clinical Trial Data Programming Workflows
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Tools for data analysis with partially observed Markov process (POMP)
-models (also known as stochastic dynamical systems, hidden Markov models,
-and nonlinear, non-Gaussian, state-space models).  The package provides
-facilities for implementing POMP models, simulating them, and fitting them
-to time series data by a variety of frequentist and Bayesian methods.  It
-is also a versatile platform for implementation of inference methods for
-general POMP models.
+Create an immutable container holding metadata for the purpose of better
+enabling programming activities and functionality of other packages within
+the clinical programming workflow.
 
 %prep
 %setup -q -c -n %{packname}

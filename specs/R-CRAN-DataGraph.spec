@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCPmod
-%global packver   2.192
+%global packname  DataGraph
+%global packver   1.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.192
+Version:          1.2.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regions of Common Profiles Modelling with Mixtures-of-Experts
+Summary:          Export Data from 'R' to 'DataGraph'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,29 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-glmnet >= 2.0.13
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-fishMod 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-glmnet >= 2.0.13
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-fishMod 
-Requires:         R-CRAN-MASS 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+Requires:         R-CRAN-Rcpp >= 0.12.10
 
 %description
-Identifies regions of common (species) profiles (RCPs), possibly when
-sampling artefacts are present.  Within a region the probability of
-sampling all species remains approximately constant.  This is performed
-using mixtures-of-experts models.  The package also contains associated
-methods, such as diagnostics. Details of the method can be found in Foster
-et al (2013) <doi:10.1002/env.2245> and Foster et al. (2017)
-<doi:10.1111/rssc.12211>.
+Functions to pipe data from 'R' to 'DataGraph', a graphing and analysis
+application for mac OS. Create a live connection using either '.dtable' or
+'.dtbin' files that can be read by 'DataGraph'. Can save a data frame,
+collection of data frames and sequences of data frames and individual
+vectors. For more information see
+<https://community.visualdatatools.com/datagraph/knowledge-base/r-package/>.
 
 %prep
 %setup -q -c -n %{packname}

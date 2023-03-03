@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EGRET
-%global packver   3.0.7
+%global packver   3.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.7
+Version:          3.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploration and Graphics for RivEr Trends
 
@@ -42,9 +43,7 @@ Requires:         R-CRAN-MASS
 %description
 Statistics and graphics for streamflow history, water quality trends, and
 the statistical modeling algorithm: Weighted Regressions on Time,
-Discharge, and Season (WRTDS). The modeling method is introduced and
-discussed in Hirsch et al. (2010) <doi:10.1111/j.1752-1688.2010.00482.x>,
-and expanded in Hirsch and De Cicco (2015) <doi:10.3133/tm4A10>.
+Discharge, and Season (WRTDS).
 
 %prep
 %setup -q -c -n %{packname}

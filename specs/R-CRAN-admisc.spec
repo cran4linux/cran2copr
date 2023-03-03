@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admisc
-%global packver   0.30
+%global packver   0.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30
+Version:          0.31
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adrian Dusa's Miscellaneous
 
@@ -27,11 +27,11 @@ information (set names, set values) from those expressions. Other
 functions perform various other checks if possibly numeric (even if all
 numbers reside in a character vector) and coerce to numeric, or check if
 the numbers are whole. It also offers, among many others, a highly
-versatile recoding routine and a more flexible alternative to the base
-function 'with()'. Some of the functions in this package use related
-functions from package 'QCA'. Users are encouraged to install that package
-despite not being listed in the Imports field, due to circular dependency
-issues.
+versatile recoding routine and some more flexible alternatives to the base
+function 'with()' and 'within()'. SOP simplification functions in this
+package use related minimization from package 'QCA', which is recommended
+to be installed despite not being listed in the Imports field, due to
+circular dependency issues.
 
 %prep
 %setup -q -c -n %{packname}

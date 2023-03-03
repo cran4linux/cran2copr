@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3hyperband
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hyperband for 'mlr3'
 
@@ -37,12 +37,12 @@ Requires:         R-CRAN-lgr
 Requires:         R-CRAN-R6 
 
 %description
-Implements hyperband method for hyperparameter tuning. Various termination
-criteria can be set and combined. The class 'AutoTuner' provides a
-convenient way to perform nested resampling in combination with 'mlr3'.
-The hyperband algorithm was proposed by Lisha Li, Kevin Jamieson, Giulia
-DeSalvo, Afshin Rostamizadeh and Ameet Talwalkar (2018)
-<arXiv:1603.06560>.
+Successive Halving (Jamieson and Talwalkar (2016) <arXiv:1502.07943>) and
+Hyperband (Li et al. 2018 <arXiv:1603.06560>) optimization algorithm for
+the mlr3 ecosystem. The implementation in mlr3hyperband features improved
+scheduling and parallelizes the evaluation of configurations. The package
+includes tuners for hyperparameter optimization in mlr3tuning and
+optimizers for black-box optimization in bbotk.
 
 %prep
 %setup -q -c -n %{packname}

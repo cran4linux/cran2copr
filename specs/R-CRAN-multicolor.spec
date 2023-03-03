@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Yamm
-%global packver   1.3.2
+%global __requires_exclude ^libmpi
+%global packname  multicolor
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Methods Based on Projections and Related Concepts
+Summary:          Add Multiple Colors to your Console & RMarkdown Output
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-depth 
-BuildRequires:    R-CRAN-robustX 
-BuildRequires:    R-CRAN-interp 
-Requires:         R-CRAN-depth 
-Requires:         R-CRAN-robustX 
-Requires:         R-CRAN-interp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 1.2
+BuildRequires:    R-CRAN-cowsay 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-tibble >= 1.2
+Requires:         R-CRAN-cowsay 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Functionality to compute the projection median via several algorithms.
-Also provides functions to plot different multivariate medians and
-multivariate quantiles in two-dimensional and three-dimensional data
-respectively. See Chen, F and Nason, G P (2020) "A new method for
-computing the projection median, its influence curve and techniques for
-the production of projected quantile plots." PLOS One
-<doi:10.1371/journal.pone.0229845>.
+Add multiple colors to text that is printed to the console.
 
 %prep
 %setup -q -c -n %{packname}

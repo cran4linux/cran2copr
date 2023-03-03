@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jSDM
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Species Distribution Models
 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppGSL 
 Requires:         R-CRAN-Rcpp >= 1.0.0
@@ -38,11 +40,12 @@ Requires:         R-CRAN-MASS
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-methods 
 
 %description
 Fits joint species distribution models ('jSDM') in a hierarchical Bayesian
-framework (Warton et al. 2015 <doi:10.1016/j.tree.2015.09.007>). The Gibbs
-sampler is written in C++. It uses 'Rcpp', 'Armadillo' and 'GSL' to
+framework (Warton and al. 2015 <doi:10.1016/j.tree.2015.09.007>). The
+Gibbs sampler is written in C++. It uses 'Rcpp', 'Armadillo' and 'GSL' to
 maximize computation efficiency.
 
 %prep

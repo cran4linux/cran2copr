@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mgcv
-%global packver   1.8-41
+%global packver   1.8-42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.41
+Version:          1.8.42
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed GAM Computation Vehicle with Automatic Smoothness Estimation
 

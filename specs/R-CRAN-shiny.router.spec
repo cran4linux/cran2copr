@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  shiny.router
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Routing for Shiny Web Applications
 
@@ -16,10 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-shiny 
 
 %description
 It is a simple router for your Shiny apps. The router allows you to create
