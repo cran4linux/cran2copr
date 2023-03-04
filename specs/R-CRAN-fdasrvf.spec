@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdasrvf
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elastic Functional Data Analysis
 
@@ -14,39 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-splines 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-tolerance 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tolerance 
+BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.1
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-splines 
-Requires:         R-parallel 
-Requires:         R-CRAN-fields 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-tolerance 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tolerance 
+Requires:         R-CRAN-viridisLite 
 
 %description
 Performs alignment, PCA, and modeling of multidimensional and

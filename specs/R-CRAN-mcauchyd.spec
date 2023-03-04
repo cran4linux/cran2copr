@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chatgpt
-%global packver   0.2.0
+%global packname  mcauchyd
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'ChatGPT' from R
+Summary:          Multivariate Cauchy Distribution; Kullback-Leibler Divergence
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,23 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-MASS 
 
 %description
-'OpenAI's 'ChatGPT' <https://chat.openai.com/> coding assistant for
-'RStudio'. A set of functions and 'RStudio' addins that aim to help the R
-developer in tedious coding tasks.
+Distance between multivariate Cauchy distributions, as presented by N.
+Bouhlel and D. Rousseau (2022) <doi:10.3390/e24060838>. Manipulation of
+multivariate Cauchy distributions.
 
 %prep
 %setup -q -c -n %{packname}

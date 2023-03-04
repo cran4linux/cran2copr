@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  statcanR
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for Statistics Canada's Open Economic Data
 
@@ -17,11 +18,23 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-qs 
+BuildRequires:    R-CRAN-qpdf 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-qs 
+Requires:         R-CRAN-qpdf 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-readr 

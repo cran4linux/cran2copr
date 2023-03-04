@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chatgpt
-%global packver   0.2.0
+%global packname  colorplane
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'ChatGPT' from R
+Summary:          Basic S4 Classes and Methods for Mapping Between Numeric Values and Colors
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-assertthat 
+Requires:         R-methods 
 
 %description
-'OpenAI's 'ChatGPT' <https://chat.openai.com/> coding assistant for
-'RStudio'. A set of functions and 'RStudio' addins that aim to help the R
-developer in tedious coding tasks.
+A simple set of classes and methods for mapping between scalar intensity
+values and colors. There is also support for layering maps on top of one
+another using alpha composition.
 
 %prep
 %setup -q -c -n %{packname}

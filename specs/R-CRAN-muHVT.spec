@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  muHVT
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Constructing Hierarchical Voronoi Tessellations and Overlay Heatmap for Data Analysis
 
@@ -26,18 +27,15 @@ BuildRequires:    R-CRAN-Hmisc
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-polyclip 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-deldir 
 Requires:         R-grDevices 
@@ -48,23 +46,19 @@ Requires:         R-CRAN-Hmisc
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-polyclip 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-plyr 
 
 %description
-Constructing hierarchical voronoi tessellations for a given data set and
-overlay heatmap for variables at various levels of the tessellations for
-in-depth data analysis. See
+The muHVT package is a collection of R functions to facilitate building
+topology preserving maps for rich multivariate data.See
 <https://en.wikipedia.org/wiki/Voronoi_diagram> for more information.
 Credits to Mu Sigma for their continuous support throughout the
 development of the package.

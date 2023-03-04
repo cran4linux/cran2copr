@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asremlPlus
-%global packver   4.3.45
+%global packver   4.3.49
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.45
+Version:          4.3.49
 Release:          1%{?dist}%{?buildtag}
 Summary:          Augments 'ASReml-R' in Fitting Mixed Models and Packages Generally in Exploring Prediction Differences
 
@@ -18,35 +18,37 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dae 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-sticky 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sticky 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dae 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-sticky 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-foreach 
 Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-foreach 
+Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sticky 
+Requires:         R-utils 
 
 %description
 Assists in automating the selection of terms to include in mixed models

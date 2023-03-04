@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chatgpt
-%global packver   0.2.0
+%global packname  DNetFinder
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'ChatGPT' from R
+Summary:          Estimating Differential Networks under Semiparametric Gaussian Graphical Models
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-flare 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-flare 
+Requires:         R-stats 
 
 %description
-'OpenAI's 'ChatGPT' <https://chat.openai.com/> coding assistant for
-'RStudio'. A set of functions and 'RStudio' addins that aim to help the R
-developer in tedious coding tasks.
+Provides a modified hierarchical test (Liu (2017)
+<doi:10.1214/17-AOS1539>) for detecting the structural difference between
+two Semiparametric Gaussian graphical models. The multiple testing
+procedure asymptotically controls the false discovery rate (FDR) at a
+user-specified level. To construct the test statistic, a truncated
+estimator is used to approximate the transformation functions and two R
+functions including lassoGGM() and lassoNPN() are provided to compute the
+lasso estimates of the regression coefficients.
 
 %prep
 %setup -q -c -n %{packname}

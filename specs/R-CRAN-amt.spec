@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  amt
-%global packver   0.1.7
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Animal Movement Tools
 
@@ -13,46 +14,57 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.7
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-ctmm 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sfheaders 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-Rcpp >= 0.12.7
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-circular 
 Requires:         R-CRAN-ctmm 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-FNN 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sfheaders 
+Requires:         R-stats 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
 Manage and analyze animal movement data. The functionality of 'amt'

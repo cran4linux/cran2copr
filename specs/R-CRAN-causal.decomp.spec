@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  causal.decomp
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Decomposition Analysis
 
@@ -37,12 +38,14 @@ Requires:         R-utils
 
 %description
 We implement causal decomposition analysis using the methods proposed by
-Park, Lee, and Qin (2020) <arXiv:2008.12812> and Park, Kang, and Lee
-(2021+). This package allows researchers to use the
+Park, Lee, and Qin (2020) and Park, Kang, and Lee (2021+)
+<arXiv:2109.06940>. This package allows researchers to use the
 multiple-mediator-imputation, single-mediator-imputation, and
 product-of-coefficients regression methods to estimate the initial
 disparity, disparity reduction, and disparity remaining. It also allows to
-make the inference conditional on baseline covariates.
+make the inference conditional on baseline covariates. We also implement
+sensitivity analysis for the causal decomposition analysis using R-squared
+values as sensitivity parameters (Park, Kang, Lee, and Ma, 2023).
 
 %prep
 %setup -q -c -n %{packname}

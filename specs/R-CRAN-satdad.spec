@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chatgpt
-%global packver   0.2.0
+%global packname  satdad
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'ChatGPT' from R
+Summary:          Sensitivity Analysis Tools for Dependence and Asymptotic Dependence
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-partitions 
+BuildRequires:    R-CRAN-graphicalExtremes 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.10
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-partitions 
+Requires:         R-CRAN-graphicalExtremes 
 
 %description
-'OpenAI's 'ChatGPT' <https://chat.openai.com/> coding assistant for
-'RStudio'. A set of functions and 'RStudio' addins that aim to help the R
-developer in tedious coding tasks.
+Tools for analyzing tail dependence in any sample or in particular
+theoretical models.  The package uses only theoretical and non parametric
+methods, without inference.  The primary goals of the package are to
+provide: (a)symmetric multivariate extreme value models in any dimension;
+theoretical and empirical indices to order tail dependence; theoretical
+and empirical graphical methods to visualize tail dependence.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tdcmStan
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automating the Creation of Stan Code for TDCMs
 
@@ -16,18 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-parallel >= 4.1.0
 BuildRequires:    R-CRAN-tibble >= 3.1.5
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-glue >= 1.4.2
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.4
+BuildRequires:    R-CRAN-tidyselect >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-rlang >= 0.4.11
+Requires:         R-parallel >= 4.1.0
 Requires:         R-CRAN-tibble >= 3.1.5
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-glue >= 1.4.2
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-tidyr >= 1.1.4
+Requires:         R-CRAN-tidyselect >= 1.1.2
 Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-rlang >= 0.4.11
 

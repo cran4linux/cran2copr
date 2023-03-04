@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bruceR
-%global packver   0.8.9
+%global packver   0.8.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
+Version:          0.8.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadly Useful Convenient and Efficient R Functions
 
@@ -18,58 +18,44 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-see 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-afex 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-performance 
-BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-mediation 
 BuildRequires:    R-CRAN-interactions 
 BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-jtools 
 BuildRequires:    R-CRAN-texreg 
+BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-MuMIn 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-see 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-afex 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-performance 
-Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-mediation 
 Requires:         R-CRAN-interactions 
 Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-car 
 Requires:         R-CRAN-jtools 
 Requires:         R-CRAN-texreg 
+Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-MuMIn 
 
 %description

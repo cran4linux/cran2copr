@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  provenance
-%global packver   4.0
+%global packver   4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Toolbox for Sedimentary Provenance Analysis
 
@@ -16,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-IsoplotR >= 5.2
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-IsoplotR 
+Requires:         R-CRAN-IsoplotR >= 5.2
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-IsoplotR 
 
 %description
 Bundles a number of established statistical methods to facilitate the
@@ -31,15 +32,17 @@ analysis, correspondence analysis, multidimensional scaling, generalised
 procrustes analysis and individual differences scaling using a variety of
 dissimilarity measures. Univariate provenance proxies, such as
 single-grain ages or (isotopic) compositions are compared with the
-Kolmogorov-Smirnov, Kuiper or Sircombe-Hazelton L2 distances. Categorical
-provenance proxies such as chemical compositions are compared with the
-Aitchison and Bray-Curtis distances, and point-counting data with the
-chi-square distance. Also included are tools to plot compositional and
-point-counting data on ternary diagrams and point-counting data on radial
-plots, to calculate the sample size required for specified levels of
-statistical precision, and to assess the effects of hydraulic sorting on
-detrital compositions. Includes an intuitive query-based user interface
-for users who are not proficient in R.
+Kolmogorov-Smirnov, Kuiper, Wasserstein-2 or Sircombe-Hazelton L2
+distances. Categorical provenance proxies such as chemical compositions
+are compared with the Aitchison and Bray-Curtis distances,and count data
+with the chi-square distance. Varietal data can either be converted to one
+or more distributional datasets, or directly compared using the
+multivariate Wasserstein distance. Also included are tools to plot
+compositional and count data on ternary diagrams and point-counting data
+on radial plots, to calculate the sample size required for specified
+levels of statistical precision, and to assess the effects of hydraulic
+sorting on detrital compositions. Includes an intuitive query-based user
+interface for users who are not proficient in R.
 
 %prep
 %setup -q -c -n %{packname}
