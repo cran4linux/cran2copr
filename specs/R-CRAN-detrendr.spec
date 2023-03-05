@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  detrendr
-%global packver   0.6.14
+%global packver   0.6.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.14
+Version:          0.6.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detrend Images
 
@@ -15,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.2
-BuildRequires:    R-CRAN-filesstrings >= 3.2
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.7
+BuildRequires:    R-CRAN-filesstrings >= 3.2.4
 BuildRequires:    R-CRAN-ijtiff >= 2.2
 BuildRequires:    R-CRAN-withr >= 2.1
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
@@ -24,7 +25,7 @@ BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4
 BuildRequires:    R-CRAN-autothresholdr >= 1.3.11
 BuildRequires:    R-CRAN-arrayhelpers >= 1.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-rlang >= 0.3.3
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
@@ -34,8 +35,8 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-RcppParallel >= 5.0.2
-Requires:         R-CRAN-filesstrings >= 3.2
+Requires:         R-CRAN-RcppParallel >= 5.1.7
+Requires:         R-CRAN-filesstrings >= 3.2.4
 Requires:         R-CRAN-ijtiff >= 2.2
 Requires:         R-CRAN-withr >= 2.1
 Requires:         R-CRAN-checkmate >= 1.9.3
@@ -43,7 +44,7 @@ Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4
 Requires:         R-CRAN-autothresholdr >= 1.3.11
 Requires:         R-CRAN-arrayhelpers >= 1.1.0
-Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-rlang >= 0.3.3
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
@@ -69,6 +70,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

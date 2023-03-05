@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fBasics
-%global packver   4021.93
+%global packver   4022.94
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4021.93
+Version:          4022.94
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rmetrics - Markets and Basic Statistics
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.15.1
 Requires:         R-core >= 2.15.1
+BuildRequires:    R-CRAN-timeSeries >= 4021.1
 BuildRequires:    R-CRAN-timeDate 
-BuildRequires:    R-CRAN-timeSeries 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
@@ -27,8 +27,8 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-spatial 
 BuildRequires:    R-CRAN-gss 
 BuildRequires:    R-CRAN-stabledist 
+Requires:         R-CRAN-timeSeries >= 4021.1
 Requires:         R-CRAN-timeDate 
-Requires:         R-CRAN-timeSeries 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 

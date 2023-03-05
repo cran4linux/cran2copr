@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aisoph
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Additive Isotonic Proportional Hazards Model
 
@@ -19,10 +19,8 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Iso 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-isoSurv 
 Requires:         R-CRAN-Iso 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-isoSurv 
 
 %description
 Nonparametric estimation of additive isotonic covariate effects for

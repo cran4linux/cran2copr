@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  googletraffic
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Google Traffic
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-png
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-webshot 
+BuildRequires:    R-CRAN-webshot2 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-ColorNameR 
 BuildRequires:    R-CRAN-schemr 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-png
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-webshot 
+Requires:         R-CRAN-webshot2 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-ColorNameR 
 Requires:         R-CRAN-schemr 

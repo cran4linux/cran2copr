@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  behaviorchange
-%global packver   0.5.1
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Behavior Change Researchers and Professionals
 
@@ -49,17 +50,16 @@ Requires:         R-CRAN-yum >= 0.0.1
 Contains specialised analyses and visualisation tools for behavior change
 science. These facilitate conducting determinant studies (for example,
 using confidence interval-based estimation of relevance, CIBER, or
-CIBERlite plots, see Crutzen, Noijen & Peters (2017)
-<doi:10.3389/fpubh.2017.00165>), systematically developing, reporting, and
-analysing interventions (for example, using Acyclic Behavior Change
-Diagrams), and reporting about intervention effectiveness (for example,
-using the Numbers Needed for Change, see Gruijters & Peters (2017)
-<doi:10.31234/osf.io/2bau7>), and computing the required sample size
-(using the Meaningful Change Definition, see Gruijters & Peters (2020)
-<doi:10.1080/08870446.2020.1841762>). This package is especially useful
-for researchers in the field of behavior change or health psychology and
-to behavior change professionals such as intervention developers and
-prevention workers.
+CIBERlite plots, see Crutzen, Noijen & Peters (2017) <doi:10/ghtfz9>),
+systematically developing, reporting, and analysing interventions (for
+example, using Acyclic Behavior Change Diagrams), and reporting about
+intervention effectiveness (for example, using the Numbers Needed for
+Change, see Gruijters & Peters (2017) <doi:10/jzkt>), and computing the
+required sample size (using the Meaningful Change Definition, see
+Gruijters & Peters (2020) <doi:10/ghpnx8>). This package is especially
+useful for researchers in the field of behavior change or health
+psychology and to behavior change professionals such as intervention
+developers and prevention workers.
 
 %prep
 %setup -q -c -n %{packname}

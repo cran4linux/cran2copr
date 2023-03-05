@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MGDrivE2
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mosquito Gene Drive Explorer 2
 
@@ -28,14 +28,14 @@ Requires:         R-CRAN-statmod
 A simulation modeling framework which significantly extends capabilities
 from the 'MGDrivE' simulation package via a new mathematical and
 computational framework based on stochastic Petri nets. For more
-information about 'MGDrivE', see our publication:
-<https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13318>.
-Some of the notable capabilities of 'MGDrivE2' include: incorporation of
-human populations, epidemiological dynamics, time-varying parameters, and
-a continuous-time simulation framework with various sampling algorithms
-for both deterministic and stochastic interpretations. 'MGDrivE2' relies
-on the genetic inheritance structures provided in package 'MGDrivE', so we
-suggest installing that package initially.
+information about 'MGDrivE', see our publication: Sánchez et al. (2019)
+<doi:10.1111/2041-210X.13318> Some of the notable capabilities of
+'MGDrivE2' include: incorporation of human populations, epidemiological
+dynamics, time-varying parameters, and a continuous-time simulation
+framework with various sampling algorithms for both deterministic and
+stochastic interpretations. 'MGDrivE2' relies on the genetic inheritance
+structures provided in package 'MGDrivE', so we suggest installing that
+package initially.
 
 %prep
 %setup -q -c -n %{packname}

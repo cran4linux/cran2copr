@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  simfinapi
-%global packver   0.2.0
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing 'SimFin' Data
 
@@ -37,9 +38,9 @@ Requires:         R-utils
 
 %description
 Through simfinapi, you can intuitively access the 'SimFin' Web-API
-(<https://simfin.com/>) to make 'SimFin' data easily available in R. To
-obtain an 'SimFin' API key (and thus to use this package), you need to
-register at <https://simfin.com/login>.
+(<https://www.simfin.com/>) to make 'SimFin' data easily available in R.
+To obtain an 'SimFin' API key (and thus to use this package), you need to
+register at <https://app.simfin.com/login>.
 
 %prep
 %setup -q -c -n %{packname}
