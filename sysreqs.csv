@@ -232,6 +232,7 @@ forImage,,,TRUE,"Python, numpy, imutils, scipy, pandas, Pillow, opencv"
 forsearch,,,TRUE,gmp
 frequency,,,TRUE,pandoc - http://pandoc.org
 fRLR,gsl-devel,,TRUE,GNU Scientific Library (GSL). Note: users shouldhave GSL installed.
+fs,automake,,TRUE,
 fsdaR,,,TRUE,"(license-free) MATLAB Runtime (MCR) V, Java(>=8)"
 fslr,,,TRUE,FSL
 fst,,,TRUE,little-endian platform

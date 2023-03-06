@@ -14,6 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    automake
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildRequires:    R-methods 
