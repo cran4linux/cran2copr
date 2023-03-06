@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClustBlock
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Datasets
 
@@ -32,8 +32,8 @@ Check-All-That-Apply data) (Llobell, Cariou, Vigneau, Labenne & Qannari
 Qannari (2019) <doi:10.1016/j.foodqual.2019.05.017>) are the core of this
 package. The CATATIS methods allows to compute some indices and tests to
 control the quality of CATA data. Multivariate analysis and clustering of
-subjects for quantitative multiblock data, CATA, Free Sorting and JAR
-experiments are available.
+subjects for quantitative multiblock data, CATA, RATA, Free Sorting and
+JAR experiments are available.
 
 %prep
 %setup -q -c -n %{packname}

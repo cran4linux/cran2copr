@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  optimizeR
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unified Framework for Numerical Optimizer
+Summary:          Unified Framework for Numerical Optimizers
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,7 +23,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-glue 
 
 %description
-Provides a unified framework for numerical optimizer in R, particularly
+Provides a unified framework for numerical optimizers in R, particularly
 for their inputs and outputs.
 
 %prep
