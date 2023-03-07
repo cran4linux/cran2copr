@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admiraldev
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Development Tools for the Admiral Package Family
+Summary:          Utility Functions and Development Tools for the Admiral Package Family
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

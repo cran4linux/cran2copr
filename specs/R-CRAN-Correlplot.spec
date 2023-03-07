@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Correlplot
-%global packver   1.0.4
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Functions for Graphing Correlation Matrices
 
@@ -14,21 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.8.0
-Requires:         R-core >= 1.8.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-calibrate 
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-lsei 
 Requires:         R-CRAN-calibrate 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-lsei 
 
 %description
 Routines for the graphical representation of correlation matrices by means
-of correlograms, biplots and MDS maps.
+of correlograms, MDS maps and biplots obtained by PCA, PFA or WALS
+(weighted alternating least squares); See Graffelman & De Leeuw (2023)
+<doi: 10.1080/00031305.2023.2186952>.
 
 %prep
 %setup -q -c -n %{packname}

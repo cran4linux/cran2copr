@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RFpredInterval
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Intervals with Random Forests and Boosted Forests
 
@@ -32,9 +33,9 @@ Requires:         R-CRAN-DiagrammeR
 Implements various prediction interval methods with random forests and
 boosted forests. The package has two main functions: pibf() produces
 prediction intervals with boosted forests (PIBF) as described in Alakus et
-al. (2021) <arXiv:2106.08217> and rfpi() builds 15 distinct variations of
-prediction intervals with random forests (RFPI) proposed by Roy and
-Larocque (2020) <doi:10.1177/0962280219829885>.
+al. (2022) <doi:10.32614/RJ-2022-012> and rfpi() builds 15 distinct
+variations of prediction intervals with random forests (RFPI) proposed by
+Roy and Larocque (2020) <doi:10.1177/0962280219829885>.
 
 %prep
 %setup -q -c -n %{packname}

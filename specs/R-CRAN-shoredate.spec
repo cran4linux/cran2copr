@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shoredate
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shoreline Dating of Stone Age Sites on the Norwegian Skagerrak Coast
+Summary:          Shoreline Dating Stone Age Sites on the Norwegian Skagerrak Coast
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -42,14 +42,14 @@ Norwegian Skagerrak coast using methods presented in Roalkvam (2023)
 <doi:10.1016/j.quascirev.2022.107880>. Shoreline dating is based on the
 present-day elevation of a site, a reconstruction of past relative
 sea-level change, and empirically derived estimates of the likely
-elevation of the sites above sea-level when they were in use. The
-geographical and temporal coverage of the method thus follows from local
-geological reconstructions of shoreline displacement and the degree to
-which settlements in the region have been found to have been located on or
-close to the shoreline when they were in use. Methods for numerical
-treatment and visualisation of the dates are provided, along with basic
-tools for evaluating the location of sites within the region and
-corresponding variation in local shoreline displacement.
+elevation of the sites above the contemporaneous sea-level when they were
+in use. The geographical and temporal coverage of the method thus follows
+from local geological reconstructions of shoreline displacement and the
+degree to which settlements in the region have been found to have been
+located on or close to the shoreline when they were in use. Methods for
+numerical treatment and visualisation of the dates are provided, along
+with basic tools for evaluating the location of sites within the region
+and corresponding variation in local shoreline displacement.
 
 %prep
 %setup -q -c -n %{packname}

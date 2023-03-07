@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sasLM
-%global packver   0.9.6
+%global packname  wqspt
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Linear Model
+Summary:          Permutation Test for Weighted Quantile Sum Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-gWQS 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-gWQS 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-cowplot 
 Requires:         R-methods 
 
 %description
-This is a core implementation of 'SAS' procedures for linear models - GLM,
-REG, ANOVA, FREQ, and UNIVARIATE. Some R packages provide type II and type
-III SS. However, the results of nested and complex designs are often
-different from those of 'SAS.' Different results does not necessarily mean
-incorrectness. However, many wants the same results to SAS. This package
-aims to achieve that. Reference: Littell RC, Stroup WW, Freund RJ (2002,
-ISBN:0-471-22174-0).
+Implements a permutation test method for the weighted quantile sum (WQS)
+regression, building off the 'gWQS' package (Renzetti et al. (2021)
+<https://CRAN.R-project.org/package=gWQS>). Weighted quantile sum
+regression is a statistical technique to evaluate the effect of complex
+exposure mixtures on an outcome (Carrico et al. (2015)
+<doi:10.1007/s13253-014-0180-3>). The model features a statistical power
+and Type I error (i.e., false positive) rate trade-off, as there is a
+machine learning step to determine the weights that optimize the linear
+model fit. This package provides an alternative method based on a
+permutation test that should reliably allow for both high power and low
+false positive rate when utilizing WQS regression (Day et al. (2022)
+<doi:10.1289/EHP10570>).
 
 %prep
 %setup -q -c -n %{packname}

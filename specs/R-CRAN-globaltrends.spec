@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  globaltrends
-%global packver   0.0.13
+%global packver   0.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.13
+Version:          0.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Measure Global Trends Through Google Search Volumes
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast >= 8.12
 BuildRequires:    R-stats >= 3.5.0
 BuildRequires:    R-utils >= 3.5.0
-BuildRequires:    R-CRAN-maps >= 3.4.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-tibble >= 3.0.3
 BuildRequires:    R-CRAN-RSQLite >= 2.2.0
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-zoo >= 1.8.8
 BuildRequires:    R-CRAN-lubridate >= 1.7.9
 BuildRequires:    R-CRAN-gtrendsR >= 1.5.1
 BuildRequires:    R-CRAN-dbplyr >= 1.4.4
-BuildRequires:    R-CRAN-glue >= 1.4.2
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
@@ -36,11 +34,9 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-forcats >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-ineq >= 0.2.13
 Requires:         R-CRAN-forecast >= 8.12
 Requires:         R-stats >= 3.5.0
 Requires:         R-utils >= 3.5.0
-Requires:         R-CRAN-maps >= 3.4.0
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-tibble >= 3.0.3
 Requires:         R-CRAN-RSQLite >= 2.2.0
@@ -48,7 +44,6 @@ Requires:         R-CRAN-zoo >= 1.8.8
 Requires:         R-CRAN-lubridate >= 1.7.9
 Requires:         R-CRAN-gtrendsR >= 1.5.1
 Requires:         R-CRAN-dbplyr >= 1.4.4
-Requires:         R-CRAN-glue >= 1.4.2
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.2
@@ -56,7 +51,6 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-forcats >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-ineq >= 0.2.13
 
 %description
 Google offers public access to global search volumes from its search

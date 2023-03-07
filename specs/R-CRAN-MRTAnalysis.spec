@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppFastAD
-%global packver   0.0.2
+%global packname  MRTAnalysis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Bindings to 'FastAD' Auto-Differentiation
+Summary:          Primary and Secondary Analyses for Micro-Randomized Trials
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-stats 
+Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-sandwich 
 
 %description
-The header-only 'C++' template library 'FastAD' for automatic
-differentiation <https://github.com/JamesYang007/FastAD> is provided by
-this package, along with a few illustrative examples that can all be
-called from R.
+Calculate estimates, confidence intervals, standard errors, and p-values
+for marginal causal excursion effects and moderated causal excursion
+effects for micro-randomized trial (MRT). Applicable to MRT with binary
+treatment options and continuous or binary outcomes. The method for MRT
+with continuous outcomes is the weighted centered least squares (WCLS) by
+Boruvka et al. (2018) <doi:10.1080/01621459.2017.1305274>. The method for
+MRT with binary outcomes is the estimator for marginal excursion effect
+(EMEE) by Qian et al. (2021) <doi:10.1093/biomet/asaa070>.
 
 %prep
 %setup -q -c -n %{packname}

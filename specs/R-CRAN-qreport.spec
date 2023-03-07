@@ -1,46 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ordbetareg
-%global packver   0.7.0
+%global packname  qreport
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ordered Beta Regression Models with Brms
+Summary:          Statistical Reporting with 'Quarto'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-brms >= 2.18.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-transformr 
-BuildRequires:    R-CRAN-faux 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gganimate 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-brms >= 2.18.0
-Requires:         R-stats 
-Requires:         R-CRAN-transformr 
-Requires:         R-CRAN-faux 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gganimate 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Hmisc >= 4.8.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-Hmisc >= 4.8.0
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rms 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-htmltools 
 
 %description
-Implements ordered beta regression models, which are for modeling
-continuous variables with upper and lower bounds, such as survey sliders,
-dose-response relationships and indexes. For more information, see Kubinec
-(2022) <doi:10.31235/osf.io/2sx6y>. The package is a front-end to the R
-package 'brms', which facilitates a range of regression specifications,
-including hierarchical, dynamic and multivariate modeling.
+Provides statistical components, tables, and graphs that are useful in
+'Quarto' and 'RMarkdown' reports and that produce 'Quarto' elements for
+special formatting such as tabs and marginal notes and graphs. Some of the
+functions produce entire report sections with tabs, e.g., the missing data
+report created by missChk().  Special clinical trial graphics for adverse
+event reporting is also included.
 
 %prep
 %setup -q -c -n %{packname}

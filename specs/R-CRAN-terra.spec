@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  terra
-%global packver   1.7-3
+%global packver   1.7-18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Data Analysis
 
@@ -20,10 +20,10 @@ BuildRequires:    proj-devel
 BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
 
 %description
 Methods for spatial data analysis with vector (points, lines, polygons)

@@ -1,40 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  faux
-%global packver   1.2.0
+%global packname  BRACE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation for Factorial Designs
+Summary:          Bias Reduction Through Analysis of Competing Events (BRACE)
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survminer 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survminer 
 
 %description
-Create datasets with factorial structure through simulation by specifying
-variable parameters. Extended documentation at
-<https://debruine.github.io/faux/>. Described in DeBruine (2020)
-<doi:10.5281/zenodo.2669586>.
+Adjusting the bias due to residual confounding (often called treatment
+selection bias) in estimating the treatment effect in a proportional
+hazard model, as described in Williamson et al. (2022)
+<doi:10.1158/1078-0432.ccr-21-2468>.
 
 %prep
 %setup -q -c -n %{packname}

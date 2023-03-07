@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hhsmm
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hidden Hybrid Markov/Semi-Markov Model Fitting
 
@@ -22,8 +22,6 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-cpr 
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-splines2 
@@ -33,8 +31,6 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mice 
-Requires:         R-CRAN-cpr 
-Requires:         R-CRAN-psych 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-splines2 

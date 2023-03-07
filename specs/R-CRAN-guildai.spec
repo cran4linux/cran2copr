@@ -1,63 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eurostat
-%global packver   3.8.2
+%global packname  guildai
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Eurostat Open Data
+Summary:          Track Machine Learning Experiments
 
-License:          BSD_2_clause + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-countrycode 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-RefManageR 
-BuildRequires:    R-CRAN-regions 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ISOweek 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-methods 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-countrycode 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-RefManageR 
-Requires:         R-CRAN-regions 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-processx 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ISOweek 
 
 %description
-Tools to download data from the Eurostat database
-<https://ec.europa.eu/eurostat> together with search and manipulation
-utilities.
+'Guild AI' is an open-source tool for managing machine learning
+experiments. It's for scientists, engineers, and researchers who want to
+run scripts, compare results, measure progress, and automate machine
+learning workflow. 'Guild AI' is a light weight, external tool that runs
+locally. It works with any framework, doesn't require any changes to your
+code, or access to any web services. Users can easily record experiment
+metadata, track model changes, manage experiment artifacts, tune
+hyperparameters, and share results. 'Guild AI' combines features from
+'Git', 'SQLite', and 'Make' to provide a lab notebook for machine
+learning.
 
 %prep
 %setup -q -c -n %{packname}
