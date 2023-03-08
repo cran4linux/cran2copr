@@ -1,39 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CovRegRF
-%global packver   1.0.3
+%global packname  tfevents
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Covariance Regression with Random Forests
+Summary:          Write Events for 'TensorBoard'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-DiagrammeR 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-DiagrammeR 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-blob 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-zeallot 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-blob 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-zeallot 
 
 %description
-Covariance Regression with Random Forests ('CovRegRF') is a random forest
-method for estimating the covariance matrix of a multivariate response
-given a set of covariates. Random forest trees are built with a new
-splitting rule which is designed to maximize the distance between the
-sample covariance matrix estimates of the child nodes. The method is
-described in Alakus et al. (2022) <arXiv:2209.08173>. 'CovRegRF' uses
-'randomForestSRC' package (Ishwaran and Kogalur, 2022)
-<https://cran.r-project.org/package=randomForestSRC> by freezing at the
-version 3.1.0. The custom splitting rule feature is utilised to apply the
-proposed splitting rule.
+Provides a convenient way to log scalars, images, audio, and histograms in
+the 'tfevent' record file format. Logged data can be visualized on the fly
+using 'TensorBoard', a web based tool that focuses on visualizing the
+training progress of machine learning models.
 
 %prep
 %setup -q -c -n %{packname}

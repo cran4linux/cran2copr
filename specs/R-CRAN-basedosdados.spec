@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  basedosdados
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Base Dos Dados' R Client
 
@@ -23,20 +24,18 @@ BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-fs >= 1.5.0
 BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-glue >= 1.4.2
-BuildRequires:    R-CRAN-googleAuthR >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-bigrquery >= 1.4.0
 BuildRequires:    R-CRAN-writexl >= 1.4.0
-BuildRequires:    R-CRAN-xml2 >= 1.3.0
 BuildRequires:    R-CRAN-scales >= 1.1.1
 BuildRequires:    R-CRAN-DBI >= 1.1.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-dplyr >= 1.0.6
 BuildRequires:    R-CRAN-dotenv >= 1.0.2
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-typed >= 0.0.1
+BuildRequires:    R-methods 
 Requires:         R-CRAN-tibble >= 3.1.1
 Requires:         R-CRAN-cli >= 2.5.0
 Requires:         R-CRAN-dbplyr >= 2.1.1
@@ -44,20 +43,18 @@ Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-fs >= 1.5.0
 Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-glue >= 1.4.2
-Requires:         R-CRAN-googleAuthR >= 1.4.0
 Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-bigrquery >= 1.4.0
 Requires:         R-CRAN-writexl >= 1.4.0
-Requires:         R-CRAN-xml2 >= 1.3.0
 Requires:         R-CRAN-scales >= 1.1.1
 Requires:         R-CRAN-DBI >= 1.1.1
-Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-dplyr >= 1.0.6
 Requires:         R-CRAN-dotenv >= 1.0.2
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-typed >= 0.0.1
+Requires:         R-methods 
 
 %description
 An R interface to the 'Base dos Dados' API

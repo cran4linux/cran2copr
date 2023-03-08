@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CovRegRF
-%global packver   1.0.3
+%global packname  lpda
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Covariance Regression with Random Forests
+Summary:          Linear Programming Discriminant Analysis
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-DiagrammeR 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-DiagrammeR 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rglpk 
+Requires:         R-CRAN-Rglpk 
 
 %description
-Covariance Regression with Random Forests ('CovRegRF') is a random forest
-method for estimating the covariance matrix of a multivariate response
-given a set of covariates. Random forest trees are built with a new
-splitting rule which is designed to maximize the distance between the
-sample covariance matrix estimates of the child nodes. The method is
-described in Alakus et al. (2022) <arXiv:2209.08173>. 'CovRegRF' uses
-'randomForestSRC' package (Ishwaran and Kogalur, 2022)
-<https://cran.r-project.org/package=randomForestSRC> by freezing at the
-version 3.1.0. The custom splitting rule feature is utilised to apply the
-proposed splitting rule.
+Classification method obtained through linear programming. It is
+advantageous with respect to the classical developments when the
+distribution of the variables involved is unknown or when the number of
+variables is much greater than the number of individuals. LPDA method is
+published in Nueda, et al. (2022) "LPDA: A new classification method based
+on linear programming". <doi:10.1371/journal.pone.0270403>.
 
 %prep
 %setup -q -c -n %{packname}

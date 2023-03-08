@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openair
-%global packver   2.15
+%global packver   2.16-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.15
+Version:          2.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for the Analysis of Air Pollution Data
 
@@ -18,46 +18,46 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-hexbin 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-mapproj 
-BuildRequires:    R-CRAN-hexbin 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-cluster 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-hexbin 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-mapproj 
-Requires:         R-CRAN-hexbin 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
 Requires:         R-CRAN-MASS 
-Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
 Tools to analyse, interpret and understand air pollution data. Data are

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FuzzyClass
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy and Non-Fuzzy Classifiers
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caTools 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-foreach 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-rootSolve
 BuildRequires:    R-stats 
 Requires:         R-CRAN-caTools 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-foreach 

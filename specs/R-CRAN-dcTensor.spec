@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dcTensor
-%global packver   0.99.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Matrix/Tensor Decomposition
 
@@ -30,10 +30,9 @@ Requires:         R-CRAN-nnTensor
 
 %description
 Semi-Binary and Semi-Ternary Matrix Decomposition are performed based on
-Non-negative Matrix Factorization (NMF) and Gradient Descent-based
-Singular Value Decomposition (GD-SVD). For the details of the methods, see
-the reference section of GitHub README.md
-<https://github.com/rikenbit/dcTensor>.
+Non-negative Matrix Factorization (NMF) and Singular Value Decomposition
+(SVD). For the details of the methods, see the reference section of GitHub
+README.md <https://github.com/rikenbit/dcTensor>.
 
 %prep
 %setup -q -c -n %{packname}

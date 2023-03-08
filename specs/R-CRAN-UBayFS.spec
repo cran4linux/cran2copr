@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgplates
-%global packver   0.2.1
+%global packname  UBayFS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface for the GPlates Web Service and Desktop Application
+Summary:          A User-Guided Bayesian Framework for Ensemble Feature Selection
 
-License:          CC BY 4.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-DirichletReg 
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-hyper2 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mRMRe 
+BuildRequires:    R-CRAN-Rdimtools 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-DirichletReg 
+Requires:         R-CRAN-GA 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-hyper2 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-methods 
+Requires:         R-CRAN-mRMRe 
+Requires:         R-CRAN-Rdimtools 
+Requires:         R-CRAN-shiny 
 Requires:         R-utils 
 
 %description
-Query functions to the GPlates <https://www.gplates.org/> Desktop
-Application and the GPlates Web Service <https://gws.gplates.org/> allow
-users to reconstruct past positions of geographic entities based on
-user-selected rotation models without leaving the R running environment.
-The online method (GPlates Web Service) makes the rotation of static
-plates, coastlines, and a low number of geographic coordinates available
-using nothing but an internet connection. The offline method requires an
-external installation of the GPlates Desktop Application, but allows the
-efficient batch rotation of thousands of coordinates, Simple Features (sf)
-and Spatial (sp) objects with custom reconstruction trees and partitioning
-polygons. Examples of such plate tectonic models are accessible via the
-chronosphere-portal <https://cran.r-project.org/package=chronosphere>.
-This R extension is developed under the umbrella of the DFG (Deutsche
-Forschungsgemeinschaft) Research Unit TERSANE2 (For 2332, TEmperature
-Related Stressors in ANcient Extinctions).
+The framework proposed in Jenul et al., (2022)
+<doi:10.1007/s10994-022-06221-9>, together with an interactive Shiny
+dashboard. 'UBayFS' is an ensemble feature selection technique embedded in
+a Bayesian statistical framework. The method combines data and user
+knowledge, where the first is extracted via data-driven ensemble feature
+selection. The user can control the feature selection by assigning prior
+weights to features and penalizing specific feature combinations. 'UBayFS'
+can be used for common feature selection as well as block feature
+selection.
 
 %prep
 %setup -q -c -n %{packname}

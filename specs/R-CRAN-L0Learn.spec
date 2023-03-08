@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CovRegRF
-%global packver   1.0.3
+%global packname  L0Learn
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Covariance Regression with Random Forests
+Summary:          Fast Algorithms for Best Subset Selection
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-DiagrammeR 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-DiagrammeR 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.13
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.13
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-MASS 
 
 %description
-Covariance Regression with Random Forests ('CovRegRF') is a random forest
-method for estimating the covariance matrix of a multivariate response
-given a set of covariates. Random forest trees are built with a new
-splitting rule which is designed to maximize the distance between the
-sample covariance matrix estimates of the child nodes. The method is
-described in Alakus et al. (2022) <arXiv:2209.08173>. 'CovRegRF' uses
-'randomForestSRC' package (Ishwaran and Kogalur, 2022)
-<https://cran.r-project.org/package=randomForestSRC> by freezing at the
-version 3.1.0. The custom splitting rule feature is utilised to apply the
-proposed splitting rule.
+Highly optimized toolkit for approximately solving L0-regularized learning
+problems (a.k.a. best subset selection). The algorithms are based on
+coordinate descent and local combinatorial search. For more details, check
+the paper by Hazimeh and Mazumder (2020) <doi:10.1287/opre.2019.1919>.
 
 %prep
 %setup -q -c -n %{packname}

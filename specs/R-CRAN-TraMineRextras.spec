@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TraMineRextras
-%global packver   0.6.5
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          TraMineR Extension
 
@@ -16,25 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-TraMineR >= 2.2.1
+BuildRequires:    R-CRAN-TraMineR >= 2.2.5
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-TraMineR >= 2.2.1
+Requires:         R-CRAN-TraMineR >= 2.2.5
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-survival 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
