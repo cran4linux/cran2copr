@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pda
-%global packver   1.2.5
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Privacy-Preserving Distributed Algorithms
 
@@ -28,6 +28,8 @@ BuildRequires:    R-CRAN-glmnet
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-ordinal 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.19
 Requires:         R-stats 
@@ -41,6 +43,8 @@ Requires:         R-CRAN-glmnet
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-ordinal 
+Requires:         R-CRAN-plyr 
 
 %description
 A collection of privacy-preserving distributed algorithms for conducting

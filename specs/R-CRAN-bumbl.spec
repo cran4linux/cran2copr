@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bumbl
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Modeling Bumblebee Colony Growth and Decline
 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
@@ -32,6 +34,7 @@ Requires:         R-CRAN-broom
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Bumblebee colonies grow during worker production, then decline after

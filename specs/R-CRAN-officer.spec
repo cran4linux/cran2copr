@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  officer
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulation of Microsoft Word and PowerPoint Documents
 
@@ -26,6 +26,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-ragg 
 Requires:         R-CRAN-zip >= 2.1.0
 Requires:         R-CRAN-xml2 >= 1.1.0
 Requires:         R-grDevices 
@@ -35,6 +36,7 @@ Requires:         R-utils
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-ragg 
 
 %description
 Access and manipulate 'Microsoft Word', 'RTF' and 'Microsoft PowerPoint'

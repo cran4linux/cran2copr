@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tibble
-%global packver   3.1.8
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.8
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Data Frames
 
@@ -13,22 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-pillar >= 1.7.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-pillar >= 1.8.1
 BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+BuildRequires:    R-CRAN-vctrs >= 0.4.2
 BuildRequires:    R-CRAN-fansi >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.8
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pkgconfig 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-pillar >= 1.7.0
+Requires:         R-CRAN-pillar >= 1.8.1
 Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-lifecycle >= 1.0.0
+Requires:         R-CRAN-vctrs >= 0.4.2
 Requires:         R-CRAN-fansi >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.8
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-pkgconfig 

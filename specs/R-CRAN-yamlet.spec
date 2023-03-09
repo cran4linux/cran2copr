@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yamlet
-%global packver   0.10.10
+%global packver   0.10.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.10
+Version:          0.10.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Versatile Curation of Table Metadata
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.8.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-csv >= 0.6.2
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-encode 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-xtable
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-dplyr >= 0.8.1
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-csv >= 0.6.2
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-encode 

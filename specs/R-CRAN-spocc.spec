@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spocc
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to Species Occurrence Data Sources
 
@@ -18,7 +19,6 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-rbison 
 BuildRequires:    R-CRAN-rebird 
 BuildRequires:    R-CRAN-rvertnet 
 BuildRequires:    R-CRAN-ridigbio 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-wellknown 
 Requires:         R-utils 
 Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-rbison 
 Requires:         R-CRAN-rebird 
 Requires:         R-CRAN-rvertnet 
 Requires:         R-CRAN-ridigbio 
@@ -45,11 +44,10 @@ Requires:         R-CRAN-wellknown
 
 %description
 A programmatic interface to many species occurrence data sources,
-including Global Biodiversity Information Facility ('GBIF'), 'USGSs'
-Biodiversity Information Serving Our Nation ('BISON'), 'iNaturalist',
-'eBird', Integrated Digitized 'Biocollections' ('iDigBio'), 'VertNet',
-Ocean 'Biogeographic' Information System ('OBIS'), and Atlas of Living
-Australia ('ALA'). Includes functionality for retrieving species
+including Global Biodiversity Information Facility ('GBIF'),
+'iNaturalist', 'eBird', Integrated Digitized 'Biocollections' ('iDigBio'),
+'VertNet', Ocean 'Biogeographic' Information System ('OBIS'), and Atlas of
+Living Australia ('ALA'). Includes functionality for retrieving species
 occurrence data, and combining those data.
 
 %prep
@@ -60,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

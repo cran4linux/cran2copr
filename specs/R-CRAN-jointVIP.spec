@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jointVIP
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prioritize Variables with Joint Variable Importance Plot in Observational Study Design
 
@@ -28,15 +28,16 @@ conducted. However, when many background variables are present, the
 decision as to which variables to prioritize for matching/weighting is not
 trivial. Thus, the joint treatment-outcome variable importance plots are
 created to guide variable selection. The joint variable importance plots
-enhance variable comparisons via bias curves, derived using the classical
-omitted variable bias framework. The joint variable importance plots
-translate variable importance into recommended values for tuning
-parameters in existing methods. Post-matching and/or weighting plots can
-also be used to visualize and assess the quality of the observational
-study design. The package and its usage is showcased in "Using Joint
-Variable Importance Plots to Prioritize Variables in Assessing the Impact
-of Glyburide on Adverse Birth Outcomes" by Liao et al. (2023)
-<arXiv:2301.09754>.
+enhance variable comparisons via unadjusted bias curves derived under the
+omitted variable bias framework. The plots translate variable importance
+into recommended values for tuning parameters in existing methods.
+Post-matching and/or weighting plots can also be used to visualize and
+assess the quality of the observational study design. The method
+motivation and derivation is presented in "Using Joint Variable Importance
+Plots to Prioritize Variables in Assessing the Impact of Glyburide on
+Adverse Birth Outcomes" by Liao et al. (2023) <arXiv:2301.09754>. See the
+package paper by Liao and Pimentel (2023) <arxiv:2302.10367> for a
+beginner friendly user introduction.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pathviewr
-%global packver   1.1.5
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrangle, Analyze, and Visualize Animal Movement Data
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-R.matlab 
 BuildRequires:    R-CRAN-fANCOVA 
 BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-anomalize 
 BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-tibble >= 3.0.1
@@ -43,7 +42,6 @@ Requires:         R-CRAN-purrr >= 0.3.3
 Requires:         R-CRAN-R.matlab 
 Requires:         R-CRAN-fANCOVA 
 Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-anomalize 
 Requires:         R-CRAN-lubridate 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Hmisc
-%global packver   5.0-0
+%global packver   5.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0
+Version:          5.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harrell Miscellaneous
 
@@ -16,13 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-survival >= 3.1.6
-BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-htmlTable >= 1.11.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-latticeExtra 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-nnet 
@@ -37,13 +33,10 @@ BuildRequires:    R-CRAN-base64enc
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-survival >= 3.1.6
-Requires:         R-CRAN-ggplot2 >= 2.2
+BuildRequires:    R-CRAN-Formula 
 Requires:         R-CRAN-htmlTable >= 1.11.0
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-Formula 
 Requires:         R-methods 
-Requires:         R-CRAN-latticeExtra 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-nnet 
@@ -58,6 +51,7 @@ Requires:         R-CRAN-base64enc
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-Formula 
 
 %description
 Contains many functions useful for data analysis, high-level graphics,

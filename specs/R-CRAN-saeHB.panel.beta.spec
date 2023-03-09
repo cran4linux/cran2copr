@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saeHB.panel.beta
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation using HB for Rao Yu Model under Beta Distribution
 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-dplyr
 Several functions are provided for small area estimation at the area level
 using the hierarchical bayesian (HB) method with panel data under beta
 distribution for variable interest. This package also provides a dataset
-produced by data generation. The "rjags" package is employed to obtain
+produced by data generation. The 'rjags' package is employed to obtain
 parameter estimates. Model-based estimators involve the HB estimators,
 which include the mean and the variation of the mean. For the reference,
 see Rao and Molina (2015, ISBN: 978-1-118-73578-7).

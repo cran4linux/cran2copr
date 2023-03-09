@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tvgarch
-%global packver   2.3
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Varying GARCH Modelling
 
@@ -20,11 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-garchx 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-hier.part 
 Requires:         R-CRAN-garchx 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-hier.part 
 
 %description
 Simulation, estimation and inference for univariate and multivariate

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phase
-%global packver   1.2.7
+%global packver   1.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyse Biological Time-Series Data
 
@@ -25,6 +25,12 @@ BuildRequires:    R-CRAN-signal
 BuildRequires:    R-CRAN-zeitgebr 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-behavr 
+BuildRequires:    R-CRAN-wesanderson 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinyFiles 
 Requires:         R-CRAN-circular 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-plotly 
@@ -33,6 +39,12 @@ Requires:         R-CRAN-signal
 Requires:         R-CRAN-zeitgebr 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-behavr 
+Requires:         R-CRAN-wesanderson 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinyFiles 
 
 %description
 Compiles functions to trim, bin, visualise, and analyse activity/sleep
