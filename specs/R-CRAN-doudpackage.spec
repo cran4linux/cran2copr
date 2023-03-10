@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  restatapi
-%global packver   0.20.6
+%global packname  doudpackage
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.6
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Data from Eurostat Database
+Summary:          Create Elegant Table 1 in HTML/'LaTeX' for Bio-Statistics
 
-License:          EUPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Eurostat is the statistical office of the European Union and provides high
-quality statistics for Europe. Large set of the data is disseminated
-through the Eurostat database
-(<https://ec.europa.eu/eurostat/web/main/data/database>). The tools are
-using the REST API with the Statistical Data and Metadata eXchange (SDMX)
-Web Services
-(<https://wikis.ec.europa.eu/pages/viewpage.action?pageId=44165555>) to
-search and download data from the Eurostat database using the SDMX
-standard.
+Creates the "table one" of bio-medical papers. Fill it with your data and
+the name of the variable which you'll make the group(s) out of and it will
+make univariate, bivariate analysis and parse it into HTML. It also allows
+you to visualize all your data with graphic representation.
 
 %prep
 %setup -q -c -n %{packname}

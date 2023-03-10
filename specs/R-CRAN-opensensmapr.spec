@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  restatapi
-%global packver   0.20.6
+%global packname  opensensmapr
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.6
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Data from Eurostat Database
+Summary:          Client for the Data API of 'openSenseMap.org'
 
-License:          EUPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Eurostat is the statistical office of the European Union and provides high
-quality statistics for Europe. Large set of the data is disseminated
-through the Eurostat database
-(<https://ec.europa.eu/eurostat/web/main/data/database>). The tools are
-using the REST API with the Statistical Data and Metadata eXchange (SDMX)
-Web Services
-(<https://wikis.ec.europa.eu/pages/viewpage.action?pageId=44165555>) to
-search and download data from the Eurostat database using the SDMX
-standard.
+Download environmental measurements and sensor station metadata from the
+API of open data sensor web platform <https://opensensemap.org> for
+analysis in R. This platform provides real time data of more than 1500
+low-cost sensor stations for PM10, PM2.5, temperature, humidity, UV-A
+intensity and more phenomena. The package aims to be compatible with 'sf'
+and the 'Tidyverse', and provides several helper functions for data
+exploration and transformation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  restatapi
-%global packver   0.20.6
+%global packname  stringstatic
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Data from Eurostat Database
+Summary:          Dependency-Free String Operations
 
-License:          EUPL
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-xml2 
 
 %description
-Eurostat is the statistical office of the European Union and provides high
-quality statistics for Europe. Large set of the data is disseminated
-through the Eurostat database
-(<https://ec.europa.eu/eurostat/web/main/data/database>). The tools are
-using the REST API with the Statistical Data and Metadata eXchange (SDMX)
-Web Services
-(<https://wikis.ec.europa.eu/pages/viewpage.action?pageId=44165555>) to
-search and download data from the Eurostat database using the SDMX
-standard.
+Provides drop-in replacements for functions from the 'stringr' package,
+with the same user interface. These functions have no external
+dependencies and can be copied directly into your package code using the
+'staticimports' package.
 
 %prep
 %setup -q -c -n %{packname}

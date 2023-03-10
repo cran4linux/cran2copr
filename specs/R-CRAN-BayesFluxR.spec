@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  restatapi
-%global packver   0.20.6
+%global packname  BayesFluxR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Data from Eurostat Database
+Summary:          Implementation of Bayesian Neural Networks
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-JuliaCall >= 0.17.5
+BuildRequires:    R-stats 
+Requires:         R-CRAN-JuliaCall >= 0.17.5
+Requires:         R-stats 
 
 %description
-Eurostat is the statistical office of the European Union and provides high
-quality statistics for Europe. Large set of the data is disseminated
-through the Eurostat database
-(<https://ec.europa.eu/eurostat/web/main/data/database>). The tools are
-using the REST API with the Statistical Data and Metadata eXchange (SDMX)
-Web Services
-(<https://wikis.ec.europa.eu/pages/viewpage.action?pageId=44165555>) to
-search and download data from the Eurostat database using the SDMX
-standard.
+Implementation of 'BayesFlux.jl' for R; It extends the famous 'Flux.jl'
+machine learning library to Bayesian Neural Networks. The goal is not to
+have the fastest production ready library, but rather to allow more people
+to be able to use and research on Bayesian Neural Networks.
 
 %prep
 %setup -q -c -n %{packname}

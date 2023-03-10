@@ -1,66 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CDMConnector
-%global packver   0.5.0
+%global packname  fabR
+%global packver   1.1.0.1003
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.1.0.1003
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to an OMOP Common Data Model
+Summary:          Wrapper Functions Collection Used in Data Pipelines
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI >= 0.3.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-waldo 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-fs 
-Requires:         R-CRAN-DBI >= 0.3.0
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-tidytext 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-waldo 
-Requires:         R-methods 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-DT 
 
 %description
-Provides tools for working with observational health data in the
-Observational Medical Outcomes Partnership (OMOP) Common Data Model format
-with a pipe friendly syntax. Common data model database table references
-are stored in a single compound object along with metadata.
+The goal of this package is to provide wrapper functions in the data
+cleaning and cleansing processes. These function helps in messages and
+interaction with the user, keep track of information in pipelines, help in
+the wrangling, munging, assessment and visualization of data frame-like
+material.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bartcs
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Additive Regression Trees for Confounder Selection
 
@@ -14,30 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-ggcharts 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-invgamma 
 BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-ggcharts 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-invgamma 
 Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
 
 %description
-Fit Bayesian Regression Additive Trees (BART) models to select relevant
-confounders among a large set of potential confounders and to estimate
-average treatment effect. For more information, see Kim et al. (2022)
-<doi:10.48550/arXiv.2203.11798>.
+Fit Bayesian Regression Additive Trees (BART) models to select true
+confounders from a large set of potential confounders and to estimate
+average treatment effect. For more information, see Kim et al. (2023)
+<doi:10.1111/biom.13833>.
 
 %prep
 %setup -q -c -n %{packname}

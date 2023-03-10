@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  restatapi
-%global packver   0.20.6
+%global packname  bark
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Data from Eurostat Database
+Summary:          Bayesian Additive Regression Kernels
 
-License:          EUPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-xml2 
 
 %description
-Eurostat is the statistical office of the European Union and provides high
-quality statistics for Europe. Large set of the data is disseminated
-through the Eurostat database
-(<https://ec.europa.eu/eurostat/web/main/data/database>). The tools are
-using the REST API with the Statistical Data and Metadata eXchange (SDMX)
-Web Services
-(<https://wikis.ec.europa.eu/pages/viewpage.action?pageId=44165555>) to
-search and download data from the Eurostat database using the SDMX
-standard.
+Bayesian Additive Regression Kernels (BARK) provides an implementation for
+non-parametric function estimation using Levy Random Field priors for
+functions that may be represented as a sum of additive multivariate
+kernels.  Kernels are located at every data point as in Support Vector
+Machines, however, coefficients may be heavily shrunk to zero under the
+Cauchy process prior, or even, set to zero.  The number of active features
+is controlled by priors on precision parameters within the kernels,
+permitting feature selection. For more details see Ouyang, Z (2008)
+"Bayesian Additive Regression Kernels", Duke University. PhD dissertation,
+Chapter 3.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  restatapi
-%global packver   0.20.6
+%global packname  bayesROE
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.6
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Data from Eurostat Database
+Summary:          Bayesian Regions of Evidence
 
-License:          EUPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-shiny >= 1.7.2
+BuildRequires:    R-CRAN-golem >= 0.3.3
+BuildRequires:    R-CRAN-config >= 0.3.1
+BuildRequires:    R-CRAN-colourpicker 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-shinyBS 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-shiny >= 1.7.2
+Requires:         R-CRAN-golem >= 0.3.3
+Requires:         R-CRAN-config >= 0.3.1
+Requires:         R-CRAN-colourpicker 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-shinyBS 
+Requires:         R-stats 
 
 %description
-Eurostat is the statistical office of the European Union and provides high
-quality statistics for Europe. Large set of the data is disseminated
-through the Eurostat database
-(<https://ec.europa.eu/eurostat/web/main/data/database>). The tools are
-using the REST API with the Statistical Data and Metadata eXchange (SDMX)
-Web Services
-(<https://wikis.ec.europa.eu/pages/viewpage.action?pageId=44165555>) to
-search and download data from the Eurostat database using the SDMX
-standard.
+Computation and visualization of Bayesian Regions of Evidence to
+systematically evaluate the sensitivity of a superiority or
+non-inferiority claim against any prior assumption of its assessors.
+Methodological details are elaborated by Hoefler and Miller (2023)
+<https://osf.io/jxnsv>. Besides generic functions, the package also
+provides an intuitive 'Shiny' application, that can be run in local R
+environments.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  exvatools
-%global packver   0.3.0
+%global packname  TapeS
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Value Added in Exports and Other Input-Output Table Analysis Tools
+Summary:          Tree Taper Curves and Sorting Based on 'TapeR'
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-TapeR >= 0.5.2
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-TapeR >= 0.5.2
 Requires:         R-methods 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-reshape2 
 Requires:         R-utils 
 
 %description
-Analysis of trade in value added with international input-output tables.
-Includes commands for easy data extraction, matrix manipulation,
-decomposition of value added in gross exports and calculation of value
-added indicators, with full geographical and sector customization.
-Decomposition methods include Borin and Mancini (2023)
-<doi:10.1080/09535314.2022.2153221>, Miroudot and Ye (2021)
-<doi:10.1080/09535314.2020.1730308>, Wang et al. (2013)
-<https://econpapers.repec.org/paper/nbrnberwo/19677.htm> and Koopman et
-al. (2014) <doi:10.1257/aer.104.2.459>.
+Providing new german-wide 'TapeR' Models and functions for their
+evaluation. Included are the most common tree species in Germany (Norway
+spruce, Scots pine, European larch, Douglas fir, Silver fir as well as
+European beech, Common/Sessile oak and Red oak). Many other species are
+mapped to them so that 36 tree species / groups can be processed. Single
+trees are defined by species code, one or multiple diameters in arbitrary
+measuring height and tree height. The functions then provide information
+on diameters along the stem, bark thickness, height of diameters, volume
+of the total or parts of the trunk and total and component above-ground
+biomass. It is also possible to calculate assortments from the taper
+curves. For diameter and volume estimation, uncertainty information is
+given.
 
 %prep
 %setup -q -c -n %{packname}

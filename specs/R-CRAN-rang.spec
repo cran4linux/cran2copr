@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rang
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reconstructing Reproducible R Computational Environments with Ease
+Summary:          Reconstructing Reproducible R Computational Environments
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,22 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-anytime 
+BuildRequires:    R-CRAN-parsedate 
 BuildRequires:    R-CRAN-fastmap 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-pkgsearch 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-gh 
-Requires:         R-CRAN-anytime 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-renv 
+Requires:         R-CRAN-parsedate 
 Requires:         R-CRAN-fastmap 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-pkgsearch 
 Requires:         R-CRAN-remotes 
 Requires:         R-utils 
-Requires:         R-CRAN-gh 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-renv 
 
 %description
 Resolve the dependency graph of R packages at a specific time point based

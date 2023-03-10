@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  desplot
-%global packver   1.9
+%global packver   1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Field Plans for Agricultural Experiments
 
@@ -20,14 +21,16 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
 
 %description
 A function for plotting maps of agricultural field experiments that are
-laid out in grids.
+laid out in grids.  See Ryder (1981) <doi:10.1017/S0014479700011601>.
 
 %prep
 %setup -q -c -n %{packname}
