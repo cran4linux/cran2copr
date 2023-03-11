@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fedstatAPIr
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unofficial API for Fedstat (Rosstat EMISS System) for Automatic and Efficient Data Queries
 
@@ -17,27 +18,21 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-readsdmx 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-readsdmx 
 Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
-Requires:         R-CRAN-rlang 
 Requires:         R-methods 
+Requires:         R-CRAN-data.table 
 
 %description
 An API for automatic data queries to the fedstat <https://www.fedstat.ru>,

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  soilDB
-%global packver   2.7.6
+%global packver   2.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.6
+Version:          2.7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soil Database Interface
 
@@ -37,7 +37,9 @@ Requires:         R-CRAN-DBI
 Requires:         R-CRAN-curl 
 
 %description
-A collection of functions for reading data from USDA-NCSS soil databases.
+A collection of functions for reading soil data from U.S. Department of
+Agriculture Natural Resources Conservation Service (USDA-NRCS) and
+National Cooperative Soil Survey (NCSS) databases.
 
 %prep
 %setup -q -c -n %{packname}

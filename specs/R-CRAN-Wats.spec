@@ -1,40 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stdmod
-%global packver   0.2.6
+%global packname  Wats
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standardized Moderation Effect and Its Confidence Interval
+Summary:          Wrap Around Time Series Graphics
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-boot 
+BuildRequires:    R-CRAN-testit 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-grid 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-testit 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-zoo 
 
 %description
-Functions for computing a standardized moderation effect in moderated
-regression and forming its confidence interval by nonparametric
-bootstrapping as proposed in Cheung, Cheung, Lau, Hui, and Vong (2022)
-<doi:10.1037/hea0001188>. Also includes simple-to-use functions for
-computing conditional effects (unstandardized or standardized) and
-plotting moderation effects.
+Wrap-around Time Series (WATS) plots for interrupted time series designs
+with seasonal patterns. Longitudinal trajectories are shown in both
+Cartesian and polar coordinates. In many scenarios, a WATS plot more
+clearly shows the existence and effect size of of an intervention. This
+package accompanies "Graphical Data Analysis on the Circle: Wrap-Around
+Time Series Plots for (Interrupted) Time Series Designs" by Rodgers,
+Beasley, & Schuelke (2014) <doi:10.1080/00273171.2014.946589>; see
+'citation("Wats")' for details.
 
 %prep
 %setup -q -c -n %{packname}

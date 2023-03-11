@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  secrdesign
-%global packver   2.8.0
+%global packver   2.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.0
+Version:          2.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sampling Design for Spatially Explicit Capture-Recapture
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-secr >= 4.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-kofnGA 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-sf 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-BH
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-secr >= 4.2.0
 Requires:         R-CRAN-Rcpp >= 0.12.14
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-kofnGA 
 Requires:         R-parallel 
 Requires:         R-CRAN-sf 

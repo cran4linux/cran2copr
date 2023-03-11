@@ -1,28 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  onepass
-%global packver   0.1.2
+%global __requires_exclude ^libmpi
+%global packname  saeHB.ME.beta
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          1password Credential Retrieval
+Summary:          SAE with Measurement Error using HB under Beta Distribution
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-coda 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rjags 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 
 %description
-Interaction with 1Password via the command-line tool
-<https://1password.com/downloads/command-line/> to read vault contents and
-download credentials.
+Implementation of Small Area Estimation (SAE) using Hierarchical Bayesian
+(HB) Method when auxiliary variable measured with error under Beta
+Distribution. The 'rjags' package is employed to obtain parameter
+estimates. For the references, see J.N.K & Molina (2015)
+<doi:10.1002/9781118735855>, Ybarra and Sharon (2008)
+<doi:10.1093/biomet/asn048>, and Ntzoufras (2009, ISBN-10: 1118210352).
 
 %prep
 %setup -q -c -n %{packname}
@@ -32,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

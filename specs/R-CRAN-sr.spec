@@ -1,47 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rplos
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  sr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the Search API for 'PLoS' Journals
+Summary:          Smooth Regression - The Gamma Test and Tools
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-solrium >= 1.0.2
-BuildRequires:    R-CRAN-crul >= 0.7.4
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-solrium >= 1.0.2
-Requires:         R-CRAN-crul >= 0.7.4
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-vdiffr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-RANN 
+Requires:         R-stats 
+Requires:         R-CRAN-vdiffr 
 
 %description
-A programmatic interface to the 'SOLR' based search API
-(<http://api.plos.org/>) provided by the Public Library of Science
-journals to search their articles. Functions are included for searching
-for articles, retrieving articles, making plots, doing 'faceted' searches,
-'highlight' searches, and viewing results of 'highlighted' searches in a
-browser.
+Finds causal connections in precision data, finds lags and embeddings in
+time series, guides training of neural networks and other smooth models,
+evaluates their performance, gives a mathematically grounded answer to the
+over-training problem.  Smooth regression is based on the Gamma test,
+which measures smoothness in a multivariate relationship.  Causal
+relations are smooth, noise is not. 'sr' includes the Gamma test and
+search techniques that use it. References: Evans & Jones (2002)
+<doi:10.1098/rspa.2002.1010>, AJ Jones (2004)
+<doi:10.1007/s10287-003-0006-1>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

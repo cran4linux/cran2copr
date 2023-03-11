@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iraceplot
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plots for Visualizing the Data Produced by the 'irace' Package
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-irace >= 3.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
+BuildRequires:    R-CRAN-rmarkdown >= 2.7
 BuildRequires:    R-CRAN-matrixStats >= 0.55
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,7 +29,7 @@ BuildRequires:    R-CRAN-ggforce
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -38,6 +39,7 @@ BuildRequires:    R-CRAN-viridisLite
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-irace >= 3.5
 Requires:         R-CRAN-ggplot2 >= 3.3.6
+Requires:         R-CRAN-rmarkdown >= 2.7
 Requires:         R-CRAN-matrixStats >= 0.55
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
@@ -47,7 +49,7 @@ Requires:         R-CRAN-ggforce
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

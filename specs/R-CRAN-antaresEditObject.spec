@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  antaresEditObject
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Edit an 'Antares' Simulation
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-antaresRead >= 2.2.95
+BuildRequires:    R-CRAN-antaresRead >= 2.4.2
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
@@ -26,9 +26,15 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-memuse 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-antaresRead >= 2.2.95
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-antaresRead >= 2.4.2
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
@@ -37,8 +43,14 @@ Requires:         R-grDevices
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-memuse 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-pbapply 
 Requires:         R-parallel 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-yaml 
 
 %description
 Edit an 'Antares' simulation before running it : create new areas, links,

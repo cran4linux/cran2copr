@@ -1,45 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mapr
-%global packver   0.5.2
+%global __requires_exclude ^libmpi
+%global packname  nanoarrow
+%global packver   0.1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Species Occurrence Data
+Summary:          Interface to the 'nanoarrow' 'C' Library
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-spocc >= 0.6.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-gistr 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-spocc >= 0.6.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-gistr 
-Requires:         R-CRAN-data.table 
 
 %description
-Utilities for visualizing species occurrence data. Includes functions to
-visualize occurrence data from 'spocc', 'rgbif', and other packages.
-Mapping options included for base R plots, 'ggplot2', 'leaflet' and
-'GitHub' 'gists'.
+Provides an 'R' interface to the 'nanoarrow' 'C' library and the 'Apache
+Arrow' application binary interface. Functions to import and export
+'ArrowArray', 'ArrowSchema', and 'ArrowArrayStream' 'C' structures to and
+from 'R' objects are provided alongside helpers to facilitate zero-copy
+data transfer among 'R' bindings to libraries implementing the 'Arrow' 'C'
+data interface.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

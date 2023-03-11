@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  misty
-%global packver   0.4.7
+%global packver   0.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions 'T. Yanagida'
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-CRAN-norm 
 BuildRequires:    R-CRAN-r2mlm 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-haven 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-nlme
 Requires:         R-CRAN-norm 
 Requires:         R-CRAN-r2mlm 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-writexl 
 
 %description

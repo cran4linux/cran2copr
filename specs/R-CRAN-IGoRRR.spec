@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IGoRRR
-%global packver   0.3.2
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Shiny Interface for Simple Data Management
 
@@ -34,6 +35,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-fuzzyjoin 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-fst 
 BuildRequires:    R-CRAN-feather 
 BuildRequires:    R-CRAN-haven 
@@ -64,6 +66,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-fuzzyjoin 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-fst 
 Requires:         R-CRAN-feather 
 Requires:         R-CRAN-haven 

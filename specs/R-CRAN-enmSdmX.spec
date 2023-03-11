@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  enmSdmX
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Modeling and Ecological Niche Modeling
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-MuMIn
 BuildRequires:    R-CRAN-omnibus 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-sf 
@@ -53,6 +54,7 @@ Requires:         R-CRAN-MuMIn
 Requires:         R-CRAN-omnibus 
 Requires:         R-parallel 
 Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-rJava 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-sf 

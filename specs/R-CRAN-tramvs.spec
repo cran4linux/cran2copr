@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbhl
-%global packver   0.9.2
+%global __requires_exclude ^libmpi
+%global packname  tramvs
+%global packver   0.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'Biodiversity' 'Heritage' Library
+Summary:          Optimal Subset Selection for Transformation Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-tram >= 0.6.1
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-variables 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cotram 
+Requires:         R-CRAN-tram >= 0.6.1
+Requires:         R-stats 
+Requires:         R-CRAN-variables 
+Requires:         R-methods 
+Requires:         R-CRAN-cotram 
 
 %description
-Interface to 'Biodiversity' 'Heritage' Library ('BHL')
-(<https://www.biodiversitylibrary.org/>) API
-(<https://www.biodiversitylibrary.org/docs/api3.html>). 'BHL' is a
-repository of 'digitized' literature on 'biodiversity' studies, including
-'floras', research papers, and more.
+Greedy optimal subset selection for transformation models (Hothorn et al.,
+2018, <doi:10.1111/sjos.12291> ) based on the abess algorithm (Zhu et al.,
+2020, <doi:10.1073/pnas.2014241117> ). Applicable to models from packages
+'tram' and 'cotram'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

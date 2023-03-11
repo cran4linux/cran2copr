@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MRTAnalysis
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Primary and Secondary Analyses for Micro-Randomized Trials
 
@@ -27,8 +27,7 @@ Requires:         R-CRAN-geepack
 Requires:         R-CRAN-sandwich 
 
 %description
-Calculate estimates, confidence intervals, standard errors, and p-values
-for marginal causal excursion effects and moderated causal excursion
+Estimates marginal causal excursion effects and moderated causal excursion
 effects for micro-randomized trial (MRT). Applicable to MRT with binary
 treatment options and continuous or binary outcomes. The method for MRT
 with continuous outcomes is the weighted centered least squares (WCLS) by

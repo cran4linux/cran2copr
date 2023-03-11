@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fmri
-%global packver   1.9.6
+%global packver   1.9.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.6
+Version:          1.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of fMRI Experiments
 
@@ -15,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-aws >= 2.4
+BuildRequires:    R-CRAN-aws >= 2.5.1
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
@@ -24,7 +25,8 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-aws >= 2.4
+BuildRequires:    R-CRAN-oro.nifti 
+Requires:         R-CRAN-aws >= 2.5.1
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
@@ -33,6 +35,7 @@ Requires:         R-CRAN-nlme
 Requires:         R-parallel 
 Requires:         R-CRAN-metafor 
 Requires:         R-methods 
+Requires:         R-CRAN-oro.nifti 
 
 %description
 Contains R-functions to perform an fMRI analysis as described in Polzehl
@@ -49,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

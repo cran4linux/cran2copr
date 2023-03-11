@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nser
-%global packver   1.4.4
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
 
@@ -22,7 +22,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-RSelenium 
@@ -36,7 +35,6 @@ Requires:         R-utils
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-RSelenium 

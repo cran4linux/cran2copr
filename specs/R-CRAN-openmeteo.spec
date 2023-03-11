@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbace
-%global packver   0.2.2
+%global __requires_exclude ^libmpi
+%global packname  openmeteo
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Bielefeld' Academic Search Engine ('BASE') Client
+Summary:          Retrieve Weather Data from the Open-Meteo API
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-testthat >= 3.0.0
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibblify 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-lutz 
+Requires:         R-CRAN-testthat >= 3.0.0
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibblify 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-lutz 
 
 %description
-Interface to the API for the 'Bielefeld' Academic Search Engine ('BASE')
-(<https://www.base-search.net/>). 'BASE' is a search engine for more than
-150 million scholarly documents from more than 7000 sources. Methods are
-provided for searching for documents, as well as getting information on
-higher level groupings of documents: collections and repositories within
-collections. Search includes faceting, so you can get a high level
-overview of number of documents across a given variable (e.g., year).
-'BASE' asks users to respect a rate limit, but does not enforce it
-themselves; we enforce that rate limit.
+A client for the Open-Meteo API that retrieves Open-Meteo weather data in
+a tidy format. No API key is required. The API specification is located at
+<https://open-meteo.com/en/docs>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
