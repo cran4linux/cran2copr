@@ -1,37 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scCAN
-%global packver   1.0.4
+%global __requires_exclude ^libmpi
+%global packname  medfate
+%global packver   2.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          2.9.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single-Cell Clustering using Autoencoder and Network Fusion
+Summary:          Mediterranean Forest Simulation
 
-License:          LGPL
+License:          GPL (>= 2) | LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-scDHA 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-scDHA 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-meteoland >= 0.8.1
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-meteoland >= 0.8.1
+Requires:         R-CRAN-shiny 
 
 %description
-A single-cell Clustering method using 'Autoencoder' and Network fusion
-('scCAN') for segregating the cells from the high-dimensional 'scRNA-Seq'
-data. The software automatically determines the optimal number of clusters
-and then partitions the cells in a way such that the results are robust to
-noise and dropouts. 'scCAN' is fast and it supports Windows, Linux, and
-Mac OS.
+Simulate Mediterranean forest functioning and dynamics using cohort-based
+description of vegetation [De Caceres et al. (2015)
+<doi:10.1016/j.agrformet.2015.06.012>; De Caceres et al. (2021)
+<doi:10.1016/j.agrformet.2020.108233>].
 
 %prep
 %setup -q -c -n %{packname}

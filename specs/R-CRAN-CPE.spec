@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  LTRCforests
-%global packver   0.5.5
+%global __requires_exclude ^libmpi
+%global packname  CPE
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ensemble Methods for Survival Data with Time-Varying Covariates
+Summary:          Concordance Probability Estimates in Survival Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-ipred 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-prodlim 
-BuildRequires:    R-CRAN-partykit 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rms 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-ipred 
-Requires:         R-parallel 
-Requires:         R-CRAN-prodlim 
-Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-rms 
 
 %description
-Implements the conditional inference forest and relative risk forest
-algorithm to modeling left-truncated right-censored data with
-time-invariant covariates, and (left-truncated) right-censored survival
-data with time-varying covariates. It also provides functions to tune the
-parameters and evaluate the model fit. See Yao et al. (2020)
-<arXiv:2006.00567>.
+Concordance probability estimate (CPE) is a commonly used performance
+measure in survival analysis that evaluates the predictive accuracy of a
+survival model.  It measures how well a model can distinguish between
+pairs of individuals with different survival times.  Specifically, it
+calculate the proportion of all pairs of individuals whose predicted
+survival times are correctly ordered.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

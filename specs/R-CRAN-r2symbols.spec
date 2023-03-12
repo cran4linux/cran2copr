@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r2symbols
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Symbols for 'Markdown' and 'Shiny' Application
 
@@ -25,9 +25,9 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-jsonlite 
 
 %description
-Direct insertion of over 1000 symbols (e.g. currencies, letters, arrows,
-mathematical symbols and so on) into 'Rmarkdown' documents and 'Shiny'
-applications by incorporating 'HTML' hex codes.
+Direct insertion of over 1000 symbols (e.g. currencies, letters, emojis,
+arrows, mathematical symbols and so on) into 'Rmarkdown' documents and
+'Shiny' applications by incorporating 'HTML' hex codes.
 
 %prep
 %setup -q -c -n %{packname}

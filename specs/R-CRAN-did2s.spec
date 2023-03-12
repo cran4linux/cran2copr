@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  did2s
-%global packver   0.7.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Stage Difference-in-Differences Following Gardner (2021)
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-fixest >= 0.10.1
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
@@ -22,7 +23,6 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-did 
@@ -39,7 +39,6 @@ Requires:         R-CRAN-glue
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-did 

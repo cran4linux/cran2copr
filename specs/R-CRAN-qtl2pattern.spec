@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qtl2pattern
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pattern Support for 'qtl2' Package
 
@@ -18,11 +19,9 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-qtl2 
 BuildRequires:    R-CRAN-qtl2fst 
 BuildRequires:    R-CRAN-fst 
@@ -31,11 +30,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-qtl2 
 Requires:         R-CRAN-qtl2fst 
 Requires:         R-CRAN-fst 

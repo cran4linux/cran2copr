@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oncomsm
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Multi-State Models for Early Oncology
 
@@ -33,6 +33,8 @@ BuildRequires:    R-CRAN-furrr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-rstantools 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18
 Requires:         R-CRAN-RcppNumerical >= 0.4
@@ -48,6 +50,7 @@ Requires:         R-CRAN-furrr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-rstantools 
 Requires:         R-CRAN-rstantools
 
 %description

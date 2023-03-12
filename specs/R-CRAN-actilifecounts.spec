@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actilifecounts
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Activity Counts from Raw Accelerometer Data
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gsignal 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-GGIRread 
 Requires:         R-CRAN-gsignal 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-GGIRread 
 
 %description
 A tool to obtain activity counts, originally a translation of the 'python'
