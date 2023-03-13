@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxlist
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Taxonomic Lists
 
@@ -14,25 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-biblio 
+BuildRequires:    R-CRAN-biblio >= 0.0.8
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-taxize 
 BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegdata 
-Requires:         R-CRAN-biblio 
+Requires:         R-CRAN-biblio >= 0.0.8
 Requires:         R-CRAN-foreign 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-taxize 
 Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-vegdata 
 

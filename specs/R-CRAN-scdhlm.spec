@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scdhlm
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Hierarchical Linear Models for Single-Case Designs
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-lmeInfo >= 0.3.0
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-magrittr
 Requires:         R-CRAN-lmeInfo >= 0.3.0
 Requires:         R-CRAN-nlme 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
@@ -41,9 +43,10 @@ provided for calculating standardized mean difference effect sizes that
 are directly comparable to standardized mean differences estimated from
 between-subjects randomized experiments, as described in Hedges,
 Pustejovsky, and Shadish (2012) <DOI:10.1002/jrsm.1052>; Hedges,
-Pustejovsky, and Shadish (2013) <DOI:10.1002/jrsm.1086>; and Pustejovsky,
-Hedges, and Shadish (2014) <DOI:10.3102/1076998614547577>. Includes an
-interactive web interface.
+Pustejovsky, and Shadish (2013) <DOI:10.1002/jrsm.1086>; Pustejovsky,
+Hedges, and Shadish (2014) <DOI:10.3102/1076998614547577>; and Chen,
+Pustejovsky, Klingbeil, and Van Norman (2023)
+<DOI:10.1016/j.jsp.2023.02.002>. Includes an interactive web interface.
 
 %prep
 %setup -q -c -n %{packname}

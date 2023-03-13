@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PosteriorBootstrap
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Parametric Sampling with Parallel Monte Carlo
 
@@ -18,26 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.51.1
 BuildRequires:    R-utils >= 3.4.3
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
-BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-rstan >= 2.18.2
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.1
-BuildRequires:    R-CRAN-tibble >= 2.1.1
 BuildRequires:    R-CRAN-e1071 >= 1.7.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-dplyr >= 0.7.4
-BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-MASS >= 7.3.51.1
 Requires:         R-utils >= 3.4.3
-Requires:         R-CRAN-ggplot2 >= 3.1.1
-Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-rstan >= 2.18.2
-Requires:         R-CRAN-StanHeaders >= 2.18.1
-Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-e1071 >= 1.7.1
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-dplyr >= 0.7.4
-Requires:         R-CRAN-rstantools
 
 %description
 An implementation of a non-parametric statistical model using a
@@ -61,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

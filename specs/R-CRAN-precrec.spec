@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  precrec
-%global packver   0.14.1
+%global packver   0.14.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.1
+Version:          0.14.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Accurate Precision-Recall and ROC (Receiver Operator Characteristics) Curves
 

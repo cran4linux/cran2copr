@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  oscar
-%global packver   1.0.4
+%global packver   1.1.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Subset Cardinality Regression (OSCAR) Models Using the L0-Pseudonorm
 
@@ -23,6 +24,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-pROC 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-hamlet 
@@ -31,6 +33,7 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
 Requires:         R-utils 
+Requires:         R-CRAN-pROC 
 
 %description
 Optimal Subset Cardinality Regression (OSCAR) models offer regularized

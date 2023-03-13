@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prcbench
-%global packver   1.1.1
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testing Workbench for Precision-Recall Curves
 
@@ -23,8 +23,8 @@ BuildRequires:    R-CRAN-PRROC >= 1.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-ROCR >= 1.0.7
 BuildRequires:    R-CRAN-memoise >= 1.0.0
-BuildRequires:    R-CRAN-precrec >= 0.1
 BuildRequires:    R-CRAN-assertthat >= 0.1
+BuildRequires:    R-CRAN-precrec >= 0.1
 BuildRequires:    R-grid 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
@@ -35,8 +35,8 @@ Requires:         R-CRAN-PRROC >= 1.1
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-ROCR >= 1.0.7
 Requires:         R-CRAN-memoise >= 1.0.0
-Requires:         R-CRAN-precrec >= 0.1
 Requires:         R-CRAN-assertthat >= 0.1
+Requires:         R-CRAN-precrec >= 0.1
 Requires:         R-grid 
 Requires:         R-graphics 
 Requires:         R-methods 

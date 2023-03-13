@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  metavcov
-%global packver   2.1.2
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computing Variances and Covariances, Visualization and Missing Data Solution for Multivariate Meta-Analysis
 
@@ -20,11 +21,11 @@ BuildRequires:    R-CRAN-ggplot2
 Requires:         R-CRAN-ggplot2 
 
 %description
-Collection of functions to compute covariances for different effect sizes,
-data visualization, and single and multiple imputations for missing data.
-Effect sizes include correlation (r), mean difference (MD), standardized
-mean difference (SMD), log odds ratio (logOR), log risk ratio (logRR), and
-risk difference (RD).
+Collection of functions to compute within-study covariances for different
+effect sizes, data visualization, and single and multiple imputations for
+missing data. Effect sizes include correlation (r), mean difference (MD),
+standardized mean difference (SMD), log odds ratio (logOR), log risk ratio
+(logRR), and risk difference (RD).
 
 %prep
 %setup -q -c -n %{packname}

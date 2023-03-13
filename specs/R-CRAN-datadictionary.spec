@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  datadictionary
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create a Data Dictionary
 
@@ -13,14 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-chron 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-openxlsx 
@@ -32,7 +33,7 @@ Requires:         R-CRAN-chron
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-haven 
-Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-openxlsx 
@@ -42,8 +43,9 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tidyselect 
 
 %description
-Creates a data dictionary from any dataset in your R environment. You can
-opt to add variable labels. You can write the object directly to Excel.
+Creates a data dictionary from any dataframe or tibble in your R
+environment. You can opt to add variable labels. You can write the object
+directly to Excel.
 
 %prep
 %setup -q -c -n %{packname}
