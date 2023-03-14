@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  metaSDTreg
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Models for Meta Signal Detection Theory
 
@@ -13,17 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ordinal >= 2019.12.10
-BuildRequires:    R-CRAN-maxLik >= 1.3.4
-BuildRequires:    R-CRAN-Matrix >= 1.2.17
-BuildRequires:    R-CRAN-truncnorm >= 1.0.7
-Requires:         R-CRAN-ordinal >= 2019.12.10
-Requires:         R-CRAN-maxLik >= 1.3.4
-Requires:         R-CRAN-Matrix >= 1.2.17
-Requires:         R-CRAN-truncnorm >= 1.0.7
+BuildRequires:    R-CRAN-ordinal >= 2022.11.16
+BuildRequires:    R-CRAN-maxLik >= 1.5.2
+BuildRequires:    R-CRAN-Matrix >= 1.4.0
+BuildRequires:    R-CRAN-truncnorm >= 1.0.8
+Requires:         R-CRAN-ordinal >= 2022.11.16
+Requires:         R-CRAN-maxLik >= 1.5.2
+Requires:         R-CRAN-Matrix >= 1.4.0
+Requires:         R-CRAN-truncnorm >= 1.0.8
 
 %description
 Regression methods for the meta-SDT model. The package implements methods
@@ -40,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,29 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedLEA
-%global packver   1.0.2
+%global packname  plspm
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological and Structural Features of Medicinal Leaves
+Summary:          Partial Least Squares Path Modeling (PLS-PM)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tester 
+BuildRequires:    R-CRAN-turner 
+BuildRequires:    R-CRAN-diagram 
+BuildRequires:    R-CRAN-shape 
+BuildRequires:    R-CRAN-amap 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-tester 
+Requires:         R-CRAN-turner 
+Requires:         R-CRAN-diagram 
+Requires:         R-CRAN-shape 
+Requires:         R-CRAN-amap 
+Requires:         R-methods 
 
 %description
-Contains a dataset of morphological and structural features of 'Medicinal
-LEAves (MedLEA)'. The features of each species is recorded by manually
-viewing the medicinal plant repository available at
-(<http://www.instituteofayurveda.org/plants/>). You can also download
-repository of leaf images of 1099 medicinal plants in Sri Lanka.
+Partial Least Squares Path Modeling (PLS-PM), Tenenhaus, Esposito Vinzi,
+Chatelin, Lauro (2005) <doi:10.1016/j.csda.2004.03.005>, analysis for both
+metric and non-metric data, as well as REBUS analysis, Esposito Vinzi,
+Trinchera, Squillacciotti, and Tenenhaus (2008) <doi:10.1002/asmb.728>.
 
 %prep
 %setup -q -c -n %{packname}

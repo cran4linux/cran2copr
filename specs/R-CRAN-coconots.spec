@@ -1,49 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shorts
-%global packver   2.4.0
+%global packname  coconots
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Short Sprints
+Summary:          Convolution-Closed Models for Count Time Series
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.21.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-HMMpa 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-LambertW 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-JuliaConnectoR 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-HMMpa 
 Requires:         R-stats 
-Requires:         R-CRAN-LambertW 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-purrr 
+Requires:         R-utils 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-JuliaConnectoR 
 
 %description
-Create short sprint (<6sec) profiles using the split times or the radar
-gun data. Mono-exponential equation is used to estimate maximal sprinting
-speed (MSS), relative acceleration (TAU), and other parameters such us
-maximal acceleration (MAC) and maximal relative power (PMAX). These
-parameters can be used to predict kinematic and kinetics variables and to
-compare individuals. The modeling method utilized in this package is based
-on the works of Chelly SM, Denis C. (2001) <doi:
-10.1097/00005768-200102000-00024>, Clark KP, Rieger RH, Bruno RF, Stearne
-DJ. (2017) <doi: 10.1519/JSC.0000000000002081>, Furusawa K, Hill AV,
-Parkinson JL (1927) <doi: 10.1098/rspb.1927.0035>, Greene PR. (1986) <doi:
-10.1016/0025-5564(86)90063-5>, Samozino P. and Peyrot N., et al (2022)
-<doi: 10.1111/sms.14097>, and Samozino P. (2018) <doi:
-10.1007/978-3-319-05633-3_11>.
+Useful tools for fitting, validating, and forecasting of practical
+convolution-closed time series models for low counts are provided.
+Marginal distributions of the data can be modeled via Poisson and
+Generalized Poisson innovations. Regression effects can be modelled via
+time varying innovation rates. The models are described in Jung and
+Tremayne (2011) <doi:10.1111/j.1467-9892.2010.00697.x> and the model
+assessment tools are presented in Czado et al. (2009)
+<doi:10.1111/j.1541-0420.2009.01191.x>, Gneiting and Raftery (2007)
+<doi:10.1198/016214506000001437> and, Tsay (1992) <doi:10.2307/2347612>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedLEA
-%global packver   1.0.2
+%global packname  mlbplotR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological and Structural Features of Medicinal Leaves
+Summary:          Create 'ggplot2' and 'gt' Visuals with Major League Baseball Logos
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-Contains a dataset of morphological and structural features of 'Medicinal
-LEAves (MedLEA)'. The features of each species is recorded by manually
-viewing the medicinal plant repository available at
-(<http://www.instituteofayurveda.org/plants/>). You can also download
-repository of leaf images of 1099 medicinal plants in Sri Lanka.
+Tools to help visualize Major League Baseball analysis in 'ggplot2' and
+'gt'. You provide team/player information and 'mlbplotR' will transform
+that information into team colors, logos, or player headshots for
+graphics.
 
 %prep
 %setup -q -c -n %{packname}

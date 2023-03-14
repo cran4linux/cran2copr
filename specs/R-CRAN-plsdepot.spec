@@ -1,29 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedLEA
-%global packver   1.0.2
+%global packname  plsdepot
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological and Structural Features of Medicinal Leaves
+Summary:          Partial Least Squares (PLS) Data Analysis Methods
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.15.1
+Requires:         R-core >= 2.15.1
 BuildArch:        noarch
 
 %description
-Contains a dataset of morphological and structural features of 'Medicinal
-LEAves (MedLEA)'. The features of each species is recorded by manually
-viewing the medicinal plant repository available at
-(<http://www.instituteofayurveda.org/plants/>). You can also download
-repository of leaf images of 1099 medicinal plants in Sri Lanka.
+Different methods for PLS analysis of one or two data tables such as
+Tucker's Inter-Battery, NIPALS, SIMPLS, SIMPLS-CA, PLS Regression, and PLS
+Canonical Analysis. The main reference for this software is the awesome
+book (in French) 'La Regression PLS: Theorie et Pratique' by Michel
+Tenenhaus.
 
 %prep
 %setup -q -c -n %{packname}

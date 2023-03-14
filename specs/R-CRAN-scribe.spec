@@ -1,29 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedLEA
-%global packver   1.0.2
+%global packname  scribe
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological and Structural Features of Medicinal Leaves
+Summary:          Command Argument Parsing
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Contains a dataset of morphological and structural features of 'Medicinal
-LEAves (MedLEA)'. The features of each species is recorded by manually
-viewing the medicinal plant repository available at
-(<http://www.instituteofayurveda.org/plants/>). You can also download
-repository of leaf images of 1099 medicinal plants in Sri Lanka.
+A base dependency solution with basic argument parsing for use with
+'Rscript'.
 
 %prep
 %setup -q -c -n %{packname}

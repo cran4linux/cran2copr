@@ -1,29 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedLEA
-%global packver   1.0.2
+%global packname  RmdConcord
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological and Structural Features of Medicinal Leaves
+Summary:          Concordances for 'R Markdown'
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-knitr >= 1.42
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-knitr >= 1.42
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-tools 
 
 %description
-Contains a dataset of morphological and structural features of 'Medicinal
-LEAves (MedLEA)'. The features of each species is recorded by manually
-viewing the medicinal plant repository available at
-(<http://www.instituteofayurveda.org/plants/>). You can also download
-repository of leaf images of 1099 medicinal plants in Sri Lanka.
+Supports concordances in 'R Markdown' documents.  This currently allows
+the original source location in the '.Rmd' file of errors detected by
+'HTML tidy' to be found more easily, and potentially allows forward and
+reverse search in 'HTML' and 'LaTeX' documents produced from 'R Markdown'.
+The 'LaTeX' support has been included in the most recent development
+version of the 'patchDVI' package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedLEA
-%global packver   1.0.2
+%global packname  webtrackR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological and Structural Features of Medicinal Leaves
+Summary:          Analysing Web Tracking Data and Online News Behaviour
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-urltools 
+Requires:         R-utils 
 
 %description
-Contains a dataset of morphological and structural features of 'Medicinal
-LEAves (MedLEA)'. The features of each species is recorded by manually
-viewing the medicinal plant repository available at
-(<http://www.instituteofayurveda.org/plants/>). You can also download
-repository of leaf images of 1099 medicinal plants in Sri Lanka.
+Implements data structures and methods to work with web tracking data.
+This includes data preprocessing steps, methods to construct audience
+networks as described in Mangold & Scharkow (2020)
+<doi:10.1080/19312458.2020.1724274>, and metrics of news audience
+polarization described in Mangold & Scharkow (2022)
+<doi:10.1080/19312458.2022.2085249>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RoBMA
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Bayesian Meta-Analyses
 
@@ -19,29 +19,25 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-BayesTools >= 0.2.0
 BuildRequires:    R-CRAN-runjags 
-BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-BayesTools >= 0.2.0
 Requires:         R-CRAN-runjags 
-Requires:         R-CRAN-bridgesampling 
 Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-psych 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 
 %description
@@ -71,7 +67,6 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
   sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
-find -type f -exec sed -i 's/-llapack/-lflexiblas/g' {} \;
 
 %build
 

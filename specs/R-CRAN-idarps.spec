@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  idarps
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datasets and Functions for the Class "Modelling and Data Analysis for Pharmaceutical Sciences"
 
@@ -22,8 +22,7 @@ BuildArch:        noarch
 Provides datasets and functions for the class "Modelling and Data Analysis
 for Pharmaceutical Sciences". The datasets can be used to present various
 methods of data analysis and statistical modeling. Functions for data
-visualization and allowing to analyze the empirical distribution of the
-data are also implemented.
+visualization are also implemented.
 
 %prep
 %setup -q -c -n %{packname}

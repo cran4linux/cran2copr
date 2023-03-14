@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mcMST
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.1.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for the Multi-Criteria Minimum Spanning Tree Problem
 
 License:          BSD_2_clause + file LICENSE
@@ -18,31 +19,41 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ecr >= 2.1.0
 BuildRequires:    R-CRAN-BBmisc >= 1.6
-BuildRequires:    R-CRAN-reshape2 >= 1.4.1
-BuildRequires:    R-CRAN-parallelMap >= 1.3
 BuildRequires:    R-CRAN-checkmate >= 1.1
 BuildRequires:    R-CRAN-ggplot2 >= 1.0.0
+BuildRequires:    R-CRAN-grapherator 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-igraph 
 Requires:         R-CRAN-ecr >= 2.1.0
 Requires:         R-CRAN-BBmisc >= 1.6
-Requires:         R-CRAN-reshape2 >= 1.4.1
-Requires:         R-CRAN-parallelMap >= 1.3
 Requires:         R-CRAN-checkmate >= 1.1
 Requires:         R-CRAN-ggplot2 >= 1.0.0
+Requires:         R-CRAN-grapherator 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-igraph 
 
 %description
 Algorithms to approximate the Pareto-front of multi-criteria minimum
-spanning tree problems. Additionally, a modular toolbox for the generation
-of multi-objective benchmark graph problems is included.
+spanning tree problems.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -50,20 +61,10 @@ of multi-objective benchmark graph problems is included.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

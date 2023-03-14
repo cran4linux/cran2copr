@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   6.1
+%global packver   6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.1
+Version:          6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -95,12 +95,14 @@ Journal of Statistics, 62(2):249--277. <doi:10.1111/anzs.12289>. j)
 Alenazi A. (2021). Alenazi, A. (2021). A review of compositional data
 analysis and recent advances. Communications in Statistics-Theory and
 Methods (Accepted for publication). <doi:10.1080/03610926.2021.2014890>.
-k) Tsagris M. and Stewart C. (2022). A Review of Flexible Transformations
-for Modeling Compositional Data. In Advances and Innovations in Statistics
-and Data Science, pp. 225--234. <doi:10.1007/978-3-031-08329-7_10>. l)
-Tsagris M., Alenazi A. and Stewart C. (2022). Flexible non-parametric
-regression models for compositional response data with zeros.
-<arXiv:2002.05137>.
+k) Alenazi, A. A. (2022). f-divergence regression models for compositional
+data. Pakistan Journal of Statistics and Operation Research, 867--882.
+<doi:10.18187/pjsor.v18i4.3969>. l) Tsagris M. and Stewart C. (2022). A
+Review of Flexible Transformations for Modeling Compositional Data. In
+Advances and Innovations in Statistics and Data Science, pp. 225--234.
+<doi:10.1007/978-3-031-08329-7_10>. m) Tsagris M., Alenazi A. and Stewart
+C. (2022). Flexible non-parametric regression models for compositional
+response data with zeros. <arXiv:2002.05137>.
 
 %prep
 %setup -q -c -n %{packname}

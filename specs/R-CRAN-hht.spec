@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedLEA
-%global packver   1.0.2
+%global packname  hht
+%global packver   2.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological and Structural Features of Medicinal Leaves
+Summary:          The Hilbert-Huang Transform: Tools and Methods
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.1
+Requires:         R-core >= 3.1.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fields >= 6.7
+BuildRequires:    R-CRAN-EMD >= 1.5.5
+Requires:         R-CRAN-fields >= 6.7
+Requires:         R-CRAN-EMD >= 1.5.5
 
 %description
-Contains a dataset of morphological and structural features of 'Medicinal
-LEAves (MedLEA)'. The features of each species is recorded by manually
-viewing the medicinal plant repository available at
-(<http://www.instituteofayurveda.org/plants/>). You can also download
-repository of leaf images of 1099 medicinal plants in Sri Lanka.
+Builds on the EMD package to provide additional tools for empirical mode
+decomposition (EMD) and Hilbert spectral analysis. It also implements the
+ensemble empirical decomposition (EEMD) and the complete ensemble
+empirical mode decomposition (CEEMD) methods to avoid mode mixing and
+intermittency problems found in EMD analysis.  The package comes with
+several plotting methods that can be used to view intrinsic mode
+functions, the HHT spectrum, and the Fourier spectrum.
 
 %prep
 %setup -q -c -n %{packname}

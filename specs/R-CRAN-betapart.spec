@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  betapart
-%global packver   1.5.6
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.6
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partitioning Beta Diversity into Turnover and Nestedness Components
 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-doSNOW
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-snow 
 BuildRequires:    R-CRAN-itertools 
+BuildRequires:    R-CRAN-minpack.lm 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-geometry 
@@ -34,6 +36,7 @@ Requires:         R-CRAN-doSNOW
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-snow 
 Requires:         R-CRAN-itertools 
+Requires:         R-CRAN-minpack.lm 
 
 %description
 Functions to compute pair-wise dissimilarities (distance matrices) and
