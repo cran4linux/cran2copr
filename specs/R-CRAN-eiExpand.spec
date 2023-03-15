@@ -1,49 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MKinfer
-%global packver   1.0
+%global packname  eiExpand
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inferential Statistics
+Summary:          Utilities for Expanding Functionality of 'eiCompare'
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MKdescr 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-exactRankTests 
-Requires:         R-stats 
-Requires:         R-CRAN-MKdescr 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-ggmap 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-exactRankTests 
+Requires:         R-CRAN-ggmap 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Computation of various confidence intervals (Altman et al. (2000),
-ISBN:978-0-727-91375-3; Hedderich and Sachs (2018),
-ISBN:978-3-662-56657-2) including bootstrapped versions (Davison and
-Hinkley (1997), ISBN:978-0-511-80284-3) as well as Hsu (Hedderich and
-Sachs (2018), ISBN:978-3-662-56657-2), permutation (Janssen (1997),
-<doi:10.1016/S0167-7152(97)00043-6>), bootstrap (Davison and Hinkley
-(1997), ISBN:978-0-511-80284-3) and multiple imputation (Barnard and Rubin
-(1999), <doi:10.1093/biomet/86.4.948>) t-test. Graphical visualization by
-volcano and Bland-Altman plots (Bland and Altman (1986),
-<doi:10.1016/S0140-6736(86)90837-8>; Shieh (2018),
-<doi:10.1186/s12874-018-0505-y>).
+Augments the 'eiCompare' package's Racially Polarized Voting (RPV)
+functionality to streamline analyses and visualizations used to support
+voting rights and redistricting litigation. The package implements methods
+described in Barreto, M., Collingwood, L., Garcia-Rios, S., & Oskooii, K.
+A. (2022). "Estimating Candidate Support in Voting Rights Act Cases:
+Comparing Iterative EI and EI-R×C Methods" <doi:10.1177/0049124119852394>.
 
 %prep
 %setup -q -c -n %{packname}

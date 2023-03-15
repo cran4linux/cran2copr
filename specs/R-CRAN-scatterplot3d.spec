@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scatterplot3d
-%global packver   0.3-42
+%global packver   0.3-43
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.42
+Version:          0.3.43
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Scatter Plot
 

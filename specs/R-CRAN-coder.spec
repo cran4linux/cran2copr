@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coder
-%global packver   0.13.8
+%global packver   0.13.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.8
+Version:          0.13.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deterministic Categorization of Items Based on External Code Data
 

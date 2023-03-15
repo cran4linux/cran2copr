@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MNP
-%global packver   3.1-3
+%global packver   3.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          3.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting the Multinomial Probit Model
 
@@ -15,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.1
 Requires:         R-core >= 2.1
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description

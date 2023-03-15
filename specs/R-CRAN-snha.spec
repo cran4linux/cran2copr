@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  POSSA
-%global packver   0.6.3
+%global packname  snha
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Simulation for Sequential Analyses and Multiple Hypotheses
+Summary:          Creating Correlation Networks using St. Nicolas House Analysis
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Calculates, via simulation, power and appropriate stopping alpha
-boundaries (and/or futility bounds) for sequential analyses (i.e., group
-sequential design) as well as for multiple hypotheses (multiple tests
-included in an analysis), given any specified global error rate. This
-enables the sequential use of practically any significance test, as long
-as the underlying data can be simulated in advance to a reasonable
-approximation. Lukács (2022) <doi:10.21105/joss.04643>.
+Create correlation networks using St. Nicolas House Analysis ('SNHA'). The
+package can be used for visualizing multivariate data similar to Principal
+Component Analysis or Multidimensional Scaling using a ranking approach.
+In contrast to 'MDS' and 'PCA', 'SNHA' uses a network approach to explore
+interacting variables. For details see 'Hermanussen et. al. 2021',
+<doi:10.3390/ijerph18041741>.
 
 %prep
 %setup -q -c -n %{packname}

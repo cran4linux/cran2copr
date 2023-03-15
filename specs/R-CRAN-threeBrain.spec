@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  threeBrain
-%global packver   0.2.7
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Brain Visualization
 
@@ -30,7 +30,9 @@ BuildRequires:    R-utils
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-dipsaus 
+BuildRequires:    R-CRAN-ravetools 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-servr 
 Requires:         R-CRAN-R6 >= 2.3.0
 Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-stringr >= 1.3.1
@@ -44,7 +46,9 @@ Requires:         R-utils
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-dipsaus 
+Requires:         R-CRAN-ravetools 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-servr 
 
 %description
 A fast, interactive cross-platform, and easy to share 'WebGL'-based 3D

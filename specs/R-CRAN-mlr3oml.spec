@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3oml
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connector Between 'mlr3' and 'OpenML'
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-backports >= 1.1.6
 BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
 BuildRequires:    R-CRAN-mlr3 >= 0.14.0
+BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
@@ -33,6 +34,7 @@ BuildRequires:    R-CRAN-withr
 Requires:         R-CRAN-backports >= 1.1.6
 Requires:         R-CRAN-mlr3misc >= 0.7.0
 Requires:         R-CRAN-mlr3 >= 0.14.0
+Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
@@ -48,7 +50,7 @@ Requires:         R-CRAN-withr
 %description
 Provides an interface to 'OpenML.org' to list and download machine
 learning data, tasks and experiments. The 'OpenML' objects can be
-automatically converted to 'mlr3' objects. For a more sophisticated
+automatically converted to 'mlr3' objects.  For a more sophisticated
 interface which also allows uploading to 'OpenML', see the 'OpenML'
 package.
 

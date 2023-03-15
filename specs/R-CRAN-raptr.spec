@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  raptr
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Representative and Adequate Prioritization Toolkit in R
 
@@ -13,15 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-raster >= 3.5.15
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-PBSmapping >= 2.73.0
 BuildRequires:    R-CRAN-withr >= 2.5.0
 BuildRequires:    R-CRAN-hypervolume >= 2.0.7
-BuildRequires:    R-CRAN-plyr >= 1.8.7
-BuildRequires:    R-CRAN-rgdal >= 1.5.30
+BuildRequires:    R-CRAN-terra >= 1.6.47
 BuildRequires:    R-CRAN-sp >= 1.4.6
 BuildRequires:    R-CRAN-shape >= 1.4.6
 BuildRequires:    R-CRAN-Matrix >= 1.4.1
@@ -30,8 +29,7 @@ BuildRequires:    R-CRAN-scales >= 1.2.0
 BuildRequires:    R-CRAN-ks >= 1.13.5
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.3
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
-BuildRequires:    R-CRAN-doParallel >= 1.0.17
-BuildRequires:    R-CRAN-rgeos >= 0.5.9
+BuildRequires:    R-CRAN-sf >= 1.0.9
 BuildRequires:    R-CRAN-adehabitatHR >= 0.4.19
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-utils 
@@ -39,17 +37,14 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-raster >= 3.5.15
-Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-PBSmapping >= 2.73.0
 Requires:         R-CRAN-withr >= 2.5.0
 Requires:         R-CRAN-hypervolume >= 2.0.7
-Requires:         R-CRAN-plyr >= 1.8.7
-Requires:         R-CRAN-rgdal >= 1.5.30
+Requires:         R-CRAN-terra >= 1.6.47
 Requires:         R-CRAN-sp >= 1.4.6
 Requires:         R-CRAN-shape >= 1.4.6
 Requires:         R-CRAN-Matrix >= 1.4.1
@@ -58,8 +53,7 @@ Requires:         R-CRAN-scales >= 1.2.0
 Requires:         R-CRAN-ks >= 1.13.5
 Requires:         R-CRAN-RColorBrewer >= 1.1.3
 Requires:         R-CRAN-mvtnorm >= 1.1.3
-Requires:         R-CRAN-doParallel >= 1.0.17
-Requires:         R-CRAN-rgeos >= 0.5.9
+Requires:         R-CRAN-sf >= 1.0.9
 Requires:         R-CRAN-adehabitatHR >= 0.4.19
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-utils 
@@ -67,7 +61,6 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-parallel 
 
 %description
 Biodiversity is in crisis. The overarching aim of conservation is to

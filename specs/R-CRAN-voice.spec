@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  voice
-%global packver   0.4.14
+%global packver   0.4.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.14
+Version:          0.4.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Voice Analysis, Speaker Recognition and Mood Inference
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-R.utils 
@@ -37,9 +37,9 @@ Requires:         R-CRAN-wrassp
 Requires:         R-CRAN-zoo 
 
 %description
-General purpose tools for voice analysis, speaker recognition and mood
-inference. Gathers 'R' and 'Python' tools to solve problems concerning
-voice and audio in general.
+Tools for voice analysis, speaker recognition and mood inference. Gathers
+'R' and 'Python' tools to solve problems concerning voice and audio in
+general.
 
 %prep
 %setup -q -c -n %{packname}

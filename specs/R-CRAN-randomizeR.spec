@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  POSSA
-%global packver   0.6.3
+%global packname  randomizeR
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Simulation for Sequential Analyses and Multiple Hypotheses
+Summary:          Randomization for Clinical Trials
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-mstate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-coin 
+BuildRequires:    R-CRAN-PwrGSD 
 Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-mstate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-coin 
+Requires:         R-CRAN-PwrGSD 
 
 %description
-Calculates, via simulation, power and appropriate stopping alpha
-boundaries (and/or futility bounds) for sequential analyses (i.e., group
-sequential design) as well as for multiple hypotheses (multiple tests
-included in an analysis), given any specified global error rate. This
-enables the sequential use of practically any significance test, as long
-as the underlying data can be simulated in advance to a reasonable
-approximation. Lukács (2022) <doi:10.21105/joss.04643>.
+This tool enables the user to choose a randomization procedure based on
+sound scientific criteria. It comprises the generation of randomization
+sequences as well the assessment of randomization procedures based on
+carefully selected criteria. Furthermore, 'randomizeR' provides a function
+for the comparison of randomization procedures.
 
 %prep
 %setup -q -c -n %{packname}

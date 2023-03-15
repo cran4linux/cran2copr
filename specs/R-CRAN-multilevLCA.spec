@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  POSSA
-%global packver   0.6.3
+%global packname  multilevLCA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Simulation for Sequential Analyses and Multiple Hypotheses
+Summary:          Estimates and Plots Single-Level and Multilevel Latent Class Models
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-klaR 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-klaR 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
 
 %description
-Calculates, via simulation, power and appropriate stopping alpha
-boundaries (and/or futility bounds) for sequential analyses (i.e., group
-sequential design) as well as for multiple hypotheses (multiple tests
-included in an analysis), given any specified global error rate. This
-enables the sequential use of practically any significance test, as long
-as the underlying data can be simulated in advance to a reasonable
-approximation. Lukács (2022) <doi:10.21105/joss.04643>.
+Efficiently estimates single- and multilevel latent class models with
+covariates, allowing for output visualization in all specifications.
 
 %prep
 %setup -q -c -n %{packname}

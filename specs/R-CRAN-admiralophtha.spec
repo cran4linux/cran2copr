@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  admiralonco
-%global packver   0.3.0
+%global packname  admiralophtha
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Oncology Extension Package for ADaM in 'R' Asset Library
+Summary:          ADaM in R Asset Library - Ophthalmology
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,33 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.4
-BuildRequires:    R-CRAN-rlang >= 0.4.4
-BuildRequires:    R-CRAN-admiraldev >= 0.3.0
-BuildRequires:    R-CRAN-admiral >= 0.10.0
-BuildRequires:    R-CRAN-lifecycle >= 0.1.0
-Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-tidyselect >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.4
-Requires:         R-CRAN-rlang >= 0.4.4
-Requires:         R-CRAN-admiraldev >= 0.3.0
-Requires:         R-CRAN-admiral >= 0.10.0
-Requires:         R-CRAN-lifecycle >= 0.1.0
+BuildRequires:    R-CRAN-admiral 
+BuildRequires:    R-CRAN-admiraldev 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-admiral 
+Requires:         R-CRAN-admiraldev 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Programming oncology specific Clinical Data Interchange Standards
-Consortium (CDISC) compliant Analysis Data Model (ADaM) datasets in 'R'.
+Aids the programming of Clinical Data Standards Interchange Consortium
+(CDISC) compliant Ophthalmology Analysis Data Model (ADaM) datasets in R.
 ADaM datasets are a mandatory part of any New Drug or Biologics License
 Application submitted to the United States Food and Drug Administration
 (FDA). Analysis derivations are implemented in accordance with the
-"Analysis Data Model Implementation Guide" (CDISC Analysis Data Model Team
-(2021),
+"Analysis Data Model Implementation Guide" (CDISC Analysis Data Model
+Team, 2021,
 <https://www.cdisc.org/standards/foundational/adam/adamig-v1-3-release-package>).
-The package is an extension package of the 'admiral' package.
 
 %prep
 %setup -q -c -n %{packname}

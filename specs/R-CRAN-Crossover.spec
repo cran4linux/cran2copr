@@ -1,46 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lavaan
-%global packver   0.6-15
+%global packname  Crossover
+%global packver   0.1-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.15
+Version:          0.1.21
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Variable Analysis
+Summary:          Analysis and Search of Crossover Designs
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-crossdes >= 1.1.1
+BuildRequires:    R-CRAN-CommonJavaJars >= 1.0.5
+BuildRequires:    R-CRAN-rJava >= 0.8.3
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.2.0
+BuildRequires:    R-CRAN-Rcpp >= 0.10.3
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-quadprog 
-Requires:         R-methods 
-Requires:         R-stats4 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-JavaGD 
+BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-crossdes >= 1.1.1
+Requires:         R-CRAN-CommonJavaJars >= 1.0.5
+Requires:         R-CRAN-rJava >= 0.8.3
+Requires:         R-CRAN-RcppArmadillo >= 0.2.0
+Requires:         R-CRAN-Rcpp >= 0.10.3
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-xtable 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-JavaGD 
+Requires:         R-CRAN-multcomp 
+Requires:         R-stats4 
+Requires:         R-CRAN-digest 
 
 %description
-Fit a variety of latent variable models, including confirmatory factor
-analysis, structural equation modeling and latent growth curve models.
+Generate and analyse crossover designs from combinatorial or search
+algorithms as well as from literature and a GUI to access them.
 
 %prep
 %setup -q -c -n %{packname}

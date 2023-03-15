@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  POSSA
-%global packver   0.6.3
+%global packname  banditpam
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Simulation for Sequential Analyses and Multiple Hypotheses
+Summary:          Almost Linear-Time k-Medoids Clustering
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Calculates, via simulation, power and appropriate stopping alpha
-boundaries (and/or futility bounds) for sequential analyses (i.e., group
-sequential design) as well as for multiple hypotheses (multiple tests
-included in an analysis), given any specified global error rate. This
-enables the sequential use of practically any significance test, as long
-as the underlying data can be simulated in advance to a reasonable
-approximation. Lukács (2022) <doi:10.21105/joss.04643>.
+Interface to a high-performance implementation of k-medoids clustering
+described in Tiwari, Zhang, Mayclin, Trun and Piech (2020) "BanditPAM:
+Almost Linear Time k-medoids Clustering via Multi-Armed Bandits"
+<https://proceedings.neurips.cc/paper/2020/file/73b817090081cef1bca77232f4532c5d-Paper.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

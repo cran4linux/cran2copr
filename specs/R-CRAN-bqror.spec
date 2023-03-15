@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bqror
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Quantile Regression for Ordinal Models
 
@@ -36,25 +37,25 @@ Requires:         R-stats
 Requires:         R-CRAN-progress 
 
 %description
-Package provides functions for estimating Bayesian quantile regression
-with ordinal outcomes, computing the covariate effects, model comparison
-measures, and inefficiency factor. The generic ordinal model with 3 or
-more outcomes (labeled OR1 model) is estimated by a combination of Gibbs
-sampling and Metropolis-Hastings algorithm. Whereas an ordinal model with
-exactly 3 outcomes (labeled OR2 model) is estimated using Gibbs sampling
-only. For each model framework, there is a specific function for
-estimation. The summary output produces estimates for regression quantiles
-and two measures of model comparison — log of marginal likelihood and
-Deviance Information Criterion (DIC). The package also has specific
-functions for computing the covariate effects and other functions that
-aids either the estimation or inference in quantile ordinal models.
-Rahman, M. A. (2016).“Bayesian Quantile Regression for Ordinal Models.”
-Bayesian Analysis, II(I): 1-24 <doi: 10.1214/15-BA939>. Yu, K., and
-Moyeed, R. A. (2001). “Bayesian Quantile Regression.” Statistics and
-Probability Letters, 54(4): 437–447 <doi: 10.1016/S0167-7152(01)00124-9>.
-Koenker, R., and Bassett, G. (1978).“Regression Quantiles.” Econometrica,
-46(1): 33-50 <doi: 10.2307/1913643>. Chib, S. (1995). “Marginal likelihood
-from the Gibbs output.” Journal of the American Statistical Association,
+Package provides functions for estimation and inference in Bayesian
+quantile regression with ordinal outcomes. An ordinal model with 3 or more
+outcomes (labeled OR1 model) is estimated by a combination of Gibbs
+sampling and Metropolis-Hastings (MH) algorithm. Whereas an ordinal model
+with exactly 3 outcomes (labeled OR2 model) is estimated using a Gibbs
+sampling algorithm. The summary output presents the posterior mean,
+posterior standard deviation, 95%% credible intervals, and the inefficiency
+factors along with the two model comparison measures – logarithm of
+marginal likelihood and the deviance information criterion (DIC). The
+package also provides functions for computing the covariate effects and
+other functions that aids either the estimation or inference in quantile
+ordinal models. Rahman, M. A. (2016).“Bayesian Quantile Regression for
+Ordinal Models.” Bayesian Analysis, 11(1): 1-24 <doi: 10.1214/15-BA939>.
+Yu, K., and Moyeed, R. A. (2001). “Bayesian Quantile Regression.”
+Statistics and Probability Letters, 54(4): 437–447 <doi:
+10.1016/S0167-7152(01)00124-9>. Koenker, R., and Bassett, G.
+(1978).“Regression Quantiles.” Econometrica, 46(1): 33-50 <doi:
+10.2307/1913643>. Chib, S. (1995). “Marginal likelihood from the Gibbs
+output.” Journal of the American Statistical Association,
 90(432):1313–1321, 1995. <doi: 10.1080/01621459.1995.10476635>. Chib, S.,
 and Jeliazkov, I. (2001). “Marginal likelihood from the
 Metropolis-Hastings output.” Journal of the American Statistical

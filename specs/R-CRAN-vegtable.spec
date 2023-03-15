@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  vegtable
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Vegetation Data Sets
 
@@ -16,21 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-taxlist 
+BuildRequires:    R-CRAN-taxlist >= 0.2.4
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-qdapRegex 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegdata 
-Requires:         R-CRAN-taxlist 
+Requires:         R-CRAN-taxlist >= 0.2.4
 Requires:         R-CRAN-foreign 
 Requires:         R-methods 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-qdapRegex 
 Requires:         R-CRAN-sp 
+Requires:         R-stats 
 Requires:         R-CRAN-stringi 
+Requires:         R-utils 
 Requires:         R-CRAN-vegdata 
 
 %description

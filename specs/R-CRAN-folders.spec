@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  POSSA
-%global packver   0.6.3
+%global packname  folders
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Simulation for Sequential Analyses and Multiple Hypotheses
+Summary:          Standardized Folder Names
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-yaml >= 2.2.1
+BuildRequires:    R-CRAN-config >= 0.3
+BuildRequires:    R-CRAN-here >= 0.1
+Requires:         R-CRAN-yaml >= 2.2.1
+Requires:         R-CRAN-config >= 0.3
+Requires:         R-CRAN-here >= 0.1
 
 %description
-Calculates, via simulation, power and appropriate stopping alpha
-boundaries (and/or futility bounds) for sequential analyses (i.e., group
-sequential design) as well as for multiple hypotheses (multiple tests
-included in an analysis), given any specified global error rate. This
-enables the sequential use of practically any significance test, as long
-as the underlying data can be simulated in advance to a reasonable
-approximation. Lukács (2022) <doi:10.21105/joss.04643>.
+Supports the use of standardized folder names.
 
 %prep
 %setup -q -c -n %{packname}

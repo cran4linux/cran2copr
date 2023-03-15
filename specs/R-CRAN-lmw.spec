@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  POSSA
-%global packver   0.6.3
+%global packname  lmw
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Simulation for Sequential Analyses and Multiple Hypotheses
+Summary:          Linear Model Weights
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-sandwich >= 3.0.2
+BuildRequires:    R-CRAN-backports >= 1.4.1
+Requires:         R-CRAN-sandwich >= 3.0.2
+Requires:         R-CRAN-backports >= 1.4.1
 
 %description
-Calculates, via simulation, power and appropriate stopping alpha
-boundaries (and/or futility bounds) for sequential analyses (i.e., group
-sequential design) as well as for multiple hypotheses (multiple tests
-included in an analysis), given any specified global error rate. This
-enables the sequential use of practically any significance test, as long
-as the underlying data can be simulated in advance to a reasonable
-approximation. Lukács (2022) <doi:10.21105/joss.04643>.
+Computes the implied weights of linear regression models for estimating
+average causal effects and provides diagnostics based on these weights.
+These diagnostics rely on the analyses in Chattopadhyay and Zubizarreta
+(2022) <doi:10.1093/biomet/asac058> where several regression estimators
+are represented as weighting estimators, in connection to inverse
+probability weighting. 'lmw' provides tools to diagnose
+representativeness, balance, extrapolation, and influence for these
+models, clarifying the target population of inference. Tools are also
+available to simplify estimating treatment effects for specific target
+populations of interest.
 
 %prep
 %setup -q -c -n %{packname}
