@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Carlson
-%global packver   2.0.0
+%global packname  shiny.blueprint
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Carlson Elliptic Integrals and Incomplete Elliptic Integrals
+Summary:          Palantir's 'Blueprint' for 'Shiny' Apps
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny.react >= 0.2.2
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-shiny.react >= 0.2.2
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-utils 
 
 %description
-Evaluation of the Carlson elliptic integrals and the incomplete elliptic
-integrals with complex arguments. The implementations use Carlson's
-algorithms <doi:10.1007/BF02198293>. Applications of elliptic integrals
-include probability distributions, geometry, physics, mechanics,
-electrodynamics, statistical mechanics, astronomy, geodesy, geodesics on
-conics, and magnetic field calculations.
+Easily use 'Blueprint', the popular 'React' library from Palantir, in your
+'Shiny' app. 'Blueprint' provides a rich set of UI components for creating
+visually appealing applications and is optimized for building complex,
+data-dense web interfaces. This package provides most components from the
+underlying library, as well as special wrappers for some components to
+make it easy to use them in 'R' without writing 'JavaScript' code.
 
 %prep
 %setup -q -c -n %{packname}

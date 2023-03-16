@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Carlson
-%global packver   2.0.0
+%global packname  traveltimeR
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Carlson Elliptic Integrals and Incomplete Elliptic Integrals
+Summary:          Interface to 'Travel Time' API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RProtoBuf 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RProtoBuf 
 
 %description
-Evaluation of the Carlson elliptic integrals and the incomplete elliptic
-integrals with complex arguments. The implementations use Carlson's
-algorithms <doi:10.1007/BF02198293>. Applications of elliptic integrals
-include probability distributions, geometry, physics, mechanics,
-electrodynamics, statistical mechanics, astronomy, geodesy, geodesics on
-conics, and magnetic field calculations.
+'Travel Time' API <https://docs.traveltime.com/api/overview/introduction>
+helps users find locations by journey time rather than using ‘as the crow
+flies’ distance. Time-based searching gives users more opportunities for
+personalisation and delivers a more relevant search.
 
 %prep
 %setup -q -c -n %{packname}

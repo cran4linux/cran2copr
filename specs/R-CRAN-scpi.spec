@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scpi
-%global packver   2.1.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Intervals for Synthetic Control Methods with Multiple Treated Units and Staggered Adoption
 
@@ -67,7 +67,7 @@ Implementation of prediction and inference procedures for Synthetic
 Control methods using least square, lasso, ridge, or simplex-type
 constraints. Uncertainty is quantified with prediction intervals as
 developed in Cattaneo, Feng, and Titiunik (2021)
-<https://cattaneo.princeton.edu/papers/Cattaneo-Feng-Titiunik_2021_JASA.pdf>.
+<https://mdcattaneo.github.io/papers/Cattaneo-Feng-Titiunik_2021_JASA.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

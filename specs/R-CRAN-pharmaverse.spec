@@ -1,31 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Carlson
-%global packver   2.0.0
+%global packname  pharmaverse
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Carlson Elliptic Integrals and Incomplete Elliptic Integrals
+Summary:          Navigate 'Pharmaverse'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-httr 
 
 %description
-Evaluation of the Carlson elliptic integrals and the incomplete elliptic
-integrals with complex arguments. The implementations use Carlson's
-algorithms <doi:10.1007/BF02198293>. Applications of elliptic integrals
-include probability distributions, geometry, physics, mechanics,
-electrodynamics, statistical mechanics, astronomy, geodesy, geodesics on
-conics, and magnetic field calculations.
+The 'pharmaverse' is a set of packages that compose multiple pathways
+through clinical data generation and reporting in the pharmaceutical
+industry. This package is designed to guide users to our work-spaces on
+'GitHub', 'Slack' and 'LinkedIn' as well as our website and examples.
+Learn more about the 'pharmaverse' at <https://pharmaverse.org>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  convevol
-%global packver   2.0.0
+%global packname  GIFT
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Convergent Evolution
+Summary:          Access to the Global Inventory of Floras and Traits (GIFT)
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.3
+Requires:         R-core >= 3.5.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-geiger 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-phytools 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-geiger 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Quantifies and assesses the significance of convergent evolution using
-multiple methods and measures as described in Stayton (2015) <DOI:
-10.1111/evo.12729> and Grossnickle et al. 2023.  Also displays results in
-various ways.
+Retrieving regional plant checklists, species traits and distributions,
+and environmental data from the Global Inventory of Floras and Traits
+(GIFT). More information about the GIFT database can be found at
+<https://gift.uni-goettingen.de/about> and the map of available floras can
+be visualized at <https://gift.uni-goettingen.de/map>. The API and
+associated queries can be accessed according the following scheme:
+<https://gift.uni-goettingen.de/api/extended/index2.0.php?query=env_raster>.
 
 %prep
 %setup -q -c -n %{packname}

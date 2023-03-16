@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fm.index
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  HCmodelSets
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast String Searching
+Summary:          Regression with a Large Number of Potential Explanatory Variables
 
-License:          MIT + file LICENSE
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
 
 %description
-Wrapper for the Succinct Data Structure C++ library (SDSL v3)
-<https://github.com/xxsds/sdsl-lite> enabling fast string searching using
-FM indices. Partial string matching can be ~50-fold faster than simple
-string scans for many real-world string collections (corpora). A given
-corpus is converted into a compact in-memory FM index representation that
-can be efficiently queried for partial string matches.
+Software for performing the reduction, exploratory and model selection
+phases of the procedure proposed by Cox, D.R. and Battey, H.S. (2017)
+<doi:10.1073/pnas.1703764114> for sparse regression when the number of
+potential explanatory variables far exceeds the sample size. The software
+supports linear regression, likelihood-based fitting of generalized linear
+regression models and the proportional hazards model fitted by partial
+likelihood.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epiomics
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Omics Data in Observational Studies
 
@@ -18,31 +18,34 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-qgcomp 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-qgcomp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-qgcomp 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-qgcomp 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
 A collection of fast and flexible functions for analyzing omics data in
 observational studies. Multiple different approaches for integrating
-environmental/genetic factors, omics data, and/or phenotype data are
-implemented. This includes functions for performing omics wide association
-studies with one or more variables of interest as the exposure or outcome;
-a function for performing a meet in the middle analysis for linking
-exposures, omics, and outcomes (as described by Chadeau-Hyam et al.,
-(2010) <doi:10.3109/1354750X.2010.533285>); and a function for performing
-a mixtures analysis across all omics features using quantile-based
-g-Computation (as described by Keil et al., (2019) <doi:10.1289/EHP5838>).
+multiple environmental/genetic factors, omics data, and/or phenotype data
+are implemented. This includes functions for performing omics wide
+association studies with one or more variables of interest as the exposure
+or outcome; a function for performing a meet in the middle analysis for
+linking exposures, omics, and outcomes (as described by Chadeau-Hyam et
+al., (2010) <doi:10.3109/1354750X.2010.533285>); and a function for
+performing a mixtures analysis across all omics features using
+quantile-based g-Computation (as described by Keil et al., (2019)
+<doi:10.1289/EHP5838>).
 
 %prep
 %setup -q -c -n %{packname}

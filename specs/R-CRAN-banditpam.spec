@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  banditpam
-%global packver   1.0
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Almost Linear-Time k-Medoids Clustering
 
@@ -24,8 +24,9 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Interface to a high-performance implementation of k-medoids clustering
-described in Tiwari, Zhang, Mayclin, Trun and Piech (2020) "BanditPAM:
-Almost Linear Time k-medoids Clustering via Multi-Armed Bandits"
+described in Tiwari, Zhang, Mayclin, Thrun, Piech and Shomorony (2020)
+"BanditPAM: Almost Linear Time k-medoids Clustering via Multi-Armed
+Bandits"
 <https://proceedings.neurips.cc/paper/2020/file/73b817090081cef1bca77232f4532c5d-Paper.pdf>.
 
 %prep

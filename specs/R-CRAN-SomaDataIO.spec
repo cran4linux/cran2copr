@@ -1,43 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  plsRbeta
-%global packver   0.3.0
+%global packname  SomaDataIO
+%global packver   6.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          6.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partial Least Squares Regression for Beta Regression Models
+Summary:          Input/Output 'SomaScan' Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plsRglm 
-BuildRequires:    R-CRAN-betareg 
+BuildRequires:    R-CRAN-tibble >= 3.1.2
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-usethis >= 2.0.1
+BuildRequires:    R-CRAN-readxl >= 1.3.1
+BuildRequires:    R-CRAN-tidyr >= 1.1.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.6
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plsRglm 
-Requires:         R-CRAN-betareg 
+Requires:         R-CRAN-tibble >= 3.1.2
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-usethis >= 2.0.1
+Requires:         R-CRAN-readxl >= 1.3.1
+Requires:         R-CRAN-tidyr >= 1.1.3
+Requires:         R-CRAN-dplyr >= 1.0.6
+Requires:         R-CRAN-lifecycle >= 1.0.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
 Requires:         R-methods 
 
 %description
-Provides Partial least squares Regression for (weighted) beta regression
-models (Bertrand 2013, <http://journal-sfds.fr/article/view/215>) and
-k-fold cross-validation of such models using various criteria. It allows
-for missing data in the explanatory variables. Bootstrap confidence
-intervals constructions are also available.
+Load and export 'SomaScan' data via the 'SomaLogic Operating Co., Inc.'
+proprietary text file called an ADAT ('*.adat'). For file format see
+<https://github.com/SomaLogic/SomaLogic-Data/blob/master/README.md>. The
+package also exports auxiliary functions for manipulating, wrangling, and
+extracting relevant information from an ADAT object once in memory.
 
 %prep
 %setup -q -c -n %{packname}

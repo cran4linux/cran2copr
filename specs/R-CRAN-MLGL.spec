@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MLGL
-%global packver   0.6.7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Layer Group-Lasso
 
@@ -32,8 +33,7 @@ Requires:         R-CRAN-parallelDist
 %description
 It implements a new procedure of variable selection in the context of
 redundancy between explanatory variables, which holds true with high
-dimensional data (Grimonprez et al. (2018)
-<https://hal.inria.fr/hal-01857242>).
+dimensional data (Grimonprez et al. (2023) <doi:10.18637/jss.v106.i03>).
 
 %prep
 %setup -q -c -n %{packname}

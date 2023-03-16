@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  panelsummary
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Publication-Ready Regression Tables with Panels
 
@@ -20,18 +20,18 @@ BuildArch:        noarch
 BuildRequires:    R-methods >= 4.1.3
 BuildRequires:    R-CRAN-stringr >= 1.4.1
 BuildRequires:    R-CRAN-kableExtra >= 1.3.4
+BuildRequires:    R-CRAN-modelsummary >= 1.3.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-rlang >= 1.0.6
-BuildRequires:    R-CRAN-modelsummary >= 1.0.2
 BuildRequires:    R-CRAN-fixest >= 0.10.4
 Requires:         R-methods >= 4.1.3
 Requires:         R-CRAN-stringr >= 1.4.1
 Requires:         R-CRAN-kableExtra >= 1.3.4
+Requires:         R-CRAN-modelsummary >= 1.3.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-rlang >= 1.0.6
-Requires:         R-CRAN-modelsummary >= 1.0.2
 Requires:         R-CRAN-fixest >= 0.10.4
 
 %description

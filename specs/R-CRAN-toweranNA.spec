@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Carlson
-%global packver   2.0.0
+%global packname  toweranNA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Carlson Elliptic Integrals and Incomplete Elliptic Integrals
+Summary:          A Method for Handling Missing Values in Prediction Applications
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-regtools >= 0.8.0
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-pdist 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-regtools >= 0.8.0
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-pdist 
+Requires:         R-stats 
 
 %description
-Evaluation of the Carlson elliptic integrals and the incomplete elliptic
-integrals with complex arguments. The implementations use Carlson's
-algorithms <doi:10.1007/BF02198293>. Applications of elliptic integrals
-include probability distributions, geometry, physics, mechanics,
-electrodynamics, statistical mechanics, astronomy, geodesy, geodesics on
-conics, and magnetic field calculations.
+Non-imputational method for handling missing values in a prediction
+context, meaning that not only are there missing values in the training
+dataset, but also some values may be missing in future cases to be
+predicted. Based on the notion of regression averaging (Matloff (2017,
+ISBN: 9781498710916)).
 
 %prep
 %setup -q -c -n %{packname}

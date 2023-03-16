@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Carlson
-%global packver   2.0.0
+%global packname  via
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Carlson Elliptic Integrals and Incomplete Elliptic Integrals
+Summary:          Virtual Arrays
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Evaluation of the Carlson elliptic integrals and the incomplete elliptic
-integrals with complex arguments. The implementations use Carlson's
-algorithms <doi:10.1007/BF02198293>. Applications of elliptic integrals
-include probability distributions, geometry, physics, mechanics,
-electrodynamics, statistical mechanics, astronomy, geodesy, geodesics on
-conics, and magnetic field calculations.
+The base class 'VirtualArray' is defined, which acts as a wrapper around
+lists allowing users to fold arbitrary sequential data into n-dimensional,
+R-style virtual arrays. The derived 'XArray' class is defined to be used
+for homogeneous lists that contain a single class of objects. The
+'RasterArray' and 'SfArray' classes enable the use of stacked spatial data
+instead of lists.
 
 %prep
 %setup -q -c -n %{packname}

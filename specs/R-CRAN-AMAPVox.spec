@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AMAPVox
-%global packver   0.12.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          LiDAR Data Voxelisation
 
@@ -21,17 +21,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 

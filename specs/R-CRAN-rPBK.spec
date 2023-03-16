@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rPBK
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference and Prediction of Generic Physiologically-Based Kinetic Models
 
@@ -24,11 +24,13 @@ BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rstantools 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
+Requires:         R-CRAN-rstantools 
 Requires:         R-CRAN-rstantools
 
 %description

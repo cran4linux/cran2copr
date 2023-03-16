@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BET
-%global packver   0.5.1
+%global packname  bandsfdp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binary Expansion Testing
+Summary:          Compute Upper Prediction Bounds on the FDP in Competition-Based Setups
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Nonparametric detection of nonuniformity and dependence with Binary
-Expansion Testing (BET). See Kai Zhang (2019) BET on Independence, Journal
-of the American Statistical Association, 114:528, 1620-1637,
-<DOI:10.1080/01621459.2018.1537921>, Kai Zhang, Zhigen Zhai, and Wen Zhou.
-(2021). BEAUTY Powered BEAST, <arXiv:2103.00674> and Zhigen Zhao, Michael
-Baiocchi, Kai Zhang. SorBET: A Fast and Powerful Algorithm to Test
-Dependence of Variables.
+Implements functions that calculate upper prediction bounds on the false
+discovery proportion (FDP) in the list of discoveries returned by
+competition-based setups, implementing Ebadi et al. (2022)
+<arXiv:2302.11837>. Such setups include target-decoy competition (TDC) in
+computational mass spectrometry and the knockoff construction in linear
+regression (note this package typically uses the terminology of TDC).
+Included is the standardized (TDC-SB) and uniform (TDC-UB) bound on TDC's
+FDP, and the simultaneous standardized and uniform bands. Requires
+pre-computed Monte Carlo statistics available at
+<https://github.com/uni-Arya/fdpbandsdata>. This data can be downloaded by
+running the command 'devtools::install_github("uni-Arya/fdpbandsdata")' in
+R and restarting R after installation. The size of this data is roughly
+81Mb.
 
 %prep
 %setup -q -c -n %{packname}

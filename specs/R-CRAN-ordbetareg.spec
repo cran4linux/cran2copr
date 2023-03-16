@@ -1,31 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Carlson
-%global packver   2.0.0
+%global packname  ordbetareg
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Carlson Elliptic Integrals and Incomplete Elliptic Integrals
+Summary:          Ordered Beta Regression Models with 'brms'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-brms >= 2.18.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-transformr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gganimate 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-brms >= 2.18.0
+Requires:         R-stats 
+Requires:         R-CRAN-transformr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gganimate 
+Requires:         R-CRAN-tidyr 
 
 %description
-Evaluation of the Carlson elliptic integrals and the incomplete elliptic
-integrals with complex arguments. The implementations use Carlson's
-algorithms <doi:10.1007/BF02198293>. Applications of elliptic integrals
-include probability distributions, geometry, physics, mechanics,
-electrodynamics, statistical mechanics, astronomy, geodesy, geodesics on
-conics, and magnetic field calculations.
+Implements ordered beta regression models, which are for modeling
+continuous variables with upper and lower bounds, such as survey sliders,
+dose-response relationships and indexes. For more information, see Kubinec
+(2022) <doi:10.31235/osf.io/2sx6y>. The package is a front-end to the R
+package 'brms', which facilitates a range of regression specifications,
+including hierarchical, dynamic and multivariate modeling.
 
 %prep
 %setup -q -c -n %{packname}
