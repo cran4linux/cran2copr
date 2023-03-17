@@ -1,52 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tradepolicy
-%global packver   0.6.0
+%global __requires_exclude ^libmpi
+%global packname  checker
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Replication of 'An Advanced Guide To Trade Policy Analysis'
+Summary:          Checks 'R' Configuration Set Up Correctly Before Class
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fixest >= 0.10.4
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-rstudioapi 
-Requires:         R-CRAN-fixest >= 0.10.4
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-msm 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-cli 
 
 %description
-Datasets from An Advanced Guide to Trade Policy Analysis (Year: 2016,
-ISBN: 978-92-870-4367-2) by Yotov, et al. and functions to report
-regression summaries with clustered robust standard errors.
+Checks that students have the correct version of 'R', 'R' packages,
+'RStudio' and other dependencies installed, and that the recommended
+'RStudio' configuration has been applied.
 
 %prep
 %setup -q -c -n %{packname}

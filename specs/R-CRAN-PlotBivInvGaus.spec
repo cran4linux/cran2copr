@@ -1,31 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  USAboundaries
-%global packver   0.4.0
+%global __requires_exclude ^libmpi
+%global packname  PlotBivInvGaus
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Historical and Contemporary Boundaries of the United States of America
+Summary:          Density Contour Plot for Bivariate Inverse Gaussian Distribution
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-plotly 
+Requires:         R-CRAN-plotly 
 
 %description
-The boundaries for geographical units in the United States of America
-contained in this package include state, county, congressional district,
-and zip code tabulation area. Contemporary boundaries are provided by the
-U.S. Census Bureau (public domain). Historical boundaries for the years
-from 1629 to 2000 are provided form the Newberry Library's 'Atlas of
-Historical County Boundaries' (licensed CC BY-NC-SA). Additional data is
-provided in the 'USAboundariesData' package; this package provides an
-interface to access that data.
+Create the density contour plot for bivariate inverse Gaussian
+distribution for given non negative random variables.
 
 %prep
 %setup -q -c -n %{packname}

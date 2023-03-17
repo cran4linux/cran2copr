@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pema
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Meta-Analysis
 
@@ -38,7 +39,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-rstantools
 
 %description
-Conduct penalized meta-analysis, see Van Lissa & Van Erp (2021).
+Conduct penalized meta-analysis, see Van Lissa, Van Erp, & Clapper (2023)
 <doi:10.31234/osf.io/6phs5>. In meta-analysis, there are often
 between-study differences. These can be coded as moderator variables, and
 controlled for using meta-regression. However, if the number of moderators

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DIZtools
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight Utilities for 'DIZ' R Package Development
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-parsedate 
+BuildRequires:    R-CRAN-R.utils 
 Requires:         R-CRAN-cleaR 
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-logger 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-parsedate 
+Requires:         R-CRAN-R.utils 
 
 %description
 Lightweight utility functions used for the R package development

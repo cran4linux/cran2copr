@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rgrassdoc
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  textBoxPlacement
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Consult 'Grass GIS' Documentation in the RStudio Viewer or your Browser
+Summary:          Compute a Non-Overlapping Layout of Text Boxes to Label Multiple Overlain Plots
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
-A tool for easy viewing of the documentation of 'GRASS GIS' (see
-<https://grass.osgeo.org/>). Pages of the 'GRASS GIS' manuals found at
-<https://grass.osgeo.org/grass78/manuals/full_index.html> and at
-<https://grass.osgeo.org/grass78/manuals/addons/> can be viewed within the
-Viewer pane of 'RStudio', or be opened in the user's default browser.
+Compute a non-overlapping layout of text boxes to label multiple overlain
+curves. For each curve, iteratively search for an adjacent x,y position
+for the text box that does not overlap with the other curves. If this
+process fails, then offsets are computed to add to the y values for each
+curve, that results in sufficient space to add all of the text labels.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

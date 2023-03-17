@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kerasR
-%global packver   0.8.1
+%global packname  politicsR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the Keras Deep Learning Library
+Summary:          Calculating Political System Metrics
 
-License:          LGPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 0.7
-Requires:         R-CRAN-reticulate >= 0.7
+BuildRequires:    R-CRAN-ineq 
+Requires:         R-CRAN-ineq 
 
 %description
-Provides a consistent interface to the 'Keras' Deep Learning Library
-directly from within R. 'Keras' provides specifications for describing
-dense neural networks, convolution neural networks (CNN) and recurrent
-neural networks (RNN) running on top of either 'TensorFlow' or 'Theano'.
-Type conversions between Python and R are automatically handled correctly,
-even when the default choices would otherwise lead to errors. Includes
-complete R documentation and many working examples.
+A toolbox to facilitate the calculation of political system indicators for
+researchers. This package offers a variety of basic indicators related to
+electoral systems, party systems, elections, and parliamentary studies, as
+well as others. Main references are: Loosemore and Hanby (1971)
+<doi:10.1017/S000712340000925X>; Gallagher (1991)
+<doi:10.1016/0261-3794(91)90004-C>; Laakso and Taagepera (1979)
+<doi:10.1177/001041407901200101>; Rae (1968)
+<doi:10.1177/001041406800100305>; Hirschmaņ (1945) <ISBN:0-520-04082-1>;
+Kesselman (1966) <doi:10.2307/1953769>; Jones and Mainwaring (2003)
+<doi:10.1177/13540688030092002>; Rice (1925) <doi:10.2307/2142407>;
+Pedersen (1979) <doi:10.1111/j.1475-6765.1979.tb01267.x>; SANTOS (2002)
+<ISBN:85-225-0395-8>.
 
 %prep
 %setup -q -c -n %{packname}

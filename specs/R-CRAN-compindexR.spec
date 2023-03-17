@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rxode2ll
-%global packver   2.0.10
+%global packname  compindexR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Log-Likelihood Functions for 'rxode2'
+Summary:          Calculates Composite Index
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-StanHeaders >= 2.21.0.7
-BuildRequires:    R-CRAN-BH >= 1.78.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.2
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-RcppParallel 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-RcppParallel 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-car >= 3.1.0
+BuildRequires:    R-CRAN-pracma >= 2.3.8
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-NlcOptim >= 0.6
+Requires:         R-CRAN-car >= 3.1.0
+Requires:         R-CRAN-pracma >= 2.3.8
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-NlcOptim >= 0.6
 
 %description
-Provides the log-likelihoods with gradients from 'stan' (Carpenter et al
-(2015), <arXiv:1509.07164>) needed for generalized log-likelihood
-estimation in 'nlmixr2' (Fidler et al (2019) <doi:10.1002/psp4.12445>).
-This is split of to reduce computational burden of recompiling 'rxode2'
-(Wang, Hallow and James (2016) <doi:10.1002/psp4.12052>) which runs the
-'nlmixr2' models during estimation.
+It uses the first-order sensitivity index to measure whether the weights
+assigned by the creator of the composite indicator match the actual
+importance of the variables. Moreover, the variance inflation factor is
+used to reduce the set of correlated variables. In the case of a
+discrepancy between the importance and the assigned weight, the script
+determines weights that allow adjustment of the weights to the intended
+impact of variables. If the optimised weights are unable to reflect the
+desired importance, the highly correlated variables are reduced, taking
+into account variance inflation factor. The final outcome of the script is
+the calculated value of the composite indicator based on optimal weights
+and a reduced set of variables, and the linear ordering of the analysed
+objects.
 
 %prep
 %setup -q -c -n %{packname}

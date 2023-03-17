@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdakma
-%global packver   1.3.0
+%global packname  FACT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functional Data Analysis: K-Mean Alignment
+Summary:          Feature Attributions for ClusTering
 
-License:          GPL (>= 3)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fdacluster 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fdacluster 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-prediction 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-iml 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-prediction 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-iml 
 
 %description
-It performs simultaneously clustering and alignment of a multidimensional
-or unidimensional functional dataset by means of k-mean alignment.
+We present 'FACT' (Feature Attributions for ClusTering), a framework for
+unsupervised interpretation methods that can be used with an arbitrary
+clustering algorithm. The package is capable of re-assigning instances to
+clusters (algorithm agnostic), preserves the integrity of the data and
+does not introduce additional models. 'FACT' is inspired by the principles
+of model-agnostic interpretation in supervised learning. Therefore, some
+of the methods presented are based on 'iml', a R Package for Interpretable
+Machine Learning by Christoph Molnar, Giuseppe Casalicchio, and Bernd
+Bischl (2018) <doi:10.21105/joss.00786>.
 
 %prep
 %setup -q -c -n %{packname}
