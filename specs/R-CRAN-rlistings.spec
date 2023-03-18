@@ -1,45 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multicolor
-%global packver   0.1.7
+%global packname  rlistings
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Multiple Colors to your Console & RMarkdown Output
+Summary:          Clinical Trial Style Data Readout Listings
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 1.2
-BuildRequires:    R-CRAN-cowsay 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-tibble >= 1.2
-Requires:         R-CRAN-cowsay 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-formatters >= 0.4.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-formatters >= 0.4.0
+Requires:         R-methods 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-checkmate 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Add multiple colors to text that is printed to the console.
+Listings are often part of the submission of clinical trial data in
+regulatory settings.  We provide a framework for the specific formatting
+features often used when displaying large datasets in that context.
 
 %prep
 %setup -q -c -n %{packname}

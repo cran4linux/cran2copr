@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psych
-%global packver   2.2.9
+%global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.9
+Version:          2.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures for Psychological, Psychometric, and Personality Research
 
@@ -35,19 +35,21 @@ Requires:         R-CRAN-lattice
 Requires:         R-CRAN-nlme 
 
 %description
-A general purpose toolbox for personality, psychometric theory and
-experimental psychology.  Functions are primarily for multivariate
-analysis and scale construction using factor analysis, principal component
-analysis, cluster analysis and reliability analysis, although others
-provide basic descriptive statistics. Item Response Theory is done using
-factor analysis of tetrachoric and polychoric correlations. Functions for
-analyzing data at multiple levels include within and between group
-statistics, including correlations and factor analysis.  Functions for
-simulating and testing particular item and test structures are included.
-Several functions serve as a useful front end for structural equation
-modeling.  Graphical displays of path diagrams, factor analysis and
-structural equation models are created using basic graphics. Some of the
-functions are written to support a book on psychometric theory as well as
+A general purpose toolbox developed orginally for personality,
+psychometric theory and experimental psychology.  Functions are primarily
+for multivariate analysis and scale construction using factor analysis,
+principal component analysis, cluster analysis and reliability analysis,
+although others provide basic descriptive statistics. Item Response Theory
+is done using factor analysis of tetrachoric and polychoric correlations.
+Functions for analyzing data at multiple levels include within and between
+group statistics, including correlations and factor analysis.  Validation
+and cross validation of scales developed using basic machine learning
+algorithms are provided, as are functions for simulating and testing
+particular item and test structures. Several functions serve as a useful
+front end for structural equation modeling.  Graphical displays of path
+diagrams, including mediation models, factor analysis and structural
+equation models are created using basic graphics. Some of the functions
+are written to support a book on psychometric theory as well as
 publications in personality research. For more information, see the
 <https://personality-project.org/r/> web page.
 

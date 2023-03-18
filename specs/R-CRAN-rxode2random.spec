@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2random
-%global packver   2.0.9
+%global packver   2.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          2.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Number Generation Functions for 'rxode2'
 
@@ -16,16 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-rxode2parse >= 2.0.12
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-lotri 
 BuildRequires:    R-CRAN-sitmo 
-BuildRequires:    R-CRAN-rxode2parse 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-rxode2parse >= 2.0.12
 Requires:         R-stats 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-lotri 
 
 %description
 Provides the random number generation (in parallel) needed for 'rxode2'

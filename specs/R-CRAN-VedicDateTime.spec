@@ -1,44 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cloudos
-%global packver   0.4.0
+%global packname  VedicDateTime
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Client Library for CloudOS
+Summary:          Vedic Calendar System
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-swephR 
+Requires:         R-CRAN-swephR 
 
 %description
-The 'CloudOS' client library for R makes it easy to interact with CloudOS
-in the R environment for analysis.
+Provides platform for Vedic calendar system having several functionalities
+to facilitate conversion between Gregorian and Vedic calendar systems, and
+helpful in examining its impact in the time series analysis domain. The
+background is described in Neeraj Dhanraj Bokde et al. (2021)
+<doi:10.48550/arXiv.2111.03441>, Karanam L. Ramakumar et al. (2011)
+<https:archive.org/details/PanchangamCalculations>, K. S. Charak et al.
+(2012, ISBN:8190100807), Satish BD et al. (2013)
+<https:github.com/webresh/drik-panchanga>.
 
 %prep
 %setup -q -c -n %{packname}

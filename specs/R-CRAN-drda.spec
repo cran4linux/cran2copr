@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drda
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dose-Response Data Analysis
 
@@ -27,7 +27,7 @@ Requires:         R-stats
 %description
 Fit logistic functions to observed dose-response continuous data and
 evaluate goodness-of-fit measures. See Malyutina A., Tang J., and Pessia
-A. (2021) <doi:10.1101/2021.06.07.447323>.
+A. (2023) <doi:10.18637/jss.v106.i04>.
 
 %prep
 %setup -q -c -n %{packname}

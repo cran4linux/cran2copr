@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CRE
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Subgroups Identification Through Ensemble Learning of Causal Rules
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-bartCause
 BuildRequires:    R-CRAN-stabs 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-bcf 
@@ -52,7 +51,6 @@ Requires:         R-CRAN-bartCause
 Requires:         R-CRAN-stabs 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-SuperLearner 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-bcf 

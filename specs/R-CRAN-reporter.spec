@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reporter
-%global packver   1.3.8
+%global packver   1.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creates Statistical Reports
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-common 
+BuildRequires:    R-CRAN-common >= 1.0.3
 BuildRequires:    R-CRAN-fmtr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-crayon 
@@ -27,7 +27,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-common 
+Requires:         R-CRAN-common >= 1.0.3
 Requires:         R-CRAN-fmtr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-crayon 

@@ -1,43 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mutualinf
-%global packver   1.1.2
+%global __requires_exclude ^libmpi
+%global packname  TrafficBDE
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation and Decomposition of the Mutual Information Index
+Summary:          Traffic Predictions Using Neural Networks
 
-License:          GPL-3
+License:          GPL-2 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-runner 
+BuildRequires:    R-CRAN-DescriptiveStats.OBeu 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-data.table 
-Requires:         R-parallel 
-Requires:         R-CRAN-runner 
+Requires:         R-CRAN-DescriptiveStats.OBeu 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-RCurl 
 Requires:         R-stats 
+Requires:         R-CRAN-zoo 
 
 %description
-The Mutual Information Index (M) introduced to social science literature
-by Theil and Finizza (1971) <doi:10.1080/0022250X.1971.9989795> is a
-multigroup segregation measure that is highly decomposable and that
-according to Frankel and Volij (2011) <doi:10.1016/j.jet.2010.10.008> and
-Mora and Ruiz-Castillo (2011) <doi:10.1111/j.1467-9531.2011.01237.x>
-satisfies the Strong Unit Decomposability and Strong Group Decomposability
-properties. This package allows computing and decomposing the total index
-value into its "between" and "within" terms. These last terms can also be
-decomposed into their contributions, either by group or unit
-characteristics. The factors that produce each "within" term can also be
-displayed at the user's request. The results can be computed considering a
-variable or sets of variables that define separate clusters.
+Estimate and return either the traffic speed or the car entries in the
+city of Thessaloniki using historical traffic data. It's used in transport
+pilot of the 'BigDataEurope' project. There are functions for processing
+these data, training a neural network, select the most appropriate model
+and predict the traffic speed or the car entries for a selected time date.
 
 %prep
 %setup -q -c -n %{packname}

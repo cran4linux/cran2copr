@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RmdConcord
-%global packver   0.1.4
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Concordances for 'R Markdown'
 

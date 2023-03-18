@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fiery
-%global packver   1.1.4
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight and Flexible Web Framework
 
@@ -17,30 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-httpuv 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-reqres 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-httpuv 
-Requires:         R-CRAN-uuid 
-Requires:         R-utils 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-later 
-Requires:         R-stats 
-Requires:         R-CRAN-reqres 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-reqres 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httpuv 
+Requires:         R-CRAN-later 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-reqres 
+Requires:         R-stats 
+Requires:         R-CRAN-stringi 
+Requires:         R-utils 
+Requires:         R-CRAN-uuid 
 
 %description
 A very flexible framework for building server side logic in R. The

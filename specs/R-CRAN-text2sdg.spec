@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  text2sdg
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detecting UN Sustainable Development Goals in Text
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-corpustools >= 0.4.2
+BuildRequires:    R-CRAN-text2sdgData >= 0.1.1
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-ranger 
 Requires:         R-CRAN-corpustools >= 0.4.2
+Requires:         R-CRAN-text2sdgData >= 0.1.1
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 

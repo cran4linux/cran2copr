@@ -1,44 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cloudos
-%global packver   0.4.0
+%global packname  kgen
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Client Library for CloudOS
+Summary:          A Tool for Calculating Stoichiometric Equilibrium Constants (Ks) for Seawater
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-pbapply >= 1.7.0
+BuildRequires:    R-CRAN-reticulate >= 1.26
+BuildRequires:    R-CRAN-data.table >= 1.14.6
+BuildRequires:    R-CRAN-rappdirs >= 0.3.3
+BuildRequires:    R-CRAN-rjson >= 0.2.21
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-pbapply >= 1.7.0
+Requires:         R-CRAN-reticulate >= 1.26
+Requires:         R-CRAN-data.table >= 1.14.6
+Requires:         R-CRAN-rappdirs >= 0.3.3
+Requires:         R-CRAN-rjson >= 0.2.21
 
 %description
-The 'CloudOS' client library for R makes it easy to interact with CloudOS
-in the R environment for analysis.
+A unified software package simultaneously implemented in 'Python', 'R',
+and 'Matlab' providing a uniform and internally-consistent way of
+calculating stoichiometric equilibrium constants in modern and palaeo
+seawater as a function of temperature, salinity, pressure and the
+concentration of magnesium, calcium, sulphate, and fluorine.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  intamap
-%global packver   1.4-16
+%global packver   1.5-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.16
+Version:          1.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures for Automated Interpolation
 
@@ -18,6 +19,7 @@ Requires:         R-core >= 2.14.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gstat >= 0.9.36
 BuildRequires:    R-CRAN-sp >= 0.9.0
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-automap 
 BuildRequires:    R-CRAN-MBA 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -25,7 +27,6 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
@@ -34,6 +35,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-gstat >= 0.9.36
 Requires:         R-CRAN-sp >= 0.9.0
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-automap 
 Requires:         R-CRAN-MBA 
 Requires:         R-CRAN-mvtnorm 
@@ -41,7 +43,6 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-rgdal 
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-methods 
@@ -50,7 +51,11 @@ Requires:         R-utils
 Requires:         R-graphics 
 
 %description
-Provides classes and methods for automated spatial interpolation.
+Geostatistical interpolation has traditionally been done by manually
+fitting a variogram and then interpolating. Here, we introduce classes and
+methods that can do this interpolation automatically. Pebesma et al (2010)
+gives an overview of the methods behind and possible usage
+<doi:10.1016/j.cageo.2010.03.019>.
 
 %prep
 %setup -q -c -n %{packname}

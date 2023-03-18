@@ -1,52 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jSDM
-%global packver   0.2.2
+%global packname  evolMap
+%global packver   1.2.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.2.33
 Release:          1%{?dist}%{?buildtag}
-Summary:          Joint Species Distribution Models
+Summary:          Dynamic and Interactive Maps
 
-License:          GPL-3 | file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppGSL 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-MASS 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-sf 
 
 %description
-Fits joint species distribution models ('jSDM') in a hierarchical Bayesian
-framework (Warton and al. 2015 <doi:10.1016/j.tree.2015.09.007>). The
-Gibbs sampler is written in C++. It uses 'Rcpp', 'Armadillo' and 'GSL' to
-maximize computation efficiency.
+Dynamic and Interactive Maps with R, powered by 'leaflet'
+<https://leafletjs.com>. 'evolMap' generates a web page with interactive
+and dynamic maps to which you can add geometric entities (points, lines or
+colored geographic areas), and/or markers with optional links between
+them. The dynamic ability of these maps allows their components to evolve
+over a continuous period of time or by periods.
 
 %prep
 %setup -q -c -n %{packname}
