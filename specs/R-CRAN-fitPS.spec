@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitPS
-%global packver   0.2-4
+%global packver   0.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Zeta Distributions to Forensic Data
 
@@ -17,21 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-ks 
 Requires:         R-methods 
-Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-VGAM 
 
 %description
-Fits zeta distributions (discrete power laws) to data that arises from
+Fits Zeta distributions (discrete power laws) to data that arises from
 forensic surveys of clothing on the presence of glass and paint in various
 populations. The general method is described to some extent in Coulson,
 S.A., Buckleton, J.S., Gummer, A.B., and Triggs, C.M. (2001)
