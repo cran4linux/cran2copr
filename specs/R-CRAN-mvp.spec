@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mvp
-%global packver   1.0-12
+%global packver   1.0-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          1.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Symbolic Multivariate Polynomials
 
@@ -17,28 +18,32 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-mpoly >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-disordR >= 0.0.8
+BuildRequires:    R-CRAN-disordR >= 0.9
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-numbers 
 Requires:         R-CRAN-mpoly >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-disordR >= 0.0.8
+Requires:         R-CRAN-disordR >= 0.9
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-partitions 
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-numbers 
 
 %description
 Fast manipulation of symbolic multivariate polynomials using the 'Map'
 class of the Standard Template Library.  The package uses print and
 coercion methods from the 'mpoly' package (Kahle 2013, "Multivariate
-polynomials in R".  The R Journal, 5(1):162), but offers speed
+polynomials in R", The R Journal, 5(1):162), but offers speed
 improvements.  It is comparable in speed to the 'spray' package for sparse
-arrays, but retains the symbolic benefits of 'mpoly'.
+arrays, but retains the symbolic benefits of 'mpoly'.  To cite the package
+in publications, use Hankin 2022 <doi:10.48550/ARXIV.2210.15991>.  Uses
+'disordR' discipline.
 
 %prep
 %setup -q -c -n %{packname}

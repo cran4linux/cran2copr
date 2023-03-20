@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  agriutilities
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Data Analysis in Agriculture
 
@@ -19,7 +19,6 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-lme4 
@@ -31,14 +30,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-statgenSTA 
 BuildRequires:    R-CRAN-SpATS 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-lme4 
@@ -50,7 +47,6 @@ Requires:         R-stats
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-statgenSTA 

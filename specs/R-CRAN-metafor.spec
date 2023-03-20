@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metafor
-%global packver   3.8-1
+%global packver   4.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis Package for R
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-metadat 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-pbapply
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-metadat 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 

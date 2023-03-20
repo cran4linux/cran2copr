@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coronavirus
-%global packver   0.4.1
+%global packname  PPMiss
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset
+Summary:          Copula-Based Estimator for Long-Range Dependent Processes under Missing Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-devtools >= 2.2.2
-Requires:         R-CRAN-devtools >= 2.2.2
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-zoo 
 
 %description
-Provides a daily summary of the Coronavirus (COVID-19) cases by
-state/province. Data source: Johns Hopkins University Center for Systems
-Science and Engineering (JHU CCSE) Coronavirus
-<https://systems.jhu.edu/research/public-health/ncov/>.
+Implements the copula-based estimator for univariate long-range dependent
+processes, introduced in Pumi et al. (2023)
+<doi:10.1007/s00362-023-01418-z>. Notably, this estimator is capable of
+handling missing data and has been shown to perform exceptionally well,
+even when up to 70%% of data is missing (as reported in <arXiv:2303.04754>)
+and has been found to outperform several other commonly applied
+estimators.
 
 %prep
 %setup -q -c -n %{packname}

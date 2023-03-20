@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  starter
-%global packver   0.1.12
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Starter Kit for New Projects
 
@@ -17,23 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-R.utils >= 2.11.0
-BuildRequires:    R-CRAN-glue >= 1.4.2
-BuildRequires:    R-CRAN-gert >= 1.4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-gert >= 1.9.2
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-here >= 1.0.1
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-renv >= 0.14.0
+BuildRequires:    R-CRAN-renv >= 0.17.2
 BuildRequires:    R-CRAN-rstudioapi 
-Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-R.utils >= 2.11.0
-Requires:         R-CRAN-glue >= 1.4.2
-Requires:         R-CRAN-gert >= 1.4.1
-Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-gert >= 1.9.2
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.6
 Requires:         R-CRAN-here >= 1.0.1
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-renv >= 0.14.0
+Requires:         R-CRAN-renv >= 0.17.2
 Requires:         R-CRAN-rstudioapi 
 
 %description
