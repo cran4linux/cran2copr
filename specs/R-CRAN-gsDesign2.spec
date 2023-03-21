@@ -1,52 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  supernova
-%global packver   2.5.6
+%global packname  gsDesign2
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Judd, McClelland, & Ryan Formatting for ANOVA Output
+Summary:          Group Sequential Design with Non-Constant Effect
 
-License:          AGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-pillar >= 1.5.0
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gsDesign 
+BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-npsurvSS 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-pillar >= 1.5.0
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gsDesign 
+Requires:         R-CRAN-gt 
 Requires:         R-methods 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-npsurvSS 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Produces ANOVA tables in the format used by Judd, McClelland, and Ryan
-(2017, ISBN: 978-1138819832) in their introductory textbook, Data
-Analysis. This includes proportional reduction in error and formatting to
-improve ease the transition between the book and R.
+The goal of 'gsDesign2' is to enable fixed or group sequential design
+under non-proportional hazards. To enable highly flexible enrollment,
+time-to-event and time-to-dropout assumptions, 'gsDesign2' offers
+piecewise constant enrollment, failure rates, and dropout rates for a
+stratified population. This package includes three methods for designs:
+average hazard ratio, weighted logrank tests in Yung and Liu (2019)
+<doi:10.1111/biom.13196>, and MaxCombo tests. Substantial flexibility on
+top of what is in the 'gsDesign' package is intended for selecting
+boundaries.
 
 %prep
 %setup -q -c -n %{packname}

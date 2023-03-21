@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdalUtilities
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrappers for 'GDAL' Utilities Executables
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 1.0.9
-Requires:         R-CRAN-sf >= 1.0.9
+BuildRequires:    R-CRAN-sf >= 1.0.11
+Requires:         R-CRAN-sf >= 1.0.11
 
 %description
 R's 'sf' package ships with self-contained 'GDAL' executables, including a

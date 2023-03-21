@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MALDIquant
-%global packver   1.22.1
+%global packname  Rapp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantitative Analysis of Mass Spectrometry Data
+Summary:          Easily Build Command Line Applications
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-yaml 
 
 %description
-A complete analysis pipeline for matrix-assisted laser
-desorption/ionization-time-of-flight (MALDI-TOF) and other two-dimensional
-mass spectrometry data. In addition to commonly used plotting and
-processing methods it includes distinctive features, namely baseline
-subtraction methods such as morphological filters (TopHat) or the
-statistics-sensitive non-linear iterative peak-clipping algorithm (SNIP),
-peak alignment using warping functions, handling of replicated
-measurements as well as allowing spectra with different resolutions.
+Run simple 'R' scripts as command line applications, with automatic robust
+and convenient support for command line arguments. This package provides
+'Rapp', an alternative 'R' front-end similar to 'Rscript', that enables
+this.
 
 %prep
 %setup -q -c -n %{packname}

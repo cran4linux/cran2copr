@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actuaRE
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Hierarchically Structured Risk Factors using Random Effects Models
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-statmod
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-speedglm 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-knitr 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-statmod
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-speedglm 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-knitr 

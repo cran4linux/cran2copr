@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  adapt4pv
-%global packver   0.2-2
+%global __requires_exclude ^libmpi
+%global packname  inlcolor
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Approaches for Signal Detection in Pharmacovigilance
+Summary:          Color Schemes for the USGS Idaho National Laboratory Project Office
 
-License:          GPL-2
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet >= 3.0.2
-BuildRequires:    R-CRAN-Matrix >= 1.0.6
-BuildRequires:    R-CRAN-speedglm 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-glmnet >= 3.0.2
-Requires:         R-CRAN-Matrix >= 1.0.6
-Requires:         R-CRAN-speedglm 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-checkmate 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-A collection of several pharmacovigilance signal detection methods based
-on adaptive lasso. Additional lasso-based and propensity score-based
-signal detection approaches are also supplied. See Courtois et al
-<doi:10.1186/s12874-021-01450-3>.
+A collection of functions for creating color schemes. Used to support
+packages and scripts written by researchers at the United States
+Geological Survey (USGS) Idaho National Laboratory Project Office.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MALDIquant
-%global packver   1.22.1
+%global packname  bonn
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantitative Analysis of Mass Spectrometry Data
+Summary:          Access INKAR Database
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.3.1
+Requires:         R-core >= 3.3.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.6.0
+BuildRequires:    R-CRAN-httr >= 1.2.1
+Requires:         R-CRAN-jsonlite >= 1.6.0
+Requires:         R-CRAN-httr >= 1.2.1
 
 %description
-A complete analysis pipeline for matrix-assisted laser
-desorption/ionization-time-of-flight (MALDI-TOF) and other two-dimensional
-mass spectrometry data. In addition to commonly used plotting and
-processing methods it includes distinctive features, namely baseline
-subtraction methods such as morphological filters (TopHat) or the
-statistics-sensitive non-linear iterative peak-clipping algorithm (SNIP),
-peak alignment using warping functions, handling of replicated
-measurements as well as allowing spectra with different resolutions.
+Retrieve and import data from the INKAR database (Indikatoren und Karten
+zur Raum- und Stadtentwicklung Datenbank, <https://www.inkar.de>) of the
+Federal Office for Building and Regional Planning (BBSR) in Bonn using
+their JSON API.
 
 %prep
 %setup -q -c -n %{packname}

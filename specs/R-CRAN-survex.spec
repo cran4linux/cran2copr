@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survex
-%global packver   0.2.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explainable Machine Learning in Survival Analysis
 
@@ -19,11 +19,13 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DALEX >= 2.2.1
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-kernelshap 
 BuildRequires:    R-CRAN-pec 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-DALEX >= 2.2.1
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-kernelshap 
 Requires:         R-CRAN-pec 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-patchwork 
@@ -35,9 +37,10 @@ explanation is needed, but standard methods do not give a broad enough
 picture. 'survex' provides easy-to-apply methods for explaining survival
 models, both complex black-boxes and simpler statistical models. They
 include methods specific to survival analysis such as SurvSHAP(t)
-described in Krzyzinski et al., (2022) <arXiv:2208.11080>, SurvLIME
-introduced in Kovalev et al., (2020) <doi:10.1016/j.knosys.2020.106164> as
-well as extensions of existing ones described in Biecek et al., (2021)
+introduced in Krzyzinski et al., (2023)
+<doi:10.1016/j.knosys.2022.110234>, SurvLIME described in Kovalev et al.,
+(2020) <doi:10.1016/j.knosys.2020.106164> as well as extensions of
+existing ones described in Biecek et al., (2021)
 <doi:10.1201/9780429027192>.
 
 %prep

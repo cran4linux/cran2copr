@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AICcmodavg
-%global packver   2.3-1
+%global packver   2.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Selection and Multimodel Inference Based on (Q)AIC(c)
 
@@ -19,24 +20,24 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-lattice 
-BuildRequires:    R-MASS 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats4 
-BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-unmarked 
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-xtable 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-lattice 
-Requires:         R-MASS 
-Requires:         R-Matrix 
-Requires:         R-nlme 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-nlme 
 Requires:         R-stats4 
-Requires:         R-survival 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-unmarked 
 Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-xtable 
@@ -60,9 +61,15 @@ model selection and multimodel inference can be formatted to LaTeX using
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -72,6 +79,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

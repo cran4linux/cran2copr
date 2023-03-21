@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SUNGEO
-%global packver   0.2.292
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.292
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sub-National Geospatial Data Archive: Geoprocessing Toolkit
 
@@ -22,14 +22,15 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-measurements 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-cartogram 
-BuildRequires:    R-CRAN-fasterize 
 BuildRequires:    R-CRAN-packcircles 
 BuildRequires:    R-CRAN-rmapshaper 
 BuildRequires:    R-CRAN-sp 
@@ -43,14 +44,15 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-stringr 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-measurements 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-cartogram 
-Requires:         R-CRAN-fasterize 
 Requires:         R-CRAN-packcircles 
 Requires:         R-CRAN-rmapshaper 
 Requires:         R-CRAN-sp 

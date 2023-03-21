@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  unitizer
-%global packver   1.4.19
+%global packname  gptstudio
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.19
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive R Unit Tests
+Summary:          Use Large Language Models Directly in your Development Environment
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon >= 1.3.2
-BuildRequires:    R-CRAN-diffobj >= 0.1.5.9000
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-crayon >= 1.3.2
-Requires:         R-CRAN-diffobj >= 0.1.5.9000
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rstudioapi >= 0.12
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-rstudioapi >= 0.12
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-usethis 
 
 %description
-Simplifies regression tests by comparing objects produced by test code
-with earlier versions of those same objects.  If objects are unchanged the
-tests pass, otherwise execution stops with error details.  If in
-interactive mode, tests can be reviewed through the provided interactive
-environment.
+Large language models are readily accessible via API. This package lowers
+the barrier to use the API inside of your development environment. For
+more on the API, see <https://platform.openai.com/docs/introduction>.
 
 %prep
 %setup -q -c -n %{packname}
