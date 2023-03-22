@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TAF
-%global packver   4.1.0
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          4.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Support the ICES Transparent Assessment Framework
+Summary:          Transparent Assessment Framework for Reproducible Research
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,10 +29,16 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Functions to support the ICES Transparent Assessment Framework
-<https://taf.ices.dk> to organize data, methods, and results used in ICES
-assessments. ICES is an organization facilitating international
-collaboration in marine science.
+Functions to organize data, methods, and results used in scientific
+analyses. A TAF analysis consists of four scripts (data.R, model.R,
+output.R, report.R) that are run sequentially. Each script starts by
+reading files from a previous step and ends with writing out files for the
+next step. Convenience functions are provided to version control the
+required data and software, run analyses, clean residues from previous
+runs, manage files, manipulate tables, and produce figures. With a focus
+on stability and reproducible analyses, TAF is designed to have no package
+dependencies. TAF forms a base layer for the 'icesTAF' package and other
+scientific applications.
 
 %prep
 %setup -q -c -n %{packname}

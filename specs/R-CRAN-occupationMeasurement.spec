@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dataclass
-%global packver   0.2.1
+%global packname  occupationMeasurement
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create Structured Lists or Data Frames with Input Validation
+Summary:          Interactively Measure Occupations in Interviews and Beyond
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-shiny >= 1.7.1
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-data.table >= 1.14.2
+BuildRequires:    R-CRAN-stringdist >= 0.9.8
+BuildRequires:    R-CRAN-tm >= 0.7.8
+BuildRequires:    R-CRAN-text2vec >= 0.6.1
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-shiny >= 1.7.1
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-data.table >= 1.14.2
+Requires:         R-CRAN-stringdist >= 0.9.8
+Requires:         R-CRAN-tm >= 0.7.8
+Requires:         R-CRAN-text2vec >= 0.6.1
+Requires:         R-CRAN-digest 
 
 %description
-Easily define templates for lists and data frames that validate each
-element. Specify the expected type (i.e., character, numeric, etc),
-expected length, minimum and maximum values, allowable values, and more
-for each element in your data. Decide whether violations of these
-expectations should throw an error or a warning. This package is useful
-for validating data within R processes which pull from dynamic data
-sources such as databases and web APIs to provide an extra layer of
-validation around input and output data.
+Perform interactive occupation coding during interviews as described in
+Peycheva, D., Sakshaug, J., Calderwood, L. (2021)
+<doi:10.2478/jos-2021-0042> and Schierholz, M., Gensicke, M., Tschersich,
+N., Kreuter, F. (2018) <doi:10.1111/rssa.12297>. Generate suggestions for
+occupational categories based on free text input, with pre-trained machine
+learning models in German and a ready-to-use shiny application provided
+for quick and easy data collection.
 
 %prep
 %setup -q -c -n %{packname}

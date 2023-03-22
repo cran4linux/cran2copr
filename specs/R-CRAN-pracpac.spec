@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dhReg
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  pracpac
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Harmonic Regression
+Summary:          Practical 'R' Packaging in 'Docker'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-future.apply 
-Requires:         R-stats 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-testthat 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-pkgbuild 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-renv 
+Requires:         R-CRAN-pkgbuild 
 
 %description
-Building and forecasting time series data with multiple seasonality using
-Dynamic Harmonic Regression.
+Streamline the creation of 'Docker' images with 'R' packages and
+dependencies embedded. The 'pracpac' package provides a 'usethis'-like
+interface to creating Dockerfiles with dependencies managed by 'renv'. The
+'pracpac' functionality is described in Nagraj and Turner (2023)
+<doi:10.48550/arXiv.2303.07876>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

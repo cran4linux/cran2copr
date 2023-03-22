@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BioStatR
-%global packver   4.0.0
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Initiation à La Statistique Avec R
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-ggplot2
 
 %description
 Datasets and functions for the book "Initiation à la Statistique avec R",
-F. Bertrand and M. Maumy-Bertrand (2022, ISBN:978-2100782826 Dunod, 4ème
+F. Bertrand and M. Maumy-Bertrand (2022, ISBN:978-2100782826 Dunod, fourth
 edition).
 
 %prep

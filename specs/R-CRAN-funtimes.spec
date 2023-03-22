@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funtimes
-%global packver   9.0
+%global packver   9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.0
+Version:          9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Time Series Analysis
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-Jmisc 
 BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-mlVAR 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-vars 
 Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-Jmisc 
 Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-mlVAR 

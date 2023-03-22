@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caret
-%global packver   6.0-93
+%global packver   6.0-94
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.93
+Version:          6.0.94
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification and Regression Training
 

@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  diemr
-%global packver   1.2
+%global packname  symbol.equation.gpt
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Index Expectation Maximisation in R
+Summary:          Powerful User Interface to Build and Insert Symbols and Equations
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-vcfR 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-vcfR 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-nextGenShinyApps 
+BuildRequires:    R-CRAN-r2symbols 
+BuildRequires:    R-CRAN-shinyStorePlus 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-markdown 
+Requires:         R-utils 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-nextGenShinyApps 
+Requires:         R-CRAN-r2symbols 
+Requires:         R-CRAN-shinyStorePlus 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-markdown 
 
 %description
-Likelihood-based genome polarisation finds which alleles of genomic
-markers belong to which side of the barrier. Co-estimates which
-individuals belong to either side of the barrier and barrier strength.
-Uses expectation maximisation in likelihood framework. The method is
-described in Baird et al. (2022) <doi:10.1111/2041-210X.14010>.
+User Interface for adding symbols, smileys, arrows, building mathematical
+equations using 'LaTeX' or 'r2symbols'. Built for use in development of
+'Markdown' and 'Shiny' Outputs.
 
 %prep
 %setup -q -c -n %{packname}

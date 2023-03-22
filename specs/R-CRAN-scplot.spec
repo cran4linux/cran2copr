@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  diemr
-%global packver   1.2
+%global packname  scplot
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Index Expectation Maximisation in R
+Summary:          Plot Function for Single-Case Data Frames
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-vcfR 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-vcfR 
+BuildRequires:    R-CRAN-scan >= 0.57
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-mblm 
+Requires:         R-CRAN-scan >= 0.57
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-mblm 
 
 %description
-Likelihood-based genome polarisation finds which alleles of genomic
-markers belong to which side of the barrier. Co-estimates which
-individuals belong to either side of the barrier and barrier strength.
-Uses expectation maximisation in likelihood framework. The method is
-described in Baird et al. (2022) <doi:10.1111/2041-210X.14010>.
+Add-on for the 'scan' package that creates plots from single-case data
+frames ('scdf'). It includes functions for styling single-case plots,
+adding phase-based lines to indicate various statistical parameters, and
+predefined themes for presentations and publications. More information and
+in depth examples can be found in the online book "Analyzing Single-Case
+Data with R and 'scan" Jürgen Wilbert (2023)
+<https://jazznbass.github.io/scan-Book/>.
 
 %prep
 %setup -q -c -n %{packname}

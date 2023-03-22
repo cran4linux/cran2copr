@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  diemr
-%global packver   1.2
+%global packname  sc2sc
+%global packver   0.0.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Index Expectation Maximisation in R
+Summary:          Spatial Transfer of Statistics among Spanish Census Sections
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-vcfR 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-vcfR 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Likelihood-based genome polarisation finds which alleles of genomic
-markers belong to which side of the barrier. Co-estimates which
-individuals belong to either side of the barrier and barrier strength.
-Uses expectation maximisation in likelihood framework. The method is
-described in Baird et al. (2022) <doi:10.1111/2041-210X.14010>.
+Transfers/imputes statistics among Spanish spatial polygons (census
+sections or postal code areas) from different moments in time (2001-2022)
+without need of spatial files, just linking statistics to the ID codes of
+the spatial units. The data available in the census sections of a
+partition/division (cartography) into force in a moment of time is
+transferred to the census sections of another partition/division employing
+the geometric approach (also known as areal weighting or polygon overlay).
+References: Goerlich (2022) <doi:10.12842/WPIVIE_0322>. Pavía and
+Cantarino (2017a, b) <doi:10.1111/gean.12112>,
+<doi:10.1016/j.apgeog.2017.06.021>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GPArotation
-%global packver   2022.10-2
+%global packver   2023.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.10.2
+Version:          2023.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          GPA Factor Rotation
+Summary:          Gradient Projection Factor Rotation
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,8 +21,10 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Gradient Projection Algorithm Rotation for Factor Analysis. See
-'?GPArotation.Intro' for more details.
+Gradient Projection Algorithms for Factor Rotation. For details see
+?GPArotation. When using this package, please cite: Bernaards and Jennrich
+(2005) <doi:10.1177/0013164404272507>. "Gradient Projection Algorithms and
+Software for Arbitrary Rotation Criteria in Factor Analysis".
 
 %prep
 %setup -q -c -n %{packname}

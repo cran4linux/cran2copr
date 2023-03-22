@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WeMix
-%global packver   3.3.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Mixed-Effects Models Using Multilevel Pseudo Maximum Likelihood Estimation
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-NPflow
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-matrixStats 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-statmod 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-NPflow
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-matrixStats 
 
 %description
 Run mixed-effects models that include weights at every level. The WeMix
@@ -43,7 +45,9 @@ schools are sampled probabilistically, and then students inside of those
 schools are sampled probabilistically. Although mixed-effects models are
 already available in R, WeMix is unique in implementing methods for mixed
 models using weights at multiple levels. Both linear and logit models are
-supported. Models may have up to three levels.
+supported. Models may have up to three levels. Random effects are
+estimated using the PIRLS algorithm from 'lme4pureR' (Walker and Bates
+(2013) <https://github.com/lme4/lme4pureR>).
 
 %prep
 %setup -q -c -n %{packname}

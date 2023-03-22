@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SparseChol
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Cholesky LDL Decomposition of Symmetric Matrices
 
@@ -25,9 +25,9 @@ Requires:         R-CRAN-Rcpp >= 1.0.7
 'C++' implementation of sparse LDL decomposition of symmetric matrices and
 solvers described by Timothy A. Davis (2016)
 <https://fossies.org/linux/SuiteSparse/LDL/Doc/ldl_userguide.pdf>.
-Provides the header file 'SparseChol.h' that specifies the 'SparseChol'
-class to implement sparse LDL decomposition in 'Rcpp' functions. A limited
-set of 'R' functions that implement the method are also included.
+Provides a set of C++ classes for basic sparse matrix specification and
+linear algebra, and a class to implement sparse LDL decomposition and
+solvers. See <https://github.com/samuel-watson/SparseChol> for details.
 
 %prep
 %setup -q -c -n %{packname}

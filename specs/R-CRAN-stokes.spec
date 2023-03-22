@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stokes
-%global packver   1.1-6
+%global packver   1.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Exterior Calculus
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-permutations >= 1.0.4
+BuildRequires:    R-CRAN-permutations >= 1.1.2
 BuildRequires:    R-CRAN-spray >= 1.0.21
-BuildRequires:    R-CRAN-disordR >= 0.0.8
+BuildRequires:    R-CRAN-disordR >= 0.0
 BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mathjaxr 
-Requires:         R-CRAN-permutations >= 1.0.4
+Requires:         R-CRAN-permutations >= 1.1.2
 Requires:         R-CRAN-spray >= 1.0.21
-Requires:         R-CRAN-disordR >= 0.0.8
+Requires:         R-CRAN-disordR >= 0.0
 Requires:         R-CRAN-partitions 
 Requires:         R-methods 
 Requires:         R-CRAN-mathjaxr 

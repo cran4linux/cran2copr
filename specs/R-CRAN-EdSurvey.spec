@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EdSurvey
-%global packver   3.0.2
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of NCES Education Survey and Assessment Data
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-WeMix >= 3.2.1
+BuildRequires:    R-CRAN-WeMix >= 4.0.0
 BuildRequires:    R-CRAN-haven >= 2.2.0
 BuildRequires:    R-CRAN-Dire >= 2.1.0
 BuildRequires:    R-CRAN-data.table >= 1.11.4
@@ -37,7 +37,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-wCorr 
 BuildRequires:    R-CRAN-NAEPirtparams 
 BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-WeMix >= 3.2.1
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-WeMix >= 4.0.0
 Requires:         R-CRAN-haven >= 2.2.0
 Requires:         R-CRAN-Dire >= 2.1.0
 Requires:         R-CRAN-data.table >= 1.11.4
@@ -57,6 +58,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-wCorr 
 Requires:         R-CRAN-NAEPirtparams 
 Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-xml2 
 
 %description
 Read in and analyze functions for education survey and assessment data

@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  diemr
-%global packver   1.2
+%global packname  mzipmed
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Index Expectation Maximisation in R
+Summary:          Mediation using MZIP Model
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-vcfR 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-vcfR 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-robust 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-robust 
+Requires:         R-stats 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Likelihood-based genome polarisation finds which alleles of genomic
-markers belong to which side of the barrier. Co-estimates which
-individuals belong to either side of the barrier and barrier strength.
-Uses expectation maximisation in likelihood framework. The method is
-described in Baird et al. (2022) <doi:10.1111/2041-210X.14010>.
+We implement functions allowing for mediation analysis to be performed in
+cases where the mediator is a count variable with excess zeroes. First a
+function is provided allowing users to perform analysis for zero-inflated
+count variables using the marginalized zero-inflated Poisson (MZIP) model
+(Long et al. 2014 <DOI:10.1002/sim.6293>). Using the counterfactual
+approach to mediation and MZIP we can obtain natural direct and indirect
+effects for the overall population. Using delta method processes variance
+estimation can be performed instantaneously. Alternatively, bootstrap
+standard errors can be used. We also provide functions for cases with
+exposure-mediator interactions with four-way decomposition of total
+effect.
 
 %prep
 %setup -q -c -n %{packname}

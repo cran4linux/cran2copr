@@ -1,48 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vitae
-%global packver   0.5.3
+%global packname  htetree
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Curriculum Vitae for R Markdown
+Summary:          Causal Inference with Tree-Based Machine Learning Algorithms
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.2
-BuildRequires:    R-CRAN-vctrs >= 0.3.3
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-grf 
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-Matching 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-rmarkdown >= 2.2
-Requires:         R-CRAN-vctrs >= 0.3.3
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-rpart.plot 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-grf 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-Matching 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-rpart.plot 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides templates and functions to simplify the production and
-maintenance of curriculum vitae.
+Estimating heterogeneous treatment effects with tree-based machine
+learning algorithms and visualizing estimated results in flexible and
+presentation-ready ways. For more information, see Brand, Xu, Koch, and
+Geraldo (2021) <doi:10.1177/0081175021993503>. Our current package first
+started as a fork of the 'causalTree' package on 'GitHub' and we greatly
+appreciate the authors for their extremely useful and free package.
 
 %prep
 %setup -q -c -n %{packname}

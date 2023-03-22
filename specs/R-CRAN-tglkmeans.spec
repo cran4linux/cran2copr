@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tglkmeans
-%global packver   0.3.5
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Implementation of K-Means++ Algorithm
 
@@ -14,9 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-parallel >= 3.3.2
+BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-tgstat >= 1.0.0
@@ -26,8 +27,8 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.11
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
 Requires:         R-parallel >= 3.3.2
+Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-tgstat >= 1.0.0
@@ -37,7 +38,6 @@ Requires:         R-CRAN-Rcpp >= 0.12.11
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
 
 %description
 Efficient implementation of K-Means++ algorithm. For more information see

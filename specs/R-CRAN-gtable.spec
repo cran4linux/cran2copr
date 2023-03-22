@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtable
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Arrange 'Grobs' in Tables
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-grid 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
 
 %description
 Tools to make it easier to work with "tables" of 'grobs'. The 'gtable'
