@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialTIME
-%global packver   1.2.2
+%global packver   1.3.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Analysis of Vectra Immunoflourescent Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
@@ -30,11 +30,9 @@ BuildRequires:    R-CRAN-spatstat.geom
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-pheatmap 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -48,11 +46,9 @@ Requires:         R-CRAN-spatstat.geom
 Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-pheatmap 
 
 %description
 Visualization and analysis of Vectra Immunoflourescent data. Options for

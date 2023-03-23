@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smurf
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Multi-Type Regularized Feature Modeling
 
@@ -27,7 +27,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-speedglm 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-glmnet >= 4.0
 Requires:         R-CRAN-Rcpp >= 0.12.12
@@ -39,7 +38,6 @@ Requires:         R-methods
 Requires:         R-CRAN-mgcv 
 Requires:         R-parallel 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-speedglm 
 Requires:         R-stats 
 
 %description

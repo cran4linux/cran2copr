@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stepmixr
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Python' Package 'stepmix'
+Summary:          Interface to 'Python' Package 'StepMix'
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,11 +21,15 @@ BuildRequires:    R-CRAN-reticulate >= 1.8
 Requires:         R-CRAN-reticulate >= 1.8
 
 %description
-This is an interface for the 'python' package 'stepmix'. This is a package
-multi-step estimation of latent class models with measurement and
-structural components. The package can also be used to fit mixture models
-with various observed random variables. Largely based on Bakk & Kuha
-(2018) <doi:10.1007/s11336-017-9592-7>.
+This is an interface for the 'Python' package 'StepMix'. It is a 'Python'
+package following the scikit-learn API for model-based clustering and
+generalized mixture modeling (latent class/profile analysis) of continuous
+and categorical data. 'StepMix' handles missing values through Full
+Information Maximum Likelihood (FIML) and provides multiple stepwise
+Expectation-Maximization (EM) estimation methods based on pseudolikelihood
+theory. Additional features include support for covariates and distal
+outcomes, various simulation utilities, and non-parametric bootstrapping,
+which allows inference in semi-supervised and unsupervised settings.
 
 %prep
 %setup -q -c -n %{packname}

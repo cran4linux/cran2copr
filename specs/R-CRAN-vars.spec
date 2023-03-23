@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  vars
-%global packver   1.5-6
+%global packver   1.5-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.6
+Version:          1.5.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          VAR Modelling
 
@@ -21,11 +22,13 @@ BuildRequires:    R-CRAN-urca >= 1.1.6
 BuildRequires:    R-CRAN-lmtest >= 0.9.26
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-strucchange 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-sandwich >= 2.2.4
 Requires:         R-CRAN-urca >= 1.1.6
 Requires:         R-CRAN-lmtest >= 0.9.26
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-strucchange 
+Requires:         R-methods 
 
 %description
 Estimation, lag selection, diagnostic testing, forecasting, causality

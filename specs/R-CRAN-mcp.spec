@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mcp
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression with Multiple Change Points
 
@@ -24,6 +25,8 @@ BuildRequires:    R-CRAN-loo >= 2.1.0
 BuildRequires:    R-CRAN-bayesplot >= 1.7.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-future.apply >= 1.4
+BuildRequires:    R-CRAN-future >= 1.16
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-patchwork >= 1.0.0
@@ -31,8 +34,6 @@ BuildRequires:    R-CRAN-rlang >= 0.4.1
 BuildRequires:    R-CRAN-tidyselect >= 0.2.5
 BuildRequires:    R-CRAN-coda >= 0.19.3
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-rjags >= 4.9
 Requires:         R-CRAN-ggplot2 >= 3.2.1
@@ -42,6 +43,8 @@ Requires:         R-CRAN-loo >= 2.1.0
 Requires:         R-CRAN-bayesplot >= 1.7.0
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-future.apply >= 1.4
+Requires:         R-CRAN-future >= 1.16
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-patchwork >= 1.0.0
@@ -49,8 +52,6 @@ Requires:         R-CRAN-rlang >= 0.4.1
 Requires:         R-CRAN-tidyselect >= 0.2.5
 Requires:         R-CRAN-coda >= 0.19.3
 Requires:         R-parallel 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
 Requires:         R-stats 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ktweedie
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Tweedie' Compound Poisson Model in the Reproducing Kernel Hilbert Space
 
@@ -23,7 +23,9 @@ Requires:         R-methods
 Kernel-based 'Tweedie' compound Poisson gamma model using high-dimensional
 predictors for the analyses of zero-inflated response variables. The
 package features built-in estimation, prediction and cross-validation
-tools and supports choice of different kernel functions.
+tools and supports choice of different kernel functions. For more details,
+please see Yi Lian, Archer Yi Yang, Boxiang Wang, Peng Shi & Robert
+William Platt (2023) <doi:10.1080/00401706.2022.2156615>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MatchIt
-%global packver   4.5.1
+%global packver   4.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.1
+Version:          4.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Preprocessing for Parametric Causal Inference
 
@@ -18,9 +18,15 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-backports >= 1.1.9
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-backports >= 1.1.9
 Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 Selects matched samples of the original treated and control groups with

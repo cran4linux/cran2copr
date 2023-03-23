@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cobalt
-%global packver   4.4.1
+%global packver   4.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1
+Version:          4.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate Balance Tables and Plots
 
@@ -17,19 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.1
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-backports >= 1.1.9
+BuildRequires:    R-CRAN-chk >= 0.8.1
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-gtable >= 0.3.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggplot2 >= 3.4.1
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-backports >= 1.1.9
+Requires:         R-CRAN-chk >= 0.8.1
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-gtable >= 0.3.0
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-grid 
+Requires:         R-grDevices 
 Requires:         R-CRAN-crayon 
 
 %description
@@ -41,7 +49,7 @@ propensity scores. Includes integration with 'MatchIt', 'twang',
 functions. Users can also specify data for balance assessment not
 generated through the above packages. Also included are methods for
 assessing balance in clustered or multiply imputed data sets or data sets
-with longitudinal treatments.
+with multi-category, continuous, or longitudinal treatments.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  poolfstat
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computing f-Statistics and Building Admixture Graphs Based on Allele Count or Pool-Seq Read Count Data
 
@@ -17,6 +18,7 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
@@ -32,6 +34,7 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-nnls 
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-methods 
+Requires:         R-CRAN-data.table 
 Requires:         R-utils 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 

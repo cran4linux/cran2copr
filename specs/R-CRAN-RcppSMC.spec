@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RcppSMC
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rcpp Bindings for Sequential Monte Carlo
 
@@ -17,9 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-FKF 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-methods 
+Requires:         R-CRAN-FKF 
 
 %description
 R access to the Sequential Monte Carlo Template Classes by Johansen

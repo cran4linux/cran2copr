@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pchc
-%global packver   0.8
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Learning with the PCHC and Related Algorithms
 
@@ -37,10 +38,11 @@ Hill-Climbing, a new hybrid algorithm that uses PC to construct the
 skeleton of the BN and then applies the Hill-Climbing greedy search. More
 algorithms and variants have been added, such as MMHC, FEDHC, and the Tabu
 search variants, PCTABU, MMTABU and FEDTABU. The relevant papers are a)
-Tsagris M. (2022). A new scalable Bayesian network learning algorithm with
+Tsagris M. (2021). A new scalable Bayesian network learning algorithm with
 applications to economics. Computational Economics, 57(1): 341-367.
-<doi:10.1007/s10614-020-10065-7>. b) Tsagris M. (2021). The FEDHC Bayesian
-network learning algorithm. <arXiv:2012.00113>.
+<doi:10.1007/s10614-020-10065-7>. b) Tsagris M. (2022). The FEDHC Bayesian
+Network Learning Algorithm. Mathematics 2022, 10(15), 2604.
+<doi:10.3390/math10152604>.
 
 %prep
 %setup -q -c -n %{packname}

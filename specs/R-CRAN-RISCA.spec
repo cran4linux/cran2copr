@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RISCA
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference and Prediction in Cohort-Based Analyses
 
@@ -14,13 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-relsurv 
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-date 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-nlme 
@@ -35,14 +36,12 @@ BuildRequires:    R-CRAN-kernlab
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-randomForestSRC 
 BuildRequires:    R-CRAN-survivalmodels 
 BuildRequires:    R-CRAN-prodlim 
 BuildRequires:    R-CRAN-hdnom 
 BuildRequires:    R-CRAN-glmnetUtils 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-mosaic 
 BuildRequires:    R-CRAN-mosaicCalc 
 BuildRequires:    R-CRAN-cubature 
@@ -53,6 +52,7 @@ Requires:         R-splines
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-relsurv 
 Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-tune 
 Requires:         R-CRAN-date 
 Requires:         R-graphics 
 Requires:         R-CRAN-nlme 
@@ -67,14 +67,12 @@ Requires:         R-CRAN-kernlab
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-SuperLearner 
-Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-randomForestSRC 
 Requires:         R-CRAN-survivalmodels 
 Requires:         R-CRAN-prodlim 
 Requires:         R-CRAN-hdnom 
 Requires:         R-CRAN-glmnetUtils 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-mosaic 
 Requires:         R-CRAN-mosaicCalc 
 Requires:         R-CRAN-cubature 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brokenstick
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broken Stick Model for Irregular Longitudinal Data
 
@@ -45,10 +45,10 @@ segments. The times at which segments connect (breakpoints) are identical
 for all subjects and under control of the user. A well-fitting broken
 stick model effectively transforms individual measurements made at
 irregular times into regular trajectories with common observation times.
-Specification of the model requires just three variables: time,
-measurement and subject. The model is a special case of the linear mixed
-model, with time as a linear B-spline and subject as the grouping factor.
-The main assumptions are: subjects are exchangeable, trajectories between
+Specification of the model requires three variables: time, measurement and
+subject. The model is a special case of the linear mixed model, with time
+as a linear B-spline and subject as the grouping factor. The main
+assumptions are: subjects are exchangeable, trajectories between
 consecutive breakpoints are straight, random effects follow a multivariate
 normal distribution, and unobserved data are missing at random. The
 package contains functions for fitting the broken stick model to data, for
@@ -59,9 +59,8 @@ analyst may use the software to smooth growth curves by a series of
 connected straight lines, to align irregularly observed curves to a common
 time grid, to create synthetic curves at a user-specified set of
 breakpoints, to estimate the time-to-time correlation matrix and to
-predict future observations. For additional documentation on background,
-methodology and applications see
-<https://growthcharts.org/brokenstick/articles/manual/manual.html>.
+predict future observations. See <doi:10.18637/jss.v106.i07> for
+additional documentation on background, methodology and applications.
 
 %prep
 %setup -q -c -n %{packname}
