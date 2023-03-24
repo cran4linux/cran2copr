@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tracee
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Save Output and Trace it Back to Code
 
@@ -14,24 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-NMdata >= 0.0.14
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-flextable 
+Requires:         R-CRAN-NMdata >= 0.0.14
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-flextable 
 
 %description
-Simple but crucial functionality related to creation of reproducible and
-traceable output (plots) back to code. It has a graphics saver with simple
-automation of plot stamping with source, destination and creation time, a
-selection of dimensions for use in presentations. A list of plots can be
-saved at once.
+Write output (plots and tables) ensuring traceability back to code.
+Includes a graphics saver with simple automation of stamping with source,
+destination and creation time. A list of plots can be saved at once. A
+user-friendly selection of output dimensions for presentations, on-screen
+inspections, and more available.
 
 %prep
 %setup -q -c -n %{packname}

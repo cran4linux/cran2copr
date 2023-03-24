@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  c060
-%global packver   0.2-9
+%global packver   0.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Inference for Lasso and Elastic-Net Regularized Cox and Generalized Linear Models
 
@@ -22,16 +23,20 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-mlegp 
 BuildRequires:    R-CRAN-tgp 
 BuildRequires:    R-CRAN-peperr 
+BuildRequires:    R-CRAN-penalized 
 BuildRequires:    R-CRAN-penalizedSVM 
 BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-survival 
 Requires:         R-parallel 
 Requires:         R-CRAN-mlegp 
 Requires:         R-CRAN-tgp 
 Requires:         R-CRAN-peperr 
+Requires:         R-CRAN-penalized 
 Requires:         R-CRAN-penalizedSVM 
 Requires:         R-CRAN-lattice 
+Requires:         R-methods 
 
 %description
 The c060 package provides additional functions to perform stability

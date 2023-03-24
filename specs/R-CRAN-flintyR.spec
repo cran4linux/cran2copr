@@ -1,26 +1,28 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  flintyR
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible and Interpretable Non-Parametric Tests of Exchangeability
+Summary:          Simple and Flexible Tests of Sample Exchangeability
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-CRAN-doParallel 
@@ -28,19 +30,20 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-testthat 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Given a multivariate dataset and some knowledge about the dependencies
-between its features, it is important to ensure the observations or
-individuals are exchangeable before fitting a model to the data in order
-to make inferences from it, or assigning randomized treatments in order to
-estimate treatment effects. This package provides a flexible
-non-parametric test of exchangeability, allowing the user to specify the
-feature dependencies by hand. It can be used directly to evaluate whether
-a sample is exchangeable, and can also be piped into larger procedures
-that require exchangeable samples as outputs (e.g., clustering or
-community detection). See Aw, Spence and Song (2021+) for the accompanying
-paper.
+between its features, it is customary to fit a statistical model to the
+features to infer parameters of interest. Such a procedure implicitly
+assumes that the sample is exchangeable. This package provides a flexible
+non-parametric test of this exchangeability assumption, allowing the user
+to specify the feature dependencies by hand as long as features can be
+grouped into disjoint independent sets. This package also allows users to
+test a dual hypothesis, which is, given that the sample is exchangeable,
+does a proposed grouping of the features into disjoint sets also produce
+statistically independent sets of features? See Aw, Spence and Song (2023)
+for the accompanying paper.
 
 %prep
 %setup -q -c -n %{packname}

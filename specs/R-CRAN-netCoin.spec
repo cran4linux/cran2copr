@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  netCoin
-%global packver   2.0.20
+%global packver   2.0.48
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.20
+Version:          2.0.48
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Analytic Networks
 
@@ -16,14 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS >= 7.3
+BuildRequires:    R-CRAN-GPArotation >= 2022.4
 BuildRequires:    R-CRAN-Matrix >= 1.2.4
 BuildRequires:    R-CRAN-haven >= 1.1.0
+BuildRequires:    R-CRAN-rD3plot >= 1.0.68
 BuildRequires:    R-CRAN-igraph >= 1.0.1
-BuildRequires:    R-CRAN-rD3plot >= 1.0.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-MASS >= 7.3
+Requires:         R-CRAN-GPArotation >= 2022.4
 Requires:         R-CRAN-Matrix >= 1.2.4
 Requires:         R-CRAN-haven >= 1.1.0
+Requires:         R-CRAN-rD3plot >= 1.0.68
 Requires:         R-CRAN-igraph >= 1.0.1
-Requires:         R-CRAN-rD3plot >= 1.0.0
+Requires:         R-methods 
 
 %description
 Create interactive analytic networks. It joins the data analysis power of

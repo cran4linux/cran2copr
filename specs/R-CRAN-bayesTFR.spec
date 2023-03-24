@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesTFR
-%global packver   7.3-0
+%global packver   7.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.0
+Version:          7.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Fertility Projection
 
@@ -40,8 +40,9 @@ Requires:         R-CRAN-lifecycle
 %description
 Making probabilistic projections of total fertility rate for all countries
 of the world, using a Bayesian hierarchical model
-<doi:10.1007/s13524-011-0040-5>. Subnational probabilistic projections are
-also supported.
+<doi:10.1007/s13524-011-0040-5> <doi:10.18637/jss.v106.i08>. Subnational
+probabilistic projections are also supported
+<doi:10.4054/DemRes.2018.38.60>.
 
 %prep
 %setup -q -c -n %{packname}

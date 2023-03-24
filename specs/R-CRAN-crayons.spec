@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  icosa
-%global packver   0.11.0
+%global packname  crayons
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Triangular and Penta-Hexagonal Grids Based on Tessellated Icosahedra
+Summary:          Color Palettes from Crayon Boxes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 
 %description
-Implementation of icosahedral grids in three dimensions. The
-spherical-triangular tessellation can be set to create grids with custom
-resolutions. Both the primary triangular and their inverted
-penta-hexagonal grids can be calculated. Additional functions are provided
-that allow plotting of the grids and associated data, the interaction of
-the grids with other raster and vector objects, and treating the grids as
-a graphs.
+Provides color palettes based on crayon colors since the early 1900s.
+Colors are based on various crayon colors, sets, and promotional palettes,
+most of which can be found at
+<https://en.wikipedia.org/wiki/List_of_Crayola_crayon_colors>. All
+palettes are discrete palettes and are not necessarily color-blind
+friendly. Provides scales for 'ggplot2' for discrete coloring.
 
 %prep
 %setup -q -c -n %{packname}

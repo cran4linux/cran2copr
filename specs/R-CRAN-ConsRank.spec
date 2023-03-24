@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ConsRank
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute the Median Ranking(s) According to the Kemeny's Axiomatic Approach
 
@@ -21,11 +22,13 @@ BuildRequires:    R-CRAN-rgl
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-rlist >= 0.4.2
 Requires:         R-CRAN-rgl 
 Requires:         R-methods 
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-tidyr 
 
 %description
 Compute the median ranking according to the Kemeny's axiomatic approach.
@@ -34,7 +37,8 @@ incomplete. The package contains both branch-and-bound algorithms and
 heuristic solutions recently proposed. The searching space of the solution
 can either be restricted to the universe of the permutations or
 unrestricted to all possible ties. The package also provide some useful
-utilities for deal with preference rankings. This release declare as
+utilities for deal with preference rankings, including both element-weight
+Kemeny distance and correlation coefficient. This release declare as
 deprecated some functions that are still in the package for compatibility.
 Next release will not contains these functions. Please type
 '?ConsRank-deprecated' Essential references: Emond, E.J., and Mason, D.W.
@@ -42,7 +46,8 @@ Next release will not contains these functions. Please type
 (2015) <doi:10.1285/i20705948v8n2p198>; Amodio, S., D'Ambrosio, A., and
 Siciliano R. (2016) <doi:10.1016/j.ejor.2015.08.048>; D'Ambrosio, A.,
 Mazzeo, G., Iorio, C., and Siciliano, R. (2017)
-<doi:10.1016/j.cor.2017.01.017>.
+<doi:10.1016/j.cor.2017.01.017>; Albano, A., and Plaia, A. (2021)
+<doi:10.1285/i20705948v14n1p117>.
 
 %prep
 %setup -q -c -n %{packname}

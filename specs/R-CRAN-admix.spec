@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  admix
-%global packver   0.4.0
+%global packver   2.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package Admix for Admixture (aka Contamination) Models
 
@@ -19,7 +20,6 @@ BuildRequires:    R-base
 BuildRequires:    R-CRAN-fdrtool 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Iso 
-BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-orthopolynom 
@@ -31,7 +31,6 @@ Requires:         R-base
 Requires:         R-CRAN-fdrtool 
 Requires:         R-graphics 
 Requires:         R-CRAN-Iso 
-Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-orthopolynom 
@@ -41,19 +40,19 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Implements several methods to estimate the unknown quantities related to
+Implements techniques to estimate the unknown quantities related to
 two-component admixture models, where the two components can belong to any
 distribution (note that in the case of multinomial mixtures, the two
 components must belong to the same family). Estimation methods depend on
 the assumptions made on the unknown component density (see Bordes and
 Vandekerkhove (2010) <doi:10.3103/S1066530710010023>; Patra and Sen (2016)
 <doi:10.1111/rssb.12148>); Milhaud, Pommeret, Salhi and Vandekerkhove
-(2021) <doi:10.1016/j.jspi.2021.05.010>). In practice, one can estimate
+(2022) <doi:10.1016/j.jspi.2021.05.010>). In practice, one can estimate
 both the mixture weight and the unknown component density in a wide
 variety of frameworks. On top of that, hypothesis tests can be performed
-in one and two-samples contexts to test the unknown component density.
-Finally, clustering of unknown mixture components is also feasible in a
-K-samples setting.
+in one and two-sample contexts to test the unknown component density (see
+Milhaud, Pommeret, Salhi, Vandekerkhove (2023)). Finally, clustering of
+unknown mixture components is also feasible in a K-samples setting.
 
 %prep
 %setup -q -c -n %{packname}

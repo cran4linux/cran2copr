@@ -1,48 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  landscapemetrics
-%global packver   1.5.6
+%global packname  c2z
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.6
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Landscape Metrics for Categorical Map Patterns
+Summary:          A Reference Manager
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
 Requires:         R-stats 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Calculates landscape metrics for categorical landscape patterns in a tidy
-workflow. 'landscapemetrics' reimplements the most common metrics from
-'FRAGSTATS' (<https://www.umass.edu/landeco/>) and new ones from the
-current literature on landscape metrics. This package supports 'raster'
-spatial objects and takes RasterLayer, RasterStacks, RasterBricks or lists
-of RasterLayer from the 'raster' package as input arguments. It further
-provides utility functions to visualize patches, select metrics and
-building blocks to develop new metrics.
+'Cristin' to 'Zotero' ('c2z') aims at obtaining total dominion over
+'Cristin' ('Current Research Information SysTem in Norway') and 'Zotero'.
+The package enables manipulating 'Zotero' libraries using 'R'.  Import
+references from 'Cristin', 'Regjeringen', 'CRAN', 'ISBN' ('Alma', 'LoC'),
+and 'DOI' ('CrossRef', 'DataCite') to a 'Zotero' library. Add, edit, copy,
+or delete items, including attachments and collections, and export
+references to 'BibLaTeX' (and other formats).
 
 %prep
 %setup -q -c -n %{packname}

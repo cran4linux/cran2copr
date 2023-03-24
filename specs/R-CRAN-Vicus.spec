@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  icosa
-%global packver   0.11.0
+%global packname  Vicus
+%global packver   0.99.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.99.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Triangular and Penta-Hexagonal Grids Based on Tessellated Icosahedra
+Summary:          Exploiting Local Structures to Improve Network-Based Analysis of Biological Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RSpectra 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-sf 
+Requires:         R-utils 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-RSpectra 
 
 %description
-Implementation of icosahedral grids in three dimensions. The
-spherical-triangular tessellation can be set to create grids with custom
-resolutions. Both the primary triangular and their inverted
-penta-hexagonal grids can be calculated. Additional functions are provided
-that allow plotting of the grids and associated data, the interaction of
-the grids with other raster and vector objects, and treating the grids as
-a graphs.
+Compared with the similar graph embedding method such as Laplacian
+Eigenmaps, 'Vicus' can exploit more local structures of graph data. For
+the details of the methods, see the reference section of 'GitHub'
+README.md <https://github.com/rikenbit/Vicus>.
 
 %prep
 %setup -q -c -n %{packname}

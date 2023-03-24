@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  isocalcR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Isotope Calculations in R
 
@@ -20,8 +21,8 @@ BuildArch:        noarch
 %description
 Perform common calculations based on published stable isotope theory, such
 as calculating carbon isotope discrimination and intrinsic water use
-efficiency from wood or leaf carbon isotope composition. See Farquhar,
-O'Leary, and Berry (1982) <doi:10.1071/PP9820121>.
+efficiency from wood or leaf carbon isotope composition. See Mathias and
+Hudiburg (2022) in Global Change Biology <doi:10.1111/gcb.16407>.
 
 %prep
 %setup -q -c -n %{packname}

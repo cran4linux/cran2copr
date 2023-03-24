@@ -1,59 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  composits
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  ecan
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compositional, Multivariate and Univariate Time Series Outlier Ensemble
+Summary:          Ecological Analysis and Visualization
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-otsad 
-BuildRequires:    R-CRAN-tsoutliers 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-anomalize 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-dave 
+BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-dobin 
-BuildRequires:    R-CRAN-ICS 
-BuildRequires:    R-CRAN-fastICA 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-labdsv 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-otsad 
-Requires:         R-CRAN-tsoutliers 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-anomalize 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-dave 
+Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-dobin 
-Requires:         R-CRAN-ICS 
-Requires:         R-CRAN-fastICA 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-labdsv 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-vegan 
 
 %description
-A compositional, multivariate and univariate time series outlier ensemble.
-It uses the four R packages 'forecast', 'tsoutliers', 'otsad' and
-'anomalize' to detect time series outliers (Kandanaarachchi, Menendez
-2020) <doi:10.13140/RG.2.2.32217.95845>.
+Support ecological analyses such as ordination and clustering. Contains
+consistent and easy wrapper functions of 'stat', 'vegan', 'labdsv' and
+'dave' packages, and visualisation functions of ordination and clustering.
 
 %prep
 %setup -q -c -n %{packname}

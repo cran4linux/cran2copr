@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metR
-%global packver   0.13.0
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Easier Analysis of Meteorological Fields
 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-gtable
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-isoband 
@@ -44,7 +44,7 @@ Requires:         R-CRAN-gtable
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-isoband 

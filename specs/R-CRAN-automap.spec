@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  automap
-%global packver   1.1-1
+%global packver   1.1-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Interpolation Package
 
@@ -37,8 +37,9 @@ Requires:         R-CRAN-stars
 Requires:         R-graphics 
 
 %description
-Performs an automatic interpolation by automatically estimating the
-variogram and then calling gstat.
+An automatic interpolation is done by automatically estimating the
+variogram and then calling gstat. An overview is given by Hiemstra et al
+(2008) <doi:10.1016/j.cageo.2008.10.011>.
 
 %prep
 %setup -q -c -n %{packname}

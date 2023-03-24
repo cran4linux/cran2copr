@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  finnts
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microsoft Finance Time Series Forecasting Framework
 
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-kernlab
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-modeltime.gluonts 
 BuildRequires:    R-CRAN-modeltime.resample 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-parsnip 
@@ -65,7 +64,6 @@ Requires:         R-CRAN-kernlab
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-modeltime.gluonts 
 Requires:         R-CRAN-modeltime.resample 
 Requires:         R-parallel 
 Requires:         R-CRAN-parsnip 

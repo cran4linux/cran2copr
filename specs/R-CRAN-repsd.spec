@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  icosa
-%global packver   0.11.0
+%global packname  repsd
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Triangular and Penta-Hexagonal Grids Based on Tessellated Icosahedra
+Summary:          Root Expected Proportion Squared Difference for Detecting DIF
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-sf 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-progress 
 
 %description
-Implementation of icosahedral grids in three dimensions. The
-spherical-triangular tessellation can be set to create grids with custom
-resolutions. Both the primary triangular and their inverted
-penta-hexagonal grids can be calculated. Additional functions are provided
-that allow plotting of the grids and associated data, the interaction of
-the grids with other raster and vector objects, and treating the grids as
-a graphs.
+Root Expected Proportion Squared Difference (REPSD) is a nonparametric
+differential item functioning (DIF) method that (a) allows practitioners
+to explore for DIF related to small, fine-grained focal groups of
+examinees, and (b) compares the focal group directly to the composite
+group that will be used to develop the reported test score scale. Using
+your provided response matrix with a column that identifies focal group
+membership, this package provides the REPSD values, a simulated null
+distribution of possible REPSD values, and the simulated p-values
+identifying items possibly displaying DIF without requiring enormous
+sample sizes.
 
 %prep
 %setup -q -c -n %{packname}

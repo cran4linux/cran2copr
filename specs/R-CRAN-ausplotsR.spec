@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ausplotsR
-%global packver   1.2.7
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          TERN AusPlots Analysis Package
 
@@ -57,7 +58,7 @@ Australia. The data have been collected across a national network of plots
 and transects by the Terrestrial Ecosystem Research Network (TERN -
 <https://www.tern.org.au>), an Australian Government NCRIS-enabled
 project, and its Ecosystem Surveillance platform
-(<https://www.tern.org.au/tern-observatory/tern-ecosystem-surveillance/>).
+(<https://www.tern.org.au/tern-land-observatory/ecosystem-surveillance-and-environmental-monitoring/>).
 
 %prep
 %setup -q -c -n %{packname}

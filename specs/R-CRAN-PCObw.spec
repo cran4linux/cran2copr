@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  icosa
-%global packver   0.11.0
+%global packname  PCObw
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Triangular and Penta-Hexagonal Grids Based on Tessellated Icosahedra
+Summary:          Bandwidth Selector with Penalized Comparison to Overfitting Criterion
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-stats >= 3.5.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.17
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-stats >= 3.5.2
+Requires:         R-CRAN-Rcpp >= 0.12.17
 
 %description
-Implementation of icosahedral grids in three dimensions. The
-spherical-triangular tessellation can be set to create grids with custom
-resolutions. Both the primary triangular and their inverted
-penta-hexagonal grids can be calculated. Additional functions are provided
-that allow plotting of the grids and associated data, the interaction of
-the grids with other raster and vector objects, and treating the grids as
-a graphs.
+Bandwidth selector according to the Penalised Comparison to Overfitting
+(P.C.O.) criterion as described in Varet, S., Lacour, C., Massart, P.,
+Rivoirard, V., (2019) <https://hal.archives-ouvertes.fr/hal-02002275>. It
+can be used with univariate and multivariate data.
 
 %prep
 %setup -q -c -n %{packname}

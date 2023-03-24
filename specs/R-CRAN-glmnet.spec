@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmnet
-%global packver   4.1-6
+%global packver   4.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.6
+Version:          4.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lasso and Elastic-Net Regularized Generalized Linear Models
 
@@ -36,14 +36,15 @@ Requires:         R-CRAN-Rcpp
 Extremely efficient procedures for fitting the entire lasso or elastic-net
 regularization path for linear regression, logistic and multinomial
 regression models, Poisson regression, Cox model, multiple-response
-Gaussian, and the grouped multinomial regression. There are two new and
-important additions. The family argument can be a GLM family object, which
-opens the door to any programmed family. This comes with a modest
-computational cost, so when the built-in families suffice, they should be
-used instead.  The other novelty is the relax option, which refits each of
-the active sets in the path unpenalized. The algorithm uses cyclical
-coordinate descent in a path-wise fashion, as described in the papers
-listed in the URL below.
+Gaussian, and the grouped multinomial regression; see
+<doi:10.18637/jss.v033.i01> and <doi:10.18637/jss.v039.i05>. There are two
+new and important additions. The family argument can be a GLM family
+object, which opens the door to any programmed family
+(<doi:10.18637/jss.v106.i01>). This comes with a modest computational
+cost, so when the built-in families suffice, they should be used instead.
+The other novelty is the relax option, which refits each of the active
+sets in the path unpenalized. The algorithm uses cyclical coordinate
+descent in a path-wise fashion, as described in the papers cited.
 
 %prep
 %setup -q -c -n %{packname}

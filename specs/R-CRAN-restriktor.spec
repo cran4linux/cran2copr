@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  restriktor
-%global packver   0.3-500
+%global packver   0.4-500
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.500
+Version:          0.4.500
 Release:          1%{?dist}%{?buildtag}
 Summary:          Restricted Statistical Estimation and Inference for Linear Models
 
@@ -22,12 +23,16 @@ BuildRequires:    R-CRAN-ic.infer
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-norm2 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-lavaan >= 0.6.10
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-ic.infer 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-norm2 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Allow for easy-to-use testing or evaluating of linear equality and
