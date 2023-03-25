@@ -1,44 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TapeS
-%global packver   0.12.0
+%global packname  frailtyMMpen
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree Taper Curves and Sorting Based on 'TapeR'
+Summary:          Efficient Algorithm for High-Dimensional Frailty Model
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-TapeR >= 0.5.2
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-TapeR >= 0.5.2
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppGSL 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-mgcv 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Providing new german-wide 'TapeR' Models and functions for their
-evaluation. Included are the most common tree species in Germany (Norway
-spruce, Scots pine, European larch, Douglas fir, Silver fir as well as
-European beech, Common/Sessile oak and Red oak). Many other species are
-mapped to them so that 36 tree species / groups can be processed. Single
-trees are defined by species code, one or multiple diameters in arbitrary
-measuring height and tree height. The functions then provide information
-on diameters along the stem, bark thickness, height of diameters, volume
-of the total or parts of the trunk and total and component above-ground
-biomass. It is also possible to calculate assortments from the taper
-curves. For diameter and volume estimation, uncertainty information is
-given.
+The penalized and non-penalized Minorize-Maximization (MM) method for
+frailty models to fit the clustered data, multi-event data and recurrent
+data. Least absolute shrinkage and selection operator (LASSO), minimax
+concave penalty (MCP) and smoothly clipped absolute deviation (SCAD)
+penalized functions are implemented. All the methods are computationally
+efficient. These general methods are proposed based on the following
+papers, Huang, Xu and Zhou (2022) <doi:10.3390/math10040538>, Huang, Xu
+and Zhou (2023) <doi:10.1177/09622802221133554>.
 
 %prep
 %setup -q -c -n %{packname}

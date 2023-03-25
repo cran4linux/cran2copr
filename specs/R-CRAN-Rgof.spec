@@ -1,53 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgudhi
-%global packver   0.2.0
+%global packname  Rgof
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to the GUDHI Library for Topological Data Analysis
+Summary:          1d Goodness of Fit Tests
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack >= 2.4
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-Rdpack >= 2.4
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-withr 
+Requires:         R-stats 
 
 %description
-Provides an interface to the GUDHI library which is a generic open source
-C++ library, with a Python interface, for topological data analysis (TDA)
-and higher dimensional geometry understanding. The library offers
-state-of-the-art data structures and algorithms to construct simplicial
-complexes and compute persistent homology.
+Routines that allow the user to run a large number of goodness-of-fit
+tests. It allows for data to be continuous or discrete. It includes
+routines to estimate the power of the tests and display them as a power
+graph.
 
 %prep
 %setup -q -c -n %{packname}

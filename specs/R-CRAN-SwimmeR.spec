@@ -1,59 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtrackr
-%global packver   0.4.0
+%global packname  SwimmeR
+%global packver   0.14.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.14.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Track your Data Pipelines
+Summary:          Data Import, Cleaning, and Conversions for Swimming Results
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rsvg 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-V8 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-png 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rsvg 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-V8 
-Requires:         R-CRAN-fs 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-png 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-readr 
 
 %description
-Track and document 'dplyr' data pipelines. As you filter, mutate, and join
-your way through a data set, 'dtrackr' seamlessly keeps track of your data
-flow and makes publication ready documentation of a data pipeline simple.
+The goal of the 'SwimmeR' package is to provide means of acquiring, and
+then analyzing, data from swimming (and diving) competitions.  To that end
+'SwimmeR' allows results to be read in from .html sources, like 'Hy-Tek'
+real time results pages, '.pdf' files, 'ISL' results, 'Omega' results, and
+(on a development basis) '.hy3' files.  Once read in, 'SwimmeR' can
+convert swimming times (performances) between the computationally useful
+format of seconds reported to the '100ths' place (e.g. 95.37), and the
+conventional reporting format (1:35.37) used in the swimming community.
+'SwimmeR' can also score meets in a variety of formats with user defined
+point values, convert times between courses ('LCM', 'SCM', 'SCY') and draw
+single elimination brackets, as well as providing a suite of tools for
+working cleaning swimming data.  This is a developmental package, not yet
+mature.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MTE
-%global packver   1.0.2
+%global __requires_exclude ^libmpi
+%global packname  deps
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Tangent Likelihood Estimation for Linear Regression
+Summary:          Dependency Management with 'roxygen'-Style Comments
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-rqPen 
-Requires:         R-stats 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-rqPen 
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-remotes 
+Requires:         R-CRAN-renv 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-remotes 
 
 %description
-Several robust estimators for linear regression and variable selection are
-provided. Included are Maximum tangent likelihood estimator (Qin, et al.,
-2017), least absolute deviance estimator and Huber regression. The
-penalized version of each of these estimator incorporates L1 penalty
-function, i.e., LASSO and Adaptive Lasso. They are able to produce
-consistent estimates for both fixed and high-dimensional settings.
+Manage your source code dependencies by decorating your existing R code
+with special, 'roxygen'-style comments.
 
 %prep
 %setup -q -c -n %{packname}

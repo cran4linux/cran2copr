@@ -1,64 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rb3
-%global packver   0.0.9
+%global packname  lpjmlkit
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Parse Public Data Released by B3 Exchange
+Summary:          Toolkit for Basic LPJmL Handling
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bizdays 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-proto 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ascii 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-bizdays 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-proto 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ascii 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-withr 
 
 %description
-Download and parse public files released by B3 and convert them into
-useful formats and data structures common to data analysis practitioners.
+A collection of basic functions to facilitate the work with the Dynamic
+Global Vegetation Model (DGVM) Lund-Potsdam-Jena managed Land (LPJmL)
+hosted at the Potsdam Institute for Climate Impact Research (PIK). It
+provides functions for performing LPJmL simulations, as well as reading,
+processing and writing model-related data such as inputs and outputs or
+configuration files.
 
 %prep
 %setup -q -c -n %{packname}

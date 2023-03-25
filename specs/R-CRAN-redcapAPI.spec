@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redcapAPI
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'REDCap'
 
@@ -22,15 +22,11 @@ BuildRequires:    R-CRAN-chron
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-labelVector 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-chron 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-labelVector 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 
 %description
 Access data stored in 'REDCap' databases using the Application Programming

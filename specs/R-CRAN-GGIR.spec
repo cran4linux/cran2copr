@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GGIR
-%global packver   2.8-2
+%global packver   2.9-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.2
+Version:          2.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raw Accelerometer Data Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -24,14 +24,10 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-GENEAread 
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-unisensR 
 BuildRequires:    R-CRAN-ineq 
-BuildRequires:    R-CRAN-read.gt3x 
-BuildRequires:    R-CRAN-ActCR 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-GGIRread 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
@@ -39,14 +35,10 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-GENEAread 
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-unisensR 
 Requires:         R-CRAN-ineq 
-Requires:         R-CRAN-read.gt3x 
-Requires:         R-CRAN-ActCR 
 Requires:         R-methods 
-Requires:         R-CRAN-GGIRread 
 
 %description
 A tool to process and analyse data collected with wearable raw

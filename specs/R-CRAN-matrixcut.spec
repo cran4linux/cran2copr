@@ -1,47 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gmvjoint
-%global packver   0.2.1
+%global packname  matrixcut
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Joint Models of Survival and Multivariate Longitudinal Data
+Summary:          Determines Clustering Threshold Based on Similarity Values
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-inflection 
+Requires:         R-CRAN-igraph 
 Requires:         R-stats 
-Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-inflection 
 
 %description
-Fit joint models of survival and multivariate longitudinal data. The
-longitudinal data is specified by generalised linear mixed models. The
-joint models are fit via maximum likelihood using an approximate
-expectation maximisation algorithm. Bernhardt (2015)
-<doi:10.1016/j.csda.2014.11.011>.
+The user must supply a matrix filled with similarity values. The software
+will search for significant differences between similarity values at
+different hierarchical levels. The algorithm will return a Loess-smoothed
+plot of the similarity values along with the inflection point, if there
+are any. There is the option to search for an inflection point within a
+specified range. The package also has a function that will return the
+matrix components at a specified cutoff. References: Mullner.
+<ArXiv:1109.2378>; Cserhati, Carter. (2020, Journal of Creation
+34(3):41-50),
+<https://dl0.creation.com/articles/p137/c13759/j34-3_64-73.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

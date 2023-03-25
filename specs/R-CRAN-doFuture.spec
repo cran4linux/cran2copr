@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  doFuture
-%global packver   0.12.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Universal Foreach Parallel Adapter using the Future API of the 'future' Package
+Summary:          Use Foreach to Parallelize via the Future Framework
 
 License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +18,31 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-foreach >= 1.5.0
-BuildRequires:    R-CRAN-future >= 1.22.1
+BuildRequires:    R-CRAN-future >= 1.32.0
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-foreach >= 1.5.0
-Requires:         R-CRAN-future >= 1.22.1
+Requires:         R-CRAN-future >= 1.32.0
+Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-globals 
 Requires:         R-CRAN-iterators 
 Requires:         R-parallel 
 Requires:         R-utils 
 
 %description
-Provides a '%%dopar%%' adapter such that any type of futures can be used as
-backends for the 'foreach' framework.
+The 'future' package provides a unifying parallelization framework for R
+that supports many parallel and distributed backends. The 'foreach'
+package provides a powerful API for iterating over an R expression in
+parallel. The 'doFuture' package brings the best of the two together.
+There are two alternative ways to use this package. The first is the
+traditional 'foreach' approach by registering the 'foreach' adapter
+'registerDoFuture()' and so that 'y <- foreach(...) %%dopar%% { ... }' runs
+in parallelizes with the 'future' framework. The other alternative is to
+use 'y <- foreach(...) %%dofuture%% { ... }', which does not require using
+'registerDoFuture()' and has many advantages over '%%dopar%%'.
 
 %prep
 %setup -q -c -n %{packname}
