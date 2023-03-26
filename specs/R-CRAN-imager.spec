@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  imager
-%global packver   0.42.18
+%global packver   0.42.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.42.18
+Version:          0.42.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Image Processing Library Based on 'CImg'
 

@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  trackdf
-%global packver   0.3.2
+%global packname  TapeS
+%global packver   0.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.12.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Frame Class for Tracking Data
+Summary:          Tree Taper Curves and Sorting Based on 'TapeR'
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-TapeR >= 0.5.2
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-TapeR >= 0.5.2
 Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
+Requires:         R-utils 
 
 %description
-Data frame class for storing collective movement data (e.g. fish schools,
-ungulate herds, baboon troops) collected from GPS trackers or computer
-vision tracking software.
+Providing new german-wide 'TapeR' Models and functions for their
+evaluation. Included are the most common tree species in Germany (Norway
+spruce, Scots pine, European larch, Douglas fir, Silver fir as well as
+European beech, Common/Sessile oak and Red oak). Many other species are
+mapped to them so that 36 tree species / groups can be processed. Single
+trees are defined by species code, one or multiple diameters in arbitrary
+measuring height and tree height. The functions then provide information
+on diameters along the stem, bark thickness, height of diameters, volume
+of the total or parts of the trunk and total and component above-ground
+biomass. It is also possible to calculate assortments from the taper
+curves. For diameter and volume estimation, uncertainty information is
+given.
 
 %prep
 %setup -q -c -n %{packname}

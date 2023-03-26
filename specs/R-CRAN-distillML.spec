@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  distillML
-%global packver   0.1.0.9
+%global packver   0.1.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.9
+Version:          0.1.0.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Distillation and Interpretability Methods for Machine Learning Models
 
@@ -20,7 +21,6 @@ BuildRequires:    R-CRAN-R6 >= 2.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-Rforestry 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-purrr 
@@ -32,7 +32,6 @@ Requires:         R-CRAN-R6 >= 2.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-Rforestry 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-purrr 

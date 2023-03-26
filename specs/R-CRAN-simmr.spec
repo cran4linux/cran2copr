@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  simmr
-%global packver   0.4.5
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Stable Isotope Mixing Model
 
@@ -15,10 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-R2jags 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-compositions 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-reshape2 
@@ -27,9 +26,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
 Requires:         R-CRAN-R2jags 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-compositions 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-reshape2 
@@ -38,6 +40,8 @@ Requires:         R-stats
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-GGally 
 
 %description
 Fits Stable Isotope Mixing Models (SIMMs) and is meant as a longer term
@@ -59,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

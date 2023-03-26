@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CARME
-%global packver   0.1
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          CAR-MM Modelling in Stan
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
@@ -25,6 +26,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rstantools 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
@@ -32,6 +34,7 @@ Requires:         R-methods
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-expm 
 Requires:         R-stats 
+Requires:         R-CRAN-rstantools 
 Requires:         R-CRAN-rstantools
 
 %description
@@ -39,10 +42,9 @@ Requires:         R-CRAN-rstantools
 estimate Generalised Linear Models with CAR (conditional autoregressive)
 spatial random effects for spatially and temporally misaligned data,
 provided a suitable Multiple Membership matrix. The main references are
-Gramatica, Liverani and Congdon (2022) <doi:10.48550/arXiv.2208.06738>,
-Petrof, Neyens, Nuyts, Nackaerts, Nemery and Faes (2020)
-<doi:10.1002/sim.8697> and Gramatica, Congdon and Liverani
-<doi:10.1111/rssc.12480>.
+Gramatica, Liverani and Congdon (2023) <doi:10.1214/23-BA1370>, Petrof,
+Neyens, Nuyts, Nackaerts, Nemery and Faes (2020) <doi:10.1002/sim.8697>
+and Gramatica, Congdon and Liverani <doi:10.1111/rssc.12480>.
 
 %prep
 %setup -q -c -n %{packname}
