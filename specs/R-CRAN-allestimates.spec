@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  allestimates
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Effect Estimates from All Models
 
@@ -17,18 +18,14 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-speedglm 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-speedglm 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
@@ -39,12 +36,12 @@ Requires:         R-CRAN-dplyr
 Estimates and plots effect estimates from models with all possible
 combinations of a list of variables. It can be used for assessing
 treatment effects in clinical trials or risk factors in bio-medical and
-epidemiological research. Like Stata command 'confall' (Wang Z. Stata
-Journal 2007; 7, Number 2, pp. 183–196), 'allestimates' calculates and
-stores all effect estimates, and plots them against p values or Akaike
+epidemiological research. Like Stata command 'confall' (Wang Z (2007)
+<doi:10.1177/1536867X0700700203> ), 'allestimates' calculates and stores
+all effect estimates, and plots them against p values or Akaike
 information criterion (AIC) values. It currently has functions for linear
-regression: all_lm(), logistic and Poisson regression: all_glm() and
-all_speedglm(), and Cox proportional hazards regression: all_cox().
+regression: all_lm(), logistic and Poisson regression: all_glm(), and Cox
+proportional hazards regression: all_cox().
 
 %prep
 %setup -q -c -n %{packname}

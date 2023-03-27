@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  adace
-%global packver   1.0.1
+%global __requires_exclude ^libmpi
+%global packname  oldbailey
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimator of the Adherer Average Causal Effect
+Summary:          For Accessing the Old Bailey Open Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.4.4
+Requires:         R-core >= 3.4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rvest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rvest 
 
 %description
-Estimate the causal treatment effect for subjects that can adhere to one
-or both of the treatments. Given longitudinal data with missing
-observations, consistent causal effects are calculated. Unobserved
-potential outcomes are estimated through direct integration as described
-in: Qu et al., (2019) <doi:10.1080/19466315.2019.1700157> and Zhang et.
-al., (2021) <doi:10.1080/19466315.2021.1891965>.
+Fetch trial data from the Old Bailey Online API
+<https://www.oldbaileyonline.org/static/DocAPI.jsp>. Data is returned in
+an analysis-ready data frame with fields for metadata including (but not
+limited to) the names of the first person speakers, defendants, victims,
+their recorded genders, verdicts, punishments, crime locations, and dates.
+Optional parameters allow users to specify the number of results, whether
+these results contain key terms, and trial dates.
 
 %prep
 %setup -q -c -n %{packname}

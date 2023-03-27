@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctrdata
-%global packver   1.11.1
+%global packver   1.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.1
+Version:          1.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -17,26 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 5.0
 BuildRequires:    R-CRAN-nodbi >= 0.9.0
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-jqr 
+Requires:         R-CRAN-curl >= 5.0
 Requires:         R-CRAN-nodbi >= 0.9.0
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-jqr 
 
 %description
 A system for querying, retrieving and analyzing protocol- and

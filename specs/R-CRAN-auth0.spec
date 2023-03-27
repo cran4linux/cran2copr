@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  auth0
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
-Release:          3%{?dist}%{?buildtag}
-Summary:          Secure Authentication in Shiny with Auth0
+Version:          0.2.3
+Release:          1%{?dist}%{?buildtag}
+Summary:          Authentication in Shiny with Auth0
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,25 +19,32 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-shinyjs 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-yaml 
 Requires:         R-utils 
+Requires:         R-CRAN-shinyjs 
 
 %description
 Uses Auth0 API (see <https://auth0.com> for more information) to use a
-simple and secure authentication system. It provides tools to log in and
-out a shiny application using social networks or a list of e-mails.
+simple authentication system. It provides tools to log in and out a shiny
+application using social networks or a list of e-mails.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -46,22 +54,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/bookmark
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/logout
-%doc %{rlibdir}/%{packname}/simple
-%doc %{rlibdir}/%{packname}/ui-server
-%doc %{rlibdir}/%{packname}/ui-server-bookmark
-%doc %{rlibdir}/%{packname}/ui-server-userinfo
-%doc %{rlibdir}/%{packname}/userinfo
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

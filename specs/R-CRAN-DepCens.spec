@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PxWebApiData
-%global packver   0.8.0
+%global packname  DepCens
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          PX-Web Data by API
+Summary:          Dependent Censoring Regression Models
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rjstat 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pxweb 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rjstat 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pxweb 
+BuildRequires:    R-CRAN-dlm 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dlm 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-stats 
 
 %description
-Function to read PX-Web data into R via API. The example code reads data
-from the three national statistical institutes, Statistics Norway,
-Statistics Sweden and Statistics Finland.
+Dependent censoring regression models for survival multivariate data.
+These models are based on extensions of the frailty models, capable to
+accommodating the dependence between failure and censoring times, with
+Weibull and piecewise exponential marginal distributions. Theoretical
+details regarding the models implemented in the package can be found in
+Schneider et al. (2019) <doi:10.1002/bimj.201800391>.
 
 %prep
 %setup -q -c -n %{packname}

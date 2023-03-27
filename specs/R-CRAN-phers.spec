@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phers
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Phenotype Risk Scores
 
@@ -23,14 +23,12 @@ BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-foreach >= 1.5.2
 BuildRequires:    R-CRAN-data.table >= 1.5.0
 BuildRequires:    R-CRAN-iterators >= 1.0.14
-BuildRequires:    R-CRAN-speedglm >= 0.3.4
 Requires:         R-CRAN-survival >= 3.3.1
 Requires:         R-CRAN-BEDMatrix >= 2.0.3
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-foreach >= 1.5.2
 Requires:         R-CRAN-data.table >= 1.5.0
 Requires:         R-CRAN-iterators >= 1.0.14
-Requires:         R-CRAN-speedglm >= 0.3.4
 
 %description
 Use phenotype risk scores based on linked clinical and genetic data to

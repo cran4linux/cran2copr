@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PxWebApiData
-%global packver   0.8.0
+%global packname  irtawsi
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          PX-Web Data by API
+Summary:          Items Response Theory Analysis with Steps and Interpretation
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rjstat 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pxweb 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rjstat 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pxweb 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-bs4Dash 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-diagram 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-bs4Dash 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-diagram 
 
 %description
-Function to read PX-Web data into R via API. The example code reads data
-from the three national statistical institutes, Statistics Norway,
-Statistics Sweden and Statistics Finland.
+Analysis of Dichotomous and polytomous data using unidimensional Item
+Response Theory model (Chalmers (2012) <doi:10.18637/jss.v048.i06>) with
+user friendly Graphical User Interface. Suitable for beginners who are
+learning Item Response Theory.
 
 %prep
 %setup -q -c -n %{packname}

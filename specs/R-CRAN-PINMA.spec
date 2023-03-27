@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PxWebApiData
-%global packver   0.8.0
+%global packname  PINMA
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          PX-Web Data by API
+Summary:          Improved Methods for Constructing Prediction Intervals for Network Meta-Analysis
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rjstat 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pxweb 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rjstat 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pxweb 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-metafor 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-metafor 
 
 %description
-Function to read PX-Web data into R via API. The example code reads data
-from the three national statistical institutes, Statistics Norway,
-Statistics Sweden and Statistics Finland.
+Improved methods to construct prediction intervals for network
+meta-analysis. The parametric bootstrap and Kenward-Roger-type adjustment
+by Noma et al. (2022) <forthcoming> are implementable.
 
 %prep
 %setup -q -c -n %{packname}

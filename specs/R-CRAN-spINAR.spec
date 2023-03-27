@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PxWebApiData
-%global packver   0.8.0
+%global packname  spINAR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          PX-Web Data by API
+Summary:          (Semi)Parametric Estimation and Bootstrapping of INAR Models
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rjstat 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pxweb 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rjstat 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pxweb 
+BuildRequires:    R-CRAN-checkmate >= 1.8.5
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-checkmate >= 1.8.5
+Requires:         R-CRAN-progress 
+Requires:         R-stats 
 
 %description
-Function to read PX-Web data into R via API. The example code reads data
-from the three national statistical institutes, Statistics Norway,
-Statistics Sweden and Statistics Finland.
+Semiparametric and parametric estimation of INAR models including a finite
+sample refinement (Faymonville et al. (2022)
+<doi:10.1007/s10260-022-00655-0>) for the semiparametric setting
+introduced in Drost et al. (2009) <doi:10.1111/j.1467-9868.2008.00687.x>,
+different procedures to bootstrap INAR data (Jentsch, C. and Weiß, C.H.
+(2017) <doi:10.3150/18-BEJ1057>) and flexible simulation of INAR data.
 
 %prep
 %setup -q -c -n %{packname}

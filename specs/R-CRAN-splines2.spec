@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  splines2
-%global packver   0.4.7
+%global packver   0.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Spline Functions and Classes
 
@@ -16,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Constructs basis matrix of B-splines, M-splines, I-splines, convex splines

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pchc
-%global packver   0.9
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Learning with the PCHC and Related Algorithms
 
@@ -41,7 +41,7 @@ search variants, PCTABU, MMTABU and FEDTABU. The relevant papers are a)
 Tsagris M. (2021). A new scalable Bayesian network learning algorithm with
 applications to economics. Computational Economics, 57(1): 341-367.
 <doi:10.1007/s10614-020-10065-7>. b) Tsagris M. (2022). The FEDHC Bayesian
-Network Learning Algorithm. Mathematics 2022, 10(15), 2604.
+Network Learning Algorithm. Mathematics 2022, 10(15): 2604.
 <doi:10.3390/math10152604>.
 
 %prep

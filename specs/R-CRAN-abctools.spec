@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  abctools
-%global packver   1.1.4
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for ABC Analyses
 
@@ -31,7 +31,9 @@ Requires:         R-methods
 
 %description
 Tools for approximate Bayesian computation including summary statistic
-selection and assessing coverage.
+selection and assessing coverage. See Nunes and Prangle (2015)
+<doi:10.32614/RJ-2015-030> and Rodrigues, Prangle and Sisson (2018)
+<doi:10.1016/j.csda.2018.04.004>.
 
 %prep
 %setup -q -c -n %{packname}

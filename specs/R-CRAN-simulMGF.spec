@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PxWebApiData
-%global packver   0.8.0
+%global packname  simulMGF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          PX-Web Data by API
+Summary:          Simulate SNP Matrix, Phenotype and Genotypic Effects
 
-License:          Apache License 2.0 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rjstat 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pxweb 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rjstat 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pxweb 
 
 %description
-Function to read PX-Web data into R via API. The example code reads data
-from the three national statistical institutes, Statistics Norway,
-Statistics Sweden and Statistics Finland.
+Simulate genotypes in SNP (single nucleotide polymorphisms) Matrix as
+random numbers from an uniform distribution, for diploid organisms (coded
+by 0, 1, 2), Sikorska et al., (2013) <doi:10.1186/1471-2105-14-166>, or
+half-sib/full-sib SNP matrix from real or simulated parents SNP data,
+assuming mendelian segregation. Simulate phenotypic traits for real or
+simulated SNP data, controlled by a specific number of quantitative trait
+loci and their effects, sampled from a Normal or an Uniform distributions,
+assuming a pure additive model. This is useful for testing association and
+genomic prediction models or for educational purposes.
 
 %prep
 %setup -q -c -n %{packname}

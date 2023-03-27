@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggquickeda
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quickly Explore Your Data Using 'ggplot2' and 'table1' Summary Tables
 
@@ -14,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         pandoc
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
 BuildRequires:    R-CRAN-GGally >= 2.1.0
-BuildRequires:    R-CRAN-table1 >= 1.2
+BuildRequires:    R-CRAN-table1 >= 1.4.2
 BuildRequires:    R-CRAN-shinyjs >= 1.1
 BuildRequires:    R-CRAN-shiny >= 1.0.4
 BuildRequires:    R-CRAN-ggrepel >= 0.7.0
@@ -48,7 +49,7 @@ BuildRequires:    R-CRAN-shinyFiles
 BuildRequires:    R-CRAN-RPostgres 
 Requires:         R-CRAN-ggplot2 >= 3.3.4
 Requires:         R-CRAN-GGally >= 2.1.0
-Requires:         R-CRAN-table1 >= 1.2
+Requires:         R-CRAN-table1 >= 1.4.2
 Requires:         R-CRAN-shinyjs >= 1.1
 Requires:         R-CRAN-shiny >= 1.0.4
 Requires:         R-CRAN-ggrepel >= 0.7.0

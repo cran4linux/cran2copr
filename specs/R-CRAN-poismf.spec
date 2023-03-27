@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PxWebApiData
-%global packver   0.8.0
+%global packname  poismf
+%global packver   0.4.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.4.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          PX-Web Data by API
+Summary:          Factorization of Sparse Counts Matrices Through Poisson Likelihood
 
-License:          Apache License 2.0 | file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rjstat 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pxweb 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rjstat 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pxweb 
+BuildRequires:    R-CRAN-Matrix >= 1.3
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Matrix >= 1.3
+Requires:         R-methods 
 
 %description
-Function to read PX-Web data into R via API. The example code reads data
-from the three national statistical institutes, Statistics Norway,
-Statistics Sweden and Statistics Finland.
+Creates a non-negative low-rank approximate factorization of a sparse
+counts matrix by maximizing Poisson likelihood with L1/L2 regularization
+(e.g. for implicit-feedback recommender systems or bag-of-words-based
+topic modeling) (Cortes, (2018) <arXiv:1811.01908>), which usually leads
+to very sparse user and item factors (over 90%% zero-valued). Similar to
+hierarchical Poisson factorization (HPF), but follows an
+optimization-based approach with regularization instead of a hierarchical
+prior, and is fit through gradient-based methods instead of variational
+inference.
 
 %prep
 %setup -q -c -n %{packname}
