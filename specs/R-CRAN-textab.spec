@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmx
-%global packver   0.2-0
+%global packname  textab
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Linear Models Extended
+Summary:          Create Highly-Customized 'LaTeX' Tables
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-sandwich 
 
 %description
-Extended techniques for generalized linear models (GLMs), especially for
-binary responses, including parametric links and heteroscedastic latent
-variables.
+Generate 'LaTeX' tables directly from R. It builds 'LaTeX' tables in
+blocks in the spirit of 'ggplot2' using the + and - operators for
+concatenation in the vertical and horizontal dimensions, respectively. It
+exports tables in the 'LaTeX' tabular environment using '.tex' code. It
+can compile '.tex' code to 'PDF' automatically.
 
 %prep
 %setup -q -c -n %{packname}

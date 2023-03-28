@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  QBMS
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query the Breeding Management System(s)
 
@@ -20,17 +21,22 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RNetCDF 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-tcltk 
 Requires:         R-utils 
+Requires:         R-CRAN-RNetCDF 
+Requires:         R-stats 
 
 %description
-Query the Breeding Management System(s) like BMS <https://bmspro.io>,
-BreeBase <https://breedbase.org>, and GIGWA
-<https://southgreen.fr/content/gigwa> (using 'BrAPI' <https://brapi.org>
-calls) to help breeders as targeted end-users retrieve phenotypic and
-genotypic data directly into their analyzing pipelines.
+Linking data management systems to analytics is an important step in
+breeding digitization. Breeders can use this R package to Query the
+Breeding Management System(s) like 'BMS' <https://bmspro.io>, 'BreedBase'
+<https://breedbase.org>, and 'GIGWA' <https://southgreen.fr/content/gigwa>
+(using 'BrAPI' <https://brapi.org> calls) and help them to retrieve
+phenotypic and genotypic data directly into their analyzing pipelines.
 
 %prep
 %setup -q -c -n %{packname}

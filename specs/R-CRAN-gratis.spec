@@ -1,56 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  healthyverse
+%global packname  gratis
 %global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Install and Load the 'healthyverse'
+Summary:          Generating Time Series with Diverse and Controllable Characteristics
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-healthyR 
-BuildRequires:    R-CRAN-healthyR.data 
-BuildRequires:    R-CRAN-healthyR.ts 
-BuildRequires:    R-CRAN-healthyR.ai 
-BuildRequires:    R-CRAN-TidyDensity 
-BuildRequires:    R-CRAN-tidyAML 
+BuildRequires:    R-CRAN-forecast >= 8.16
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-healthyR 
-Requires:         R-CRAN-healthyR.data 
-Requires:         R-CRAN-healthyR.ts 
-Requires:         R-CRAN-healthyR.ai 
-Requires:         R-CRAN-TidyDensity 
-Requires:         R-CRAN-tidyAML 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-polynom 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tsfeatures 
+BuildRequires:    R-CRAN-tsibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-forecast >= 8.16
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-GA 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-cli 
+Requires:         R-methods 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-polynom 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tsfeatures 
+Requires:         R-CRAN-tsibble 
+Requires:         R-utils 
+Requires:         R-CRAN-shiny 
 
 %description
-The 'healthyverse' is a set of packages that work in harmony because they
-share common data representations and 'API' design. This package is
-designed to make it easy to install and load multiple 'healthyverse'
-packages in a single step.
+Generates synthetic time series based on various univariate time series
+models including MAR and ARIMA processes. Kang, Y., Hyndman, R.J., Li,
+F.(2020) <doi:10.1002/sam.11461>.
 
 %prep
 %setup -q -c -n %{packname}

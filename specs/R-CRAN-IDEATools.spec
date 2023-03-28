@@ -1,58 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  microeco
-%global packver   0.15.0
+%global packname  IDEATools
+%global packver   3.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.0
+Version:          3.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microbial Community Ecology Data Analysis
+Summary:          Individual and Group Farm Sustainability Assessments using the IDEA4 Method
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-ggimage 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-openxlsx 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-ggimage 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-openxlsx 
 
 %description
-A series of statistical and plotting approaches in microbial community
-ecology based on the R6 class. The classes are designed for data
-preprocessing, taxa abundance plotting, alpha diversity analysis, beta
-diversity analysis, differential abundance test, null model analysis,
-network analysis, machine learning, environmental data analysis and
-functional analysis.
+Collection of tools to automate the processing of data collected though
+the IDEA4 method (see Zahm et al. (2018) <doi:10.1051/cagri/2019004> ).
+Starting from the original data collecting files this packages provides
+functions to compute IDEA indicators, draw modern and aesthetic plots, and
+produce a wide range of reporting materials.
 
 %prep
 %setup -q -c -n %{packname}

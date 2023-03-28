@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gfpop
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph-Constrained Functional Pruning Optimal Partitioning
 
@@ -30,7 +31,11 @@ robust parameters (K,a) for biweight (K) and Huber losses (K and a). The
 user can also constrain the inferred means to lie between some minimal and
 maximal values. Data is modeled by a cost with possible use of a robust
 loss, biweight and Huber (see edge parameters K and a). These costs should
-have a quadratic, log-linear or a log-log representation.
+have a quadratic, log-linear or a log-log representation. This includes
+quadratic Gaussian cost (type = 'mean'), log-linear cost (type =
+'variance', 'poisson' or 'exp') and log-log cost (type = 'negbin'). More
+details in the paper published in the Journal of Statistical Software:
+<doi:10.18637/jss.v106.i06>.
 
 %prep
 %setup -q -c -n %{packname}

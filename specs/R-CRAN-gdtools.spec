@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdtools
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Graphical Rendering and Fonts Management
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-fontquiver >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-systemfonts >= 0.1.1
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-gfonts 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-curl 
@@ -30,7 +29,6 @@ Requires:         R-CRAN-fontquiver >= 0.2.0
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-systemfonts >= 0.1.1
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-gfonts 
 Requires:         R-tools 
 Requires:         R-CRAN-curl 

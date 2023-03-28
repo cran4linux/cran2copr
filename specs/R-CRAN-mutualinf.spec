@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rfars
-%global packver   0.2.0
+%global packname  mutualinf
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Analyze Fatal Crash Data
+Summary:          Computation and Decomposition of the Mutual Information Index
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,33 +18,27 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-downloader 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-timetk 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-runner 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-downloader 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-timetk 
+Requires:         R-parallel 
+Requires:         R-CRAN-runner 
+Requires:         R-stats 
 
 %description
-Download raw data from the Fatality Analysis Reporting System
-(<https://cdan.dot.gov/query>) and prepare it for research.
+The Mutual Information Index (M) introduced to social science literature
+by Theil and Finizza (1971) <doi:10.1080/0022250X.1971.9989795> is a
+multigroup segregation measure that is highly decomposable and that
+according to Frankel and Volij (2011) <doi:10.1016/j.jet.2010.10.008> and
+Mora and Ruiz-Castillo (2011) <doi:10.1111/j.1467-9531.2011.01237.x>
+satisfies the Strong Unit Decomposability and Strong Group Decomposability
+properties. This package allows computing and decomposing the total index
+value into its "between" and "within" terms. These last terms can also be
+decomposed into their contributions, either by group or unit
+characteristics. The factors that produce each "within" term can also be
+displayed at the user's request. The results can be computed considering a
+variable or sets of variables that define separate clusters.
 
 %prep
 %setup -q -c -n %{packname}

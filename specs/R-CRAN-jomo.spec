@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jomo
-%global packver   2.7-4
+%global packver   2.7-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.4
+Version:          2.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Joint Modelling Multiple Imputation
 
@@ -30,8 +30,8 @@ Requires:         R-CRAN-ordinal
 Requires:         R-CRAN-tibble 
 
 %description
-Similarly to Schafer's package 'pan', 'jomo' is a package for multilevel
-joint modelling multiple imputation (Carpenter and Kenward, 2013)
+Similarly to package 'pan', 'jomo' is a package for multilevel joint
+modelling multiple imputation (Carpenter and Kenward, 2013)
 <doi:10.1002/9781119942283>. Novel aspects of 'jomo' are the possibility
 of handling binary and categorical data through latent normal variables,
 the option to use cluster-specific covariance matrices and to impute

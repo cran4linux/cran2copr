@@ -1,37 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmx
-%global packver   0.2-0
+%global packname  cenROC
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Linear Models Extended
+Summary:          Estimating Time-Dependent ROC Curve and AUC for Censored Data
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-icenReg 
+BuildRequires:    R-CRAN-condSURV 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-icenReg 
+Requires:         R-CRAN-condSURV 
+Requires:         R-CRAN-survival 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-sandwich 
+Requires:         R-graphics 
+Requires:         R-methods 
 
 %description
-Extended techniques for generalized linear models (GLMs), especially for
-binary responses, including parametric links and heteroscedastic latent
-variables.
+Contains functions to estimate a smoothed and a non-smoothed (empirical)
+time-dependent receiver operating characteristic curve and the
+corresponding area under the receiver operating characteristic curve and
+the optimal cutoff point for the right and interval censored survival
+data. See Beyene and El Ghouch (2020)<doi:10.1002/sim.8671> and Beyene and
+El Ghouch (2022) <doi:10.1002/bimj.202000382>.
 
 %prep
 %setup -q -c -n %{packname}

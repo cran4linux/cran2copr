@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MCDA
-%global packver   0.0.22
+%global packver   0.0.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.22
+Version:          0.0.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Support for the Multicriteria Decision Aiding Process
 

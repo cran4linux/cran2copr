@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  discoveR
-%global packver   3.1.2
+%global packname  loadeR
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploratory Data Analysis System
+Summary:          Load Data for Analysis System
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,51 +18,47 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.0
-BuildRequires:    R-CRAN-shiny >= 1.7.4
+BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-golem 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-loadeR 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinyAce 
-BuildRequires:    R-CRAN-ggdendro 
+BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-echarts4r 
+BuildRequires:    R-CRAN-shinyAce 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-golem 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinycustomloader 
 Requires:         R-CRAN-shinydashboardPlus >= 2.0.0
-Requires:         R-CRAN-shiny >= 1.7.4
+Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-golem 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-config 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-loadeR 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinyAce 
-Requires:         R-CRAN-ggdendro 
+Requires:         R-CRAN-writexl 
 Requires:         R-CRAN-echarts4r 
+Requires:         R-CRAN-shinyAce 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-golem 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinycustomloader 
 
 %description
-Performs an exploratory data analysis through a 'shiny' interface. It
-includes basic methods such as the mean, median, mode, normality test,
-among others. It also includes clustering techniques such as Principal
-Components Analysis, Hierarchical Clustering and the K-Means Method.
+Provides a framework to load text and excel files through a 'shiny'
+graphical interface. It allows renaming, transforming, ordering and
+removing variables. It includes basic exploratory methods such as the
+mean, median, mode, normality test, histogram and correlation.
 
 %prep
 %setup -q -c -n %{packname}

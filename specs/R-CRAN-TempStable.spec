@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TempStable
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Methods to Estimate Parameters of Different Tempered Stable Distributions
 
@@ -14,27 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-methods >= 4.1.2
-BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
+BuildRequires:    R-CRAN-numDeriv >= 2016.8.1
 BuildRequires:    R-CRAN-StableEstim >= 2.1
-BuildRequires:    R-CRAN-rootSolve >= 1.8.2.3
-BuildRequires:    R-CRAN-foreach >= 1.5.2
+BuildRequires:    R-CRAN-rootSolve >= 1.8
+BuildRequires:    R-CRAN-foreach >= 1.5.0
 BuildRequires:    R-CRAN-VGAM >= 1.1.7
-BuildRequires:    R-CRAN-doParallel >= 1.0.17
+BuildRequires:    R-CRAN-doParallel >= 1.0.12
 BuildRequires:    R-CRAN-stabledist >= 0.7.1
-BuildRequires:    R-CRAN-moments >= 0.14.1
-Requires:         R-methods >= 4.1.2
-Requires:         R-CRAN-numDeriv >= 2016.8.1.1
+BuildRequires:    R-CRAN-moments >= 0.14
+BuildRequires:    R-methods 
+Requires:         R-CRAN-numDeriv >= 2016.8.1
 Requires:         R-CRAN-StableEstim >= 2.1
-Requires:         R-CRAN-rootSolve >= 1.8.2.3
-Requires:         R-CRAN-foreach >= 1.5.2
+Requires:         R-CRAN-rootSolve >= 1.8
+Requires:         R-CRAN-foreach >= 1.5.0
 Requires:         R-CRAN-VGAM >= 1.1.7
-Requires:         R-CRAN-doParallel >= 1.0.17
+Requires:         R-CRAN-doParallel >= 1.0.12
 Requires:         R-CRAN-stabledist >= 0.7.1
-Requires:         R-CRAN-moments >= 0.14.1
+Requires:         R-CRAN-moments >= 0.14
+Requires:         R-methods 
 
 %description
 A collection of methods to estimate parameters of different tempered

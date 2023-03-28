@@ -1,45 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FFdownload
-%global packver   1.1.0
+%global packname  AcademicThemes
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from Kenneth French's Website
+Summary:          Colour Plots with Palettes from Academic Institutions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-timetk 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-timetk 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 
 %description
-Downloads all the datasets (you can exclude the daily ones or specify a
-list of those you are targeting specifically) from Kenneth French's
-Website at
-<https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html>,
-process them and convert them to list of 'xts' (time series).
+Functionality to allow users to easily colour plots with the colour
+palettes of various academic institutions.
 
 %prep
 %setup -q -c -n %{packname}

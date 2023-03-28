@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rfieldclimate
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  cequre
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the 'FieldClimate' API
+Summary:          Censored Quantile Regression & Monotonicity-Respecting Restoring
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel >= 2.8.0
+Requires:         R-core >= 2.8.0
 
 %description
-Provides functionality and parsers to interact with the 'FieldClimate' API
-<https://api.fieldclimate.com/v2/docs/>.
+Perform censored quantile regression of Huang (2010)
+<doi:10.1214/09-AOS771>, and restore monotonicity respecting via adaptive
+interpolation for dynamic regression of Huang (2017)
+<doi:10.1080/01621459.2016.1149070>. The monotonicity-respecting
+restoration applies to general dynamic regression models including
+(uncensored or censored) quantile regression model, additive hazards
+model, and dynamic survival models of Peng and Huang (2007)
+<doi:10.1093/biomet/asm058>, among others.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
