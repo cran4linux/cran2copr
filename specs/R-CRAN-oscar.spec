@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oscar
-%global packver   1.1.2-2
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2.2
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Subset Cardinality Regression (OSCAR) Models Using the L0-Pseudonorm
 
@@ -47,8 +47,10 @@ into a continuous non-convex optimization task. These optimization modules
 include DBDC ('Double Bundle method for nonsmooth DC optimization' as
 described in Joki et al. (2018) <doi:10.1137/16M1115733>) and LMBM
 ('Limited Memory Bundle Method for large-scale nonsmooth optimization' as
-in Haarala et al. (2004) <doi:10.1080/10556780410001689225>). Multiple
-regression model families are supported: Cox, logistic, and Gaussian.
+in Haarala et al. (2004) <doi:10.1080/10556780410001689225>). The OSCAR
+models are comprehensively exemplified in Halkola et al. (2023)
+<doi:10.1371/journal.pcbi.1010333>). Multiple regression model families
+are supported: Cox, logistic, and Gaussian.
 
 %prep
 %setup -q -c -n %{packname}

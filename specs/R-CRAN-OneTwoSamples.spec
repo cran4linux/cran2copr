@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fspe
-%global packver   0.1.2
+%global packname  OneTwoSamples
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating the Number of Factors in EFA with Out-of-Sample Prediction Errors
+Summary:          Deal with One and Two (Normal) Samples
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-corpcor 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-corpcor 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Estimating the number of factors in Exploratory Factor Analysis (EFA) with
-out-of-sample prediction errors using a cross-validation scheme. Haslbeck
-& van Bork (Preprint) <https://psyarxiv.com/qktsd>.
+We introduce an R function one_two_sample() which can deal with one and
+two (normal) samples, Ying-Ying Zhang, Yi Wei (2012)
+<doi:10.2991/asshm-13.2013.29>. For one normal sample x, the function
+reports descriptive statistics, plot, interval estimation and test of
+hypothesis of x. For two normal samples x and y, the function reports
+descriptive statistics, plot, interval estimation and test of hypothesis
+of x and y, respectively. It also reports interval estimation and test of
+hypothesis of mu1-mu2 (the difference of the means of x and y) and
+sigma1^2 / sigma2^2 (the ratio of the variances of x and y), tests whether
+x and y are from the same population, finds the correlation coefficient of
+x and y if x and y have the same length.
 
 %prep
 %setup -q -c -n %{packname}

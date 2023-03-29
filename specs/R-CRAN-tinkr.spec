@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinkr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cast '(R)Markdown' Files to 'XML' and Back Again
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-xslt 
 BuildRequires:    R-CRAN-yaml 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-xslt 
 Requires:         R-CRAN-yaml 

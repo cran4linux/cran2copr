@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qmethod
-%global packver   1.8
+%global packver   1.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Subjective Perspectives Using Q Methodology
 
@@ -18,22 +19,16 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rjson 
 Requires:         R-methods 
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-GPArotation 
 Requires:         R-tools 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rjson 
 
 %description
 Analysis of Q methodology, used to identify distinct perspectives existing
@@ -56,7 +51,7 @@ offers functions to print Q cards and to generate Q distributions for
 study administration. See further details in the package documentation,
 and in the web pages below, which include a cookbook, guidelines for more
 advanced analysis (how to perform manual flagging or change the sign of
-factors), data management, and a beta graphical user interface for online
+factors), data management, and a graphical user interface (GUI) for online
 and offline use.
 
 %prep
@@ -67,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

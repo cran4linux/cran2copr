@@ -1,36 +1,25 @@
 %global __brp_check_rpaths %{nil}
-%global packname  eflm
-%global packver   0.3.0
+%global __requires_exclude ^libmpi
+%global packname  fastAFT
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Fitting of Linear and Generalized Linear Models
+Summary:          Fast Regression for the Accelerated Failure Time (AFT) Model
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 2.8.0
+Requires:         R-core >= 2.8.0
 
 %description
-Efficient Fitting of Linear and Generalized Linear Models by using just
-base R. As an alternative to lm() and glm(), this package provides elm()
-and eglm(), with a significant speedup when the number of observations is
-larger than the number of parameters to estimate. The speed gains are
-obtained by reducing the NxP model matrix to a PxP matrix, and the best
-computational performance is obtained when R is linked against 'OpenBLAS',
-'Intel MKL' or other optimized 'BLAS' library. This implementation aims at
-being compatible with 'broom' and 'sandwich' packages for summary
-statistics and clustering by providing S3 methods.
+Fast censored linear regression for the accelerated failure time (AFT)
+model of Huang (2013) <doi:10.1111/sjos.12031>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +29,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

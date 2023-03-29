@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corto
-%global packver   1.2.0
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference of Gene Regulatory Networks
 
@@ -24,7 +24,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
@@ -34,7 +33,6 @@ Requires:         R-methods
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 
 Requires:         R-utils 
 

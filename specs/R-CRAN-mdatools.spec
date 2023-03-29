@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mdatools
-%global packver   0.13.1
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Data Analysis for Chemometrics
 
@@ -30,8 +30,8 @@ Requires:         R-CRAN-Matrix
 
 %description
 Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+multivariate data used in chemometrics. S. Kucheryavskiy (2020)
+<doi:10.1016/j.chemolab.2020.103937>.
 
 %prep
 %setup -q -c -n %{packname}

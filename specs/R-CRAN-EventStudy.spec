@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BARIS
-%global packver   1.1.3
+%global __requires_exclude ^libmpi
+%global packname  EventStudy
+%global packver   0.39.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.39.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access and Import Data from the French Open Data Portal
+Summary:          Event Study Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,52 +17,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-downloader 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-downloader 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-rio 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-glue 
 
 %description
-Allows the user to access and import data from the rich French open data
-portal through the provided free API
-<https://doc.data.gouv.fr/api/reference/>. The portal is free, and no
-credential is required for extracting datasets.
+Perform Event Studies from through our <https://EventStudyTools.com>
+Application Programming Interface, parse the results, visualize it, and /
+or use the results in further analysis.
 
 %prep
 %setup -q -c -n %{packname}

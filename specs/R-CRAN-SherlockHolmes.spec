@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SherlockHolmes
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Building a Concordance of Terms in a Series of Texts
 
@@ -59,7 +59,7 @@ hypothesis is that the frequency distribution of the search pattern
 "Holmes" is a good proxy for the degree to which a story is or is not
 truly a Sherlock Holmes story. The results are presented in a manuscript
 that is available as a vignette and online at
-<https://github.com/barryzee/Concordance>.
+<https://barryzee.github.io/Concordance/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  expp
-%global packver   1.2.5
+%global __requires_exclude ^libmpi
+%global packname  RcausalEGM
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis of Extra-Pair Paternity
+Summary:          A General Causal Inference Framework by Encoding Generative Modeling
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-deldir 
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-stats 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-deldir 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-reticulate 
 
 %description
-Tools and data to accompany Schlicht, L., Valcu, M., & Kempenaers, B.
-(2015) <doi:10.1111/1365-2656.12293>. Spatial patterns of extra-pair
-paternity: beyond paternity gains and losses. Journal of Animal Ecology,
-84(2), 518-531.
+CausalEGM is a general causal inference framework for estimating causal
+effects by encoding generative modeling, which can be applied in both
+discrete and continuous treatment settings. A description of the methods
+is given in Liu (2022) <arXiv:2212.05925>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  officer
-%global packver   0.6.2
+%global packname  rfieldclimate
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulation of Microsoft Word and PowerPoint Documents
+Summary:          Client for the 'FieldClimate' API
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,35 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zip >= 2.1.0
-BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-ragg 
-Requires:         R-CRAN-zip >= 2.1.0
-Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-ragg 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Access and manipulate 'Microsoft Word', 'RTF' and 'Microsoft PowerPoint'
-documents from R. The package focuses on tabular and graphical reporting
-from R; it also provides two functions that let users get document content
-into data objects. A set of functions lets add and remove images, tables
-and paragraphs of text in new or existing documents. The package does not
-require any installation of Microsoft products to be able to write
-Microsoft files.
+Provides functionality to interact with the 'FieldClimate' API
+<https://api.fieldclimate.com/v2/docs/>.
 
 %prep
 %setup -q -c -n %{packname}
