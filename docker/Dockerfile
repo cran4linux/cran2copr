@@ -21,6 +21,7 @@ RUN dnf -y install 'dnf-command(copr)' \
 # install littler scripts
 RUN dnf -y install R-CRAN-{littler,remotes} \
     && dnf -y clean all \
+    && ln -s /usr/local/lib/R/library /usr/local/lib/R/site-library \
     && ln -s /usr/local/lib/R/library/littler/examples/install.r \
         /usr/local/bin/install.r \
     && ln -s /usr/local/lib/R/library/littler/examples/install2.r \
