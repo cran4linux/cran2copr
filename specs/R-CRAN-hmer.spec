@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmer
-%global packver   1.2.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          History Matching and Emulation Package
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-CRAN-MASS 
@@ -29,11 +30,13 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-pdist 
+BuildRequires:    R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lhs 
 Requires:         R-CRAN-MASS 
@@ -43,8 +46,9 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-isoband 
-Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-pdist 
+Requires:         R-CRAN-ggbeeswarm 
 
 %description
 A set of objects and functions for Bayes Linear emulation and history

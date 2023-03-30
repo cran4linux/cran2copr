@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  macrosyntR
-%global packver   0.2.14
+%global packver   0.2.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.14
+Version:          0.2.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Ordered Oxford Grids
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
 
 %description
 Use standard genomics file format (BED) and a table of orthologs to

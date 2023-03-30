@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tmbstan
-%global packver   1.0.7
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          MCMC Sampling from 'TMB' Model Object using 'Stan'
 
@@ -16,19 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-TMB >= 1.7.12
 BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-TMB 
 BuildRequires:    R-CRAN-StanHeaders 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-TMB >= 1.7.12
 Requires:         R-CRAN-rstan 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-TMB 
 Requires:         R-CRAN-rstantools
 
 %description

@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iq
-%global packver   1.9.10
+%global packname  panelPomp
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.10
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Protein Quantification in Mass Spectrometry-Based Proteomics
+Summary:          Inference for Panel Partially Observed Markov Processes
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pomp >= 4.5
+BuildRequires:    R-methods 
+Requires:         R-CRAN-pomp >= 4.5
+Requires:         R-methods 
 
 %description
-An implementation of the MaxLFQ algorithm by Cox et al. (2014)
-<doi:10.1074/mcp.M113.031591> in a comprehensive pipeline for processing
-proteomics data in data-independent acquisition mode (Pham et al. 2020
-<doi:10.1093/bioinformatics/btz961>). It offers additional options for
-protein quantification using the N most intense fragment ions, using all
-fragment ions, and a wrapper for the median polish algorithm by Tukey
-(1977, ISBN:0201076160). In general, the tool can be used to integrate
-multiple proportional observations into a single quantitative value.
+Data analysis based on panel partially-observed Markov process (PanelPOMP)
+models. To implement such models, simulate them and fit them to panel
+data, 'panelPomp' extends some of the facilities provided for time series
+data by the 'pomp' package. Implemented methods include filtering (panel
+particle filtering) and maximum likelihood estimation (Panel Iterated
+Filtering) as proposed in Breto, Ionides and King (2020) "Panel Data
+Analysis via Mechanistic Models" <doi:10.1080/01621459.2019.1604367>.
 
 %prep
 %setup -q -c -n %{packname}

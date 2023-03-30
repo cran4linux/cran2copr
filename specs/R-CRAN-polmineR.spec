@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polmineR
-%global packver   0.8.7
+%global packver   0.8.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.7
+Version:          0.8.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Verbs and Nouns for Corpus Analysis
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-RcppCWB >= 0.5.3
 Requires:         R-methods 
@@ -53,6 +54,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
 
 %description
 Package for corpus analysis using the Corpus Workbench ('CWB',

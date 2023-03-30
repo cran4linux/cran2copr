@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LDAandLDAS
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linkage Disequilibrium of Ancestry (LDA) and LDA Score (LDAS)
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-parallel 
 
 %description
 Computation of linkage disequilibrium of ancestry (LDA) and linkage

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DChaos
-%global packver   0.1-6
+%global packver   0.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chaotic Time Series Analysis
 
@@ -18,13 +19,11 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-outliers 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-outliers 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-sandwich 
@@ -52,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

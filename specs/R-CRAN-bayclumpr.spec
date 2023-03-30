@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iq
-%global packver   1.9.10
+%global packname  bayclumpr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Protein Quantification in Mass Spectrometry-Based Proteomics
+Summary:          Bayesian Analysis of Clumped Isotope Datasets
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-deming 
+BuildRequires:    R-CRAN-IsoplotR 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-parallel 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-deming 
+Requires:         R-CRAN-IsoplotR 
+Requires:         R-CRAN-rstan 
+Requires:         R-stats 
+Requires:         R-CRAN-rstantools
 
 %description
-An implementation of the MaxLFQ algorithm by Cox et al. (2014)
-<doi:10.1074/mcp.M113.031591> in a comprehensive pipeline for processing
-proteomics data in data-independent acquisition mode (Pham et al. 2020
-<doi:10.1093/bioinformatics/btz961>). It offers additional options for
-protein quantification using the N most intense fragment ions, using all
-fragment ions, and a wrapper for the median polish algorithm by Tukey
-(1977, ISBN:0201076160). In general, the tool can be used to integrate
-multiple proportional observations into a single quantitative value.
+Simulating synthetic clumped isotope dataset, fitting linear regression
+models under Bayesian and non-Bayesian frameworks, and generating
+temperature reconstructions for the same two approaches. Please note that
+models implemented in this package are described in Roman-Palacios et al.
+(2021) <doi:10.1002/essoar.10507995.1>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prioritizr
-%global packver   7.2.2
+%global packver   8.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.2.2
+Version:          8.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematic Conservation Prioritization in R
 
@@ -17,50 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ape >= 5.5
-BuildRequires:    R-CRAN-raster >= 3.5.2
+BuildRequires:    R-CRAN-raster >= 3.6.11
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-R6 >= 2.5.1
 BuildRequires:    R-CRAN-withr >= 2.3.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-tibble >= 2.0.0
-BuildRequires:    R-CRAN-plyr >= 1.8.6
 BuildRequires:    R-CRAN-BH >= 1.75.0.0
+BuildRequires:    R-CRAN-terra >= 1.6.53
+BuildRequires:    R-CRAN-Matrix >= 1.3.0
 BuildRequires:    R-CRAN-igraph >= 1.2.9
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-uuid >= 1.0.3
-BuildRequires:    R-CRAN-fasterize >= 1.0.2
-BuildRequires:    R-CRAN-doParallel >= 1.0.16
-BuildRequires:    R-CRAN-proto >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-exactextractr >= 0.8.2
 BuildRequires:    R-CRAN-sf >= 0.8.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
-BuildRequires:    R-CRAN-exactextractr >= 0.2.0
-BuildRequires:    R-CRAN-geos >= 0.2
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.7.3.0
 BuildRequires:    R-CRAN-slam >= 0.1.48
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-ape >= 5.5
-Requires:         R-CRAN-raster >= 3.5.2
+Requires:         R-CRAN-raster >= 3.6.11
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-R6 >= 2.5.1
 Requires:         R-CRAN-withr >= 2.3.0
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-tibble >= 2.0.0
-Requires:         R-CRAN-plyr >= 1.8.6
+Requires:         R-CRAN-terra >= 1.6.53
+Requires:         R-CRAN-Matrix >= 1.3.0
 Requires:         R-CRAN-igraph >= 1.2.9
-Requires:         R-CRAN-uuid >= 1.0.3
-Requires:         R-CRAN-fasterize >= 1.0.2
-Requires:         R-CRAN-doParallel >= 1.0.16
-Requires:         R-CRAN-proto >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-exactextractr >= 0.8.2
 Requires:         R-CRAN-sf >= 0.8.0
 Requires:         R-CRAN-assertthat >= 0.2.0
-Requires:         R-CRAN-exactextractr >= 0.2.0
-Requires:         R-CRAN-geos >= 0.2
 Requires:         R-CRAN-slam >= 0.1.48
-Requires:         R-CRAN-sp 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-Matrix 
 
 %description
 Systematic conservation prioritization using mixed integer linear
@@ -77,11 +71,11 @@ conservation planning problems, users should install the Gurobi
 optimization software (available from <https://www.gurobi.com/>) and the
 'gurobi' R package (see Gurobi Installation Guide vignette for details).
 Users can also install the IBM CPLEX software
-(<https://www.ibm.com/analytics/cplex-optimizer>) and the 'cplexAPI' R
-package (available at <https://github.com/cran/cplexAPI>). Additionally,
-the 'rcbc' R package (available at
-<https://github.com/dirkschumacher/rcbc>) can be used to generate
-solutions using the CBC optimization software
+(<https://www.ibm.com/products/ilog-cplex-optimization-studio/cplex-optimizer>)
+and the 'cplexAPI' R package (available at
+<https://github.com/cran/cplexAPI>). Additionally, the 'rcbc' R package
+(available at <https://github.com/dirkschumacher/rcbc>) can be used to
+generate solutions using the CBC optimization software
 (<https://github.com/coin-or/Cbc>).
 
 %prep
