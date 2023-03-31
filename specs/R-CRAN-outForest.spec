@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  outForest
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Outlier Detection and Replacement
 
@@ -17,13 +18,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-missRanger >= 2.1.0
-BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-missRanger >= 2.1.0
-Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-ranger 
 Requires:         R-graphics 
 Requires:         R-stats 
 

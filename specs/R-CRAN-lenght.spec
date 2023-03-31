@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  wellknown
-%global packver   0.7.4
+%global __requires_exclude ^libmpi
+%global packname  lenght
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Between 'WKT' and 'GeoJSON'
+Summary:          Allow Misspellings of Length Function
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,19 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-wk 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-wk 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
 
 %description
-Convert 'WKT' to 'GeoJSON' and 'GeoJSON' to 'WKT'. Functions included for
-converting between 'GeoJSON' to 'WKT', creating both 'GeoJSON' features,
-and non-features, creating 'WKT' from R objects (e.g., lists, data.frames,
-vectors), and linting 'WKT'.
+Convenient aliases for common ways of misspelling the base R function
+length(). These include every permutation of the final three letters.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +30,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

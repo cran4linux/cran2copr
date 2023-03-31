@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GNE
-%global packver   0.99-4
+%global packver   0.99-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.4
+Version:          0.99.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Generalized Nash Equilibria
 
@@ -27,8 +28,8 @@ Requires:         R-CRAN-SQUAREM
 Requires:         R-methods 
 
 %description
-Provide functions to compute standard and generalized Nash Equilibria.
-Optimization methods are available nonsmooth reformulation, fixed-point
+Compute standard and generalized Nash Equilibria of non-cooperative games.
+Optimization methods available are nonsmooth reformulation, fixed-point
 formulation, minimization problem and constrained-equation reformulation.
 See e.g. Kanzow and Facchinei (2010), <doi:10.1007/s10479-009-0653-x>.
 

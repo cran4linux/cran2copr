@@ -1,44 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FAOSTAT
-%global packver   2.3.0
+%global packname  SenSpe
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the FAOSTAT Database
+Summary:          Estimating Specificity at Controlled Sensitivity, or Vice Versa
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.22
-BuildRequires:    R-CRAN-data.table >= 1.8.2
-BuildRequires:    R-CRAN-plyr >= 1.7.1
-BuildRequires:    R-CRAN-httr >= 1.0
-BuildRequires:    R-CRAN-RJSONIO >= 0.96.0
-BuildRequires:    R-CRAN-classInt >= 0.1.19
-BuildRequires:    R-CRAN-labeling >= 0.1
-Requires:         R-CRAN-MASS >= 7.3.22
-Requires:         R-CRAN-data.table >= 1.8.2
-Requires:         R-CRAN-plyr >= 1.7.1
-Requires:         R-CRAN-httr >= 1.0
-Requires:         R-CRAN-RJSONIO >= 0.96.0
-Requires:         R-CRAN-classInt >= 0.1.19
-Requires:         R-CRAN-labeling >= 0.1
+BuildRequires:    R-devel >= 2.8.0
+Requires:         R-core >= 2.8.0
 
 %description
-Download Data from the FAOSTAT Database of the Food and Agricultural
-Organization (FAO) of the United Nations. A list of functions to download
-statistics from FAOSTAT (database of the FAO
-<https://www.fao.org/faostat/>) and WDI (database of the World Bank
-<https://data.worldbank.org/>), and to perform some harmonization
-operations.
+Perform biomarker evaluation and comparison in terms of specificity at a
+controlled sensitivity level, or sensitivity at a controlled specificity
+level. Point estimation and exact bootstrap of Huang, Parakati, Patil, and
+Sanda (2023) <doi:10.5705/ss.202021.0020> for the one- and two-sample
+problems are implemented.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fedstatAPIr
-%global packver   1.0.0
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unofficial API for Fedstat (Rosstat EMISS System) for Automatic and Efficient Data Queries
 

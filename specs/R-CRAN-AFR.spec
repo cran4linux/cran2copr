@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AFR
-%global packver   0.2.1
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit for Regression Analysis of Kazakhstan Banking Sector Data
 
@@ -25,9 +25,9 @@ BuildRequires:    R-CRAN-olsrr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
@@ -45,9 +45,9 @@ Requires:         R-CRAN-olsrr
 Requires:         R-stats 
 Requires:         R-CRAN-lmtest 
 Requires:         R-graphics 
-Requires:         R-CRAN-tseries 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tseries 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 

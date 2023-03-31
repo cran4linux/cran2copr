@@ -1,33 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  opentimsr
-%global packver   1.0.13
+%global __requires_exclude ^libmpi
+%global packname  dynamAedes
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.13
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Open-Source Loader for Bruker's timsTOF Data Files
+Summary:          A Unified Mechanistic Model for the Population Dynamics of Invasive Aedes Mosquitoes
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-methods 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-drc 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-slam 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-drc 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-slam 
+Requires:         R-CRAN-sp 
 
 %description
-A free, open-source package designed for handling .tdf data files produced
-by Bruker's 'timsTOF' mass spectrometers. Fast, free, crossplatform, with
-no reading through EULAs or messing with binary .dll files involved.
+Generalised model for population dynamics of invasive Aedes mosquitoes.
+Rationale and model structure are described here: Da Re et al. (2021)
+<doi:10.1016/j.ecoinf.2020.101180> and Da Re et al. (2022)
+<doi:10.1101/2021.12.21.473628>.
 
 %prep
 %setup -q -c -n %{packname}

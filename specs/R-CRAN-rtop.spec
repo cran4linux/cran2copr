@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtop
-%global packver   0.6-2
+%global packver   0.6-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpolation of Data with Variable Spatial Support
 
@@ -36,8 +36,10 @@ Requires:         R-CRAN-units
 Requires:         R-CRAN-sp 
 
 %description
-Geostatistical interpolation of data with irregular spatial support such
-as runoff related data or data from administrative units.
+Data with irregular spatial support, such as runoff related data or data
+from administrative units, can with 'rtop' be interpolated to locations
+without observations with the top-kriging method. A description of the
+package is given by Skøien et al (2014) <doi:10.1016/j.cageo.2014.02.009>.
 
 %prep
 %setup -q -c -n %{packname}

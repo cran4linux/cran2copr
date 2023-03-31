@@ -1,44 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FAOSTAT
-%global packver   2.3.0
+%global packname  rrandvec
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the FAOSTAT Database
+Summary:          Generate Random Vectors Whose Components Sum Up to One
 
-License:          GPL (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.22
-BuildRequires:    R-CRAN-data.table >= 1.8.2
-BuildRequires:    R-CRAN-plyr >= 1.7.1
-BuildRequires:    R-CRAN-httr >= 1.0
-BuildRequires:    R-CRAN-RJSONIO >= 0.96.0
-BuildRequires:    R-CRAN-classInt >= 0.1.19
-BuildRequires:    R-CRAN-labeling >= 0.1
-Requires:         R-CRAN-MASS >= 7.3.22
-Requires:         R-CRAN-data.table >= 1.8.2
-Requires:         R-CRAN-plyr >= 1.7.1
-Requires:         R-CRAN-httr >= 1.0
-Requires:         R-CRAN-RJSONIO >= 0.96.0
-Requires:         R-CRAN-classInt >= 0.1.19
-Requires:         R-CRAN-labeling >= 0.1
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-checkmate 
 
 %description
-Download Data from the FAOSTAT Database of the Food and Agricultural
-Organization (FAO) of the United Nations. A list of functions to download
-statistics from FAOSTAT (database of the FAO
-<https://www.fao.org/faostat/>) and WDI (database of the World Bank
-<https://data.worldbank.org/>), and to perform some harmonization
-operations.
+A single method implementing multiple approaches to generate pseudo-random
+vectors whose components sum up to one (see, e.g., Maziero (2015)
+<doi:10.1007/s13538-015-0337-8>). The components of such vectors can for
+example be used for weighting objectives when reducing multi-objective
+optimisation problems to a single-objective problem in the socalled
+weighted sum scalarisation approach.
 
 %prep
 %setup -q -c -n %{packname}

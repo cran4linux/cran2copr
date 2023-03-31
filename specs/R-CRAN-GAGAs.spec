@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GAGAs
-%global packver   0.5.1
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Adaptive Generative Adjustment Algorithm for Generalized Linear Models
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-survival 
+Requires:         R-utils 
 
 %description
 Fits linear regression, logistic and multinomial regression models,

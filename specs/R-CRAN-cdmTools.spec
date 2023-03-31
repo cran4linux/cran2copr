@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cdmTools
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Tools for Cognitive Diagnosis Modeling
 
@@ -23,7 +24,6 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-GPArotation >= 2014.11.1
 BuildRequires:    R-CRAN-GDINA >= 2.8.0
 BuildRequires:    R-CRAN-psych >= 1.9.12
-BuildRequires:    R-CRAN-NPCD >= 1.0.11
 BuildRequires:    R-CRAN-combinat >= 0.0.8
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doSNOW 
@@ -34,7 +34,6 @@ Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-GPArotation >= 2014.11.1
 Requires:         R-CRAN-GDINA >= 2.8.0
 Requires:         R-CRAN-psych >= 1.9.12
-Requires:         R-CRAN-NPCD >= 1.0.11
 Requires:         R-CRAN-combinat >= 0.0.8
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doSNOW 
@@ -48,10 +47,11 @@ Song, & Ding, 2018, <doi:10.1007/978-3-319-77249-3_29>). It also contains
 dimensionality assessment procedures for CDM, including parallel analysis
 and automated fit comparison as explored in Nájera, Abad, and Sorrel
 (2021, <doi:10.3389/fpsyg.2021.614470>). Other relevant methods and
-features for CDM applications, such as the general nonparametric
-classification method (Chiu et al., 2018; <doi:10.1007/s11336-017-9595-4>)
-and corrected estimation of the classification accuracy via multiple
-imputation (Kreitchmann et al., 2022) are also available. Lastly, the
+features for CDM applications, such as the restricted DINA model (Nájera
+et al., 2023), the general nonparametric classification method (Chiu et
+al., 2018; <doi:10.1007/s11336-017-9595-4>), and corrected estimation of
+the classification accuracy via multiple imputation (Kreitchmann et al.,
+2022; <doi:10.3758/s13428-022-01967-5>) are also available. Lastly, the
 package provides some useful functions for CDM simulation studies, such as
 random Q-matrix generation and detection of complete/identified
 Q-matrices.
