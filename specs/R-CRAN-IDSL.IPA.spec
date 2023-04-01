@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IDSL.IPA
-%global packver   2.6
+%global packver   2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Intrinsic Peak Analysis (IPA) for HRMS Data
 
@@ -17,13 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IDSL.MXP >= 1.8
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-IDSL.MXP 
 BuildRequires:    R-CRAN-readxl 
-Requires:         R-CRAN-IDSL.MXP >= 1.8
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-IDSL.MXP 
 Requires:         R-CRAN-readxl 
 
 %description
@@ -32,7 +28,8 @@ processing to extract signals of organic small molecules. The package
 performs ion pairing, peak detection, peak table alignment, retention time
 correction, aligned peak table gap filling, peak annotation and
 visualization of extracted ion chromatograms (EICs) and total ion
-chromatograms (TICs).
+chromatograms (TICs). The 'IDSL.IPA' package was introduced in
+<doi:10.1021/acs.jproteome.2c00120> .
 
 %prep
 %setup -q -c -n %{packname}

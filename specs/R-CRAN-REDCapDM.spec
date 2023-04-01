@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapDM
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'REDCap' Data Management
 
@@ -18,31 +18,29 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-REDCapR 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-REDCapR 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-REDCapR 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-utils 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-REDCapR 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
 Access and manage 'REDCap' data. 'REDCap' (Research Electronic Data

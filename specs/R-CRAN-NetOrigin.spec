@@ -1,54 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netmediate
-%global packver   0.1.1
+%global packname  NetOrigin
+%global packver   1.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Micro-Macro Analysis for Social Networks
+Summary:          Origin Estimation for Propagation Processes on Complex Networks
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-btergm 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ergm 
-BuildRequires:    R-CRAN-RSiena 
-BuildRequires:    R-CRAN-sna 
-BuildRequires:    R-CRAN-network 
-BuildRequires:    R-CRAN-ergMargins 
-BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-plm 
-BuildRequires:    R-CRAN-gam 
-BuildRequires:    R-CRAN-intergraph 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-btergm 
-Requires:         R-stats 
-Requires:         R-CRAN-ergm 
-Requires:         R-CRAN-RSiena 
-Requires:         R-CRAN-sna 
-Requires:         R-CRAN-network 
-Requires:         R-CRAN-ergMargins 
-Requires:         R-CRAN-VGAM 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-plm 
-Requires:         R-CRAN-gam 
-Requires:         R-CRAN-intergraph 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 
 %description
-Estimates micro effects on macro structures (MEMS) and average micro
-mediated effects (AMME).
+Performs network-based source estimation. Different approaches are
+available: effective distance median, recursive backtracking, and
+centrality-based source estimation. Additionally, we provide public
+transportation network data as well as methods for data preparation,
+source estimation performance analysis and visualization.
 
 %prep
 %setup -q -c -n %{packname}

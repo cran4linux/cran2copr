@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bark
-%global packver   1.0.1
+%global packname  AquaBEHER
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Additive Regression Kernels
+Summary:          Estimation of Rainy Season Calendar and Soil Water Balance for Agriculture
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
 
 %description
-Bayesian Additive Regression Kernels (BARK) provides an implementation for
-non-parametric function estimation using Levy Random Field priors for
-functions that may be represented as a sum of additive multivariate
-kernels.  Kernels are located at every data point as in Support Vector
-Machines, however, coefficients may be heavily shrunk to zero under the
-Cauchy process prior, or even, set to zero.  The number of active features
-is controlled by priors on precision parameters within the kernels,
-permitting feature selection. For more details see Ouyang, Z (2008)
-"Bayesian Additive Regression Kernels", Duke University. PhD dissertation,
-Chapter 3.
+Computes and integrates daily reference 'evapotranspiration' ('Eto') into
+a water balance model, to estimate the calendar of wet-season (Onset,
+Cessation and Duration) based on 'agroclimatic' approach, for further
+information please refer to Allen 'et al.' (1998, ISBN:92-5-104219-5),
+Allen (2005, ISBN:9780784408056), 'Doorenbos' and Pruitt (1975,
+ISBN:9251002797) 'Guo et al.' (2016) <doi:10.1016/j.envsoft.2015.12.019>,
+Hargreaves and 'Samani' (1985) <doi:10.13031/2013.26773>, Priestley and
+Taylor (1972)
+<https://journals.ametsoc.org/downloadpdf/journals/mwre/100/2/1520-0493_1972_100_0081_otaosh_2_3_co_2.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

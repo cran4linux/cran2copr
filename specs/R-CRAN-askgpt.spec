@@ -1,36 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openalexR
-%global packver   1.0.0
+%global packname  askgpt
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Getting Bibliographic Records from 'OpenAlex' Database Using 'DSL' API
+Summary:          Asking GPT About R Stuff
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-tibble 
 
 %description
-A set of tools to extract bibliographic content from 'OpenAlex' database
-using API <https://docs.openalex.org/api/>.
+A chat package connecting to API endpoints by 'OpenAI'
+(<https://platform.openai.com/>) to answer questions (about R).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matrixdist
-%global packver   1.1.6
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistics for Matrix Distributions
 
@@ -32,15 +32,17 @@ continuous, discrete, multivariate, in-homogeneous, right-censored, and
 regression. Methods for functional evaluation, simulation and estimation
 using the expectation-maximization (EM) algorithm are provided for all
 models. The methods of this package are based on the following references.
-Asmussen, S., Nerman, O., & Olsson, M. (1996)
-<https://www.jstor.org/stable/4616418>, Olsson, M. (1996)
-<https://www.jstor.org/stable/4616419>, Albrecher, H., & Bladt, M. (2019)
-<doi:10.1017/jpr.2019.60>, Albrecher, H., Bladt, M., & Yslas, J. (2020)
-<doi:10.1111/sjos.12505>, Albrecher, H., Bladt, M., Bladt, M., & Yslas, J.
-(2022) <doi:10.1016/j.insmatheco.2022.08.001>, Bladt, M., & Yslas, J.
-(2022) <doi:10.1080/03461238.2022.2097019>, Bladt, M. (2022)
-<doi:10.1017/asb.2021.40>, Bladt, M. (2022). <arXiv:2110.05179>,
-Albrecher, H., Bladt, M., & Mueller, A. (2022) <arXiv:2207.01279>.
+Asmussen, S., Nerman, O., & Olsson, M. (1996). Fitting phase-type
+distributions via the EM algorithm, Olsson, M. (1996). Estimation of
+phase-type distributions from censored data, Albrecher, H., & Bladt, M.
+(2019) <doi:10.1017/jpr.2019.60>, Albrecher, H., Bladt, M., & Yslas, J.
+(2022) <doi:10.1111/sjos.12505>, Albrecher, H., Bladt, M., Bladt, M., &
+Yslas, J. (2022) <doi:10.1016/j.insmatheco.2022.08.001>, Bladt, M., &
+Yslas, J. (2022) <doi:10.1080/03461238.2022.2097019>, Bladt, M. (2022)
+<doi:10.1017/asb.2021.40>, Bladt, M. (2023)
+<doi:10.1080/10920277.2023.2167833>, Albrecher, H., Bladt, M., & Mueller,
+A. (2023) <doi:10.1515/demo-2022-0153>, Bladt, M. & Yslas, J. (2023)
+<doi:10.1016/j.insmatheco.2023.02.008>.
 
 %prep
 %setup -q -c -n %{packname}

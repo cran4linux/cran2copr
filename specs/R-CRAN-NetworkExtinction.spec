@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NetworkExtinction
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extinction Simulation in Ecological Networks
 
@@ -33,6 +33,9 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-doSNOW 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
@@ -49,6 +52,9 @@ Requires:         R-CRAN-MASS
 Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-doSNOW 
 
 %description
 Simulates the extinction of species in ecological networks and it analyzes

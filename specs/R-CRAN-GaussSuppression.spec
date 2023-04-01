@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GaussSuppression
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tabular Data Suppression using Gaussian Elimination
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.3.4
+BuildRequires:    R-CRAN-SSBtools >= 1.4.3
 BuildRequires:    R-CRAN-RegSDC >= 0.7.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-SSBtools >= 1.3.4
+Requires:         R-CRAN-SSBtools >= 1.4.3
 Requires:         R-CRAN-RegSDC >= 0.7.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
@@ -30,12 +30,15 @@ Requires:         R-methods
 
 %description
 A statistical disclosure control tool to protect tables by suppression
-using the Gaussian elimination secondary suppression algorithm. Primary
-suppression functions for the minimum frequency rule, the dominance rule
-and a directly-disclosive rule are included. General primary suppression
-functions can be supplied as input. Suppressed frequencies can be replaced
-by synthetic decimal numbers as described in Langsrud (2019)
-<doi:10.1007/s11222-018-9848-9>.
+using the Gaussian elimination secondary suppression algorithm. A
+suggestion is to start by working with functions SuppressSmallCounts() and
+SuppressDominantCells(). These functions use primary suppression functions
+for the minimum frequency rule and the dominance rule, respectively. Novel
+functionality for suppression of disclosive cells is also included.
+General primary suppression functions can be supplied as input to the
+general working horse function, GaussSuppressionFromData(). Suppressed
+frequencies can be replaced by synthetic decimal numbers as described in
+Langsrud (2019) <doi:10.1007/s11222-018-9848-9>.
 
 %prep
 %setup -q -c -n %{packname}

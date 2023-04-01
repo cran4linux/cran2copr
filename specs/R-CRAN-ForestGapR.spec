@@ -1,43 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  restriktor
-%global packver   0.4-501
+%global packname  ForestGapR
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.501
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Restricted Statistical Estimation and Inference for Linear Models
+Summary:          Tropical Forest Canopy Gaps Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.6.10
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-ic.infer 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-norm2 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-lavaan >= 0.6.10
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-ic.infer 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-norm2 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-poweRlaw 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-poweRlaw 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-stats 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-viridis 
 
 %description
-Allow for easy-to-use testing or evaluating of linear equality and
-inequality restrictions about parameters and effects in (generalized)
-linear statistical models.
+Set of tools for detecting and analyzing Airborne Laser Scanning-derived
+Tropical Forest Canopy Gaps. Details were published in Silva and others
+(2019) <doi:10.1111/2041-210X.13211>.
 
 %prep
 %setup -q -c -n %{packname}

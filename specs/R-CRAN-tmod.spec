@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tmod
-%global packver   0.50.11
+%global packver   0.50.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.50.11
+Version:          0.50.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Set Enrichment Analysis for Metabolomics and Transcriptomics
 

@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dTBM
-%global packver   2.0
+%global __requires_exclude ^libmpi
+%global packname  ecolRxC
+%global packver   0.1.1-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Way Spherical Clustering via Degree-Corrected Tensor Block Models
+Summary:          Ecological Inference of RxC Tables by Latent Structure Approaches
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tensorregress 
-BuildRequires:    R-CRAN-WeightedCluster 
-BuildRequires:    R-CRAN-EnvStats 
-Requires:         R-CRAN-tensorregress 
-Requires:         R-CRAN-WeightedCluster 
-Requires:         R-CRAN-EnvStats 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Implement weighted higher-order initialization and angle-based iteration
-for multi-way spherical clustering under degree-corrected tensor block
-model.
+Estimates RxC (R by C) vote transfer matrices (ecological contingency
+tables) from aggregate data building on Thomsen (1987) and Park (2008)
+approaches. References: Park, W.-H. (2008). ''Ecological Inference and
+Aggregate Analysis of Election''. PhD Dissertation. University of
+Michigan.
+<https://deepblue.lib.umich.edu/bitstream/handle/2027.42/58525/wpark_1.pdf>
+Thomsen, S.R. (1987, ISBN:87-7335-037-2). ''Danish Elections 1920 79: a
+Logit Approach to Ecological Analysis and Inference''. Politica, Aarhus,
+Denmark.
 
 %prep
 %setup -q -c -n %{packname}

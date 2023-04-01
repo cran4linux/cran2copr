@@ -1,37 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qfratio
+%global packname  Mmcsd
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Moments of Ratios of Quadratic Forms Using Recursion
+Summary:          Modeling Complex Longitudinal Data in a Quick and Easy Way
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlist 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Evaluates moments of ratios (and products) of quadratic forms in normal
-variables, specifically using recursive algorithms developed by Bao et al.
-(2013) <doi:10.1016/j.jmva.2013.03.002> and Hillier et al. (2014)
-<doi:10.1017/S0266466613000364>. Originally developed as a supplement to
-Watanabe (2022) <doi:10.1101/2022.11.02.514929> for evaluating average
-evolvability measures in evolutionary quantitative genetics, but can be
-used for a broader class of moments. Generating functions for these
-moments are also closely related to the top-order zonal and invariant
-polynomials of matrix arguments.
+Matching longitudinal methodology models with complex sampling design. It
+fits fixed and random effects models and covariance structured models so
+far. It also provides tools to perform statistical tests considering these
+specifications as described in : Pacheco, P. H. (2021). "Modeling complex
+longitudinal data in R: development of a statistical package."
+<https://repositorio.ufjf.br/jspui/bitstream/ufjf/13437/1/pedrohenriquedemesquitapacheco.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

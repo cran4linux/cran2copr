@@ -1,42 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bigstep
-%global packver   1.1.0
+%global packname  datacutr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stepwise Selection for Large Data Sets
+Summary:          SDTM Datacut
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bigmemory 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-bigmemory 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-RcppEigen 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-dplyr >= 1.0.5
+BuildRequires:    R-CRAN-rlang >= 0.4.4
+BuildRequires:    R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+BuildRequires:    R-CRAN-admiraldev 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-dplyr >= 1.0.5
+Requires:         R-CRAN-rlang >= 0.4.4
+Requires:         R-CRAN-purrr >= 0.3.3
+Requires:         R-CRAN-assertthat >= 0.2.1
+Requires:         R-CRAN-admiraldev 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Selecting linear and generalized linear models for large data sets using
-modified stepwise procedure and modern selection criteria (like
-modifications of Bayesian Information Criterion). Selection can be
-performed on data which exceed RAM capacity.
+Supports the process of applying a cut to Standard Data Tabulation Model
+(SDTM), as part of the analysis of specific points in time of the data,
+normally as part of investigation into clinical trials. The functions
+support different approaches of cutting to the different domains of SDTM
+normally observed.
 
 %prep
 %setup -q -c -n %{packname}
