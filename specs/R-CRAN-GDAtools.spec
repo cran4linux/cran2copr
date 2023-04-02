@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GDAtools
-%global packver   1.7.2
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Toolbox for Geometric Data Analysis and More
+Summary:          Geometric Data Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,40 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-wdm 
+BuildRequires:    R-CRAN-descriptio 
 BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-GGally 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-wdm 
+Requires:         R-CRAN-descriptio 
 Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-GGally 
 
 %description
-Contains functions for 'specific' Multiple Correspondence Analysis, Class
-Specific Analysis, Multiple Factor Analysis, 'standardized' MCA, computing
-and plotting structuring factors and concentration ellipses, inductive
-tests and others tools for Geometric Data Analysis (Le Roux & Rouanet
-(2005) <doi:10.1007/1-4020-2236-0>). It also provides functions for the
-translation of logit models coefficients into percentages (Deauvieau
-(2010) <doi:10.1177/0759106309352586>), weighted contingency tables, an
-association measure for contingency tables ("Percentages of Maximum
-Deviation from Independence", aka PEM, see Cibois (1993)
-<doi:10.1177/075910639304000103>) and some tools to measure and plot
-bivariate associations between variables (phi, Cramér V, correlation
-coefficient, eta-squared...).
+Many tools for Geometric Data Analysis (Le Roux & Rouanet (2005)
+<doi:10.1007/1-4020-2236-0>), such as MCA variants (Specific Multiple
+Correspondence Analysis, Class Specific Analysis), many graphical and
+statistical aids to interpretation (structuring factors, concentration
+ellipses, inductive tests, bootstrap validation, etc.) and multiple-table
+analysis (Multiple Factor Analysis, between- and inter-class analysis,
+Principal Component Analysis and Correspondence Analysis with Instrumental
+Variables, etc.).
 
 %prep
 %setup -q -c -n %{packname}

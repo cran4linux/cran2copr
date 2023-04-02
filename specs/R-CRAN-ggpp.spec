@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpp
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar Extensions to 'ggplot2'
 
@@ -17,37 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.51.6
+BuildRequires:    R-CRAN-MASS >= 7.3.58
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
-BuildRequires:    R-CRAN-tibble >= 3.0.3
+BuildRequires:    R-CRAN-tibble >= 3.1.8
 BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-zoo >= 1.8.8
-BuildRequires:    R-CRAN-lubridate >= 1.7.9
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-glue >= 1.4.2
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-lubridate >= 1.9.0
+BuildRequires:    R-CRAN-zoo >= 1.8.11
+BuildRequires:    R-CRAN-glue >= 1.6.0
 BuildRequires:    R-CRAN-polynom >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-xts >= 0.12.0
+BuildRequires:    R-CRAN-scales >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-xts >= 0.13.0
 BuildRequires:    R-stats 
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-MASS >= 7.3.51.6
+Requires:         R-CRAN-MASS >= 7.3.58
 Requires:         R-CRAN-ggplot2 >= 3.3.6
-Requires:         R-CRAN-tibble >= 3.0.3
+Requires:         R-CRAN-tibble >= 3.1.8
 Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-zoo >= 1.8.8
-Requires:         R-CRAN-lubridate >= 1.7.9
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-glue >= 1.4.2
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-lubridate >= 1.9.0
+Requires:         R-CRAN-zoo >= 1.8.11
+Requires:         R-CRAN-glue >= 1.6.0
 Requires:         R-CRAN-polynom >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-xts >= 0.12.0
+Requires:         R-CRAN-scales >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-xts >= 0.13.0
 Requires:         R-stats 
 Requires:         R-grid 
 Requires:         R-grDevices 

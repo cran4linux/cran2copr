@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tehtuner
-%global packver   0.1.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit and Tune Models to Detect Treatment Effect Heterogeneity
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-SuperLearner 
 BuildRequires:    R-CRAN-randomForestSRC 
 BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-party 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-Rdpack 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-SuperLearner 
 Requires:         R-CRAN-randomForestSRC 
 Requires:         R-CRAN-earth 
+Requires:         R-CRAN-foreach 
 
 %description
 Implements methods to fit Virtual Twins models (Foster et al. (2011)

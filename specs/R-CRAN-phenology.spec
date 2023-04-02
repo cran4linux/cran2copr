@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phenology
-%global packver   7.9
+%global packver   9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.9
+Version:          9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Manage a Parametric Function that Describes Phenology and More
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HelpersMG >= 5.5
+BuildRequires:    R-CRAN-HelpersMG >= 5.9
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-optimx 
-Requires:         R-CRAN-HelpersMG >= 5.5
+Requires:         R-CRAN-HelpersMG >= 5.9
 Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 
 Requires:         R-CRAN-optimx 

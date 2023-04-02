@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  speedglm
-%global packver   0.3-4
+%global __requires_exclude ^libmpi
+%global packname  openalexR
+%global packver   1.0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0.2.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting Linear and Generalized Linear Models to Large Data Sets
+Summary:          Getting Bibliographic Records from 'OpenAlex' Database Using 'DSL' API
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-tibble 
 
 %description
-Fitting linear models and generalized linear models to large data sets by
-updating algorithms.
+A set of tools to extract bibliographic content from 'OpenAlex' database
+using API <https://docs.openalex.org>.
 
 %prep
 %setup -q -c -n %{packname}
