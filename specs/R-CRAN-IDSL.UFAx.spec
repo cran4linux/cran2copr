@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IDSL.UFAx
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exhaustive Chemical Enumeration for United Formula Annotation
 
@@ -17,22 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IDSL.IPA >= 2.6
+BuildRequires:    R-CRAN-IDSL.IPA >= 2.7
 BuildRequires:    R-CRAN-IDSL.UFA >= 1.8
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-RcppAlgos 
-Requires:         R-CRAN-IDSL.IPA >= 2.6
+Requires:         R-CRAN-IDSL.IPA >= 2.7
 Requires:         R-CRAN-IDSL.UFA >= 1.8
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-RcppAlgos 
 
 %description
-A pipeline to annotate a number of peaks from the IDSL.IPA peaklists using
-an exhaustive chemical enumeration-based approach. This package can
+A pipeline to annotate a number of peaks from the 'IDSL.IPA' peaklists
+using an exhaustive chemical enumeration-based approach. This package can
 perform elemental composition calculations using the following 15 elements
 : C, B, Br, Cl, K, S, Si, N, H, As, F, I, Na, O, and P.
 

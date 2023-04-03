@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PMA2
-%global packver   2.1
+%global __requires_exclude ^libmpi
+%global packname  frontiles
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Multivariate Analysis
+Summary:          Partial Frontier Efficiency Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-rgl 
+Requires:         R-methods 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-rgl 
 
 %description
-A modified version of PMA. The CCA() and CCA.permute() functions can also
-compute the component-wise standard deviations of estimated U and V
-through permutations in addition to standardize them. Furthermore, it
-computes the non-parametric p-values for each components. Performs
-Penalized Multivariate Analysis: a penalized matrix decomposition, sparse
-principal components analysis, and sparse canonical correlation analysis,
-described in Ali Mahzarnia, Alexander Badea (2022), "Joint Estimation of
-Vulnerable Brain Networks and Alzheimer’s Disease Risk Via Novel Extension
-of Sparse Canonical Correlation" at bioRxiv.
+It calculates the alpha-quantile proposed by Daouia and Simar (2007)
+<doi:10.1016/j.jeconom.2006.07.002> and order-m efficiency score in
+multi-dimension proposed by Daouia and Gijbels (2011)
+<doi:10.1016/j.jeconom.2010.12.002> and computes several summaries and
+representation of the associated frontiers in 2d and 3d.
 
 %prep
 %setup -q -c -n %{packname}

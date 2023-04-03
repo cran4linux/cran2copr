@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  worldriskpollr
-%global packver   0.7.2
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Aggregated Survey Data from the World Risk Poll
 
@@ -20,30 +20,28 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-sjlabelled 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-parallel 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-sjlabelled 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-curl 
-Requires:         R-parallel 
 
 %description
 Provides users with programmatic access to aggregated survey data from the
 World Risk Poll, conveniently packaged for consumption by R users. It
-first downloads and formats the Lloyd's Register Foundation World Risk
+downloads formatted data from the Lloyd's Register Foundation World Risk
 Poll individual survey responses. It then processes this data and provides
 weighting functions for users to select questions of interest and
 aggregate to national levels, by gender, age, income, education

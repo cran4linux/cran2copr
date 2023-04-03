@@ -1,46 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  table.express
-%global packver   0.4.2
+%global packname  listdown
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Build 'data.table' Expressions with Data Manipulation Verbs
+Summary:          Create R Markdown from Lists
 
-License:          MPL-2.0
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.9.8
-BuildRequires:    R-CRAN-rlang >= 0.3.1
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-data.table >= 1.9.8
-Requires:         R-CRAN-rlang >= 0.3.1
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-fs 
 
 %description
-A specialization of 'dplyr' data manipulation verbs that parse and build
-expressions which are ultimately evaluated by 'data.table', letting it
-handle all optimizations. A set of additional verbs is also provided to
-facilitate some common operations on a subset of the data.
+Programmatically create R Markdown documents from lists.
 
 %prep
 %setup -q -c -n %{packname}

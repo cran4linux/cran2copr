@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlmixr2est
-%global packver   2.1.3
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Mixed Effects Models in Population PK/PD, Estimation Routines
 
@@ -17,11 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-n1qn1 >= 6.0.1.10
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-rxode2random >= 2.0.9
+BuildRequires:    R-CRAN-rxode2 >= 2.0.12
 BuildRequires:    R-CRAN-rxode2parse >= 2.0.11
-BuildRequires:    R-CRAN-rxode2 >= 2.0.10
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.11.2.3.1
 BuildRequires:    R-CRAN-nlmixr2data 
 BuildRequires:    R-CRAN-backports 
@@ -43,10 +41,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-symengine 
 BuildRequires:    R-CRAN-ucminf 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vpc 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-n1qn1 >= 6.0.1.10
-Requires:         R-CRAN-rxode2 >= 2.0.10
+Requires:         R-CRAN-rxode2 >= 2.0.12
 Requires:         R-CRAN-nlmixr2data 
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-checkmate 
@@ -67,7 +64,6 @@ Requires:         R-stats
 Requires:         R-CRAN-symengine 
 Requires:         R-CRAN-ucminf 
 Requires:         R-utils 
-Requires:         R-CRAN-vpc 
 
 %description
 Fit and compare nonlinear mixed-effects models in differential equations

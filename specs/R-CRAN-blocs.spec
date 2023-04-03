@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blocs
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate and Visualize Voting Blocs' Partisan Contributions
 
@@ -38,7 +38,7 @@ to estimate each bloc's vote contributions to the Democratic and
 Republican parties. The package also includes functions for uncertainty
 estimation and plotting. Users may define voting blocs along a discrete or
 continuous variable. The package implements methods described in Grimmer,
-Marble, and Tanigawa-Lau (2022) <doi:10.31235/osf.io/c9fkg>.
+Marble, and Tanigawa-Lau (2023) <doi:10.31235/osf.io/c9fkg>.
 
 %prep
 %setup -q -c -n %{packname}

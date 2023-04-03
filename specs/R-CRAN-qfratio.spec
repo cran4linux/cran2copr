@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  morf
-%global packver   1.0.0
+%global packname  qfratio
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modified Ordered Random Forest
+Summary:          Moments of Ratios of Quadratic Forms Using Recursion
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-orf 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-orf 
+Requires:         R-CRAN-MASS 
 
 %description
-Nonparametric estimator of the ordered choice model using random forests.
-The estimator modifies a standard random forest splitting criterion to
-build a collection of forests, each estimating the conditional probability
-of a single class. The package also implements a nonparametric estimator
-of the covariates’ marginal effects.
+Evaluates moments of ratios (and products) of quadratic forms in normal
+variables, specifically using recursive algorithms developed by Bao and
+Kan (2013) <doi:10.1016/j.jmva.2013.03.002> and Hillier et al. (2014)
+<doi:10.1017/S0266466613000364>. Originally developed as a supplement to
+Watanabe (2022) <doi:10.1101/2022.11.02.514929> for evaluating average
+evolvability measures in evolutionary quantitative genetics, but can be
+used for a broader class of moments. Generating functions for these
+moments are also closely related to the top-order zonal and invariant
+polynomials of matrix arguments.
 
 %prep
 %setup -q -c -n %{packname}

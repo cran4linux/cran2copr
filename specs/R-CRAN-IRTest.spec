@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IRTest
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parameter Estimation of Item Response Theory with Estimation of Latent Distribution
 
@@ -29,10 +29,9 @@ Item response theory (IRT) parameter estimation using marginal maximum
 likelihood and expectation-maximization algorithm (Bock & Aitkin, 1981
 <doi:10.1007/BF02293801>). Within parameter estimation algorithm, several
 methods for latent distribution estimation are available (Li, 2022
-<https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=9a95f68e2c1126c5ffe0bdc3ef48d419>).
-Reflecting some features of the true latent distribution, these latent
-distribution estimation methods can possibly free the normality assumption
-on the latent distribution.
+<http://www.riss.kr/link?id=T16374105>). Reflecting some features of the
+true latent distribution, these latent distribution estimation methods can
+possibly free the normality assumption on the latent distribution.
 
 %prep
 %setup -q -c -n %{packname}

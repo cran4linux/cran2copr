@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RClickhouse
-%global packver   0.6.4
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Yandex Clickhouse' Interface for R with Basic 'dplyr' Support
 
@@ -13,19 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.6.2
+Requires:         R-core >= 3.6.2
 BuildRequires:    R-methods >= 3.3.2
-BuildRequires:    R-CRAN-dbplyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-DBI >= 0.6.0
+BuildRequires:    R-CRAN-dbplyr >= 2.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-cli 
 Requires:         R-methods >= 3.3.2
-Requires:         R-CRAN-dbplyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-DBI >= 0.6.0
+Requires:         R-CRAN-dbplyr >= 2.0.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-cli 

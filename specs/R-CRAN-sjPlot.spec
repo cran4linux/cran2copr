@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sjPlot
-%global packver   2.8.13
+%global packver   2.8.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.13
+Version:          2.8.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Visualization for Statistics in Social Science
 
@@ -29,7 +29,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-bayestestR 
 BuildRequires:    R-CRAN-datawizard 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-ggeffects 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-insight 
@@ -51,7 +50,6 @@ Requires:         R-utils
 Requires:         R-CRAN-bayestestR 
 Requires:         R-CRAN-datawizard 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-ggeffects 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-insight 

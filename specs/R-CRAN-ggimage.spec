@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggimage
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Image in 'ggplot2'
 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggfun 
 Requires:         R-CRAN-ggplotify 
@@ -38,6 +40,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-tibble 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
 Supports image files and graphic objects to be visualized in 'ggplot2'
