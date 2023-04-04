@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  msaeOB
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  TroublemakeR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimum Benchmarking for Multivariate Small Area Estimation
+Summary:          Generates Spatial Problems in R for 'AMPL'
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-magic 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-terra 
 
 %description
-Implements multivariate optimum benchmarking small area estimation. This
-package provides optimum benchmarking estimation for univariate and
-multivariate small area estimation and its MSE. In fact, MSE estimators
-for optimum benchmark are not readily available, so resampling method that
-called parametric bootstrap is applied. The optimum benchmark model and
-parametric bootstrap in this package are based on the model proposed in
-small area estimation. J.N.K Rao and Isabel Molina (2015, ISBN:
-978-1-118-73578-7).
+Provides methods for generating .dat files for use with the 'AMPL'
+software using spatial data, particularly rasters. It includes support for
+various spatial data formats and different problem types. By automating
+the process of generating 'AMPL' datasets, this package can help
+streamline optimization workflows and make it easier to solve complex
+optimization problems. The methods implemented in this package are
+described in detail in a publication by Fourer et al.
+(<doi:10.1287/mnsc.36.5.519>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mixtur
-%global packver   1.2.0
+%global __requires_exclude ^libmpi
+%global packname  powerindexR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling Continuous Report Visual Short-Term Memory Studies
+Summary:          Measuring the Power in Voting Systems
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-CoopGame 
+Requires:         R-CRAN-CoopGame 
 
 %description
-A set of utility functions for analysing and modelling data from
-continuous report short-term memory experiments using either the
-2-component mixture model of Zhang and Luck (2008)
-<doi:10.1038/nature06860> or the 3-component mixture model of Bays et al.
-(2009) <doi:10.1167/9.10.7>. Users are also able to simulate from these
-models.
+This R package allows the determination of some distributions of the
+voters' power when passing laws in weighted voting situations.
 
 %prep
 %setup -q -c -n %{packname}

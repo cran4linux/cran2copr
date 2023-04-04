@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rim
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R's Interface to Maxima, Bringing Symbolic Computation into R
 
@@ -29,12 +29,13 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-GlobalOptions 
 
 %description
-Provides an interface to the powerful and fairly complete computer algebra
-system maxima. It can be used to start and control 'Maxima' from within R
-by entering 'Maxima' commands. It facilitates outputting results from
-'Maxima' in 'LaTeX' and 'MathML'. 2D and 3D plots can be displayed
-directly. This package also registers a 'knitr'-engine enabling 'Maxima'
-code chunks to be written in 'RMarkdown' documents.
+An interface to the powerful and fairly complete computer algebra system
+'Maxima'. It can be used to start and control 'Maxima' from within R by
+entering 'Maxima' commands. Results from 'Maxima' can be parsed and
+evaluated in R. It facilitates outputting results from 'Maxima' in 'LaTeX'
+and 'MathML'. 2D and 3D plots can be displayed directly. This package also
+registers a 'knitr'-engine enabling 'Maxima' code chunks to be written in
+'RMarkdown' documents.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  trending
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Temporal Trends
 
@@ -16,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ciTools 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-ciTools 
+BuildRequires:    R-CRAN-pillar 
+Requires:         R-CRAN-ciTools 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-ciTools 
+Requires:         R-CRAN-pillar 
 
 %description
 Provides a coherent interface to multiple modelling tools for fitting
@@ -42,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

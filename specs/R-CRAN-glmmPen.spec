@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmmPen
-%global packver   1.5.3.0
+%global packver   1.5.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3.0
+Version:          1.5.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Penalized Generalized Linear Mixed Models (pGLMM)
 
@@ -32,7 +32,10 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-coxme 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-rstantools 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
@@ -47,6 +50,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-coxme 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-rstantools 
 Requires:         R-CRAN-rstantools
 
 %description

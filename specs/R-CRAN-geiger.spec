@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  geiger
-%global packver   2.0.10
+%global packver   2.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          2.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Evolutionary Diversification
 
@@ -17,7 +18,7 @@ BuildRequires:    R-devel >= 2.15.0
 Requires:         R-core >= 2.15.0
 BuildRequires:    R-CRAN-ape >= 3.0.6
 BuildRequires:    R-CRAN-deSolve >= 1.7
-BuildRequires:    R-CRAN-phytools >= 0.7.31
+BuildRequires:    R-CRAN-phytools >= 1.5.1
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -29,7 +30,7 @@ BuildRequires:    R-CRAN-colorspace
 BuildRequires:    R-methods 
 Requires:         R-CRAN-ape >= 3.0.6
 Requires:         R-CRAN-deSolve >= 1.7
-Requires:         R-CRAN-phytools >= 0.7.31
+Requires:         R-CRAN-phytools >= 1.5.1
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 

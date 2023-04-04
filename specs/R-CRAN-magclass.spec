@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  magclass
-%global packver   6.0.9
+%global packver   6.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.9
+Version:          6.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Class and Tools for Handling Spatial-Temporal Data
 
@@ -17,22 +18,16 @@ BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-stats 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-forcats 
+Requires:         R-stats 
 
 %description
-Data class for increased interoperability working with spatial- temporal
+Data class for increased interoperability working with spatial-temporal
 data together with corresponding functions and methods (conversions, basic
 calculations and basic data manipulation). The class distinguishes between
 spatial, temporal and other dimensions to facilitate the development and

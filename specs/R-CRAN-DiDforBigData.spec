@@ -1,47 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  geckor
-%global packver   0.2.0
+%global __requires_exclude ^libmpi
+%global packname  DiDforBigData
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Client for the 'CoinGecko' API
+Summary:          A Big Data Implementation of Difference-in-Differences Estimation with Staggered Treatment
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-sandwich 
 
 %description
-Collect the current and historical cryptocurrency market data using the
-public 'CoinGecko' API (<https://www.coingecko.com/en/api>).
+Provides a big-data-friendly and memory-efficient
+difference-in-differences estimator for staggered (and non-staggered)
+treatment contexts.
 
 %prep
 %setup -q -c -n %{packname}

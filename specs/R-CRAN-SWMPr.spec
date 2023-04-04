@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SWMPr
-%global packver   2.4.2
+%global packver   2.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          2.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieving, Organizing, and Analyzing Estuary Monitoring Data
 
@@ -22,13 +22,13 @@ BuildRequires:    R-CRAN-zoo
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-oce 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-openair 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-suncalc 
 BuildRequires:    R-CRAN-tictoc 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-XML 
@@ -37,13 +37,13 @@ Requires:         R-CRAN-zoo
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-oce 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-openair 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-suncalc 
 Requires:         R-CRAN-tictoc 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-XML 
@@ -51,7 +51,7 @@ Requires:         R-CRAN-XML
 %description
 Tools for retrieving, organizing, and analyzing environmental data from
 the System Wide Monitoring Program of the National Estuarine Research
-Reserve System <http://cdmo.baruch.sc.edu/>. These tools address common
+Reserve System <https://cdmo.baruch.sc.edu/>. These tools address common
 challenges associated with continuous time series data for environmental
 decision making.
 

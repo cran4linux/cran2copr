@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ppmSuite
-%global packver   0.2.4
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Models that Employ a Product Partition Distribution as a Prior on Partitions
+Summary:          A Collection of Models that Employ Product Partition Distributions as a Prior on Partitions
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,6 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix 
 
 %description
 Provides a suite of functions that fit models that use PPM type priors for
@@ -28,7 +31,7 @@ employed.  Also included in the package is a function that fits a Gaussian
 likelihood spatial product partition model that is detailed in Page, G.L.;
 Quintana, F.A. (2016) <doi:10.1214/15-BA971>, and multivariate PPM change
 point models that are detailed in Quinlan, J.J.; Page, G.L.; Castro, L.M.
-(2021) <arXiv:2201.07830>.
+(2023) <doi:10.1214/22-BA1344>.
 
 %prep
 %setup -q -c -n %{packname}

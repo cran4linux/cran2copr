@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LogConcDEAD
-%global packver   1.6-7
+%global packname  softbib
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Log-Concave Density Estimation in Arbitrary Dimensions
+Summary:          Software Bibliographies for R Projects
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-bibtex 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-renv 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-bibtex 
 
 %description
-Software for computing a log-concave (maximum likelihood) estimator for
-i.i.d. data in any number of dimensions. For a detailed description of the
-method see Cule, Samworth and Stewart (2010, Journal of Royal Statistical
-Society Series B, <doi:10.1111/j.1467-9868.2010.00753.x>).
+Detect libraries used in a project and automatically create software
+bibliographies in 'PDF', 'Word', 'Rmarkdown', and 'BibTeX' formats.
 
 %prep
 %setup -q -c -n %{packname}

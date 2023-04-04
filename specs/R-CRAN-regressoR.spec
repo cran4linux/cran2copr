@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  regressoR
-%global packver   2.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Data Analysis System
 
@@ -16,46 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomForest >= 4.6.14
-BuildRequires:    R-CRAN-rpart >= 4.1.13
-BuildRequires:    R-CRAN-pls >= 2.7.1
-BuildRequires:    R-CRAN-gbm >= 2.1.5
-BuildRequires:    R-CRAN-glmnet >= 2.0.16
-BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.0
-BuildRequires:    R-CRAN-shiny >= 1.7.1
-BuildRequires:    R-CRAN-e1071 >= 1.7.0.1
-BuildRequires:    R-CRAN-neuralnet >= 1.44.2
-BuildRequires:    R-CRAN-shinyjs >= 1.0
+BuildRequires:    R-CRAN-glmnet >= 4.1.6
+BuildRequires:    R-CRAN-rpart.plot >= 3.1.1
+BuildRequires:    R-CRAN-pls >= 2.8.1
+BuildRequires:    R-CRAN-shinyjs >= 2.1.0
+BuildRequires:    R-CRAN-traineR >= 2.0.4
+BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.3
+BuildRequires:    R-CRAN-shiny >= 1.7.4
+BuildRequires:    R-CRAN-loadeR >= 1.1.3
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-shinycustomloader >= 0.9.0
-BuildRequires:    R-CRAN-shinydashboard >= 0.7.1
-BuildRequires:    R-CRAN-DT >= 0.5
-BuildRequires:    R-CRAN-echarts4r >= 0.4.1
-BuildRequires:    R-CRAN-htmltools >= 0.3.6
-BuildRequires:    R-CRAN-shinyAce >= 0.3.3
-BuildRequires:    R-CRAN-golem >= 0.3.1
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-kknn 
-BuildRequires:    R-CRAN-rpart.plot 
-Requires:         R-CRAN-randomForest >= 4.6.14
-Requires:         R-CRAN-rpart >= 4.1.13
-Requires:         R-CRAN-pls >= 2.7.1
-Requires:         R-CRAN-gbm >= 2.1.5
-Requires:         R-CRAN-glmnet >= 2.0.16
-Requires:         R-CRAN-shinydashboardPlus >= 2.0.0
-Requires:         R-CRAN-shiny >= 1.7.1
-Requires:         R-CRAN-e1071 >= 1.7.0.1
-Requires:         R-CRAN-neuralnet >= 1.44.2
-Requires:         R-CRAN-shinyjs >= 1.0
+BuildRequires:    R-CRAN-shinydashboard >= 0.7.2
+BuildRequires:    R-CRAN-htmltools >= 0.5.4
+BuildRequires:    R-CRAN-echarts4r >= 0.4.4
+BuildRequires:    R-CRAN-shinyAce >= 0.4.2
+BuildRequires:    R-CRAN-golem >= 0.3.5
+BuildRequires:    R-CRAN-DT >= 0.27
+Requires:         R-CRAN-glmnet >= 4.1.6
+Requires:         R-CRAN-rpart.plot >= 3.1.1
+Requires:         R-CRAN-pls >= 2.8.1
+Requires:         R-CRAN-shinyjs >= 2.1.0
+Requires:         R-CRAN-traineR >= 2.0.4
+Requires:         R-CRAN-shinydashboardPlus >= 2.0.3
+Requires:         R-CRAN-shiny >= 1.7.4
+Requires:         R-CRAN-loadeR >= 1.1.3
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.6
 Requires:         R-CRAN-shinycustomloader >= 0.9.0
-Requires:         R-CRAN-shinydashboard >= 0.7.1
-Requires:         R-CRAN-DT >= 0.5
-Requires:         R-CRAN-echarts4r >= 0.4.1
-Requires:         R-CRAN-htmltools >= 0.3.6
-Requires:         R-CRAN-shinyAce >= 0.3.3
-Requires:         R-CRAN-golem >= 0.3.1
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-kknn 
-Requires:         R-CRAN-rpart.plot 
+Requires:         R-CRAN-shinydashboard >= 0.7.2
+Requires:         R-CRAN-htmltools >= 0.5.4
+Requires:         R-CRAN-echarts4r >= 0.4.4
+Requires:         R-CRAN-shinyAce >= 0.4.2
+Requires:         R-CRAN-golem >= 0.3.5
+Requires:         R-CRAN-DT >= 0.27
 
 %description
 Perform a supervised data analysis on a database through a 'shiny'

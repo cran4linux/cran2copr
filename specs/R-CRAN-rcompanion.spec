@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcompanion
-%global packver   2.4.21
+%global packver   2.4.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.21
+Version:          2.4.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Support Extension Education Program Evaluation
 

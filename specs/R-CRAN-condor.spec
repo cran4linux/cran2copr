@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qrandom
-%global packver   1.2.6
+%global packname  condor
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          True Random Numbers using the ANU Quantum Random Numbers Server
+Summary:          Interact with 'Condor' from R via SSH
 
-License:          GPL-2 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-ssh 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-ssh 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-The ANU Quantum Random Number Generator provided by the Australian
-National University generates true random numbers in real-time by
-measuring the quantum fluctuations of the vacuum. This package offers an
-interface using their API. The electromagnetic field of the vacuum
-exhibits random fluctuations in phase and amplitude at all frequencies. By
-carefully measuring these fluctuations, one is able to generate ultra-high
-bandwidth random numbers. The quantum Random Number Generator is based on
-the papers by Symul et al., (2011) <doi:10.1063/1.3597793> and Haw, et al.
-(2015) <doi:10.1103/PhysRevApplied.3.054004>. The package offers functions
-to retrieve a sequence of random integers or hexadecimals and true random
-samples from a normal or uniform distribution.
+Interact with 'Condor' from R via SSH connection. Files are first uploaded
+from user machine to submitter machine, and the job is then submitted from
+the submitter machine to 'Condor'. Functions are provided to submit, list,
+and download 'Condor' jobs from R.
 
 %prep
 %setup -q -c -n %{packname}
