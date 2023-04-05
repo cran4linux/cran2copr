@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggfittext
-%global packver   0.9.1
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Text Inside a Box in 'ggplot2'
 
@@ -20,13 +21,15 @@ BuildRequires:    R-grid >= 3.1
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-shades >= 1.3.1
 BuildRequires:    R-CRAN-stringi >= 1.1.2
+BuildRequires:    R-CRAN-gridtext >= 0.1.4
 Requires:         R-grid >= 3.1
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-shades >= 1.3.1
 Requires:         R-CRAN-stringi >= 1.1.2
+Requires:         R-CRAN-gridtext >= 0.1.4
 
 %description
-Provides 'ggplot2' geoms to fit text into a box by growing, shrinking or
+A 'ggplot2' extension to fit text into a box by growing, shrinking or
 wrapping the text.
 
 %prep
@@ -37,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

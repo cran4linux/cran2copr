@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tune
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tuning Tools
 
@@ -24,16 +24,16 @@ BuildRequires:    R-CRAN-hardhat >= 1.2.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.8
+BuildRequires:    R-CRAN-recipes >= 1.0.4
 BuildRequires:    R-CRAN-parsnip >= 1.0.2
 BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-dials >= 1.0.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
-BuildRequires:    R-CRAN-recipes >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rsample >= 1.0.0
 BuildRequires:    R-CRAN-workflows >= 1.0.0
 BuildRequires:    R-CRAN-yardstick >= 1.0.0
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-purrr >= 0.3.2
+BuildRequires:    R-CRAN-vctrs >= 0.6.1
 BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
@@ -46,16 +46,16 @@ Requires:         R-CRAN-hardhat >= 1.2.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.1.2
 Requires:         R-CRAN-dplyr >= 1.0.8
+Requires:         R-CRAN-recipes >= 1.0.4
 Requires:         R-CRAN-parsnip >= 1.0.2
 Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-dials >= 1.0.0
 Requires:         R-CRAN-lifecycle >= 1.0.0
-Requires:         R-CRAN-recipes >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rsample >= 1.0.0
 Requires:         R-CRAN-workflows >= 1.0.0
 Requires:         R-CRAN-yardstick >= 1.0.0
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-purrr >= 0.3.2
+Requires:         R-CRAN-vctrs >= 0.6.1
 Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 

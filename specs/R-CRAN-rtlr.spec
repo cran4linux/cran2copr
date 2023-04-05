@@ -1,37 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipaddress
-%global packver   1.0.1
+%global packname  rtlr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Analysis for IP Addresses and Networks
+Summary:          Print Right-to-Left Languages Correctly
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-AsioHeaders 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-stringr 
 
 %description
-Classes and functions for working with IP (Internet Protocol) addresses
-and networks, inspired by the Python 'ipaddress' module. Offers full
-support for both IPv4 and IPv6 (Internet Protocol versions 4 and 6)
-address spaces. It is specifically designed to work well with the
-'tidyverse'.
+Convenience functions to make some common tasks with right-to-left string
+printing easier, more convenient and with no need to remember long Unicode
+characters. Specifically helpful for right-to-left languages such as
+Arabic, Persian and Hebrew.
 
 %prep
 %setup -q -c -n %{packname}

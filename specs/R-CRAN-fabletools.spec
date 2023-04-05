@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fabletools
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Tools for Packages in the 'fable' Framework
 
@@ -22,8 +23,8 @@ BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tsibble >= 0.9.0
 BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-distributional >= 0.3.0.9000
 BuildRequires:    R-CRAN-vctrs >= 0.2.2
-BuildRequires:    R-CRAN-distributional >= 0.2.2
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-generics 
@@ -37,8 +38,8 @@ Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tsibble >= 0.9.0
 Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-distributional >= 0.3.0.9000
 Requires:         R-CRAN-vctrs >= 0.2.2
-Requires:         R-CRAN-distributional >= 0.2.2
 Requires:         R-CRAN-tidyselect 
 Requires:         R-stats 
 Requires:         R-CRAN-generics 

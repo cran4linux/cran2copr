@@ -1,39 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TSP
-%global packver   1.2-4
+%global packname  xmeta
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Traveling Salesperson Problem (TSP)
+Summary:          A Toolbox for Multivariate Meta-Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-aod 
+BuildRequires:    R-CRAN-glmmML 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-mvmeta 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-foreach 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-aod 
+Requires:         R-CRAN-glmmML 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-mvmeta 
 Requires:         R-stats 
-Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
 
 %description
-Basic infrastructure and some algorithms for the traveling salesperson
-problem (also traveling salesman problem; TSP). The package provides some
-simple algorithms and an interface to the Concorde TSP solver and its
-implementation of the Chained-Lin-Kernighan heuristic. The code for
-Concorde itself is not included in the package and has to be obtained
-separately. Hahsler and Hornik (2007) <doi:10.18637/jss.v023.i02>.
+A toolbox for meta-analysis. This package includes: 1,a robust
+multivariate meta-analysis of continuous or binary outcomes; 2, a
+bivariate Egger's test for detecting small study effects; 3, Galaxy Plot:
+A New Visualization Tool of Bivariate Meta-Analysis Studies; 4, a
+bivariate T&F method accounting for publication bias in bivariate
+meta-analysis, based on symmetry of the galaxy plot. Hong C. et al(2020)
+<doi:10.1093/aje/kwz286>, Chongliang L. et al(2020)
+<doi:10.1101/2020.07.27.20161562>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipaddress
-%global packver   1.0.1
+%global packname  area
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Analysis for IP Addresses and Networks
+Summary:          Calculate Area of Triangles and Polygons
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-AsioHeaders 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-cpp11 
 
 %description
-Classes and functions for working with IP (Internet Protocol) addresses
-and networks, inspired by the Python 'ipaddress' module. Offers full
-support for both IPv4 and IPv6 (Internet Protocol versions 4 and 6)
-address spaces. It is specifically designed to work well with the
-'tidyverse'.
+Calculate the area of triangles and polygons using the shoelace formula.
+Area may be signed, taking into account path orientation, or unsigned,
+ignoring path orientation. The shoelace formula is described at
+<https://en.wikipedia.org/wiki/Shoelace_formula>.
 
 %prep
 %setup -q -c -n %{packname}

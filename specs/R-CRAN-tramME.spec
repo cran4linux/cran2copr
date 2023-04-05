@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tramME
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models with Mixed Effects
 
@@ -31,6 +31,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-coneproj 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-mgcv >= 1.8.34
 Requires:         R-CRAN-TMB >= 1.7.15
@@ -47,6 +48,7 @@ Requires:         R-stats
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-coneproj 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Likelihood-based estimation of mixed-effects transformation models using

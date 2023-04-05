@@ -1,63 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  baguette
-%global packver   1.0.1
+%global packname  bpmnR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Model Functions for Bagging
+Summary:          Support for BPMN (Business Process Management Notation) Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hardhat >= 1.1.0
-BuildRequires:    R-CRAN-parsnip >= 1.0.0
-BuildRequires:    R-CRAN-butcher 
-BuildRequires:    R-CRAN-C50 
-BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-DiagrammeRsvg 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-earth 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-hardhat >= 1.1.0
-Requires:         R-CRAN-parsnip >= 1.0.0
-Requires:         R-CRAN-butcher 
-Requires:         R-CRAN-C50 
-Requires:         R-CRAN-dials 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-huxtable 
+BuildRequires:    R-CRAN-assertive 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-DiagrammeRsvg 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-earth 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-rsample 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-huxtable 
+Requires:         R-CRAN-assertive 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-glue 
 
 %description
-Tree- and rule-based models can be bagged (<doi:10.1007/BF00058655>) using
-this package and their predictions equations are stored in an efficient
-format to reduce the model objects size and speed.
+Creating, rendering and writing BPMN diagrams <https://www.bpmn.org/>.
+Functionalities can be used to visualize and export BPMN diagrams created
+using the 'pm4py' and 'bupaRminer' packages. Part of the 'bupaR'
+ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

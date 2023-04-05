@@ -1,39 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  statgenQTLxT
-%global packver   1.0.1
+%global packname  scDHA
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Trait and Multi-Trial Genome Wide Association Studies
+Summary:          Single-Cell Decomposition using Hierarchical Autoencoder
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-sommer >= 4.2.0
-BuildRequires:    R-CRAN-statgenGWAS >= 1.0.9
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildRequires:    R-CRAN-torch >= 0.3.0
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-uwot 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-RcppAnnoy 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RhpcBLASctl 
+BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-sommer >= 4.2.0
-Requires:         R-CRAN-statgenGWAS >= 1.0.9
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-torch >= 0.3.0
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-uwot 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-RcppAnnoy 
+Requires:         R-methods 
+Requires:         R-CRAN-RhpcBLASctl 
+Requires:         R-CRAN-coro 
 
 %description
-Fast multi-trait and multi-trail Genome Wide Association Studies (GWAS)
-following the method described in Zhou and Stephens. (2014),
-<doi:10.1038/nmeth.2848>. One of a series of statistical genetic packages
-for streamlining the analysis of typical plant breeding experiments
-developed by Biometris.
+Provides a fast and accurate pipeline for single-cell analyses. The
+'scDHA' software package can perform clustering, dimension reduction and
+visualization, classification, and time-trajectory inference on
+single-cell data (Tran et.al. (2021) <DOI:10.1038/s41467-021-21312-2>).
 
 %prep
 %setup -q -c -n %{packname}

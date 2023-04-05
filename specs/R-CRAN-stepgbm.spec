@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  stepgbm
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stepwise Variable Selection for Generalized Boosted Regression Modeling
 
@@ -17,10 +18,8 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-spm 
-BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-steprf 
 Requires:         R-CRAN-spm 
-Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-steprf 
 
 %description

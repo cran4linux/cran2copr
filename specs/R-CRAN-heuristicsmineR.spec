@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  heuristicsmineR
-%global packver   0.2.7
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discovery of Process Models with the Heuristics Miner
 
@@ -17,12 +18,12 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
 BuildRequires:    R-CRAN-processmapR >= 0.3.1
+BuildRequires:    R-CRAN-petrinetR >= 0.3.0
 BuildRequires:    R-CRAN-bupaR 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-petrinetR 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-Rcpp 
@@ -33,12 +34,12 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-DiagrammeR >= 1.0.0
 Requires:         R-CRAN-processmapR >= 0.3.1
+Requires:         R-CRAN-petrinetR >= 0.3.0
 Requires:         R-CRAN-bupaR 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-petrinetR 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-Rcpp 

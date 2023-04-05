@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  skpr
-%global packver   1.1.6
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design of Experiments Suite: Generate and Evaluate Optimal Designs
 
@@ -26,7 +27,6 @@ BuildRequires:    R-CRAN-shinythemes
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-shinyjs 
@@ -39,6 +39,7 @@ BuildRequires:    R-CRAN-lazyeval
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-shiny 
@@ -51,7 +52,6 @@ Requires:         R-CRAN-shinythemes
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-shinyjs 
@@ -64,6 +64,7 @@ Requires:         R-CRAN-lazyeval
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-gt 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-doRNG 
 
 %description
 Generates and evaluates D, I, A, Alias, E, T, and G optimal designs.

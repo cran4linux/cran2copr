@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RIA
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radiomics Image Analysis Toolbox for Medial Images
 
@@ -32,7 +33,9 @@ calculates first-order, gray level co-occurrence matrix, gray level run
 length matrix and geometry-based statistics. Almost all calculations are
 done using vectorized formulas to optimize run speeds. Calculation of
 several thousands of parameters only takes minutes on a single core of a
-conventional PC.
+conventional PC. Detailed methodology has been published: Kolossvary et
+al. Circ: Cardiovascular Imaging. 2017;10(12):e006843 <doi:
+10.1161/CIRCIMAGING.117.006843>.
 
 %prep
 %setup -q -c -n %{packname}

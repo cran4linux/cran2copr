@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipaddress
-%global packver   1.0.1
+%global packname  rankinma
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Analysis for IP Addresses and Networks
+Summary:          Treatment Ranking in Network Meta-Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-AsioHeaders 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-netmeta 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-netmeta 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Classes and functions for working with IP (Internet Protocol) addresses
-and networks, inspired by the Python 'ipaddress' module. Offers full
-support for both IPv4 and IPv6 (Internet Protocol versions 4 and 6)
-address spaces. It is specifically designed to work well with the
-'tidyverse'.
+A supportive collection of functions for gathering and plotting treatment
+ranking metrics after network meta-analysis.
 
 %prep
 %setup -q -c -n %{packname}

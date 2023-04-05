@@ -1,37 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipaddress
-%global packver   1.0.1
+%global packname  Binarize
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Analysis for IP Addresses and Networks
+Summary:          Binarization of One-Dimensional Data
 
-License:          MIT + file LICENSE
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-AsioHeaders 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-diptest 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-diptest 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Classes and functions for working with IP (Internet Protocol) addresses
-and networks, inspired by the Python 'ipaddress' module. Offers full
-support for both IPv4 and IPv6 (Internet Protocol versions 4 and 6)
-address spaces. It is specifically designed to work well with the
-'tidyverse'.
+Provides methods for the binarization of one-dimensional data and some
+visualization functions.
 
 %prep
 %setup -q -c -n %{packname}

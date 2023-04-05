@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RARfreq
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Response Adaptive Randomization with 'Frequentist' Approach
+Summary:          Response Adaptive Randomization with 'Frequentist' Approaches
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,6 +26,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-latex2exp 
@@ -35,22 +36,25 @@ Requires:         R-stats
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Provides functions and command-line user interface to generate allocation
 sequence by response-adaptive randomization for clinical trials. The
-package currently supports two response-adaptive randomization procedures,
-Doubly Adaptive Biased Coin Design ('DBCD') and Sequential
-Estimation-adjusted Urn Model ('SEU'), for two endpoints, binary and
-normal. One-sided proportion (or mean) difference and Chi-square (or
+package currently supports two families of frequentist response-adaptive
+randomization procedures, Doubly Adaptive Biased Coin Design ('DBCD') and
+Sequential Estimation-adjusted Urn Model ('SEU'), for binary and normal
+endpoints. One-sided proportion (or mean) difference and Chi-square (or
 'ANOVA') hypothesis testing methods are also available in the package to
-facilitate the inference for treatment effect under different sample sizes
-and the inference for sample size under different treatment effects.
-Additionally, the package provides comprehensive and efficient tools to
-allow one to evaluate and compare the performance of randomization
-procedures and tests based on various criteria. Five allocation functions
-for 'DBCD' and six addition rule functions for 'SEU' are implemented to
-target allocations such as 'Neyman', 'Rosenberger' and 'Urn' allocations.
+facilitate the inference for treatment effect. Additionally, the package
+provides comprehensive and efficient tools to allow one to evaluate and
+compare the performance of randomization procedures and tests based on
+various criteria. For example, plots for relationship among assumed
+treatment effects, sample size, and power are provided. Five allocation
+functions for 'DBCD' and six addition rule functions for 'SEU' are
+implemented to target allocations such as 'Neyman', 'Rosenberger'
+Rosenberger et al. (2001) <doi:10.1111/j.0006-341X.2001.00909.x> and 'Urn'
+allocations.
 
 %prep
 %setup -q -c -n %{packname}

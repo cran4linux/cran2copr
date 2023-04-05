@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipaddress
-%global packver   1.0.1
+%global packname  clptheory
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Analysis for IP Addresses and Networks
+Summary:          Compute Price of Production and Labor Values
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-AsioHeaders 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-popdemo 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-popdemo 
+Requires:         R-stats 
+Requires:         R-CRAN-car 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Classes and functions for working with IP (Internet Protocol) addresses
-and networks, inspired by the Python 'ipaddress' module. Offers full
-support for both IPv4 and IPv6 (Internet Protocol versions 4 and 6)
-address spaces. It is specifically designed to work well with the
-'tidyverse'.
+Computes the uniform rate of profit, the vector of price of production and
+the vector of labor values; and also compute measures of deviation between
+relative prices of production and relative values.
+<https://scholarworks.umass.edu/econ_workingpaper/347/>. You provide the
+input-output data and 'clptheory' does the calculations for you.
 
 %prep
 %setup -q -c -n %{packname}
