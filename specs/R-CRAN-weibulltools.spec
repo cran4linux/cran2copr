@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  weibulltools
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Life Data Analysis
 
@@ -15,33 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-SPREDA 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-segmented 
-Requires:         R-CRAN-SPREDA 
-Requires:         R-CRAN-survival 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 
 %description
 Provides statistical methods and visualizations that are often used in
@@ -77,6 +72,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

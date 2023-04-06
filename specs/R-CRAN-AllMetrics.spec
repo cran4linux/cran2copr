@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ordinalpattern
-%global packver   0.2.1
+%global packname  AllMetrics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tests Based on Ordinal Patterns
+Summary:          Calculating Multiple Performance Metrics of a Prediction Model
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-mvtnorm 
+BuildArch:        noarch
 
 %description
-Ordinal patterns describe the dynamics of a time series by looking at the
-ranks of subsequent observations. By comparing ordinal patterns of two
-times series, Schnurr (2014) <doi:10.1007/s00362-013-0536-8> defines a
-robust and non-parametric dependence measure: the ordinal pattern
-coefficient. Functions to calculate this and a method to detect a change
-in the pattern coefficient proposed in Schnurr and Dehling (2017)
-<doi:10.1080/01621459.2016.1164706> are provided.
+Provides a function to calculate multiple performance metrics for actual
+and predicted values. In total eight metrics will be calculated for
+particular actual and predicted series. Helps to describe a Statistical
+model's performance in predicting a data. Also helps to compare various
+models' performance. More details can be found from Garai and Paul (2023)
+<doi:10.1016/j.iswa.2023.200202>.
 
 %prep
 %setup -q -c -n %{packname}

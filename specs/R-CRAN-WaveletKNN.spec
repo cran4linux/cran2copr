@@ -1,36 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AGSDest
-%global packver   2.3.4
+%global __requires_exclude ^libmpi
+%global packname  WaveletKNN
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation in Adaptive Group Sequential Trials
+Summary:          Wavelet Based K-Nearest Neighbor Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-caretForecast 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ldbounds 
+BuildRequires:    R-CRAN-wavelets 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-caretForecast 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-tseries 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ldbounds 
+Requires:         R-CRAN-wavelets 
 
 %description
-Calculation of repeated confidence intervals as well as confidence
-intervals based on the stage-wise ordering in group sequential designs and
-adaptive group sequential designs. For adaptive group sequential designs
-the confidence intervals are based on the conditional rejection
-probability principle. Currently the procedures do not support the use of
-futility boundaries or more than one adaptive interim analysis.
+The employment of the Wavelet decomposition technique proves to be highly
+advantageous in the modelling of noisy time series data. Wavelet
+decomposition technique using the "haar" algorithm has been incorporated
+to formulate a hybrid Wavelet KNN (K-Nearest Neighbour) model for time
+series forecasting, as proposed by Anjoy and Paul (2017)
+<DOI:10.1007/s00521-017-3289-9>.
 
 %prep
 %setup -q -c -n %{packname}

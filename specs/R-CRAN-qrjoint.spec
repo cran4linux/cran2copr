@@ -1,46 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gmGeostats
-%global packver   0.11.2
+%global packname  qrjoint
+%global packver   2.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          2.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geostatistics for Compositional Analysis
+Summary:          Joint Estimation in Linear Quantile Regression
 
-License:          CC BY-SA 4.0 | GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-compositions >= 2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-gstat 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-compositions >= 2.0
-Requires:         R-methods 
-Requires:         R-CRAN-gstat 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-foreach 
-Requires:         R-utils 
-Requires:         R-CRAN-RColorBrewer 
+BuildRequires:    R-devel >= 2.6
+Requires:         R-core >= 2.6
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-splines 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-quantreg 
 
 %description
-Support for geostatistical analysis of multivariate data, in particular
-data with restrictions, e.g. positive amounts data, compositional data,
-distributional data, microstructural data, etc. It includes descriptive
-analysis and modelling for such data, both from a two-point Gaussian
-perspective and multipoint perspective. The methods mainly follow
-Tolosana-Delgado, Mueller and van den Boogaart (2018)
-<doi:10.1007/s11004-018-9769-3>.
+Joint estimation of quantile specific intercept and slope parameters in a
+linear regression setting.
 
 %prep
 %setup -q -c -n %{packname}

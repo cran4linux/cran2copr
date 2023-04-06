@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  idiogramFISH
-%global packver   2.0.9
+%global packver   2.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          2.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny App. Idiograms with Marks and Karyotype Indices
 
@@ -23,11 +23,13 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-scales 
 
 %description
 Plot idiograms of karyotypes, plasmids, circular chr. having a set of

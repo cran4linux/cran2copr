@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyStorePlus
-%global packver   0.9
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Secure in-Browser Storage for 'Shiny' Inputs and Variables
+Summary:          Secure in-Browser Storage for 'Shiny' Inputs, Outputs and Variables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shinyWidgets 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-utils 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shinyWidgets 
 
 %description
 Store persistent and synchronized data from 'Shiny' inputs within the

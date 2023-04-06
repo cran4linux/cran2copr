@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vivid
-%global packver   0.2.6
+%global packname  WaveletETS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Importance and Variable Interaction Displays
+Summary:          Wavelet Based Error Trend Seasonality Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,37 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-condvis2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DendSer 
-BuildRequires:    R-CRAN-ggalt 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-flashlight 
-BuildRequires:    R-CRAN-ggnewscale 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-condvis2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-colorspace 
-Requires:         R-stats 
-Requires:         R-CRAN-DendSer 
-Requires:         R-CRAN-ggalt 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-wavelets 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-caretForecast 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-flashlight 
-Requires:         R-CRAN-ggnewscale 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-tseries 
+Requires:         R-stats 
+Requires:         R-CRAN-wavelets 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-caretForecast 
 
 %description
-A suite of plots for displaying variable importance and two-way variable
-interaction jointly. Can also display partial dependence plots laid out in
-a pairs plot or 'zenplots' style.
+ETS stands for Error, Trend, and Seasonality, and it is a popular time
+series forecasting method. Wavelet decomposition can be used for
+denoising, compression, and feature extraction of signals. By removing the
+high-frequency components, wavelet decomposition can remove noise from the
+data while preserving important features. A hybrid Wavelet ETS (Error
+Trend-Seasonality) model has been developed for time series forecasting
+using algorithm of Anjoy and Paul (2017) <DOI:10.1007/s00521-017-3289-9>.
 
 %prep
 %setup -q -c -n %{packname}

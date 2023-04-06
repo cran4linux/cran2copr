@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RGBM
-%global packver   1.0-10
+%global packname  LogConcDEAD
+%global packver   1.6-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.6.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          LS-TreeBoost and LAD-TreeBoost for Gene Regulatory Network Reconstruction
+Summary:          Log-Concave Density Estimation in Arbitrary Dimensions
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Provides an implementation of Regularized LS-TreeBoost & LAD-TreeBoost
-algorithm for Regulatory Network inference from any type of expression
-data (Microarray/RNA-seq etc).
+Software for computing a log-concave (maximum likelihood) estimator for
+independent and identically distributed data in any number of dimensions.
+For a detailed description of the method see Cule, Samworth and Stewart
+(2010, Journal of Royal Statistical Society Series B,
+<doi:10.1111/j.1467-9868.2010.00753.x>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  compound.Cox
-%global packver   3.27
+%global packver   3.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.27
+Version:          3.28
 Release:          1%{?dist}%{?buildtag}
 Summary:          Univariate Feature Selection and Compound Covariate for Predicting Survival
 
@@ -31,9 +31,12 @@ are survival data for non-small-cell lung cancer patients with gene
 expressions (Chen et al 2007 New Engl J Med) <DOI:10.1056/NEJMoa060096>,
 statistical methods in Emura et al (2012 PLoS ONE)
 <DOI:10.1371/journal.pone.0047627>, Emura & Chen (2016 Stat Methods Med
-Res) <DOI:10.1177/0962280214533378>, and Emura et al.
+Res) <DOI:10.1177/0962280214533378>, and Emura et al
 (2019)<DOI:10.1016/j.cmpb.2018.10.020>. Algorithms for generating
-correlated gene expressions are also available.
+correlated gene expressions are also available. Estimation of survival
+functions via copula-graphic (CG) estimators is also implemented, which is
+useful for sensitivity analyses under dependent censoring (Yeh et al 2023)
+<DOI:10.3390/biomedicines11030797>.
 
 %prep
 %setup -q -c -n %{packname}

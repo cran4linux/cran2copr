@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  frailtySurv
-%global packver   1.3.7
+%global __requires_exclude ^libmpi
+%global packname  Rtumblr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Semiparametric Shared Frailty Model
+Summary:          Collecting and Analyzing 'Tumblr' Data
 
-License:          LGPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-survival 
-Requires:         R-stats 
-Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tibble 
 
 %description
-Simulates and fits semiparametric shared frailty models under a wide range
-of frailty distributions using a consistent and asymptotically-normal
-estimator. Currently supports: gamma, power variance function, log-normal,
-and inverse Gaussian frailty models.
+An implementation of calls designed to collect 'Tumblr' data via its
+Application Program Interfaces (API), which can be found at the following
+URL: <https://www.tumblr.com/docs/en/api/v2>.
 
 %prep
 %setup -q -c -n %{packname}

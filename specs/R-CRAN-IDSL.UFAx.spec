@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IDSL.UFAx
-%global packver   1.9
+%global packver   1.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          1.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exhaustive Chemical Enumeration for United Formula Annotation
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-IDSL.IPA >= 2.7
-BuildRequires:    R-CRAN-IDSL.UFA >= 1.8
+BuildRequires:    R-CRAN-IDSL.UFA 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-RcppAlgos 
 Requires:         R-CRAN-IDSL.IPA >= 2.7
-Requires:         R-CRAN-IDSL.UFA >= 1.8
+Requires:         R-CRAN-IDSL.UFA 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-RcppAlgos 
 
