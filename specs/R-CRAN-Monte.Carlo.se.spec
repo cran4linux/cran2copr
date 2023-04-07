@@ -1,44 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  assignR
-%global packver   2.2.2
+%global packname  Monte.Carlo.se
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Infer Geographic Origin from Isotopic Data
+Summary:          Monte Carlo Standard Errors
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-geosphere 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-geosphere 
 
 %description
-Routines for re-scaling isotope maps using known-origin tissue isotope
-data, assigning origin of unknown samples, and summarizing and assessing
-assignment results. Methods are adapted from Wunder (2010, in
-ISBN:9789048133536) and Vander Zanden, H. B. et al. (2014)
-<doi:10.1111/2041-210X.12229> as described in Ma, C. et al. (2020)
-<doi:10.1111/2041-210X.13426>.
+Computes Monte Carlo standard errors for summaries of Monte Carlo output.
+Summaries and their standard errors are based on columns of Monte Carlo
+simulation output. Dennis D. Boos and Jason A. Osborne (2015)
+<doi:10.1111/insr.12087>.
 
 %prep
 %setup -q -c -n %{packname}

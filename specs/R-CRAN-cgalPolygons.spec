@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HDPenReg
-%global packver   0.94.9
+%global packname  cgalPolygons
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.94.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          High-Dimensional Penalized Regression
+Summary:          R6 Based Utilities for Polygons using 'CGAL'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-rtkore >= 1.6.7
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-rtkore >= 1.6.7
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppCGAL 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-R6 
 
 %description
-Algorithms for lasso and fused-lasso problems: C++ implementation of the
-'lars' algorithm for lasso and fusion penalization
-<doi:10.1214/009053604000000067>, and EM-based algorithms for (logistic)
-lasso and fused-lasso penalization.
+Provides some utilities for polygons: area calculation, decomposition into
+convex parts, Minkowski addition, Boolean operations, and more. Polygons
+with holes are supported. The algorithms are performed by the 'C++'
+library' CGAL' (<https://www.cgal.org/>).
 
 %prep
 %setup -q -c -n %{packname}

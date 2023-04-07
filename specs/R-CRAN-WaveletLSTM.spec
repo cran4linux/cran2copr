@@ -1,36 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adehabitatMA
-%global packver   0.3.16
+%global packname  WaveletLSTM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Deal with Raster Maps
+Summary:          Wavelet Based LSTM Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-caretForecast 
+BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-sp 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-wavelets 
+BuildRequires:    R-CRAN-TSLSTM 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-caretForecast 
+Requires:         R-CRAN-tseries 
 Requires:         R-stats 
+Requires:         R-CRAN-wavelets 
+Requires:         R-CRAN-TSLSTM 
 
 %description
-A collection of tools to deal with raster maps.
+A wavelet-based LSTM model is a type of neural network architecture that
+uses wavelet technique to pre-process the input data before passing it
+through a Long Short-Term Memory (LSTM) network. The wavelet-based LSTM
+model is a powerful approach that combines the benefits of wavelet
+analysis and LSTM networks to improve the accuracy of predictions in
+various applications. This package has been developed using the algorithm
+of Anjoy and Paul (2017) and Paul and Garai (2021)
+<DOI:10.1007/s00521-017-3289-9> <doi:10.1007/s00500-021-06087-4>.
 
 %prep
 %setup -q -c -n %{packname}

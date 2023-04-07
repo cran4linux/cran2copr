@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  repsd
-%global packver   1.0.0
+%global packname  rvMF
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Root Expected Proportion Squared Difference for Detecting DIF
+Summary:          Fast Generation of von Mises-Fisher Distributed Pseudo-Random Vectors
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rfast >= 2.0.6
+BuildRequires:    R-CRAN-scModels >= 1.0.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-Bessel >= 0.6.0
+Requires:         R-CRAN-Rfast >= 2.0.6
+Requires:         R-CRAN-scModels >= 1.0.4
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-Bessel >= 0.6.0
 
 %description
-Root Expected Proportion Squared Difference (REPSD) is a nonparametric
-differential item functioning (DIF) method that (a) allows practitioners
-to explore for DIF related to small, fine-grained focal groups of
-examinees, and (b) compares the focal group directly to the composite
-group that will be used to develop the reported test score scale. Using
-your provided response matrix with a column that identifies focal group
-membership, this package provides the REPSD values, a simulated null
-distribution of possible REPSD values, and the simulated p-values
-identifying items possibly displaying DIF without requiring enormous
-sample sizes.
+Generates pseudo-random vectors that follow an arbitrary von Mises-Fisher
+distribution on a sphere. This method is fast and efficient when
+generating a large number of pseudo-random vectors. Functions to generate
+random variates and compute density for the distribution of an inner
+product between von Mises-Fisher random vector and its mean direction are
+also provided.
 
 %prep
 %setup -q -c -n %{packname}

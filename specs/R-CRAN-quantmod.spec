@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quantmod
-%global packver   0.4.21
+%global packver   0.4.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.21
+Version:          0.4.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Financial Modelling Framework
 
@@ -17,11 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.1
 BuildRequires:    R-CRAN-xts >= 0.9.0
 BuildRequires:    R-CRAN-TTR >= 0.2
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-jsonlite >= 1.1
 Requires:         R-CRAN-xts >= 0.9.0
 Requires:         R-CRAN-TTR >= 0.2
 Requires:         R-CRAN-zoo 

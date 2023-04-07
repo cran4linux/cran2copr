@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ebirdst
-%global packver   2.2021.0
+%global packver   2.2021.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2021.0
+Version:          2.2021.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Analyze eBird Status and Trends Data
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.6.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
@@ -30,10 +31,10 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridisLite 
+Requires:         R-CRAN-terra >= 1.6.3
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
@@ -47,7 +48,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-RSQLite 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-terra 
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-viridisLite 

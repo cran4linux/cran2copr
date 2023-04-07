@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adehabitatHR
-%global packver   0.4.20
+%global packver   0.4.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.20
+Version:          0.4.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Home Range Estimation
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-deldir 
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-adehabitatMA 
 BuildRequires:    R-CRAN-adehabitatLT 
@@ -27,7 +26,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 Requires:         R-CRAN-sp 
 Requires:         R-methods 
-Requires:         R-CRAN-deldir 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-adehabitatMA 
 Requires:         R-CRAN-adehabitatLT 

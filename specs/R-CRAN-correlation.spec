@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  correlation
-%global packver   0.8.3
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Correlation Analysis
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-datawizard >= 0.5.1
-BuildRequires:    R-CRAN-insight >= 0.18.4
-BuildRequires:    R-CRAN-parameters >= 0.18.2
+BuildRequires:    R-CRAN-datawizard >= 0.7.0
+BuildRequires:    R-CRAN-parameters >= 0.20.2
+BuildRequires:    R-CRAN-insight >= 0.19.1
 BuildRequires:    R-CRAN-bayestestR >= 0.13.0
 BuildRequires:    R-datasets 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-datawizard >= 0.5.1
-Requires:         R-CRAN-insight >= 0.18.4
-Requires:         R-CRAN-parameters >= 0.18.2
+Requires:         R-CRAN-datawizard >= 0.7.0
+Requires:         R-CRAN-parameters >= 0.20.2
+Requires:         R-CRAN-insight >= 0.19.1
 Requires:         R-CRAN-bayestestR >= 0.13.0
 Requires:         R-datasets 
 Requires:         R-stats 
@@ -34,7 +34,8 @@ Requires:         R-stats
 Lightweight package for computing different kinds of correlations, such as
 partial correlations, Bayesian correlations, multilevel correlations,
 polychoric correlations, biweight correlations, distance correlations and
-more. Part of the 'easystats' ecosystem.
+more. Part of the 'easystats' ecosystem. References: Makowski et al.
+(2020) <doi:10.21105/joss.02306>.
 
 %prep
 %setup -q -c -n %{packname}

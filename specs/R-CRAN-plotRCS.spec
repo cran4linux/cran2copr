@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plotRCS
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Restricted Cubic Splines Curves
 
@@ -24,9 +24,9 @@ Requires:         R-CRAN-rms
 
 %description
 Simple drawing of restricted cubic spline (RCS) curves through 'ggplot2'
-package from a logistic regression model or a Cox proportional hazards
-regression model. This method was described by Harrell FE (2015)
-<doi:10.1007/978-3-319-19425-7>.
+package from a linear regression model, a logistic regression model or a
+Cox proportional hazards regression model. This method was described by
+Harrell FE (2015) <doi:10.1007/978-3-319-19425-7>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  readtext
-%global packver   0.81
+%global packver   0.82
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.81
+Version:          0.82
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import and Handling for Plain and Formatted Text Files
 
@@ -22,12 +23,12 @@ BuildRequires:    R-CRAN-antiword
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-pdftools 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-streamR 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-striprtf 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-readODS >= 1.7.0
@@ -36,12 +37,12 @@ Requires:         R-CRAN-antiword
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-pdftools 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-streamR 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-striprtf 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-xml2 
 Requires:         R-utils 
 

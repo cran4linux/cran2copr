@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adehabitatMA
-%global packver   0.3.16
+%global packname  mixtur
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.16
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Deal with Raster Maps
+Summary:          Modelling Continuous Report Visual Short-Term Memory Studies
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-sp 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
-A collection of tools to deal with raster maps.
+A set of utility functions for analysing and modelling data from
+continuous report short-term memory experiments using either the
+2-component mixture model of Zhang and Luck (2008)
+<doi:10.1038/nature06860> or the 3-component mixture model of Bays et al.
+(2009) <doi:10.1167/9.10.7>. Users are also able to simulate from these
+models.
 
 %prep
 %setup -q -c -n %{packname}

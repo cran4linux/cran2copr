@@ -1,36 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adehabitatMA
-%global packver   0.3.16
+%global packname  lessSEM
+%global packver   1.4.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.16
+Version:          1.4.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Deal with Raster Maps
+Summary:          Non-Smooth Regularization for Structural Equation Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-lavaan 
 Requires:         R-methods 
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-rlang 
 
 %description
-A collection of tools to deal with raster maps.
+Provides regularized structural equation modeling (regularized SEM) with
+non-smooth penalty functions (e.g., lasso) building on 'lavaan'. The
+package is heavily inspired by the
+['regsem'](<https://github.com/Rjacobucci/regsem>) and
+['lslx'](<https://github.com/psyphh/lslx>) packages.
 
 %prep
 %setup -q -c -n %{packname}

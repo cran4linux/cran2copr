@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spm2
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Predictive Modeling
 
@@ -20,11 +21,8 @@ BuildRequires:    R-CRAN-spm
 BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-psy 
 BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-glmnet 
@@ -33,11 +31,8 @@ Requires:         R-CRAN-spm
 Requires:         R-CRAN-gstat 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-psy 
 Requires:         R-CRAN-gbm 
 Requires:         R-stats 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-glmnet 
