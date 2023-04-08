@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  soiltestcorr
-%global packver   2.1.2
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soil Test Correlation and Calibration
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,7 +29,9 @@ BuildRequires:    R-CRAN-ggpp
 BuildRequires:    R-CRAN-nlstools 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-modelr 
+BuildRequires:    R-CRAN-nlraa 
 BuildRequires:    R-CRAN-AICcmodavg 
+BuildRequires:    R-CRAN-smatr 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
@@ -41,7 +44,9 @@ Requires:         R-CRAN-ggpp
 Requires:         R-CRAN-nlstools 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-modelr 
+Requires:         R-CRAN-nlraa 
 Requires:         R-CRAN-AICcmodavg 
+Requires:         R-CRAN-smatr 
 
 %description
 A compilation of functions designed to assist users on the correlation

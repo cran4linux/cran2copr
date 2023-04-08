@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lidaRtRee
-%global packver   4.0.3
+%global packver   4.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.3
+Version:          4.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Analysis with Airborne Laser Scanning (LiDAR) Data
 

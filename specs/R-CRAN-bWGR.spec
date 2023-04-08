@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bWGR
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Whole-Genome Regression
 
@@ -20,7 +21,6 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppEigen 
 
 %description
 Whole-genome regression methods on Bayesian framework fitted via EM or

@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ast2ast
-%global packver   0.3.0
+%global packname  OptimalGoldstandardDesigns
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translates an R Function to a C++ Function
+Summary:          Design Parameter Optimization for Gold-Standard Non-Inferiority Trials
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dfdr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-Rcpp >= 1.0.4
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-methods 
-Requires:         R-CRAN-dfdr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Enable translation of a tiny subset of R to C++. The user has to define a
-R function which gets translated. For a full list of possible functions
-check the documentation. After translation an R function is returned which
-is a shallow wrapper around the C++ code. Alternatively an external
-pointer to the C++ function is returned to the user. The intention of the
-package is to generate fast functions which can be used as ode-system or
-during optimization.
+Methods to calculate optimal design parameters for one- and two-stage
+three-arm group-sequential gold-standard non-inferiority trial designs
+with or without binding or nonbinding futility boundaries, as described in
+Meis et al. (2023) <doi:10.1002/sim.9630>.
 
 %prep
 %setup -q -c -n %{packname}

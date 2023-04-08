@@ -1,36 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  quickerstats
-%global packver   0.0.1
+%global __requires_exclude ^libmpi
+%global packname  roundyh
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An 'R' Client for the 'USDA NASS Quick Stats API'
+Summary:          Round Dataframe
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.2
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-readr >= 1.3.1
-Requires:         R-CRAN-curl >= 4.2
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-readr >= 1.3.1
 
 %description
-Provides several convenience functions for searching and pulling data from
-the 'USDA NASS Quick Stats API' <https://quickstats.nass.usda.gov/api>.
-Users can easily search for specific data items, and then download
-county-level or state-level Census of Agricultural data from a specified
-year.
+A simple rounding function. The default round() function in R uses the IEC
+60559 standard and therefore it rounds 0.5 to 0 and rounds -1.5 to -2.
+The roundx() function accounts for this and helps to round 0.5 up to 1.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +31,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

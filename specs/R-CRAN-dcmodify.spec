@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dcmodify
-%global packver   0.1.9
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modify Data Using Externally Defined Modification Rules
 
@@ -16,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-validate >= 0.1.5
+BuildRequires:    R-CRAN-lumberjack >= 1.3.1
+BuildRequires:    R-CRAN-validate >= 1.1.3
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-settings 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-validate >= 0.1.5
+Requires:         R-CRAN-lumberjack >= 1.3.1
+Requires:         R-CRAN-validate >= 1.1.3
 Requires:         R-methods 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-settings 

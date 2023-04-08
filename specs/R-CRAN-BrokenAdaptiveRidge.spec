@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pipenostics
-%global packver   0.1.7
+%global __requires_exclude ^libmpi
+%global packname  BrokenAdaptiveRidge
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostics, Reliability and Predictive Maintenance of Pipeline Systems
+Summary:          Broken Adaptive Ridge Regression with Cyclops
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-Cyclops >= 3.0.0
+BuildRequires:    R-CRAN-futile.logger 
+BuildRequires:    R-CRAN-bit64 
+Requires:         R-CRAN-Cyclops >= 3.0.0
+Requires:         R-CRAN-futile.logger 
+Requires:         R-CRAN-bit64 
 
 %description
-Functions representing some useful empirical and data-driven models of
-heat losses, corrosion diagnostics, reliability and predictive maintenance
-of pipeline systems. The package is an option for digital transformation
-of technical engineering departments of heat generating and heat
-transferring companies. Methods are described in Timashev et al. (2016)
-<doi:10.1007/978-3-319-25307-7>, A.C.Reddy (2017)
-<doi:10.1016/j.matpr.2017.07.081>, Minenergo (2008)
-<https://docs.cntd.ru/document/902148459>, Minenergo (2005)
-<http://www.complexdoc.ru/ntdtext/547103>.
+Approximates best-subset selection (L0) regression with an iteratively
+adaptive Ridge (L2) penalty for large-scale models. This package uses
+Cyclops for an efficient implementation and the iterative method is
+described in Kawaguchi et al (2020) <doi:10.1002/sim.8438> and Li et al
+(2021) <doi:10.1016/j.jspi.2020.12.001>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

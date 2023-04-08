@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  did2s
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Stage Difference-in-Differences Following Gardner (2021)
 
@@ -16,44 +16,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-fixest >= 0.10.1
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-MatrixExtra 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-did 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-did 
 BuildRequires:    R-CRAN-staggered 
 BuildRequires:    R-CRAN-didimputation 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-fixest >= 0.10.1
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-SparseM 
+Requires:         R-CRAN-MatrixExtra 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-did 
+Requires:         R-stats 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-broom 
-Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-did 
 Requires:         R-CRAN-staggered 
 Requires:         R-CRAN-didimputation 
-Requires:         R-CRAN-boot 
 
 %description
 Estimates Two-way Fixed Effects difference-in-differences/event-study
-models using the approach proposed by Gardner (2021). To avoid the
-problems caused by OLS estimation of the Two-way Fixed Effects model, this
-function first estimates the fixed effects and covariates using untreated
-observations and then in a second stage, estimates the treatment effects.
+models using the approach proposed by Gardner (2021)
+<doi:10.48550/arXiv.2207.05943>. To avoid the problems caused by OLS
+estimation of the Two-way Fixed Effects model, this function first
+estimates the fixed effects and covariates using untreated observations
+and then in a second stage, estimates the treatment effects.
 
 %prep
 %setup -q -c -n %{packname}

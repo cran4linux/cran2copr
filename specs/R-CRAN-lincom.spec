@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MedSurvey
-%global packver   1.1.1.3.0
+%global __requires_exclude ^libmpi
+%global packname  lincom
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Mediation Analysis for Complex Surveys Using Balanced Repeated Replication
+Summary:          Linear Biomarker Combination: Empirical Performance Optimization
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.50
-Requires:         R-core >= 2.50
-BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Rmosek 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-SparseM 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-lavaan 
-Requires:         R-parallel 
+Requires:         R-CRAN-Rmosek 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-It is a computer tool to conduct linear mediation analysis for complex
-surveys using multi-stage sampling and Balanced Repeated Replication
-(BRR). Specifically, the mediation analysis method using balanced repeated
-replications was proposed by Mai, Ha, and Soulakova (2019)
-<DOI:10.1080/10705511.2018.1559065>. The current version can only handle
-continuous mediators and outcomes. The development of 'MedSurvey' was
-sponsored by American Lebanese Syrian Associated Charities (ALSAC).
-However, the contents of MedSurvey do not necessarily represent the policy
-of the ALSAC.
+Perform two linear combination methods for biomarkers: (1) Empirical
+performance optimization for specificity (or sensitivity) at a controlled
+sensitivity (or specificity) level of Huang and Sanda (2022)
+<doi:10.1214/22-aos2210>, and (2) weighted maximum score estimator with
+empirical minimization of averaged false positive rate and false negative
+rate. Both adopt the algorithms of Huang and Sanda (2022)
+<doi:10.1214/22-aos2210>. 'MOSEK' solver is used and needs to be
+installed; an academic license for 'MOSEK' is free.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

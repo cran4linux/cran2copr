@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayestestR
-%global packver   0.13.0
+%global packver   0.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Understand and Describe Bayesian Models and Posterior Distributions
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-datawizard >= 0.5.1
-BuildRequires:    R-CRAN-insight >= 0.18.2
+BuildRequires:    R-CRAN-datawizard >= 0.7.0
+BuildRequires:    R-CRAN-insight >= 0.19.1
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-datawizard >= 0.5.1
-Requires:         R-CRAN-insight >= 0.18.2
+Requires:         R-CRAN-datawizard >= 0.7.0
+Requires:         R-CRAN-insight >= 0.19.1
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 
@@ -35,7 +35,8 @@ Provides utilities to describe posterior distributions and Bayesian
 models. It includes point-estimates such as Maximum A Posteriori (MAP),
 measures of dispersion (Highest Density Interval - HDI; Kruschke, 2015
 <doi:10.1016/C2012-0-00477-2>) and indices used for null-hypothesis
-testing (such as ROPE percentage, pd and Bayes factors).
+testing (such as ROPE percentage, pd and Bayes factors). References:
+Makowski et al. (2021) <doi:10.21105/joss.01541>.
 
 %prep
 %setup -q -c -n %{packname}

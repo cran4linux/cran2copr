@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDtoolkit
-%global packver   1.1.0
+%global packname  BREADR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Tools for PD Rating Model Development and Validation
+Summary:          Estimates Degrees of Relatedness (Up to the Second Degree) for Extreme Low-Coverage Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-monobin 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-CRAN-monobin 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-The goal of this package is to cover the most common steps in probability
-of default (PD) rating model development and validation. The main
-procedures available are those that refer to univariate, bivariate,
-multivariate analysis, calibration and validation. Along with accompanied
-'monobin' and 'monobinShiny' packages, 'PDtoolkit' provides functions
-which are suitable for different data transformation and modeling tasks
-such as: imputations, monotonic binning of numeric risk factors, binning
-of categorical risk factors, weights of evidence (WoE) and information
-value (IV) calculations, WoE coding (replacement of risk factors
-modalities with WoE values), risk factor clustering, area under curve
-(AUC) calculation and others. Additionally, package provides set of
-validation functions for testing homogeneity, heterogeneity,
-discriminatory and predictive power of the model.
+The goal of the package is to provide an easy-to-use method for estimating
+degrees of relatedness (up to the second degree) for extreme low-coverage
+data. The package also allows users to quantify and visualise the level of
+confidence in the estimated degrees of relatedness. A paper describing the
+method is available at Rohrlach, A. B. et al (2023)
+<https://tinyurl.com/29t6gbbx>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fixedincome
-%global packver   0.0.4
+%global packname  WaveletGBM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fixed Income Models, Calculations, Data Structures and Instruments
+Summary:          Wavelet Based Gradient Boosting Method
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bizdays >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-caretForecast 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-bizdays >= 1.0.0
-Requires:         R-methods 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-wavelets 
+BuildRequires:    R-CRAN-gbm 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-caretForecast 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-tseries 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-wavelets 
+Requires:         R-CRAN-gbm 
 
 %description
-Fixed income mathematics made easy. A rich set of functions that helps
-with calculations of interest rates and fixed income. It has objects that
-abstract interest rates, compounding factors, day count rules, forward
-rates and term structure of interest rates. Many interpolation methods and
-parametric curve models commonly used by practitioners are implemented.
+Wavelet decomposition method is very useful for modelling noisy time
+series data. Wavelet decomposition using 'haar' algorithm has been
+implemented to developed hybrid Wavelet GBM (Gradient Boosting Method)
+model for time series forecasting using algorithm by Anjoy and Paul (2017)
+<DOI:10.1007/s00521-017-3289-9>.
 
 %prep
 %setup -q -c -n %{packname}

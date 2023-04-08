@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quanteda
-%global packver   3.2.4
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.4
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Analysis of Textual Data
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-SnowballC 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 
 Requires:         R-CRAN-fastmatch 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-SnowballC 
