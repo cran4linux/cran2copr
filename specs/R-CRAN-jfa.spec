@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jfa
-%global packver   0.6.5
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Auditing
 
@@ -27,8 +27,6 @@ BuildRequires:    R-CRAN-bde
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-philentropy 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-truncdist 
 BuildRequires:    R-CRAN-rstantools
@@ -40,8 +38,6 @@ Requires:         R-CRAN-bde
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-philentropy 
 Requires:         R-stats 
 Requires:         R-CRAN-truncdist 
 Requires:         R-CRAN-rstantools
