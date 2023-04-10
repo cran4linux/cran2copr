@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  stoRy
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download, Explore, and Analyze Literary Theme Ontology Data
 
@@ -53,7 +54,7 @@ Requires:         R-utils
 Download, explore, and analyze Literary Theme Ontology themes and
 thematically annotated story data. To learn more about the project visit
 <https://github.com/theme-ontology/theming> and
-<https://themeontology.org>.
+<https://www.themeontology.org>.
 
 %prep
 %setup -q -c -n %{packname}

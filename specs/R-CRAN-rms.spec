@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rms
-%global packver   6.5-0
+%global packver   6.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.5.0
+Version:          6.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Modeling Strategies
 
@@ -18,13 +18,12 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Hmisc >= 4.8.0
 BuildRequires:    R-CRAN-nlme >= 3.1.123
-BuildRequires:    R-CRAN-survival >= 3.1.12
-BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-htmlTable >= 1.11.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-polspline 
 BuildRequires:    R-CRAN-multcomp 
@@ -33,15 +32,17 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-Hmisc >= 4.8.0
 Requires:         R-CRAN-nlme >= 3.1.123
-Requires:         R-CRAN-survival >= 3.1.12
-Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-htmlTable >= 1.11.0
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-SparseM 
 Requires:         R-methods 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-SparseM 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-polspline 
 Requires:         R-CRAN-multcomp 
@@ -50,6 +51,9 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-grDevices 
 
 %description
 Regression modeling, testing, estimation, validation, graphics,

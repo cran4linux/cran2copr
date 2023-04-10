@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plm
-%global packver   2.6-2
+%global packver   2.6-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.2
+Version:          2.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Models for Panel Data
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-collapse >= 1.8.0
+BuildRequires:    R-CRAN-collapse >= 1.8.9
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-bdsmatrix 
 BuildRequires:    R-CRAN-zoo 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-maxLik
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-collapse >= 1.8.0
+Requires:         R-CRAN-collapse >= 1.8.9
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-bdsmatrix 
 Requires:         R-CRAN-zoo 

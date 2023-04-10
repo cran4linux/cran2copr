@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  prt
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tabular Data Backed by Partitioned 'fst' Files
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pillar >= 1.7.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-fst 
 BuildRequires:    R-CRAN-data.table 
@@ -23,11 +25,10 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-fansi 
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-pillar >= 1.7.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-fst 
 Requires:         R-CRAN-data.table 
@@ -35,9 +36,7 @@ Requires:         R-utils
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-fansi 
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-rlang 
 

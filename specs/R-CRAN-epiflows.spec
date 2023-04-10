@@ -1,37 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivmodel
-%global packver   1.9.1
+%global packname  epiflows
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference and Sensitivity Analysis for Instrumental Variables Model
+Summary:          Predicting Disease Spread from Flow Data
 
-License:          GPL-2 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-epicontacts 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-ggmap 
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-visNetwork 
+Requires:         R-CRAN-epicontacts 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-ggmap 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-sp 
+Requires:         R-stats 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-visNetwork 
 
 %description
-Carries out instrumental variable estimation of causal effects, including
-power analysis, sensitivity analysis, and diagnostics. See Kang, Jiang,
-Zhao, and Small (2020) <http://pages.cs.wisc.edu/~hyunseung/> for details.
+Provides functions and classes designed to handle and visualise
+epidemiological flows between locations. Also contains a statistical
+method for predicting disease spread from flow data initially described in
+Dorigatti et al. (2017) <doi:10.2807/1560-7917.ES.2017.22.28.30572>. This
+package is part of the RECON (<https://www.repidemicsconsortium.org/>)
+toolkit for outbreak analysis.
 
 %prep
 %setup -q -c -n %{packname}
