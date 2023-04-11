@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sps
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Poisson Sampling
 
@@ -16,10 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
 
 %description
 Sequential Poisson sampling is a variation of Poisson sampling for drawing

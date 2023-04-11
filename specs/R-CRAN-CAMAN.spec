@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CAMAN
-%global packver   0.76
+%global packver   0.77
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.76
+Version:          0.77
 Release:          1%{?dist}%{?buildtag}
 Summary:          Finite Mixture Models and Meta-Analysis Tools - Based on C.A.MAN
 

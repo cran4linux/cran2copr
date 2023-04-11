@@ -1,30 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BaSTA
-%global packver   1.9.5
+%global packname  WeightedEnsemble
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Age-Specific Survival Analysis from Incomplete Capture-Recapture/Recovery Data
+Summary:          Weighted Ensemble for Hybrid Model
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-snowfall 
-Requires:         R-CRAN-snowfall 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-metaheuristicOpt 
+Requires:         R-stats 
+Requires:         R-CRAN-metaheuristicOpt 
 
 %description
-Estimates survival and mortality with covariates from
-capture-recapture/recovery data in a Bayesian framework when many
-individuals are of unknown age. It includes tools for data checking, model
-diagnostics and outputs such as life-tables and plots.
+The weighted ensemble method is a valuable approach for combining
+forecasts. This algorithm employs several optimization techniques to
+generate optimized weights. This package has been developed using
+algorithm of Armstrong (1989) <doi:10.1016/0024-6301(90)90317-W>.
 
 %prep
 %setup -q -c -n %{packname}

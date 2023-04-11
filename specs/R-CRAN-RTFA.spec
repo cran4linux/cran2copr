@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ezknitr
-%global packver   0.6.2
+%global packname  RTFA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Avoid the Typical Working Directory Pain When Using 'knitr'
+Summary:          Robust Factor Analysis for Tensor Time Series
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.7
-BuildRequires:    R-CRAN-R.utils >= 1.34.0
-BuildRequires:    R-CRAN-markdown >= 0.7
-Requires:         R-CRAN-knitr >= 1.7
-Requires:         R-CRAN-R.utils >= 1.34.0
-Requires:         R-CRAN-markdown >= 0.7
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-tensor 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-tensor 
 
 %description
-An extension of 'knitr' that adds flexibility in several ways. One common
-source of frustration with 'knitr' is that it assumes the directory where
-the source file lives should be the working directory, which is often not
-true. 'ezknitr' addresses this problem by giving you complete control over
-where all the inputs and outputs are, and adds several other convenient
-features to make rendering markdown/HTML documents easier.
+Tensor Factor Models (TFM) are appealing dimension reduction tools for
+high-order tensor time series, and have wide applications in economics,
+finance and medical imaging. We propose an one-step projection estimator
+by minimizing the least-square loss function, and further propose a robust
+estimator with an iterative weighted projection technique by utilizing the
+Huber loss function. The methods are discussed in Barigozzi et al. (2022)
+<arXiv:2206.09800>, and Barigozzi et al. (2023) <arXiv:2303.18163>.
 
 %prep
 %setup -q -c -n %{packname}

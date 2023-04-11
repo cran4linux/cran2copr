@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MKpower
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis and Sample Size Calculation
 
@@ -17,15 +18,15 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MKinfer >= 0.4
+BuildRequires:    R-CRAN-matrixTests >= 0.2
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-matrixTests 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MKdescr 
 BuildRequires:    R-CRAN-qqplotr 
 BuildRequires:    R-CRAN-coin 
 Requires:         R-CRAN-MKinfer >= 0.4
+Requires:         R-CRAN-matrixTests >= 0.2
 Requires:         R-stats 
-Requires:         R-CRAN-matrixTests 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MKdescr 
 Requires:         R-CRAN-qqplotr 
@@ -53,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

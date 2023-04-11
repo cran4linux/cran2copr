@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lightsout
-%global packver   0.3.1
+%global packname  SQI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of the 'Lights Out' Puzzle Game
+Summary:          Soil Quality Index
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-shinyjs >= 0.3.0
-BuildRequires:    R-CRAN-shiny >= 0.10.0
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-shinyjs >= 0.3.0
-Requires:         R-CRAN-shiny >= 0.10.0
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-olsrr 
+BuildRequires:    R-CRAN-FactoMineR 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-olsrr 
+Requires:         R-CRAN-FactoMineR 
 
 %description
-Lights Out is a puzzle game consisting of a grid of lights that are either
-on or off. Pressing any light will toggle it and its adjacent lights. The
-goal of the game is to switch all the lights off. This package provides an
-interface to play the game on different board sizes, both through the
-command line or with a visual application. Puzzles can also be solved
-using the automatic solver included. View a demo online at
-<https://daattali.com/shiny/lightsout/>.
+The overall performance of soil ecosystem services and productivity
+greatly relies on soil health, making it a crucial indicator. The
+evaluation of soil physical, chemical, and biological parameters is
+necessary to determine the overall soil quality index. In our package,
+three commonly used methods, including linear scoring, regression-based,
+and principal component-based soil quality indexing, are employed to
+calculate the soil quality index. This package has been developed using
+concept of Bastida et al. (2008) and Doran and Parkin (1994)
+<doi:10.1016/j.geoderma.2008.08.007> <doi:10.2136/sssaspecpub35.c1>.
 
 %prep
 %setup -q -c -n %{packname}

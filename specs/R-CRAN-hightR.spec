@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  equatiomatic
-%global packver   0.3.1
+%global __requires_exclude ^libmpi
+%global packname  hightR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transform Models into 'LaTeX' Equations
+Summary:          HIGHT Algorithm
 
-License:          CC BY 4.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom >= 0.7.0
-BuildRequires:    R-CRAN-broom.mixed 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-broom >= 0.7.0
-Requires:         R-CRAN-broom.mixed 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-knitr 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-The goal of 'equatiomatic' is to reduce the pain associated with writing
-'LaTeX' formulas from fitted models. The primary function of the package,
-extract_eq(), takes a fitted model object as its input and returns the
-corresponding 'LaTeX' code for the model.
+HIGHT(HIGh security and light weigHT) algorithm is a block cipher
+encryption algorithm developed to provide confidentiality in computing
+environments that demand low power consumption and lightweight, such as
+RFID(Radio-Frequency Identification) and USN(Ubiquitous Sensor Network),
+or in mobile environments that require low power consumption and
+lightweight, such as smartphones and smart cards. Additionally, it is
+designed with a simple structure that enables it to be used with basic
+arithmetic operations, XOR, and circular shifts in 8-bit units. This
+algorithm was designed to consider both safety and efficiency in a very
+simple structure suitable for limited environments, compared to the former
+128-bit encryption algorithm SEED. In December 2010, it became an
+ISO(International Organization for Standardization) standard. The detailed
+procedure is described in Hong et al. (2006) <doi:10.1007/11894063_4>.
 
 %prep
 %setup -q -c -n %{packname}

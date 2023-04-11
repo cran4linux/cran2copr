@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prioritylasso
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Multiple Omics Data with an Offset Approach
 
@@ -29,7 +29,7 @@ Requires:         R-CRAN-checkmate
 %description
 Fits successive Lasso models for several blocks of (omics) data with
 different priorities and takes the predicted values as an offset for the
-next block. Also offers options to deal with blockwise missingness in
+next block. Also offers options to deal with block-wise missingness in
 multi-omics data.
 
 %prep

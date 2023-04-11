@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shapviz
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          SHAP Visualizations
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-rlang >= 0.3.0
 BuildRequires:    R-CRAN-gggenes 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xgboost 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-gggenes 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-grid 
+Requires:         R-CRAN-patchwork 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-xgboost 
@@ -42,11 +44,11 @@ plots, force plots, various types of importance plots, dependence plots,
 and interaction plots.  These plots act on a 'shapviz' object created from
 a matrix of SHAP values and a corresponding feature dataset. Wrappers for
 the R packages 'xgboost', 'lightgbm', 'fastshap', 'shapr', 'h2o',
-'treeshap', and 'kernelshap' are added for convenience.  By separating
-visualization and computation, it is possible to display factor variables
-in graphs, even if the SHAP values are calculated by a model that requires
-numerical features. The plots are inspired by those provided by the 'shap'
-package in Python, but there is no dependency on it.
+'treeshap', 'DALEX', and 'kernelshap' are added for convenience.  By
+separating visualization and computation, it is possible to display factor
+variables in graphs, even if the SHAP values are calculated by a model
+that requires numerical features. The plots are inspired by those provided
+by the 'shap' package in Python, but there is no dependency on it.
 
 %prep
 %setup -q -c -n %{packname}

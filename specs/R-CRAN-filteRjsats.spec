@@ -1,32 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bayesplay
-%global packver   0.9.2
+%global __requires_exclude ^libmpi
+%global packname  filteRjsats
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Bayes Factor Playground
+Summary:          Filter Raw JSATS Acoustic Telemetry Files from Lotek, ATS, Teknologic
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-gginnards 
-Requires:         R-methods 
-Requires:         R-CRAN-gginnards 
+BuildRequires:    R-CRAN-broman 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rerddap 
+Requires:         R-CRAN-broman 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rerddap 
 
 %description
-A lightweight modelling syntax for defining likelihoods and priors and for
-computing Bayes factors for simple one parameter models. It includes
-functionality for computing and plotting priors, likelihoods, and model
-predictions. Additional functionality is included for computing and
-plotting posteriors.
+Filtering of raw acoustic telemetry transmissions from three acoustic
+telemetry companies (ATS, Lotek, Teknologic). The filtering steps check
+for false positives caused by reflected transmissions from surfaces and
+false pings from other noise generating equipment. The filter is unique
+for each technology type. The package was written in concert with the
+Interagency Telemetry Advisory Group (iTAG) and makes use of the JSATS
+California Fish Tracking Database:
+<https://oceanview.pfeg.noaa.gov/CalFishTrack/>.
 
 %prep
 %setup -q -c -n %{packname}
