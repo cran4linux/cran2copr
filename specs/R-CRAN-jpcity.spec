@@ -1,42 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  labelled
-%global packver   2.11.0
+%global packname  jpcity
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulating Labelled Data
+Summary:          Read and Convert Japanese Municipality Codes
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-haven >= 2.4.1
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
 
 %description
-Work with labelled data imported from 'SPSS' or 'Stata' with 'haven' or
-'foreign'. This package provides useful functions to deal with
-"haven_labelled" and "haven_labelled_spss" classes introduced by 'haven'
-package.
+Read Japanese city codes
+(<https://www.e-stat.go.jp/municipalities/cities>) to get city and
+prefecture names, or convert to city codes at different points in time. In
+addition, it merges or splits wards of designated cities and gets all city
+codes at a specific point in time.
 
 %prep
 %setup -q -c -n %{packname}

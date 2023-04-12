@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cgalMeshes
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R6 Based Utilities for 3D Meshes using 'CGAL'
 
@@ -20,17 +20,26 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-onion 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppCGAL 
+BuildRequires:    R-CRAN-RcppColors 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-data.table 
+Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-CRAN-onion 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rgl 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Provides some utilities for 3D meshes: clipping of a mesh to the volume

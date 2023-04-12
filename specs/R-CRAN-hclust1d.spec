@@ -1,42 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  labelled
-%global packver   2.11.0
+%global packname  hclust1d
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulating Labelled Data
+Summary:          Hierarchical Clustering of Univariate (1d) Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-haven >= 2.4.1
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Work with labelled data imported from 'SPSS' or 'Stata' with 'haven' or
-'foreign'. This package provides useful functions to deal with
-"haven_labelled" and "haven_labelled_spss" classes introduced by 'haven'
-package.
+A suit of algorithms for univariate agglomerative hierarchical clustering
+(with a few possible choices of a linkage function) in O(n*log n) time.
+The better algorithmic time complexity is paired with an efficient 'C++'
+implementation.
 
 %prep
 %setup -q -c -n %{packname}

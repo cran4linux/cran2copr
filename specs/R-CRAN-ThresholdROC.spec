@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ThresholdROC
-%global packver   2.9.0
+%global packver   2.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          2.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimum Threshold Estimation
 
@@ -32,7 +33,8 @@ on minimizing an overall cost function in the two- and three-state
 settings. We also provide functions for sample size determination and
 estimation of diagnostic accuracy measures. We also include graphical
 tools. The statistical methodology used here can be found in Perez-Jaume
-et al (2017) <doi:10.18637/jss.v082.i04>.
+et al (2017) <doi:10.18637/jss.v082.i04> and in Skaltsa et al (2010, 2012)
+<doi:10.1002/bimj.200900294>, <doi:10.1002/sim.4369>.
 
 %prep
 %setup -q -c -n %{packname}

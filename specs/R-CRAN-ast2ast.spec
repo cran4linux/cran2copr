@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  labelled
-%global packver   2.11.0
+%global packname  ast2ast
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulating Labelled Data
+Summary:          Translates an R Function to a C++ Function
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dfdr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-haven >= 2.4.1
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-methods 
+Requires:         R-CRAN-dfdr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 
 %description
-Work with labelled data imported from 'SPSS' or 'Stata' with 'haven' or
-'foreign'. This package provides useful functions to deal with
-"haven_labelled" and "haven_labelled_spss" classes introduced by 'haven'
-package.
+Enable translation of a tiny subset of R to C++. The user has to define a
+R function which gets translated. For a full list of possible functions
+check the documentation. After translation an R function is returned which
+is a shallow wrapper around the C++ code. Alternatively an external
+pointer to the C++ function is returned to the user. The intention of the
+package is to generate fast functions which can be used as ode-system or
+during optimization.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VicmapR
-%global packver   0.1.10
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Victorian Spatial Data Through Web File Services (WFS)
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.0.0
-BuildRequires:    R-CRAN-sf >= 0.7
+BuildRequires:    R-CRAN-dbplyr >= 2.2.0
+BuildRequires:    R-CRAN-sf >= 0.8
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-dplyr 
@@ -36,8 +36,9 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-CRAN-leaflet 
-Requires:         R-CRAN-dbplyr >= 2.0.0
-Requires:         R-CRAN-sf >= 0.7
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dbplyr >= 2.2.0
+Requires:         R-CRAN-sf >= 0.8
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
@@ -55,11 +56,12 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-mapview 
 Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-stringr 
 
 %description
 Easily interfaces R to spatial datasets available through the Victorian
 Government's WFS (Web Feature Service):
-<https://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wfs?request=getCapabilities>,
+<https://opendata.maps.vic.gov.au/geoserver/ows?request=GetCapabilities&service=wfs>,
 which allows users to read in 'sf' data from these sources. VicmapR uses
 the lazy querying approach and code developed by Teucher et al. (2021) for
 the 'bcdata' R package <doi:10.21105/joss.02927>.

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pec
-%global packver   2022.05.04
+%global packver   2023.04.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.05.04
+Version:          2023.04.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Error Curves for Risk Prediction Models in Survival Analysis
 

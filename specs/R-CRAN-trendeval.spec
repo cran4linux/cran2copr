@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  trendeval
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluate Trending Models
 
@@ -16,20 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-trending 
+BuildRequires:    R-CRAN-trending >= 0.1.0
 BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-trending 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-trending >= 0.1.0
 Requires:         R-CRAN-yardstick 
 Requires:         R-CRAN-rsample 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
 Provides a coherent interface for evaluating models fit with the trending
@@ -44,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bcmaps
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Map Layers and Spatial Utilities for British Columbia
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
 BuildRequires:    R-CRAN-httr >= 1.3.1
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-sf >= 0.9
 BuildRequires:    R-CRAN-rappdirs >= 0.3.1
 BuildRequires:    R-CRAN-bcdata >= 0.3.0
@@ -27,8 +28,10 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite >= 1.7.0
 Requires:         R-CRAN-httr >= 1.3.1
+Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-sf >= 0.9
 Requires:         R-CRAN-rappdirs >= 0.3.1
 Requires:         R-CRAN-bcdata >= 0.3.0
@@ -37,12 +40,18 @@ Requires:         R-CRAN-progress
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides access to various spatial layers for B.C., such as administrative
-boundaries, natural resource management boundaries, etc. Most layers are
-imported from the 'bcdata' package as 'sf' or 'Spatial' objects through
-function calls in this package.
+Various layers of B.C., including administrative boundaries, natural
+resource management boundaries, census boundaries etc. All layers are
+available in BC Albers
+(<https://spatialreference.org/ref/epsg/nad83-bc-albers/>) equal-area
+projection, which is the B.C. government standard. The layers are sourced
+from the British Columbia and Canadian government under open licenses,
+including B.C. Data Catalogue (<https://data.gov.bc.ca>), the Government
+of Canada Open Data Portal (<https://open.canada.ca/en/open-data>), and
+Statistics Canada (<https://www.statcan.gc.ca/en/reference/licence>).
 
 %prep
 %setup -q -c -n %{packname}

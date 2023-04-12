@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  labelled
-%global packver   2.11.0
+%global packname  MTE
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulating Labelled Data
+Summary:          Maximum Tangent Likelihood Estimation for Robust Linear Regression and Variable Selection
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-haven >= 2.4.1
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-rqPen 
+Requires:         R-stats 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-rqPen 
 
 %description
-Work with labelled data imported from 'SPSS' or 'Stata' with 'haven' or
-'foreign'. This package provides useful functions to deal with
-"haven_labelled" and "haven_labelled_spss" classes introduced by 'haven'
-package.
+Several robust estimators for linear regression and variable selection are
+provided. Included are Maximum tangent likelihood estimator by Qin, et
+al., (2017) <arxiv:1708.05439>, least absolute deviance estimator and
+Huber regression. The penalized version of each of these estimator
+incorporates L1 penalty function, i.e., LASSO and Adaptive Lasso. They are
+able to produce consistent estimates for both fixed and high-dimensional
+settings.
 
 %prep
 %setup -q -c -n %{packname}

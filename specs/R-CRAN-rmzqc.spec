@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmzqc
-%global packver   0.1.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creation, Reading and Validation of 'mzqc' Files
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-jsonvalidate 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ontologyIndex 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-R6P
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-jsonvalidate 
 Requires:         R-CRAN-knitr 
 Requires:         R-methods 
 Requires:         R-CRAN-ontologyIndex 

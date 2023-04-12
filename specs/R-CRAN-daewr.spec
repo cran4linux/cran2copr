@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  daewr
-%global packver   1.2-7
+%global packver   1.2-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design and Analysis of Experiments with R
 
@@ -16,22 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-FrF2 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-FrF2 
+BuildRequires:    R-CRAN-lattice 
+Requires:         R-CRAN-stringi 
+Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-lattice 
 
 %description
 Contains Data frames and functions used in the book "Design and Analysis
-of Experiments with R".
+of Experiments with R", Lawson(2015) ISBN-13:978-1-4398-6813-3.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

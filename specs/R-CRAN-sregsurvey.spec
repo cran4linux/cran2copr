@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sregsurvey
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semiparametric Model-Assisted Estimation in Finite Populations
 
@@ -34,10 +35,12 @@ Requires:         R-CRAN-magrittr
 %description
 It is a framework to fit semiparametric regression estimators for the
 total parameter of a finite population when the interest variable is
-asymmetric distributed. The main references for this package are: Sarndal
+asymmetric distributed. The main references for this package are Sarndal
 C.E., Swensson B., and Wretman J. (2003,ISBN: 978-0-387-40620-6, "Model
-Assisted Survey Sampling." Springer-Verlag) and Cardozo C.A and
-Alonso-Malaver C.E. (2021). "Semi-parametric model assisted estimation in
+Assisted Survey Sampling." Springer-Verlag) Cardozo C.A, Paula G.A. and
+Vanegas L.H. (2022) "Generalized log-gamma additive partial linear mdoels
+with P-spline smoothing", Statistical Papers. Cardozo C.A and
+Alonso-Malaver C.E. (2022). "Semi-parametric model assisted estimation in
 finite populations." In preparation.
 
 %prep

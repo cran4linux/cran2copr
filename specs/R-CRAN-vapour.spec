@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vapour
-%global packver   0.9.3
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to the 'Geospatial Data Abstraction Library' ('GDAL')
 
@@ -20,9 +20,11 @@ BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-nanoarrow 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-nanoarrow 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-utils 
 
