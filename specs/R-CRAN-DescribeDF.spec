@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DescribeDF
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Description of a Data Frame
 
@@ -29,9 +29,9 @@ Requires:         R-CRAN-fNonlinear
 Requires:         R-CRAN-tseries 
 
 %description
-Helps to describe a data frame in hand. More information may be obtained
-from Garai and Paul (2023) <doi:10.1016/j.iswa.2023.200202>. Has been
-developed during PhD work of the maintainer.
+Helps to describe a data frame in hand. Has been developed during PhD work
+of the maintainer. More information may be obtained from Garai and Paul
+(2023) <doi:10.1016/j.iswa.2023.200202>.
 
 %prep
 %setup -q -c -n %{packname}

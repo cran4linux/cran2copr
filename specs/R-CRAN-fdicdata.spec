@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  comtradr
-%global packver   0.3.0
+%global __requires_exclude ^libmpi
+%global packname  fdicdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface with the United Nations Comtrade API
+Summary:          Accessing FDIC Bank Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-yaml 
 
 %description
-Interface with and extract data from the United Nations Comtrade API
-<https://comtrade.un.org/data/>. Comtrade provides country level shipping
-data for a variety of commodities, these functions allow for easy API
-query and data returned as a tidy data frame.
+A system provides a set of functions for working with data from the
+Federal Deposit Insurance Corporation (FDIC), including retrieving
+financial data for FDIC-insured institutions and accessing the data
+taxonomy.
 
 %prep
 %setup -q -c -n %{packname}

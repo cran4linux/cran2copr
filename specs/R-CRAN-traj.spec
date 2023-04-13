@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  traj
-%global packver   1.3
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trajectory Analysis
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-NbClust 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-psych
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-GPArotation 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-NbClust 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ormPlot
-%global packver   0.3.5
+%global packname  bettermc
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Plotting of Ordinal Regression Models
+Summary:          Enhanced Fork-Based Parallelization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,21 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rms >= 5.1.3
-BuildRequires:    R-grid >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-gtable >= 0.3.0
-Requires:         R-CRAN-rms >= 5.1.3
-Requires:         R-grid >= 3.5.0
-Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-gtable >= 0.3.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-checkmate 
+Requires:         R-parallel 
 
 %description
-An extension to the Regression Modeling Strategies package that
-facilitates plotting ordinal regression model predictions together with
-confidence intervals for each dependent variable level. It also adds a
-functionality to plot the model summary as a modifiable object.
+Drop-in replacement for 'parallel::mclapply()' adding e.g. tracebacks,
+crash dumps, retries, condition handling, improved seeding, progress bars
+and faster inter process communication. Some of the internal functions are
+also exported for other use: 'etry()' (extended try),
+'copy2shm()/allocate_from_shm()' (copy to and allocate from POSIX shared
+memory), 'char_map/map2char()' (split a character vector into its unique
+elements and a mapping on these) and various semaphore related functions.
 
 %prep
 %setup -q -c -n %{packname}

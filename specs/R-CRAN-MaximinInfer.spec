@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ormPlot
-%global packver   0.3.5
+%global packname  MaximinInfer
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Plotting of Ordinal Regression Models
+Summary:          Inference for Maximin Effects in High-Dimensional Settings
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms >= 5.1.3
-BuildRequires:    R-grid >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-gtable >= 0.3.0
-Requires:         R-CRAN-rms >= 5.1.3
-Requires:         R-grid >= 3.5.0
-Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-gtable >= 0.3.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-intervals 
+BuildRequires:    R-CRAN-SIHR 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-intervals 
+Requires:         R-CRAN-SIHR 
 
 %description
-An extension to the Regression Modeling Strategies package that
-facilitates plotting ordinal regression model predictions together with
-confidence intervals for each dependent variable level. It also adds a
-functionality to plot the model summary as a modifiable object.
+Implementation of the sampling and aggregation method for the covariate
+shift maximin effect, which was proposed in <arXiv:2011.07568>. It
+constructs the confidence interval for any linear combination of the
+high-dimensional maximin effect.
 
 %prep
 %setup -q -c -n %{packname}

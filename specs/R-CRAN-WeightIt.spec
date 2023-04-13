@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  WeightIt
-%global packver   0.13.1
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighting for Covariate Balance in Observational Studies
 
@@ -16,14 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cobalt >= 4.3.0
+BuildRequires:    R-CRAN-cobalt >= 4.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-backports >= 1.4.1
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-chk >= 0.8.1
 BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-cobalt >= 4.3.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cobalt >= 4.5.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-backports >= 1.4.1
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-chk >= 0.8.1
 Requires:         R-CRAN-crayon 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Generates balancing weights for causal effect estimation in observational
@@ -33,12 +42,12 @@ and providing in-house estimation methods. Available methods include
 propensity score weighting using generalized linear models, gradient
 boosting machines, the covariate balancing propensity score algorithm,
 Bayesian additive regression trees, and SuperLearner, and directly
-estimating balancing weights using entropy balancing, empirical balancing
-calibration weights, energy balancing, and optimization-based weights.
-Also allows for assessment of weights and checking of covariate balance by
-interfacing directly with the 'cobalt' package. See the vignette
-"Installing Supporting Packages" for instructions on how to install any
-package 'WeightIt' uses, including those that may not be on CRAN.
+estimating balancing weights using entropy balancing, energy balancing,
+and optimization-based weights. Also allows for assessment of weights and
+checking of covariate balance by interfacing directly with the 'cobalt'
+package. See the vignette "Installing Supporting Packages" for
+instructions on how to install any package 'WeightIt' uses, including
+those that may not be on CRAN.
 
 %prep
 %setup -q -c -n %{packname}

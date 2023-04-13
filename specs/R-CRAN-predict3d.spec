@@ -1,36 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ormPlot
-%global packver   0.3.5
+%global packname  predict3d
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Plotting of Ordinal Regression Models
+Summary:          Draw Three Dimensional Predict Plot Using Package 'rgl'
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms >= 5.1.3
-BuildRequires:    R-grid >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-gtable >= 0.3.0
-Requires:         R-CRAN-rms >= 5.1.3
-Requires:         R-grid >= 3.5.0
+BuildRequires:    R-CRAN-rgl >= 1.0.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggiraphExtra 
+BuildRequires:    R-CRAN-modelr 
+BuildRequires:    R-CRAN-prediction 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-gtable >= 0.3.0
+Requires:         R-CRAN-rgl >= 1.0.1
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggiraphExtra 
+Requires:         R-CRAN-modelr 
+Requires:         R-CRAN-prediction 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tidyr 
 
 %description
-An extension to the Regression Modeling Strategies package that
-facilitates plotting ordinal regression model predictions together with
-confidence intervals for each dependent variable level. It also adds a
-functionality to plot the model summary as a modifiable object.
+Draw 2 dimensional and three dimensional plot for multiple regression
+models using package 'ggplot2' and 'rgl'. Supports linear models (lm),
+generalized linear models (glm) and local polynomial regression fittings
+(loess).
 
 %prep
 %setup -q -c -n %{packname}

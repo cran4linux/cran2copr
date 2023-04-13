@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ormPlot
-%global packver   0.3.5
+%global packname  quartets
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Plotting of Ordinal Regression Models
+Summary:          Datasets to Help Teach Statistics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms >= 5.1.3
-BuildRequires:    R-grid >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-gtable >= 0.3.0
-Requires:         R-CRAN-rms >= 5.1.3
-Requires:         R-grid >= 3.5.0
-Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-gtable >= 0.3.0
 
 %description
-An extension to the Regression Modeling Strategies package that
-facilitates plotting ordinal regression model predictions together with
-confidence intervals for each dependent variable level. It also adds a
-functionality to plot the model summary as a modifiable object.
+In the spirit of Anscombe's quartet, this package includes datasets that
+demonstrate the importance of visualizing your data, the importance of not
+relying on statistical summary measures alone, and why additional
+assumptions about the data generating mechanism are needed when estimating
+causal effects. The package includes "Anscombe's Quartet" (Anscombe 1973)
+<doi:10.1080/00031305.1973.10478966>, D'Agostino McGowan & Barrett (2023)
+"Causal Quartet" <doi:10.48550/arXiv.2304.02683>, "Datasaurus Dozen"
+(Matejka & Fitzmaurice 2017), "Interaction Triptych" (Rohrer & Arslan
+2021) <doi:10.1177/25152459211007368>, "Rashomon Quartet" (Biecek et al.
+2023) <doi:10.48550/arXiv.2302.13356>, and Gelman "Variation and
+Heterogeneity Causal Quartets" (Gelman et al. 2023)
+<doi:10.48550/arXiv.2302.12878>.
 
 %prep
 %setup -q -c -n %{packname}

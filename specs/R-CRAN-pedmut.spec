@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pedmut
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mutation Models for Pedigree Likelihood Computations
 
@@ -21,10 +21,11 @@ BuildArch:        noarch
 %description
 A collection of functions for modelling mutations in pedigrees with marker
 data, as used e.g. in likelihood computations with microsatellite data.
-Implemented models include proportional and stepwise models, as well as
-random models for experimental work, and custom models allowing the user
-to apply any valid mutation matrix. Allele lumping is done following the
-lumpability criteria of Kemeny and Snell (1976), ISBN:0387901922.
+Implemented models include equal, proportional and stepwise models, as
+well as random models for experimental work, and custom models allowing
+the user to apply any valid mutation matrix.  Allele lumping is done
+following the lumpability criteria of Kemeny and Snell (1976),
+ISBN:0387901922.
 
 %prep
 %setup -q -c -n %{packname}

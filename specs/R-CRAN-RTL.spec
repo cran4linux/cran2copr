@@ -1,54 +1,76 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BREADR
-%global packver   1.0.1
+%global packname  RTL
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimates Degrees of Relatedness (Up to the Second Degree) for Extreme Low-Coverage Data
+Summary:          Risk Tool Library - Trading, Risk, 'Analytics' for Commodities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-timetk 
+BuildRequires:    R-CRAN-tsibble 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-TTR 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-grDevices 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-timetk 
+Requires:         R-CRAN-tsibble 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-TTR 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-PerformanceAnalytics 
 
 %description
-The goal of the package is to provide an easy-to-use method for estimating
-degrees of relatedness (up to the second degree) for extreme low-coverage
-data. The package also allows users to quantify and visualise the level of
-confidence in the estimated degrees of relatedness. A paper describing the
-method is available at Rohrlach, A. B. et al (2023)
-<https://tinyurl.com/29t6gbbx>.
+A toolkit for Commodities 'analytics', risk management and trading
+professionals. Includes functions for API calls to
+<https://commodities.morningstar.com/#/>,
+<https://developer.genscape.com/>, and
+<https://www.bankofcanada.ca/valet/docs>.
 
 %prep
 %setup -q -c -n %{packname}

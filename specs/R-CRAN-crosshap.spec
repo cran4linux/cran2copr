@@ -1,50 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggstats
-%global packver   0.3.0
+%global packname  crosshap
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension to 'ggplot2' for Plotting Stats
+Summary:          Local Haplotype Clustering and Visualization
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.00
+Requires:         R-core >= 4.00
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-broom.helpers >= 1.11.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clustree 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpp 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-broom.helpers >= 1.11.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clustree 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpp 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
-Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
-Provides suite of functions to plot regression model coefficients ("forest
-plots"). The suite also includes new statistics to compute proportions,
-weighted mean and cross-tabulation statistics, as well as new geometries
-to add alternative background color to a plot.
+A local haplotyping visualization toolbox to capture major patterns of
+co-inheritance between clusters of linked variants, whilst connecting
+findings to phenotypic and demographic traits across individuals.
+'crosshap' enables users to explore and understand genomic variation
+across a trait-associated region. For an example of successful local
+haplotype analysis, see Marsh et al. (2022)
+<doi:10.1007/s00122-022-04045-8>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ormPlot
-%global packver   0.3.5
+%global packname  predictNMB
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Plotting of Ordinal Regression Models
+Summary:          Evaluate Clinical Prediction Models by Net Monetary Benefit
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms >= 5.1.3
-BuildRequires:    R-grid >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-gtable >= 0.3.0
-Requires:         R-CRAN-rms >= 5.1.3
-Requires:         R-grid >= 3.5.0
-Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-gtable >= 0.3.0
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cutpointr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pmsampsize 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cutpointr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pmsampsize 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-An extension to the Regression Modeling Strategies package that
-facilitates plotting ordinal regression model predictions together with
-confidence intervals for each dependent variable level. It also adds a
-functionality to plot the model summary as a modifiable object.
+Estimates when and where a model-guided treatment strategy may outperform
+a treat-all or treat-none approach by Monte Carlo simulation and
+evaluation of the Net Monetary Benefit. Details can be viewed in Parsons
+et al. (2023) <doi:10.21105/joss.05328>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grafzahl
-%global packver   0.0.5
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supervised Machine Learning for Textual Data Using Transformers and 'Quanteda'
 
@@ -37,7 +37,8 @@ models (Wolf et al., 2020) <doi:10.18653/v1/2020.emnlp-demos.6>, in order
 to facilitate supervised machine learning for textual data. This package
 mimics the behaviors of 'quanteda.textmodels' and provides a function to
 setup the 'Python' environment to use the pretrained models from 'Hugging
-Face' <https://huggingface.co/>.
+Face' <https://huggingface.co/>. More information:
+<doi:10.5117/CCR2023.1.003.CHAN>.
 
 %prep
 %setup -q -c -n %{packname}
