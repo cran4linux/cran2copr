@@ -104,7 +104,7 @@ build_spec <- function(specs, after=NULL, chroots=getOption("copr.chroots")) {
 
 build_pkg <- function(pkgs, after=NULL, chroots=getOption("copr.chroots")) {
   out <- .build(pkgs[1], "repo", c(after=after[1]), chroots)
-  if (length(specs) == 1) return(out)
+  if (length(pkgs) == 1) return(out)
   c(out, sapply(pkgs[-1], .build, "repo", c(with=out), chroots))
 }
 
