@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stRoke
-%global packver   23.1.7
+%global packver   23.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          23.1.7
+Version:          23.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Stroke Research
 
@@ -17,17 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-calendar 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-rankinPlot 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-calendar 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-rankinPlot 
 Requires:         R-stats 

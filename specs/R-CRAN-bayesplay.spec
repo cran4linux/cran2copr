@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  c2d4u.tools
-%global packver   1.2
+%global __requires_exclude ^libmpi
+%global packname  bayesplay
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'c2d4u' - CRAN Packages for 'Ubuntu'
+Summary:          The Bayes Factor Playground
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,11 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-gginnards 
+BuildRequires:    R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-gginnards 
+Requires:         R-stats 
 
 %description
-The 'c2d4u' project provides precompiled CRAN packages for 'Ubuntu' users.
-They can be installed into user libraries without requiring root
-permissions.
+A lightweight modelling syntax for defining likelihoods and priors and for
+computing Bayes factors for simple one parameter models. It includes
+functionality for computing and plotting priors, likelihoods, and model
+predictions. Additional functionality is included for computing and
+plotting posteriors.
 
 %prep
 %setup -q -c -n %{packname}
@@ -30,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

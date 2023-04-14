@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  almanac
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Working with Recurrence Rules
 
 License:          MIT + file LICENSE
@@ -13,35 +14,48 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-V8 >= 3.0.1
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-V8 >= 3.0.1
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-V8 >= 4.2.2
+BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-R6 >= 2.5.1
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-lubridate >= 1.9.2
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
+BuildRequires:    R-CRAN-vctrs >= 0.6.1
+Requires:         R-CRAN-V8 >= 4.2.2
+Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-R6 >= 2.5.1
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-lubridate >= 1.9.2
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-lifecycle >= 1.0.3
+Requires:         R-CRAN-vctrs >= 0.6.1
 
 %description
-Provides tools for defining recurrence rules and recurrence bundles.
+Provides tools for defining recurrence rules and recurrence sets.
 Recurrence rules are a programmatic way to define a recurring event, like
 the first Monday of December. Multiple recurrence rules can be combined
-into larger recurrence bundles. Together, these provide a system for
-adjusting and generating sequences of dates while simultaneously skipping
-over dates in a recurrence bundle's event set.
+into larger recurrence sets. A full holiday and calendar interface is also
+provided that can generate holidays within a particular year, can detect
+if a date is a holiday, can respect holiday observance rules, and allows
+for custom holidays.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -49,21 +63,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/js
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

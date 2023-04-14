@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  torch
-%global packver   0.9.1
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tensors and Neural Networks with 'GPU' Acceleration
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-coro >= 1.0.2
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-R6 
@@ -28,9 +29,10 @@ BuildRequires:    R-CRAN-bit64
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-desc 
+Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-coro >= 1.0.2
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-R6 
@@ -43,9 +45,9 @@ Requires:         R-CRAN-bit64
 Requires:         R-CRAN-magrittr 
 Requires:         R-tools 
 Requires:         R-CRAN-callr 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-desc 
 
 %description
 Provides functionality to define and train neural networks similar to

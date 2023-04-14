@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DBIsqldf
-%global packver   0.9.9-2
+%global packname  CRediTas
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate R Data Frames Using SQL
+Summary:          Generate CRediT Author Statements
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-DBI 
 
 %description
-Helper function sqldf() transparently initializes a database, imports data
-frames into it, and executes a query or other statement. This supports all
-DBI drivers to some degree, and parameterized queries.
+A tiny package to generate CRediT author statements
+(<https://credit.niso.org/>). It provides three functions: create a
+template, read it back and generate the CRediT author statement in a text
+file.
 
 %prep
 %setup -q -c -n %{packname}

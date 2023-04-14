@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BayLum
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chronological Bayesian Models Integrating Optically Stimulated Luminescence and Radiocarbon Age Dating
 
@@ -13,24 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjags >= 4.12
+BuildRequires:    R-CRAN-rjags >= 4.13
 BuildRequires:    R-CRAN-KernSmooth >= 2.23
-BuildRequires:    R-CRAN-runjags >= 2.2.0
-BuildRequires:    R-CRAN-ArchaeoPhases >= 1.5
-BuildRequires:    R-CRAN-hexbin >= 1.28.2
-BuildRequires:    R-CRAN-Luminescence >= 0.9.18
+BuildRequires:    R-CRAN-runjags >= 2.2.1
+BuildRequires:    R-CRAN-ArchaeoPhases >= 1.8
+BuildRequires:    R-CRAN-hexbin >= 1.28.3
+BuildRequires:    R-CRAN-Luminescence >= 0.9.21
 BuildRequires:    R-CRAN-coda >= 0.19
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-rjags >= 4.12
+Requires:         R-CRAN-rjags >= 4.13
 Requires:         R-CRAN-KernSmooth >= 2.23
-Requires:         R-CRAN-runjags >= 2.2.0
-Requires:         R-CRAN-ArchaeoPhases >= 1.5
-Requires:         R-CRAN-hexbin >= 1.28.2
-Requires:         R-CRAN-Luminescence >= 0.9.18
+Requires:         R-CRAN-runjags >= 2.2.1
+Requires:         R-CRAN-ArchaeoPhases >= 1.8
+Requires:         R-CRAN-hexbin >= 1.28.3
+Requires:         R-CRAN-Luminescence >= 0.9.21
 Requires:         R-CRAN-coda >= 0.19
 Requires:         R-utils 
 Requires:         R-methods 

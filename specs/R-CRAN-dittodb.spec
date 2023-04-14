@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dittodb
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Test Environment for Database Requests
 
@@ -15,16 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-lifecycle 
 

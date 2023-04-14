@@ -1,26 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cns
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  QuickJSR
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Color Naming System
+Summary:          Interface for the 'QuickJS' Lightweight 'JavaScript' Engine
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
 
 %description
-The Color Naming System was an early grammar of color that is more user
-friendly than `RGB`, by Berk, Brownstone and Kaufman (1982)
-<doi:10.1109/MCG.1982.1674223>.
+An 'R' interface to the 'QuickJS' portable 'JavaScript' engine. The engine
+is bundled entirely within the package, requiring no external system
+dependencies (beyond a 'C' compiler).
 
 %prep
 %setup -q -c -n %{packname}

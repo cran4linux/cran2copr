@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MixtureMissing
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Model-Based Clustering for Data Sets with Missing Values at Random
 
@@ -16,26 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-numDeriv >= 8.1.1
 BuildRequires:    R-CRAN-MASS >= 7.3
 BuildRequires:    R-CRAN-cluster >= 2.1.2
 BuildRequires:    R-CRAN-mnormt >= 2.0.2
-BuildRequires:    R-CRAN-rootSolve >= 1.8.2.2
-BuildRequires:    R-CRAN-ContaminatedMixt >= 1.3.4.1
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.2
+BuildRequires:    R-CRAN-Bessel >= 0.6.0
+Requires:         R-CRAN-numDeriv >= 8.1.1
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-CRAN-cluster >= 2.1.2
 Requires:         R-CRAN-mnormt >= 2.0.2
-Requires:         R-CRAN-rootSolve >= 1.8.2.2
-Requires:         R-CRAN-ContaminatedMixt >= 1.3.4.1
 Requires:         R-CRAN-mvtnorm >= 1.1.2
+Requires:         R-CRAN-Bessel >= 0.6.0
 
 %description
-Implementation of robust model based cluster analysis with missing data.
-The models used are: Multivariate Contaminated Normal Mixtures (MCNM),
-Multivariate Student's t Mixtures (MtM), and Multivariate Normal Mixtures
-(MNM) for data sets with missing values at random. See "Model-Based
-Clustering and Outlier Detection with Missing Data" by Hung Tong and
-Cristina Tortora (2022) <doi:10.1007/s11634-021-00476-1>.
+Implementation of robust model-based cluster analysis for data sets with
+missing values at random. The models used are: Multivariate Contaminated
+Normal Mixture (MCNM, Tong and Tortora, 2022,
+<doi:10.1007/s11634-021-00476-1>), Multivariate Generalized Hyperbolic
+Mixture (MGHM, Wei et al., 2019, <doi:10.1016/j.csda.2018.08.016>),
+Multivariate Skew's t Mixture (MStM, Wei et al., 2019,
+<doi:10.1016/j.csda.2018.08.016>), Multivariate t Mixture (MtM, Wang et
+al., 2004, <doi:10.1016/j.patrec.2004.01.010>), and Multivariate Normal
+Mixture (MNM, Ghahramani and Jordan, 1994, <doi:10.21236/ADA295618>).
 
 %prep
 %setup -q -c -n %{packname}

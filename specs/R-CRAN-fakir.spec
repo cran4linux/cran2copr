@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  quartets
-%global packver   0.1.1
+%global packname  fakir
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets to Help Teach Statistics
+Summary:          Generate Fake Datasets for Prototyping and Teaching
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,20 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-attempt 
+BuildRequires:    R-CRAN-charlatan 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-attempt 
+Requires:         R-CRAN-charlatan 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
 
 %description
-In the spirit of Anscombe's quartet, this package includes datasets that
-demonstrate the importance of visualizing your data, the importance of not
-relying on statistical summary measures alone, and why additional
-assumptions about the data generating mechanism are needed when estimating
-causal effects. The package includes "Anscombe's Quartet" (Anscombe 1973)
-<doi:10.1080/00031305.1973.10478966>, D'Agostino McGowan & Barrett (2023)
-"Causal Quartet" <doi:10.48550/arXiv.2304.02683>, "Datasaurus Dozen"
-(Matejka & Fitzmaurice 2017), "Interaction Triptych" (Rohrer & Arslan
-2021) <doi:10.1177/25152459211007368>, "Rashomon Quartet" (Biecek et al.
-2023) <doi:10.48550/arXiv.2302.13356>, and Gelman "Variation and
-Heterogeneity Causal Quartets" (Gelman et al. 2023)
-<doi:10.48550/arXiv.2302.12878>.
+Create fake datasets that can be used for prototyping and teaching. This
+package provides a set of functions to generate fake data for a variety of
+data types, such as dates, addresses, and names. It can be used for
+prototyping (notably in 'shiny') or as a tool to teach data manipulation
+and data visualization.
 
 %prep
 %setup -q -c -n %{packname}

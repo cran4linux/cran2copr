@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaMC
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Monte Carlo Confidence Intervals for Standardized Regression Coefficients
+Summary:          Monte Carlo for Regression Effect Sizes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,12 +24,15 @@ Requires:         R-methods
 
 %description
 Generates Monte Carlo confidence intervals for standardized regression
-coefficients for models fitted by lm(). 'betaMC' combines ideas from Monte
-Carlo confidence intervals for the indirect effect (Preacher and Selig,
-2012 <doi:10.1080/19312458.2012.679848>) and the sampling covariance
-matrix of regression coefficients (Dudgeon, 2017
-<doi:10.1007/s11336-017-9563-z>) to generate confidence intervals for
-standardized regression coefficients.
+coefficients (beta) and other effect sizes, including multiple
+correlation, semipartial correlations, improvement in R-squared, squared
+partial correlations, and differences in standardized regression
+coefficients, for models fitted by lm(). 'betaMC' combines ideas from
+Monte Carlo confidence intervals for the indirect effect (Preacher and
+Selig, 2012 <doi:10.1080/19312458.2012.679848>) and the sampling
+covariance matrix of regression coefficients (Dudgeon, 2017
+<doi:10.1007/s11336-017-9563-z>) to generate confidence intervals effect
+sizes in regression.
 
 %prep
 %setup -q -c -n %{packname}

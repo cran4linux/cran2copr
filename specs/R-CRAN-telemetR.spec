@@ -1,50 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DependencyReviewer
-%global packver   1.2.3
+%global packname  telemetR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool Suite to Investigate Other Packages
+Summary:          Filter and Analyze Generalised Telemetry Data from Organisms
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pak >= 0.2.0
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-lintr 
-BuildRequires:    R-CRAN-pkgdepends 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-pak >= 0.2.0
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-lintr 
-Requires:         R-CRAN-pkgdepends 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Helps investigating other packages during code review by looking at their
-dependencies.
+Analyze telemetry datasets generalized to allow any technology. The
+filtering steps check for false positives caused by reflected
+transmissions from surfaces and false pings from other noise generating
+equipment. The filters are based on JSATS filtering algorithms found in
+package 'filteRjsats' <https://CRAN.R-project.org/package=filteRjsats> but
+have been generalized to allow the user to define many of the filtering
+variables. Additionally, this package contains scripts used to help
+identify an optimal maximum blanking period as defined in Capello et al
+(2015) <doi:10.1371/journal.pone.0134002>. The functions were written
+according to their manuscript description, but have not been reviewed by
+the authors for accuracy. It is included here as is, without warranty.
 
 %prep
 %setup -q -c -n %{packname}

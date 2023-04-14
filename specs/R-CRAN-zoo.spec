@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zoo
-%global packver   1.8-11
+%global packver   1.8-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.11
+Version:          1.8.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          S3 Infrastructure for Regular and Irregular Time Series (Z's Ordered Observations)
 
