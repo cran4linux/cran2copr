@@ -40,22 +40,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/DICH
-%doc %{rlibdir}/%{packname}/EAPMAP
-%doc %{rlibdir}/%{packname}/EST2PL
-%doc %{rlibdir}/%{packname}/EST3PL
-%doc %{rlibdir}/%{packname}/GPCM
-%doc %{rlibdir}/%{packname}/GRM
-%doc %{rlibdir}/%{packname}/GRSM
-%doc %{rlibdir}/%{packname}/MIRT
-%doc %{rlibdir}/%{packname}/MLE
-%doc %{rlibdir}/%{packname}/NRM
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

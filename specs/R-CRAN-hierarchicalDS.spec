@@ -66,21 +66,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/cache
-%doc %{rlibdir}/%{packname}/figure
-%doc %{rlibdir}/%{packname}/HierarchicalDS_vignette.log
-%doc %{rlibdir}/%{packname}/HierarchicalDS_vignette.pdf
-%doc %{rlibdir}/%{packname}/HierarchicalDS_vignette.Rnw
-%doc %{rlibdir}/%{packname}/HierarchicalDS_vignette.tex
-%doc %{rlibdir}/%{packname}/HierarchicalDS_vignette.toc
-%doc %{rlibdir}/%{packname}/NEWS.txt
-%{rlibdir}/%{packname}/simulate_data_overd.R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -54,24 +54,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/README-unnamed-chunk-10-1.png
-%doc %{rlibdir}/%{packname}/README-unnamed-chunk-12-1.png
-%doc %{rlibdir}/%{packname}/README-unnamed-chunk-3-1.png
-%doc %{rlibdir}/%{packname}/README-unnamed-chunk-6-1.png
-%doc %{rlibdir}/%{packname}/README-unnamed-chunk-7-1.png
-%doc %{rlibdir}/%{packname}/README-unnamed-chunk-8-1.png
-%doc %{rlibdir}/%{packname}/README-unnamed-chunk-9-1.png
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

@@ -49,16 +49,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/Dygraph_Cumulative_Sum_Graph.png
-%doc %{rlibdir}/%{packname}/README-unnamed-chunk-13-1.png
-%doc %{rlibdir}/%{packname}/Recurrence_intervals.jpg
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

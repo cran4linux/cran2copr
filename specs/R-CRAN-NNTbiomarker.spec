@@ -58,28 +58,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/debugTools.R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/human.html.R
-%doc %{rlibdir}/%{packname}/Janes-fit.R
-%doc %{rlibdir}/%{packname}/NOTUSED
-%doc %{rlibdir}/%{packname}/oncotypeDX-risk-functions.jpg.xml
-%doc %{rlibdir}/%{packname}/pageOpenTest.R
-%doc %{rlibdir}/%{packname}/plot_digitizer_Figure_7_example.xml
-%doc %{rlibdir}/%{packname}/rasterImages
-%doc %{rlibdir}/%{packname}/ROCplots-Using-ggplot2.R
-%doc %{rlibdir}/%{packname}/shinyAE
-%doc %{rlibdir}/%{packname}/shinyCombinePlots
-%doc %{rlibdir}/%{packname}/shinyElicit
-%doc %{rlibdir}/%{packname}/shinyROC
-%doc %{rlibdir}/%{packname}/temp
-%doc %{rlibdir}/%{packname}/testing_ggplot_guides.R
-%doc %{rlibdir}/%{packname}/ToDo.txt
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

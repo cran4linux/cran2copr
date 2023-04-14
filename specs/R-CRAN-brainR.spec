@@ -45,38 +45,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
-%doc %{rlibdir}/%{packname}/index_template.html
-%doc %{rlibdir}/%{packname}/MNI152_T1_1mm_brain.nii.gz
-%doc %{rlibdir}/%{packname}/MNI152_T1_2mm_brain.nii.gz
-%doc %{rlibdir}/%{packname}/MNI152_T1_4mm_brain.nii.gz
-%doc %{rlibdir}/%{packname}/MNI152_T1_8mm_brain.nii.gz
-%doc %{rlibdir}/%{packname}/my_embed_template.html
-%doc %{rlibdir}/%{packname}/my_template.html
-%doc %{rlibdir}/%{packname}/Visit_1_2mm.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_1_8mm.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_1.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_2_2mm.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_2_8mm.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_2.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_3_2mm.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_3_8mm.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_3.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_4_2mm.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_4_8mm.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_4.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_5_2mm.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_5_8mm.nii.gz
-%doc %{rlibdir}/%{packname}/Visit_5.nii.gz
-%doc %{rlibdir}/%{packname}/xtk_edge.js
-%doc %{rlibdir}/%{packname}/xtk_xdat.gui.js
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

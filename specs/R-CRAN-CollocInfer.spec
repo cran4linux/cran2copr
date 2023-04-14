@@ -49,24 +49,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/CollocInferManual.pdf
-%doc %{rlibdir}/%{packname}/Devel
-%doc %{rlibdir}/%{packname}/Devel.Examples
-%doc %{rlibdir}/%{packname}/MatlabCollocInfer
-%doc %{rlibdir}/%{packname}/OldCode
-%doc %{rlibdir}/%{packname}/OldDemo
-%doc %{rlibdir}/%{packname}/todo.txt
-%doc %{rlibdir}/%{packname}/trymcmc.r
-%doc %{rlibdir}/%{packname}/trymcmc2.r
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

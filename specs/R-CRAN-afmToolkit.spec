@@ -61,17 +61,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/afmexperiment
-%doc %{rlibdir}/%{packname}/force-save-JPK-2h.txt.gz
-%doc %{rlibdir}/%{packname}/force-save-JPK-3h.txt.gz
-%doc %{rlibdir}/%{packname}/veeco_file.txt.gz
-%doc %{rlibdir}/%{packname}/veecoFolder
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

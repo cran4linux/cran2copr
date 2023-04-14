@@ -39,23 +39,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/auto-render.min.js
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/node_modules
-%doc %{rlibdir}/%{packname}/package.json
-%doc %{rlibdir}/%{packname}/rmarkdown
-%doc %{rlibdir}/%{packname}/style-common.css
-%doc %{rlibdir}/%{packname}/style-earl2016.css
-%doc %{rlibdir}/%{packname}/style-material.css
-%doc %{rlibdir}/%{packname}/style-ribbon.css
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

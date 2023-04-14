@@ -53,17 +53,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/patr_poat43.fasta
-%doc %{rlibdir}/%{packname}/patr_poat47.fasta
-%doc %{rlibdir}/%{packname}/patr_poat48.fasta
-%doc %{rlibdir}/%{packname}/patr_poat49.fasta
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

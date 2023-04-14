@@ -44,31 +44,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/allomJenk.rda
-%doc %{rlibdir}/%{packname}/bulldozer.png
-%doc %{rlibdir}/%{packname}/bulldozer.rda
-%doc %{rlibdir}/%{packname}/coForest.csv
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/fboTableA.csv
-%doc %{rlibdir}/%{packname}/fboTableB.csv
-%doc %{rlibdir}/%{packname}/firefighter.png
-%doc %{rlibdir}/%{packname}/firefighter.rda
-%doc %{rlibdir}/%{packname}/importPackages.R
-%doc %{rlibdir}/%{packname}/plume.png
-%doc %{rlibdir}/%{packname}/plume.rda
-%doc %{rlibdir}/%{packname}/rampartRidgeRAWS.csv
-%doc %{rlibdir}/%{packname}/README.Rmd
-%doc %{rlibdir}/%{packname}/speciesAllom.csv
-%doc %{rlibdir}/%{packname}/test.csv
-%doc %{rlibdir}/%{packname}/tree.png
-%doc %{rlibdir}/%{packname}/tree.rda
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

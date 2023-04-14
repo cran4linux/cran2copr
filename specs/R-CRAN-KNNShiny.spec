@@ -56,14 +56,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/img
-%doc %{rlibdir}/%{packname}/K.jpg
-%doc %{rlibdir}/%{packname}/KNNShiny.Rmd
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -58,38 +58,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/a_laise_BZH2.gif
-%doc %{rlibdir}/%{packname}/apropos.gif
-%doc %{rlibdir}/%{packname}/calcul.gif
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/csv.gif
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/Format_echantillons.gif
-%doc %{rlibdir}/%{packname}/Format_gamme_etalon.gif
-%doc %{rlibdir}/%{packname}/francais_flag.gif
-%doc %{rlibdir}/%{packname}/GB_flag3.gif
-%doc %{rlibdir}/%{packname}/help_icon.gif
-%doc %{rlibdir}/%{packname}/jpg.gif
-%doc %{rlibdir}/%{packname}/logoEAUDA.gif
-%doc %{rlibdir}/%{packname}/Next.gif
-%doc %{rlibdir}/%{packname}/pdf.gif
-%doc %{rlibdir}/%{packname}/Plot.gif
-%doc %{rlibdir}/%{packname}/PMAqPCR.gif
-%doc %{rlibdir}/%{packname}/qPCR.gif
-%doc %{rlibdir}/%{packname}/Rlogo.gif
-%doc %{rlibdir}/%{packname}/start.gif
-%doc %{rlibdir}/%{packname}/tests
-%doc %{rlibdir}/%{packname}/Thumbs.db
-%doc %{rlibdir}/%{packname}/tiff.gif
-%doc %{rlibdir}/%{packname}/Tubes.gif
-%doc %{rlibdir}/%{packname}/xlsx_Fichiers_Echantillons.gif
-%doc %{rlibdir}/%{packname}/xlsx_Fichiers_Standards.gif
-%doc %{rlibdir}/%{packname}/xlsx.gif
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

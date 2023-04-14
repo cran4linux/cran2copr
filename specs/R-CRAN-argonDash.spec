@@ -42,18 +42,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/argon-1.0.0
-%doc %{rlibdir}/%{packname}/argonDash-0.1.0
-%doc %{rlibdir}/%{packname}/bootstrap-4.1.3
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/fontawesome-5.3.1
-%doc %{rlibdir}/%{packname}/nucleo-0.1.0
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -42,23 +42,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/caravan.js
-%doc %{rlibdir}/%{packname}/dark-digerati.js
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/echarts.js
-%doc %{rlibdir}/%{packname}/infographic.js
-%doc %{rlibdir}/%{packname}/jazz.js
-%doc %{rlibdir}/%{packname}/london.js
-%doc %{rlibdir}/%{packname}/macarons.js
-%doc %{rlibdir}/%{packname}/roma.js
-%doc %{rlibdir}/%{packname}/shine.js
-%doc %{rlibdir}/%{packname}/vintage.js
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

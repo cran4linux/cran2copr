@@ -36,21 +36,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/draft0.tex
-%doc %{rlibdir}/%{packname}/Isotonic.for
-%doc %{rlibdir}/%{packname}/makefor
-%doc %{rlibdir}/%{packname}/pava.r
-%doc %{rlibdir}/%{packname}/smooth.f.orig
-%doc %{rlibdir}/%{packname}/ufit.r
-%doc %{rlibdir}/%{packname}/unimode.r
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

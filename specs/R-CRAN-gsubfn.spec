@@ -46,20 +46,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/ANNOUNCE
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/lipsum.txt
-%doc %{rlibdir}/%{packname}/NEWS
-%doc %{rlibdir}/%{packname}/sample.txt
-%doc %{rlibdir}/%{packname}/THANKS
-%doc %{rlibdir}/%{packname}/unitTests
-%doc %{rlibdir}/%{packname}/WISHLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

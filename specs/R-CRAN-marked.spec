@@ -78,34 +78,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/cjs_reml.tpl
-%doc %{rlibdir}/%{packname}/cjs_tmb.cpp
-%doc %{rlibdir}/%{packname}/cjs.tpl
-%doc %{rlibdir}/%{packname}/cjsre_tmb.cpp
-%doc %{rlibdir}/%{packname}/cjsre.tpl
-%doc %{rlibdir}/%{packname}/df1b2gh.cpp
-%doc %{rlibdir}/%{packname}/df1b2ghmult.cpp
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/minfil.cpp
-%doc %{rlibdir}/%{packname}/models.txt
-%doc %{rlibdir}/%{packname}/msld_tmb.cpp
-%doc %{rlibdir}/%{packname}/multistate_tmb.cpp
-%doc %{rlibdir}/%{packname}/multistate.tpl
-%doc %{rlibdir}/%{packname}/mvms_tmb.cpp
-%doc %{rlibdir}/%{packname}/mvms.tpl
-%doc %{rlibdir}/%{packname}/parameters.txt
-%doc %{rlibdir}/%{packname}/README.txt
-%doc %{rlibdir}/%{packname}/xmodelm5.cpp
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

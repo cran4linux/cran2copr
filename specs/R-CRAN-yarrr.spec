@@ -43,43 +43,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/appletv.jpg
-%doc %{rlibdir}/%{packname}/basel.jpg
-%doc %{rlibdir}/%{packname}/brave.jpg
-%doc %{rlibdir}/%{packname}/bug.jpg
-%doc %{rlibdir}/%{packname}/cars.jpg
-%doc %{rlibdir}/%{packname}/compote.jpg
-%doc %{rlibdir}/%{packname}/decision.jpg
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/eternal.jpg
-%doc %{rlibdir}/%{packname}/evildead.jpg
-%doc %{rlibdir}/%{packname}/fall.jpg
-%doc %{rlibdir}/%{packname}/ghostbusters.jpg
-%doc %{rlibdir}/%{packname}/harbor.jpg
-%doc %{rlibdir}/%{packname}/iguana.jpg
-%doc %{rlibdir}/%{packname}/malkovich.jpg
-%doc %{rlibdir}/%{packname}/memento.jpg
-%doc %{rlibdir}/%{packname}/monalisa.jpg
-%doc %{rlibdir}/%{packname}/nemo.jpg
-%doc %{rlibdir}/%{packname}/ohbrother.jpg
-%doc %{rlibdir}/%{packname}/pebble.jpg
-%doc %{rlibdir}/%{packname}/pony.jpg
-%doc %{rlibdir}/%{packname}/rat.jpg
-%doc %{rlibdir}/%{packname}/RReferenceCard.pdf
-%doc %{rlibdir}/%{packname}/scholar.jpg
-%doc %{rlibdir}/%{packname}/scuba.jpg
-%doc %{rlibdir}/%{packname}/southpark.jpg
-%doc %{rlibdir}/%{packname}/toystory.jpg
-%doc %{rlibdir}/%{packname}/up.jpg
-%doc %{rlibdir}/%{packname}/usualsuspects.jpg
-%doc %{rlibdir}/%{packname}/xmen.jpg
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
