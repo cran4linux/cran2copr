@@ -1,7 +1,7 @@
 %global cname TileDB
 %global major 2
-%global minor 14
-%global patch 0
+%global minor 15
+%global patch 1
 
 Name:           tiledb
 Version:        %{major}.%{minor}.%{patch}
@@ -11,8 +11,8 @@ Summary:        The Universal Storage Engine
 License:        MIT
 URL:            https://github.com/%{cname}-Inc/%{cname}
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
-Source1:        https://sources.debian.org/data/main/t/tiledb/2.14.0-1/debian/patches/libmagic_setup.patch
-#Source2:        https://sources.debian.org/data/main/t/tiledb/2.14.0-1/debian/patches/capnp-0.9.1.patch
+Source1:        https://salsa.debian.org/debian/tiledb/-/raw/debian/master/debian/patches/libmagic_setup.patch
+#Source2:        https://salsa.debian.org/debian/tiledb/-/raw/debian/master/debian/patches/capnp-0.9.1.patch
 
 BuildRequires:  gcc-g++, cmake
 BuildRequires:  clang-tools-extra
