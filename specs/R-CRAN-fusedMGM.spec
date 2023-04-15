@@ -1,24 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  LowRankQP
-%global packver   1.0.5
+%global __requires_exclude ^libmpi
+%global packname  fusedMGM
+%global packver   0.1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Low Rank Quadratic Programming
+Summary:          Implementation of Fused MGM to Infer 2-Class Networks
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-CRAN-gplots 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-parallel 
+Requires:         R-CRAN-bigmemory 
+Requires:         R-CRAN-gplots 
 
 %description
-Solves quadratic programming problems where the Hessian is represented as
-the product of two matrices.
+Implementation of fused Markov graphical model (FMGM; Park and Won, 2022).
+The functions include building mixed graphical model (MGM) objects from
+data, inference of networks using FMGM, stable edge-specific penalty
+selection (StEPS) for the determination of penalization parameters, and
+the visualization. For details, please refer to Park and Won (2022)
+<arXiv:2208.14959>.
 
 %prep
 %setup -q -c -n %{packname}

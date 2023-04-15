@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statgenHTP
-%global packver   1.0.6
+%global packver   1.0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Throughput Phenotyping (HTP) Data Analysis
 
@@ -30,6 +30,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-LMMsolver 
 BuildRequires:    R-CRAN-locfit 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-spam 
@@ -46,6 +47,7 @@ Requires:         R-methods
 Requires:         R-CRAN-LMMsolver 
 Requires:         R-CRAN-locfit 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-spam 

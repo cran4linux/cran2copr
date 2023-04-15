@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pspatreg
-%global packver   1.0.7
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial and Spatio-Temporal Semiparametric Regression Models with Spatial Lags
 
@@ -14,14 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.54
-BuildRequires:    R-splines >= 4.2.1
-BuildRequires:    R-methods >= 4.1
-BuildRequires:    R-stats >= 4.1
-BuildRequires:    R-graphics >= 4.1
+BuildRequires:    R-splines >= 4.2.2
+BuildRequires:    R-methods >= 4.2
+BuildRequires:    R-stats >= 4.2
+BuildRequires:    R-graphics >= 4.2
 BuildRequires:    R-grDevices >= 4.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
@@ -38,10 +38,10 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.10
 BuildRequires:    R-CRAN-MBA >= 0.0.9
 BuildRequires:    R-CRAN-AmesHousing >= 0.0.4
 Requires:         R-CRAN-MASS >= 7.3.54
-Requires:         R-splines >= 4.2.1
-Requires:         R-methods >= 4.1
-Requires:         R-stats >= 4.1
-Requires:         R-graphics >= 4.1
+Requires:         R-splines >= 4.2.2
+Requires:         R-methods >= 4.2
+Requires:         R-stats >= 4.2
+Requires:         R-graphics >= 4.2
 Requires:         R-grDevices >= 4.1
 Requires:         R-CRAN-ggplot2 >= 3.3.6
 Requires:         R-CRAN-numDeriv >= 2016.8.1.1

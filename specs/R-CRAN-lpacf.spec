@@ -1,47 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  microsynth
-%global packver   2.0.31
+%global __requires_exclude ^libmpi
+%global packname  lpacf
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.31
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Synthetic Control Methods with Micro- And Meso-Level Data
+Summary:          Local Partial Autocorrelation Function Estimation for Locally Stationary Wavelet Processes
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-LowRankQP 
-BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-locits 
+BuildRequires:    R-CRAN-wavethresh 
 BuildRequires:    R-parallel 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-LowRankQP 
-Requires:         R-CRAN-nleqslv 
+BuildRequires:    R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-locits 
+Requires:         R-CRAN-wavethresh 
 Requires:         R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-pracma 
+Requires:         R-methods 
 
 %description
-A generalization of the 'Synth' package that is designed for data at a
-more granular level (e.g., micro-level). Provides functions to construct
-weights (including propensity score-type weights) and run analyses for
-synthetic control methods with micro- and meso-level data; see Robbins,
-Saunders, and Kilmer (2017) <doi:10.1080/01621459.2016.1213634> and
-Robbins and Davenport (2021) <doi:10.18637/jss.v097.i02>.
+Provides the method for computing the local partial autocorrelation
+function for locally stationary wavelet time series from Killick, Knight,
+Nason, Eckley (2020) <doi:10.1214/20-EJS1748>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

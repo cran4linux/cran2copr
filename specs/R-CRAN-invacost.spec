@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  invacost
-%global packver   1.1-4
+%global packver   1.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyse Biological Invasion Costs with the 'InvaCost' Database
 
@@ -44,7 +45,8 @@ Requires:         R-utils
 %description
 Provides an up-to-date version of the 'InvaCost' database
 (<doi:10.6084/m9.figshare.12668570>) in R, and several functions to
-analyse the costs of invasive alien species.
+analyse the costs of invasive alien species
+(<doi:10.1111/2041-210X.13929>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  enrichR
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides an R Interface to 'Enrichr'
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-WriteXLS 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-WriteXLS 
 
 %description
 Provides an R interface to all 'Enrichr' databases. 'Enrichr' is a

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  WVPlots
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Plots for Analysis
 
@@ -17,11 +18,12 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-wrapr >= 2.0.6
-BuildRequires:    R-CRAN-rquery >= 1.4.6
-BuildRequires:    R-CRAN-rqdatatable >= 1.2.9
-BuildRequires:    R-CRAN-cdata >= 1.1.9
-BuildRequires:    R-CRAN-sigr >= 1.1.3
+BuildRequires:    R-CRAN-wrapr >= 2.0.9
+BuildRequires:    R-CRAN-rquery >= 1.4.9
+BuildRequires:    R-CRAN-rqdatatable >= 1.3.1
+BuildRequires:    R-CRAN-cdata >= 1.2.0
+BuildRequires:    R-CRAN-sigr >= 1.1.4
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
@@ -30,11 +32,12 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-wrapr >= 2.0.6
-Requires:         R-CRAN-rquery >= 1.4.6
-Requires:         R-CRAN-rqdatatable >= 1.2.9
-Requires:         R-CRAN-cdata >= 1.1.9
-Requires:         R-CRAN-sigr >= 1.1.3
+Requires:         R-CRAN-wrapr >= 2.0.9
+Requires:         R-CRAN-rquery >= 1.4.9
+Requires:         R-CRAN-rqdatatable >= 1.3.1
+Requires:         R-CRAN-cdata >= 1.2.0
+Requires:         R-CRAN-sigr >= 1.1.4
+Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
@@ -59,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

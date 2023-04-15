@@ -1,55 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  partykit
-%global packver   1.2-20
+%global packname  surrosurv
+%global packver   1.1.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.20
+Version:          1.1.26
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Toolkit for Recursive Partytioning
+Summary:          Evaluation of Failure Time Surrogate Endpoints in Individual Patient Data Meta-Analyses
 
-License:          GPL-2 | GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rpart >= 4.1.11
-BuildRequires:    R-CRAN-Formula >= 1.2.1
-BuildRequires:    R-CRAN-libcoin >= 1.0.0
-BuildRequires:    R-CRAN-inum >= 1.0.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-eha 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-mvmeta 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-parfm 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-rpart >= 4.1.11
-Requires:         R-CRAN-Formula >= 1.2.1
-Requires:         R-CRAN-libcoin >= 1.0.0
-Requires:         R-CRAN-inum >= 1.0.0
-Requires:         R-graphics 
-Requires:         R-grid 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-eha 
 Requires:         R-grDevices 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-mvmeta 
+Requires:         R-CRAN-optimx 
+Requires:         R-parallel 
+Requires:         R-CRAN-parfm 
 Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-CRAN-survival 
 
 %description
-A toolkit with infrastructure for representing, summarizing, and
-visualizing tree-structured regression and classification models. This
-unified infrastructure can be used for reading/coercing tree models from
-different sources ('rpart', 'RWeka', 'PMML') yielding objects that share
-functionality for print()/plot()/predict() methods. Furthermore, new and
-improved reimplementations of conditional inference trees (ctree()) and
-model-based recursive partitioning (mob()) from the 'party' package are
-provided based on the new infrastructure. A description of this package
-was published by Hothorn and Zeileis (2015)
-<https://jmlr.org/papers/v16/hothorn15a.html>.
+Provides functions for the evaluation of surrogate endpoints when both the
+surrogate and the true endpoint are failure time variables. The approaches
+implemented are: (1) the two-step approach (Burzykowski et al, 2001)
+<DOI:10.1111/1467-9876.00244> with a copula model (Clayton, Plackett,
+Hougaard) at the first step and either a linear regression of log-hazard
+ratios at the second step (either adjusted or not for measurement error);
+(2) mixed proportional hazard models estimated via mixed Poisson GLM
+(Rotolo et al, 2017 <DOI:10.1177/0962280217718582>).
 
 %prep
 %setup -q -c -n %{packname}

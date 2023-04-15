@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TensorPreAve
-%global packver   0.1.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rank and Factor Loadings Estimation in Time Series Tensor Factor Models
 
@@ -38,7 +38,7 @@ directions corresponding to the strongest factors are then used for
 projecting the data for a potentially improved re-estimation of the factor
 loading spaces themselves. A new rank estimation method is also
 implemented to utilizes correlation information from the projected data.
-See Chen and Lam (2022) <arXiv:2208.04012> for more details.
+See Chen and Lam (2023) <arXiv:2208.04012> for more details.
 
 %prep
 %setup -q -c -n %{packname}

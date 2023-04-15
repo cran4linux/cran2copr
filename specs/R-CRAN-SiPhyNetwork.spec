@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SiPhyNetwork
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Phylogenetic Simulator for Reticulate Evolution
 
@@ -20,10 +20,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rstackdeque 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-stats 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rstackdeque 
+Requires:         R-CRAN-lifecycle 
 
 %description
 A simulator for reticulate evolution under a birth-death-hybridization

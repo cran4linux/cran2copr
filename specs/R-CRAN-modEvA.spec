@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modEvA
-%global packver   3.9
+%global packver   3.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9
+Version:          3.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Evaluation and Analysis
 
@@ -30,12 +30,12 @@ Requires:         R-CRAN-terra
 
 %description
 Analyses species distribution models and evaluates their performance. It
-includes functions for performing variation partitioning, calculating
-several measures of model discrimination and calibration, optimizing
-prediction thresholds based on a number of criteria, performing
-multivariate environmental similarity surface (MESS) analysis, and
-displaying various analytical plots. Initially described in Barbosa et al.
-(2013) <doi:10.1111/ddi.12100>.
+includes functions for variation partitioning, extracting variable
+importance, computing several metrics of model discrimination and
+calibration performance, optimizing prediction thresholds based on a
+number of criteria, performing multivariate environmental similarity
+surface (MESS) analysis, and displaying various analytical plots.
+Initially described in Barbosa et al. (2013) <doi:10.1111/ddi.12100>.
 
 %prep
 %setup -q -c -n %{packname}

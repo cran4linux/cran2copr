@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qqconf
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creates Simultaneous Testing Bands for QQ-Plots
 
@@ -27,7 +27,8 @@ Requires:         R-CRAN-Rcpp
 %description
 Provides functionality for creating Quantile-Quantile (QQ) and
 Probability-Probability (PP) plots with simultaneous testing bands to
-asses significance of sample deviation from a reference distribution.
+asses significance of sample deviation from a reference distribution
+<doi:10.18637/jss.v106.i10>.
 
 %prep
 %setup -q -c -n %{packname}

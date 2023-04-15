@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mikropml
-%global packver   1.6.0
+%global packname  rb3
+%global packver   0.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          User-Friendly R Package for Supervised Machine Learning Pipelines
+Summary:          Download and Parse Public Data Released by B3 Exchange
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,39 +17,48 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-bizdays 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-proto 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-MLmetrics 
-BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ascii 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xgboost 
-Requires:         R-CRAN-caret 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-bizdays 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-proto 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-MLmetrics 
-Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ascii 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rpart 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xgboost 
+Requires:         R-methods 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tidyr 
 
 %description
-An interface to build machine learning models for classification and
-regression problems. 'mikropml' implements the ML pipeline described by
-Topçuoğlu et al. (2020) <doi:10.1128/mBio.00434-20> with reasonable
-default options for data preprocessing, hyperparameter tuning,
-cross-validation, testing, model evaluation, and interpretation steps.
-See the website <https://www.schlosslab.org/mikropml/> for more
-information, documentation, and examples.
+Download and parse public files released by B3 and convert them into
+useful formats and data structures common to data analysis practitioners.
 
 %prep
 %setup -q -c -n %{packname}

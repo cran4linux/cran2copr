@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Synth
-%global packver   1.1-6
+%global __requires_exclude ^libmpi
+%global packname  TensorComplete
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Synthetic Control Group Method for Comparative Case Studies
+Summary:          Tensor Noise Reduction and Completion Methods
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,26 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-optimx 
-BuildRequires:    R-CRAN-rgenoud 
-BuildRequires:    R-CRAN-LowRankQP 
-Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-optimx 
-Requires:         R-CRAN-rgenoud 
-Requires:         R-CRAN-LowRankQP 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tensorregress 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-pracma 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-tensorregress 
+Requires:         R-CRAN-MASS 
 
 %description
-Implements the synthetic control group method for comparative case studies
-as described in Abadie and Gardeazabal (2003) and Abadie, Diamond, and
-Hainmueller (2010, 2011, 2014). The synthetic control method allows for
-effect estimation in settings where a single unit (a state, country, firm,
-etc.) is exposed to an event or intervention. It provides a data-driven
-procedure to construct synthetic control units based on a weighted
-combination of comparison units that approximates the characteristics of
-the unit that is exposed to the intervention. A combination of comparison
-units often provides a better comparison for the unit exposed to the
-intervention than any comparison unit alone.
+Efficient algorithms for tensor noise reduction and completion. This
+package includes a suite of parametric and nonparametric tools for
+estimating tensor signals from noisy, possibly incomplete observations.
+The methods allow a broad range of data types, including continuous,
+binary, and ordinal-valued tensor entries. The algorithms employ the
+alternating optimization. The detailed algorithm description can be found
+in the following three references.
 
 %prep
 %setup -q -c -n %{packname}

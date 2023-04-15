@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  geonetwork
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Networks
 
@@ -13,20 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-igraph 
-Requires:         R-methods 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 
 %description
