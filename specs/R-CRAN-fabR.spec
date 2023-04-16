@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fabR
-%global packver   1.1.0.1003
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0.1003
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper Functions Collection Used in Data Pipelines
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-ggplot2 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-ggplot2 

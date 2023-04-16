@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vDiveR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of Viral Protein Sequence Diversity Dynamics
 
@@ -29,6 +29,10 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rentrez 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-maps 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gghalves 
 Requires:         R-CRAN-ggplot2 
@@ -41,6 +45,10 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rentrez 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-maps 
 
 %description
 To ease the visualization of outputs from Diversity Motif Analyser

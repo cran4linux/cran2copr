@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nCov2019
-%global packver   0.4.6
+%global packname  ltmle
+%global packver   1.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploring 'COVID'-19 Statistics
+Summary:          Longitudinal Targeted Maximum Likelihood Estimation
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-downloader 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-downloader 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Provides easy-to-use programming API to access real time and historical
-data of 'COVID'-19 cases, vaccine and therapeutics data, and a Shiny app
-to help users exploring the data.  Fetching data using API provided by
-<https://disease.sh> .
+Targeted Maximum Likelihood Estimation ('TMLE') of treatment/censoring
+specific mean outcome or marginal structural model for point-treatment and
+longitudinal data.
 
 %prep
 %setup -q -c -n %{packname}
