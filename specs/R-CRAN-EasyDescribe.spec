@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EasyDescribe
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Convenient Way of Descriptive Statistics
 
@@ -24,6 +25,8 @@ BuildRequires:    R-CRAN-rcompanion
 BuildRequires:    R-CRAN-FSA 
 BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-clinfun 
+BuildRequires:    R-CRAN-car 
 Requires:         R-CRAN-multiCA 
 Requires:         R-CRAN-CATT 
 Requires:         R-CRAN-gmodels 
@@ -32,6 +35,8 @@ Requires:         R-CRAN-rcompanion
 Requires:         R-CRAN-FSA 
 Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-clinfun 
+Requires:         R-CRAN-car 
 
 %description
 Descriptive Statistics is essential for publishing articles. This package
@@ -39,12 +44,15 @@ can perform descriptive statistics according to different data types. If
 the data is a continuous variable, the mean and standard deviation or
 median and quartiles are automatically output; if the data is a
 categorical variable, the number and percentage are automatically output.
-In addition, if you enter two variables, the first variable will be
-described hierarchically based on the second variable and the statistical
+In addition, if you enter two variables in this package, the two variables
+will be described and their relationships will be tested automatically
+according to their data types. For example, if one of the two input
+variables is a categorical variable, another variable will be described
+hierarchically based on the categorical variable and the statistical
 differences between different groups will be compared using appropriate
-statistical methods. And for groups more than two, the post hoc test will
-be applied. For more information on the methods we used, please see the
-following references: Libiseller, C. and Grimvall, A. (2002)
+statistical methods. And for groups of more than two, the post hoc test
+will be applied. For more information on the methods we used, please see
+the following references: Libiseller, C. and Grimvall, A. (2002)
 <doi:10.1002/env.507>, Patefield, W. M. (1981) <doi:10.2307/2346669>,
 Hope, A. C. A. (1968) <doi:10.1111/J.2517-6161.1968.TB00759.X>, Mehta, C.
 R. and Patel, N. R. (1983) <doi:10.1080/01621459.1983.10477989>, Mehta, C.
@@ -59,8 +67,10 @@ Szabo, A. (2016) <doi:10.1080/00031305.2017.1407823>, David, F. B. (1972)
 Heiberger, R. M. (1992) <doi:10.1201/9780203738535-5>, Shaffer, J. P.
 (1995) <doi:10.1146/annurev.ps.46.020195.003021>, Myles, H. and Douglas,
 A. W. (1973) <doi:10.2307/2063815>, Rahman, M. and Tiwari, R. (2012)
-<doi:10.4236/health.2012.410139>. Thode, H. J. (2002)
-<doi:10.1201/9780203910894>.
+<doi:10.4236/health.2012.410139>, Thode, H. J. (2002)
+<doi:10.1201/9780203910894>, Jonckheere, A. R. (1954)
+<doi:10.2307/2333011>, Terpstra, T. J. (1952)
+<doi:10.1016/S1385-7258(52)50043-X>.
 
 %prep
 %setup -q -c -n %{packname}

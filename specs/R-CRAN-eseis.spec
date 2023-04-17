@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  eseis
-%global packver   0.6.0
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Environmental Seismology Toolbox
 
@@ -13,13 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.5
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-multitaper 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-caTools 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-fftw 
@@ -28,18 +27,14 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-IRISSeismic 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-EMMAgeo 
-BuildRequires:    R-CRAN-limSolve 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-minpack.lm 
-Requires:         R-CRAN-Rcpp >= 0.12.5
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-multitaper 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-caTools 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-fftw 
@@ -48,11 +43,9 @@ Requires:         R-methods
 Requires:         R-CRAN-IRISSeismic 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-EMMAgeo 
-Requires:         R-CRAN-limSolve 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-minpack.lm 
 
