@@ -1,44 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RSC
-%global packver   2.0.4
+%global packname  TukeyRegion
+%global packver   0.1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.1.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust and Sparse Correlation Matrix
+Summary:          Tukey Region and Median
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-ddalpha 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-bfp 
+BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-ddalpha 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-bfp 
+Requires:         R-CRAN-Rglpk 
 
 %description
-Performs robust and sparse correlation matrix estimation. Robustness is
-achieved based on a simple robust pairwise correlation estimator, while
-sparsity is obtained based on thresholding. The optimal thresholding is
-tuned via cross-validation. See Serra, Coretto, Fratello and Tagliaferri
-(2018) <doi:10.1093/bioinformatics/btx642>.
+Tukey regions are polytopes in the Euclidean space, viz. upper-level sets
+of the Tukey depth function on given data. The bordering hyperplanes of a
+Tukey region are computed as well as its vertices, facets, centroid, and
+volume. In addition, the Tukey median set, which is the non-empty Tukey
+region having highest depth level, and its barycenter (= Tukey median) are
+calculated. Tukey regions are visualized in dimension two and three. For
+details see Liu, Mosler, and Mozharovskyi (2019,
+<doi:10.1080/10618600.2018.1546595>). See file LICENSE.note for additional
+license information.
 
 %prep
 %setup -q -c -n %{packname}

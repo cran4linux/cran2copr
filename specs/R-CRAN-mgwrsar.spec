@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mgwrsar
-%global packver   1.0
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          GWR and MGWR with Spatial Autocorrelation
 
@@ -32,6 +33,12 @@ BuildRequires:    R-CRAN-qlcMatrix
 BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-CRAN-microbenchmark 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-mboost 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-sp 
@@ -50,6 +57,12 @@ Requires:         R-CRAN-qlcMatrix
 Requires:         R-CRAN-mapview 
 Requires:         R-CRAN-microbenchmark 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-grid 
+Requires:         R-CRAN-mboost 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-caret 
 
 %description
 Functions for computing (Mixed) Geographycally Weighted Regression with

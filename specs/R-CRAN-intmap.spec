@@ -1,44 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RSC
-%global packver   2.0.4
+%global packname  intmap
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust and Sparse Correlation Matrix
+Summary:          Ordered Containers with Integer Keys
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-maybe 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-maybe 
 Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-utils 
+Requires:         R-CRAN-R6 
 
 %description
-Performs robust and sparse correlation matrix estimation. Robustness is
-achieved based on a simple robust pairwise correlation estimator, while
-sparsity is obtained based on thresholding. The optimal thresholding is
-tuned via cross-validation. See Serra, Coretto, Fratello and Tagliaferri
-(2018) <doi:10.1093/bioinformatics/btx642>.
+Provides a key-value store data structure. The keys are integers and the
+values can be any R object. This is like a list but indexed by a set of
+integers, not necessarily contiguous and possibly negative. The
+implementation uses a 'R6' class. These containers are not faster than
+lists but their usage can be more convenient for certain situations.
 
 %prep
 %setup -q -c -n %{packname}

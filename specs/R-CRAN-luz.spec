@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  luz
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Higher Level 'API' for 'torch'
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch >= 0.5.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-torch >= 0.9.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-zeallot 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-progress 
@@ -31,10 +31,10 @@ BuildRequires:    R-CRAN-ellipsis
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-torch >= 0.5.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-torch >= 0.9.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-zeallot 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-coro 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-progress 

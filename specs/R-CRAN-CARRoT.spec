@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CARRoT
-%global packver   2.5.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predicting Categorical and Continuous Outcomes Using One in Ten Rule
 
@@ -32,21 +33,23 @@ Requires:         R-parallel
 Requires:         R-CRAN-foreach 
 
 %description
-Predicts categorical or continuous outcomes while concentrating on four
-key points. These are Cross-validation, Accuracy, Regression and Rule of
-Ten or "one in ten rule" (CARRoT). It performs the cross-validation
-specified number of times by partitioning the input into training and test
-set and fitting linear/multinomial/binary regression models to the
-training set. All regression models satisfying a rule of ten events per
-variable are fitted and the ones with the best predictive power are given
-as an output. Best predictive power is understood as highest accuracy in
-case of binary/multinomial outcomes, smallest absolute and relative errors
-in case of continuous outcomes. For binary case there is also an option of
-finding a regression model which gives the highest AUROC (Area Under
-Receiver Operating Curve) value. The option of parallel toolbox is also
-available. Methods are described in Peduzzi et al. (1996)
-<doi:10.1016/S0895-4356(96)00236-3> and Rhemtulla et al. (2012)
-<doi:10.1037/a0029315>.
+Predicts categorical or continuous outcomes while concentrating on a
+number of key points. These are Cross-validation, Accuracy, Regression and
+Rule of Ten or "one in ten rule" (CARRoT), and, in addition to it
+R-squared statistics, prior knowledge on the dataset etc. It performs the
+cross-validation specified number of times by partitioning the input into
+training and test set and fitting linear/multinomial/binary regression
+models to the training set. All regression models satisfying chosen
+constraints are fitted and the ones with the best predictive power are
+given as an output. Best predictive power is understood as highest
+accuracy in case of binary/multinomial outcomes, smallest absolute and
+relative errors in case of continuous outcomes. For binary case there is
+also an option of finding a regression model which gives the highest AUROC
+(Area Under Receiver Operating Curve) value. The option of parallel
+toolbox is also available. Methods are described in Peduzzi et al. (1996)
+<doi:10.1016/S0895-4356(96)00236-3> , Rhemtulla et al. (2012)
+<doi:10.1037/a0029315>, Riley et al. (2018) <doi:10.1002/sim.7993>, Riley
+et al. (2019) <doi:10.1002/sim.7992>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

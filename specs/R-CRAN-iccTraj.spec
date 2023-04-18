@@ -1,55 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rdss
+%global packname  iccTraj
 %global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Companion Datasets and Functions for Research Design in the Social Sciences
+Summary:          Estimates the Intraclass Correlation Coefficient for Trajectory Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dataverse 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-prediction 
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-magic 
+BuildRequires:    R-CRAN-trajectories 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spacetime 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-estimatr 
-BuildRequires:    R-CRAN-randomizr 
-Requires:         R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dataverse 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-prediction 
-Requires:         R-CRAN-broom 
+Requires:         R-CRAN-magic 
+Requires:         R-CRAN-trajectories 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spacetime 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-estimatr 
-Requires:         R-CRAN-randomizr 
+Requires:         R-utils 
+Requires:         R-CRAN-foreach 
 
 %description
-Helper functions to accompany the Blair, Coppock, and Humphreys (2022)
-"Research Design in the Social Sciences: Declaration, Diagnosis, and
-Redesign" <https://book.declaredesign.org>. 'rdss' includes datasets,
-helper functions, and plotting components to enable use and replication of
-the book.
+Estimates the intraclass correlation coefficient for trajectory data using
+a matrix of distances between trajectories. The distances implemented are
+the extended Hausdorff distances (Min et al. 2007)
+<doi:10.1080/13658810601073315> and the discrete Fréchet distance (Magdy
+et al. 2015) <doi:10.1109/IntelCIS.2015.7397286>.
 
 %prep
 %setup -q -c -n %{packname}

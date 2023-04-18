@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MazamaSpatialUtils
-%global packver   0.8.1
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Data Download and Utility Functions
 
@@ -18,20 +18,20 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.5
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmapshaper 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-MazamaCoreUtils >= 0.4.5
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmapshaper 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
 
 %description

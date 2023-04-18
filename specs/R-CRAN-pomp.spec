@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pomp
-%global packver   4.7
+%global packver   5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7
+Version:          5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference for Partially Observed Markov Processes
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
 
 %description
 Tools for data analysis with partially observed Markov process (POMP)

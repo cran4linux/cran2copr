@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pairwise
-%global packver   0.6.0-0
+%global packver   0.6.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0.0
+Version:          0.6.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rasch Model Parameters by Pairwise Algorithm
 
