@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MAMS
-%global packver   2.0.1
+%global packname  DateTimeRangePicker
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Designing Multi-Arm Multi-Stage Studies
+Summary:          A Datetime Range Picker Widget for Usage in 'Shiny' Applications
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-reactR 
+Requires:         R-CRAN-shiny 
 
 %description
-Designing multi-arm multi-stage studies with (asymptotically) normal
-endpoints and known variance.
+Provides a datetime range picker widget for usage in 'Shiny'. It creates a
+calendar allowing to select a start date and an end date as well as two
+fields allowing to select a start time and an end time.
 
 %prep
 %setup -q -c -n %{packname}

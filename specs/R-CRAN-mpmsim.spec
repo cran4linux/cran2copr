@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MAMS
-%global packver   2.0.1
+%global packname  mpmsim
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Designing Multi-Arm Multi-Stage Studies
+Summary:          Simulation of Matrix Population Models with Defined Life History Characteristics
 
-License:          GPL-2
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-popbio 
+BuildRequires:    R-CRAN-popdemo 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-popbio 
+Requires:         R-CRAN-popdemo 
+Requires:         R-CRAN-reshape 
+Requires:         R-stats 
 
 %description
-Designing multi-arm multi-stage studies with (asymptotically) normal
-endpoints and known variance.
+Allows users to simulate matrix population models with particular
+characteristics based on aspects of life history such as mortality
+trajectories and fertility trajectories. Also allows the exploration of
+sampling error due to small sample size.
 
 %prep
 %setup -q -c -n %{packname}

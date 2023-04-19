@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MAMS
-%global packver   2.0.1
+%global packname  hkevp
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Designing Multi-Arm Multi-Stage Studies
+Summary:          Spatial Extreme Value Analysis with the Hierarchical Model of Reich and Shaby (2012)
 
-License:          GPL-2
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.16
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.16
 
 %description
-Designing multi-arm multi-stage studies with (asymptotically) normal
-endpoints and known variance.
+Several procedures for the hierarchical kernel extreme value process of
+Reich and Shaby (2012) <DOI:10.1214/12-AOAS591>, including simulation,
+estimation and spatial extrapolation. The spatial latent variable model
+<DOI:10.1214/11-STS376> is also included.
 
 %prep
 %setup -q -c -n %{packname}

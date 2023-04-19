@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MAMS
-%global packver   2.0.1
+%global packname  nndiagram
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Designing Multi-Arm Multi-Stage Studies
+Summary:          Generator of 'LaTeX' Code for Drawing Neural Network Diagrams with 'TikZ'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-utils 
 
 %description
-Designing multi-arm multi-stage studies with (asymptotically) normal
-endpoints and known variance.
+Generates 'LaTeX' code for drawing well-formatted neural network diagrams
+with 'TikZ'. Users have to define number of neurons on each layer, and
+optionally define neuron connections they would like to keep or omit,
+layers they consider to be oversized and neurons they would like to draw
+with lighter color. They can also specify the title of diagram, color,
+opacity of figure, labels of layers, input and output neurons. In
+addition, this package helps to produce 'LaTeX' code for drawing
+activation functions which are crucial in neural network analysis. To make
+the code work in a 'LaTeX' editor, users need to install and import some
+'TeX' packages including 'TikZ' in the setting of 'TeX' file.
 
 %prep
 %setup -q -c -n %{packname}

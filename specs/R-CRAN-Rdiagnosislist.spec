@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastmatrix
-%global packver   0.5
+%global packname  Rdiagnosislist
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Computation of some Matrices Useful in Statistics
+Summary:          Manipulate SNOMED CT Diagnosis Lists
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,24 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-bit64 
+Requires:         R-methods 
 
 %description
-Small set of functions to fast computation of some matrices and operations
-useful in statistics and econometrics. Currently, there are functions for
-efficient computation of duplication, commutation and symmetrizer matrices
-with minimal storage requirements. Some commonly used matrix
-decompositions (LU and LDL), basic matrix operations (for instance,
-Hadamard, Kronecker products and the Sherman-Morrison formula) and
-iterative solvers for linear systems are also available. In addition, the
-package includes a number of common statistical procedures such as the
-sweep operator, weighted mean and covariance matrix using an online
-algorithm, linear regression (using Cholesky, QR, SVD, sweep operator and
-conjugate gradients methods), ridge regression (with optimal selection of
-the ridge parameter considering several procedures), functions to compute
-the multivariate skewness, kurtosis, Mahalanobis distance (checking the
-positive defineteness) and the Wilson-Hilferty transformation of chi
-squared variables. Furthermore, the package provides interfaces to C code
-callable by another C code from other R packages.
+Functions and methods for manipulating 'SNOMED CT' concepts. The package
+contains functions for loading the 'SNOMED CT' release into a convenient R
+environment, selecting 'SNOMED CT' concepts using regular expressions, and
+navigating the 'SNOMED CT' ontology. It provides the 'SNOMEDconcept' S3
+class for a vector of 'SNOMED CT' concepts (stored as 64-bit integers) and
+the 'SNOMEDcodelist' S3 class for a table of concepts IDs with
+descriptions. For more information about 'SNOMED CT' visit
+<https://www.snomed.org/>.
 
 %prep
 %setup -q -c -n %{packname}

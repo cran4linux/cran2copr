@@ -1,50 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ActiSleep
-%global packver   0.2.1
+%global packname  kgrams
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sleep Duration Estimate Algorithm
+Summary:          Classical k-gram Language Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-accelerometry 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-RcppProgress >= 0.1
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-accelerometry 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-RcppProgress >= 0.1
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Estimate sleep duration using a Pruned Dynamic Programming (PDP) algorithm
-that quickly and efficiently identifies changepoints. When applied to
-physical activity data it can identify transitions from wakefulness to
-sleep and vice versa. Baek, Jonggyu, Banker, Margaret, Jansen, Erica C.,
-She, Xichen, Peterson, Karen E., Pitchford, E. Andrew, Song, Peter X. K.
-(2021) "An Efficient Segmentation Algorithm to Estimate Sleep Duration
-from Actigraphy Data" <doi:10.1007/s12561-021-09309-3>.
+Training and evaluating k-gram language models in R, supporting several
+probability smoothing techniques, perplexity computations, random text
+generation and more.
 
 %prep
 %setup -q -c -n %{packname}

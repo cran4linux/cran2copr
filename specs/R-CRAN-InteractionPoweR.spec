@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  InteractionPoweR
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analyses for Interaction Effects in Cross-Sectional Regressions
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggbeeswarm 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-MASS 
 Requires:         R-parallel 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tidyr 
 Requires:         R-stats 
 Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-Matrix 
 
 %description
 Power analysis for regression models which test the interaction of two

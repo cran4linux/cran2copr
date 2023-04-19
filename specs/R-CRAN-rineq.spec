@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xpose
-%global packver   0.4.16
+%global packname  rineq
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.16
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostics for Pharmacometric Models
+Summary:          Concentration Index and Decomposition for Health Inequalities
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-readr >= 2.1.0
-BuildRequires:    R-CRAN-tibble >= 2.1.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-vpc >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
-BuildRequires:    R-CRAN-tidyr >= 0.8.0
-BuildRequires:    R-CRAN-purrr >= 0.3.0
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-ggforce >= 0.2.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-readr >= 2.1.0
-Requires:         R-CRAN-tibble >= 2.1.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-vpc >= 1.1.0
-Requires:         R-CRAN-dplyr >= 0.8.0
-Requires:         R-CRAN-tidyr >= 0.8.0
-Requires:         R-CRAN-purrr >= 0.3.0
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-ggforce >= 0.2.0
-Requires:         R-grDevices 
-Requires:         R-utils 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Diagnostics for non-linear mixed-effects (population) models from 'NONMEM'
-<https://www.iconplc.com/solutions/technologies/nonmem/>. 'xpose'
-facilitates data import, creation of numerical run summary and provide
-'ggplot2'-based graphics for data exploration and model diagnostics.
+Relative, generalized, and Erreygers corrected concentration index; plot
+Lorenz curves; and decompose health inequalities into contributing
+factors. The package currently works with (generalized) linear models,
+survival models, complex survey models, and marginal effects probit
+models. originally forked by Brecht Devleesschauwer from the 'decomp'
+package (no longer on CRAN), rineq is now maintained by Kaspar Walter
+Meili. Compared to the earlier 'rineq' version on 'github' by Brecht
+Devleesschauwer (<https://github.com/brechtdv/rineq>), the regression tree
+functionality has been removed. Improvements compared to earlier versions
+include improved plotting of decomposition and concentration, added
+functionality to calculate the concentration index with different methods,
+calculation of robust standard errors, and support for the decomposition
+analysis using marginal effects probit regression models. The development
+version is available at <https://github.com/kdevkdev/rineq>.
 
 %prep
 %setup -q -c -n %{packname}

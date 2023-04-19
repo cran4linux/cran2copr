@@ -1,45 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  voice
-%global packver   0.4.20
+%global packname  healthyverse
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.20
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Voice Analysis, Speaker Recognition and Mood Inference
+Summary:          Easily Install and Load the 'healthyverse'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-healthyR 
+BuildRequires:    R-CRAN-healthyR.data 
+BuildRequires:    R-CRAN-healthyR.ts 
+BuildRequires:    R-CRAN-healthyR.ai 
+BuildRequires:    R-CRAN-TidyDensity 
+BuildRequires:    R-CRAN-tidyAML 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-wrassp 
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-healthyR 
+Requires:         R-CRAN-healthyR.data 
+Requires:         R-CRAN-healthyR.ts 
+Requires:         R-CRAN-healthyR.ai 
+Requires:         R-CRAN-TidyDensity 
+Requires:         R-CRAN-tidyAML 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-wrassp 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-cli 
 
 %description
-Tools for voice analysis, speaker recognition and mood inference. Gathers
-'R' and 'Python' tools to solve problems concerning voice and audio in
-general.
+The 'healthyverse' is a set of packages that work in harmony because they
+share common data representations and 'API' design. This package is
+designed to make it easy to install and load multiple 'healthyverse'
+packages in a single step.
 
 %prep
 %setup -q -c -n %{packname}

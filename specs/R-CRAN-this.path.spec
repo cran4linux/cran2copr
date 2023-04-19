@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  this.path
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get Executing Script's Path, from 'Rgui', 'RStudio', 'VSCode', 'Jupyter', 'source()', and 'Rscript' (Shells Including Windows Command Line / / Unix Terminal)
+Summary:          Get Executing Script's Path
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,11 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Determine the path of the executing script. Works when running a line or
-selection in 'Rgui', 'RStudio', 'VSCode', and 'Jupyter', when using
-'source()', 'sys.source()', 'debugSource()' in 'RStudio',
-'testthat::source_file()', 'knitr::knit()', 'box::use()', and
-'compiler::load.cmp()', and when running from a shell.
+Determine the path of the executing script. Compatible with a few popular
+GUIs: 'Rgui', 'RStudio', 'VSCode', 'Jupyter', and 'Rscript' (shell).
+Compatible with several functions and packages: 'source()',
+'sys.source()', 'debugSource()' in 'RStudio', 'testthat::source_file()',
+'knitr::knit()',' 'compiler::loadcmp()', and 'box::use()'.
 
 %prep
 %setup -q -c -n %{packname}

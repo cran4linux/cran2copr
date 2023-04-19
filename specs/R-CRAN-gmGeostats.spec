@@ -1,33 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MAMS
-%global packver   2.0.1
+%global packname  gmGeostats
+%global packver   0.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.11.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Designing Multi-Arm Multi-Stage Studies
+Summary:          Geostatistics for Compositional Analysis
 
-License:          GPL-2
+License:          CC BY-SA 4.0 | GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-compositions >= 2.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-compositions >= 2.0
 Requires:         R-methods 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-foreach 
+Requires:         R-utils 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Designing multi-arm multi-stage studies with (asymptotically) normal
-endpoints and known variance.
+Support for geostatistical analysis of multivariate data, in particular
+data with restrictions, e.g. positive amounts, compositions,
+distributional data, microstructural data, etc. It includes descriptive
+analysis and modelling for such data, both from a two-point Gaussian
+perspective and multipoint perspective. The methods mainly follow
+Tolosana-Delgado, Mueller and van den Boogaart (2018)
+<doi:10.1007/s11004-018-9769-3>.
 
 %prep
 %setup -q -c -n %{packname}

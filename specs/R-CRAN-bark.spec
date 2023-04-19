@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MAMS
-%global packver   2.0.1
+%global packname  bark
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Designing Multi-Arm Multi-Stage Studies
+Summary:          Bayesian Additive Regression Kernels
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
 
 %description
-Designing multi-arm multi-stage studies with (asymptotically) normal
-endpoints and known variance.
+Bayesian Additive Regression Kernels (BARK) provides an implementation for
+non-parametric function estimation using Levy Random Field priors for
+functions that may be represented as a sum of additive multivariate
+kernels.  Kernels are located at every data point as in Support Vector
+Machines, however, coefficients may be heavily shrunk to zero under the
+Cauchy process prior, or even, set to zero.  The number of active features
+is controlled by priors on precision parameters within the kernels,
+permitting feature selection. For more details see Ouyang, Z (2008)
+"Bayesian Additive Regression Kernels", Duke University. PhD dissertation,
+Chapter 3 and Wolpert, R. L, Clyde, M.A, and Tu, C. (2011) "Stochastic
+Expansions with Continuous Dictionaries Levy Adaptive Regression Kernels,
+Annals of Statistics Vol (39) pages 1916-1962 <doi:10.1214/11-AOS889>.
 
 %prep
 %setup -q -c -n %{packname}

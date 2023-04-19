@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  liGP
-%global packver   1.0.1
+%global __requires_exclude ^libmpi
+%global packname  gghist
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Locally Induced Gaussian Process Regression
+Summary:          Plot the Histogram of a Numeric Vector
 
-License:          LGPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-hetGP 
-BuildRequires:    R-CRAN-laGP 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-hetGP 
-Requires:         R-CRAN-laGP 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Performs locally induced approximate GP regression for large computer
-experiments and spatial datasets following Cole D.A., Christianson, R.,
-Gramacy, R.B. (2021) Statistics and Computing, 31(3), 1-21,
-<arXiv:2008.12857>. The approximation is based on small local designs
-combined with a set of inducing points (latent design points) for
-predictions at particular inputs. Parallelization is supported for
-generating predictions over an immense out-of-sample testing set. Local
-optimization of the inducing points design is provided based on
-variance-based criteria. Inducing point template schemes, including
-scaling of space-filling designs, are also provided.
+Wrapper around geom_histogram() of 'ggplot2' to plot the histogram of a
+numeric vector. This is especially useful, since qplot() was deprecated in
+'ggplot2' 3.4.0.
 
 %prep
 %setup -q -c -n %{packname}

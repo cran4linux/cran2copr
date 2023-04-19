@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  idopNetwork
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Cartographic Tool to Chart Spatial Microbial Interaction Networks
+Summary:          A Network Tool to Dissect Spatial Community Ecology
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}

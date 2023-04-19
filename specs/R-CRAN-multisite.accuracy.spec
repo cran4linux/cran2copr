@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  multisite.accuracy
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Accuracy in Multisite Machine-Learning Models
 
@@ -36,14 +37,15 @@ Requires:         R-CRAN-survival
 %description
 The effects of the site may severely bias the accuracy of a multisite
 machine-learning model, even if the analysts removed them when fitting the
-model in the 'training set' and applying the model in the 'test set'. This
-simple R package estimates the accuracy of a multisite machine-learning
-model unbiasedly, as described in (Solanes et al., Psychiatry Research:
-Neuroimaging 2021, 314:111313). It currently supports the estimation of
-sensitivity, specificity, balanced accuracy (for binary or multinomial
-variables), the area under the curve, correlation, mean squarer error, and
-hazard ratio for binomial, multinomial, gaussian, and survival
-(time-to-event) outcomes.
+model in the 'training set' and applying the model in the 'test set'
+(Solanes et al., Neuroimage 2023, 265:119800). This simple R package
+estimates the accuracy of a multisite machine-learning model unbiasedly,
+as described in (Solanes et al., Psychiatry Research: Neuroimaging 2021,
+314:111313). It currently supports the estimation of sensitivity,
+specificity, balanced accuracy (for binary or multinomial variables), the
+area under the curve, correlation, mean squarer error, and hazard ratio
+for binomial, multinomial, gaussian, and survival (time-to-event)
+outcomes.
 
 %prep
 %setup -q -c -n %{packname}
