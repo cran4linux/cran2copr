@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  multIntTestFunc
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides Test Functions for Multivariate Integration
 
@@ -16,23 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
 Requires:         R-methods 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
 
 %description
 Provides implementations of functions that can be used to test
-multivariate integration routines. The package covers five different
+multivariate integration routines. The package covers six different
 integration domains (unit hypercube, unit ball, unit sphere, standard
-simplex and R^n). For each domain several functions with different
-properties (smooth, non-differentiable, ...) are available. The functions
-are available in all dimensions n >= 1. For each function the exact value
-of the integral is known and implemented to allow testing the accuracy of
-multivariate integration routines. Details on the available test functions
-can be found at on the development website.
+simplex, non-negative real numbers and R^n). For each domain several
+functions with different properties (smooth, non-differentiable, ...) are
+available. The functions are available in all dimensions n >= 1. For each
+function the exact value of the integral is known and implemented to allow
+testing the accuracy of multivariate integration routines. Details on the
+available test functions can be found at on the development website.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vctrs
-%global packver   0.6.2
+%global packname  COMBO
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vector Helpers
+Summary:          Correcting Misclassified Binary Outcomes in Association Studies
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-glue 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-utils >= 4.2.0
+BuildRequires:    R-CRAN-rjags >= 4.13
+BuildRequires:    R-CRAN-turboEM >= 2021
+BuildRequires:    R-CRAN-tidyr >= 1.2.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-SAMBA >= 0.9.0
+BuildRequires:    R-CRAN-Matrix > 1.4.1
+Requires:         R-utils >= 4.2.0
+Requires:         R-CRAN-rjags >= 4.13
+Requires:         R-CRAN-turboEM >= 2021
+Requires:         R-CRAN-tidyr >= 1.2.1
+Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-SAMBA >= 0.9.0
+Requires:         R-CRAN-Matrix > 1.4.1
 
 %description
-Defines new notions of prototype and size that are used to provide tools
-for consistent and well-founded type-coercion and size-recycling, and are
-in turn connected to ideas of type- and size-stability useful for
-analysing function interfaces.
+Use frequentist and Bayesian methods to estimate parameters from a binary
+outcome misclassification model. These methods correct for the problem of
+"label switching" by assuming that correct outcome classification occurs
+in at least 50%% of observations. A description of the analysis methods is
+available in Hochstedler and Wells (2023) <arXiv:2303.10215>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vctrs
-%global packver   0.6.2
+%global packname  cdgd
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vector Helpers
+Summary:          Causal Decomposition of Group Disparities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-glue 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-caret >= 6.0.0
+Requires:         R-CRAN-caret >= 6.0.0
 
 %description
-Defines new notions of prototype and size that are used to provide tools
-for consistent and well-founded type-coercion and size-recycling, and are
-in turn connected to ideas of type- and size-stability useful for
-analysing function interfaces.
+The causal decompositions of group disparities developed by Yu and Elwert
+(2023)
+<https://ang-yu.github.io/files/Causal_Decomposition_of_Group_Disparities_2023.pdf>.
+This package implements the estimators for the decomposition components
+that are based on efficient influence functions. For the nuisance
+functions of the estimators, both parametric and nonparametric options are
+provided, as well as manual options in case the default models are not
+satisfying.
 
 %prep
 %setup -q -c -n %{packname}

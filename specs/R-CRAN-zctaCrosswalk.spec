@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vctrs
-%global packver   0.6.2
+%global packname  zctaCrosswalk
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vector Helpers
+Summary:          Crosswalk Between 2020 Census ZIP Code Tabulation Areas (ZCTAs), States and Counties
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-glue 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 
 %description
-Defines new notions of prototype and size that are used to provide tools
-for consistent and well-founded type-coercion and size-recycling, and are
-in turn connected to ideas of type- and size-stability useful for
-analysing function interfaces.
+Contains the US Census Bureau's 2020 ZCTA to County Relationship File, as
+well as convenience functions to translate between States, Counties and
+ZIP Code Tabulation Areas (ZCTAs).
 
 %prep
 %setup -q -c -n %{packname}

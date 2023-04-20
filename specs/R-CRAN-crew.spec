@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crew
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Distributed Worker Launcher
 
@@ -14,31 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mirai >= 0.8.0
-BuildRequires:    R-CRAN-nanonext >= 0.8.0
-BuildRequires:    R-CRAN-bench 
-BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-mirai >= 0.8.3
+BuildRequires:    R-CRAN-nanonext >= 0.8.2
 BuildRequires:    R-CRAN-getip 
-BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-mirai >= 0.8.0
-Requires:         R-CRAN-nanonext >= 0.8.0
-Requires:         R-CRAN-bench 
-Requires:         R-CRAN-callr 
+Requires:         R-CRAN-mirai >= 0.8.3
+Requires:         R-CRAN-nanonext >= 0.8.2
 Requires:         R-CRAN-getip 
-Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-processx 
 Requires:         R-CRAN-ps 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
@@ -47,12 +45,12 @@ Requires:         R-CRAN-withr
 %description
 In computationally demanding analysis projects, statisticians and data
 scientists asynchronously deploy long-running tasks to distributed
-systems, ranging from traditional clusters to cloud services The
+systems, ranging from traditional clusters to cloud services. The
 'NNG'-powered 'mirai' R package by Gao (2023)
 <https://CRAN.R-project.org/package=mirai> is a sleek and sophisticated
 scheduler that efficiently processes these intense workloads. The 'crew'
 package extends 'mirai' with a unifying interface for third-party worker
-launchers. Inspiration also comes from packages 'future' by Bengtsson
+launchers. Inspiration also comes from packages. 'future' by Bengtsson
 (2021) <doi:10.32614/RJ-2021-048>, 'rrq' by FitzJohn and Ashton (2023)
 <https://github.com/mrc-ide/rrq>, 'clustermq' by Schubert (2019)
 <doi:10.1093/bioinformatics/btz284>), and 'batchtools' by Lang, Bischel,

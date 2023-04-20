@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PAMpal
-%global packver   0.17.0
+%global packver   0.19.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          0.19.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load and Process Passive Acoustic Data
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-geosphere 
 Requires:         R-CRAN-PAMmisc >= 1.8.3
 Requires:         R-CRAN-PamBinaries >= 1.3.0
 Requires:         R-CRAN-dplyr 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-geosphere 
 
 %description
 Tools for loading and processing passive acoustic data. Read in data that

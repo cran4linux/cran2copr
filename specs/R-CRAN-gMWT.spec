@@ -1,29 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bcf
-%global packver   1.3.1
+%global __requires_exclude ^libmpi
+%global packname  gMWT
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Inference for a Binary Treatment and Continuous Outcome using Bayesian Causal Forests
+Summary:          Generalized Mann-Whitney Type Tests
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.10.4
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildRequires:    R-CRAN-Rcpp >= 0.9.13
+BuildRequires:    R-CRAN-clinfun 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.10.4
+Requires:         R-CRAN-Rcpp >= 0.9.13
+Requires:         R-CRAN-clinfun 
 
 %description
-Causal inference for a binary treatment and continuous outcome using
-Bayesian Causal Forests. See Hahn, Murray and Carvalho (2017)
-<arXiv:1706.09523> for additional information. This implementation relies
-on code originally accompanying Pratola et. al. (2013) <arXiv:1309.1906>.
+Generalized Mann-Whitney type tests based on probabilistic indices and new
+diagnostic plots, for the underlying manuscript see Fischer, Oja (2015)
+<doi:10.18637/jss.v065.i09>.
 
 %prep
 %setup -q -c -n %{packname}

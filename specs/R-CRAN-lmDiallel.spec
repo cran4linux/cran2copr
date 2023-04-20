@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lmDiallel
-%global packver   0.9.5
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Fixed Effects Models for Diallel Crosses
+Summary:          Linear Fixed/Mixed Effects Models for Diallel Crosses
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-sommer 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-sommer 
+Requires:         R-CRAN-tidyr 
 
 %description
 Several service functions to be used to analyse datasets obtained from
