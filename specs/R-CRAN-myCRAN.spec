@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProbReco
-%global packver   0.1.2
+%global packname  myCRAN
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Score Optimal Probabilistic Forecast Reconciliation
+Summary:          Graph of Daily and Cumulative Downloads of your Packages
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-StanHeaders >= 2.19.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-purrr >= 0.3.2
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-purrr >= 0.3.2
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-RcppParallel 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cranlogs 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-cranlogs 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-Training of reconciliation weights for probabilistic forecasts to optimise
-total energy (or variogram) score using Stochastic Gradient Descent with
-automatically differentiated gradients. See Panagiotelis, Gamakumara,
-Athanasopoulos and Hyndman, (2020)
-<https://www.monash.edu/business/ebs/research/publications/ebs/wp26-2020.pdf>
-for a description of the methods.
+Plot the daily and cumulative number of downloads of your packages. It is
+designed to be slightly more convenient than the several similar programs.
+If you want to run this each morning, you do not need to keep typing in
+the names of your packages. Also, this combines the daily and cumulative
+counts in one run, you do not need to run separate programs to get both
+types of information.
 
 %prep
 %setup -q -c -n %{packname}

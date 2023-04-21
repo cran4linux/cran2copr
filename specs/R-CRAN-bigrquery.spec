@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bigrquery
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to Google's 'BigQuery' 'API'
 
@@ -16,12 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
+BuildRequires:    R-CRAN-gargle >= 1.4.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-gargle >= 1.2.0
 BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-brio 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-httr 
@@ -32,13 +33,15 @@ BuildRequires:    R-CRAN-prettyunits
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-rapidjsonr 
+Requires:         R-CRAN-gargle >= 1.4.0
 Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-gargle >= 1.2.0
 Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-brio 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-httr 
@@ -49,6 +52,7 @@ Requires:         R-CRAN-prettyunits
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
 
 %description
 Easily talk to Google's 'BigQuery' database from R.

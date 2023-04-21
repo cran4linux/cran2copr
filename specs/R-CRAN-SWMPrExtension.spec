@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SWMPrExtension
-%global packver   2.2.3
+%global packver   2.2.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          2.2.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Analyzing and Plotting Estuary Monitoring Data
 
@@ -64,7 +65,7 @@ Requires:         R-utils
 %description
 Tools for performing routine analysis and plotting tasks with
 environmental data from the System Wide Monitoring Program of the National
-Estuarine Research Reserve System <http://cdmo.baruch.sc.edu/>. This
+Estuarine Research Reserve System <https://cdmo.baruch.sc.edu/>. This
 package builds on the functionality of the 'SWMPr' package
 <https://cran.r-project.org/package=SWMPr>, which is used to retrieve and
 organize the data. The combined set of tools address common challenges
@@ -77,7 +78,7 @@ Bob (2014)
 United States Environmental Protection Agency (2015)
 <https://cfpub.epa.gov/si/si_public_record_Report.cfm?Lab=OWOW&dirEntryId=327030>.
 United States Environmental Protection Agency (2012)
-<http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.646.1973&rep=rep1&type=pdf>.
+<https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.646.1973&rep=rep1&type=pdf>.
 
 %prep
 %setup -q -c -n %{packname}

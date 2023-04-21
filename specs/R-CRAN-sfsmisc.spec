@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sfsmisc
-%global packver   1.1-14
+%global packver   1.1-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.14
+Version:          1.1.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities from 'Seminar fuer Statistik' ETH Zurich
 
@@ -29,13 +29,13 @@ Requires:         R-tools
 %description
 Useful utilities ['goodies'] from Seminar fuer Statistik ETH Zurich, some
 of which were ported from S-plus in the 1990s. For graphics, have pretty
-(Log-scale) axes, an enhanced Tukey-Anscombe plot, combining histogram and
-boxplot, 2d-residual plots, a 'tachoPlot()', pretty arrows, etc. For
-robustness, have a robust F test and robust range(). For system support,
-notably on Linux, provides 'Sys.*()' functions with more access to system
-and CPU information. Finally, miscellaneous utilities such as simple
-efficient prime numbers, integer codes, Duplicated(), toLatex.numeric()
-and is.whole().
+(Log-scale) axes eaxis(), an enhanced Tukey-Anscombe plot, combining
+histogram and boxplot, 2d-residual plots, a 'tachoPlot()', pretty arrows,
+etc. For robustness, have a robust F test and robust range(). For system
+support, notably on Linux, provides 'Sys.*()' functions with more access
+to system and CPU information. Finally, miscellaneous utilities such as
+simple efficient prime numbers, integer codes, Duplicated(),
+toLatex.numeric() and is.whole().
 
 %prep
 %setup -q -c -n %{packname}

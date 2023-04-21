@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RawHummus
-%global packver   0.3.3
+%global packname  funStatTest
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Raw Data Quality Control Tool for LC-MS System
+Summary:          Statistical Testing for Functional Data
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,48 +17,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.7.4
-BuildRequires:    R-CRAN-golem >= 0.3.5.9001
-BuildRequires:    R-CRAN-config >= 0.3.1
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-distr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-markdown 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RaMS 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-shinycustomloader 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinydashboardPlus 
-BuildRequires:    R-CRAN-shinyMatrix 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-shiny >= 1.7.4
-Requires:         R-CRAN-golem >= 0.3.5.9001
-Requires:         R-CRAN-config >= 0.3.1
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-distr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-markdown 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RaMS 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-shinycustomloader 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinydashboardPlus 
-Requires:         R-CRAN-shinyMatrix 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pbapply 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 
 %description
-Assess LC–MS system performance by visualizing instrument log files and
-monitoring raw quality control samples within a project.
+Implementation of two sample comparison procedures based on median-based
+statistical tests for functional data, introduced in Smida et al (2022)
+<doi:10.1080/10485252.2022.2064997>. Other competitive state-of-the-art
+approaches proposed by Chakraborty and Chaudhuri (2015)
+<doi:10.1093/biomet/asu072>, Horvath et al (2013)
+<doi:10.1111/j.1467-9868.2012.01032.x> or Cuevas et al (2004)
+<doi:10.1016/j.csda.2003.10.021> are also included in the package, as well
+as procedures to run test result comparisons and power analysis using
+simulations.
 
 %prep
 %setup -q -c -n %{packname}

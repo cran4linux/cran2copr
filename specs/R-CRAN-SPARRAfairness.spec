@@ -1,49 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grainscape
-%global packver   0.4.4
+%global packname  SPARRAfairness
+%global packver   0.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Landscape Connectivity, Habitat, and Protected Area Networks
+Summary:          Analysis of Differential Behaviour of SPARRA Score Across Demographic Groups
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11.4
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.11.4
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-cvAUC 
+BuildRequires:    R-CRAN-ranger 
+Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
-Requires:         R-utils 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-cvAUC 
+Requires:         R-CRAN-ranger 
 
 %description
-Given a landscape resistance surface, creates minimum planar graph (Fall
-et al. (2007) <doi:10.1007/s10021-007-9038-7>) and grains of connectivity
-(Galpern et al. (2012) <doi:10.1111/j.1365-294X.2012.05677.x>) models that
-can be used to calculate effective distances for landscape connectivity at
-multiple scales. Documentation is provided by several vignettes, and a
-paper (Chubaty, Galpern & Doctolero (2020) <doi:10.1111/2041-210X.13350>).
+The SPARRA risk score (Scottish Patients At Risk of admission and
+Re-Admission) estimates yearly risk of emergency hospital admission using
+electronic health records on a monthly basis for most of the Scottish
+population. This package implements a suite of functions used to analyse
+the behaviour and performance of the score, focusing particularly on
+differential performance over demographically-defined groups. It includes
+useful utility functions to plot receiver-operator-characteristic,
+precision-recall and calibration curves, draw stock human figures,
+estimate counterfactual quantities without the need to re-compute risk
+scores, to simulate a semi-realistic dataset.
 
 %prep
 %setup -q -c -n %{packname}

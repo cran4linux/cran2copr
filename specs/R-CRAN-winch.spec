@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  winch
-%global packver   0.0.12
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Portable Native and Joint Stack Traces
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-procmaps >= 0.0.2
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-procmaps >= 0.0.2
+Requires:         R-CRAN-lifecycle 
 
 %description
 Obtain the native stack trace and fuse it with R's stack trace for easier

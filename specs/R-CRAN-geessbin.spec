@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AQuadtree
-%global packver   1.0.3
+%global packname  geessbin
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confidentiality of Spatial Point Data
+Summary:          Modified Generalized Estimating Equations for Binary Outcome
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS >= 7.3.45
+Requires:         R-CRAN-MASS >= 7.3.45
 
 %description
-Provides an automatic aggregation tool to manage point data privacy,
-intended to be helpful for the production of official spatial data and for
-researchers. The package pursues the data accuracy at the smallest
-possible areas preventing individual information disclosure. The
-methodology, based on hierarchical geographic data structures performs
-aggregation and local suppression of point data to ensure privacy as
-described in Lagonigro, R., Oller, R., Martori J.C. (2017)
-<doi:10.2436/20.8080.02.55>. The data structures are created following the
-guidelines for grid datasets from the European Forum for Geography and
-Statistics.
+Analyze small-sample clustered or longitudinal data with binary outcome
+using modified generalized estimating equations with bias-adjusted
+covariance estimator. The package provides any combination of three
+modified generalized estimating equations and 11 bias-adjusted covariance
+estimators.
 
 %prep
 %setup -q -c -n %{packname}

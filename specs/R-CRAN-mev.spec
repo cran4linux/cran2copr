@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mev
-%global packver   1.14
+%global packver   1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14
+Version:          1.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling of Extreme Values
 
@@ -13,22 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-nloptr >= 1.2.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-alabama 
-BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-nloptr >= 1.2.0
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-alabama 
-Requires:         R-CRAN-evd 
 Requires:         R-methods 
 Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-Rsolnp 
 Requires:         R-stats 
 
 %description

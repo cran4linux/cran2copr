@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GET
-%global packver   0.3-2
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Envelopes
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
@@ -26,6 +27,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-parallel 
 Requires:         R-stats 

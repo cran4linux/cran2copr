@@ -1,62 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nhdR
-%global packver   0.6.0
+%global packname  eventstudyr
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Working with the National Hydrography Dataset
+Summary:          Estimation and Visualization of Linear Panel Event Studies
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         p7zip
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-estimatr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-units 
+Requires:         R-CRAN-estimatr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-digest 
 
 %description
-Tools for working with the National Hydrography Dataset, with functions
-for querying, downloading, and networking both the NHD
-<https://www.usgs.gov/national-hydrography> and NHDPlus
-<https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus>
-datasets.
+Estimates linear panel event study models. Plots coefficients following
+the recommendations in Freyaldenhoven et al. (2021) <doi:10.3386/w29170>.
+Includes sup-t bands, testing for key hypotheses, least wiggly path
+through the Wald region. Allows instrumental variables estimation
+following Freyaldenhoven et al. (2019) <doi:10.1257/aer.20180609>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dalmatian
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  tdsa
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automating the Fitting of Double Linear Mixed Models in 'JAGS' and 'nimble'
+Summary:          Time-Dependent Sensitivity Analysis
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ggmcmc 
-BuildRequires:    R-CRAN-dglm 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-ggmcmc 
-Requires:         R-CRAN-dglm 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-numDeriv >= 2006.4.1
+BuildRequires:    R-CRAN-deSolve >= 1.10
+BuildRequires:    R-CRAN-mathjaxr >= 0.8.3
+Requires:         R-CRAN-numDeriv >= 2006.4.1
+Requires:         R-CRAN-deSolve >= 1.10
+Requires:         R-CRAN-mathjaxr >= 0.8.3
 
 %description
-Automates fitting of double GLM in 'JAGS'. Includes automatic generation
-of 'JAGS' scripts, running 'JAGS' or 'nimble' via the 'rjags' and 'nimble'
-package, and summarizing the resulting output. For further information see
-Bonner, Kim, Westneat, Mutzel, Wright, and Schofield
-<doi:10.18637/jss.v100.i10>.
+Functions that can be used to calculate time-dependent state and parameter
+sensitivities for both continuous- and discrete-time deterministic models.
+See Ng et al. (in review) <doi:10.1101/2023.04.13.536769> for more
+information about time-dependent sensitivity analysis.
 
 %prep
 %setup -q -c -n %{packname}

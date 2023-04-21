@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AQuadtree
-%global packver   1.0.3
+%global packname  ggragged
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confidentiality of Spatial Point Data
+Summary:          Ragged Grids for 'ggplot2'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
 
 %description
-Provides an automatic aggregation tool to manage point data privacy,
-intended to be helpful for the production of official spatial data and for
-researchers. The package pursues the data accuracy at the smallest
-possible areas preventing individual information disclosure. The
-methodology, based on hierarchical geographic data structures performs
-aggregation and local suppression of point data to ensure privacy as
-described in Lagonigro, R., Oller, R., Martori J.C. (2017)
-<doi:10.2436/20.8080.02.55>. The data structures are created following the
-guidelines for grid datasets from the European Forum for Geography and
-Statistics.
+Extend 'ggplot2' facets to panel layouts arranged in a grid with ragged
+edges. facet_ragged_rows() groups panels in rows of (potentially) varying
+lengths, facet_ragged_cols() does the same for columns. These can be
+useful, for example, to represent nested or partially crossed
+relationships between faceting variables.
 
 %prep
 %setup -q -c -n %{packname}

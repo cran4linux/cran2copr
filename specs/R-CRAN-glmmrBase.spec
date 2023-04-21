@@ -1,27 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmmrBase
-%global packver   0.2.5
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Specification of Generalised Linear Mixed Models
+Summary:          Generalised Linear Mixed Models in R
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-Matrix >= 1.3.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-rminqa >= 0.2.2
+BuildRequires:    R-CRAN-SparseChol >= 0.2.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Matrix >= 1.3.1
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-methods 
@@ -29,8 +33,8 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-R6 
 
 %description
-Specification of generalised linear mixed models using the 'R6'
-object-orientated class system. The package provides classes 'Covariance',
+Specification of generalised linear mixed models with a range of related
+functions and calculations. The package provides classes 'Covariance',
 'MeanFunction' and 'Model', which allow for flexible specification of
 generalised linear mixed models, as well as functionality to produce
 relevant matrices, values, and analyses. See

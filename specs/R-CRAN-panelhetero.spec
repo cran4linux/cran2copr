@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AQuadtree
-%global packver   1.0.3
+%global packname  panelhetero
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confidentiality of Spatial Point Data
+Summary:          Panel Data Analysis with Heterogeneous Dynamics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-Rearrangement 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-methods 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-Rearrangement 
 Requires:         R-stats 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-dplyr 
 
 %description
-Provides an automatic aggregation tool to manage point data privacy,
-intended to be helpful for the production of official spatial data and for
-researchers. The package pursues the data accuracy at the smallest
-possible areas preventing individual information disclosure. The
-methodology, based on hierarchical geographic data structures performs
-aggregation and local suppression of point data to ensure privacy as
-described in Lagonigro, R., Oller, R., Martori J.C. (2017)
-<doi:10.2436/20.8080.02.55>. The data structures are created following the
-guidelines for grid datasets from the European Forum for Geography and
-Statistics.
+Understanding the dynamics of potentially heterogeneous variables is
+important in statistical applications. This package provides tools for
+estimating the degree of heterogeneity across cross-sectional units in the
+panel data analysis. The methods are developed by Okui and Yanagi (2019)
+<doi:10.1016/j.jeconom.2019.04.036> and Okui and Yanagi (2020)
+<doi:10.1093/ectj/utz019>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AQuadtree
-%global packver   1.0.3
+%global packname  GPUmatrix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confidentiality of Spatial Point Data
+Summary:          Basic Linear Algebra with GPU
 
-License:          MIT + file LICENSE
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-methods 
+BuildRequires:    R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-dplyr 
+Requires:         R-methods 
 
 %description
-Provides an automatic aggregation tool to manage point data privacy,
-intended to be helpful for the production of official spatial data and for
-researchers. The package pursues the data accuracy at the smallest
-possible areas preventing individual information disclosure. The
-methodology, based on hierarchical geographic data structures performs
-aggregation and local suppression of point data to ensure privacy as
-described in Lagonigro, R., Oller, R., Martori J.C. (2017)
-<doi:10.2436/20.8080.02.55>. The data structures are created following the
-guidelines for grid datasets from the European Forum for Geography and
-Statistics.
+Motivation: GPU power is a great resource for computational biology
+specifically in statistics and linear algebra. Unfortunately, very few
+packages connect R with the GPU and none of them are transparent enough to
+perform the computations on the GPU without substantial changes to the
+code. Most of them lack proper maintenance: several of the previous
+attempts were removed from the corresponding repositories. It would be
+desirable to have an R package, properly maintained, that exploits the use
+of the GPU with minimal changes in the existing code. Results: We have
+developed the 'GPUMatrix' package. 'GPUMatrix' mimics the behavior of the
+Matrix package and extends R to use the GPU for computations. It is easy
+to learn and very few changes in the code are required to work on the GPU.
+'GPUMatrix' relies on either 'Tensorflow' or 'Torch' R packages to perform
+the GPU operations. Its vignette shows some toy examples on non-negative
+factorization and other factorization used in 'bioinformatics'.
 
 %prep
 %setup -q -c -n %{packname}

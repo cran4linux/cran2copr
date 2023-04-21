@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WebPower
-%global packver   0.8.7
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.7
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic and Advanced Statistical Power Analysis
 
@@ -18,21 +18,23 @@ BuildRequires:    R-devel >= 3.2.5
 Requires:         R-core >= 3.2.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-PearsonDS 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS 
-Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lavaan 
 Requires:         R-parallel 
 Requires:         R-CRAN-PearsonDS 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
 
 %description
 This is a collection of tools for conducting both basic and advanced

@@ -1,62 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nhdR
-%global packver   0.6.0
+%global packname  neotoma2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Working with the National Hydrography Dataset
+Summary:          Working with the Neotoma Paleoecology Database
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         p7zip
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-mapview 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-wk 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-mapview 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-wk 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-tidyr 
 
 %description
-Tools for working with the National Hydrography Dataset, with functions
-for querying, downloading, and networking both the NHD
-<https://www.usgs.gov/national-hydrography> and NHDPlus
-<https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus>
-datasets.
+Access and manipulation of data using the Neotoma Paleoecology Database.
+<https://api.neotomadb.org/api-docs/>.
 
 %prep
 %setup -q -c -n %{packname}

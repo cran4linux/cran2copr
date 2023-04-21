@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AQuadtree
-%global packver   1.0.3
+%global packname  GLMMselect
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confidentiality of Spatial Point Data
+Summary:          Bayesian Model Selection for Generalized Linear Mixed Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-stats >= 4.2.2
+Requires:         R-stats >= 4.2.2
 
 %description
-Provides an automatic aggregation tool to manage point data privacy,
-intended to be helpful for the production of official spatial data and for
-researchers. The package pursues the data accuracy at the smallest
-possible areas preventing individual information disclosure. The
-methodology, based on hierarchical geographic data structures performs
-aggregation and local suppression of point data to ensure privacy as
-described in Lagonigro, R., Oller, R., Martori J.C. (2017)
-<doi:10.2436/20.8080.02.55>. The data structures are created following the
-guidelines for grid datasets from the European Forum for Geography and
-Statistics.
+A Bayesian model selection approach for generalized linear mixed models.
+Currently, 'GLMMselect' can be used for Poisson GLMM and Bernoulli GLMM.
+'GLMMselect' can select fixed effects and random effects simultaneously.
+Covariance structures for the random effects are a product of a unknown
+scalar and a known semi-positive definite matrix. 'GLMMselect' can be
+widely used in areas such as longitudinal studies, genome-wide association
+studies, and spatial statistics. 'GLMMselect' is based on Xu, Ferreira,
+Porter, and Franck (202X), Bayesian Model Selection Method for Generalized
+Linear Mixed Models, Biometrics, under review.
 
 %prep
 %setup -q -c -n %{packname}
