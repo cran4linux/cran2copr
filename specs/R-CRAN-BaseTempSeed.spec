@@ -1,36 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lcopula
-%global packver   1.0.6
+%global packname  BaseTempSeed
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Liouville Copulas
+Summary:          Estimation of Seed Germination Base Temperature in Thermal Modelling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
-BuildRequires:    R-CRAN-copula >= 0.999.12
-BuildRequires:    R-CRAN-Rcpp >= 0.11.4
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-stats 
-Requires:         R-CRAN-copula >= 0.999.12
-Requires:         R-CRAN-Rcpp >= 0.11.4
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-NlcOptim 
 Requires:         R-stats 
+Requires:         R-CRAN-NlcOptim 
 
 %description
-Collections of functions allowing random number generations and estimation
-of 'Liouville' copulas, as described in Belzile and Neslehova (2017)
-<doi:10.1016/j.jmva.2017.05.008>.
+All the seeds do not germinate at a single point in time due to
+physiological mechanisms determined by temperature which vary among
+individual seeds in the population. Seeds germinate by following
+accumulation of thermal time in degree days/hours, quantified by
+multiplying the time of germination with excess of base temperature
+required by each seed for its germination, which follows log-normal
+distribution. The theoretical germination course can be obtained by
+regressing the rate of germination at various fractions against
+temperature (Garcia et al., 1982), where the fraction-wise regression
+lines intersect the temperature axis at base temperature and the
+methodology of determining optimum base temperature has been described by
+Ellis et al. (1987). This package helps to find the base temperature of
+seed germination using algorithms of Garcia et al. (1982) and Ellis et al.
+(1982) <doi:10.1093/JXB/38.6.1033> <doi:10.1093/jxb/33.2.288>.
 
 %prep
 %setup -q -c -n %{packname}

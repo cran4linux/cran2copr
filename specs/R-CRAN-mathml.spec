@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mathml
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Translate R Expressions to 'MathML' and 'LaTeX'/'MathJax'
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rolog >= 0.9.10
-Requires:         R-CRAN-rolog >= 0.9.10
+BuildRequires:    R-CRAN-rolog >= 0.9.12
+Requires:         R-CRAN-rolog >= 0.9.12
 
 %description
 Translate R expressions to 'MathML' or 'MathJax' so that they can be

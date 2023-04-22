@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DTComPair
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comparison of Binary Diagnostic Tests in a Paired Study Design
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-PropCIs 
 BuildRequires:    R-CRAN-gee 
+BuildRequires:    R-CRAN-ellipse 
 Requires:         R-CRAN-PropCIs 
 Requires:         R-CRAN-gee 
+Requires:         R-CRAN-ellipse 
 
 %description
 Comparison of the accuracy of two binary diagnostic tests in a "paired"

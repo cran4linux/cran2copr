@@ -1,25 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fame
-%global packver   2.21.1
+%global __requires_exclude ^libmpi
+%global packname  rsatscan
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.21.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface for FAME Time Series Database
+Summary:          Tools, Classes, and Methods for Interfacing with 'SaTScan' Stand-Alone Software
 
-License:          Unlimited
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.3
-Requires:         R-core >= 2.3
-BuildRequires:    R-CRAN-tis 
-Requires:         R-CRAN-tis 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-foreign 
+Requires:         R-utils 
+Requires:         R-CRAN-foreign 
 
 %description
-Read and write FAME databases.
+'SaTScan'(TM) <https://www.satscan.org> is software for finding regions in
+Time, Space, or Time-Space that have excess risk, based on scan
+statistics, and uses Monte Carlo hypothesis testing to generate P-values
+for these regions.  The 'rsatscan' package provides functions for writing
+R data frames in 'SaTScan'-readable formats, for setting 'SaTScan'
+parameters, for running 'SaTScan' in the OS, and for reading the files
+that 'SaTScan' creates.
 
 %prep
 %setup -q -c -n %{packname}

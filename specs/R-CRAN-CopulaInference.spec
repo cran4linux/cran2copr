@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cgalPolygons
-%global packver   0.1.0
+%global packname  CopulaInference
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R6 Based Utilities for Polygons using 'CGAL'
+Summary:          Estimation and Goodness-of-Fit of Copula-Based Models with Arbitrary Distributions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.9
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rvinecopulib 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-stats 
+Requires:         R-CRAN-rvinecopulib 
+Requires:         R-CRAN-Matrix 
 
 %description
-Provides some utilities for polygons: area calculation, decomposition into
-convex parts, Minkowski addition, Boolean operations, and more. Polygons
-with holes are supported. The algorithms are performed by the 'C++'
-library' CGAL' (<https://www.cgal.org/>).
+Estimation and goodness-of-fit functions for copula-based models of
+bivariate data with arbitrary distributions (discrete, continuous, mixture
+of both types). The copula families considered here are the Gaussian,
+Student, Clayton, Frank, Gumbel, Joe, Plackett, BB1, BB6, BB7,BB8,
+together with the following non-central squared copula families in Nasri
+(2020) <doi:10.1016/j.spl.2020.108704>: ncs-gaussian, ncs-clayton,
+ncs-gumbel, ncs-frank, ncs-joe, and ncs-plackett. For theoretical details,
+see, e.g., Nasri and Remillard (2023) <arXiv:2301.13408>.
 
 %prep
 %setup -q -c -n %{packname}

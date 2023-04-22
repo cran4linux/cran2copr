@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AllMetrics
-%global packver   0.1.1
+%global packname  VaRES
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Multiple Performance Metrics of a Prediction Model
+Summary:          Computes Value at Risk and Expected Shortfall for over 100 Parametric Distributions
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.15.0
+Requires:         R-core >= 2.15.0
 BuildArch:        noarch
 
 %description
-Provides a function to calculate multiple performance metrics for actual
-and predicted values. In total eight metrics will be calculated for
-particular actual and predicted series. Helps to describe a Statistical
-model's performance in predicting a data. Also helps to compare various
-models' performance. The metrics are Root Mean Squared Error (RMSE),
-Relative Root Mean Squared Error (RRMSE), Mean absolute Error (MAE), Mean
-absolute percentage error (MAPE), Mean Absolute Scaled Error (MASE),
-Nash-Sutcliffe Efficiency (NSE), Willmott’s Index (WI), and Legates and
-McCabe Index (LME). Among them, first five are expected to be lesser
-whereas, the last three are greater the better. More details can be found
-from Garai and Paul (2023) <doi:10.1016/j.iswa.2023.200202>.
+Computes Value at risk and expected shortfall, two most popular measures
+of financial risk, for over one hundred parametric distributions,
+including all commonly known distributions.  Also computed are the
+corresponding probability density function and cumulative distribution
+function. See Chan, Nadarajah and Afuecheta (2015)
+<doi:10.1080/03610918.2014.944658> for more details.
 
 %prep
 %setup -q -c -n %{packname}

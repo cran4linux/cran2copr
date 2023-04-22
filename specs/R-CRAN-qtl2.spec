@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qtl2
-%global packver   0.30
+%global packver   0.32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30
+Version:          0.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Trait Locus Mapping in Experimental Crosses
 
@@ -42,7 +42,7 @@ Requires:         R-CRAN-RSQLite
 Provides a set of tools to perform quantitative trait locus (QTL) analysis
 in experimental crosses. It is a reimplementation of the 'R/qtl' package
 to better handle high-dimensional data and complex cross designs. Broman
-et al. (2018) <doi:10.1534/genetics.118.301595>.
+et al. (2019) <doi:10.1534/genetics.118.301595>.
 
 %prep
 %setup -q -c -n %{packname}

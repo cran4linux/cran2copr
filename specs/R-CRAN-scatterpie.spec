@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scatterpie
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scatter Pie Plot
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-ggfun 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggforce 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-ggfun 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-utils 
 
 %description

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AllMetrics
-%global packver   0.1.1
+%global packname  MissingHandle
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Multiple Performance Metrics of a Prediction Model
+Summary:          Handles Missing Dates and Data and Converts into Weekly from Daily
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-imputeTS 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-imputeTS 
+Requires:         R-CRAN-dplyr 
 
 %description
-Provides a function to calculate multiple performance metrics for actual
-and predicted values. In total eight metrics will be calculated for
-particular actual and predicted series. Helps to describe a Statistical
-model's performance in predicting a data. Also helps to compare various
-models' performance. The metrics are Root Mean Squared Error (RMSE),
-Relative Root Mean Squared Error (RRMSE), Mean absolute Error (MAE), Mean
-absolute percentage error (MAPE), Mean Absolute Scaled Error (MASE),
-Nash-Sutcliffe Efficiency (NSE), Willmott’s Index (WI), and Legates and
-McCabe Index (LME). Among them, first five are expected to be lesser
-whereas, the last three are greater the better. More details can be found
-from Garai and Paul (2023) <doi:10.1016/j.iswa.2023.200202>.
+Many times, you will not find data for all dates. After first January,
+2011 you may have next data on 20th January, 2011 and so on. Also
+available dates may have zero values. Try to gather all such kinds of data
+in different excel sheets of a single excel file. Every sheet will contain
+two columns (1st one is dates and second one is the data). After loading
+all the sheets into different elements of a list, using this you can fill
+the gaps for all the sheets and mark all the corresponding values as
+zeros. Here I am talking about daily data. Finally, it will combine all
+the filled results into one data frame (first column is date and other
+columns will be corresponding values of your sheets) and give one csv
+file. Number of columns in the data frame will be number of sheets plus
+one. Then imputation will be done. Daily to weekly conversion is also
+possible.  More details can be found in Garai and others (2023)
+<doi:10.13140/RG.2.2.11977.42087>.
 
 %prep
 %setup -q -c -n %{packname}

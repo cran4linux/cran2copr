@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AllMetrics
-%global packver   0.1.1
+%global packname  KaradaColor
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Multiple Performance Metrics of a Prediction Model
+Summary:          Color Palettes Inspired by Japanese Landscape and Culture
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-crayon 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides a function to calculate multiple performance metrics for actual
-and predicted values. In total eight metrics will be calculated for
-particular actual and predicted series. Helps to describe a Statistical
-model's performance in predicting a data. Also helps to compare various
-models' performance. The metrics are Root Mean Squared Error (RMSE),
-Relative Root Mean Squared Error (RRMSE), Mean absolute Error (MAE), Mean
-absolute percentage error (MAPE), Mean Absolute Scaled Error (MASE),
-Nash-Sutcliffe Efficiency (NSE), Willmott’s Index (WI), and Legates and
-McCabe Index (LME). Among them, first five are expected to be lesser
-whereas, the last three are greater the better. More details can be found
-from Garai and Paul (2023) <doi:10.1016/j.iswa.2023.200202>.
+The palette includes motifs from Japanese landscape and culture. And it
+provides commands for color manipulation and 'ggplot2' color scales.
 
 %prep
 %setup -q -c -n %{packname}

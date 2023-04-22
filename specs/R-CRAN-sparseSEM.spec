@@ -1,35 +1,25 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AllMetrics
-%global packver   0.1.1
+%global packname  sparseSEM
+%global packver   3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Multiple Performance Metrics of a Prediction Model
+Summary:          Sparse-Aware Maximum Likelihood for Structural Equation Models
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 
 %description
-Provides a function to calculate multiple performance metrics for actual
-and predicted values. In total eight metrics will be calculated for
-particular actual and predicted series. Helps to describe a Statistical
-model's performance in predicting a data. Also helps to compare various
-models' performance. The metrics are Root Mean Squared Error (RMSE),
-Relative Root Mean Squared Error (RRMSE), Mean absolute Error (MAE), Mean
-absolute percentage error (MAPE), Mean Absolute Scaled Error (MASE),
-Nash-Sutcliffe Efficiency (NSE), Willmott’s Index (WI), and Legates and
-McCabe Index (LME). Among them, first five are expected to be lesser
-whereas, the last three are greater the better. More details can be found
-from Garai and Paul (2023) <doi:10.1016/j.iswa.2023.200202>.
+Provides Sparse-aware maximum likelihood for structural equation models in
+inferring network structure (topology).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AllMetrics
-%global packver   0.1.1
+%global packname  evt0
+%global packver   1.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Multiple Performance Metrics of a Prediction Model
+Summary:          Mean of Order P, Peaks over Random Threshold Hill and High Quantile Estimates
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 1.9.0
+Requires:         R-core >= 1.9.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-evd 
+Requires:         R-stats 
 
 %description
-Provides a function to calculate multiple performance metrics for actual
-and predicted values. In total eight metrics will be calculated for
-particular actual and predicted series. Helps to describe a Statistical
-model's performance in predicting a data. Also helps to compare various
-models' performance. The metrics are Root Mean Squared Error (RMSE),
-Relative Root Mean Squared Error (RRMSE), Mean absolute Error (MAE), Mean
-absolute percentage error (MAPE), Mean Absolute Scaled Error (MASE),
-Nash-Sutcliffe Efficiency (NSE), Willmott’s Index (WI), and Legates and
-McCabe Index (LME). Among them, first five are expected to be lesser
-whereas, the last three are greater the better. More details can be found
-from Garai and Paul (2023) <doi:10.1016/j.iswa.2023.200202>.
+The R package proposes extreme value index estimators for heavy tailed
+models by mean of order p <DOI:10.1016/j.csda.2012.07.019>, peaks over
+random threshold <DOI:10.57805/revstat.v4i3.37> and a bias-reduced
+estimator <DOI:10.1080/00949655.2010.547196>. The package also computes
+moment, generalised Hill <DOI:10.2307/3318416> and mixed moment estimates
+for the extreme value index. High quantiles and value at risk estimators
+based on these estimators are implemented.
 
 %prep
 %setup -q -c -n %{packname}

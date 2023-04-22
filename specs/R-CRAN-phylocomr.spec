@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AllMetrics
-%global packver   0.1.1
+%global packname  phylocomr
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Multiple Performance Metrics of a Prediction Model
+Summary:          Interface to 'Phylocom'
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-sys >= 3.2
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-sys >= 3.2
+Requires:         R-CRAN-tibble 
 
 %description
-Provides a function to calculate multiple performance metrics for actual
-and predicted values. In total eight metrics will be calculated for
-particular actual and predicted series. Helps to describe a Statistical
-model's performance in predicting a data. Also helps to compare various
-models' performance. The metrics are Root Mean Squared Error (RMSE),
-Relative Root Mean Squared Error (RRMSE), Mean absolute Error (MAE), Mean
-absolute percentage error (MAPE), Mean Absolute Scaled Error (MASE),
-Nash-Sutcliffe Efficiency (NSE), Willmott’s Index (WI), and Legates and
-McCabe Index (LME). Among them, first five are expected to be lesser
-whereas, the last three are greater the better. More details can be found
-from Garai and Paul (2023) <doi:10.1016/j.iswa.2023.200202>.
+Interface to 'Phylocom' (<https://phylodiversity.net/phylocom/>), a
+library for analysis of 'phylogenetic' community structure and character
+evolution. Includes low level methods for interacting with the three
+executables, as well as higher level interfaces for methods like 'aot',
+'ecovolve', 'bladj', 'phylomatic', and more.
 
 %prep
 %setup -q -c -n %{packname}
