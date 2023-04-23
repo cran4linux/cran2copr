@@ -1,36 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lemna
-%global packver   1.0.1
+%global packname  jointPm
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lemna Ecotox Effect Model
+Summary:          Risk Estimation Using the Joint Probability Method
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.60
-Requires:         R-core >= 3.60
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
+BuildArch:        noarch
 
 %description
-The reference implementation of model equations and default parameters for
-the toxicokinetic-toxicodynamic (TKTD) model of the Lemna (duckweed)
-aquatic plant. Lemna is a standard test macrophyte used in ecotox effect
-studies. The model was described and published by the SETAC Europe
-Interest Group Effect Modeling. It is a refined description of the Lemna
-TKTD model published by Schmitt et al. (2013)
-<doi:10.1016/j.ecolmodel.2013.01.017>.
+Estimate risk caused by two extreme and dependent forcing variables using
+bivariate extreme value models as described in Zheng, Westra, and Sisson
+(2013) <doi:10.1016/j.jhydrol.2013.09.054>; Zheng, Westra and Leonard
+(2014) <doi:10.1002/2013WR014616>; Zheng, Leonard and Westra (2015)
+<doi:10.2166/hydro.2015.052>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lemna
-%global packver   1.0.1
+%global packname  lsnstat
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lemna Ecotox Effect Model
+Summary:          'La Societe Nouvelle' API Access
 
-License:          MIT + file LICENSE
+License:          CeCILL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.60
-Requires:         R-core >= 3.60
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-The reference implementation of model equations and default parameters for
-the toxicokinetic-toxicodynamic (TKTD) model of the Lemna (duckweed)
-aquatic plant. Lemna is a standard test macrophyte used in ecotox effect
-studies. The model was described and published by the SETAC Europe
-Interest Group Effect Modeling. It is a refined description of the Lemna
-TKTD model published by Schmitt et al. (2013)
-<doi:10.1016/j.ecolmodel.2013.01.017>.
+Tools facilitating access to the 'macro_data' service of the 'La Societe
+Nouvelle' API. It ensures an easy and fully-disclosed access to all
+macro-level data used in the 'La Societe Nouvelle' systems and the related
+metadata.  Related API can be accessed from
+<https://api.lasocietenouvelle.org/>.
 
 %prep
 %setup -q -c -n %{packname}

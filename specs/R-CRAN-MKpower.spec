@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MKpower
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis and Sample Size Calculation
 
@@ -42,9 +42,10 @@ diagnostic test(-system) (Flahault et al. (2005),
 <doi:10.1016/j.jclinepi.2004.12.009>; Dobbin and Simon (2007),
 <doi:10.1093/biostatistics/kxj036>) as well as for a single proportion
 (Fleiss et al. (2003), ISBN:978-0-471-52629-2; Piegorsch (2004),
-<doi:10.1016/j.csda.2003.10.002>; Thulin (2014), <doi:10.1214/14-ejs909>)
-and comparing two negative binomial rates (Zhu and Lakkis (2014),
-<doi:10.1002/sim.5947>).
+<doi:10.1016/j.csda.2003.10.002>; Thulin (2014), <doi:10.1214/14-ejs909>),
+comparing two negative binomial rates (Zhu and Lakkis (2014),
+<doi:10.1002/sim.5947>), and ANCOVA (Shieh (2020),
+<doi:10.1007/s11336-019-09692-3>).
 
 %prep
 %setup -q -c -n %{packname}

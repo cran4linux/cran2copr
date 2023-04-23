@@ -1,41 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  getspanel
-%global packver   0.1.3
+%global packname  okxAPI
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          General-to-Specific Modelling of Panel Data
+Summary:          An Unofficial Wrapper for 'okx exchange v5' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gets 
-BuildRequires:    R-CRAN-fastDummies 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-gets 
-Requires:         R-CRAN-fastDummies 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-websocket 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-websocket 
+Requires:         R-CRAN-digest 
 
 %description
-Uses several types of indicator saturation and automated
-General-to-Specific (GETS) modelling from the 'gets' package and applies
-it to panel data. This allows the detection of structural breaks in panel
-data, operationalising a reverse causal approach of causal inference, see
-Pretis and Schwarz (2022) <doi:10.2139/ssrn.4022745>.
+An unofficial wrapper for 'okx exchange v5' API
+<https://www.okx.com/docs-v5/en/>, including 'REST' API and 'WebSocket'
+API.
 
 %prep
 %setup -q -c -n %{packname}
