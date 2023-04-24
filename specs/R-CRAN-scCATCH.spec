@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scCATCH
-%global packver   3.2.1
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single Cell Cluster-Based Annotation Toolkit for Cellular Heterogeneity
 
@@ -21,13 +21,11 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-progress 
 Requires:         R-stats 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-reshape2 
 
 %description

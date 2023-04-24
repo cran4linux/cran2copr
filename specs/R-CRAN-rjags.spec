@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rjags
-%global packver   4-13
+%global packver   4-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.13
+Version:          4.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Graphical Models using MCMC
 

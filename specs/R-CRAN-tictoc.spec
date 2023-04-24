@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tictoc
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Timing R Scripts, as Well as Implementations of "Stack" and "List" Structures
+Summary:          Functions for Timing R Scripts, as Well as Implementations of "Stack" and "StackList" Structures
 
 License:          Apache License (== 2.0) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,9 +25,9 @@ Code execution timing functions 'tic' and 'toc' that can be nested. One
 can record all timings while a complex script is running, and examine the
 values later. It is also possible to instrument the timing calls with
 custom callbacks. In addition, this package provides class 'Stack',
-implemented as a vector, and class 'List', implemented as a list, both of
-which support operations 'push', 'pop', 'first_element', 'last_element'
-and 'clear'.
+implemented as a vector, and class 'StackList', which is a stack
+implemented as a list, both of which support operations 'push', 'pop',
+'first_element', 'last_element' and 'clear'.
 
 %prep
 %setup -q -c -n %{packname}

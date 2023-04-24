@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mcompanion
-%global packver   0.5.6
+%global packname  mnet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Objects and Methods for Multi-Companion Matrices
+Summary:          Modeling Group Differences and Moderation Effects in Statistical Network Models
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-gbutils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-Matrix >= 1.5.0
-Requires:         R-methods 
-Requires:         R-CRAN-gbutils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-mlVAR 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-mlVAR 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
 
 %description
-Provides a class for multi-companion matrices with methods for arithmetic
-and factorization.  A method for generation of multi-companion matrices
-with prespecified spectral properties is provided, as well as some
-utilities for periodically correlated and multivariate time series models.
-See Boshnakov (2002) <doi:10.1016/S0024-3795(01)00475-X> and Boshnakov &
-Iqelan (2009) <doi:10.1111/j.1467-9892.2009.00617.x>.
+A toolbox for modeling manifest and latent group differences and
+moderation effects in various statistical network models.
 
 %prep
 %setup -q -c -n %{packname}

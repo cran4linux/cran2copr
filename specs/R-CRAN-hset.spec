@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mcompanion
-%global packver   0.5.6
+%global packname  hset
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Objects and Methods for Multi-Companion Matrices
+Summary:          Sets of Numbers Implemented with Hash Tables
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-hash 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-gbutils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-Matrix >= 1.5.0
+Requires:         R-CRAN-hash 
 Requires:         R-methods 
-Requires:         R-CRAN-gbutils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rdpack 
 
 %description
-Provides a class for multi-companion matrices with methods for arithmetic
-and factorization.  A method for generation of multi-companion matrices
-with prespecified spectral properties is provided, as well as some
-utilities for periodically correlated and multivariate time series models.
-See Boshnakov (2002) <doi:10.1016/S0024-3795(01)00475-X> and Boshnakov &
-Iqelan (2009) <doi:10.1111/j.1467-9892.2009.00617.x>.
+Implementation of S4 class of sets and multisets of numbers. The
+implementation is based on the hash table from the package 'hash'. Quick
+operations are allowed when the set is a dynamic object. The
+implementation is discussed in detail in Ceoldo and Wit (2023)
+<arXiv:2304.09809>.
 
 %prep
 %setup -q -c -n %{packname}
