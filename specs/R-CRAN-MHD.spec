@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  grpSLOPE
-%global packver   0.3.1
+%global __requires_exclude ^libmpi
+%global packname  MHD
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Sorted L1 Penalized Estimation
+Summary:          Metric Halfspace Depth
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-manifold 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-distory 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-manifold 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-distory 
+Requires:         R-CRAN-plyr 
 
 %description
-Group SLOPE is a penalized linear regression method that is used for
-adaptive selection of groups of significant predictors in a
-high-dimensional linear model. The Group SLOPE method can control the
-(group) false discovery rate at a user-specified level (i.e., control the
-expected proportion of irrelevant among all selected groups of
-predictors).
+Metric halfspace depth for object data, generalizing Tukey's depth for
+Euclidean data. Implementing the method described in Dai and Lopez-Pintado
+(2022) <doi:10.1080/01621459.2021.2011298>.
 
 %prep
 %setup -q -c -n %{packname}

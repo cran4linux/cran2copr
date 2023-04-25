@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PHInfiniteEstimates
-%global packver   2.7
+%global packver   2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Inference in the Presence of a Monotone Likelihood
 

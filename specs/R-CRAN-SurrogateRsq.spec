@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SurrogateRsq
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evaluating the Goodness of Fit using the Surrogate R-Squared
+Summary:          Goodness-of-Fit Analysis for Categorical Data using the Surrogate R-Squared
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,12 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.54
 BuildRequires:    R-CRAN-progress >= 1.2.0
 BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-CRAN-DescTools >= 0.99.42
 BuildRequires:    R-CRAN-PAsso >= 0.1.10
 Requires:         R-CRAN-MASS >= 7.3.54
 Requires:         R-CRAN-progress >= 1.2.0
 Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-CRAN-DescTools >= 0.99.42
 Requires:         R-CRAN-PAsso >= 0.1.10
 
 %description

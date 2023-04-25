@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggblanket
-%global packver   1.8.0
+%global packname  SpPOP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify 'ggplot2' Visualisation
+Summary:          Generation of Spatial Population under Different Levels of Relationships among Variables
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,37 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-qpdf 
+BuildRequires:    R-CRAN-numbers 
+Requires:         R-stats 
+Requires:         R-CRAN-qpdf 
+Requires:         R-CRAN-numbers 
 
 %description
-Simplify 'ggplot2' visualisation with 'ggblanket' wrapper functions.
+The developed package can be used to generate a spatial population for
+different levels of relationships among the dependent and auxiliary
+variables along with spatially varying model parameters. A spatial layout
+is designed as a [0,k-1]x[0,k-1] square region on which observations are
+collected at (k x k) lattice points with a unit distance between any two
+neighbouring points along the horizontal and vertical axes. For method
+details see Chao, Liu., Chuanhua, Wei. and Yunan, Su.
+(2018).<doi:10.1080/10485252.2018.1499907>. The generated spatial
+population can be utilized in Geographically Weighted Regression model
+based analysis for studying the spatially varying relationships among the
+variables. Furthermore, various statistical analysis can be performed on
+this spatially generated data.
 
 %prep
 %setup -q -c -n %{packname}

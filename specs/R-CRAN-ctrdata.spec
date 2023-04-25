@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctrdata
-%global packver   1.12.1
+%global packver   1.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.1
+Version:          1.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 5.0
-BuildRequires:    R-CRAN-nodbi >= 0.9.0
+BuildRequires:    R-CRAN-nodbi >= 0.9.2.9000
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-clipr 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-jqr 
 Requires:         R-CRAN-curl >= 5.0
-Requires:         R-CRAN-nodbi >= 0.9.0
+Requires:         R-CRAN-nodbi >= 0.9.2.9000
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-clipr 
@@ -42,8 +42,8 @@ Requires:         R-CRAN-jqr
 
 %description
 A system for querying, retrieving and analyzing protocol- and
-results-related information on clinical trials from three public
-registers, the 'European Union Clinical Trials Register' ('EUCTR',
+results-related information on clinical trials from four public registers,
+the 'European Union Clinical Trials Register' ('EUCTR',
 <https://www.clinicaltrialsregister.eu/>), 'ClinicalTrials.gov' ('CTGOV',
 <https://clinicaltrials.gov/>), the 'ISRCTN' (<http://www.isrctn.com/>)
 and the 'European Union Clinical Trials Information System' ('CTIS',

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  micromap
-%global packver   1.9.5
+%global packver   1.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.5
+Version:          1.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linked Micromap Plots
 
@@ -17,22 +18,19 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-grid 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-grid 
 
 %description
 This group of functions simplifies the creation of linked micromap plots.
+Please see <https://www.jstatsoft.org/v63/i02/> for additional details.
 
 %prep
 %setup -q -c -n %{packname}

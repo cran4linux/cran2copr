@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jacobi
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Jacobi Theta Functions and Related Functions
 
@@ -29,8 +29,9 @@ Requires:         R-CRAN-Rvcg
 Evaluation of the Jacobi theta functions and related functions:
 Weierstrass elliptic function, Weierstrass sigma function, Weierstrass
 zeta function, Klein j-function, Dedekind eta function, lambda modular
-function, Jacobi elliptic functions, Neville theta functions, and
-Eisenstein series. Complex values of the variable are supported.
+function, Jacobi elliptic functions, Neville theta functions, Eisenstein
+series, lemniscate elliptic functions, and Dixon elliptic functions.
+Complex values of the variable are supported.
 
 %prep
 %setup -q -c -n %{packname}

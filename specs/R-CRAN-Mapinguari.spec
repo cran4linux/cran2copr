@@ -1,56 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mizer
-%global packver   2.4.0
+%global packname  Mapinguari
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Species sIZE Spectrum Modelling in R
+Summary:          Process-Based Biogeographical Analysis
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-deSolve 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-grid 
-Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-parallel 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-testthat 
 
 %description
-A set of classes and methods to set up and run multi-species, trait based
-and community size spectrum ecological models, focused on the marine
-environment.
+Facilitates the incorporation of biological processes in biogeographical
+analyses. It offers conveniences in fitting, comparing and extrapolating
+models of biological processes such as physiology and phenology. These
+spatial extrapolations can be informative by themselves, but also
+complement traditional correlative species distribution models, by mixing
+environmental and process-based predictors. Caetano et al (2020)
+<doi:10.1111/oik.07123>.
 
 %prep
 %setup -q -c -n %{packname}

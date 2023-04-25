@@ -1,53 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggblanket
-%global packver   1.8.0
+%global packname  markovmix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify 'ggplot2' Visualisation
+Summary:          Mixture of Markov Chains with Support of Higher Orders and Multiple Sequences
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-tibble >= 3.1.6
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.8
+BuildRequires:    R-CRAN-forcats >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-tibble >= 3.1.6
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.8
+Requires:         R-CRAN-forcats >= 1.0.0
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-Rcpp 
 
 %description
-Simplify 'ggplot2' visualisation with 'ggblanket' wrapper functions.
+Fit mixture of Markov chains of higher orders from multiple sequences. It
+is also compatible with ordinary 1-component, 1-order or single-sequence
+Markov chains. In addition to the fit function, custom print() and
+predict() functions are also provided
+<https://github.com/zhuxr11/markovmix#examples-of-fitting-mixture-of-markov-chains>.
 
 %prep
 %setup -q -c -n %{packname}

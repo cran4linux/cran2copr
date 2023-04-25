@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ModelMap
-%global packver   3.4.0.3
+%global packver   3.4.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0.3
+Version:          3.4.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling and Map Production using Random Forest and Related Stochastic Models
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 2.13.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-HandTill2001
 BuildRequires:    R-CRAN-PresenceAbsence 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
