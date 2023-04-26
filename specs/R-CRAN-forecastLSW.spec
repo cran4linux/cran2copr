@@ -1,31 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  funHDDC
-%global packver   2.3.1
+%global __requires_exclude ^libmpi
+%global packname  forecastLSW
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Univariate and Multivariate Model-Based Clustering in Group-Specific Functional Subspaces
+Summary:          Forecasting Routines for Locally Stationary Wavelet Processes
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fda 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fda 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-locits 
+BuildRequires:    R-CRAN-wavethresh 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-lpacf 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-forecast 
+Requires:         R-stats 
+Requires:         R-CRAN-locits 
+Requires:         R-CRAN-wavethresh 
+Requires:         R-parallel 
+Requires:         R-CRAN-lpacf 
+Requires:         R-methods 
+Requires:         R-CRAN-forecast 
 
 %description
-The funHDDC algorithm allows to cluster functional univariate (Bouveyron
-and Jacques, 2011, <doi:10.1007/s11634-011-0095-6>) or multivariate data
-(Schmutz et al., 2018) by modeling each group within a specific functional
-subspace.
+Implementation to perform forecasting of locally stationary wavelet
+processes by examining the local second order structure of the time
+series.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

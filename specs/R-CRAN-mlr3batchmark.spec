@@ -1,34 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PeakSegJoint
-%global packver   2023.4.24
+%global packname  mlr3batchmark
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.4.24
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Joint Peak Detection in Several ChIP-Seq Samples
+Summary:          Batch Experiments for 'mlr3'
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
-BuildRequires:    R-CRAN-PeakError 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-penaltyLearning 
-Requires:         R-CRAN-PeakError 
-Requires:         R-parallel 
-Requires:         R-CRAN-penaltyLearning 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-batchtools >= 0.9.17
+BuildRequires:    R-CRAN-mlr3 >= 0.15.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lgr 
+BuildRequires:    R-CRAN-mlr3misc 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-batchtools >= 0.9.17
+Requires:         R-CRAN-mlr3 >= 0.15.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lgr 
+Requires:         R-CRAN-mlr3misc 
+Requires:         R-CRAN-uuid 
 
 %description
-Jointly segment several ChIP-seq samples to find the peaks which are the
-same and different across samples. The fast approximate maximum Poisson
-likelihood algorithm is described in "PeakSegJoint: fast supervised peak
-detection via joint segmentation of multiple count data samples"
-<arXiv:1506.01286> by TD Hocking and G Bourque.
+Extends the 'mlr3' package with a connector to the package 'batchtools'.
+This allows to run large-scale benchmark experiments on scheduled
+high-performance computing clusters.
 
 %prep
 %setup -q -c -n %{packname}

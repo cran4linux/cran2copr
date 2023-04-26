@@ -1,38 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fusedMGM
-%global packver   0.1.0.1
+%global packname  crew.cluster
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Fused MGM to Infer 2-Class Networks
+Summary:          Crew Launcher Plugins for Traditional High-Performance Computing Clusters
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fastDummies 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-bigmemory 
-BuildRequires:    R-CRAN-gplots 
-Requires:         R-CRAN-fastDummies 
-Requires:         R-parallel 
-Requires:         R-CRAN-bigmemory 
-Requires:         R-CRAN-gplots 
+BuildRequires:    R-CRAN-crew >= 0.1.0
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-crew >= 0.1.0
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-Implementation of fused Markov graphical model (FMGM; Park and Won, 2022).
-The functions include building mixed graphical model (MGM) objects from
-data, inference of networks using FMGM, stable edge-specific penalty
-selection (StEPS) for the determination of penalization parameters, and
-the visualization. For details, please refer to Park and Won (2022)
-<arXiv:2208.14959>.
+In computationally demanding analysis projects, statisticians and data
+scientists asynchronously deploy long-running tasks to distributed
+systems, ranging from traditional clusters to cloud services. The
+'crew.cluster' package extends the 'mirai'-powered 'crew' package with
+worker launcher plugins for traditional high-performance computing
+systems. Inspiration also comes from packages 'mirai' by Gao (2023)
+<https://github.com/shikokuchuo/mirai>, 'future' by Bengtsson (2021)
+<doi:10.32614/RJ-2021-048>, 'rrq' by FitzJohn and Ashton (2023)
+<https://github.com/mrc-ide/rrq>, 'clustermq' by Schubert (2019)
+<doi:10.1093/bioinformatics/btz284>), and 'batchtools' by Lang, Bischl,
+and Surmann (2017). <doi:10.21105/joss.00135>.
 
 %prep
 %setup -q -c -n %{packname}

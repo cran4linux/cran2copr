@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaSandwich
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Confidence Intervals for Standardized Regression Coefficients
 
@@ -24,7 +24,9 @@ Requires:         R-methods
 Generates robust confidence intervals for standardized regression
 coefficients using heteroskedasticity-consistent standard errors for
 models fitted by lm() as described in Dudgeon (2017)
-<doi:10.1007/s11336-017-9563-z>.
+<doi:10.1007/s11336-017-9563-z>. A description of the package and code
+examples are presented in Pesigan, Sun, and Cheung (2023)
+<doi:10.1080/00273171.2023.2201277>.
 
 %prep
 %setup -q -c -n %{packname}

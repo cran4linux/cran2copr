@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OCNet
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Channel Networks
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-rgl 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-SSN 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-rgl 

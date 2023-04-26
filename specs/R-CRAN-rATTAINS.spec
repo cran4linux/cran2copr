@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rATTAINS
-%global packver   0.1.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access EPA 'ATTAINS' Data
 
@@ -23,28 +23,26 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fauxpas 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyjson 
+BuildRequires:    R-CRAN-tibblify 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-crul 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fauxpas 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyjson 
+Requires:         R-CRAN-tibblify 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 An R interface to United States Environmental Protection Agency (EPA)

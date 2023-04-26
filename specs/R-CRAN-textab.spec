@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  textab
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Highly-Customized 'LaTeX' Tables
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 
 %description
 Generate 'LaTeX' tables directly from R. It builds 'LaTeX' tables in
-blocks in the spirit of 'ggplot2' using the + and - operators for
+blocks in the spirit of 'ggplot2' using the '+' and '/' operators for
 concatenation in the vertical and horizontal dimensions, respectively. It
 exports tables in the 'LaTeX' tabular environment using '.tex' code. It
 can compile '.tex' code to 'PDF' automatically.

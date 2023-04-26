@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pastclim
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate Time Series of Palaeoclimate Reconstructions
 
@@ -17,11 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.6.41
+BuildRequires:    R-CRAN-terra >= 1.7.18
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-terra >= 1.6.41
+Requires:         R-CRAN-terra >= 1.7.18
+Requires:         R-methods 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-utils 
@@ -29,7 +31,7 @@ Requires:         R-utils
 %description
 Methods to easily extract and manipulate palaeoclimate reconstructions for
 ecological and anthropological analyses, as described in Leonardi et al.
-(2022) <doi:10.1101/2022.05.18.492456>.
+(2023) <doi:10.1111/ecog.06481>.
 
 %prep
 %setup -q -c -n %{packname}

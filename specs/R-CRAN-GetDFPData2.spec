@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GetDFPData2
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reading Annual and Quarterly Financial Reports from B3
 
@@ -49,7 +50,7 @@ Requires:         R-stats
 Reads annual and quarterly financial reports from companies traded at B3,
 the Brazilian exchange <https://www.b3.com.br/>. All data is downloaded
 and imported from CVM's public ftp site
-<http://dados.cvm.gov.br/dados/CIA_ABERTA/>.
+<https://dados.cvm.gov.br/dados/CIA_ABERTA/>.
 
 %prep
 %setup -q -c -n %{packname}

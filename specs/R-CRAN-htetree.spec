@@ -1,45 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiscaleDTM
-%global packver   0.8
+%global packname  htetree
+%global packver   0.1.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.1.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Scale Geomorphometric Terrain Attributes
+Summary:          Causal Inference with Tree-Based Machine Learning Algorithms
 
-License:          GPL (>= 3)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-grf 
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-Matching 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-grf 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-Matching 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-rpart.plot 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rgl 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-stringr 
 
 %description
-Calculates multi-scale geomorphometric terrain attributes from regularly
-gridded digital terrain models using a variable focal windows size (Misiuk
-et al. (2021) <doi:10.1080/01490419.2021.1925789>; Wilson et al. (2007)
-<doi:10.1080/01490410701295962>; Wood (1996)
-<https://hdl.handle.net/2381/34503>).
+Estimating heterogeneous treatment effects with tree-based machine
+learning algorithms and visualizing estimated results in flexible and
+presentation-ready ways. For more information, see Brand, Xu, Koch, and
+Geraldo (2021) <doi:10.1177/0081175021993503>. Our current package first
+started as a fork of the 'causalTree' package on 'GitHub' and we greatly
+appreciate the authors for their extremely useful and free package.
 
 %prep
 %setup -q -c -n %{packname}

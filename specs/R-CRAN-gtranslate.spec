@@ -1,32 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ElstonStewart
-%global packver   1.2
+%global __requires_exclude ^libmpi
+%global packname  gtranslate
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Elston-Stewart Algorithm
+Summary:          Translate Between Different Languages
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-kinship2 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-kinship2 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rvest 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rvest 
 
 %description
-Flexible implementation of Elston-Stewart algorithm.
+The goal of this package is to translate between different languages
+without any Google API authentication which is pain and you must pay for
+the key, This package is free and lightweight.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rDppDiversity
-%global packver   0.0.2
+%global __requires_exclude ^libmpi
+%global packname  dataverifyr
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Subset Searching Algorithm Using DPP Greedy MAP
+Summary:          A Lightweight, Flexible, and Fast Data Validation Package that Can Handle All Sizes of Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,20 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-yaml 
 
 %description
-Given item set, item representation vector, and item ratings, find a
-subset with better relevance-diversity trade-off. Also provide machine
-learning algorithm to learn item representations maximizing log likelihood
-under DPP assumption. References: [1]Laming Chen, Guoxin Zhang, and
-Hanning
-Zhou(2017)<https://lsrs2017.files.wordpress.com/2017/08/lsrs_2017_lamingchen.pdf>
-[2]Laming Chen, Guoxin Zhang, and Hanning
-Zhou(2018)<https://papers.nips.cc/paper/2018/file/dbbf603ff0e99629dda5d75b6f75f966-Paper.pdf>
-[3]Wilhelm, Mark & Ramanathan, Ajith & Bonomo, Alexander & Jain, Sagar &
-Chi, Ed & Gillenwater, Jennifer(2018)<doi:10.1145/3269206.3272018>.
+Allows you to define rules which can be used to verify a given dataset.
+The package acts as a thin wrapper around more powerful data packages such
+as 'dplyr', 'data.table', 'arrow', and 'DBI' ('SQL'), which do the heavy
+lifting.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

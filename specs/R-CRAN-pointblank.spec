@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pointblank
-%global packver   0.11.3
+%global packver   0.11.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.11.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Validation and Organization of Metadata for Local and Remote Tables
 
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.10
-BuildRequires:    R-CRAN-gt >= 0.8.0
+BuildRequires:    R-CRAN-gt >= 0.9.0
 BuildRequires:    R-CRAN-digest >= 0.6.27
 BuildRequires:    R-CRAN-htmltools >= 0.5.4
 BuildRequires:    R-CRAN-blastula >= 0.3.3
@@ -51,7 +51,7 @@ Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.3
 Requires:         R-CRAN-dplyr >= 1.0.10
-Requires:         R-CRAN-gt >= 0.8.0
+Requires:         R-CRAN-gt >= 0.9.0
 Requires:         R-CRAN-digest >= 0.6.27
 Requires:         R-CRAN-htmltools >= 0.5.4
 Requires:         R-CRAN-blastula >= 0.3.3

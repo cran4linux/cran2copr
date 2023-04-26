@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NTSS
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Tests in Spatial Statistics
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-spatstat.geom
 BuildRequires:    R-CRAN-spatstat.model 
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-GET 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-spatstat 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-spatstat.geom
 Requires:         R-CRAN-spatstat.model 
 Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-ks 
+Requires:         R-CRAN-GET 
 
 %description
 Nonparametric test of independence between a pair of spatial objects

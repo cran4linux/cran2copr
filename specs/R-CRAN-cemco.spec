@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PeakSegJoint
-%global packver   2023.4.24
+%global packname  cemco
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.4.24
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Joint Peak Detection in Several ChIP-Seq Samples
+Summary:          Fit 'CemCO' Algorithm
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
-BuildRequires:    R-CRAN-PeakError 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-penaltyLearning 
-Requires:         R-CRAN-PeakError 
-Requires:         R-parallel 
-Requires:         R-CRAN-penaltyLearning 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Jointly segment several ChIP-seq samples to find the peaks which are the
-same and different across samples. The fast approximate maximum Poisson
-likelihood algorithm is described in "PeakSegJoint: fast supervised peak
-detection via joint segmentation of multiple count data samples"
-<arXiv:1506.01286> by TD Hocking and G Bourque.
+'CemCO' algorithm, a model-based (Gaussian) clustering algorithm that
+removes/minimizes the effects of undesirable covariates during the
+clustering process both in cluster centroids and in cluster covariance
+structures (Relvas C. & Fujita A., (2020) <arXiv:2004.02333>).
 
 %prep
 %setup -q -c -n %{packname}

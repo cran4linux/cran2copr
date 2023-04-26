@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pollster
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Crosstab and Topline Tables of Weighted Survey Data
 
@@ -20,15 +20,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-labelled >= 2.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-stringr >= 1.0.0
+BuildRequires:    R-CRAN-forcats >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-forcats 
 Requires:         R-CRAN-labelled >= 2.0.0
 Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-stringr >= 1.0.0
+Requires:         R-CRAN-forcats >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-forcats 
 
 %description
 Calculate common types of tables for weighted survey data. Options include

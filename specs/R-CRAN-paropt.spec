@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  paropt
-%global packver   0.2.1
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parameter Optimizing of ODE-Systems
 
@@ -16,8 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-ast2ast 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dfdr 
+BuildRequires:    R-CRAN-RcppThread 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-ast2ast 
+Requires:         R-methods 
+Requires:         R-CRAN-dfdr 
+Requires:         R-CRAN-RcppThread 
+Requires:         R-CRAN-rlang 
 
 %description
 Enable optimization of parameters of ordinary differential equations.
@@ -27,9 +38,7 @@ Shumaker, and Carol S. Woodward. (2005) <doi:10.1145/1089014.1089020>).
 Furthermore, for optimization the particle swarm algorithm is used (see:
 Akman, Devin, Olcay Akman, and Elsa Schaefer. (2018)
 <doi:10.1155/2018/9160793> and Sengupta, Saptarshi, Sanchita Basak, and
-Richard Peters. (2018) <doi:10.3390/make1010010>). The ODE-System has to
-be passed as 'Rcpp'-function. The information for the parameter boundaries
-and states are conveyed using data.frames.
+Richard Peters. (2018) <doi:10.3390/make1010010>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

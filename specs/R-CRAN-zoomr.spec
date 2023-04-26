@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zoomr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to Your 'Zoom' Data
 
@@ -42,8 +42,8 @@ Requires:         R-CRAN-purrr >= 0.3.4
 Facilitates making a connection to the 'Zoom' API and executing various
 queries. You can use it to get data on 'Zoom' webinars and 'Zoom'
 meetings. The 'Zoom' documentation is available at
-<https://marketplace.zoom.us/docs/api-reference/zoom-api/>. This package
-is not supported by 'Zoom' (owner of the software).
+<https://developers.zoom.us/docs/api/>. This package is not supported by
+'Zoom' (owner of the software).
 
 %prep
 %setup -q -c -n %{packname}

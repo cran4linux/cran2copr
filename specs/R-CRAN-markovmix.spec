@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  markovmix
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixture of Markov Chains with Support of Higher Orders and Multiple Sequences
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-tibble >= 3.1.6
+BuildRequires:    R-CRAN-pillar >= 1.9.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.8
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-forcats >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-tibble >= 3.1.6
+Requires:         R-CRAN-pillar >= 1.9.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.8
@@ -34,9 +36,10 @@ Requires:         R-CRAN-Rcpp
 %description
 Fit mixture of Markov chains of higher orders from multiple sequences. It
 is also compatible with ordinary 1-component, 1-order or single-sequence
-Markov chains. In addition to the fit function, custom print() and
-predict() functions are also provided
-<https://github.com/zhuxr11/markovmix#examples-of-fitting-mixture-of-markov-chains>.
+Markov chains. Various utility functions are provided to derive transition
+patterns, transition probabilities per component and component priors. In
+addition, print(), predict() and component extracting/replacing methods
+are also defined as a convention of mixture models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaDelta
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Confidence Intervals for Standardized Regression Coefficients
 
@@ -24,7 +24,9 @@ Requires:         R-methods
 Generates confidence intervals for standardized regression coefficients
 using delta method standard errors for models fitted by lm() as described
 in Yuan and Chan (2011) <doi:10.1007/s11336-011-9224-6> and Jones and
-Waller (2015) <doi:10.1007/s11336-013-9380-y>.
+Waller (2015) <doi:10.1007/s11336-013-9380-y>. A description of the
+package and code examples are presented in Pesigan, Sun, and Cheung (2023)
+<doi:10.1080/00273171.2023.2201277>.
 
 %prep
 %setup -q -c -n %{packname}
