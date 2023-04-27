@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OssaNMA
-%global packver   0.1.2
+%global packname  mlmpower
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Sample Size and Allocation with a Network Meta-Analysis
+Summary:          Power Analysis and Data Simulation for Multilevel Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DEoptimR >= 1.0.11
-BuildRequires:    R-CRAN-NlcOptim >= 0.6
-Requires:         R-CRAN-DEoptimR >= 1.0.11
-Requires:         R-CRAN-NlcOptim >= 0.6
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-varTestnlme 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-varTestnlme 
 
 %description
-A system for calculating the minimum total sample size needed to achieve a
-prespecified power or the optimal allocation for each treatment group with
-a fixed total sample size to maximize the power.
+A declarative language for specifying multilevel models, solving for
+population parameters based on specified variance-explained effect size
+measures, generating data, and conducting power analyses to determine
+sample size recommendations. The specification allows for any number of
+within-cluster effects, between-cluster effects, covariate effects at
+either level, and random coefficients. Moreover, the models do not assume
+orthogonal effects, and predictors can correlate at either level and
+accommodate models with multiple interaction effects.
 
 %prep
 %setup -q -c -n %{packname}

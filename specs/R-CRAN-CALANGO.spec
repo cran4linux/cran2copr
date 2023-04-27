@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CALANGO
-%global packver   1.0.12
+%global packver   1.0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          1.0.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comparative Analysis with Annotation-Based Genomic Components
 
@@ -56,7 +56,8 @@ investigating associations between terms used to annotate genomic
 components (e.g., Pfam IDs, Gene Ontology terms,) with quantitative or
 rank variables such as number of cell types, genome size, or density of
 specific genomic elements. See the project website for more information,
-documentation and examples.
+documentation and examples, and <doi:10.1016/j.patter.2023.100728> for the
+full paper.
 
 %prep
 %setup -q -c -n %{packname}

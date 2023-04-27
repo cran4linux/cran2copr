@@ -1,31 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OssaNMA
-%global packver   0.1.2
+%global packname  simpr
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Sample Size and Allocation with a Network Meta-Analysis
+Summary:          Flexible 'Tidyverse'-Friendly Simulations
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DEoptimR >= 1.0.11
-BuildRequires:    R-CRAN-NlcOptim >= 0.6
-Requires:         R-CRAN-DEoptimR >= 1.0.11
-Requires:         R-CRAN-NlcOptim >= 0.6
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-A system for calculating the minimum total sample size needed to achieve a
-prespecified power or the optimal allocation for each treatment group with
-a fixed total sample size to maximize the power.
+A general, 'tidyverse'-friendly framework for simulation studies, design
+analysis, and power analysis. Specify data generation, define varying
+parameters, generate data, fit models, and tidy model results in a single
+pipeline, without needing loops or custom functions.
 
 %prep
 %setup -q -c -n %{packname}

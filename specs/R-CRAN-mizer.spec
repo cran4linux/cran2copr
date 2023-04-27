@@ -1,42 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  matsindf
-%global packver   0.4.1
+%global packname  mizer
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrices in Data Frames
+Summary:          Dynamic Multi-Species Size Spectrum Modelling
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matsbyname 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matsbyname 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-grid 
+Requires:         R-CRAN-lubridate 
+Requires:         R-methods 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Provides functions to collapse a tidy data frame into matrices in a data
-frame and expand a data frame of matrices into a tidy data frame.
+A set of classes and methods to set up and run multi-species, trait based
+and community size spectrum ecological models, focused on the marine
+environment.
 
 %prep
 %setup -q -c -n %{packname}

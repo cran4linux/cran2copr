@@ -1,31 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OssaNMA
-%global packver   0.1.2
+%global packname  ciCalibrate
+%global packver   0.42.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.42.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Sample Size and Allocation with a Network Meta-Analysis
+Summary:          Calibration of Confidence Intervals to Support Intervals
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DEoptimR >= 1.0.11
-BuildRequires:    R-CRAN-NlcOptim >= 0.6
-Requires:         R-CRAN-DEoptimR >= 1.0.11
-Requires:         R-CRAN-NlcOptim >= 0.6
+BuildRequires:    R-CRAN-lamW 
+Requires:         R-CRAN-lamW 
 
 %description
-A system for calculating the minimum total sample size needed to achieve a
-prespecified power or the optimal allocation for each treatment group with
-a fixed total sample size to maximize the power.
+Provides functionality for computing support intervals for univariate
+parameters based on confidence intervals or parameter estimates with
+standard errors (Pawel et al., 2022) <doi:10.48550/arXiv.2206.12290>.
 
 %prep
 %setup -q -c -n %{packname}

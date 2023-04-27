@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moderate.mediation
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Moderated Mediation Analysis
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-earth 
 Requires:         R-stats 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-cowplot 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-earth 
 
 %description
 Causal moderated mediation analysis using the methods proposed by Qin and

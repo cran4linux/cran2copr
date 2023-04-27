@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OssaNMA
-%global packver   0.1.2
+%global packname  alpha.correction.bh
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Sample Size and Allocation with a Network Meta-Analysis
+Summary:          Benjamini-Hochberg Alpha Correction
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DEoptimR >= 1.0.11
-BuildRequires:    R-CRAN-NlcOptim >= 0.6
-Requires:         R-CRAN-DEoptimR >= 1.0.11
-Requires:         R-CRAN-NlcOptim >= 0.6
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-knitr 
 
 %description
-A system for calculating the minimum total sample size needed to achieve a
-prespecified power or the optimal allocation for each treatment group with
-a fixed total sample size to maximize the power.
+Provides the alpha-adjustment correction from "Benjamini, Y., & Hochberg,
+Y. (1995) <doi:10.1111/j.2517-6161.1995.tb02031.x> Controlling the false
+discovery rate: a practical and powerful approach to multiple testing.
+Journal of the Royal statistical society: series B (Methodological),
+57(1), 289-300". For researchers interested in using the exact
+mathematical formulas and procedures as used in the original paper.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  wnominate
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Roll Call Analysis Software
 
@@ -16,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.3.1
 Requires:         R-core >= 2.3.1
 BuildRequires:    R-CRAN-pscl >= 0.59
+BuildRequires:    R-methods 
 Requires:         R-CRAN-pscl >= 0.59
+Requires:         R-methods 
 
 %description
 Estimates Poole and Rosenthal's (1985 <doi:10.2307/2111172>, 1991

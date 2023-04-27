@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesQVGEL
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Quantile Variable Selection for G - E in Longitudinal Studies
+Summary:          Bayesian Variable Selection for G - E in Longitudinal Quantile Regression
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,7 +37,10 @@ quantile hierarchical models. The within - subject dependence among data
 can be accommodated by incorporating the random effects. An efficient
 Gibbs sampler has been developed to facilitate fast computation. The
 Markov chain Monte Carlo algorithms of the proposed and alternative
-methods are efficiently implemented in 'C++'.
+methods are efficiently implemented in 'C++'. The development of this
+software package and the associated statistical methods have been
+partially supported by an Innovative Research Award from Johnson Cancer
+Research Center, Kansas State University.
 
 %prep
 %setup -q -c -n %{packname}

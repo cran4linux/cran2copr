@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sandwichr
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Interpolation Based on Spatial Stratified Heterogeneity
+Summary:          Spatial Prediction Based on Spatial Stratified Heterogeneity
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -35,11 +35,11 @@ Requires:         R-tools
 Requires:         R-CRAN-dplyr 
 
 %description
-Spatial interpolation is a common practice in social and environmental
+Spatial prediction is a common practice in social and environmental
 science. This package enables the implementation of SSH-based spatial
-interpolation proposed by Wang et al. (2013) <doi:10.1068/a44710>. It
+prediction proposed by Wang et al. (2013) <doi:10.1068/a44710>. It
 provides functions to (1) evaluate stratification schemes, (2) interpolate
-sampling data over user-defined reporting units, (3) assess interpolation
+sampling data over user-defined reporting units, (3) assess prediction
 uncertainties, and (4) evaluate overall accuracy using the k-fold
 cross-validation estimate.
 

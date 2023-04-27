@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OlinkAnalyze
-%global packver   3.3.1
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.1
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilitate Analysis of Proteomic Data from Olink
 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OssaNMA
-%global packver   0.1.2
+%global packname  kronos
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Sample Size and Allocation with a Network Meta-Analysis
+Summary:          Microbiome Oriented Circadian Rhythm Analysis Toolkit
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DEoptimR >= 1.0.11
-BuildRequires:    R-CRAN-NlcOptim >= 0.6
-Requires:         R-CRAN-DEoptimR >= 1.0.11
-Requires:         R-CRAN-NlcOptim >= 0.6
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
 
 %description
-A system for calculating the minimum total sample size needed to achieve a
-prespecified power or the optimal allocation for each treatment group with
-a fixed total sample size to maximize the power.
+The goal of 'kronos' is to provide an easy-to-use framework to analyse
+circadian or otherwise rhythmic data using the familiar R linear modelling
+syntax, while taking care of the trigonometry under the hood.
 
 %prep
 %setup -q -c -n %{packname}

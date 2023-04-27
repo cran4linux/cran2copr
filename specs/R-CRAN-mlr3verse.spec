@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3verse
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load the 'mlr3' Package Family
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-mlr3data
 BuildRequires:    R-CRAN-mlr3filters 
 BuildRequires:    R-CRAN-mlr3hyperband 
 BuildRequires:    R-CRAN-mlr3learners 
+BuildRequires:    R-CRAN-mlr3mbo 
 BuildRequires:    R-CRAN-mlr3viz 
 Requires:         R-CRAN-mlr3fselect >= 0.8.0
 Requires:         R-CRAN-paradox >= 0.6.0
@@ -46,6 +47,7 @@ Requires:         R-CRAN-mlr3data
 Requires:         R-CRAN-mlr3filters 
 Requires:         R-CRAN-mlr3hyperband 
 Requires:         R-CRAN-mlr3learners 
+Requires:         R-CRAN-mlr3mbo 
 Requires:         R-CRAN-mlr3viz 
 
 %description
