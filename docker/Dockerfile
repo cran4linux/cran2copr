@@ -13,7 +13,6 @@ RUN echo "install_weak_deps=False" >> /etc/dnf/dnf.conf \
 # enable copr
 RUN dnf -y install 'dnf-command(copr)' \
     && dnf -y copr enable iucar/cran \
-    && sed -ie '/nodocs/d' /etc/dnf/dnf.conf \
     && dnf -y clean all \
     && echo "options(repos='https://cloud.r-project.org')" > \
         /usr/lib64/R/etc/Rprofile.site

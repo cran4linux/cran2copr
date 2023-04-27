@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        tag: [37, 38, rawhide]
+        tag: [38, rawhide]
 
     env:
       REGISTRY: ghcr.io/enchufa2
