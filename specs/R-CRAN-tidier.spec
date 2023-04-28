@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DominoDataCapture
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  tidier
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Domino Data Capture
+Summary:          Enhanced 'mutate'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-lgr 
-Requires:         R-CRAN-rjson 
-Requires:         R-methods 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-lgr 
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-furrr >= 0.3.0
+BuildRequires:    R-CRAN-slider >= 0.2.2
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-furrr >= 0.3.0
+Requires:         R-CRAN-slider >= 0.2.2
 
 %description
-Instrument prediction code that lets you capture inputs to the model,
-predictions, prediction properties, and other metadata.
+Provides 'Apache Spark' style window aggregation for R dataframes via
+'mutate' in 'dplyr' flavour.
 
 %prep
 %setup -q -c -n %{packname}

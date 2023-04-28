@@ -1,29 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qrnn
-%global packver   2.1
+%global packname  predRupdate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile Regression Neural Network
+Summary:          Prediction Model Validation and Updating
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggExtra 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggExtra 
+Requires:         R-CRAN-rlang 
 
 %description
-Fit quantile regression neural network models with optional left
-censoring, partial monotonicity constraints, generalized additive model
-constraints, and the ability to fit multiple non-crossing quantile
-functions following Cannon (2011) <doi:10.1016/j.cageo.2010.07.005> and
-Cannon (2018) <doi:10.1007/s00477-018-1573-6>.
+Evaluate the predictive performance of an existing (i.e. previously
+developed) prediction/ prognostic model given relevant information about
+the existing prediction model (e.g. coefficients) and a new dataset.
+Provides a range of model updating methods that help tailor the existing
+model to the new dataset; see Su et al. (2018)
+<doi:10.1177/0962280215626466>. Techniques to aggregate multiple existing
+prediction models on the new data are also provided; see Debray et al.
+(2014) <doi:10.1002/sim.6080> and Martin et al. (2018)
+<doi:10.1002/sim.7586>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  eBsc
-%global packver   4.15
+%global packver   4.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.15
+Version:          4.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          "Empirical Bayes Smoothing Splines with Correlated Errors"
 
@@ -22,6 +23,7 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Brobdingnag 
 Requires:         R-parallel 
@@ -30,6 +32,7 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-MASS 
 Requires:         R-splines 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Presents a statistical method that uses a recursive algorithm for signal

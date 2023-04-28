@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  robslopes
-%global packver   1.1.3
+%global packname  mgee2
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Algorithms for Robust Slopes
+Summary:          Marginal Analysis of Misclassified Longitudinal Ordinal Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Fast algorithms for the Theil-Sen estimator, Siegel's repeated median
-slope estimator, and Passing-Bablok regression. The implementation is
-based on algorithms by Dillencourt et. al (1992)
-<doi:10.1142/S0218195992000020> and Matousek et. al (1998)
-<doi:10.1007/PL00009190>. The implementations are detailed in Raymaekers
-(2023) <doi:10.32614/RJ-2023-012> and Raymaekers J., Dufey F. (2022)
-<arXiv:2202.08060>. All algorithms run in quasilinear time.
+Three estimating equation methods are provided in this package for
+marginal analysis of longitudinal ordinal data with misclassified
+responses and covariates. The naive analysis which is solely based on the
+observed data without adjustment may lead to bias. The corrected
+generalized estimating equations (GEE2) method which is unbiased requires
+the misclassification parameters to be known beforehand. The corrected
+generalized estimating equations (GEE2) with validation subsample method
+estimates the misclassification parameters based on a given validation
+set. This package is an implementation of Chen (2013)
+<doi:10.1002/bimj.201200195>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mbmixture
-%global packver   0.2-5
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microbiome Mixture Analysis
 
@@ -27,7 +28,7 @@ Requires:         R-CRAN-numDeriv
 Evaluate whether a microbiome sample is a mixture of two samples, by
 fitting a model for the number of read counts as a function of single
 nucleotide polymorphism (SNP) allele and the genotypes of two potential
-source samples. Lobo et al. (2019) <doi:10.1101/529040>.
+source samples. Lobo et al. (2021) <doi:10.1093/g3journal/jkab308>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

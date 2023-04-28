@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BayesQVGEL
-%global packver   0.1.2
+%global packname  mixedBayes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Variable Selection for G - E in Longitudinal Quantile Regression
+Summary:          Bayesian Longitudinal Regularized Quantile Mixed Model
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}

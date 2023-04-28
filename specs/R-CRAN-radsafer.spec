@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  radsafer
-%global packver   2.2.6
+%global packver   2.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          2.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radiation Safety
 
@@ -27,8 +28,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-qpdf 
-BuildRequires:    R-CRAN-utf8 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-readr 
 Requires:         R-stats 
@@ -40,8 +40,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-qpdf 
-Requires:         R-CRAN-utf8 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Provides functions for radiation safety, also known as "radiation

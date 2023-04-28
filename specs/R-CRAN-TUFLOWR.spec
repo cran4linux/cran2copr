@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TUFLOWR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for 'TUFLOW FV' Models
 
@@ -21,7 +22,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gstat 
@@ -34,7 +35,7 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gstat 

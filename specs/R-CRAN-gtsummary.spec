@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtsummary
-%global packver   1.7.0
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Presentation-Ready Data Summary and Analytic Result Tables
 
@@ -17,35 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.6
+BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-cli >= 3.1.1
-BuildRequires:    R-CRAN-glue >= 1.6.0
+BuildRequires:    R-CRAN-glue >= 1.6.2
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-knitr >= 1.37
-BuildRequires:    R-CRAN-broom.helpers >= 1.11.0
+BuildRequires:    R-CRAN-broom.helpers >= 1.12.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.4
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-rlang >= 1.0.3
 BuildRequires:    R-CRAN-broom >= 1.0.1
 BuildRequires:    R-CRAN-lifecycle >= 1.0.1
-BuildRequires:    R-CRAN-gt >= 0.8.0
-BuildRequires:    R-CRAN-forcats >= 0.5.1
-BuildRequires:    R-CRAN-vctrs >= 0.5.1
+BuildRequires:    R-CRAN-forcats >= 1.0.0
+BuildRequires:    R-CRAN-gt >= 0.9.0
+BuildRequires:    R-CRAN-vctrs >= 0.5.2
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-tibble >= 3.1.6
+Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-cli >= 3.1.1
-Requires:         R-CRAN-glue >= 1.6.0
+Requires:         R-CRAN-glue >= 1.6.2
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-knitr >= 1.37
-Requires:         R-CRAN-broom.helpers >= 1.11.0
+Requires:         R-CRAN-broom.helpers >= 1.12.0
 Requires:         R-CRAN-tidyr >= 1.1.4
-Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-rlang >= 1.0.3
 Requires:         R-CRAN-broom >= 1.0.1
 Requires:         R-CRAN-lifecycle >= 1.0.1
-Requires:         R-CRAN-gt >= 0.8.0
-Requires:         R-CRAN-forcats >= 0.5.1
-Requires:         R-CRAN-vctrs >= 0.5.1
+Requires:         R-CRAN-forcats >= 1.0.0
+Requires:         R-CRAN-gt >= 0.9.0
+Requires:         R-CRAN-vctrs >= 0.5.2
 Requires:         R-CRAN-purrr >= 0.3.4
 
 %description

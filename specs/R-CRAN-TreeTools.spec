@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeTools
-%global packver   1.9.1
+%global packver   1.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.1
+Version:          1.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, Modify and Analyse Phylogenetic Trees
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-bit64
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-PlotTools 
 BuildRequires:    R-CRAN-R.cache 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ape >= 5.6
@@ -32,6 +33,7 @@ Requires:         R-CRAN-bit64
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-colorspace 
 Requires:         R-methods 
+Requires:         R-CRAN-PlotTools 
 Requires:         R-CRAN-R.cache 
 
 %description

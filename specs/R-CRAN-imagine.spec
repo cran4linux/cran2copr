@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  imagine
-%global packver   1.5.4
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          IMAGing engINEs, Tools for Application of Image Filters to Data Matrices
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
 
 %description
 Provides fast application of image filters to data matrices, using R and

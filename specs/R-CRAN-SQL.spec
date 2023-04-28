@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bettermc
-%global packver   1.2.1
+%global packname  SQL
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enhanced Fork-Based Parallelization
+Summary:          Executes 'SQL' Statements
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-checkmate 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-duckdb 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-stringr 
 
 %description
-Drop-in replacement for 'parallel::mclapply()' adding e.g. tracebacks,
-crash dumps, retries, condition handling, improved seeding, progress bars
-and faster inter process communication. Some of the internal functions are
-also exported for other use: 'etry()' (extended try),
-'copy2shm()/allocate_from_shm()' (copy to and allocate from POSIX shared
-memory), 'char_map/map2char()' (split a character vector into its unique
-elements and a mapping on these) and various semaphore related functions.
+Runs 'SQL' statements on in-memory data frames within a temporary
+in-memory 'duckdb' data base.
 
 %prep
 %setup -q -c -n %{packname}

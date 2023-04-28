@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  robslopes
-%global packver   1.1.3
+%global packname  deflist
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Algorithms for Robust Slopes
+Summary:          Deferred List - A Read-Only List-Like Object with Deferred Access
 
-License:          GPL (>= 2)
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-assertthat 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-assertthat 
 
 %description
-Fast algorithms for the Theil-Sen estimator, Siegel's repeated median
-slope estimator, and Passing-Bablok regression. The implementation is
-based on algorithms by Dillencourt et. al (1992)
-<doi:10.1142/S0218195992000020> and Matousek et. al (1998)
-<doi:10.1007/PL00009190>. The implementations are detailed in Raymaekers
-(2023) <doi:10.32614/RJ-2023-012> and Raymaekers J., Dufey F. (2022)
-<arXiv:2202.08060>. All algorithms run in quasilinear time.
+Implements the 'deflist' class, a read-only list-like object that accesses
+its elements via a function. The 'deflist' class can be used to model
+deferred access to data or computations by routing indexed list access to
+a function. This approach is particularly useful when sequential list-like
+access to data is required but holding all the data in memory at once is
+not feasible. The package also provides utilities for memoisation and
+caching to optimize access to frequently requested elements.
 
 %prep
 %setup -q -c -n %{packname}

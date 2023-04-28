@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  naturaList
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classify Occurrences by Confidence Levels in the Species ID
 
@@ -33,6 +34,8 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-dplyr 
@@ -50,6 +53,8 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-htmltools 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-stringi 
 
 %description
 Classify occurrence records based on confidence levels of species

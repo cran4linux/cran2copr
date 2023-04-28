@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  npcs
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neyman-Pearson Classification via Cost-Sensitive Learning
 
@@ -17,29 +18,27 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dfoptim 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-smotefamily 
-BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-naivebayes 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-formatR 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-nnet 
 Requires:         R-CRAN-dfoptim 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-smotefamily 
-Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-naivebayes 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-formatR 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-nnet 
 
 %description
 We connect the multi-class Neyman-Pearson classification (NP) problem to
@@ -48,8 +47,7 @@ the cost-sensitive learning (CS) problem, and propose two algorithms
 cost-sensitive learning tools. Under certain conditions, the two
 algorithms are shown to satisfy multi-class NP properties. More details
 are available in the paper "Neyman-Pearson Multi-class Classification via
-Cost-sensitive Learning" (Ye Tian and Yang Feng, 2021), which will be
-posted on arXiv soon.
+Cost-sensitive Learning" (Ye Tian and Yang Feng, 2021).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeSearch
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Analysis with Discrete Character Data
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-Rogue > 2.0.0
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-PlotTools 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-protoclust 
 BuildRequires:    R-CRAN-Rcpp 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-Rogue > 2.0.0
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-future 
+Requires:         R-CRAN-PlotTools 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-protoclust 
 Requires:         R-CRAN-Rcpp 

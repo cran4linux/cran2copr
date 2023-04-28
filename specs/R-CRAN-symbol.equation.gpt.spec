@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  symbol.equation.gpt
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Powerful User Interface to Build and Insert Symbols and Equations
+Summary:          Powerful User Interface to Build Equations and Add Symbols
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

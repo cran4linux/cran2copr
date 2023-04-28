@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pGPx
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pseudo-Realizations for Gaussian Process Excursions
 
@@ -42,7 +42,7 @@ the field at few well chosen points that minimize the expected distance in
 measure between the true excursion set of the field and the approximate
 one. Also implements a R interface for (the main function of) Distance
 Transform of sampled Functions
-(<http://cs.brown.edu/people/pfelzens/dt/index.html>).
+(<https://cs.brown.edu/people/pfelzens/dt/index.html>).
 
 %prep
 %setup -q -c -n %{packname}
