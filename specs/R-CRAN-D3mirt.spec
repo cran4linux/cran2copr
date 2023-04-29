@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FSelectorRcpp
-%global packver   0.3.11
+%global packname  D3mirt
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.11
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Implementation of 'FSelector' Entropy-Based Feature Selection Algorithms with a Sparse Matrix Support
+Summary:          Descriptive 3D Multidimensional Item Response Theory Modeling
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rgl >= 1.0.1
+BuildRequires:    R-CRAN-mirt 
+Requires:         R-CRAN-rgl >= 1.0.1
+Requires:         R-CRAN-mirt 
 
 %description
-'Rcpp' (free of 'Java'/'Weka') implementation of 'FSelector' entropy-based
-feature selection algorithms based on an MDL discretization (Fayyad U. M.,
-Irani K. B.: Multi-Interval Discretization of Continuous-Valued Attributes
-for Classification Learning. In 13'th International Joint Conference on
-Uncertainly in Artificial Intelligence (IJCAI93), pages 1022-1029,
-Chambery, France, 1993.)
-<https://www.ijcai.org/Proceedings/93-2/Papers/022.pdf> with a sparse
-matrix support.
+The 'D3mirt' package is used for identifying, estimating, and plotting
+descriptive multidimensional item response theory models, restricted to 3D
+and dichotomous or polytomous data that fit the two-parameter logistic
+model or the graded response model. The method is foremost explorative and
+centered around the plot function that exposes item characteristics and
+constructs, represented by vector arrows, located in a three-dimensional
+interactive space. The results can be useful for item-level analysis as
+well as test development.
 
 %prep
 %setup -q -c -n %{packname}

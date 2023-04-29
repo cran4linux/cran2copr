@@ -1,33 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cvam
-%global packver   0.9.3
+%global packname  withdots
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Coarsened Variable Modeling
+Summary:          Put ... in a Function's Argument List
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-coda 
-Requires:         R-stats 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Extends R's implementation of categorical variables (factors) to handle
-coarsened observations; implements log-linear models for coarsened
-categorical data, including latent-class models. Detailed information and
-examples are provided in the package vignettes.
+Adds ... to a function's argument list so that it can tolerate
+non-matching arguments.
 
 %prep
 %setup -q -c -n %{packname}

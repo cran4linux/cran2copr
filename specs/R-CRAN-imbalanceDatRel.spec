@@ -1,31 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stat.extend
-%global packver   0.2.1
+%global __requires_exclude ^libmpi
+%global packname  imbalanceDatRel
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highest Density Regions and Other Functions of Distributions
+Summary:          Relocated Data Oversampling for Imbalanced Data Classification
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sets 
-Requires:         R-CRAN-sets 
+BuildRequires:    R-CRAN-rcccd 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-SMOTEWB 
+Requires:         R-CRAN-rcccd 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-SMOTEWB 
 
 %description
-Highest Density Regions are the smallest set in the support of a
-probability distribution with the specified coverage probability. 'HDRs'
-may contain disjoint intervals, but can be calculated efficiently using
-iterative methods. One can similarly construct optimal (i.e., shortest)
-confidence intervals for some basic inferential problems, including for
-population means, variances, or proportion parameters.
+Relocates oversampled data from a specific oversampling method to cover
+area determined by pure and proper class cover catch digraphs (PCCCD). It
+prevents any data to be generated in class overlapping area.
 
 %prep
 %setup -q -c -n %{packname}

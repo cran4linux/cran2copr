@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FSelectorRcpp
-%global packver   0.3.11
+%global packname  doctest
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.11
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Implementation of 'FSelector' Entropy-Based Feature Selection Algorithms with a Sparse Matrix Support
+Summary:          Generate Tests from Examples Using 'roxygen' and 'testthat'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-testthat 
 
 %description
-'Rcpp' (free of 'Java'/'Weka') implementation of 'FSelector' entropy-based
-feature selection algorithms based on an MDL discretization (Fayyad U. M.,
-Irani K. B.: Multi-Interval Discretization of Continuous-Valued Attributes
-for Classification Learning. In 13'th International Joint Conference on
-Uncertainly in Artificial Intelligence (IJCAI93), pages 1022-1029,
-Chambery, France, 1993.)
-<https://www.ijcai.org/Proceedings/93-2/Papers/022.pdf> with a sparse
-matrix support.
+Creates 'testthat' tests from 'roxygen' examples using simple tags.
 
 %prep
 %setup -q -c -n %{packname}

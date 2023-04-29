@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  frscore
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Calculating Fit-Robustness of CNA-Solutions
 
@@ -16,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cna >= 3.2.0
+BuildRequires:    R-CRAN-cna >= 3.5.1
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-cna >= 3.2.0
+Requires:         R-CRAN-cna >= 3.5.1
+Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-magrittr 

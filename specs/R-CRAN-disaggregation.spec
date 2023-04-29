@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  disaggregation
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disaggregation Modelling
 
@@ -56,8 +56,8 @@ Requires:         R-utils
 Fits disaggregation regression models using 'TMB' ('Template Model
 Builder'). When the response data are aggregated to polygon level but the
 predictor variables are at a higher resolution, these models can be
-useful. Regression models with spatial random fields. A useful reference
-for disaggregation modelling is Lucas et al. (2019) <doi:10.1101/548719>.
+useful. Regression models with spatial random fields. The package is
+described in detail in Nandi et al. (2023) <doi:10.18637/jss.v106.i11>.
 
 %prep
 %setup -q -c -n %{packname}

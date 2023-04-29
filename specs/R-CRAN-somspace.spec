@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FSelectorRcpp
-%global packver   0.3.11
+%global packname  somspace
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.11
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Implementation of 'FSelector' Entropy-Based Feature Selection Algorithms with a Sparse Matrix Support
+Summary:          Spatial Analysis with Self-Organizing Maps
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-kohonen 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-kohonen 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-reshape2 
 
 %description
-'Rcpp' (free of 'Java'/'Weka') implementation of 'FSelector' entropy-based
-feature selection algorithms based on an MDL discretization (Fayyad U. M.,
-Irani K. B.: Multi-Interval Discretization of Continuous-Valued Attributes
-for Classification Learning. In 13'th International Joint Conference on
-Uncertainly in Artificial Intelligence (IJCAI93), pages 1022-1029,
-Chambery, France, 1993.)
-<https://www.ijcai.org/Proceedings/93-2/Papers/022.pdf> with a sparse
-matrix support.
+Application of the Self-Organizing Maps technique for spatial
+classification of time series. The package uses spatial data, point or
+gridded, to create clusters with similar characteristics. The clusters can
+be further refined to a smaller number of regions by hierarchical
+clustering and their spatial dependencies can be presented as complex
+networks. Thus, meaningful maps can be created, representing the regional
+heterogeneity of a single variable. More information and an example of
+implementation can be found in Markonis and Strnad (2020,
+<doi:10.1177/0959683620913924>).
 
 %prep
 %setup -q -c -n %{packname}
