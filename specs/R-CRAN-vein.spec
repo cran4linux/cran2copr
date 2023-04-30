@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vein
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vehicular Emissions Inventories
 
@@ -23,7 +23,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dotCall64 
 BuildRequires:    R-CRAN-cptcity 
-BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-sf >= 1.0.1
 Requires:         R-CRAN-data.table 
@@ -32,7 +31,6 @@ Requires:         R-graphics
 Requires:         R-stats 
 Requires:         R-CRAN-dotCall64 
 Requires:         R-CRAN-cptcity 
-Requires:         R-CRAN-fields 
 Requires:         R-grDevices 
 
 %description

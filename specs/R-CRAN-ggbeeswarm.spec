@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggbeeswarm
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Categorical Scatter (Violin Point) Plots
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-beeswarm 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-vipor 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-beeswarm 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-vipor 
+Requires:         R-CRAN-cli 
 
 %description
 Provides two methods of plotting categorical scatter plots such that the

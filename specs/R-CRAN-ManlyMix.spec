@@ -1,49 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ppcSpatial
-%global packver   0.3.0
+%global packname  ManlyMix
+%global packver   0.1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.15
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis of Pakistan Population Census
+Summary:          Manly Mixture Modeling and Model-Based Clustering
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-PakPC2017 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tmap 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-PakPC2017 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tmap 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 
 %description
-Spatial Analysis for exploration of Pakistan Population Census 2017
-(<https://www.pbs.gov.pk/content/population-census>). It uses data from R
-package 'PakPC2017'.
+The utility of this package includes finite mixture modeling and
+model-based clustering through Manly mixture models by Zhu and Melnykov
+(2016) <DOI:10.1016/j.csda.2016.01.015>. It also provides capabilities for
+forward and backward model selection procedures.
 
 %prep
 %setup -q -c -n %{packname}
