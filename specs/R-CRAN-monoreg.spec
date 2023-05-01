@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  monoreg
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Monotonic Regression Using a Marked Point Process Construction
 
@@ -26,7 +27,7 @@ through case-base sampling. The extension and its applications, including
 estimation of absolute risks, are described in Saarela & Arjas (2015)
 <DOI:10.1111/sjos.12125>. The package also implements the nonparametric
 ordinal regression model described in Saarela, Rohrbeck & Arjas
-<arXiv:2007.01390>.
+<DOI:10.1214/22-BA1310>.
 
 %prep
 %setup -q -c -n %{packname}

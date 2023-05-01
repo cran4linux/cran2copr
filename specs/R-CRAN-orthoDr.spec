@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  orthoDr
-%global packver   0.6.5
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Parametric Dimension Reduction Models Using Orthogonality Constrained Optimization
 
@@ -36,11 +37,15 @@ Utilize an orthogonality constrained optimization algorithm of Wen & Yin
 (2013) <DOI:10.1007/s10107-012-0584-1> to solve a variety of dimension
 reduction problems in the semiparametric framework, such as Ma & Zhu
 (2012) <DOI:10.1080/01621459.2011.646925>, Ma & Zhu (2013)
-<DOI:10.1214/12-AOS1072>, Sun, Zhu, Wang & Zeng (2019) <arXiv:1704.05046>
-and Zhou, Zhu & Zeng (2021) <arXiv:1802.06156>. It also serves as a
-general purpose optimization solver for problems with orthogonality
-constraints. Parallel computing for approximating the gradient is enabled
-through 'OpenMP'.
+<DOI:10.1214/12-AOS1072>, Sun, Zhu, Wang & Zeng (2019)
+<DOI:10.1093/biomet/asy064> and Zhou, Zhu & Zeng (2021)
+<DOI:10.1093/biomet/asaa087>. The package also implements some existing
+dimension reduction methods such as hMave by Xia, Zhang, & Xu (2010)
+<DOI:10.1198/jasa.2009.tm09372> and partial SAVE by Feng, Wen & Zhu (2013)
+<DOI:10.1080/01621459.2012.746065>. It also serves as a general purpose
+optimization solver for problems with orthogonality constraints, i.e., in
+Stiefel manifold. Parallel computing for approximating the gradient is
+enabled through 'OpenMP'.
 
 %prep
 %setup -q -c -n %{packname}

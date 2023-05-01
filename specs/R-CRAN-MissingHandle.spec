@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MissingHandle
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handles Missing Dates and Data and Converts into Weekly from Daily
+Summary:          Handles Missing Dates and Data and Converts into Weekly and Monthly from Daily
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -34,11 +34,11 @@ all the sheets into different elements of a list, using this you can fill
 the gaps for all the sheets and mark all the corresponding values as
 zeros. Here I am talking about daily data. Finally, it will combine all
 the filled results into one data frame (first column is date and other
-columns will be corresponding values of your sheets) and give one csv
-file. Number of columns in the data frame will be number of sheets plus
-one. Then imputation will be done. Daily to weekly conversion is also
-possible.  More details can be found in Garai and others (2023)
-<doi:10.13140/RG.2.2.11977.42087>.
+columns will be corresponding values of your sheets) and give one combined
+data frame. Number of columns in the data frame will be number of sheets
+plus one. Then imputation will be done. Daily to monthly and weekly
+conversion is also possible.  More details can be found in Garai and
+others (2023) <doi:10.13140/RG.2.2.11977.42087>.
 
 %prep
 %setup -q -c -n %{packname}

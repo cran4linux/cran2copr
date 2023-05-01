@@ -1,28 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cycloids
-%global packver   1.0.1
+%global packname  MatTransMix
+%global packver   0.1.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Calculating Hypocycloids, Epicycloids, Hypotrochoids, and Epitrochoids
+Summary:          Clustering with Matrix Gaussian and Matrix Transformation Mixture Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Tools for calculating coordinate representations of hypocycloids,
-epicyloids, hypotrochoids, and epitrochoids (altogether called 'cycloids'
-here) with different scaling and positioning options. The cycloids can be
-visualised with any appropriate graphics function in R.
+Provides matrix Gaussian mixture models, matrix transformation mixture
+models and their model-based clustering results. The parsimonious models
+of the mean matrices and variance covariance matrices are implemented with
+a total of 196 variations.
 
 %prep
 %setup -q -c -n %{packname}

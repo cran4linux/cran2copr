@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seededlda
-%global packver   0.8.4
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seeded-LDA for Topic Modeling
+Summary:          Seeded Sequential LDA for Topic Modeling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,12 +29,11 @@ Requires:         R-methods
 Requires:         R-CRAN-Matrix 
 
 %description
-Implements the seeded-LDA model (Lu, Ott, Cardie & Tsou 2010)
-<doi:10.1109/ICDMW.2011.125> using the quanteda package and the GibbsLDA++
-library for semisupervised topic modeling. Seeded-LDA allows users to
-pre-define topics with keywords to perform theory-driven analysis of
-textual data in social sciences and humanities (Watanabe & Zhou 2020)
-<doi:10.1177/0894439320907027>.
+Seeded Sequential LDA can classify sentences of texts into pre-define
+topics with a small number of seed words (Watanabe & Baturo, forthcoming).
+Implements Seeded LDA (Lu et. al., 2010) <doi:10.1109/ICDMW.2011.125> and
+Sequential LDA (Du et al., 2012) <doi:10.1007/s10115-011-0425-1>
+algorithms based on the GibbsLDA++ library.
 
 %prep
 %setup -q -c -n %{packname}

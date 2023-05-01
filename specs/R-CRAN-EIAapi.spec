@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EIAapi
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query Data from the 'EIA' API
 
@@ -17,6 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.8.2
+BuildRequires:    R-CRAN-data.table >= 1.14.2
+Requires:         R-CRAN-jsonlite >= 1.8.2
+Requires:         R-CRAN-data.table >= 1.14.2
 
 %description
 Provides a function to query and extract data from the 'US Energy
