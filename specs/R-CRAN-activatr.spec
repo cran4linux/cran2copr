@@ -1,46 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  votesmart
-%global packver   0.1.2
+%global packname  activatr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the Project 'VoteSmart' API
+Summary:          Utilities for Parsing and Plotting Activities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-jsonlite >= 1.6.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-glue >= 1.3.1
-BuildRequires:    R-CRAN-tidyr >= 1.0.2
+BuildRequires:    R-CRAN-ggmap >= 3.0.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-lubridate >= 1.7.0
+BuildRequires:    R-CRAN-geosphere >= 1.5
+BuildRequires:    R-CRAN-glue >= 1.4.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.3.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-BuildRequires:    R-CRAN-snakecase >= 0.11.0
-Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-jsonlite >= 1.6.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-glue >= 1.3.1
-Requires:         R-CRAN-tidyr >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-slider >= 0.3.0
+Requires:         R-CRAN-ggmap >= 3.0.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-lubridate >= 1.7.0
+Requires:         R-CRAN-geosphere >= 1.5
+Requires:         R-CRAN-glue >= 1.4.0
+Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.3.2
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-snakecase >= 0.11.0
+Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-slider >= 0.3.0
 
 %description
-An R interface to the Project
-'VoteSmart'<https://justfacts.votesmart.org/> API.
+This contains helpful functions for parsing, managing, plotting, and
+visualizing activities, most often from GPX (GPS Exchange Format) files
+recorded by GPS devices. It allows easy parsing of the source files into
+standard R data formats, along with functions to compute derived data for
+the activity, and to plot the activity in a variety of ways.
 
 %prep
 %setup -q -c -n %{packname}

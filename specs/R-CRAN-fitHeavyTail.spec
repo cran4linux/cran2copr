@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fitHeavyTail
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mean and Covariance Matrix Estimation under Heavy Tails
 
@@ -34,9 +35,9 @@ multivariate heavy-tailed distributions such as angular Gaussian (via
 Tyler's method), Cauchy, and Student's t distributions. Additionally, a
 factor model structure can be specified for the covariance matrix. The
 latest revision also includes the multivariate skewed t distribution. The
-package is based on the papers: Sun, Babu, and Palomar (2014), Sun, Babu,
-and Palomar (2015), Liu and Rubin (1995), and Zhou, Liu, Kumar, and
-Palomar (2019).
+package is based on the papers: Sun, Babu, and Palomar (2014); Sun, Babu,
+and Palomar (2015); Liu and Rubin (1995); Zhou, Liu, Kumar, and Palomar
+(2019); Pascal, Ollila, and Palomar (2021).
 
 %prep
 %setup -q -c -n %{packname}

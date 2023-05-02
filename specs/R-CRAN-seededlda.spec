@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seededlda
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seeded Sequential LDA for Topic Modeling
 
@@ -16,22 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-quanteda >= 3.3.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
 BuildRequires:    R-CRAN-proxyC >= 0.3.1
-BuildRequires:    R-CRAN-quanteda > 2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
+Requires:         R-CRAN-quanteda >= 3.3.0
 Requires:         R-CRAN-proxyC >= 0.3.1
-Requires:         R-CRAN-quanteda > 2.0
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
 
 %description
 Seeded Sequential LDA can classify sentences of texts into pre-define
 topics with a small number of seed words (Watanabe & Baturo, forthcoming).
-Implements Seeded LDA (Lu et. al., 2010) <doi:10.1109/ICDMW.2011.125> and
+Implements Seeded LDA (Lu et al., 2010) <doi:10.1109/ICDMW.2011.125> and
 Sequential LDA (Du et al., 2012) <doi:10.1007/s10115-011-0425-1>
 algorithms based on the GibbsLDA++ library.
 

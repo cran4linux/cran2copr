@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  comorbidity
-%global packver   1.0.5
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computing Comorbidity Scores
 
@@ -36,7 +36,9 @@ Elixhauser comorbidity score (Elixhauser, 1998
 (Quan, 2005 <doi:10.1097/01.mlr.0000182534.19832.83>). Australian and
 Swedish modifications of the Charlson Comorbidity Index are available as
 well (Sundararajan, 2004 <doi:10.1016/j.jclinepi.2004.03.012> and
-Ludvigsson, 2021 <doi:10.2147/CLEP.S282475>).
+Ludvigsson, 2021 <doi:10.2147/CLEP.S282475>), together with different
+weighting algorithms for both the Charlson and Elixhauser comorbidity
+scores.
 
 %prep
 %setup -q -c -n %{packname}

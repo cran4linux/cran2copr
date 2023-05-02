@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CHEMIST
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Inference with High-Dimensional Error-Prone Feature and Misclassified Treatments
+Summary:          Causal Inference with High-Dimensional Error-Prone Covariates and Misclassified Treatments
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,15 +20,18 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-XICOR 
+BuildRequires:    R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-XICOR 
+Requires:         R-CRAN-LaplacesDemon 
 
 %description
 We aim to deal with the average treatment effect (ATE), where the data are
-subject to high-dimensional and measurement error. This package primarily
-contains two functions, which are used to generate artificial data and
-estimate ATE with high-dimensional and error-prone data accommodated.
+subject to high-dimensionality and measurement error. This package
+primarily contains two functions, which are used to generate artificial
+data and estimate ATE with high-dimensional and error-prone data
+accommodated.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prioritizr
-%global packver   8.0.0
+%global packver   8.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0.0
+Version:          8.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematic Conservation Prioritization in R
 
@@ -14,9 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ape >= 5.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-ape >= 5.6.1
 BuildRequires:    R-CRAN-raster >= 3.6.11
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-R6 >= 2.5.1
@@ -29,15 +29,15 @@ BuildRequires:    R-CRAN-Matrix >= 1.3.0
 BuildRequires:    R-CRAN-igraph >= 1.2.9
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-rlang >= 1.0.6
-BuildRequires:    R-CRAN-exactextractr >= 0.8.2
-BuildRequires:    R-CRAN-sf >= 0.8.0
+BuildRequires:    R-CRAN-sf >= 1.0.12
+BuildRequires:    R-CRAN-exactextractr >= 0.8.1
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.7.3.0
 BuildRequires:    R-CRAN-slam >= 0.1.48
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-ape >= 5.5
+Requires:         R-CRAN-ape >= 5.6.1
 Requires:         R-CRAN-raster >= 3.6.11
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-R6 >= 2.5.1
@@ -48,8 +48,8 @@ Requires:         R-CRAN-terra >= 1.6.53
 Requires:         R-CRAN-Matrix >= 1.3.0
 Requires:         R-CRAN-igraph >= 1.2.9
 Requires:         R-CRAN-rlang >= 1.0.6
-Requires:         R-CRAN-exactextractr >= 0.8.2
-Requires:         R-CRAN-sf >= 0.8.0
+Requires:         R-CRAN-sf >= 1.0.12
+Requires:         R-CRAN-exactextractr >= 0.8.1
 Requires:         R-CRAN-assertthat >= 0.2.0
 Requires:         R-CRAN-slam >= 0.1.48
 Requires:         R-utils 
