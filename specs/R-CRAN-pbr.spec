@@ -1,47 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tablet
-%global packver   0.6.1
+%global packname  pbr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate Descriptive Statistics in Multiple Formats
+Summary:          Find a Cold One Near You
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-kableExtra >= 0.9.0
-BuildRequires:    R-CRAN-spork >= 0.2.2
-BuildRequires:    R-CRAN-yamlet >= 0.10.21
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-reactable 
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-kableExtra >= 0.9.0
-Requires:         R-CRAN-spork >= 0.2.2
-Requires:         R-CRAN-yamlet >= 0.10.21
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-reactable 
+BuildRequires:    R-CRAN-leaflet >= 2.1.1
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-htmltools >= 0.5.2
+Requires:         R-CRAN-leaflet >= 2.1.1
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-htmltools >= 0.5.2
 
 %description
-Creates a table of descriptive statistics for factor and numeric columns
-in a data frame. Displays these by groups, if any. Highly customizable,
-with support for 'html' and 'pdf' provided by 'kableExtra'. Respects
-original column order, column labels, and factor level order. See
-?tablet.data.frame and vignettes.
+In short, this package is a locator for cool, refreshing beverages. It
+will find and return the nearest location where you can get a cold one.
 
 %prep
 %setup -q -c -n %{packname}

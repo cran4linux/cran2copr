@@ -1,49 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  deaR
-%global packver   1.4.1
+%global packname  rdss
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conventional and Fuzzy Data Envelopment Analysis
+Summary:          Companion Datasets and Functions for Research Design in the Social Sciences
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-writexl 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dataverse 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-prediction 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-estimatr 
+BuildRequires:    R-CRAN-randomizr 
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-grDevices 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dataverse 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-prediction 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-estimatr 
+Requires:         R-CRAN-randomizr 
 
 %description
-Set of functions for Data Envelopment Analysis. It runs both classic and
-fuzzy DEA models. See: Banker, R.; Charnes, A.; Cooper, W.W. (1984).
-<doi:10.1287/mnsc.30.9.1078>, Charnes, A.; Cooper, W.W.; Rhodes, E.
-(1978). <doi:10.1016/0377-2217(78)90138-8> and Charnes, A.; Cooper, W.W.;
-Rhodes, E. (1981). <doi:10.1287/mnsc.27.6.668>.
+Helper functions to accompany the Blair, Coppock, and Humphreys (2022)
+"Research Design in the Social Sciences: Declaration, Diagnosis, and
+Redesign" <https://book.declaredesign.org>. 'rdss' includes datasets,
+helper functions, and plotting components to enable use and replication of
+the book.
 
 %prep
 %setup -q -c -n %{packname}

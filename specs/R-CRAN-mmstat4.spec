@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmstat4
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to Teaching Materials from a ZIP File or GitHub
 
@@ -31,12 +31,13 @@ Requires:         R-CRAN-rstudioapi
 Requires:         R-CRAN-shiny 
 
 %description
-Teaching materials, e.g. R programs, Shiny apps, data and PDF/HTML
-documents, which are stored on the Internet in a ZIP file (e.g. as a
-GitHub repository) can be downloaded. They can be displayed or run
-locally. The content of the ZIP file is temporarily (or permanently)
-stored. The GitHub repository 'sigbertklinke/mmstat4.data' is used as the
-default repository. In addition, some auxiliary functions are implemented.
+Provides access to teaching materials for various statistics courses,
+including R programs, Shiny apps, data, and PDF/HTML documents. These
+materials are stored on the Internet as a ZIP file (e.g., in a GitHub
+repository) and can be downloaded and displayed or run locally. The
+content of the ZIP file is temporarily or permanently stored. By default,
+the package uses the GitHub repository 'sigbertklinke/mmstat4.data.'
+Additionally, the package includes some auxiliary functions.
 
 %prep
 %setup -q -c -n %{packname}

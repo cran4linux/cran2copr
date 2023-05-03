@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  profvis
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Visualizations for Profiling R Code
 
@@ -15,10 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
+BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-CRAN-htmlwidgets >= 0.3.2
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-htmlwidgets >= 0.3.2
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-vctrs 
 
 %description
 Interactive visualizations for profiling R code.
@@ -31,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

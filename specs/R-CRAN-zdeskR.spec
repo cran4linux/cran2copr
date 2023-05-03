@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  zdeskR
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to Your 'Zendesk' Data
 
@@ -33,7 +34,7 @@ Requires:         R-CRAN-purrr >= 0.3.3
 
 %description
 Facilitates making a connection to the 'Zendesk' API and executing various
-queries. You can use it to get ticket data and ticket metrics. The
+queries. You can use it to get ticket, ticket metrics, and user data. The
 'Zendesk' documentation is available at
 <https://developer.zendesk.com/rest_api /docs/support/introduction>. This
 package is not supported by 'Zendesk' (owner of the software).

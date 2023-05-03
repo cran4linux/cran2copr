@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  madrat
-%global packver   2.3.2
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          May All Data be Reproducible and Transparent (MADRaT) *
 
@@ -18,24 +19,30 @@ Requires:         R-core >= 2.10.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magclass >= 5.7.0
 BuildRequires:    R-CRAN-igraph >= 1.0.1
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-magclass >= 5.7.0
 Requires:         R-CRAN-igraph >= 1.0.1
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-renv 
+Requires:         R-CRAN-stringi 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-yaml 
 
 %description
 Provides a framework which should improve reproducibility and transparency

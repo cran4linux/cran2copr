@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  stoppingrule
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create and Evaluate Stopping Rules
 
@@ -18,15 +19,18 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
 Provides functions for creating, displaying, and evaluating stopping rules
 for safety monitoring in clinical studies. Implements stopping rule
-methods described in Goldman (1987) <doi:10.1016/0197-2456(87)90153-X>,
-Geller et al. (2003, ISBN:9781135524388), Ivanova, Qaqish, and Schell
-(2005) <doi:10.1111/j.1541-0420.2005.00311.x>, and Kulldorff et al. (2011)
+methods described in Goldman (1987) <doi:10.1016/0197-2456(87)90153-X>;
+Geller et al. (2003, ISBN:9781135524388); Ivanova, Qaqish, and Schell
+(2005) <doi:10.1111/j.1541-0420.2005.00311.x>; Chen and Chaloner (2006)
+<doi:10.1002/sim.2429>; and Kulldorff et al. (2011)
 <doi:10.1080/07474946.2011.539924>.
 
 %prep

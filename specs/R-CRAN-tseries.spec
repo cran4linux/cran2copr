@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tseries
-%global packver   0.10-53
+%global packver   0.10-54
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.53
+Version:          0.10.54
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Analysis and Computational Finance
 
@@ -22,12 +22,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-quantmod >= 0.4.9
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Time series analysis and computational finance.

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  viridis
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Colorblind-Friendly Color Maps for R
 
@@ -18,11 +19,9 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 1.0.1
 BuildRequires:    R-CRAN-viridisLite >= 0.4.0
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gridExtra 
 Requires:         R-CRAN-ggplot2 >= 1.0.1
 Requires:         R-CRAN-viridisLite >= 0.4.0
-Requires:         R-stats 
 Requires:         R-CRAN-gridExtra 
 
 %description

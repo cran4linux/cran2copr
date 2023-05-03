@@ -1,47 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tablet
-%global packver   0.6.1
+%global packname  marble
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate Descriptive Statistics in Multiple Formats
+Summary:          Robust Marginal Bayesian Variable Selection for Gene-Environment Interactions
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-kableExtra >= 0.9.0
-BuildRequires:    R-CRAN-spork >= 0.2.2
-BuildRequires:    R-CRAN-yamlet >= 0.10.21
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-reactable 
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-kableExtra >= 0.9.0
-Requires:         R-CRAN-spork >= 0.2.2
-Requires:         R-CRAN-yamlet >= 0.10.21
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-reactable 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Creates a table of descriptive statistics for factor and numeric columns
-in a data frame. Displays these by groups, if any. Highly customizable,
-with support for 'html' and 'pdf' provided by 'kableExtra'. Respects
-original column order, column labels, and factor level order. See
-?tablet.data.frame and vignettes.
+Recently, multiple marginal variable selection methods have been developed
+and shown to be effective in Gene-Environment interactions studies. We
+propose a novel marginal Bayesian variable selection method for
+Gene-Environment interactions studies. In particular, our marginal
+Bayesian method is robust to data contamination and outliers in the
+outcome variables. With the incorporation of spike-and-slab priors, we
+have implemented the Gibbs sampler based on Markov Chain Monte Carlo. The
+core algorithms of the package have been developed in 'C++'.
 
 %prep
 %setup -q -c -n %{packname}

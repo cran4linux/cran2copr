@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shoredate
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shoreline Dating Stone Age Sites on the Norwegian Skagerrak Coast
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-ggsn 
+BuildRequires:    R-CRAN-ggspatial 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
@@ -29,7 +29,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-ggsn 
+Requires:         R-CRAN-ggspatial 
 Requires:         R-grid 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 

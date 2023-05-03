@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MonteCarloSEM
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monte Carlo Data Simulation Package
 
@@ -26,7 +27,7 @@ Requires:         R-utils
 Requires:         R-CRAN-lavaan 
 
 %description
-Monte Carlo simulation allows to test different conditions given to the
+Monte Carlo simulation allows testing different conditions given to the
 correct structural equation models. This package runs Monte Carlo
 simulations under different conditions (such as sample size or normality
 of data). Within the package data sets can be simulated and run based on

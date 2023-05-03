@@ -1,47 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tablet
-%global packver   0.6.1
+%global packname  graphseg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate Descriptive Statistics in Multiple Formats
+Summary:          Segmentation of Graph-Based Signals
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-kableExtra >= 0.9.0
-BuildRequires:    R-CRAN-spork >= 0.2.2
-BuildRequires:    R-CRAN-yamlet >= 0.10.21
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-reactable 
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-kableExtra >= 0.9.0
-Requires:         R-CRAN-spork >= 0.2.2
-Requires:         R-CRAN-yamlet >= 0.10.21
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-flsa 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-reactable 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-flsa 
 
 %description
-Creates a table of descriptive statistics for factor and numeric columns
-in a data frame. Displays these by groups, if any. Highly customizable,
-with support for 'html' and 'pdf' provided by 'kableExtra'. Respects
-original column order, column labels, and factor level order. See
-?tablet.data.frame and vignettes.
+Perform segmentation of graph-based signals. Assume a noisy observation of
+a signal two values correspond to vertices on a graph. Assume the true
+value of the signal is piece-wise constant (where each italic{piece} is a
+connected subgraph). The main function, agraph(), computes the
+segmentation of the signal. The package also includes a wrapper around the
+competing method flsa() (from package 'flsa'). More information about this
+method in Goepp and van de Kassteele (2022) "Graph-Based Spatial
+Segmentation of Health-Related Areal Data"
+<doi:10.48550/arXiv.2206.06752>.
 
 %prep
 %setup -q -c -n %{packname}

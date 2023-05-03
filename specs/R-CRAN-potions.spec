@@ -1,47 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tablet
-%global packver   0.6.1
+%global packname  potions
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate Descriptive Statistics in Multiple Formats
+Summary:          Easy Options Management
 
-License:          GPL-3
+License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-kableExtra >= 0.9.0
-BuildRequires:    R-CRAN-spork >= 0.2.2
-BuildRequires:    R-CRAN-yamlet >= 0.10.21
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lobstr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-reactable 
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-kableExtra >= 0.9.0
-Requires:         R-CRAN-spork >= 0.2.2
-Requires:         R-CRAN-yamlet >= 0.10.21
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lobstr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-reactable 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-yaml 
 
 %description
-Creates a table of descriptive statistics for factor and numeric columns
-in a data frame. Displays these by groups, if any. Highly customizable,
-with support for 'html' and 'pdf' provided by 'kableExtra'. Respects
-original column order, column labels, and factor level order. See
-?tablet.data.frame and vignettes.
+Store and retrieve data from options() using syntax derived from the
+'here' package. 'potions' makes it straightforward to update and retrieve
+options, either in the workspace or during package development, without
+overwriting global options.
 
 %prep
 %setup -q -c -n %{packname}

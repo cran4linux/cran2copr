@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tablet
-%global packver   0.6.1
+%global packname  PatientProfiles
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate Descriptive Statistics in Multiple Formats
+Summary:          Identify Characteristics of Patients in the OMOP Common Data Model
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-kableExtra >= 0.9.0
-BuildRequires:    R-CRAN-spork >= 0.2.2
-BuildRequires:    R-CRAN-yamlet >= 0.10.21
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-CDMConnector >= 0.5.1
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-reactable 
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-kableExtra >= 0.9.0
-Requires:         R-CRAN-spork >= 0.2.2
-Requires:         R-CRAN-yamlet >= 0.10.21
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-SqlRender 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-CDMConnector >= 0.5.1
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-reactable 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-SqlRender 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
 
 %description
-Creates a table of descriptive statistics for factor and numeric columns
-in a data frame. Displays these by groups, if any. Highly customizable,
-with support for 'html' and 'pdf' provided by 'kableExtra'. Respects
-original column order, column labels, and factor level order. See
-?tablet.data.frame and vignettes.
+Identify the characteristics of patients in data mapped to the
+Observational Medical Outcomes Partnership (OMOP) common data model.
 
 %prep
 %setup -q -c -n %{packname}

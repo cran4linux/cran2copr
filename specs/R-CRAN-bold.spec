@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bold
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to Bold Systems API
 
@@ -13,25 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crul >= 0.3.8
+BuildRequires:    R-CRAN-crul >= 0.3
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-crul >= 0.3.8
+BuildRequires:    R-methods 
+Requires:         R-CRAN-crul >= 0.3
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tibble 
+Requires:         R-methods 
 
 %description
 A programmatic interface to the Web Service methods provided by Bold
@@ -48,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

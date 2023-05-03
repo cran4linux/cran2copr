@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tablet
-%global packver   0.6.1
+%global packname  longitudinalcascade
+%global packver   0.3.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.3.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate Descriptive Statistics in Multiple Formats
+Summary:          Longitudinal Cascade
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-kableExtra >= 0.9.0
-BuildRequires:    R-CRAN-spork >= 0.2.2
-BuildRequires:    R-CRAN-yamlet >= 0.10.21
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-reactable 
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-kableExtra >= 0.9.0
-Requires:         R-CRAN-spork >= 0.2.2
-Requires:         R-CRAN-yamlet >= 0.10.21
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-reactable 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-scales 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lubridate 
 
 %description
-Creates a table of descriptive statistics for factor and numeric columns
-in a data frame. Displays these by groups, if any. Highly customizable,
-with support for 'html' and 'pdf' provided by 'kableExtra'. Respects
-original column order, column labels, and factor level order. See
-?tablet.data.frame and vignettes.
+Creates a series of sets of graphics and statistics related to the
+longitudinal cascade, all included in a single object. The longitudinal
+cascade inputs longitudinal data to identify gaps in the HIV and related
+cascades by observing differences using time to event and survival
+methods. The stage definitions are set by the user, with default standard
+options. Outputs include graphics, datasets, and formal statistical tests.
 
 %prep
 %setup -q -c -n %{packname}

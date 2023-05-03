@@ -1,34 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tables
-%global packver   0.9.17
+%global packname  gravity
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.17
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Formula-Driven Table Generation
+Summary:          Estimation Methods for Gravity Models
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-glm2 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-censReg 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-multiwayvcov 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-glm2 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
+Requires:         R-CRAN-censReg 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-multiwayvcov 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-utils 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-htmltools 
 
 %description
-Computes and displays complex tables of summary statistics. Output may be
-in LaTeX, HTML, plain text, or an R matrix for further processing.
+A wrapper of different standard estimation methods for gravity models.
+This package provides estimation methods for log-log models and
+multiplicative models.
 
 %prep
 %setup -q -c -n %{packname}
