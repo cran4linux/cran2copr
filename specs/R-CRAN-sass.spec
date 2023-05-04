@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sass
-%global packver   0.4.5
+%global packver   0.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Syntactically Awesome Style Sheets ('Sass')
 

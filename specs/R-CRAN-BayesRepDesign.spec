@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  baseq
-%global packver   0.1.4
+%global packname  BayesRepDesign
+%global packver   0.42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.42
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Sequence Processing Tool for Biological Data
+Summary:          Bayesian Design of Replication Studies
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,10 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-lamW 
+Requires:         R-methods 
+Requires:         R-CRAN-lamW 
 
 %description
-Primarily created as an easy and understanding way to do basic sequences
-surrounding the central dogma of molecular biology.
+Provides functionality for determining the sample size of replication
+studies using Bayesian design approaches in the normal-normal hierarchical
+model (Pawel et al., 2022) <doi:10.48550/arXiv.2211.02552>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  baseq
-%global packver   0.1.4
+%global packname  ROI.plugin.clarabel
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Sequence Processing Tool for Biological Data
+Summary:          'clarabel' Plug-in for the 'R' Optimization Infrastructure
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,10 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ROI >= 1.0.0
+BuildRequires:    R-CRAN-clarabel >= 0.4.1
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-slam 
+Requires:         R-CRAN-ROI >= 1.0.0
+Requires:         R-CRAN-clarabel >= 0.4.1
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-slam 
 
 %description
-Primarily created as an easy and understanding way to do basic sequences
-surrounding the central dogma of molecular biology.
+Enhances the 'R' Optimization Infrastructure ('ROI') package with the
+'clarabel' solver for solving convex cone problems. More information about
+'clarabel' can be found at
+<https://oxfordcontrol.github.io/ClarabelDocs/stable/>.
 
 %prep
 %setup -q -c -n %{packname}

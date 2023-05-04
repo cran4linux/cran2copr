@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  class
-%global packver   7.3-21
+%global packver   7.3-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.21
+Version:          7.3.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Classification
 

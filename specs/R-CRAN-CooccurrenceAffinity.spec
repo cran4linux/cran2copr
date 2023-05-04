@@ -1,26 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  baseq
-%global packver   0.1.4
+%global packname  CooccurrenceAffinity
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Sequence Processing Tool for Biological Data
+Summary:          Affinity in Co-Occurrence Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-BiasedUrn >= 2.0.9
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-reshape 
+Requires:         R-CRAN-BiasedUrn >= 2.0.9
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-reshape 
 
 %description
-Primarily created as an easy and understanding way to do basic sequences
-surrounding the central dogma of molecular biology.
+Computes a novel metric of affinity between two entities based on their
+co-occurrence (using binary presence/absence data). The metric and its
+MLE, alpha hat, were advanced in Mainali, Slud, et al, 2021
+<doi:10.1126/sciadv.abj9204>. Various types of confidence intervals and
+median interval were developed in Mainali and Slud, 2022
+<doi:10.1101/2022.11.01.514801>.
 
 %prep
 %setup -q -c -n %{packname}

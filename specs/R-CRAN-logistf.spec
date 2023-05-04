@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  logistf
-%global packver   1.24.1
+%global packver   1.25.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.24.1
+Version:          1.25.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Firth's Bias-Reduced Logistic Regression
 
@@ -18,9 +19,11 @@ Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-Matrix 
 
 %description
 Fit a logistic regression model using Firth's bias reduction method,

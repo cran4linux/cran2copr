@@ -1,44 +1,46 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  secsse
-%global packver   2.1.7
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Several Examined and Concealed States-Dependent Speciation and Extinction
 
-License:          GPL-3
+License:          GPL (>= 3) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DDD >= 4.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-DDD >= 5.0
+BuildRequires:    R-CRAN-BH >= 1.81.0.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-apTreeshape 
-BuildRequires:    R-CRAN-phylobase 
 BuildRequires:    R-CRAN-geiger 
-BuildRequires:    R-CRAN-deSolve 
-Requires:         R-CRAN-DDD >= 4.0
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-DDD >= 5.0
+Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-utils 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-apTreeshape 
-Requires:         R-CRAN-phylobase 
 Requires:         R-CRAN-geiger 
-Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
 Simultaneously infers state-dependent diversification across two or more
 states of a single or multiple traits while accounting for the role of a
-possible concealed trait. See Herrera-Alsina et al. 2019 Systematic
-Biology 68: 317-328 <DOI:10.1093/sysbio/syy057>.
+possible concealed trait. See Herrera-Alsina et al. (2019)
+<doi:10.1093/sysbio/syy057>.
 
 %prep
 %setup -q -c -n %{packname}

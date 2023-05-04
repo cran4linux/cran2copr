@@ -1,36 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scattermore
-%global packver   1.0
+%global packname  npsp
+%global packver   0.7-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.7.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scatterplots with More Points
+Summary:          Nonparametric Spatial Statistics
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-spam 
 Requires:         R-graphics 
+Requires:         R-CRAN-sp 
+Requires:         R-methods 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-spam 
 
 %description
-C-based conversion of large scatterplot data to rasters plus other
-operations such as data blurring or data alpha blending. Speeds up
-plotting of data with millions of points.
+Multidimensional nonparametric spatial (spatio-temporal) geostatistics. S3
+classes and methods for multidimensional: linear binning, local polynomial
+kernel regression (spatial trend estimation), density and variogram
+estimation. Nonparametric methods for simultaneous inference on both
+spatial trend and variogram functions (for spatial processes).
+Nonparametric residual kriging (spatial prediction). For details on these
+methods see, for example, Fernandez-Casal and Francisco-Fernandez (2014)
+<doi:10.1007/s00477-013-0817-8> or Castillo-Paez et al. (2019)
+<doi:10.1016/j.csda.2019.01.017>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,7 +54,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-
+test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

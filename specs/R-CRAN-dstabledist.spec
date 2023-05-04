@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  baseq
-%global packver   0.1.4
+%global packname  dstabledist
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Sequence Processing Tool for Biological Data
+Summary:          The Discrete Stable Distribution Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,10 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stabledist 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-stabledist 
+Requires:         R-stats 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Primarily created as an easy and understanding way to do basic sequences
-surrounding the central dogma of molecular biology.
+Probability generating function, formulae for the probabilities (discrete
+density) and random generation for discrete stable random variables.
 
 %prep
 %setup -q -c -n %{packname}

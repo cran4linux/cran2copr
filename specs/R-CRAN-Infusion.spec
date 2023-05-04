@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Infusion
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference Using Simulation
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spaMM >= 3.11.3
-BuildRequires:    R-CRAN-blackbox >= 1.0.14
+BuildRequires:    R-CRAN-spaMM >= 4.1.66
+BuildRequires:    R-CRAN-blackbox >= 1.1.41
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-methods 
@@ -27,8 +27,9 @@ BuildRequires:    R-CRAN-viridis
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-spaMM >= 3.11.3
-Requires:         R-CRAN-blackbox >= 1.0.14
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-spaMM >= 4.1.66
+Requires:         R-CRAN-blackbox >= 1.1.41
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-methods 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-matrixStats 
 
 %description
 Implements functions for simulation-based inference. In particular,

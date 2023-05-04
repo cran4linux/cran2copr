@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  varTestnlme
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variance Components Testing for Linear and Nonlinear Mixed Effects Models
 
@@ -17,6 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-lmeresampler 
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-merDeriv 
@@ -25,8 +27,6 @@ BuildRequires:    R-CRAN-corpcor
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-nlmeU 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-saemix 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-foreach 
@@ -34,6 +34,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-lmeresampler 
 Requires:         R-CRAN-alabama 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-merDeriv 
@@ -42,8 +43,6 @@ Requires:         R-CRAN-corpcor
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-nlmeU 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-saemix 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-foreach 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wooldridge
-%global packver   1.4-3
+%global packname  ivDiag
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          115 Data Sets from "Introductory Econometrics: A Modern Approach, 7e" by Jeffrey M. Wooldridge
+Summary:          Estimation and Diagnostic Tools for Instrumental Variables Designs
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-lfe 
+BuildRequires:    R-CRAN-fixest 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggfortify 
+BuildRequires:    R-CRAN-wCorr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-lfe 
+Requires:         R-CRAN-fixest 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggfortify 
+Requires:         R-CRAN-wCorr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-testthat 
 
 %description
-Students learning both econometrics and R may find the introduction to
-both challenging. The wooldridge data package aims to lighten the task by
-efficiently loading any data set found in the text with a single command.
-Data sets have been compressed to a fraction of their original size.
-Documentation files contain page numbers, the original source, time of
-publication, and notes from the author suggesting avenues for further
-analysis and research. If one needs an introduction to R model syntax, a
-vignette contains solutions to examples from chapters of the text. Data
-sets are from the 7th edition (Wooldridge 2020, ISBN-13
-978-1-337-55886-0), and are backwards compatible with all previous
-versions of the text.
+Estimation and diagnostic tools for instrumental variables designs, which
+implements the guidelines proposed in Lal et al. (2023)
+<arXiv:2303.11399>, including bootstrapped standard errors, effective
+F-statistics, Anderson-Rubin test, valid-t ratio test, and local-to-zero
+tests.
 
 %prep
 %setup -q -c -n %{packname}
