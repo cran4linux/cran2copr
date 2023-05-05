@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tablaxlsx
-%global packver   1.2.5
+%global packname  gsMAMS
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Write Formatted Tables in Excel Workbooks
+Summary:          Group Sequential Designs of Multi-Arm Multi-Stage Trials
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openxlsx 
-Requires:         R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
-For writing tables with custom formats in a Excel file ready to be
-distributed.
+It provides functions to generate operating characteristics and to
+calculate Sequential Conditional Probability Ratio Tests(SCPRT) efficacy
+and futility boundary values along with sample/event size of Multi-Arm
+Multi-Stage(MAMS) trials for different outcomes. The package is based on
+Jianrong Wu, Yimei Li, Liang Zhu (2023) <doi:10.1002/sim.9682>, Jianrong
+Wu, Yimei Li (2023) "Group Sequential Multi-Arm Multi-Stage Survival Trial
+Design with Treatment Selection"(Manuscript accepted for publication) and
+Jianrong Wu, Yimei Li, Shengping Yang (2023) "Group Sequential Multi-Arm
+Multi-Stage Trial Design with Ordinal Endpoints"(In preparation).
 
 %prep
 %setup -q -c -n %{packname}

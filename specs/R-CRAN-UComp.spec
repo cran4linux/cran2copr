@@ -1,28 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tablaxlsx
-%global packver   1.2.5
+%global packname  UComp
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Write Formatted Tables in Excel Workbooks
+Summary:          Automatic Unobserved Components and Other Time Series Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-openxlsx 
-Requires:         R-CRAN-openxlsx 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-tsibble 
+BuildRequires:    R-CRAN-tsoutliers 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-tsibble 
+Requires:         R-CRAN-tsoutliers 
+Requires:         R-stats 
+Requires:         R-CRAN-ggforce 
+Requires:         R-utils 
+Requires:         R-parallel 
 
 %description
-For writing tables with custom formats in a Excel file ready to be
-distributed.
+Comprehensive analysis and forecasting of univariate time series using
+automatic unobserved components models and algorithms. Harvey, AC (1989)
+<doi:10.1017/CBO9781107049994>. Pedregal DJ and Young PC (2002)
+<doi:10.1002/9780470996430>. Durbin J and Koopman SJ (2012)
+<doi:10.1093/acprof:oso/9780199641178.001.0001>. Hyndman RJ, Koehler AB,
+Ord JK, and Snyder RD (2008) <doi:10.1007/9783540719182>.
 
 %prep
 %setup -q -c -n %{packname}

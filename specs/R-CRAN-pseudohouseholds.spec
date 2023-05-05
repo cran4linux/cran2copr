@@ -1,28 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tablaxlsx
-%global packver   1.2.5
+%global packname  pseudohouseholds
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Write Formatted Tables in Excel Workbooks
+Summary:          Generate Pseudohouseholds on Road Networks in Regions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openxlsx 
-Requires:         R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-sf 
 
 %description
-For writing tables with custom formats in a Excel file ready to be
-distributed.
+Given an arbitrary set of spatial regions and road networks, generate a
+set of representative points, or pseudohouseholds, that can be used for
+travel burden analysis. Parallel processing is supported.
 
 %prep
 %setup -q -c -n %{packname}

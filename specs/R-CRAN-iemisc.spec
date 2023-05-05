@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iemisc
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Irucka Embry's Miscellaneous Functions
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-fpCompare
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-qdapTools 
 BuildRequires:    R-CRAN-ramify 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-stats 
@@ -65,7 +64,6 @@ Requires:         R-CRAN-fpCompare
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-qdapTools 
 Requires:         R-CRAN-ramify 
 Requires:         R-CRAN-foreach 
 Requires:         R-stats 

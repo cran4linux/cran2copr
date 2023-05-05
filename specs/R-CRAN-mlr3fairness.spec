@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3fairness
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fairness Auditing and Debiasing for 'mlr3'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-data.table >= 1.13.6
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-paradox
 BuildRequires:    R-CRAN-mlr3measures 
 BuildRequires:    R-CRAN-mlr3misc 
 BuildRequires:    R-CRAN-mlr3pipelines 
+BuildRequires:    R-CRAN-mlr3learners 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-data.table >= 1.13.6
@@ -34,6 +36,8 @@ Requires:         R-CRAN-paradox
 Requires:         R-CRAN-mlr3measures 
 Requires:         R-CRAN-mlr3misc 
 Requires:         R-CRAN-mlr3pipelines 
+Requires:         R-CRAN-mlr3learners 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 
 %description

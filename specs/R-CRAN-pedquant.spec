@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pedquant
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Public Economic Data and Quantitative Analysis
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-xefun > 0.1.3
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-TTR 
 BuildRequires:    R-CRAN-zoo 
@@ -30,7 +31,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-echarts4r 
-BuildRequires:    R-CRAN-xefun 
+Requires:         R-CRAN-xefun > 0.1.3
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-TTR 
 Requires:         R-CRAN-zoo 
@@ -44,12 +45,11 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-echarts4r 
-Requires:         R-CRAN-xefun 
 
 %description
 Provides an interface to access public economic and financial data for
 economic research and quantitative analysis. The data sources including
-NBS, FRED, 163, Sina, Eastmoney and etc. It also provides quantitative
+NBS, FRED, Sina, Eastmoney and etc. It also provides quantitative
 functions for trading strategies based on the 'data.table', 'TTR',
 'PerformanceAnalytics' and etc packages.
 

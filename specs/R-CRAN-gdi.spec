@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tablaxlsx
-%global packver   1.2.5
+%global packname  gdi
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Write Formatted Tables in Excel Workbooks
+Summary:          Volumetric Analysis using Graphic Double Integration
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openxlsx 
-Requires:         R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-png 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-png 
 
 %description
-For writing tables with custom formats in a Excel file ready to be
-distributed.
+Tools implementing an automated version of the graphic double integration
+technique first employed by Jerison (1973) <ISBN:9780323141086> and
+Hurlburt (1999) <doi:10.1080/02724634.1999.10011145>. Graphic double
+integration is primarily used for volume or mass estimation of (extinct)
+animals, and the package 'gdi' aims to make this technique as convenient
+and versatile as possible. The main functions of 'gdi' provide utilities
+for automatically measuring diameters from digital silhouettes provided as
+image files, and for calculating volume via graphic double integration
+with a simple elliptical superelliptical (following Motani 2001
+<doi:10.1666/0094-8373(2001)027%%3C0735:EBMFST%%3E2.0.CO;2>) or complex
+cross-sectional model.
 
 %prep
 %setup -q -c -n %{packname}

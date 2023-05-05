@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Lahman
-%global packver   10.0-1
+%global packver   11.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.0.1
+Version:          11.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sean 'Lahman' Baseball Database
 
@@ -22,8 +23,8 @@ Requires:         R-CRAN-dplyr
 %description
 Provides the tables from the 'Sean Lahman Baseball Database' as a set of R
 data.frames. It uses the data on pitching, hitting and fielding
-performance and other tables from 1871 through 2021, as recorded in the
-2022 version of the database. Documentation examples show how many
+performance and other tables from 1871 through 2022, as recorded in the
+2023 version of the database. Documentation examples show how many
 baseball questions can be investigated.
 
 %prep
