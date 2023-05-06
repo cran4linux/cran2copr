@@ -1,45 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  riot
-%global packver   1.1.0
+%global packname  rfars
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Inputs/Outputs for Tractography
+Summary:          Download and Analyze Fatal Crash Data
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-downloader 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sas7bdat 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-downloader 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sas7bdat 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-zoo 
 
 %description
-An input-output interface for reading in and writing out common VTK
-formats that store tractography data. This data comes in the form of 3D
-polygons with possibly attributes at each point. These are obtained via
-tracking algorithms from diffusion MRI and are a non-invasive way of
-studying brain structural connectivity.
+Download raw data from the Fatality Analysis Reporting System and prepare
+it for research.
 
 %prep
 %setup -q -c -n %{packname}

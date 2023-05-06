@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dequer
-%global packver   2.0-2
+%global __requires_exclude ^libmpi
+%global packname  getspanel
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stacks, Queues, and 'Deques' for R
+Summary:          General-to-Specific Modelling of Panel Data
 
-License:          BSD 2-clause License + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gets 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-gets 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Queues, stacks, and 'deques' are list-like, abstract data types. These are
-meant to be very cheap to "grow", or insert new objects into. A typical
-use case involves storing data in a list in a streaming fashion, when you
-do not necessarily know how may elements need to be stored. Unlike R's
-lists, the new data structures provided here are not necessarily stored
-contiguously, making insertions and deletions at the front/end of the
-structure much faster.  The underlying implementation is new and uses a
-head/tail doubly linked list; thus, we do not rely on R's environments or
-hashing.  To avoid unnecessary data copying, most operations on these data
-structures are performed via side-effects.
+Uses several types of indicator saturation and automated
+General-to-Specific (GETS) modelling from the 'gets' package and applies
+it to panel data. This allows the detection of structural breaks in panel
+data, operationalising a reverse causal approach of causal inference, see
+Pretis and Schwarz (2022) <doi:10.2139/ssrn.4022745>.
 
 %prep
 %setup -q -c -n %{packname}

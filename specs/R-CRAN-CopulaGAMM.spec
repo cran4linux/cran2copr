@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  islasso
-%global packver   1.4.3
+%global __requires_exclude ^libmpi
+%global packname  CopulaGAMM
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Induced Smoothed Lasso
+Summary:          Copula-Based Mixed Regression Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-glmnet >= 4.0
-BuildRequires:    R-CRAN-Matrix >= 1.0.6
-Requires:         R-CRAN-glmnet >= 4.0
-Requires:         R-CRAN-Matrix >= 1.0.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-stats 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-matrixStats 
 
 %description
-An implementation of the induced smoothing (IS) idea to lasso
-regularization models to allow estimation and inference on the model
-coefficients (currently hypothesis testing only). Linear, logistic,
-Poisson and gamma regressions with several link functions are implemented.
-The algorithm is described in the original paper: Cilluffo, G., Sottile,
-G., La Grutta, S. and Muggeo, V. (2019) The Induced Smoothed lasso: A
-practical framework for hypothesis testing in high dimensional regression.
-<doi:10.1177/0962280219842890>, and discussed in a tutorial: Sottile, G.,
-Cilluffo, G., and Muggeo, V. (2019) The R package islasso: estimation and
-hypothesis testing in lasso regression. <doi:10.13140/RG.2.2.16360.11521>.
+Estimation of 2-level factor copula-based regression models for clustered
+data where the response variable can be either discrete or continuous.
 
 %prep
 %setup -q -c -n %{packname}

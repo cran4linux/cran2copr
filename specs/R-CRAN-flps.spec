@@ -1,26 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rsyslog
-%global packver   1.0.2
+%global __requires_exclude ^libmpi
+%global packname  flps
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'syslog' System Logger
+Summary:          Fully-Latent Principal Stratification
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-Rcpp >= 1.0.8.3
+Requires:         R-CRAN-rstan 
+Requires:         R-methods 
+Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-MASS 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rstantools
 
 %description
-Functions to write messages to the 'syslog' system logger API, available
-on all 'POSIX'-compatible operating systems. Features include tagging
-messages with a priority level and application type, as well as masking
-(hiding) messages below a given priority level.
+Simulation and analysis of Fully-Latent Principal Stratification (FLPS)
+with measurement models. Sales & Pane (2019). <doi:10.1214/18-AOAS1196>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -30,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

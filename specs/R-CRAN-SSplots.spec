@@ -1,48 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nncc
-%global packver   1.0.1
+%global packname  SSplots
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nearest Neighbors Matching of Case-Control Data
+Summary:          Stock Status Plots (SSPs)
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-mice 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-mice 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-zoo 
 
 %description
-Provides nearest-neighbors matching and analysis of case-control data.
-Cui, Z., Marder, E. P., Click, E. S., Hoekstra, R. M., & Bruce, B. B.
-(2022) <doi:10.1097/EDE.0000000000001504>.
+Pauly et al. (2008)
+<http://legacy.seaaroundus.s3.amazonaws.com/doc/Researcher+Publications/dpauly/PDF/2008/Books%%26Chapters/FisheriesInLargeMarineEcosystems.pdf>
+created (and coined the name) 'Stock Status Plots' for a UNEP compendium
+on Large Marine Ecosystems (LMEs, Sherman and Hempel 2008
+<https://agris.fao.org/agris-search/search.do?recordID=XF2015036057>).
+Stock status plots are bivariate graphs summarizing the status (e.g.,
+developing, fully exploited, overexploited, etc.), through time, of the
+multispecies fisheries of a fished area or ecosystem. This package
+contains two functions to generate stock status plots viz.,
+SSplots_pauly() (as per the criteria proposed by Pauly et al.,2008) and
+SSplots_kleisner() (as per the criteria proposed by Kleisner and Pauly
+(2011) <http://www.ecomarres.com/downloads/regional.pdf> and Kleisner et
+al. (2013) <doi:10.1111/j.1467-2979.2012.00469.x>).
 
 %prep
 %setup -q -c -n %{packname}

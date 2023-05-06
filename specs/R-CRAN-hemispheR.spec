@@ -1,44 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  askgpt
-%global packver   0.1.1
+%global packname  hemispheR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Asking GPT About R Stuff
+Summary:          Processing Hemispherical Canopy Images
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-autothresholdr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-callr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-autothresholdr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-tidyr 
 
 %description
-A chat package connecting to API endpoints by 'OpenAI'
-(<https://platform.openai.com/>) to answer questions (about R).
+Import and classify canopy fish-eye images, estimate angular gap fraction
+and derive canopy attributes like leaf area index and openness.
+Additional information is provided in the study by Chianucci F., Macek M.
+(2023) <doi:10.1016/j.agrformet.2023.109470>.
 
 %prep
 %setup -q -c -n %{packname}

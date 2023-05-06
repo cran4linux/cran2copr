@@ -1,36 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ctmcd
-%global packver   1.4.2
+%global __requires_exclude ^libmpi
+%global packname  ssifs
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating the Parameters of a Continuous-Time Markov Chain from Discrete-Time Data
+Summary:          Stochastic Search Inconsistency Factor Selection
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.17
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.17
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-netmeta 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-CRAN-RevEcoR 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-netmeta 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-R2jags 
+Requires:         R-CRAN-RevEcoR 
+Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Functions for estimating Markov generator matrices from discrete-time
-observations. The implemented approaches comprise diagonal adjustment,
-weighted adjustment and quasi-optimization of matrix logarithm based
-candidate solutions, an expectation-maximization algorithm as well as a
-Gibbs sampler.
+Evaluating the consistency assumption of Network Meta-Analysis both
+globally and locally in the Bayesian framework. Inconsistencies are
+located by applying Bayesian variable selection to the inconsistency
+factors. The implementation of the method is described by Seitidis et al.
+(2022) <arXiv:2211.07258>.
 
 %prep
 %setup -q -c -n %{packname}

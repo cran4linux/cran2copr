@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  vdra
+%global __requires_exclude ^libmpi
+%global packname  hypothesis
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vertical Distributed Regression Analysis
+Summary:          Wrapper for 'hypothes.is'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-purrr 
 
 %description
-Implements linear, logistic, and Cox regression on vertically partitioned
-data across several data partners.  Data is not shared between data
-partners or the analysis center and the computations can be considered
-secure.  Three different protocols are implemented. 2-Party: two data
-partners which communicate directly without an intermediate analysis
-center; 2T-Party: two data partners communicate indirectly via an analysis
-center, and KT-Party: two or more data partners plus an analysis center
-are all allowed to communicate directly.  2-Party and 2^T-Party use a form
-of secure multiplication as found in Karr, et. al. (2009)
-"Privacy-Preserving Analysis of Vertically Partitioned Data Using Secure
-Matrix Products" and Slavkovic et. al. (2007) "Secure Logistic Regression
-of Horizontally and Vertically Partitioned Distributed Databases"
-<doi:10.1109/ICDMW.2007.114>. Full details can be found in Samizo (In
-preparation).
+Add, share and manage annotations for 'Shiny' applications and R Markdown
+documents via 'hypothes.is'.
 
 %prep
 %setup -q -c -n %{packname}

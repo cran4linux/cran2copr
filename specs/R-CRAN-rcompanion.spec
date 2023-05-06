@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcompanion
-%global packver   2.4.26
+%global packver   2.4.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.26
+Version:          2.4.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Support Extension Education Program Evaluation
 
@@ -37,10 +37,9 @@ Requires:         R-CRAN-lmtest >= 0.9.38
 Requires:         R-CRAN-multcompView >= 0.1.8
 
 %description
-Functions and datasets to support "Summary and Analysis of Extension
-Program Evaluation in R" and "An R Companion for the Handbook of
-Biological Statistics". Vignettes are available at
-<http://rcompanion.org>.
+Functions and datasets to support Summary and Analysis of Extension
+Program Evaluation in R, and An R Companion for the Handbook of Biological
+Statistics. Vignettes are available at <http://rcompanion.org>.
 
 %prep
 %setup -q -c -n %{packname}

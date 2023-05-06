@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PRIMME
-%global packver   3.2-3
+%global __requires_exclude ^libmpi
+%global packname  ordinalgmifs
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Eigenvalues and Singular Values and Vectors from Large Matrices
+Summary:          Ordinal Regression for High-Dimensional Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-survival 
+Requires:         R-methods 
 
 %description
-R interface to 'PRIMME' <https://www.cs.wm.edu/~andreas/software/>, a C
-library for computing a few eigenvalues and their corresponding
-eigenvectors of a real symmetric or complex Hermitian matrix, or
-generalized Hermitian eigenproblem.  It can also compute singular values
-and vectors of a square or rectangular matrix. 'PRIMME' finds largest,
-smallest, or interior singular/eigenvalues and can use preconditioning to
-accelerate convergence. General description of the methods are provided in
-the papers Stathopoulos (2010, <doi:10.1145/1731022.1731031>) and Wu
-(2017, <doi:10.1137/16M1082214>). See 'citation("PRIMME")' for details.
+Provides a function for fitting cumulative link, adjacent category,
+forward and backward continuation ratio, and stereotype ordinal response
+models when the number of parameters exceeds the sample size, using the
+the generalized monotone incremental forward stagewise method.
 
 %prep
 %setup -q -c -n %{packname}

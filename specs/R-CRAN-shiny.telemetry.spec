@@ -1,44 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  askgpt
-%global packver   0.1.1
+%global packname  shiny.telemetry
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Asking GPT About R Stuff
+Summary:          'Shiny' App Usage Telemetry
 
-License:          GPL (>= 3)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-logger 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-odbc 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-logger 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-odbc 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-tidyr 
 
 %description
-A chat package connecting to API endpoints by 'OpenAI'
-(<https://platform.openai.com/>) to answer questions (about R).
+Enables instrumentation of 'Shiny' apps for tracking user session events
+such as input changes, browser type, and session duration. These events
+can be sent to any of the available storage backends and analyzed using
+the included 'Shiny' app to gain insights about app usage and adoption.
 
 %prep
 %setup -q -c -n %{packname}
