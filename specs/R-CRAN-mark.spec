@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mark
-%global packver   0.5.3
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous, Analytic R Kernels
 
@@ -21,10 +21,12 @@ BuildRequires:    R-stats >= 3.6
 BuildRequires:    R-tools >= 3.6
 BuildRequires:    R-utils >= 3.6
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-fuj >= 0.1.1
 Requires:         R-stats >= 3.6
 Requires:         R-tools >= 3.6
 Requires:         R-utils >= 3.6
 Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-fuj >= 0.1.1
 
 %description
 Miscellaneous functions and wrappers for development in other packages

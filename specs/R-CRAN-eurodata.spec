@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eurodata
-%global packver   1.6.1
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Easy Eurostat Data Import and Search
 
@@ -36,13 +36,13 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-xml2 
 
 %description
-Interface to Eurostat’s Bulk Download Facility with fast data.table-based
-import of data, labels, and metadata. On top of the core functionality,
-data search and data description/comparison functions are also provided.
-Use <https://github.com/alekrutkowski/eurodata_codegen> — a
-point-and-click app for rapid and easy generation of richly-commented R
-code — to import a Eurostat dataset or its subset (based on the
-eurodata::importData() function).
+Interface to Eurostat’s API (SDMX 2.1) with fast data.table-based import
+of data, labels, and metadata. On top of the core functionality, data
+search and data description/comparison functions are also provided. Use
+<https://github.com/alekrutkowski/eurodata_codegen> — a point-and-click
+app for rapid and easy generation of richly-commented R code — to import a
+Eurostat dataset or its subset (based on the eurodata::importData()
+function).
 
 %prep
 %setup -q -c -n %{packname}

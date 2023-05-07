@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  visvow
-%global packver   1.3.8
+%global packver   1.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visible Vowels: Visualization of Vowel Variation
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-CRAN-Cairo 
@@ -61,6 +62,7 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-effectsize 
 Requires:         R-grid 
 Requires:         R-CRAN-svglite 
 Requires:         R-CRAN-Cairo 

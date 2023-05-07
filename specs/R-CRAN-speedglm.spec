@@ -1,29 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  oops
-%global packver   0.2.0
+%global __requires_exclude ^libmpi
+%global packname  speedglm
+%global packver   0.3-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          S3 Style Object Oriented Programming
+Summary:          Fitting Linear and Generalized Linear Models to Large Data Sets
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-biglm 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-biglm 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Create simple, hassle-free classes with reference semantics similar to
-'RefClass' or 'R6' but relying on S3 methods. "oops" class instances tend
-to be lighter weight and faster to create. Creating a class is as easy
-creating a list, while generating an instance is a simple function call.
-Support for inheritance and fixed field classes.
+Fitting linear models and generalized linear models to large data sets by
+updating algorithms, according to the method described in Enea (2009,
+ISBN: 9788861294257).
 
 %prep
 %setup -q -c -n %{packname}
