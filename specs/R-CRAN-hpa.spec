@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hpa
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributions Hermite Polynomial Approximation
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-RcppParallel >= 5.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-Rcpp >= 1.0.10
 
 %description
 Multivariate conditional and marginal densities, moments, cumulative

@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FrF2
-%global packver   2.3
+%global packname  npcurePK
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fractional Factorial Designs with 2-Level Factors
+Summary:          Mixture Cure Model Estimation with Cure Status Partially Known
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sfsmisc >= 1.0.26
-BuildRequires:    R-CRAN-igraph >= 0.7
-BuildRequires:    R-CRAN-DoE.base >= 0.25
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-sfsmisc >= 1.0.26
-Requires:         R-CRAN-igraph >= 0.7
-Requires:         R-CRAN-DoE.base >= 0.25
-Requires:         R-utils 
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-npcure 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-data.table 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-npcure 
 
 %description
-Regular and non-regular Fractional Factorial 2-level designs can be
-created. Furthermore, analysis tools for Fractional Factorial designs with
-2-level factors are offered (main effects and interaction plots for all
-factors simultaneously, cube plot for looking at the simultaneous effects
-of three factors, full or half normal plot, alias structure in a more
-readable format than with the built-in function alias).
+Performs nonparametric estimation in mixture cure models when the cure
+status is partially known. For details, see Safari et al (2021)
+<doi:10.1002/bimj.202100156>, Safari et al (2022)
+<doi:10.1177/09622802221115880> and Safari et al (2023)
+<doi:10.1007/s10985-023-09591-x>.
 
 %prep
 %setup -q -c -n %{packname}

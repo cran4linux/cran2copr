@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctrdata
-%global packver   1.13.0
+%global packver   1.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.0
+Version:          1.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 5.0
-BuildRequires:    R-CRAN-nodbi >= 0.9.2.9000
+BuildRequires:    R-CRAN-nodbi >= 0.9.3
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-clipr 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-jqr 
 Requires:         R-CRAN-curl >= 5.0
-Requires:         R-CRAN-nodbi >= 0.9.2.9000
+Requires:         R-CRAN-nodbi >= 0.9.3
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-clipr 
@@ -49,12 +49,12 @@ the 'European Union Clinical Trials Register' ('EUCTR',
 and the 'European Union Clinical Trials Information System' ('CTIS',
 <https://euclinicaltrials.eu/>). Trial information is downloaded,
 converted and stored in a database ('PostgreSQL', 'SQLite', 'DuckDB' or
-'MongoDB'; via package 'nodbi'). Functions are included to identify
-deduplicated records, to easily find and extract variables (fields) of
-interest even from complex nesting as used by the registers, and to update
-previous queries. The package can be used for meta-analysis and
-trend-analysis of the design and conduct as well as for results of
-clinical trials.
+'MongoDB'; via package 'nodbi'). Documents in registers associated with
+trials can also be downloaded. Functions can identify deduplicated
+records, easily find and extract variables (fields) of interest even from
+complex nesting as used by the registers, and to update queries. The
+package can be used for meta-analysis and trend-analysis of the design and
+conduct as well as of the results of clinical trials.
 
 %prep
 %setup -q -c -n %{packname}

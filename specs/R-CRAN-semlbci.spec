@@ -1,42 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FrF2
-%global packver   2.3
+%global packname  semlbci
+%global packver   0.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          0.10.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fractional Factorial Designs with 2-Level Factors
+Summary:          Likelihood-Based Confidence Interval in Structural Equation Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sfsmisc >= 1.0.26
-BuildRequires:    R-CRAN-igraph >= 0.7
-BuildRequires:    R-CRAN-DoE.base >= 0.25
+BuildRequires:    R-CRAN-lavaan >= 0.6.13
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-sfsmisc >= 1.0.26
-Requires:         R-CRAN-igraph >= 0.7
-Requires:         R-CRAN-DoE.base >= 0.25
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-pbapply 
+Requires:         R-CRAN-lavaan >= 0.6.13
+Requires:         R-CRAN-nloptr 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-pbapply 
 
 %description
-Regular and non-regular Fractional Factorial 2-level designs can be
-created. Furthermore, analysis tools for Fractional Factorial designs with
-2-level factors are offered (main effects and interaction plots for all
-factors simultaneously, cube plot for looking at the simultaneous effects
-of three factors, full or half normal plot, alias structure in a more
-readable format than with the built-in function alias).
+Forms likelihood-based confidence intervals (LBCIs) for parameters in
+structural equation modeling, introduced in Cheung and Pesigan (2023)
+<doi:10.1080/10705511.2023.2183860>. Currently implements the algorithm
+illustrated by Pek and Wu (2018) <doi:10.1037/met0000163>, and supports
+the robust LBCI proposed by Falk (2018)
+<doi:10.1080/10705511.2017.1367254>.
 
 %prep
 %setup -q -c -n %{packname}
