@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  switchSelection
-%global packver   1.0.1
+%global packname  ggrounded
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Endogenous Switching and Sample Selection Regression Models
+Summary:          Rounded Bar Plots
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-hpa >= 1.3.1
-BuildRequires:    R-CRAN-mnorm >= 1.1.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-gena >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-hpa >= 1.3.1
-Requires:         R-CRAN-mnorm >= 1.1.1
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-gena >= 1.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridGeometry 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-gridGeometry 
 
 %description
-Estimate the parameters of multivariate endogenous switching and sample
-selection models using methods described in Newey (2009)
-<doi:10.1111/j.1368-423X.2008.00263.x>, E. Kossova, B. Potanin (2018)
-<https:ideas.repec.org/a/ris/apltrx/0346.html>, E. Kossova, L.
-Kupriianova, B. Potanin (2020)
-<https://ideas.repec.org/a/ris/apltrx/0391.html> and E. Kossova, B.
-Potanin (2022) <https://ideas.repec.org/a/ris/apltrx/0455.html>.
+Creates bar plots with rounded corners using 'ggplot2'. The code in this
+package was adapted from a solution provided by Stack Overflow user
+'sthoch' in the following post
+<https://stackoverflow.com/questions/62176038/r-ggplot2-bar-chart-with-round-corners-on-top-of-bar>.
 
 %prep
 %setup -q -c -n %{packname}

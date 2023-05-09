@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rms
-%global packver   6.6-0
+%global packver   6.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.6.0
+Version:          6.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Modeling Strategies
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Hmisc >= 4.8.0
+BuildRequires:    R-CRAN-Hmisc >= 5.1.0
 BuildRequires:    R-CRAN-nlme >= 3.1.123
 BuildRequires:    R-CRAN-htmlTable >= 1.11.0
 BuildRequires:    R-methods 
@@ -32,10 +32,9 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-Hmisc >= 4.8.0
+Requires:         R-CRAN-Hmisc >= 5.1.0
 Requires:         R-CRAN-nlme >= 3.1.123
 Requires:         R-CRAN-htmlTable >= 1.11.0
 Requires:         R-methods 
@@ -51,7 +50,6 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
 Requires:         R-grDevices 
 

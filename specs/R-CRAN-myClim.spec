@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ezcox
-%global packver   1.0.4
+%global packname  myClim
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Process a Batch of Cox Models
+Summary:          Microclimatic Data Processing
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-purrr >= 0.3.2
-BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-forestmodel 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-utf8 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-purrr >= 0.3.2
-Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-forestmodel 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-runner 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-utf8 
-Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-runner 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-zoo 
+Requires:         R-methods 
 
 %description
-A tool to operate a batch of univariate or multivariate Cox models and
-return tidy result.
+Handling the microclimatic data in R. The 'myClim' workflow begins at the
+reading data primary from microclimatic dataloggers, but can be also
+reading of meteorological station data from files. Cleaning time step,
+time zone settings and metadata collecting is the next step of the work
+flow. With 'myClim' tools one can crop, join, downscale, and convert
+microclimatic data formats, sort them into localities, request descriptive
+characteristics and compute microclimatic variables. Handy plotting
+functions are provided with smart defaults.
 
 %prep
 %setup -q -c -n %{packname}

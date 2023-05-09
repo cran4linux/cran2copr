@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vscc
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Selection for Clustering and Classification
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ManlyMix 
 BuildRequires:    R-CRAN-teigen 
 BuildRequires:    R-CRAN-mclust 
+Requires:         R-CRAN-ManlyMix 
 Requires:         R-CRAN-teigen 
 Requires:         R-CRAN-mclust 
 
@@ -26,8 +28,9 @@ Requires:         R-CRAN-mclust
 Performs variable selection/feature reduction under a clustering or
 classification framework. In particular, it can be used in an automated
 fashion using mixture model-based methods ('teigen' and 'mclust' are
-currently supported). See Andrews and McNicholas (2014)
-<doi:10.1007/s00357-013-9139-2>.
+currently supported). Can account for mixtures of non-Gaussian
+distributions via Manly transform (via 'ManlyMix'). See Andrews and
+McNicholas (2014) <doi:10.1007/s00357-013-9139-2>.
 
 %prep
 %setup -q -c -n %{packname}

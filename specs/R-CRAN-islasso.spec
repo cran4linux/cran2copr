@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  switchSelection
-%global packver   1.0.1
+%global packname  islasso
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Endogenous Switching and Sample Selection Regression Models
+Summary:          The Induced Smoothed Lasso
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-hpa >= 1.3.1
-BuildRequires:    R-CRAN-mnorm >= 1.1.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-gena >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-hpa >= 1.3.1
-Requires:         R-CRAN-mnorm >= 1.1.1
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-gena >= 1.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-glmnet >= 4.0
+BuildRequires:    R-CRAN-Matrix >= 1.0.6
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-glmnet >= 4.0
+Requires:         R-CRAN-Matrix >= 1.0.6
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Estimate the parameters of multivariate endogenous switching and sample
-selection models using methods described in Newey (2009)
-<doi:10.1111/j.1368-423X.2008.00263.x>, E. Kossova, B. Potanin (2018)
-<https:ideas.repec.org/a/ris/apltrx/0346.html>, E. Kossova, L.
-Kupriianova, B. Potanin (2020)
-<https://ideas.repec.org/a/ris/apltrx/0391.html> and E. Kossova, B.
-Potanin (2022) <https://ideas.repec.org/a/ris/apltrx/0455.html>.
+An implementation of the induced smoothing (IS) idea to lasso
+regularization models to allow estimation and inference on the model
+coefficients (currently hypothesis testing only). Linear, logistic,
+Poisson and gamma regressions with several link functions are implemented.
+The algorithm is described in the original paper; see
+<doi:10.1177/0962280219842890> and discussed in a tutorial
+<doi:10.13140/RG.2.2.16360.11521>.
 
 %prep
 %setup -q -c -n %{packname}

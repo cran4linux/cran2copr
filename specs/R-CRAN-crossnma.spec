@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  crossnma
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Design & Cross-Format Network Meta-Analysis and Regression
 
@@ -16,7 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-netmeta 
+BuildRequires:    R-CRAN-netmeta >= 2.8.0
+BuildRequires:    R-CRAN-meta 
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
@@ -25,7 +27,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-netmeta 
+Requires:         R-CRAN-netmeta >= 2.8.0
+Requires:         R-CRAN-meta 
 Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
@@ -36,13 +39,13 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-ggplot2 
 
 %description
-Network meta-analysis and meta-regression (allows including up to 3
+Network meta-analysis and meta-regression (allows including up to three
 covariates) for individual participant data, aggregate data, and mixtures
-of both formats using the three-level hierarchical model. Each format can
+of both formats using the three-level hierarchical model.  Each format can
 come from randomized controlled trials or non-randomized studies or
 mixtures of both. Estimates are generated in a Bayesian framework using
-JAGS. The implemented models are described by Hamza et al. 2022
-<DOI:10.48550/arXiv.2203.06350>.
+JAGS. The implemented models are described by Hamza et al. 2023
+<DOI:10.1002/jrsm.1619>.
 
 %prep
 %setup -q -c -n %{packname}

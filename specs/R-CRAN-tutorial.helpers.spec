@@ -1,51 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  baizer
-%global packver   0.5.0
+%global packname  tutorial.helpers
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Useful Functions for Data Processing
+Summary:          Helper Functions for Creating Tutorials
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-learnr 
+BuildRequires:    R-CRAN-parsermd 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-tibble >= 3.1
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-learnr 
+Requires:         R-CRAN-parsermd 
 Requires:         R-CRAN-purrr 
-Requires:         R-stats 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-tibble 
 
 %description
-In ancient Chinese mythology, Bai Ze is a divine creature that knows the
-needs of everything. 'baizer' provides data processing functions
-frequently used by the author. Hope this package also knows what you want!
+Helper functions for creating, editing, and testing tutorials created with
+the 'learnr' package. Provides a simple method for allowing students to
+download their answers to tutorial questions. For examples of its use, see
+the 'r4ds.tutorials' and 'all.primer.tutorials' packages.
 
 %prep
 %setup -q -c -n %{packname}

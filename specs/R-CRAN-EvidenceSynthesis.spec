@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EvidenceSynthesis
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthesizing Causal Evidence in a Distributed Research Network
 
@@ -19,7 +19,9 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Cyclops >= 3.1.0
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggdist 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-meta 
 BuildRequires:    R-CRAN-EmpiricalCalibration 
@@ -31,7 +33,9 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-methods 
 Requires:         R-CRAN-Cyclops >= 3.1.0
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggdist 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-meta 
 Requires:         R-CRAN-EmpiricalCalibration 

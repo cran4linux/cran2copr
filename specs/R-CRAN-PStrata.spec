@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SSplots
-%global packver   0.1.1
+%global packname  PStrata
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stock Status Plots (SSPs)
+Summary:          Principal Stratification Analysis with Post-Randomization Intervention
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,27 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstantools
 
 %description
-Pauly et al. (2008)
-<http://legacy.seaaroundus.s3.amazonaws.com/doc/Researcher+Publications/dpauly/PDF/2008/Books%%26Chapters/FisheriesInLargeMarineEcosystems.pdf>
-created (and coined the name) 'Stock Status Plots' for a UNEP compendium
-on Large Marine Ecosystems (LMEs, Sherman and Hempel 2008
-<https://agris.fao.org/agris-search/search.do?recordID=XF2015036057>).
-Stock status plots are bivariate graphs summarizing the status (e.g.,
-developing, fully exploited, overexploited, etc.), through time, of the
-multispecies fisheries of a fished area or ecosystem. This package
-contains two functions to generate stock status plots viz.,
-SSplots_pauly() (as per the criteria proposed by Pauly et al.,2008) and
-SSplots_kleisner() (as per the criteria proposed by Kleisner and Pauly
-(2011) <http://www.ecomarres.com/downloads/regional.pdf> and Kleisner et
-al. (2013) <doi:10.1111/j.1467-2979.2012.00469.x>).
+Estimating causal effects in the presence of post-treatment confounding
+using principal stratification. 'PStrata' allows for customized
+monotonicity assumptions and exclusion restriction assumptions, with
+automatic full Bayesian inference supported by 'Stan'. The main function
+to use in this package is PStrata(), which provides posterior estimates of
+principal causal effect with uncertainty quantification. Visualization
+tools are also provided for diagnosis and interpretation. See Liu and Li
+(2023) <arXiv:2304.02740> for details.
 
 %prep
 %setup -q -c -n %{packname}

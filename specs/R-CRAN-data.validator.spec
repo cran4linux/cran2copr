@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  data.validator
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Data Validation and Reporting
 
@@ -18,7 +19,6 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-assertr >= 2.8
 BuildRequires:    R-CRAN-shiny.semantic >= 0.3.3
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-assertr >= 2.8
 Requires:         R-CRAN-shiny.semantic >= 0.3.3
-Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 

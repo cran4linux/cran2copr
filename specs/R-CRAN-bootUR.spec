@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bootUR
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Unit Root Tests
 
@@ -31,9 +32,10 @@ Requires:         R-CRAN-parallelly
 %description
 Set of functions to perform various bootstrap unit root tests for both
 individual time series (including augmented Dickey-Fuller test and union
-tests), multiple time series and panel data; see Palm, Smeekes and Urbain
-(2008) <doi:10.1111/j.1467-9892.2007.00565.x>, Palm, Smeekes and Urbain
-(2011) <doi:10.1016/j.jeconom.2010.11.010>, Moon and Perron (2012)
+tests), multiple time series and panel data; see Smeekes and Wilms (2023)
+<doi:10.18637/jss.v106.i12>, Palm, Smeekes and Urbain (2008)
+<doi:10.1111/j.1467-9892.2007.00565.x>, Palm, Smeekes and Urbain (2011)
+<doi:10.1016/j.jeconom.2010.11.010>, Moon and Perron (2012)
 <doi:10.1016/j.jeconom.2012.01.008>, Smeekes and Taylor (2012)
 <doi:10.1017/S0266466611000387> and Smeekes (2015)
 <doi:10.1111/jtsa.12110> for key references.

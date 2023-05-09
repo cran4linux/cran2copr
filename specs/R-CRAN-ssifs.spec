@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssifs
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Search Inconsistency Factor Selection
 
@@ -17,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-netmeta 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-R2jags 
-BuildRequires:    R-CRAN-RevEcoR 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-netmeta 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-R2jags 
-Requires:         R-CRAN-RevEcoR 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-utils >= 4.2.0
+BuildRequires:    R-CRAN-gtools >= 3.9.2.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
+BuildRequires:    R-CRAN-netmeta >= 2.6.0
+BuildRequires:    R-CRAN-Rdpack >= 2.3
+BuildRequires:    R-CRAN-plyr >= 1.8.7
+BuildRequires:    R-CRAN-igraph >= 1.3.1
+BuildRequires:    R-CRAN-RevEcoR >= 0.99.3
+BuildRequires:    R-CRAN-R2jags >= 0.7.1
+Requires:         R-utils >= 4.2.0
+Requires:         R-CRAN-gtools >= 3.9.2.1
+Requires:         R-CRAN-ggplot2 >= 3.3.6
+Requires:         R-CRAN-netmeta >= 2.6.0
+Requires:         R-CRAN-Rdpack >= 2.3
+Requires:         R-CRAN-plyr >= 1.8.7
+Requires:         R-CRAN-igraph >= 1.3.1
+Requires:         R-CRAN-RevEcoR >= 0.99.3
+Requires:         R-CRAN-R2jags >= 0.7.1
 
 %description
 Evaluating the consistency assumption of Network Meta-Analysis both

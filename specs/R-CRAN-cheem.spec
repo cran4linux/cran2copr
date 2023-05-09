@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecan
-%global packver   0.2.0
+%global packname  cheem
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Analysis and Visualization
+Summary:          Interactively Explore Local Explanations with the Radial Tour
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,41 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-dave 
-BuildRequires:    R-CRAN-dendextend 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-spinifex >= 0.3.3
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-labdsv 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-dave 
-Requires:         R-CRAN-dendextend 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-conflicted 
+Requires:         R-CRAN-spinifex >= 0.3.3
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-labdsv 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-conflicted 
 
 %description
-Support ecological analyses such as ordination and clustering. Contains
-consistent and easy wrapper functions of 'stat', 'vegan', 'labdsv' and
-'dave' packages, and visualisation functions of ordination and clustering.
+Given a tree-based machine learning model, calculate the tree SHAP
+<arXiv:1802.03888>; <https://github.com/ModelOriented/treeshap> local
+explanation of every observation. View the data space, explanation space,
+and model residuals as ensemble graphic interactive on a shiny
+application. After an observation of interest is identified, the
+normalized variable importance of the local explanation is used as a 1D
+projection basis. The support of the local explanation is then explored by
+changing the basis with the use of the radial tour
+<doi:10.32614/RJ-2020-027>; <doi:10.1080/10618600.1997.10474754>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  switchSelection
-%global packver   1.0.1
+%global packname  ergMargins
+%global packver   0.1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Endogenous Switching and Sample Selection Regression Models
+Summary:          Process Analysis for Exponential Random Graph Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,24 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-hpa >= 1.3.1
-BuildRequires:    R-CRAN-mnorm >= 1.1.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-gena >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-hpa >= 1.3.1
-Requires:         R-CRAN-mnorm >= 1.1.1
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-gena >= 1.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ergm 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-btergm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-stats 
+Requires:         R-CRAN-ergm 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-btergm 
 
 %description
-Estimate the parameters of multivariate endogenous switching and sample
-selection models using methods described in Newey (2009)
-<doi:10.1111/j.1368-423X.2008.00263.x>, E. Kossova, B. Potanin (2018)
-<https:ideas.repec.org/a/ris/apltrx/0346.html>, E. Kossova, L.
-Kupriianova, B. Potanin (2020)
-<https://ideas.repec.org/a/ris/apltrx/0391.html> and E. Kossova, B.
-Potanin (2022) <https://ideas.repec.org/a/ris/apltrx/0455.html>.
+Calculates marginal effects and conducts process analysis in exponential
+family random graph models (ERGM). Includes functions to conduct mediation
+and moderation analyses and to diagnose multicollinearity. URL:
+<https://github.com/sduxbury/ergMargins>. BugReports:
+<https://github.com/sduxbury/ergMargins/issues>. Duxbury, Scott W (2021)
+<doi:10.1177/0049124120986178>. Long, J. Scott, and Sarah Mustillo (2018)
+<doi:10.1177/0049124118799374>. Mize, Trenton D. (2019)
+<doi:10.15195/v6.a4>. Karlson, Kristian Bernt, Anders Holm, and Richard
+Breen (2012) <doi:10.1177/0081175012444861>. Duxbury, Scott W (2018)
+<doi:10.1177/0049124118782543>. Duxbury, Scott W, Jenna Wertsching (2023)
+<doi:10.1016/j.socnet.2023.02.003>.
 
 %prep
 %setup -q -c -n %{packname}
