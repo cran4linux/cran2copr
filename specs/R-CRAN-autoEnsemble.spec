@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dsfa
-%global packver   2.0.1
+%global packname  autoEnsemble
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributional Stochastic Frontier Analysis
+Summary:          Automated Stacked Ensemble Classifier for Severe Class Imbalance
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,32 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-gratia 
-Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-gratia 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 4.3.0
+BuildRequires:    R-CRAN-h2o >= 3.34.0.0
+BuildRequires:    R-CRAN-h2otools >= 0.3
+Requires:         R-CRAN-curl >= 4.3.0
+Requires:         R-CRAN-h2o >= 3.34.0.0
+Requires:         R-CRAN-h2otools >= 0.3
 
 %description
-Framework to fit distributional stochastic frontier models. Casts the
-stochastic frontier model into the flexible framework of distributional
-regression or otherwise known as General Additive Models of Location,
-Scale and Shape (GAMLSS). Allows for linear, non-linear, random and
-spatial effects on all the parameters of the distribution of the output,
-e.g. effects on the production or cost function, heterogeneity of the
-noise and inefficiency. Available distributions are the normal-halfnormal
-and normal-exponential distribution. Estimation via the fast and reliable
-routines of the 'mgcv' package. For more details see Schmidt R, Kneib T
-(2022) <doi:10.48550/arXiv.2208.10294>.
+An AutoML algorithm is developed to construct homogeneous or heterogeneous
+stacked ensemble models using specified base-learners. Various criteria
+are employed to identify optimal models, enhancing diversity among them
+and resulting in more robust stacked ensembles. The algorithm optimizes
+the model by incorporating an increasing number of top-performing models
+to create a diverse combination. Presently, only models from 'h2o.ai' are
+supported.
 
 %prep
 %setup -q -c -n %{packname}

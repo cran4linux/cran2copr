@@ -1,32 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirai
-%global packver   0.8.4
+%global packname  simplace
+%global packver   5.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          5.0.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimalist Async Evaluation Framework for R
+Summary:          Interface to Use the Modelling Framework 'SIMPLACE'
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12
-Requires:         R-core >= 2.12
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 0.8.3
-Requires:         R-CRAN-nanonext >= 0.8.3
+BuildRequires:    R-CRAN-rJava >= 0.9.13
+Requires:         R-CRAN-rJava >= 0.9.13
 
 %description
-Lightweight parallel code execution and distributed computing. Designed
-for simplicity, a 'mirai' evaluates an R expression asynchronously, on
-local or network resources, resolving automatically upon completion.
-Features efficient task scheduling, scalability beyond R connection
-limits, and transports faster than TCP/IP for inter-process
-communications, courtesy of 'nanonext' and 'NNG' (Nanomsg Next Gen).
+Interface to interact with the modelling framework 'SIMPLACE' and to parse
+the results of simulations.
 
 %prep
 %setup -q -c -n %{packname}

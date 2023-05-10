@@ -1,47 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dsfa
-%global packver   2.0.1
+%global packname  tidygam
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributional Stochastic Frontier Analysis
+Summary:          Tidy Prediction and Plotting of Generalised Additive Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-gratia 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-gratia 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Framework to fit distributional stochastic frontier models. Casts the
-stochastic frontier model into the flexible framework of distributional
-regression or otherwise known as General Additive Models of Location,
-Scale and Shape (GAMLSS). Allows for linear, non-linear, random and
-spatial effects on all the parameters of the distribution of the output,
-e.g. effects on the production or cost function, heterogeneity of the
-noise and inefficiency. Available distributions are the normal-halfnormal
-and normal-exponential distribution. Estimation via the fast and reliable
-routines of the 'mgcv' package. For more details see Schmidt R, Kneib T
-(2022) <doi:10.48550/arXiv.2208.10294>.
+Provides functions that compute predictions from Generalised Additive
+Models (GAMs) fitted with 'mgcv' and return them as a tibble. These can be
+plotted with a generic plot()-method that uses 'ggplot2' or plotted as any
+other data frame. The main function is predict_gam().
 
 %prep
 %setup -q -c -n %{packname}

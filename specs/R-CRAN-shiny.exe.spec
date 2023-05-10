@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirai
-%global packver   0.8.4
+%global packname  shiny.exe
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimalist Async Evaluation Framework for R
+Summary:          Schedule a Task that Runs a shinyApp then Creates a Shortcut in Current Directory
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12
-Requires:         R-core >= 2.12
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 0.8.3
-Requires:         R-CRAN-nanonext >= 0.8.3
 
 %description
-Lightweight parallel code execution and distributed computing. Designed
-for simplicity, a 'mirai' evaluates an R expression asynchronously, on
-local or network resources, resolving automatically upon completion.
-Features efficient task scheduling, scalability beyond R connection
-limits, and transports faster than TCP/IP for inter-process
-communications, courtesy of 'nanonext' and 'NNG' (Nanomsg Next Gen).
+Launch an application by a simple click without opening R or RStudio. The
+package has 2 functions of which only one is essential in its use,
+shiny.exe(). It generates a script in the open shiny project then creates
+a task that executes this script. After creating the task, the function is
+responsible for creating a shortcut in the same folder that allows you to
+launch the task by clicking.If you set host = 'public', the application
+will be launched on the public server to which you are connected. Thus,
+all other devices connected to the same server will be able to access the
+application through the link of your 'IPv4' extended by the port. You can
+stop the application by leaving the terminal opened by the shortcut.
 
 %prep
 %setup -q -c -n %{packname}

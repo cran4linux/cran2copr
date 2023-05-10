@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirai
-%global packver   0.8.4
+%global packname  ZIPG
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimalist Async Evaluation Framework for R
+Summary:          Zero-Inflated Poisson-Gamma Regression
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12
-Requires:         R-core >= 2.12
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 0.8.3
-Requires:         R-CRAN-nanonext >= 0.8.3
+BuildRequires:    R-CRAN-optimr 
+BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-optimr 
+Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-MASS 
 
 %description
-Lightweight parallel code execution and distributed computing. Designed
-for simplicity, a 'mirai' evaluates an R expression asynchronously, on
-local or network resources, resolving automatically upon completion.
-Features efficient task scheduling, scalability beyond R connection
-limits, and transports faster than TCP/IP for inter-process
-communications, courtesy of 'nanonext' and 'NNG' (Nanomsg Next Gen).
+We provide a flexible Zero-inflated Poisson-Gamma Model (ZIPG) by
+connecting both the mean abundance and the variability to different
+covariates, and build valid statistical inference procedures for both
+parameter estimation and hypothesis testing. These functions can be used
+to analyze microbiome count data with zero-inflation and overdispersion.
+The model is discussed in Jiang et al (2023)
+<doi:10.1080/01621459.2022.2151447>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirai
-%global packver   0.8.4
+%global packname  ggplot2.utils
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimalist Async Evaluation Framework for R
+Summary:          Selected Utilities Extending 'ggplot2'
 
-License:          GPL (>= 3)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12
-Requires:         R-core >= 2.12
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 0.8.3
-Requires:         R-CRAN-nanonext >= 0.8.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-EnvStats 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-ggpp 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-EnvStats 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-ggpp 
 
 %description
-Lightweight parallel code execution and distributed computing. Designed
-for simplicity, a 'mirai' evaluates an R expression asynchronously, on
-local or network resources, resolving automatically upon completion.
-Features efficient task scheduling, scalability beyond R connection
-limits, and transports faster than TCP/IP for inter-process
-communications, courtesy of 'nanonext' and 'NNG' (Nanomsg Next Gen).
+Selected utilities, in particular 'geoms' and 'stats' functions, extending
+the 'ggplot2' package. Note that this package does not define the
+functions itself, but instead imports them from a collection of other
+packages and then exports them. These functions are tested as well to make
+sure that they work reliably. Currently, the selected functions are from
+'EnvStats' <doi:10.1007/978-1-4614-8456-1>, 'GGally'
+<doi:10.5281/zenodo.5009047> and 'ggpp'
+<https://CRAN.R-project.org/package=ggpp>.
 
 %prep
 %setup -q -c -n %{packname}

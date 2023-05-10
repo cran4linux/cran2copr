@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ACDC
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  WCluster
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Congruent Diversification Classes
+Summary:          Clustering and PCA with Weights, and Data Nuggets Clustering
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,33 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-latex2exp 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-latex2exp 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-datanugget >= 1.2.1
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cluster 
+Requires:         R-CRAN-datanugget >= 1.2.1
+Requires:         R-stats 
+Requires:         R-CRAN-cluster 
 
 %description
-Features tools for exploring congruent phylogenetic birth-death models. It
-can construct the pulled speciation- and net-diversification rates from a
-reference model. Given alternative speciation- or extinction rates, it can
-construct new models that are congruent with the reference model.
-Functionality is included to sample new rate functions, and to visualize
-the distribution of one congruence class. See also Louca & Pennell (2020)
-<doi:10.1038/s41586-020-2176-1>.
+K-means clustering, hierarchical clustering, and PCA with observational
+weights and/or variable weights. It also includes the corresponding
+functions for data nuggets which serve as representative samples of large
+datasets. Cherasia et al., (2022) <doi:10.1007/978-3-031-22687-8_20>.
+Amaratunga et al., (2009) <doi:10.1002/9780470317129>.
 
 %prep
 %setup -q -c -n %{packname}

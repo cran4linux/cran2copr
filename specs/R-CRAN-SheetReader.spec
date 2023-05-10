@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SheetReader
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse xlsx Files
 
@@ -22,8 +23,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.5
 Uses C++ via the 'Rcpp' package to parse modern Excel files ('.xlsx').
 Memory usage is kept minimal by decompressing only parts of the file at a
 time, while employing multiple threads to achieve significant runtime
-reduction. Uses <https://github.com/richgel999/miniz>,
-<https://github.com/ebiggers/libdeflate>, and
+reduction. Uses <https://github.com/richgel999/miniz> and
 <https://github.com/lemire/fast_double_parser>.
 
 %prep

@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  skilljaR
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to Your 'Skilljar' Data with R
+Summary:          Connect to Your 'Skilljar' Data
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,12 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-jsonlite >= 1.7.2
 BuildRequires:    R-CRAN-httr >= 1.4.2
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-jsonlite >= 1.7.2
 Requires:         R-CRAN-httr >= 1.4.2
-Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-purrr >= 0.3.4
 
 %description

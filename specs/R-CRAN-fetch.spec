@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirai
-%global packver   0.8.4
+%global packname  fetch
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimalist Async Evaluation Framework for R
+Summary:          Fetch Data from Various Data Sources
 
-License:          GPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12
-Requires:         R-core >= 2.12
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 0.8.3
-Requires:         R-CRAN-nanonext >= 0.8.3
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-foreign 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-foreign 
 
 %description
-Lightweight parallel code execution and distributed computing. Designed
-for simplicity, a 'mirai' evaluates an R expression asynchronously, on
-local or network resources, resolving automatically upon completion.
-Features efficient task scheduling, scalability beyond R connection
-limits, and transports faster than TCP/IP for inter-process
-communications, courtesy of 'nanonext' and 'NNG' (Nanomsg Next Gen).
+Contains functions to fetch data from various data sources. The user first
+creates a catalog of objects from a data source, then fetches data from
+the catalog.  The package provides an easy way to access data from many
+different types of sources.
 
 %prep
 %setup -q -c -n %{packname}
