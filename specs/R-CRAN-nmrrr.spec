@@ -1,28 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Peptides
-%global packver   2.4.5
+%global packname  nmrrr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices and Theoretical Physicochemical Properties of Protein Sequences
+Summary:          Binning and Visualizing NMR Spectra in Environmental Samples
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Includes functions to calculate several physicochemical properties and
-indices for amino-acid sequences as well as to read and plot 'XVG' output
-files from the 'GROMACS' molecular dynamics package.
+A reproducible workflow for binning and visualizing NMR (nuclear magnetic
+resonance) spectra from environmental samples. The 'nmrrr' package is
+intended for post-processing of NMR data, including importing, merging
+and, cleaning data from multiple files, visualizing NMR spectra,
+performing binning/integrations for compound classes, and relative
+abundance calculations. This package can be easily inserted into existing
+analysis workflows by users to help with analyzing and interpreting NMR
+data.
 
 %prep
 %setup -q -c -n %{packname}

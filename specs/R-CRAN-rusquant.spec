@@ -1,28 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Peptides
-%global packver   2.4.5
+%global packname  rusquant
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices and Theoretical Physicochemical Properties of Protein Sequences
+Summary:          Quantitative Trading Framework
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quantmod 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rvest 
+Requires:         R-CRAN-quantmod 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jose 
+Requires:         R-stats 
+Requires:         R-CRAN-rvest 
 
 %description
-Includes functions to calculate several physicochemical properties and
-indices for amino-acid sequences as well as to read and plot 'XVG' output
-files from the 'GROMACS' molecular dynamics package.
+Collection of functions to retrieve financial data from various sources,
+including brokerage and exchange platforms, financial websites, and data
+providers. Includes functions to retrieve account information, portfolio
+information, and place/cancel orders from different brokers. Additionally,
+allows users to download historical data such as earnings, dividends,
+stock splits.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SamplerCompare
-%global packver   1.3.4
+%global packname  vatcheckapi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Comparing the Performance of MCMC Samplers
+Summary:          Client for the 'vatcheckapi.com' VAT Validation API
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-A framework for running sets of MCMC samplers on sets of distributions
-with a variety of tuning parameters, along with plotting functions to
-visualize the results of those simulations.
+An R client for the 'vatcheckapi.com' VAT number validation API. The API
+requires registration of an API key. Basic features are free, some require
+a paid subscription. You can find the full API documentation at
+<https://vatcheckapi.com/docs> .
 
 %prep
 %setup -q -c -n %{packname}

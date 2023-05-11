@@ -1,28 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Peptides
-%global packver   2.4.5
+%global packname  qdapTools
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices and Theoretical Physicochemical Properties of Protein Sequences
+Summary:          Tools for the 'qdap' Package
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.9.6
+BuildRequires:    R-CRAN-chron 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-data.table >= 1.9.6
+Requires:         R-CRAN-chron 
+Requires:         R-methods 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-XML 
 
 %description
-Includes functions to calculate several physicochemical properties and
-indices for amino-acid sequences as well as to read and plot 'XVG' output
-files from the 'GROMACS' molecular dynamics package.
+A collection of tools associated with the 'qdap' package that may be
+useful outside of the context of text analysis.
 
 %prep
 %setup -q -c -n %{packname}

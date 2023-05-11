@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parquetize
-%global packver   0.5.5
+%global packver   0.5.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Files to Parquet Format
 
@@ -25,10 +25,12 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-fst 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-curl 
@@ -37,10 +39,12 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-tools 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-fst 
+Requires:         R-CRAN-dplyr 
 
 %description
 Collection of functions to get files in parquet format. Parquet is a

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rvg
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Graphics Devices for 'Office' Vector Graphics Output
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildRequires:    R-CRAN-xml2 >= 1.0.0
-BuildRequires:    R-CRAN-officer >= 0.5.1
-BuildRequires:    R-CRAN-gdtools >= 0.2.1
+BuildRequires:    R-CRAN-officer >= 0.6.2
+BuildRequires:    R-CRAN-gdtools >= 0.3.3
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-xml2 >= 1.0.0
-Requires:         R-CRAN-officer >= 0.5.1
-Requires:         R-CRAN-gdtools >= 0.2.1
+Requires:         R-CRAN-officer >= 0.6.2
+Requires:         R-CRAN-gdtools >= 0.3.3
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-grDevices 
 Requires:         R-CRAN-rlang 

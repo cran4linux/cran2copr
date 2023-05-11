@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlsr
-%global packver   2023.2.12
+%global packver   2023.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.2.12
+Version:          2023.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Nonlinear Least Squares Solutions - Updated 2022
 

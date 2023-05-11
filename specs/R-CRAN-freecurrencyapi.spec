@@ -1,28 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Peptides
-%global packver   2.4.5
+%global packname  freecurrencyapi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices and Theoretical Physicochemical Properties of Protein Sequences
+Summary:          Client for the 'freecurrencyapi.com' Currency Conversion API
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Includes functions to calculate several physicochemical properties and
-indices for amino-acid sequences as well as to read and plot 'XVG' output
-files from the 'GROMACS' molecular dynamics package.
+An R client for the 'freecurrencyapi.com' currency conversion API. The API
+requires registration of an API key. You can find the full API
+documentation at <https://freecurrencyapi.com/docs> .
 
 %prep
 %setup -q -c -n %{packname}

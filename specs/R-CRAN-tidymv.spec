@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidymv
-%global packver   3.3.2
+%global packver   3.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.2
+Version:          3.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Model Visualisation for Generalised Additive Models
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-rlang 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-rlang 

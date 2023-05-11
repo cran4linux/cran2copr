@@ -1,28 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Peptides
-%global packver   2.4.5
+%global packname  DataSetsUni
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices and Theoretical Physicochemical Properties of Protein Sequences
+Summary:          A Collection of Univariate Data Sets
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-Includes functions to calculate several physicochemical properties and
-indices for amino-acid sequences as well as to read and plot 'XVG' output
-files from the 'GROMACS' molecular dynamics package.
+A collection of widely used univariate data sets of various applied
+domains on applications of distribution theory. The functions allow
+researchers and practitioners to quickly, easily, and efficiently access
+and use these data sets. The data are related to different applied domains
+and as follows: Bio-medical, survival analysis, medicine, reliability
+analysis, hydrology, actuarial science, operational research, meteorology,
+extreme values, quality control, engineering, finance, sports and
+economics. The total 100 data sets are documented along with associated
+references for further details and uses.
 
 %prep
 %setup -q -c -n %{packname}

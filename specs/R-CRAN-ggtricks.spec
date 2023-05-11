@@ -1,44 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paropt
-%global packver   0.3
+%global packname  ggtricks
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parameter Optimizing of ODE-Systems
+Summary:          Create Sector and Other Charts Easily Using Grammar of Graphics
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
-BuildRequires:    R-CRAN-ast2ast 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dfdr 
-BuildRequires:    R-CRAN-RcppThread 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.4
-Requires:         R-CRAN-ast2ast 
-Requires:         R-methods 
-Requires:         R-CRAN-dfdr 
-Requires:         R-CRAN-RcppThread 
-Requires:         R-CRAN-rlang 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Enable optimization of parameters of ordinary differential equations.
-Therefore, using 'SUNDIALS' to solve the ODE-System (see Hindmarsh, Alan
-C., Peter N. Brown, Keith E. Grant, Steven L. Lee, Radu Serban, Dan E.
-Shumaker, and Carol S. Woodward. (2005) <doi:10.1145/1089014.1089020>).
-Furthermore, for optimization the particle swarm algorithm is used (see:
-Akman, Devin, Olcay Akman, and Elsa Schaefer. (2018)
-<doi:10.1155/2018/9160793> and Sengupta, Saptarshi, Sanchita Basak, and
-Richard Peters. (2018) <doi:10.3390/make1010010>).
+A collection of several geoms to create graphics, using 'ggplot2' and the
+Cartesian coordinate system. You use the familiar mapping 'Grammar of
+Graphics' without the need to do another transformation into polar
+coordinates.
 
 %prep
 %setup -q -c -n %{packname}

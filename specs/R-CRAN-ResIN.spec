@@ -1,49 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WebPower
-%global packver   0.9.2
+%global packname  ResIN
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic and Advanced Statistical Power Analysis
+Summary:          Response Item Networks ('ResIN')
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.5
-Requires:         R-core >= 3.2.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-PearsonDS 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-lavaan 
-Requires:         R-parallel 
-Requires:         R-CRAN-PearsonDS 
-Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
+BuildRequires:    R-CRAN-wCorr >= 1.9.6
+BuildRequires:    R-CRAN-qgraph >= 1.9.4
+BuildRequires:    R-CRAN-fastDummies >= 1.6.3
+BuildRequires:    R-CRAN-igraph >= 1.4.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-DirectedClustering >= 0.1.1
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 >= 3.4.2
+Requires:         R-CRAN-wCorr >= 1.9.6
+Requires:         R-CRAN-qgraph >= 1.9.4
+Requires:         R-CRAN-fastDummies >= 1.6.3
+Requires:         R-CRAN-igraph >= 1.4.2
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-DirectedClustering >= 0.1.1
+Requires:         R-CRAN-Matrix 
 
 %description
-This is a collection of tools for conducting both basic and advanced
-statistical power analysis including correlation, proportion, t-test,
-one-way ANOVA, two-way ANOVA, linear regression, logistic regression,
-Poisson regression, mediation analysis, longitudinal data analysis,
-structural equation modeling and multilevel modeling. It also serves as
-the engine for conducting power analysis online at
-<https://webpower.psychstat.org>.
+Contains various tools to perform and visualize Response Item Networks
+('ResIN's'). 'ResIN' binarizes ordered-categorical and qualitative
+response choices from (survey) data, calculates pairwise associations and
+maps the location of each item response as a node in a force-directed
+network. Please refer to <https://www.resinmethod.net/> for more details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dynamite
-%global packver   1.3.3
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Modeling and Causal Inference for Multivariate Longitudinal Data
 
@@ -55,7 +55,8 @@ and Tikka (2022) <doi:10.31235/osf.io/mdwu5>. The package supports joint
 modeling of multiple measurements per individual, time-varying and
 time-invariant effects, and a wide range of discrete and continuous
 distributions. Estimation of these dynamic multivariate panel models is
-carried out via 'Stan'.
+carried out via 'Stan'. For an in-depth tutorial of the package, see
+(Tikka and Helske, 2023) <arxiv:2302.01607>.
 
 %prep
 %setup -q -c -n %{packname}
