@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Qindex
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile-Based Predictors for Survival Outcome
+Summary:          Continuous and Dichotomized Index Predictors Based on Distribution Quantiles
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-mgcv 
 Requires:         R-grDevices 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-rpart 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
-Select optimal quantile-based predictors for survival outcome, to include
-the means to handle dichotomizing the quantiles, mean-signal-intensity or
-other continuous markers, and to obtain estimates for dichotomized
-predictors by Bootstrap-based bias correction.
+Select optimal functional regression or dichotomized quantile predictors
+for survival/logistic/numeric outcome and perform optimistic bias
+correction for any optimally dichotomized numeric predictor(s), as in Yi,
+et. al. (2023) <doi:10.1016/j.labinv.2023.100158>.
 
 %prep
 %setup -q -c -n %{packname}

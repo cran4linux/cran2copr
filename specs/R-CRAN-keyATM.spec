@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  keyATM
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Keyword Assisted Topic Models
 
@@ -14,13 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-cli >= 3.6.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-quanteda >= 2.0.0
-BuildRequires:    R-CRAN-scales >= 1.2.1
+BuildRequires:    R-CRAN-quanteda >= 3.3.0
+BuildRequires:    R-CRAN-fs >= 1.6.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-matrixNormal >= 0.1.0
@@ -31,17 +34,17 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-pgdraw 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-cli >= 3.6.1
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-quanteda >= 2.0.0
-Requires:         R-CRAN-scales >= 1.2.1
+Requires:         R-CRAN-quanteda >= 3.3.0
+Requires:         R-CRAN-fs >= 1.6.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-matrixNormal >= 0.1.0
@@ -52,8 +55,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-pgdraw 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 
@@ -63,7 +64,8 @@ samplers. The keyATM combines the latent dirichlet allocation (LDA) models
 with a small number of keywords selected by researchers in order to
 improve the interpretability and topic classification of the LDA. The
 keyATM can also incorporate covariates and directly model time trends. The
-keyATM is proposed in Eshima, Imai, and Sasaki (2020) <arXiv:2004.05964>.
+keyATM is proposed in Eshima, Imai, and Sasaki (2023)
+<doi:10.1111/ajps.12779>.
 
 %prep
 %setup -q -c -n %{packname}

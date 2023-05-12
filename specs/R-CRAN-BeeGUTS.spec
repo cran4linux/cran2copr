@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BeeGUTS
-%global packver   1.0.0
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Unified Threshold Model of Survival for Bees using Bayesian Inference
 
@@ -54,10 +54,10 @@ Requires:         R-CRAN-rstantools
 Tools to calibrate, validate, and make predictions with the General
 Unified Threshold model of Survival adapted for Bee species. The model is
 presented in the publication from Baas, J., Goussen, B., Miles, M.,
-Preuss, T.G., Roessing, I. (submitted) and is based on the GUTS framework
-Jager, T., Albert, C., Preuss, T.G. and Ashauer, R. (2011)
-<doi:10.1021/es103092a>. The authors are grateful to Bayer A.G. for its
-financial support.
+Preuss, T.G., Roessing, I. (2022) <doi:10.1002/etc.5423> and is based on
+the GUTS framework Jager, T., Albert, C., Preuss, T.G. and Ashauer, R.
+(2011) <doi:10.1021/es103092a>. The authors are grateful to Bayer A.G. for
+its financial support.
 
 %prep
 %setup -q -c -n %{packname}

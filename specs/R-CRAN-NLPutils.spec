@@ -1,36 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  D3mirt
-%global packver   1.0.3
+%global packname  NLPutils
+%global packver   0.0-5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descriptive 3D Multidimensional Item Response Theory Modeling
+Summary:          Natural Language Processing Utilities
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgl >= 1.0.1
-BuildRequires:    R-CRAN-mirt 
-Requires:         R-CRAN-rgl >= 1.0.1
-Requires:         R-CRAN-mirt 
+BuildRequires:    R-CRAN-NLP >= 0.1.11.3
+BuildRequires:    R-CRAN-SnowballC 
+BuildRequires:    R-CRAN-qdap 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-NLP >= 0.1.11.3
+Requires:         R-CRAN-SnowballC 
+Requires:         R-CRAN-qdap 
+Requires:         R-utils 
 
 %description
-The 'D3mirt' package is used for identifying, estimating, and plotting
-descriptive multidimensional item response theory models, restricted to 3D
-and dichotomous or polytomous data that fit the two-parameter logistic
-model or the graded response model. The method is foremost explorative and
-centered around the plot function that exposes item characteristics and
-constructs, represented by vector arrows, located in a three-dimensional
-interactive space. The results can be useful for item-level analysis as
-well as test development.
+Utilities for Natural Language Processing.
 
 %prep
 %setup -q -c -n %{packname}

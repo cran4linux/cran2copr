@@ -1,36 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  D3mirt
-%global packver   1.0.3
+%global packname  blaster
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descriptive 3D Multidimensional Item Response Theory Modeling
+Summary:          Native R Implementation of an Efficient BLAST-Like Algorithm
 
-License:          GPL (>= 3)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rgl >= 1.0.1
-BuildRequires:    R-CRAN-mirt 
-Requires:         R-CRAN-rgl >= 1.0.1
-Requires:         R-CRAN-mirt 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-The 'D3mirt' package is used for identifying, estimating, and plotting
-descriptive multidimensional item response theory models, restricted to 3D
-and dichotomous or polytomous data that fit the two-parameter logistic
-model or the graded response model. The method is foremost explorative and
-centered around the plot function that exposes item characteristics and
-constructs, represented by vector arrows, located in a three-dimensional
-interactive space. The results can be useful for item-level analysis as
-well as test development.
+Implementation of an efficient BLAST-like sequence comparison algorithm,
+written in 'C++11' and using native R datatypes. Blaster is based on
+'nsearch' - Schmid et al (2018) <doi:10.1101/399782>.
 
 %prep
 %setup -q -c -n %{packname}

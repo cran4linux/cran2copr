@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  D3mirt
-%global packver   1.0.3
+%global packname  ggflowchart
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descriptive 3D Multidimensional Item Response Theory Modeling
+Summary:          Flowcharts with 'ggplot2'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgl >= 1.0.1
-BuildRequires:    R-CRAN-mirt 
-Requires:         R-CRAN-rgl >= 1.0.1
-Requires:         R-CRAN-mirt 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-The 'D3mirt' package is used for identifying, estimating, and plotting
-descriptive multidimensional item response theory models, restricted to 3D
-and dichotomous or polytomous data that fit the two-parameter logistic
-model or the graded response model. The method is foremost explorative and
-centered around the plot function that exposes item characteristics and
-constructs, represented by vector arrows, located in a three-dimensional
-interactive space. The results can be useful for item-level analysis as
-well as test development.
+Flowcharts can be a useful way to visualise complex processes. This
+package uses the layered grammar of graphics of 'ggplot2' to create simple
+flowcharts.
 
 %prep
 %setup -q -c -n %{packname}

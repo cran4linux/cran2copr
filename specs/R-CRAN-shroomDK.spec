@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shroomDK
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accessing the Flipside Crypto ShroomDK REST API
+Summary:          Accessing the Flipside Crypto ShroomDK API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,10 +23,10 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-httr 
 
 %description
-Programmatic access to Flipside Crypto data via the REST API:
-<https://sdk.flipsidecrypto.xyz/shroomdk>. As simple as
-auto_paginate_query() but with core functions as needed for
-troubleshooting.
+Programmatic access to Flipside Crypto data via the Compass RPC API:
+<https://api-docs.flipsidecrypto.xyz/>. As simple as auto_paginate_query()
+but with core functions as needed for troubleshooting. Note, 0.1.1 support
+deprecated 2023-05-31.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmstat4
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to Teaching Materials from a ZIP File or GitHub
 
@@ -37,7 +37,8 @@ materials are stored on the Internet as a ZIP file (e.g., in a GitHub
 repository) and can be downloaded and displayed or run locally. The
 content of the ZIP file is temporarily or permanently stored. By default,
 the package uses the GitHub repository 'sigbertklinke/mmstat4.data.'
-Additionally, the package includes some auxiliary functions.
+Additionally, the package includes 'association_measures.R' from the
+archived package 'ryouready' by Mark Heckman and some auxiliary functions.
 
 %prep
 %setup -q -c -n %{packname}

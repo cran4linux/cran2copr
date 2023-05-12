@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sommer
-%global packver   4.2.1.2
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.1.2
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solving Mixed Model Equations in R
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.19
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
@@ -30,7 +29,6 @@ Requires:         R-CRAN-Rcpp >= 0.12.19
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-crayon 
 
 %description

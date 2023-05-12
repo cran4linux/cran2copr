@@ -1,52 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  matchMulti
-%global packver   1.1.12
+%global packname  pressuRe
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Multilevel Matching using a Network Algorithm
+Summary:          Imports, Processes, and Visualizes Biomechanical Pressure Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rcbsubset >= 1.1.4
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-coin 
-BuildRequires:    R-CRAN-weights 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-ggmap 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-rcbsubset >= 1.1.4
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-coin 
-Requires:         R-CRAN-weights 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-ggmap 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magick 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-zoo 
 
 %description
-Performs multilevel matches for data with cluster- level treatments and
-individual-level outcomes using a network optimization algorithm.
-Functions for checking balance at the cluster and individual levels are
-also provided, as are methods for permutation-inference-based outcome
-analysis.  Details in Pimentel et al. (2018) <doi:10.1214/17-AOAS1118>.
-The optmatch package, which is useful for running many of the provided
-functions, may be downloaded from Github at
-<https://github.com/markmfredrickson/optmatch> if not available on CRAN.
+Allows biomechanical pressure data from a range of systems to be imported
+and processed in a reproducible manner. Automatic and manual tools are
+included to let the user define regions (masks) to be analyzed. Also
+includes functions for visualizing and animating pressure data. Example
+methods are described in Shi et al., (2022)
+<doi:10.1038/s41598-022-19814-0>, Lee et al., (2014)
+<doi:10.1186/1757-1146-7-18>, van der Zward et al., (2014)
+<doi:10.1186/1757-1146-7-20>, and Najafi et al., (2010)
+<doi:10.1016/j.gaitpost.2009.09.003>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  photosynthesis
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Plant Ecophysiology & Modeling
 
@@ -25,6 +25,7 @@ BuildRequires:    R-methods >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-nlme >= 3.1.147
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-readr >= 2.0.0
 BuildRequires:    R-CRAN-magrittr >= 1.5.0
 BuildRequires:    R-CRAN-glue >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
@@ -47,6 +48,7 @@ Requires:         R-methods >= 3.5.0
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-nlme >= 3.1.147
 Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-readr >= 2.0.0
 Requires:         R-CRAN-magrittr >= 1.5.0
 Requires:         R-CRAN-glue >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
