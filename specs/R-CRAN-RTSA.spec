@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tzdb
-%global packver   0.4.0
+%global packname  RTSA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Zone Database Information
+Summary:          'Trial Sequential Analysis' for Error Control and Inference in Sequential Meta-Analyses
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-cpp11 >= 0.4.2
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-stats 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 
 %description
-Provides an up-to-date copy of the Internet Assigned Numbers Authority
-(IANA) Time Zone Database. It is updated periodically to reflect changes
-made by political bodies to time zone boundaries, UTC offsets, and
-daylight saving time rules. Additionally, this package provides a C++
-interface for working with the 'date' library. 'date' provides
-comprehensive support for working with dates and date-times, which this
-package exposes to make it easier for other R packages to utilize. Headers
-are provided for calendar specific calculations, along with a limited
-interface for time zone manipulations.
+Frequentist meta-analysis and sequential meta-analysis based on 'Trial
+Sequential Analysis' (TSA) by Copenhagen Trial Unit (CTU). Primary usage
+is the calculation of group sequential designs for meta-analysis to be
+used for planning and analysis of both prospective and retrospective
+sequential meta-analyses to preserve type-I-error control under sequential
+testing. 'RTSA' includes tools for sample and trial size calculation for
+meta-analysis and core meta-analyses methods such as fixed-effect and
+random-effects models and forest plots. TSA is described in Wetterslev et.
+al (2008) <doi:10.1016/j.jclinepi.2007.03.013>. The methods for deriving
+the group sequential designs are based on Jennison and Turnbull (1999,
+ISBN:9780849303166).
 
 %prep
 %setup -q -c -n %{packname}

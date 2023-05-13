@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RMediation
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediation Analysis Confidence Intervals
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3
-BuildRequires:    R-grDevices >= 4.3
 BuildRequires:    R-base >= 3.5.0
 BuildRequires:    R-stats >= 3.5.0
 BuildRequires:    R-graphics >= 3.5.0
 BuildRequires:    R-methods >= 3.5.0
+BuildRequires:    R-grDevices >= 3.5
 BuildRequires:    R-CRAN-OpenMx >= 2.13
 BuildRequires:    R-CRAN-e1071 >= 1.6.7
 BuildRequires:    R-CRAN-foreach >= 1.5.0
@@ -32,11 +32,11 @@ BuildRequires:    R-CRAN-iterators >= 1.0.0
 BuildRequires:    R-CRAN-lavaan >= 0.5.20
 BuildRequires:    R-CRAN-modelr >= 0.1.4
 Requires:         R-CRAN-MASS >= 7.3
-Requires:         R-grDevices >= 4.3
 Requires:         R-base >= 3.5.0
 Requires:         R-stats >= 3.5.0
 Requires:         R-graphics >= 3.5.0
 Requires:         R-methods >= 3.5.0
+Requires:         R-grDevices >= 3.5
 Requires:         R-CRAN-OpenMx >= 2.13
 Requires:         R-CRAN-e1071 >= 1.6.7
 Requires:         R-CRAN-foreach >= 1.5.0

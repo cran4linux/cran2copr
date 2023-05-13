@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3misc
-%global packver   0.12.0
+%global packname  jewel
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for 'mlr3'
+Summary:          Graphical Models Estimation from Multiple Sources
 
-License:          LGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-backports >= 0.1.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-backports >= 0.1.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-SMUT 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-SMUT 
+Requires:         R-CRAN-igraph 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
 
 %description
-Frequently used helper functions and assertions used in 'mlr3' and its
-companion packages. Comes with helper functions for functional
-programming, for printing, to work with 'data.table', as well as some
-generally useful 'R6' classes. This package also supersedes the package
-'BBmisc'.
+Estimates networks of conditional dependencies (Gaussian graphical models)
+from multiple classes of data (similar but not exactly, i.e. measurements
+on different equipment, in different locations or for various sub-types).
+Package also allows to generate simulation data and evaluate the
+performance. Implementation of the method described in Angelini, De
+Canditiis and Plaksienko (2022) <doi:10.3390/math10213983>.
 
 %prep
 %setup -q -c -n %{packname}

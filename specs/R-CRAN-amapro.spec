@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  amapro
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thin Wrapper for Mapping Library 'AMap' by 'AutoNavi'
+Summary:          Thin Wrapper for Mapping Library 'AMap'
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,10 +18,8 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-tcltk >= 4.1.0
-BuildRequires:    R-CRAN-shiny >= 1.7.0
 BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-tcltk >= 4.1.0
-Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-htmlwidgets 
 
 %description

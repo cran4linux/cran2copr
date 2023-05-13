@@ -1,40 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3misc
-%global packver   0.12.0
+%global packname  traitstrap
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for 'mlr3'
+Summary:          Bootstrap Trait Values to Calculate Moments
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-backports >= 0.1.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-backports >= 0.1.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-tidyr 
 
 %description
-Frequently used helper functions and assertions used in 'mlr3' and its
-companion packages. Comes with helper functions for functional
-programming, for printing, to work with 'data.table', as well as some
-generally useful 'R6' classes. This package also supersedes the package
-'BBmisc'.
+Calculates trait moments from trait and community data using the methods
+developed in Maitner et al (2021) <doi:10.22541/au.162196147.76797968/v1>.
 
 %prep
 %setup -q -c -n %{packname}

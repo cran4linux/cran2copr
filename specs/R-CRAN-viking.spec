@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  viking
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          State-Space Models Inference by Kalman or Viking
 
@@ -21,7 +21,7 @@ BuildArch:        noarch
 %description
 Inference methods for state-space models, relying on the Kalman Filter or
 on Viking (Variational Bayesian VarIance tracKING). See J. de Vilmarest
-(2022) <https://tel.archives-ouvertes.fr/tel-03716104/>.
+(2022) <https://theses.hal.science/tel-03716104/>.
 
 %prep
 %setup -q -c -n %{packname}

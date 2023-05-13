@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3misc
-%global packver   0.12.0
+%global packname  Tex4exams
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for 'mlr3'
+Summary:          Generating 'Sweave' Code for 'R/exams' Questions in Mathematics
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-backports >= 0.1.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-backports >= 0.1.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-numbers 
+BuildRequires:    R-CRAN-fractional 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-polynom 
+Requires:         R-CRAN-numbers 
+Requires:         R-CRAN-fractional 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-polynom 
 
 %description
-Frequently used helper functions and assertions used in 'mlr3' and its
-companion packages. Comes with helper functions for functional
-programming, for printing, to work with 'data.table', as well as some
-generally useful 'R6' classes. This package also supersedes the package
-'BBmisc'.
+When using the R package 'exams' to write mathematics questions in
+'Sweave' files, the output of a lot of R functions need to be adjusted for
+display in mathematical formulas. Specifically, the functions were
+accumulated when writing questions for the topics of the mathematics
+courses College Algebra, Precalculus, Calculus, Differential Equations,
+Introduction to Probability, and Linear Algebra.  The output of the
+developed functions can be used in 'Sweave' files.
 
 %prep
 %setup -q -c -n %{packname}
