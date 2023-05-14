@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fairml
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fair Models in Machine Learning
 
@@ -18,12 +18,8 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-optiSolve 
-BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-glmnet 
 Requires:         R-methods 
-Requires:         R-CRAN-optiSolve 
-Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-glmnet 
 
 %description
@@ -32,7 +28,9 @@ into account in model estimation. Currently implementing Komiyama et al.
 (2018) <http://proceedings.mlr.press/v80/komiyama18a/komiyama18a.pdf>,
 Zafar et al. (2019)
 <https://www.jmlr.org/papers/volume20/18-262/18-262.pdf> and my own
-approach that uses ridge regression to enforce fairness.
+approach from Scutari, Panero and Proissl (2022)
+<https://link.springer.com/content/pdf/10.1007/s11222-022-10143-w.pdf>
+that uses ridge regression to enforce fairness.
 
 %prep
 %setup -q -c -n %{packname}

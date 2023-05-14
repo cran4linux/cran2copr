@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EBglmnet
-%global packver   5.2
+%global packver   5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2
+Version:          5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Bayesian Lasso and Elastic Net Methods for Generalized Linear Models
 

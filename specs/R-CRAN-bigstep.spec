@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  esreg
-%global packver   0.6.2
+%global packname  bigstep
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Joint Quantile and Expected Shortfall Regression
+Summary:          Stepwise Selection for Large Data Sets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-speedglm 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-bigmemory 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-RcppEigen 
+Requires:         R-CRAN-speedglm 
 Requires:         R-stats 
-Requires:         R-CRAN-Formula 
+Requires:         R-utils 
 
 %description
-Simultaneous modeling of the quantile and the expected shortfall of a
-response variable given a set of covariates, see Dimitriadis and Bayer
-(2019) <doi:10.1214/19-EJS1560>.
+Selecting linear and generalized linear models for large data sets using
+modified stepwise procedure and modern selection criteria (like
+modifications of Bayesian Information Criterion). Selection can be
+performed on data which exceed RAM capacity. Bogdan et al., (2004)
+<doi:10.1534/genetics.103.021683>.
 
 %prep
 %setup -q -c -n %{packname}

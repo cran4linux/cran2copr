@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ReadDIM
-%global packver   0.2.10
+%global packver   0.2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.2.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read ESA SNAP Processed Raster Format in R
 
@@ -18,14 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-sp 
 
 %description
 It helps you to read (.dim) images with CRS directly into R programming.
@@ -35,9 +30,15 @@ this software.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -47,6 +48,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

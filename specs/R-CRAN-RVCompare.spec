@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RVCompare
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compare Real Valued Random Variables
 
@@ -29,17 +30,14 @@ Requires:         R-CRAN-pracma >= 2.2.2
 Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-A framework with tools to compare two random variables, and determine
-which of takes produces lower values. See the README.md at
-<https://github.com/EtorArza/RVCompare> for a quick start guide. It can
-compute the Cp and Cd of two probability distributions, as explained in E.
-Arza (2021) <doi:10.48550/arXiv.2203.07889>. Given the observed samples of
-two random variables X_A and X_B, it can compute the cumulative
-difference-plot (see E. Arza (2021) <> for details). Uses bootstrap and
-DKW-bounds to compute the confidence bands of the cumulative
-distributions. These two methods are described in B. Efron. (1979)
-<doi:10.1214/aos/1176344552> and P. Massart (1990)
-<doi:10.1214/aop/1176990746>.
+A framework with tools to compare two random variables via stochastic
+dominance. See the README.md at <https://github.com/EtorArza/RVCompare>
+for a quick start guide. It can compute the Cp and Cd of two probability
+distributions and the Cumulative Difference Plot as explained in E. Arza
+(2022) <doi:10.1080/10618600.2022.2084405>. Uses bootstrap or DKW-bounds
+to compute the confidence bands of the cumulative distributions. These two
+methods are described in B. Efron. (1979) <doi:10.1214/aos/1176344552> and
+P. Massart (1990) <doi:10.1214/aop/1176990746>.
 
 %prep
 %setup -q -c -n %{packname}

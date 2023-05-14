@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggdist
-%global packver   3.2.1
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations of Distributions and Uncertainty
 
@@ -19,12 +19,12 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-distributional >= 0.3.2
 BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-distributional >= 0.3.0
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-HDInterval 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
@@ -33,12 +33,12 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-quadprog 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-distributional >= 0.3.2
 Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-distributional >= 0.3.0
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-scales 
 Requires:         R-grid 
-Requires:         R-CRAN-HDInterval 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-withr 
