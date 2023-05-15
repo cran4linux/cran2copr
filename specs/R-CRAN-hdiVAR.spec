@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hdiVAR
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference for Noisy Vector Autoregression
 
@@ -28,8 +29,8 @@ expectation-maximization algorithm is provided for the estimation of
 transition matrix and noise variances. Global and simultaneous testings
 are implemented for transition matrix with false discovery rate control.
 For more information, see the accompanying paper: Lyu, X., Kang, J., & Li,
-L. (2020). "Statistical inference for high-dimensional vector
-autoregression with measurement error", arXiv preprint <arXiv:2009.08011>.
+L. (2023). "Statistical inference for high-dimensional vector
+autoregression with measurement error", Statistica Sinica.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

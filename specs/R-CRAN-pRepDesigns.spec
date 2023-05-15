@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pRepDesigns
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partially Replicated (p-Rep) Designs
 
@@ -25,19 +25,19 @@ each environment due to scarcity of resources. For such situations,
 partially replicated (p-Rep) designs have wide application potential as
 only a proportion of the test lines are replicated at each environment. A
 collection of several utility functions related to p-Rep designs have been
-developed. Here, the package contains four functions for a complete
-stepwise analytical study of these designs. Three functions pRep1(),
-pRep2() and pRep3() are used to generate three new series of p-Rep designs
-and also compute canonical efficiency factors, variance factors between
-associates and average variance factors of these designs. A fourth
-function NCEV() is used to generate incidence matrix (N), information
-matrix (C), canonical efficiency factor (E) and average variance factor
-(V). This function is general in nature and can be used for studying the
-characterization properties of any block design.A construction procedure
-for p-Rep designs was given by Williams et
-al.(2011)<doi:10.1002/bimj.201000102> which was tidious and time
-consuming. Here, in this package, three different methods have been given
-to generate p-Rep designs easily.
+developed. Here, the package contains six functions for a complete
+stepwise analytical study of these designs. Five functions pRep1(),
+pRep2(), pRep3(), pRep4() and pRep5(), are used to generate five new
+series of p-Rep designs and also compute average variance factors and
+canonical efficiency factors of generated designs. A fourth function
+NCEV() is used to generate incidence matrix (N), information matrix (C),
+canonical efficiency factor (E) and average variance factor (V). This
+function is general in nature and can be used for studying the
+characterization properties of any block design. A construction procedure
+for p-Rep designs was given by Williams et al.(2011)
+<doi:10.1002/bimj.201000102> which was tedious and time consuming. Here,
+in this package, five different methods have been given to generate p-Rep
+designs easily.
 
 %prep
 %setup -q -c -n %{packname}
