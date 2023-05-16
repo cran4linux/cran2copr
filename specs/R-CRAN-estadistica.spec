@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  estadistica
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fundamentos De Estadistica Descriptiva e Inferencial
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-plotly 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-shinydashboard
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-forecast 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-plotly 

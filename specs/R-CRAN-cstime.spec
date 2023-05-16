@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cstime
-%global packver   2022.11.22
+%global packver   2023.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.11.22
+Version:          2023.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Date and Time Functions for Public Health Purposes
 
@@ -18,15 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
 
 %description
 Provides easy and consistent time conversion for public health purposes.

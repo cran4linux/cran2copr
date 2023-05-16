@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smdocker
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build 'Docker Images' in 'Amazon SageMaker Studio' using 'Amazon Web Service CodeBuild'
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-paws.security.identity
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-paws.compute 
 Requires:         R-CRAN-paws.developer.tools 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-paws.security.identity
 Requires:         R-CRAN-zip 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-uuid 
 
 %description
 Allows users to easily build custom 'docker images'

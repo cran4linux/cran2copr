@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VarReg
-%global packver   2.0
+%global packname  boostingDEA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Parametric Variance Regression
+Summary:          A Boosting Approach to Data Envelopment Analysis
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lpSolveAPI 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-utils 
-Requires:         R-splines 
+BuildRequires:    R-CRAN-MLmetrics 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lpSolveAPI 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-survival 
-Requires:         R-utils 
+Requires:         R-CRAN-MLmetrics 
+Requires:         R-methods 
 
 %description
-Methods for fitting semi-parametric mean and variance models, with normal
-or censored data. Extended to allow a regression in the location, scale
-and shape parameters, and further for multiple regression in each.
+Includes functions to estimate production frontiers and make ideal output
+predictions in the Data Envelopment Analysis (DEA) context using both
+standard models from DEA and Free Disposal Hull (FDH) and boosting
+techniques. In particular, EATBoosting (Guillen et al., 2023
+<doi:10.1016/j.eswa.2022.119134>) and MARSBoosting. Moreover, the package
+includes code for estimating several technical efficiency measures using
+different models such as the input and output-oriented radial measures,
+the input and output-oriented Russell measures, the Directional Distance
+Function (DDF), the Weighted Additive Measure (WAM) and the Slacks-Based
+Measure (SBM).
 
 %prep
 %setup -q -c -n %{packname}

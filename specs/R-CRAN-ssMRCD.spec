@@ -1,51 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  archeoViz
-%global packver   1.1.1
+%global packname  ssMRCD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualisation, Exploration, and Web Communication of Archaeological Spatial Data
+Summary:          Spatially Smoothed MRCD Estimator
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-cxhull 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-svglite 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-knitr 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-cxhull 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-svglite 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-knitr 
 
 %description
-An R 'Shiny' application for the visualisation, interactive exploration,
-and web communication of archaeological excavation data. It includes
-interactive 3D and 2D visualisations, generation of cross sections and
-maps of the remains, basic spatial analysis methods (convex hull,
-regression surfaces, 2D kernel density estimation), and excavation
-timeline visualisation. 'archeoViz' can be used locally or deployed on a
-server, either with interactive input of data or with a static data set.
+Estimation of the Spatially Smoothed Minimum Regularized Determinant
+(ssMRCD) estimator and its usage in an ssMRCD-based outlier detection
+method as described in Puchhammer and Filzmoser (2023)
+<doi:10.48550/arXiv.2305.05371>. Included are also complementary
+visualization and parameter tuning tools.
 
 %prep
 %setup -q -c -n %{packname}

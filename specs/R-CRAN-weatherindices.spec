@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tensorFun
-%global packver   0.1.1
+%global packname  weatherindices
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Functions to Handle Tensor Data in Array Class
+Summary:          Calculate Weather Indices
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ClimProjDiags 
-BuildRequires:    R-CRAN-psychTools 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-ClimProjDiags 
-Requires:         R-CRAN-psychTools 
-Requires:         R-CRAN-MASS 
 
 %description
-Basic functions to handle higher-order tensor data. See Kolda and Bader
-(2009) <doi:10.1137/07070111X> for details on tensor. While existing
-packages on tensor data extend the base 'array' class to some S4 classes,
-this package serves as an alternative resort to handle tensor only as
-'array' class. Some functionalities related to missingness and
-rearrangement, discussed in Bai and Ng (2021) <arXiv:1910.06677>, are also
-supported.
+Weather indices represent the overall weekly effect of a weather variable
+on crop yield throughout the cropping season. This package contains
+functions that can convert the weekly weather data into yearly weighted
+Weather indices with weights being the correlation coefficient between
+weekly weather data over the years and crop yield over the years. This can
+be done for an individual weather variable and for two weather variables
+at a time as the interaction effect. This method was first devised by
+Jain, RC, Agrawal R, and Jha, MP (1980), "Effect of climatic variables on
+rice yield and its forecast",MAUSAM, 31(4), 591–596,
+<doi:10.54302/mausam.v31i4.3477>. Later, the method have been used by
+various researchers and the latest can found in Gupta, AK, Sarkar, KA,
+Dhakre, DS, & Bhattacharya, D (2022), "Weather Based Potato Yield
+Modelling using Statistical and Machine Learning Technique",Environment
+and Ecology, 40(3B),
+1444–1449,<https://www.environmentandecology.com/volume-40-2022>.
 
 %prep
 %setup -q -c -n %{packname}

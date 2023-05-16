@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MCPModBC
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Improved Inference in Multiple Comparison Procedure – Modelling
 
@@ -39,8 +39,8 @@ Requires:         R-CRAN-rlang
 %description
 Implementation of Multiple Comparison Procedures with Modeling (MCP-Mod)
 procedure with bias-corrected estimators and second-order covariance
-matrices as described in Diniz, Gallardo and Magalhães (2023)
-<doi:10.48550/arXiv.2301.00325>.
+matrices as described in Diniz, Gallardo and Magalhaes (2023)
+<doi:10.1002/pst.2303>.
 
 %prep
 %setup -q -c -n %{packname}

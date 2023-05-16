@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eventPred
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Event Prediction
 
@@ -22,6 +22,7 @@ BuildRequires:    R-splines >= 3.5.0
 BuildRequires:    R-stats >= 3.5.0
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
 BuildRequires:    R-CRAN-survival >= 2.41.3
+BuildRequires:    R-CRAN-flexsurv >= 2.2.2
 BuildRequires:    R-CRAN-rstpm2 >= 1.6.1
 BuildRequires:    R-CRAN-Matrix >= 1.2.14
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
@@ -34,6 +35,7 @@ Requires:         R-splines >= 3.5.0
 Requires:         R-stats >= 3.5.0
 Requires:         R-CRAN-numDeriv >= 2016.8.1.1
 Requires:         R-CRAN-survival >= 2.41.3
+Requires:         R-CRAN-flexsurv >= 2.2.2
 Requires:         R-CRAN-rstpm2 >= 1.6.1
 Requires:         R-CRAN-Matrix >= 1.2.14
 Requires:         R-CRAN-mvtnorm >= 1.1.3

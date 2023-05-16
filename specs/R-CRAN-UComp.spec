@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  UComp
-%global packver   4.0.0
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Unobserved Components and Other Time Series Models
 
@@ -42,7 +42,7 @@ automatic unobserved components models and algorithms. Harvey, AC (1989)
 <doi:10.1017/CBO9781107049994>. Pedregal DJ and Young PC (2002)
 <doi:10.1002/9780470996430>. Durbin J and Koopman SJ (2012)
 <doi:10.1093/acprof:oso/9780199641178.001.0001>. Hyndman RJ, Koehler AB,
-Ord JK, and Snyder RD (2008) <doi:10.1007/9783540719182>.
+Ord JK, and Snyder RD (2008) <doi:10.1007/978-3-540-71918-2>.
 
 %prep
 %setup -q -c -n %{packname}

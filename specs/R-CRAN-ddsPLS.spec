@@ -1,51 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  archeoViz
-%global packver   1.1.1
+%global packname  ddsPLS
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualisation, Exploration, and Web Communication of Archaeological Spatial Data
+Summary:          Data-Driven Sparse Partial Least Squares
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-cxhull 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-svglite 
-BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-cxhull 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-svglite 
-Requires:         R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-knitr 
 
 %description
-An R 'Shiny' application for the visualisation, interactive exploration,
-and web communication of archaeological excavation data. It includes
-interactive 3D and 2D visualisations, generation of cross sections and
-maps of the remains, basic spatial analysis methods (convex hull,
-regression surfaces, 2D kernel density estimation), and excavation
-timeline visualisation. 'archeoViz' can be used locally or deployed on a
-server, either with interactive input of data or with a static data set.
+Allows to build Data-Driven Sparse Partial Least Squares models with
+high-dimensional settings. Number of components and regularization
+coefficients are automatically set. It comes with visualization functions
+and uses 'Rcpp' functions for fast computations and 'doParallel' to
+parallelize bootstrap operations. An applet has been developed to apply
+this procedure. This is based on H Lorenzo, O Cloarec, R Thiebaut, J
+Saracco (2021) <doi:10.1002/sam.11558>.
 
 %prep
 %setup -q -c -n %{packname}

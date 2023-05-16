@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VarReg
-%global packver   2.0
+%global packname  pycno
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Parametric Variance Regression
+Summary:          Pycnophylactic Interpolation
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-splines 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-splines 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-rgeos 
+Requires:         R-methods 
 Requires:         R-utils 
 
 %description
-Methods for fitting semi-parametric mean and variance models, with normal
-or censored data. Extended to allow a regression in the location, scale
-and shape parameters, and further for multiple regression in each.
+Given a SpatialPolygonsDataFrame and a set of populations for each
+polygon, compute a population density estimate based on Tobler's
+pycnophylactic interpolation algorithm. The result is a
+SpatialGridDataFrame. Methods are described in Tobler Waldo R. (1979)
+<doi:10.1080/01621459.1979.10481647>.
 
 %prep
 %setup -q -c -n %{packname}

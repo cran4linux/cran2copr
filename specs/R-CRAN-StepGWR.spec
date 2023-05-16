@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VarReg
-%global packver   2.0
+%global packname  StepGWR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Parametric Variance Regression
+Summary:          A Hybrid Spatial Model for Prediction and Capturing Spatial Variation in the Data
 
-License:          GPL-3
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-splines 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-utils 
-Requires:         R-splines 
+BuildRequires:    R-CRAN-qpdf 
+BuildRequires:    R-CRAN-numbers 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-survival 
-Requires:         R-utils 
+Requires:         R-CRAN-qpdf 
+Requires:         R-CRAN-numbers 
+Requires:         R-CRAN-MASS 
 
 %description
-Methods for fitting semi-parametric mean and variance models, with normal
-or censored data. Extended to allow a regression in the location, scale
-and shape parameters, and further for multiple regression in each.
+It is a hybrid spatial model that combines the variable selection
+capabilities of stepwise regression methods with the predictive power of
+the Geographically Weighted Regression(GWR) model.The developed hybrid
+model follows a two-step approach where the stepwise variable selection
+method is applied first to identify the subset of predictors that have the
+most significant impact on the response variable, and then a GWR model is
+fitted using those selected variables for spatial prediction at test or
+unknown locations. For method details,see Leung, Y., Mei, C. L. and Zhang,
+W. X. (2000).<DOI:10.1068/a3162>.This hybrid spatial model aims to improve
+the accuracy and interpretability of GWR predictions by selecting a subset
+of relevant variables through a stepwise selection process.This approach
+is particularly useful for modeling spatially varying relationships and
+improving the accuracy of spatial predictions.
 
 %prep
 %setup -q -c -n %{packname}

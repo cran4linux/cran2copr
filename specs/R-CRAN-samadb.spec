@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  easyNCDF
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  samadb
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Easily Read/Write NetCDF Files into/from Multidimensional R Arrays
+Summary:          South Africa Macroeconomic Database API
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    netcdf-devel
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-ClimProjDiags 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-ClimProjDiags 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-collapse >= 1.8.0
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RMySQL 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-collapse >= 1.8.0
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RMySQL 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-data.table 
 
 %description
-Set of wrappers for the 'ncdf4' package to simplify and extend its
-reading/writing capabilities into/from multidimensional R arrays.
+An R API providing access to a relational database with macroeconomic time
+series data for South Africa, obtained from the South African Reserve Bank
+(SARB) and Statistics South Africa (STATSSA), and updated on a weekly
+basis via the EconData <https://www.econdata.co.za/> platform and
+automated scraping of the SARB and STATSSA websites. The database is
+maintained at the Department of Economics at Stellenbosch University.
 
 %prep
 %setup -q -c -n %{packname}

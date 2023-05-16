@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  semPower
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analyses for SEM
 
@@ -27,8 +28,7 @@ Requires:         R-utils
 
 %description
 Provides a-priori, post-hoc, and compromise power-analyses for structural
-equation models (SEM). Moshagen & Erdfelder (2016)
-<doi:10.1080/10705511.2014.950896>.
+equation models (SEM).
 
 %prep
 %setup -q -c -n %{packname}

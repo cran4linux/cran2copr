@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prevR
-%global packver   4.0.1
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Regional Trends of a Prevalence from a DHS and Similar Surveys
 
@@ -17,26 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgdal >= 0.7
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-directlabels 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-rgdal >= 0.7
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
 Requires:         R-CRAN-directlabels 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gstat 
 Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-gstat 
 Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-maptools 
 Requires:         R-methods 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
 
 %description
 Spatial estimation of a prevalence surface or a relative risks surface,

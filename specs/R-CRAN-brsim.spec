@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VarReg
-%global packver   2.0
+%global packname  brsim
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Parametric Variance Regression
+Summary:          Brainerd-Robinson Similarity Coefficient Matrix
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-splines 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-utils 
-Requires:         R-splines 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-survival 
-Requires:         R-utils 
+BuildRequires:    R-grDevices >= 4.2.2
+BuildRequires:    R-stats >= 4.2.0
+BuildRequires:    R-CRAN-RcmdrMisc >= 2.7.0
+BuildRequires:    R-CRAN-cluster >= 2.1.4
+BuildRequires:    R-CRAN-corrplot >= 0.92
+Requires:         R-grDevices >= 4.2.2
+Requires:         R-stats >= 4.2.0
+Requires:         R-CRAN-RcmdrMisc >= 2.7.0
+Requires:         R-CRAN-cluster >= 2.1.4
+Requires:         R-CRAN-corrplot >= 0.92
 
 %description
-Methods for fitting semi-parametric mean and variance models, with normal
-or censored data. Extended to allow a regression in the location, scale
-and shape parameters, and further for multiple regression in each.
+Provides the facility to calculate the Brainerd-Robinson similarity
+coefficient for the rows of an input table, and to calculate the
+significance of each coefficient based on a permutation approach;
+optionally, hierarchical agglomerative clustering can be performed and the
+silhouette method is used to identify an optimal number of clusters.
 
 %prep
 %setup -q -c -n %{packname}

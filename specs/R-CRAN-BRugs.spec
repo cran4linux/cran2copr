@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BRugs
-%global packver   0.9-1
+%global packver   0.9-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'OpenBUGS' MCMC Software
 
@@ -31,8 +32,8 @@ Requires:         R-stats
 %description
 Fully-interactive R interface to the 'OpenBUGS' software for Bayesian
 analysis using MCMC sampling.  Runs natively and stably in 32-bit R under
-Windows.  Versions running on Linux and on 64-bit R under Windows are in
-"beta" status and less efficient.
+Windows.  Versions running on x86Linux and on 64-bit R under Windows are
+in "beta" status and less efficient.
 
 %prep
 %setup -q -c -n %{packname}

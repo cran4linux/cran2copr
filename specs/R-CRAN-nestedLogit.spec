@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClimProjDiags
-%global packver   0.3.1
+%global packname  nestedLogit
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Set of Tools to Compute Various Climate Indices
+Summary:          Nested Dichotomy Logistic Regression Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiApply >= 2.0.0
-BuildRequires:    R-CRAN-PCICt 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-climdex.pcic 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-multiApply >= 2.0.0
-Requires:         R-CRAN-PCICt 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-climdex.pcic 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-dplyr 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
 
 %description
-Set of tools to compute metrics and indices for climate analysis. The
-package provides functions to compute extreme indices, evaluate the
-agreement between models and combine theses models into an ensemble.
-Multi-model time series of climate indices can be computed either after
-averaging the 2-D fields from different models provided they share a
-common grid or by combining time series computed on the model native grid.
-Indices can be assigned weights and/or combined to construct new indices.
+Provides functions for specifying and fitting nested dichotomy logistic
+regression models for a multi-category response and methods for
+summarising those models.  Nested dichotomies are statistically
+independent, and hence provide an additive decomposition of tests for the
+overall 'polytomous' response.  When the dichotomies make sense
+substantively, this method can be a simpler alternative to the standard
+'multinomial' logistic model which compares response categories to a
+reference level.  See: J. Fox (2016), "Applied Regression Analysis and
+Generalized Linear Models", 3rd Ed., ISBN 1452205663.
 
 %prep
 %setup -q -c -n %{packname}
