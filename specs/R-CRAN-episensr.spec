@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  episensr
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Sensitivity Analysis of Epidemiological Results
 
@@ -13,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-triangle 
 BuildRequires:    R-CRAN-trapezoid 
 BuildRequires:    R-CRAN-actuar 
@@ -24,7 +25,7 @@ BuildRequires:    R-CRAN-dagitty
 BuildRequires:    R-CRAN-ggdag 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 >= 3.3.3
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-triangle 
 Requires:         R-CRAN-trapezoid 
 Requires:         R-CRAN-actuar 
@@ -38,7 +39,7 @@ Basic sensitivity analysis of the observed relative risks adjusting for
 unmeasured confounding and misclassification of the exposure/outcome, or
 both. It follows the bias analysis methods and examples from the book by
 Lash T.L, Fox M.P, and Fink A.K. "Applying Quantitative Bias Analysis to
-Epidemiologic Data", ('Springer', 2009).
+Epidemiologic Data", ('Springer', 2021).
 
 %prep
 %setup -q -c -n %{packname}

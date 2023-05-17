@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  graphicalVAR
-%global packver   0.3
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical VAR for Experience Sampling Data
 
@@ -15,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-qgraph >= 1.3
+BuildRequires:    R-CRAN-qgraph >= 1.3.1
 BuildRequires:    R-CRAN-Rcpp >= 0.11.3
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-glasso 
@@ -26,7 +27,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-qgraph >= 1.3
+Requires:         R-CRAN-qgraph >= 1.3.1
 Requires:         R-CRAN-Rcpp >= 0.11.3
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-glasso 

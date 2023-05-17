@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  likelihoodR
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Likelihood Analyses for Common Statistical Tests
 
@@ -17,6 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lme4 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-lme4 
 
 %description
 A collection of functions that calculate the log likelihood (support) for

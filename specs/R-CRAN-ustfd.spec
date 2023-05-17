@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ustfd
-%global packver   0.2.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          API Client for US Treasury Fiscal Data
 
@@ -14,23 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate >= 1.9.2
+BuildRequires:    R-CRAN-glue >= 1.3.1
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-snakecase >= 0.11.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-lubridate >= 1.9.2
+Requires:         R-CRAN-glue >= 1.3.1
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-snakecase >= 0.11.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
 
 %description
 Make requests from the US Treasury Fiscal Data API endpoints.

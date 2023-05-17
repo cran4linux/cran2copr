@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webfakes
-%global packver   1.2.0
+%global packname  isopleuros
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fake Web Apps for HTTP Testing
+Summary:          Ternary Plots
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-tools 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
 Requires:         R-utils 
 
 %description
-Create a web app that makes it easier to test web clients without using
-the internet. It includes a web app framework with path matching,
-parameters and templates. Can parse various 'HTTP' request bodies. Can
-send 'JSON' data or files from the disk. Includes a web app that
-implements the 'httpbin.org' web service.
+Ternary plots made simple. This package allows to create ternary plots
+using 'graphics'. It provides functions to display the data in the ternary
+space, to add or tune graphical elements and to display statistical
+summaries. It also includes common ternary diagrams which are useful for
+the archaeologist (e.g. soil texture charts, ceramic phase diagram).
 
 %prep
 %setup -q -c -n %{packname}

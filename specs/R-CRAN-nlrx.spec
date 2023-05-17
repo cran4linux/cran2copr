@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nlrx
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Setup, Run and Analyze 'NetLogo' Model Simulations from 'R' via 'XML'
 
@@ -13,7 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
+Requires:         R-java
+Requires:         pandoc
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch

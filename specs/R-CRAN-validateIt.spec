@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webfakes
-%global packver   1.2.0
+%global packname  validateIt
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fake Web Apps for HTTP Testing
+Summary:          Validating Topic Coherence and Topic Labels
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tm >= 0.7.11
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-pyMTurkR 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-SnowballC 
+Requires:         R-CRAN-tm >= 0.7.11
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-pyMTurkR 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-SnowballC 
 
 %description
-Create a web app that makes it easier to test web clients without using
-the internet. It includes a web app framework with path matching,
-parameters and templates. Can parse various 'HTTP' request bodies. Can
-send 'JSON' data or files from the disk. Includes a web app that
-implements the 'httpbin.org' web service.
+By creating crowd-sourcing tasks that can be easily posted and results
+retrieved using Amazon's Mechanical Turk (MTurk) API, researchers can use
+this solution to validate the quality of topics obtained from unsupervised
+or semi-supervised learning methods, and the relevance of topic labels
+assigned. This helps ensure that the topic modeling results are accurate
+and useful for research purposes. See Ying and others (2022)
+<doi:10.1101/2023.05.02.538599>. For more information, please visit
+<https://github.com/Triads-Developer/Topic_Model_Validation>.
 
 %prep
 %setup -q -c -n %{packname}

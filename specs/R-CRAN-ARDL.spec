@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ARDL
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          ARDL, ECM and Bounds-Test for Cointegration
 
@@ -20,6 +20,8 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-aod 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dynlm 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-stringr 
@@ -27,6 +29,8 @@ BuildRequires:    R-CRAN-zoo
 Requires:         R-CRAN-aod 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dynlm 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-stringr 

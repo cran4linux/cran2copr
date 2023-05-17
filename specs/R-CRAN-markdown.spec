@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  markdown
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Render Markdown with 'commonmark'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,9 +25,9 @@ Requires:         R-CRAN-xfun >= 0.38
 Requires:         R-utils 
 
 %description
-Render Markdown to full and lightweight HTML/'LaTeX' documents with the
+Render Markdown to full and lightweight HTML/LaTeX documents with the
 'commonmark' package. It also supports features that are missing in
-'commonmark', such as raw HTML/'LaTeX' blocks, 'LaTeX' math, superscripts,
+'commonmark', such as raw HTML/LaTeX blocks, LaTeX math, superscripts,
 subscripts, footnotes, element attributes, appendices, and fenced 'Divs'.
 With additional JavaScript and CSS, it can also create HTML slides and
 articles.

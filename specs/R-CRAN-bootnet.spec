@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bootnet
-%global packver   1.5
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Methods for Various Network Estimation Routines
 
@@ -36,6 +37,7 @@ BuildRequires:    R-CRAN-pbapply
 BuildRequires:    R-CRAN-networktools 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-mgm >= 1.2
 Requires:         R-CRAN-NetworkToolbox >= 1.1.0
 Requires:         R-CRAN-dplyr >= 0.3.0.2
@@ -56,6 +58,7 @@ Requires:         R-CRAN-pbapply
 Requires:         R-CRAN-networktools 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Bootstrap methods to assess accuracy and stability of estimated network
