@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ubms
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Models for Data from Unmarked Animals using 'Stan'
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-CRAN-rstantools >= 2.0.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.300.2.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
@@ -29,23 +30,24 @@ BuildRequires:    R-CRAN-unmarked
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-rstantools >= 2.0.0
+Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-unmarked 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-loo 
-Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-stats 
 Requires:         R-CRAN-rstantools

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Robyn
-%global packver   3.9.0
+%global packver   3.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          3.10.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Automated Marketing Mix Modeling (MMM) from Meta Marketing Science
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-nloptr
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-prophet 
 BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-rPref 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-doParallel 
@@ -50,7 +49,6 @@ Requires:         R-CRAN-nloptr
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-prophet 
 Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-rPref 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 

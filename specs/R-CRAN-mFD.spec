@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mFD
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute and Illustrate the Multiple Facets of Functional Diversity
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-betapart >= 1.5.4
+BuildRequires:    R-CRAN-betapart >= 1.5
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-cluster 
@@ -35,7 +35,7 @@ BuildRequires:    R-CRAN-rstatix
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-betapart >= 1.5.4
+Requires:         R-CRAN-betapart >= 1.5
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-cluster 

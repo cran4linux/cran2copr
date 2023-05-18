@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CP
-%global packver   1.7
+%global packname  ETASbootstrap
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conditional Power Calculations
+Summary:          Bootstrap Confidence Interval Estimation for 'ETAS' Model Parameters
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-MASS >= 7.3.58.2
+BuildRequires:    R-stats >= 4.2.2
+BuildRequires:    R-utils >= 4.2.2
+BuildRequires:    R-CRAN-ETAS >= 0.5.1
+Requires:         R-CRAN-MASS >= 7.3.58.2
+Requires:         R-stats >= 4.2.2
+Requires:         R-utils >= 4.2.2
+Requires:         R-CRAN-ETAS >= 0.5.1
 
 %description
-Functions for calculating the conditional power for different models in
-survival time analysis within randomized clinical trials with two
-different treatments to be compared and survival as an endpoint.
+The 2-D spatial and temporal Epidemic Type Aftershock Sequence ('ETAS')
+Model is widely used to 'decluster' earthquake data catalogs. Usually, the
+calculation of standard errors of the 'ETAS' model parameter estimates is
+based on the Hessian matrix derived from the log-likelihood function of
+the fitted model. However, when an 'ETAS' model is fitted to a local data
+set over a time period that is limited or short, the standard errors based
+on the Hessian matrix may be inaccurate. It follows that the asymptotic
+confidence intervals for parameters may not always be reliable. As an
+alternative, this package allows the building of bootstrap confidence
+intervals based on empirical quantiles for the parameters of the 2-D
+spatial and temporal 'ETAS' model.
 
 %prep
 %setup -q -c -n %{packname}

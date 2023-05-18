@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  phosphoricons
-%global packver   0.2.0
+%global packname  rotatogram
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Phosphor' Icons for R
+Summary:          A Non-Axis-Dominant Association Plotting Tool
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools >= 0.3
-Requires:         R-CRAN-htmltools >= 0.3
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-grid 
 
 %description
-Use 'Phosphor' icons in 'shiny' applications or 'rmarkdown' documents.
-Icons are available in 5 different weights and can be customized by
-setting color, size, orientation and more.
+A rotatogram is a method of displaying an association which is axis
+non-dominant. This is achieved in two ways: First, the method of
+estimating the slope and intercept uses the least-products method rather
+than more typical least squared error for the "dependent" variable. The
+least products method has no "dependent" variable and is scale
+independent. Second, the plot is rotated such that the resulting
+regression line is vertical, reducing the suggestion that the vertical
+axis is the dominant one. The slope can be read relative to either axis
+equally.
 
 %prep
 %setup -q -c -n %{packname}

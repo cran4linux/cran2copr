@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DescTools
-%global packver   0.99.48
+%global packver   0.99.49
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.48
+Version:          0.99.49
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Descriptive Statistics
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-gld
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-base 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-gld
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-withr 
 
 %description
 A collection of miscellaneous basic statistic functions and convenience

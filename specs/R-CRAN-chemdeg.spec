@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TwoWayFEWeights
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  chemdeg
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of the Weights Attached to the Two-Way Fixed Effects Regressions
+Summary:          Analysis of Chemical Degradation Kinetic Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-fixest >= 0.6.0
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-estimatr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-fixest >= 0.6.0
-Requires:         R-CRAN-stringr 
+Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-estimatr 
-Requires:         R-CRAN-rlang 
 
 %description
-Estimates the weights and measure of robustness to treatment effect
-heterogeneity attached to two-way fixed effects regressions. Clément de
-Chaisemartin, Xavier D'Haultfœuille (2020) <DOI: 10.1257/aer.20181169>.
+A collection of functions that have been developed to assist experimenter
+in modeling chemical degradation kinetic data. The selection of the
+appropriate degradation model and parameter estimation is carried out
+automatically as far as possible and is driven by a rigorous statistical
+interpretation of the results.  The package integrates already available
+goodness-of-fit statistics for nonlinear models. In addition it allows
+data fitting with the nonlinear first-order multi-target (FOMT) model.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

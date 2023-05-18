@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drhur
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Learning R with Dr. Hu
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-learnr >= 0.10.1
 Requires:         R-CRAN-learnr >= 0.10.1
 
 %description
-Tutorials of R learning easily and happily.
+Tutarials of R learning easily and happily.
 
 %prep
 %setup -q -c -n %{packname}

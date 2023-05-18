@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmodely
-%global packver   0.2.2
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Multivariate Origins Determinants - Evolutionary Lineages in Ecology
 
@@ -36,12 +36,15 @@ transformation averaging and visualization functionality. Functions
 additionally support information theoretic approaches (Grueber, 2011
 <doi:10.1111/j.1420-9101.2010.02210.x>; Garamszegi, 2011
 <doi:10.1007/s00265-010-1028-7>) such as model averaging and selection of
-phylogenetic models. There are other numerous functions for visualizing
-confounded variables, plotting phylogenetic trees, as well as reporting
-and exporting modeling results. Lastly, as challenges to ecology are
-inherently multifarious, and therefore often multi-dataset, this package
-features several functions to support the identification, interpolation,
-merging, and updating of missing data and outdated nomenclature.
+phylogenetic models. Accessory functions are also implemented for coef
+standardization (Cade 2015), selection uncertainty, and variable
+importance (Burnham & Anderson 2000). There are other numerous functions
+for visualizing confounded variables, plotting phylogenetic trees, as well
+as reporting and exporting modeling results. Lastly, as challenges to
+ecology are inherently multifarious, and therefore often multi-dataset,
+this package features several functions to support the identification,
+interpolation, merging, and updating of missing data and outdated
+nomenclature.
 
 %prep
 %setup -q -c -n %{packname}

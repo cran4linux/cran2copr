@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  waywiser
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ergonomic Methods for Assessing Spatial Models
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-yardstick >= 1.2.0
 BuildRequires:    R-CRAN-spdep >= 1.1.9
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-FNN 
@@ -26,13 +28,14 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-hardhat 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-yardstick 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-yardstick >= 1.2.0
 Requires:         R-CRAN-spdep >= 1.1.9
 Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-FNN 
@@ -40,11 +43,10 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-hardhat 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-yardstick 
+Requires:         R-CRAN-vctrs 
 
 %description
 Assessing predictive models of spatial data can be challenging, both

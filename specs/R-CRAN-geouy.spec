@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geouy
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Information of Uruguay
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-viridis
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-tidyselect 
 
 %description
 The toolbox have functions to load and process geographic information for

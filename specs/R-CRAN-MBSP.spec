@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MBSP
-%global packver   3.0
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Bayesian Model with Shrinkage Priors
 
@@ -21,12 +21,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-GIGrvg 
 Requires:         R-utils 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Gibbs sampler for fitting multivariate Bayesian linear regression with

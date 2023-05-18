@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eplusr
-%global packver   0.15.3
+%global packver   0.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.3
+Version:          0.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolkit for Using Whole Building Simulation Program 'EnergyPlus'
 
@@ -18,29 +18,21 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-processx >= 3.2.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-callr >= 2.0.4
-BuildRequires:    R-CRAN-progress >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-cli >= 1.1.0
+BuildRequires:    R-CRAN-data.table >= 1.14.6
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-processx >= 3.2.0
+Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-callr >= 2.0.4
-Requires:         R-CRAN-progress >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-cli >= 1.1.0
+Requires:         R-CRAN-data.table >= 1.14.6
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-hms 
 Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringi 
