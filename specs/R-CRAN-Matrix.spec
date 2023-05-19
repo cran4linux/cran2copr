@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Matrix
-%global packver   1.5-4
+%global packver   1.5-4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse and Dense Matrix Classes and Methods
 
@@ -30,10 +30,10 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-A rich hierarchy of matrix classes, including triangular, symmetric, and
-diagonal matrices, both dense and sparse and with pattern, logical and
-numeric entries.  Numerous methods for and operations on these matrices,
-using 'LAPACK' and 'SuiteSparse' libraries.
+A rich hierarchy of sparse and dense matrix classes, including general,
+triangular, symmetric, and diagonal matrices with numeric, logical, or
+pattern entries.  Efficient methods for operating on such matrices, often
+wrapping the 'BLAS', 'LAPACK', and 'SuiteSparse' libraries.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1pack
-%global packver   0.41-24
+%global packname  woylier
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.41.24
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Routines for L1 Estimation
+Summary:          Alternative Tour Frame Interpolation Method
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-fastmatrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-fastmatrix 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tourr 
+BuildRequires:    R-CRAN-geozoo 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tourr 
+Requires:         R-CRAN-geozoo 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 
 %description
-L1 estimation for linear regression using Barrodale and Roberts' method
-<doi:10.1145/355616.361024> and the EM algorithm
-<doi:10.1023/A:1020759012226>, density, distribution function, quantile
-function and random number generation for univariate and multivariate
-Laplace distribution <doi:10.1080/03610929808832115>.
+This method generates a tour path by interpolating between d-D frames in
+p-D using Givens rotations. The algorithm arises from the problem of
+zeroing elements of a matrix. This interpolation method is useful for
+showing specific d-D frames in the tour, as opposed to d-D planes, as done
+by the geodesic interpolation. It is useful for projection pursuit indexes
+which are not s invariant. See Buja et al (2005)
+<doi:10.1016/S0169-7161(04)24014-7>.
 
 %prep
 %setup -q -c -n %{packname}

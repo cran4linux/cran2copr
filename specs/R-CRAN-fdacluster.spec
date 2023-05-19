@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fdacluster
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Clustering and Alignment of Functional Data
 
@@ -13,35 +14,58 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-fdasrvf 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-fdasrvf 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Revisited clustering approaches to accommodate functional data by allowing
-to jointly align the data during the clustering process. Currently, shift,
-dilation and affine transformations only are available to perform
-alignment. The k-mean algorithm has been extended to integrate alignment
-and is fully parallelized. Hierarchical clustering will soon be available
-as well. References: Sangalli L.M., Secchi P., Vantini S., Vitelli V.
-(2010) "k-mean alignment for curve clustering"
-<doi:10.1016/j.csda.2009.12.008>.
+Implementations of the popular k-means and hierarchical agglomerative
+clustering (HAC) methods for functional data which allows for jointly
+aligning and clustering curves. It supports functional data defined on
+one-dimensional domains but possibly evaluating in multivariate codomains.
+It supports functional data defined in arrays but also via the 'fd' and
+'funData' classes for functional data defined in the 'fda' and 'funData'
+packages respectively. It currently supports shift, dilation and affine
+warping functions for functional data defined on the real line and uses
+the SRSF framework to handle boundary-preserving warping for functional
+data defined on a specific interval. Main reference for the k-means
+algorithm: Sangalli L.M., Secchi P., Vantini S., Vitelli V. (2010) "k-mean
+alignment for curve clustering" <doi:10.1016/j.csda.2009.12.008>. Main
+reference for the SRSF framework: Tucker, J. D., Wu, W., & Srivastava, A.
+(2013) "Generative models for functional data using phase and amplitude
+separation" <doi:10.1016/j.csda.2012.12.001>.
 
 %prep
 %setup -q -c -n %{packname}

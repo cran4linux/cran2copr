@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  influenceR
-%global packver   0.1.0.2
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.2
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Software Tools to Quantify Structural Importance of Nodes in a Network
 
@@ -28,12 +28,14 @@ Requires:         R-utils
 %description
 Provides functionality to compute various node centrality measures on
 networks. Included are functions to compute betweenness centrality (by
-utilizing Madduri and Bader's SNAP library), implementations of Burt's
-constraint and effective network size (ENS) metrics, Borgatti's algorithm
-to identify key players, and Valente's bridging metric. On Unix systems,
-the betweenness, Key Players, and bridging implementations are
-parallelized with OpenMP, which may run faster on systems which have
-OpenMP configured.
+utilizing Madduri and Bader's SNAP library), implementations of constraint
+and effective network size by Burt (2000)
+<doi:10.1016/S0191-3085(00)22009-1>; algorithm to identify key players by
+Borgatti (2006) <doi:10.1007/s10588-006-7084-x>; and the bridging
+algorithm by Valente and Fujimoto (2010)
+<doi:10.1016/j.socnet.2010.03.003>. On Unix systems, the betweenness, Key
+Players, and bridging implementations are parallelized with OpenMP, which
+may run faster on systems which have OpenMP configured.
 
 %prep
 %setup -q -c -n %{packname}

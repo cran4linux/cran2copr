@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mvMonitoring
-%global packver   0.2.0
+%global __requires_exclude ^libmpi
+%global packname  cases
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-State Adaptive Dynamic Principal Component Analysis for Multivariate Process Monitoring
+Summary:          Stratified Evaluation of Subgroup Classification Accuracy
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,35 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bindata 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-bindata 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-robustbase 
-Requires:         R-graphics 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Use multi-state splitting to apply Adaptive-Dynamic PCA (ADPCA) to data
-generated from a continuous-time multivariate industrial or natural
-process. Employ PCA-based dimension reduction to extract linear
-combinations of relevant features, reducing computational burdens. For a
-description of ADPCA, see <doi:10.1007/s00477-016-1246-2>, the 2016 paper
-from Kazor et al. The multi-state application of ADPCA is from a
-manuscript under current revision entitled "Multi-State Multivariate
-Statistical Process Control" by Odom, Newhart, Cath, and Hering, and is
-expected to appear in Q1 of 2018.
+Enables simultaneous statistical inference for the accuracy of multiple
+classifiers in multiple subgroups (strata). For instance, allows to
+perform multiple comparisons in diagnostic accuracy studies with
+co-primary endpoints sensitivity and specificity. (Westphal, Max, and
+Antonia Zapf. (2021). "Statistical Inference for Diagnostic Test Accuracy
+Studies with Multiple Comparisons." <arXiv:2105.13469>.)
 
 %prep
 %setup -q -c -n %{packname}

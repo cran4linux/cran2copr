@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rcrimeanalysis
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Crime Analysis Methods
 
@@ -16,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-htmltools 
@@ -24,14 +24,12 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-leafsync 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-KernSmooth 
+BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-pals 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggmap 
 Requires:         R-CRAN-htmltools 
@@ -39,13 +37,12 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-leafsync 
 Requires:         R-CRAN-lubridate 
-Requires:         R-KernSmooth 
+Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-pals 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
 
 %description
 An implementation of functions for the analysis of crime incident or
@@ -61,9 +58,15 @@ crime network linkage.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -73,6 +76,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

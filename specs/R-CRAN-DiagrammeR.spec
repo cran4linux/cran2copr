@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DiagrammeR
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph/Network Visualization
 
@@ -34,7 +35,6 @@ BuildRequires:    R-CRAN-htmltools >= 0.5.2
 BuildRequires:    R-CRAN-downloader >= 0.4
 BuildRequires:    R-CRAN-rlang >= 0.4
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-influenceR >= 0.1.0.1
 Requires:         R-CRAN-tibble >= 3.1
 Requires:         R-CRAN-readr >= 2.1.1
 Requires:         R-CRAN-visNetwork >= 2.1.0
@@ -53,7 +53,6 @@ Requires:         R-CRAN-htmltools >= 0.5.2
 Requires:         R-CRAN-downloader >= 0.4
 Requires:         R-CRAN-rlang >= 0.4
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-influenceR >= 0.1.0.1
 
 %description
 Build graph/network structures using functions for stepwise addition and

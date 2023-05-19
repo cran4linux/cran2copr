@@ -1,32 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IDSL.FSA
-%global packver   1.1
+%global packname  idmact
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fragmentation Spectra Analysis (FSA)
+Summary:          Interpreting Differences Between Mean ACT Scores
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-rlang 
 
 %description
-The 'IDSL.FSA' package was designed to annotate standard .msp (mass
-spectra format) and .mgf (Mascot generic format) files using mass spectral
-entropy similarity, dot product (cosine) similarity, and normalized
-Euclidean mass error (NEME) followed by intelligent pre-filtering steps
-for rapid spectra searches. 'IDSL.FSA' also provides a number of modules
-to convert and manipulate .msp and .mgf files. The 'IDSL.FSA' workflow was
-integrated in the 'IDSL.CSA' and 'IDSL.NPA' packages introduced in
-<doi:10.1101/2023.02.09.527886>.
+Interpreting the differences between mean scale scores across various
+forms of an assessment can be challenging. This difficulty arises from
+different mappings between raw scores and scale scores, complex
+mathematical relationships, adjustments based on judgmental procedures,
+and diverse equating functions applied to different assessment forms. An
+alternative method involves running simulations to explore the effect of
+incrementing raw scores on mean scale scores. The 'idmact' package
+provides an implementation of this approach based on the algorithm
+detailed in Schiel (1998)
+<https://www.act.org/content/dam/act/unsecured/documents/ACT_RR98-01.pdf>
+which was developed to help interpret differences between mean scale
+scores on the American College Testing (ACT) assessment. The function
+idmact_subj() within the package offers a framework for running
+simulations on subject-level scores. In contrast, the idmact_comp()
+function provides a framework for conducting simulations on composite
+scores.
 
 %prep
 %setup -q -c -n %{packname}

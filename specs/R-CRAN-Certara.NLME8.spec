@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gadget3
-%global packver   0.9-0
+%global packname  Certara.NLME8
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Globally-Applicable Area Disaggregated General Ecosystem Toolbox V3
+Summary:          Utilities for Certara's Nonlinear Mixed-Effects Modeling Engine
 
-License:          GPL-2
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-TMB >= 1.7.0
-BuildRequires:    R-CRAN-Matrix >= 1.2.0
-BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-batchtools >= 0.9.9
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-TMB >= 1.7.0
-Requires:         R-CRAN-Matrix >= 1.2.0
-Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-digest 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-batchtools >= 0.9.9
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-reshape 
 Requires:         R-utils 
+Requires:         R-CRAN-data.table 
 
 %description
-A framework to assist creation of marine ecosystem models, generating
-either 'R' or 'C++' code which can then be optimised using the 'TMB'
-package and standard 'R' tools. Principally designed to reproduce gadget2
-models in 'TMB', but can be extended beyond gadget2's capabilities. Kasper
-Kristensen, Anders Nielsen, Casper W. Berg, Hans Skaug, Bradley M. Bell
-(2016) <doi:10.18637/jss.v070.i05> "TMB: Automatic Differentiation and
-Laplace Approximation.". Begley, J., & Howell, D. (2004)
-<https://core.ac.uk/download/pdf/225936648.pdf> "An overview of Gadget,
-the globally applicable area-disaggregated general ecosystem toolbox.
-ICES.".
+Perform Nonlinear Mixed-Effects (NLME) Modeling using Certara's
+NLME-Engine. Access the same Maximum Likelihood engines used in the
+Phoenix platform, including algorithms for parametric methods, individual,
+and pooled data analysis
+<https://www.certara.com/app/uploads/2020/06/BR_PhoenixNLME-v4.pdf>. The
+Quasi-Random Parametric Expectation-Maximization Method (QRPEM) is also
+supported <https://www.page-meeting.org/default.asp?abstract=2338>.
+Execution is supported both locally or on remote machines. Remote
+execution includes support for Linux Sun Grid Engine (SGE), Terascale
+Open-source Resource and Queue Manager (TORQUE) grids, Linux and Windows
+multicore, and individual runs.
 
 %prep
 %setup -q -c -n %{packname}

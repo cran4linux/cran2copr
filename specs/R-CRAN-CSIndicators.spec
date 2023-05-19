@@ -1,36 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1pack
-%global packver   0.41-24
+%global packname  CSIndicators
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.41.24
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Routines for L1 Estimation
+Summary:          Climate Services' Indicators Based on Sub-Seasonal to Decadal Predictions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-fastmatrix 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-multiApply >= 2.1.1
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-fastmatrix 
+Requires:         R-CRAN-multiApply >= 2.1.1
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 
 %description
-L1 estimation for linear regression using Barrodale and Roberts' method
-<doi:10.1145/355616.361024> and the EM algorithm
-<doi:10.1023/A:1020759012226>, density, distribution function, quantile
-function and random number generation for univariate and multivariate
-Laplace distribution <doi:10.1080/03610929808832115>.
+Set of generalised tools for the flexible computation of climate related
+indicators defined by the user. Each method represents a specific
+mathematical approach which is combined with the possibility to select an
+arbitrary time period to define the indicator. This enables a wide range
+of possibilities to tailor the most suitable indicator for each particular
+climate service application (agriculture, food security, energy, water
+management…). This package is intended for sub-seasonal, seasonal and
+decadal climate predictions, but its methods are also applicable to other
+time-scales, provided the dimensional structure of the input is
+maintained. Additionally, the outputs of the functions in this package are
+compatible with 'CSTools'. This package was developed in the context of
+H2020 MED-GOLD (776467) and S2S4E (776787) projects. Lledó et al. (2019)
+<doi:10.1016/j.renene.2019.04.135>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IDSL.NPA
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nominal Peak Analysis (NPA)
 
@@ -17,22 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IDSL.IPA >= 2.6
-BuildRequires:    R-CRAN-IDSL.MXP >= 1.8
+BuildRequires:    R-CRAN-IDSL.MXP 
+BuildRequires:    R-CRAN-IDSL.IPA 
 BuildRequires:    R-CRAN-IDSL.FSA 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-readxl 
-Requires:         R-CRAN-IDSL.IPA >= 2.6
-Requires:         R-CRAN-IDSL.MXP >= 1.8
+Requires:         R-CRAN-IDSL.MXP 
+Requires:         R-CRAN-IDSL.IPA 
 Requires:         R-CRAN-IDSL.FSA 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-readxl 
 
 %description
-A pipeline for processing nominal mass spectrometry data to create .msp
-files for untargeted nominal mass data processing.
+A pipeline to process nominal mass spectrometry data to create .msp files
+for untargeted analyses.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shiny.exe
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Schedule a Task that Runs a shinyApp then Creates a Shortcut in Current Directory
+Summary:          Launch a Shiny Application without Opening R or RStudio
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,15 +20,14 @@ BuildArch:        noarch
 
 %description
 Launch an application by a simple click without opening R or RStudio. The
-package has 2 functions of which only one is essential in its use,
-shiny.exe(). It generates a script in the open shiny project then creates
-a task that executes this script. After creating the task, the function is
-responsible for creating a shortcut in the same folder that allows you to
-launch the task by clicking.If you set host = 'public', the application
-will be launched on the public server to which you are connected. Thus,
-all other devices connected to the same server will be able to access the
-application through the link of your 'IPv4' extended by the port. You can
-stop the application by leaving the terminal opened by the shortcut.
+package has 3 functions of which only one is essential in its use,
+`shiny.exe()`. It generates a script in the open shiny project then create
+a shortcut in the same folder that allows you to launch the app by
+clicking.If you set `host = 'public'`, the application will be launched on
+the public server to which you are connected. Thus, all other devices
+connected to the same server will be able to access the application
+through the link of your `IPv4` extended by the port. You can stop the
+application by leaving the terminal opened by the shortcut.
 
 %prep
 %setup -q -c -n %{packname}

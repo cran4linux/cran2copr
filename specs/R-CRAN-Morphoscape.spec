@@ -1,36 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1pack
-%global packver   0.41-24
+%global packname  Morphoscape
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.41.24
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Routines for L1 Estimation
+Summary:          Computation and Visualization of Adaptive Landscapes
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-fastmatrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-fastmatrix 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-concaveman 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-spatial 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-automap 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-alphahull 
+Requires:         R-CRAN-concaveman 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-spatial 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-automap 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-alphahull 
 
 %description
-L1 estimation for linear regression using Barrodale and Roberts' method
-<doi:10.1145/355616.361024> and the EM algorithm
-<doi:10.1023/A:1020759012226>, density, distribution function, quantile
-function and random number generation for univariate and multivariate
-Laplace distribution <doi:10.1080/03610929808832115>.
+Implements adaptive landscape methods first described by Polly et al.
+(2016) <doi:10.1080/02724634.2016.1111225> for the integration, analysis
+and visualization of biological trait data on a phenotypic morphospace -
+typically defined by shape metrics.
 
 %prep
 %setup -q -c -n %{packname}

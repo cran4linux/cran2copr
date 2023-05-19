@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1pack
-%global packver   0.41-24
+%global packname  iterors
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.41.24
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Routines for L1 Estimation
+Summary:          Fast, Compact Iterators and Tools
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-fastmatrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-fastmatrix 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-rlang 
 
 %description
-L1 estimation for linear regression using Barrodale and Roberts' method
-<doi:10.1145/355616.361024> and the EM algorithm
-<doi:10.1023/A:1020759012226>, density, distribution function, quantile
-function and random number generation for univariate and multivariate
-Laplace distribution <doi:10.1080/03610929808832115>.
+A fresh take on iterators in R. Designed to be cross-compatible with the
+'iterators' package, but using the 'nextOr' method will offer better
+performance as well as more compact code. With batteries included:
+includes a collection of iterator constructors and combinators ported and
+refined from the 'iterators', 'itertools', and 'itertools2' packages.
 
 %prep
 %setup -q -c -n %{packname}

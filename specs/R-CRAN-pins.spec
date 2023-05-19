@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pins
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pin, Discover and Share Resources
 
@@ -14,15 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 2.4.3
-BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
@@ -30,19 +29,16 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-withr >= 2.4.3
-Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
@@ -50,13 +46,11 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mime 
-Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-zip 
 
 %description
 Publish data sets, models, and other R objects, making it easy to share
