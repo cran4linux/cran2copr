@@ -6,7 +6,7 @@
 %global selinuxtype targeted
 
 Name:           R-%{packname}
-Version:        0.5.1
+Version:        0.5.2
 Release:        1%{?dist}%{?buildtag}
 Summary:        Package Manager for the 'cran2copr' Project
 
