@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  conf
-%global packver   1.8.0
+%global packver   1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Analysis of Statistical Measures of Confidence
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
@@ -36,8 +36,8 @@ Requires:         R-utils
 Enables: (1) plotting two-dimensional confidence regions, (2) coverage
 analysis of confidence region simulations, (3) calculating confidence
 intervals and the associated actual coverage for binomial proportions, and
-4) calculating the support values and the probability mass function of the
-Kaplan-Meier product-limit estimator. Each is given in greater detail
+(4) calculating the support values and the probability mass function of
+the Kaplan-Meier product-limit estimator. Each is given in greater detail
 next. (1) Plots the two-dimensional confidence region for probability
 distribution parameters (supported distribution suffixes: cauchy, gamma,
 invgauss, logis, llogis, lnorm, norm, unif, weibull) corresponding to a
@@ -48,7 +48,7 @@ alternative heuristic plots a specified number of points at roughly
 uniform intervals along its boundary. Both heuristics build upon the
 radial profile log-likelihood ratio technique for plotting confidence
 regions given by Jaeger (2016) <doi:10.1080/00031305.2016.1182946>, and
-are detailed in a publication by Weld (2019)
+are detailed in a publication by Weld et al. (2019)
 <doi:10.1080/00031305.2018.1564696>. (2) Performs confidence region
 coverage simulations for a random sample drawn from a user- specified
 parametric population distribution, or for a user-specified dataset and
@@ -64,20 +64,19 @@ minimizes the root mean square error for n <= 15 and follows the
 transitions for well-known confidence intervals for n > 15 using
 binomTestMSE(). (4) The km.support() function calculates the support
 values of the Kaplan-Meier product-limit estimator for a given sample size
-code{n} using an induction algorithm described in Qin et al. (2023)
+n using an induction algorithm described in Qin et al. (2023)
 <doi:10.1080/00031305.2022.2070279>. The km.outcomes() function generates
 a matrix containing all possible outcomes (all possible sequences of
 failure times and right-censoring times) of the value of the Kaplan-Meier
-product-limit estimator for a particular sample size code{n}. The
-km.pmf() function generates the probability mass function for the support
-values of the Kaplan-Meier product-limit estimator for a particular sample
-size code{n}, probability of observing a failure code{h} at the time of
-interest expressed as the cumulative probability code{perc} associated
-with code{X = min(T, C)}, where code{T} is the failure time and code{C}
-is the censoring time under a random-censoring scheme. The km.surv()
-function generates multiple probability mass functions of the Kaplan-Meier
-product-limit estimator for the same arguments as those given for
-km.pmf().
+product-limit estimator for a particular sample size n. The km.pmf()
+function generates the probability mass function for the support values of
+the Kaplan-Meier product-limit estimator for a particular sample size n,
+probability of observing a failure h at the time of interest expressed as
+the cumulative probability perc associated with X = min(T, C), where T is
+the failure time and C is the censoring time under a random-censoring
+scheme. The km.surv() function generates multiple probability mass
+functions of the Kaplan-Meier product-limit estimator for the same
+arguments as those given for km.pmf().
 
 %prep
 %setup -q -c -n %{packname}

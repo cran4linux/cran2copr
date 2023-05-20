@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdacluster
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Clustering and Alignment of Functional Data
 
@@ -51,9 +51,9 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 
 %description
-Implementations of the popular k-means and hierarchical agglomerative
-clustering (HAC) methods for functional data which allows for jointly
-aligning and clustering curves. It supports functional data defined on
+Implementations of the k-means, hierarchical agglomerative and DBSCAN
+clustering methods for functional data which allows for jointly aligning
+and clustering curves. It supports functional data defined on
 one-dimensional domains but possibly evaluating in multivariate codomains.
 It supports functional data defined in arrays but also via the 'fd' and
 'funData' classes for functional data defined in the 'fda' and 'funData'

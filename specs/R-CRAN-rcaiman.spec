@@ -1,45 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  buildmer
-%global packver   2.9
+%global packname  rcaiman
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stepwise Elimination and Term Reordering for Mixed-Effects Regression
+Summary:          CAnopy IMage ANalysis
 
-License:          FreeBSD
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-filenamer 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-spatial 
+BuildRequires:    R-CRAN-lidR 
+Requires:         R-CRAN-filenamer 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-terra 
 Requires:         R-methods 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-pracma 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-spatial 
+Requires:         R-CRAN-lidR 
 
 %description
-Finds the largest possible regression model that will still converge for
-various types of regression analyses (including mixed models and
-generalized additive models) and then optionally performs stepwise
-elimination similar to the forward and backward effect-selection methods
-in SAS, based on the change in log-likelihood or its significance,
-Akaike's Information Criterion, the Bayesian Information Criterion, the
-explained deviance, or the F-test of the change in R².
+Classify hemispherical photographs of the plant canopy with algorithms
+specially developed for such a task and well documented in Díaz and
+Lencinas (2015) <doi:10.1109/lgrs.2015.2425931> and Díaz and Lencinas
+(2018) <doi:10.1139/cjfr-2018-0006>. It supports non-circular
+hemispherical photography, such as those acquired with 15mm lenses or with
+auxiliary fish-eye lenses attached to mobile devices. For smartphone-based
+hemispherical photography see Díaz (2023) <doi:10.1111/2041-210x.14059>.
+Most of the functions also support restricted view photography.
 
 %prep
 %setup -q -c -n %{packname}

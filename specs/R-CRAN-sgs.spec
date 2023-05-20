@@ -1,36 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastclime
-%global packver   1.4.1.1
+%global packname  sgs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Fast Solver for Parameterized LP Problems, Constrained L1 Minimization Approach to Sparse Precision Matrix Estimation and Dantzig Selector
+Summary:          Sparse-Group SLOPE: Adaptive Bi-Level Selection with FDR Control
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-faux 
+BuildRequires:    R-CRAN-SLOPE 
+BuildRequires:    R-CRAN-Rlab 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-caret 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-faux 
+Requires:         R-CRAN-SLOPE 
+Requires:         R-CRAN-Rlab 
 
 %description
-Provides a method of recovering the precision matrix efficiently and
-solving for the dantzig selector by applying the parametric simplex
-method.  The computation is based on a linear optimization solver. It also
-contains a generic LP solver and a parameterized LP solver using
-parametric simplex method.
+Implementation of Sparse-group SLOPE: Adaptive bi-level with FDR-control
+(Feser et al. (2023) <arXiv:2305.09467>). Linear and logistic regression
+models are supported, both of which can be fit using k-fold
+cross-validation. Dense and sparse input matrices are supported. In
+addition, a general adaptive three operator splitting (ATOS)
+implementation is provided.
 
 %prep
 %setup -q -c -n %{packname}

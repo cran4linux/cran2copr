@@ -1,44 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stepR
-%global packver   2.1-4
+%global packname  bcv
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiscale Change-Point Inference
+Summary:          Cross-Validation for the SVD (Bi-Cross-Validation)
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-lowpassFilter >= 1.0.0
-BuildRequires:    R-CRAN-digest >= 0.6.10
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-R.cache >= 0.10.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-lowpassFilter >= 1.0.0
-Requires:         R-CRAN-digest >= 0.6.10
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-R.cache >= 0.10.0
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Allows fitting of step-functions to univariate serial data where neither
-the number of jumps nor their positions is known by implementing the
-multiscale regression estimators SMUCE (K. Frick, A. Munk and H. Sieling,
-2014) <doi:10.1111/rssb.12047> and HSMUCE (F. Pein, H. Sieling and A.
-Munk, 2017) <doi:10.1111/rssb.12202>. In addition, confidence intervals
-for the change-point locations and bands for the unknown signal can be
-obtained.
+Methods for choosing the rank of an SVD (singular value decomposition)
+approximation via cross validation. The package provides both
+Gabriel-style "block" holdouts and Wold-style "speckled" holdouts. It also
+includes an implementation of the SVDImpute algorithm. For more
+information about Bi-cross-validation, see Owen & Perry's 2009 AoAS
+article (at <arXiv:0908.2062>) and Perry's 2009 PhD thesis (at
+<arXiv:0909.3052>).
 
 %prep
 %setup -q -c -n %{packname}

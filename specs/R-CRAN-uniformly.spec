@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  uniformly
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Uniform Sampling
 
@@ -16,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-pgnorm 
-Requires:         R-stats 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-pgnorm 
+Requires:         R-stats 
 
 %description
 Uniform sampling on various geometric shapes, such as spheres, ellipsoids,

@@ -1,39 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  crossvalidationCP
-%global packver   1.0-2
+%global __requires_exclude ^libmpi
+%global packname  washi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Validation for Change-Point Regression
+Summary:          Washington Soil Health Initiative Branding
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-changepoint >= 2.0
-BuildRequires:    R-CRAN-stepR >= 2.0
-BuildRequires:    R-CRAN-wbs >= 1.4
-BuildRequires:    R-CRAN-FDRSeg >= 1.0.3
-BuildRequires:    R-stats 
-Requires:         R-CRAN-changepoint >= 2.0
-Requires:         R-CRAN-stepR >= 2.0
-Requires:         R-CRAN-wbs >= 1.4
-Requires:         R-CRAN-FDRSeg >= 1.0.3
-Requires:         R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-extrafont 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-extrafont 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-scales 
 
 %description
-Implements the cross-validation methodology from Pein and Shah (2021)
-<arXiv:2112.03220>. Can be customised by providing different
-cross-validation criteria, estimators for the change-point locations and
-local parameters, and freely chosen folds. Pre-implemented estimators and
-criteria are available. It also includes our own implementation of the
-COPPS procedure <doi:10.1214/19-AOS1814>.
+Create plots and tables in a consistent style with WaSHI (Washington Soil
+Health Initiative) branding. Use 'washi' to easily style your 'ggplot2'
+plots and 'flextable' tables.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PlotTools
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add Continuous Legends to Plots
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 
 %description
 Annotate plots with legends for continuous variables and colour spectra
-using the base graphics plotting tools.
+using the base graphics plotting tools; and manipulate irregular polygons.
 
 %prep
 %setup -q -c -n %{packname}

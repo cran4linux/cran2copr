@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  loadflux
-%global packver   0.0.2
+%global __requires_exclude ^libmpi
+%global packname  resde
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Explore Intra-Event Suspended Sediment Dynamics
+Summary:          Estimation in Reducible Stochastic Differential Equations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tsibble >= 0.9.0
-BuildRequires:    R-CRAN-rlang >= 0.2.0
-BuildRequires:    R-CRAN-dygraphs 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tsibble >= 0.9.0
-Requires:         R-CRAN-rlang >= 0.2.0
-Requires:         R-CRAN-dygraphs 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-nlme 
+Requires:         R-methods 
 
 %description
-A collection of functions created to study water discharge (Q) and
-suspended sediment concentration (SSC) relationship.
+Maximum likelihood estimation for univariate reducible stochastic
+differential equation models. Discrete, possibly noisy observations, not
+necessarily evenly spaced in time. Can fit multiple individuals/units with
+global and local parameters, by fixed-effects or mixed-effects methods.
+Ref.: Garcia, O. (2019) "Estimating reducible stochastic differential
+equations by conversion to a least-squares problem", Computational
+Statistics 34(1): 23-46, <doi:10.1007/s00180-018-0837-4>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  secrlinear
-%global packver   1.1.4
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Explicit Capture-Recapture for Linear Habitats
 
@@ -17,21 +18,17 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-secr >= 3.0.1
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-secr >= 3.0.1
-Requires:         R-parallel 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-sf 
 
 %description
 Tools for spatially explicit capture-recapture analysis of animal
@@ -45,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

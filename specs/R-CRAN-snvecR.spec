@@ -1,61 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TidyDensity
-%global packver   1.2.5
+%global packname  snvecR
+%global packver   3.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          3.7.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Tidy Analysis and Generation of Random Data
+Summary:          Calculate Earth’s Obliquity and Precession in the Past
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-actuar 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-broom 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-curl 
 
 %description
-To make it easy to generate random numbers based upon the underlying stats
-distribution functions. All data is returned in a tidy and structured
-format making working with the data simple and straight forward. Given
-that the data is returned in a tidy 'tibble' it lends itself to working
-with the rest of the 'tidyverse'.
+Easily calculate precession and obliquity from an orbital solution
+(defaults to ZB18a from Zeebe and Lourens (2019)
+<doi:10.1126/science.aax0612>) and assumed or reconstructed values for
+tidal dissipation (Td) and dynamical ellipticity (Ed). This is a
+translation and adaptation of the C-code in the supplementary material to
+Zeebe and Lourens (2022) <doi:10.1029/2021PA004349>, with further details
+on the methodology described in Zeebe (2022)
+<doi:10.3847/1538-3881/ac80f8>. The name of the C-routine is snvec, which
+refers to the key units of computation: spin vector s and orbit normal
+vector n.
 
 %prep
 %setup -q -c -n %{packname}

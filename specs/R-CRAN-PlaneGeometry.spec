@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PlaneGeometry
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plane Geometry
 
@@ -16,22 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-uniformly 
-BuildRequires:    R-CRAN-sdpt3r 
+BuildRequires:    R-CRAN-Carlson 
+BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-fitConic 
-Requires:         R-CRAN-R6 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-uniformly 
-Requires:         R-CRAN-sdpt3r 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rcdd 
+BuildRequires:    R-CRAN-sdpt3r 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-uniformly 
+Requires:         R-CRAN-Carlson 
+Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-fitConic 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rcdd 
+Requires:         R-CRAN-sdpt3r 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-uniformly 
 
 %description
 An extensive set of plane geometry routines. Provides R6 classes
