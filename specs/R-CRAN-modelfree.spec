@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  corpus
-%global packver   0.10.2
+%global __requires_exclude ^libmpi
+%global packname  modelfree
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Text Corpus Analysis
+Summary:          Model-Free Estimation of a Psychometric Function
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-utf8 >= 1.1.0
-BuildRequires:    R-stats 
-Requires:         R-CRAN-utf8 >= 1.1.0
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-PolynomF 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-SparseM 
+Requires:         R-CRAN-PolynomF 
+Requires:         R-methods 
 
 %description
-Text corpus data analysis, with full support for international text
-(Unicode).  Functions for reading data from newline-delimited 'JSON'
-files, for normalizing and tokenizing text, for searching for term
-occurrences, and for computing term occurrence frequencies, including
-n-grams.
+Local linear estimation of psychometric functions. Provides functions for
+nonparametric estimation of a psychometric function and for estimation of
+a derived threshold and slope, and their standard deviations and
+confidence intervals.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

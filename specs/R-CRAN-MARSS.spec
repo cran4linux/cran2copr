@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MARSS
-%global packver   3.11.4
+%global packver   3.11.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11.4
+Version:          3.11.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Autoregressive State-Space Modeling
 
@@ -17,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-KFAS >= 1.0.1
+BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -24,6 +26,7 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-KFAS >= 1.0.1
+Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-mvtnorm 
@@ -34,20 +37,18 @@ Requires:         R-utils
 %description
 The MARSS package provides maximum-likelihood parameter estimation for
 constrained and unconstrained linear multivariate autoregressive
-state-space (MARSS) models fit to multivariate time-series data.  Fitting
-is primarily via an Expectation-Maximization (EM) algorithm, although
-fitting via the BFGS algorithm (using the optim function) is also
-provided.  MARSS models are a class of dynamic linear model (DLM) and
-vector autoregressive model (VAR) model.  Functions are provided for
-parametric and innovations bootstrapping, Kalman filtering and smoothing,
-bootstrap model selection criteria (AICb), confidences intervals via the
-Hessian approximation and via bootstrapping and calculation of auxiliary
-residuals for detecting outliers and shocks.  The user guide shows
-examples of using MARSS for parameter estimation for a variety of
-applications, model selection, dynamic factor analysis, outlier and shock
-detection, and addition of covariates.  Online workshops (lectures, eBook,
-and computer labs) at <https://atsa-es.github.io/> See the NEWS file for
-update information.
+state-space (MARSS) models, including partially deterministic models.
+MARSS models are a class of dynamic linear model (DLM) and vector
+autoregressive model (VAR) model. Fitting available via
+Expectation-Maximization (EM), BFGS (using optim), and 'TMB' (using the
+'marssTMB' companion package). Functions are provided for parametric and
+innovations bootstrapping, Kalman filtering and smoothing, model selection
+criteria including bootstrap AICb, confidences intervals via the Hessian
+approximation or bootstrapping, and all conditional residual types. See
+the user guide for examples of dynamic factor analysis, dynamic linear
+models, outlier and shock detection, and multivariate AR-p models. Online
+workshops (lectures, eBook, and computer labs) at
+<https://atsa-es.github.io/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eoa3
-%global packver   1.0
+%global packname  emBayes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wildlife Mortality Estimator for Low Fatality Rates and Imperfect Detection
+Summary:          Robust Bayesian Variable Selection via Expectation-Maximization
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-CRAN-GenEst 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-VGAM 
-Requires:         R-CRAN-actuar 
-Requires:         R-CRAN-GenEst 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-VGAM 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-glmnet 
 
 %description
-Evidence of Absence software (EoA) is a user-friendly application for
-estimating bird and bat fatalities at wind farms and designing search
-protocols. The software is particularly useful in addressing whether the
-number of fatalities has exceeded a given threshold and what search
-parameters are needed to give assurance that thresholds were not exceeded.
-The models are applicable even when zero carcasses have been found in
-searches, following Huso et al. (2015) <doi:10.1890/14-0764.1>, Dalthorp
-et al. (2017) <doi:10.3133/ds1055>, and Dalthorp and Huso (2015)
-<doi:10.3133/ofr20151227>.
+Variable selection methods have been extensively developed for analyzing
+high-dimensional omics data within both the frequentist and Bayesian
+frameworks. This package implemented the spike-and-slab quantile LASSO
+which has been developed along the line of Bayesian hierarchical model but
+deeply rooted in the frequentist regularization methods by utilizing the
+Expectation–Maximization (EM) algorithm. Therefore, the proposed method
+borrows strength from both the frequentist and Bayesian frameworks while
+overcoming their respective limitations. The spike-and-slab quantile LASSO
+can handle data irregularity in terms of skewness and outliers in the
+disease trait, compared to its nonrobust alternative, the spike-and-slab
+LASSO, which has also been implemented in the package. The core module of
+this package is developed in 'C++'.
 
 %prep
 %setup -q -c -n %{packname}

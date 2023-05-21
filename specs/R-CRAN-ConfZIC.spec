@@ -1,54 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GenEst
-%global packver   1.4.8
+%global packname  ConfZIC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Mortality Estimator
+Summary:          Confidence Envelopes for Model Selection Criteria Based on Minimum ZIC
 
-License:          CC0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-corpus 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-hellno 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-matrixStats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cmna 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ltsa 
+BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-corpus 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-hellno 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidytable 
+BuildRequires:    R-CRAN-psych 
+Requires:         R-CRAN-cmna 
+Requires:         R-stats 
+Requires:         R-CRAN-ltsa 
+Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-survival 
+Requires:         R-utils 
+Requires:         R-CRAN-tidytable 
+Requires:         R-CRAN-psych 
 
 %description
-Command-line and 'shiny' GUI implementation of the GenEst models for
-estimating bird and bat mortality at wind and solar power facilities,
-following Dalthorp, et al. (2018) <doi:10.3133/tm7A2>.
+Narrow down the number of models to look at in model selection using the
+confidence envelopes based on the minimum ZIC (Generalized Information
+Criteria) values for regression and time series data. Functions involve
+the computation of multivariate normal-probabilities with covariance
+matrices based on minimum ZIC inverting the CDF of the minimum ZIC. It
+involves both the computation of singular and non-singular probabilities
+as described in Genz (1992) <https:doi.org/10.2307/1390838>.
 
 %prep
 %setup -q -c -n %{packname}

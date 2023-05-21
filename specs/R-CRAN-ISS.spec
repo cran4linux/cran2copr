@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SecDim
-%global packver   3.2
+%global packname  ISS
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Second Dimension of Spatial Association
+Summary:          Isotonic Subgroup Selection
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-geosphere 
+Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-methods 
-Requires:         R-CRAN-geosphere 
 
 %description
-Most of the current methods explore spatial association using observations
-at sample locations, which are defined as the first dimension of spatial
-association (FDA). The proposed concept of the second dimension of spatial
-association (SDA), as described in Yongze Song (2022)
-<doi:10.1016/j.jag.2022.102834>, aims to extract in-depth information
-about the geographical environment from locations outside sample locations
-for exploring spatial association.
+Methodology for subgroup selection in the context of isotonic regression
+with sub-Gaussian errors, including, in particular, options for the
+classification setting. See the documentation of ISS(). Details can be
+found in the paper by Müller, Reeve, Cannings and Samworth (2023)
+<arXiv:2305.04852>.
 
 %prep
 %setup -q -c -n %{packname}

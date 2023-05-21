@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stylest
-%global packver   0.2.0
+%global __requires_exclude ^libmpi
+%global packname  rDEA
+%global packver   1.2-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Speaker Style Distinctiveness
+Summary:          Robust Data Envelopment Analysis (DEA) for R
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-corpus 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-corpus 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
+BuildRequires:    glpk-devel
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-truncnorm >= 1.0.7
+BuildRequires:    R-CRAN-truncreg >= 0.2.1
+BuildRequires:    R-CRAN-slam >= 0.1.9
+BuildRequires:    R-CRAN-maxLik 
+Requires:         R-CRAN-truncnorm >= 1.0.7
+Requires:         R-CRAN-truncreg >= 0.2.1
+Requires:         R-CRAN-slam >= 0.1.9
+Requires:         R-CRAN-maxLik 
 
 %description
-Estimates distinctiveness in speakers' (authors') style. Fits models that
-can be used for predicting speakers of new texts. Methods developed in
-Huang et al (2020) <doi:10.1017/pan.2019.49>.
+Data Envelopment Analysis for R, estimating robust DEA scores without and
+with environmental variables and doing returns-to-scale tests.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
