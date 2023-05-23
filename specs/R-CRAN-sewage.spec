@@ -1,52 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlt
-%global packver   1.4-7
+%global packname  sewage
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Most Likely Transformations
+Summary:          A Light-Weight Data Pipelining Tool
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-basefun >= 1.1.2
-BuildRequires:    R-CRAN-variables >= 1.1.0
-BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-alabama 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-coneproj 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-basefun >= 1.1.2
-Requires:         R-CRAN-variables >= 1.1.0
-Requires:         R-CRAN-BB 
-Requires:         R-CRAN-alabama 
-Requires:         R-stats 
-Requires:         R-CRAN-coneproj 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Matrix 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-cli 
 
 %description
-Likelihood-based estimation of conditional transformation models via the
-most likely transformation approach described in Hothorn et al. (2018)
-<DOI:10.1111/sjos.12291> and Hothorn (2020) <DOI:10.18637/jss.v092.i01>.
+Provides a simple interface to developing complex data pipelines which can
+be executed in a single call. 'sewage' makes it easy to test, debug, and
+share data pipelines through it's interface and visualizations.
 
 %prep
 %setup -q -c -n %{packname}

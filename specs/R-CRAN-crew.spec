@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crew
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Distributed Worker Launcher
+Summary:          A Distributed Worker Launcher Framework
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mirai >= 0.8.3
-BuildRequires:    R-CRAN-nanonext >= 0.8.2
+BuildRequires:    R-CRAN-mirai >= 0.8.4
+BuildRequires:    R-CRAN-nanonext >= 0.8.3
 BuildRequires:    R-CRAN-getip 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-ps 
@@ -28,9 +28,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-mirai >= 0.8.3
-Requires:         R-CRAN-nanonext >= 0.8.2
+Requires:         R-CRAN-mirai >= 0.8.4
+Requires:         R-CRAN-nanonext >= 0.8.3
 Requires:         R-CRAN-getip 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-ps 
@@ -40,7 +39,6 @@ Requires:         R-stats
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
 In computationally demanding analysis projects, statisticians and data

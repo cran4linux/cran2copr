@@ -1,52 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlt
-%global packver   1.4-7
+%global packname  forestat
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Most Likely Transformations
+Summary:          Evaluating the Quality of Natural Forest
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-basefun >= 1.1.2
-BuildRequires:    R-CRAN-variables >= 1.1.0
-BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-alabama 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-coneproj 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-basefun >= 1.1.2
-Requires:         R-CRAN-variables >= 1.1.0
-Requires:         R-CRAN-BB 
-Requires:         R-CRAN-alabama 
-Requires:         R-stats 
-Requires:         R-CRAN-coneproj 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-nlme 
+Requires:         R-stats 
 
 %description
-Likelihood-based estimation of conditional transformation models via the
-most likely transformation approach described in Hothorn et al. (2018)
-<DOI:10.1111/sjos.12291> and Hothorn (2020) <DOI:10.18637/jss.v092.i01>.
+Including tree height classification, tree height model establishment,
+sectional area growth and stock growth modeling, and calculation of actual
+and potential forest productivity.
 
 %prep
 %setup -q -c -n %{packname}

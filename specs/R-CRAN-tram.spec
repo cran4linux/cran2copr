@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tram
-%global packver   0.8-2
+%global packver   0.8-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-mlt >= 1.4.3
+BuildRequires:    R-CRAN-mlt >= 1.4.7
 BuildRequires:    R-CRAN-basefun >= 1.1.2
 BuildRequires:    R-CRAN-variables >= 1.0.4
 BuildRequires:    R-CRAN-Formula 
@@ -28,7 +28,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mlt >= 1.4.3
+Requires:         R-CRAN-mlt >= 1.4.7
 Requires:         R-CRAN-basefun >= 1.1.2
 Requires:         R-CRAN-variables >= 1.0.4
 Requires:         R-CRAN-Formula 
@@ -50,9 +50,10 @@ continuous outcome logistic regression (Lohse et al., 2017,
 <DOI:10.12688/f1000research.12934.1>). The underlying theory is described
 in Hothorn et al. (2018) <DOI:10.1111/sjos.12291>. An extension to
 transformation models for clustered data is provided (Barbanti and
-Hothorn, 2022, <arxiv:1910.09219>). Multivariate conditional
-transformation models (Klein et al, 2022, <DOI:10.1111/sjos.12501>) can be
-fitted as well.
+Hothorn, 2022, <DOI:10.1093/biostatistics/kxac048>). Multivariate
+conditional transformation models (Klein et al, 2022,
+<DOI:10.1111/sjos.12501>) and shift-scale transformation models (Siegfried
+et al, 2023, <DOI:10.1080/00031305.2023.2203177>) can be fitted as well.
 
 %prep
 %setup -q -c -n %{packname}

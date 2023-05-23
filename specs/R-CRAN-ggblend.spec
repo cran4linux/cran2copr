@@ -1,52 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlt
-%global packver   1.4-7
+%global packname  ggblend
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Most Likely Transformations
+Summary:          Blending and Compositing Algebra for 'ggplot2'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-basefun >= 1.1.2
-BuildRequires:    R-CRAN-variables >= 1.1.0
-BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-alabama 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-coneproj 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-basefun >= 1.1.2
-Requires:         R-CRAN-variables >= 1.1.0
-Requires:         R-CRAN-BB 
-Requires:         R-CRAN-alabama 
-Requires:         R-stats 
-Requires:         R-CRAN-coneproj 
-Requires:         R-graphics 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Matrix 
+Requires:         R-grid 
+Requires:         R-CRAN-rlang 
 
 %description
-Likelihood-based estimation of conditional transformation models via the
-most likely transformation approach described in Hothorn et al. (2018)
-<DOI:10.1111/sjos.12291> and Hothorn (2020) <DOI:10.18637/jss.v092.i01>.
+Algebra of operations for blending, copying, adjusting, and compositing
+layers in 'ggplot2'. Supports copying and adjusting the aesthetics or
+parameters of an existing layer, partitioning a layer into multiple pieces
+for re-composition, applying affine transformations to layers, and
+combining layers (or partitions of layers) using blend modes (including
+commutative blend modes, like multiply and darken). Blend mode support is
+particularly useful for creating plots with overlapping groups where the
+layer drawing order does not change the output; see Kindlmann and
+Scheidegger (2014) <doi:10.1109/TVCG.2014.2346325>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.tests
-%global packver   0.7.0
+%global packname  intradayModel
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Suite for 'Future API' Backends
+Summary:          Modeling and Forecasting Financial Intraday Signals
 
-License:          LGPL (>= 2.1)
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.22.1
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-sessioninfo 
-Requires:         R-CRAN-future >= 1.22.1
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-sessioninfo 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-utils 
 
 %description
-Backends implementing the 'Future' API, as defined by the 'future'
-package, should use the tests provided by this package to validate that
-they meet the minimal requirements of the 'Future' API.  The tests can be
-performed easily from within R or from outside of R from the command line
-making it straightforward to include them in package tests and in
-Continuous Integration (CI) pipelines.
+Models, analyzes, and forecasts financial intraday signals. This package
+currently supports a univariate state-space model for intraday trading
+volume provided by Chen (2016) <doi:10.2139/ssrn.3101695>.
 
 %prep
 %setup -q -c -n %{packname}

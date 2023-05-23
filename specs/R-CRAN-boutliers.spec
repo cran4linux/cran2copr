@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  boutliers
-%global packver   1.1-1
+%global packver   1.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Outlier Detection and Influence Diagnostics for Meta-Analysis
 
@@ -13,19 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-MASS 
 
 %description
-A R package for implementing outlier detection and influence diagnostics
-for meta-analysis. Bootstrap distributions of the influence statistics are
-calculated, and the thresholds to determine influential outliers are
-provided explicitly.
+Computational tools for outlier detection and influence diagnostics of
+meta-analysis. Bootstrap distributions of the influence statistics are
+calculated, and the thresholds to determine outliers are explicitly
+provided.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

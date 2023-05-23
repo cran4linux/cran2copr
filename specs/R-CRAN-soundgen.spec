@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  soundgen
-%global packver   2.5.3
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.3
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sound Synthesis and Acoustic Analysis
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-nonlinearTseries 
 Requires:         R-stats >= 4.0.0
 Requires:         R-CRAN-seewave >= 2.1.6
 Requires:         R-CRAN-shinyBS 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-nonlinearTseries 
 
 %description
 Performs parametric synthesis of sounds with harmonic and noise components

@@ -1,52 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlt
-%global packver   1.4-7
+%global packname  PEtests
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Most Likely Transformations
+Summary:          Power-Enhanced (PE) Tests for High-Dimensional Data
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-basefun >= 1.1.2
-BuildRequires:    R-CRAN-variables >= 1.1.0
-BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-alabama 
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-coneproj 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-basefun >= 1.1.2
-Requires:         R-CRAN-variables >= 1.1.0
-Requires:         R-CRAN-BB 
-Requires:         R-CRAN-alabama 
 Requires:         R-stats 
-Requires:         R-CRAN-coneproj 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Matrix 
 
 %description
-Likelihood-based estimation of conditional transformation models via the
-most likely transformation approach described in Hothorn et al. (2018)
-<DOI:10.1111/sjos.12291> and Hothorn (2020) <DOI:10.18637/jss.v092.i01>.
+Two-sample power-enhanced mean tests, covariance tests, and simultaneous
+tests on mean vectors and covariance matrices for high-dimensional data.
+Methods of these PE tests are presented in Yu, Li, and Xue (2022)
+<doi:10.1080/01621459.2022.2126781>; Yu, Li, Xue, and Li (2022)
+<doi:10.1080/01621459.2022.2061354>.
 
 %prep
 %setup -q -c -n %{packname}

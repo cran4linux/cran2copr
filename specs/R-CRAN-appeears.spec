@@ -1,49 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3pipelines
-%global packver   0.5.0-1
+%global packname  appeears
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Preprocessing Operators and Pipelines for 'mlr3'
+Summary:          Interface to 'AppEARS' NASA Web Services
 
-License:          LGPL-3
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3misc >= 0.9.0
-BuildRequires:    R-CRAN-mlr3 >= 0.6.0
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-mlr3misc >= 0.9.0
-Requires:         R-CRAN-mlr3 >= 0.6.0
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-lgr 
-Requires:         R-CRAN-paradox 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-geojsonio 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-getPass 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-geojsonio 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-Dataflow programming toolkit that enriches 'mlr3' with a diverse set of
-pipelining operators ('PipeOps') that can be composed into graphs.
-Operations exist for data preprocessing, model fitting, and ensemble
-learning. Graphs can themselves be treated as 'mlr3' 'Learners' and can
-therefore be resampled, benchmarked, and tuned.
+Programmatic interface to the NASA Application for Extracting and
+Exploring Analysis Ready Samples services (AppEEARS;
+<https://appeears.earthdatacloud.nasa.gov/>). The package provides easy
+access to analysis ready earth observation data in R.
 
 %prep
 %setup -q -c -n %{packname}

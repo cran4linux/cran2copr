@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BiCausality
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Binary Causality Inference Framework
 
@@ -27,7 +27,9 @@ in a form of causal graph G=(V,E) where V is a set of nodes representing
 binary variables and there is an edge from i to j in E if the variable i
 causes j. The framework determines dependency among variables as well as
 analyzing confounding factors before deciding whether i causes j.  The
-publication of this package is at <arXiv:2205.06131>.
+publication of this package is at Chainarong Amornbunchornvej, Navaporn
+Surasvadi, Anon Plangprasopchok, and Suttipong Thajchayapong (2023)
+<doi:10.1016/j.heliyon.2023.e15947>.
 
 %prep
 %setup -q -c -n %{packname}
