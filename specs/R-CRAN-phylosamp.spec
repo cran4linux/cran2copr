@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  phylosamp
-%global packver   0.1.6
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Probability of Transmission Given Phylogenetic Linkage
+Summary:          Sample Size Calculations for Molecular and Phylogenetic Studies
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +18,21 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements novel tools that estimate the probability of true transmission
-between two cases given phylogenetic linkage and the expected number of
-true transmission links in a sample. Methods described in Wohl, Giles, and
-Lessler (2021) <doi:10.1371/journal.pcbi.1009182>.
+Implements novel tools for estimating sample sizes needed for phylogenetic
+studies, including studies focused on estimating the probability of true
+pathogen transmission between two cases given phylogenetic linkage and
+studies focused on tracking pathogen variants at a population level.
+Methods described in Wohl, Giles, and Lessler (2021) and in Wohl, Lee,
+DiPrete, and Lessler (2023).
 
 %prep
 %setup -q -c -n %{packname}

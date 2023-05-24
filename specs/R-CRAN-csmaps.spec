@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csmaps
-%global packver   2022.12.15
+%global packver   2023.5.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.12.15
+Version:          2023.5.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preformatted Maps of Norway that Don't Need Geolibraries
 
@@ -24,10 +24,10 @@ Requires:         R-utils
 
 %description
 Provides datasets containing preformatted maps of Norway at the county,
-municipality, and ward (Oslo only) level for redistricting in 2017, 2018,
-and 2020. Multiple layouts are provided (normal, split, and with an insert
-for Oslo), allowing the user to rapidly create choropleth maps of Norway
-without any geolibraries.
+municipality, and ward (Oslo only) level for redistricting in 2024, 2020,
+2018, and 2017. Multiple layouts are provided (normal, split, and with an
+insert for Oslo), allowing the user to rapidly create choropleth maps of
+Norway without any geolibraries.
 
 %prep
 %setup -q -c -n %{packname}

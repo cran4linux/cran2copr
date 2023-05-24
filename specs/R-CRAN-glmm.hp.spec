@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmm.hp
-%global packver   0.0-9
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Partitioning of Marginal R2 for Generalized Mixed-Effect Models
 
@@ -19,9 +19,11 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-lme4 
 Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-lme4 
 
 %description

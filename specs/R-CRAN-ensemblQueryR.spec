@@ -1,36 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gadget2
-%global packver   2.3.10
+%global packname  ensemblQueryR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gadget is the Globally-Applicable Area Disaggregated General Ecosystem Toolbox
+Summary:          Simple, Fast and Efficient Querying of the 'Ensembl' API
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vroom 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-vroom 
+Requires:         R-CRAN-xml2 
 
 %description
-A statistical ecosystem modelling package, taking many features of the
-ecosystem into account. Gadget works by running an internal model based on
-many parameters, and then comparing the data from the output of this model
-to real data to get a goodness-of-fit likelihood score. These parameters
-can then be adjusted, and the model re-run, until an optimum is found,
-which corresponds to the model with the lowest likelihood score. Gadget
-allows the user to include a number of features into an ecosystem model:
-One or more species, each of which may be split into multiple stocks;
-multiple areas with migration between areas; predation between and within
-species; maturation; reproduction and recruitment; multiple commercial and
-survey fleets taking catches from the populations. For more details see
-<https://gadget-framework.github.io/gadget2/>. This is the C++ Gadget2
-runtime, making it available for R.
+Suite of tools to enable fast, efficient, high-throughput, R workflow
+integrable querying of 'Ensembl' REST API endpoints
+(<https://rest.ensembl.org/>).
 
 %prep
 %setup -q -c -n %{packname}

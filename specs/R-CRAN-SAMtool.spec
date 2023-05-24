@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SAMtool
-%global packver   1.5.2
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stock Assessment Methods Toolkit
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-MSEtool >= 3.0.0
 BuildRequires:    R-CRAN-TMB >= 1.9.0
-BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-graphics 
@@ -32,7 +31,6 @@ BuildRequires:    R-CRAN-vars
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-MSEtool >= 3.0.0
 Requires:         R-CRAN-TMB >= 1.9.0
-Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gplots 
 Requires:         R-graphics 

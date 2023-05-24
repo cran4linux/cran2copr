@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rkafka
-%global packver   1.4
+%global packname  lmtestrob
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using Apache 'Kafka' Messaging Queue Through 'R'
+Summary:          Outlier Robust Specification Testing
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-RUnit 
-BuildRequires:    R-CRAN-rkafkajars 
-Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-RUnit 
-Requires:         R-CRAN-rkafkajars 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Apache 'Kafka' is an open-source message broker project developed by the
-Apache Software Foundation which can be thought of as a distributed,
-partitioned, replicated commit log service.At a high level, producers send
-messages over the network to the 'Kafka' cluster which in turn serves them
-up to consumers.See <https://kafka.apache.org/> for more
-information.Functions included in this package enable:1.Creating 'Kafka'
-producer 2.Writing messages to a topic 3.Closing 'Kafka' producer
-4.Creating 'Kafka' consumer 5.Reading messages from a topic 6.Closing
-'Kafka' consumer. The jars required for this package are included in a
-separate package 'rkafkajars'.
+Robust test(s) for model diagnostics in regression. The current version
+contains a robust test for functional specification (linearity). The test
+is based on the robust bounded-influence test by Heritier and Ronchetti
+(1994) <doi:10.1080/01621459.1994.10476822>.
 
 %prep
 %setup -q -c -n %{packname}

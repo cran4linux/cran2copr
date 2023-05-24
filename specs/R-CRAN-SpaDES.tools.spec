@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpaDES.tools
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Additional Tools for Developing Spatially Explicit Discrete Event Simulation (SpaDES) Models
 
@@ -14,40 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-raster >= 2.5.8
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-reproducible >= 2.0.2
 BuildRequires:    R-CRAN-checkmate >= 1.8.2
-BuildRequires:    R-CRAN-sp >= 1.2.4
 BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-CRAN-fastmatch >= 1.1.0
-BuildRequires:    R-CRAN-CircStats >= 0.2.4
 BuildRequires:    R-CRAN-fpCompare >= 0.2.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-quickPlot 
-BuildRequires:    R-CRAN-Require 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-raster >= 2.5.8
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-reproducible >= 2.0.2
 Requires:         R-CRAN-checkmate >= 1.8.2
-Requires:         R-CRAN-sp >= 1.2.4
 Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-CRAN-fastmatch >= 1.1.0
-Requires:         R-CRAN-CircStats >= 0.2.4
 Requires:         R-CRAN-fpCompare >= 0.2.1
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-backports 
-Requires:         R-CRAN-magrittr 
+Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-quickPlot 
-Requires:         R-CRAN-Require 
-Requires:         R-CRAN-rgeos 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
 
 %description
 Provides GIS and map utilities, plus additional modeling tools for

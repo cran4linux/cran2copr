@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MagmaClustR
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering and Prediction using Multi-Task Gaussian Processes with Common Mean
 
@@ -53,16 +53,17 @@ particular for time series or any functional/continuous data applications.
 The corresponding articles has been respectively proposed by Arthur Leroy,
 Pierre Latouche, Benjamin Guedj and Servane Gey (2022)
 <doi:10.1007/s10994-022-06172-1>, and Arthur Leroy, Pierre Latouche,
-Benjamin Guedj and Servane Gey (2020) <arXiv:2011.07866>. Theses
-approaches leverage the learning of cluster-specific mean processes, which
-are common across similar tasks, to provide enhanced prediction
-performances (even far from data) at a linear computational cost (in the
-number of tasks).  'MagmaClust' is a generalisation of 'Magma' where the
-tasks are simultaneously clustered into groups, each being associated to a
-specific mean process.  User-oriented functions in the package are
-decomposed into training, prediction and plotting functions. Some basic
-features (classic kernels, training, prediction) of standard Gaussian
-processes are also implemented.
+Benjamin Guedj and Servane Gey (2023)
+<https://jmlr.org/papers/v24/20-1321.html>. Theses approaches leverage the
+learning of cluster-specific mean processes, which are common across
+similar tasks, to provide enhanced prediction performances (even far from
+data) at a linear computational cost (in the number of tasks).
+'MagmaClust' is a generalisation of 'Magma' where the tasks are
+simultaneously clustered into groups, each being associated to a specific
+mean process.  User-oriented functions in the package are decomposed into
+training, prediction and plotting functions. Some basic features (classic
+kernels, training, prediction) of standard Gaussian processes are also
+implemented.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nimble
-%global packver   0.13.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MCMC, Particle Filtering, and Programmable Hierarchical Modeling
 
@@ -20,10 +20,14 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-methods 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-numDeriv 
 
 %description
 A system for writing hierarchical statistical models largely compatible

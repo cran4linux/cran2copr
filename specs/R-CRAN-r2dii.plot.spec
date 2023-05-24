@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  r2dii.plot
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize the Climate Scenario Alignment of a Financial Portfolio
 
@@ -44,8 +45,8 @@ Create plots to visualize the alignment of a corporate lending financial
 portfolio to climate change scenarios based on climate indicators
 (production and emission intensities) across key climate relevant sectors
 of the 'PACTA' methodology (Paris Agreement Capital Transition Assessment;
-<https://2degrees-investing.org/>). Financial institutions use 'PACTA' to
-study how their capital allocation decisions align with climate change
+<https://www.transitionmonitor.com/>). Financial institutions use 'PACTA'
+to study how their capital allocation decisions align with climate change
 mitigation goals.
 
 %prep

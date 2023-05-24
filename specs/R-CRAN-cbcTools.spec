@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cbcTools
-%global packver   0.3.0
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design and Evaluate Choice-Based Conjoint Survey Experiments
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-logitr >= 1.0.1
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-idefix 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-logitr >= 1.0.1
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fastDummies 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-idefix 

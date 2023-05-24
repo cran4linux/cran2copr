@@ -1,45 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  statar
-%global packver   0.7.5
+%global packname  kanjistat
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools Inspired by 'Stata' to Manipulate Tabular Data
+Summary:          A Statistical Framework for the Analysis of Japanese Kanji Characters
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gsubfn 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dendextend 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ROI 
+BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-CRAN-showtext 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-ggplot2 >= 2.0.0
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-transport 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-gsubfn 
+Requires:         R-utils 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dendextend 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ROI 
+Requires:         R-CRAN-sysfonts 
+Requires:         R-CRAN-showtext 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-transport 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-lifecycle 
 
 %description
-A set of tools inspired by 'Stata' to explore data.frames ('summarize',
-'tabulate', 'xtile', 'pctile', 'binscatter', elapsed quarters/month,
-lead/lag).
+Various tools and data sets that support the study of kanji, including
+their morphology, decomposition and concepts of distance and similarity
+between them.
 
 %prep
 %setup -q -c -n %{packname}
