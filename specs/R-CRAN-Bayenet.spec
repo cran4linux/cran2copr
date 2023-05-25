@@ -1,35 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGMselect
-%global packver   0.1-12.6
+%global packname  Bayenet
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12.6
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Graphs Models Selection
+Summary:          Bayesian Quantile Elastic Net for Genetic Study
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-lars 
-BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-lars 
-Requires:         R-CRAN-gtools 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-base 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-hbmem 
+BuildRequires:    R-CRAN-SuppDists 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-base 
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-hbmem 
+Requires:         R-CRAN-SuppDists 
 
 %description
-Graph estimation in Gaussian Graphical Models, following the method
-developed by C. Giraud, S. Huet and N. Verzelen (2012)
-<doi:10.1515/1544-6115.1625>. The main functions return the adjacency
-matrix of an undirected graph estimated from a data matrix.
+As heavy-tailed error distribution and outliers in the response variable
+widely exist, models which are robust to data contamination are highly
+demanded. Here, we develop a novel robust Bayesian variable selection
+method with elastic net penalty for quantile regression in genetic
+analysis. In particular, the spike-and-slab priors have been incorporated
+to impose sparsity. An efficient Gibbs sampler has been developed to
+facilitate computation.The core modules of the package have been developed
+in 'C++' and R.
 
 %prep
 %setup -q -c -n %{packname}

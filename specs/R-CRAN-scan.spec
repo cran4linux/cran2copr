@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scan
-%global packver   0.57
+%global packver   0.58
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.57
+Version:          0.58
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single-Case Data Analyses for Single and Multiple Baseline Designs
 
@@ -45,12 +45,14 @@ Requires:         R-CRAN-yaml
 %description
 A collection of procedures for analysing, visualising, and managing
 single-case data. These include piecewise linear regression models,
-multilevel models, overlap indices (PND, PEM, PAND, PET, tau-u, baseline
-corrected tau, CDC), and randomization tests. Data preparation functions
-support outlier detection, handling missing values, scaling, truncating,
-rank transformation, and smoothing. An exporting function helps to
-generate html and latex tables in a publication friendly style. More
-details can be found at <https://jazznbass.github.io/scan-Book/>.
+multilevel models, overlap indices ('PND', 'PEM', 'PAND', 'PET', 'tau-u',
+'baseline corrected tau', 'CDC'), and randomization tests. Data
+preparation functions support outlier detection, handling missing values,
+scaling, truncation, rank transformation, and smoothing. An export
+function helps to generate html and latex tables in a publication friendly
+style. More details can be found in the online book 'Analyzing single-case
+data with R and scan', Juergen Wilbert (2013)
+<https://jazznbass.github.io/scan-Book/>.
 
 %prep
 %setup -q -c -n %{packname}

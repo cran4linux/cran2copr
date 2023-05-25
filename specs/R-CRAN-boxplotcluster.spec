@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tldr
-%global packver   0.3.0
+%global packname  boxplotcluster
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          T Loux Doing R: Functions to Simplify Data Analysis and Reporting
+Summary:          Clustering Method Based on Boxplot Statistics
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tableone 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-tableone 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-graphics >= 4.2.0
+BuildRequires:    R-grDevices >= 4.2.0
+BuildRequires:    R-stats >= 4.2.0
+BuildRequires:    R-CRAN-cluster >= 2.1.4
+Requires:         R-graphics >= 4.2.0
+Requires:         R-grDevices >= 4.2.0
+Requires:         R-stats >= 4.2.0
+Requires:         R-CRAN-cluster >= 2.1.4
 
 %description
-Gives a number of functions to aid common data analysis processes and
-reporting statistical results in an 'RMarkdown' file. Data analysis
-functions combine multiple base R functions used to describe simple
-bivariate relationships into a single, easy to use function. Reporting
-functions will return character strings to report p-values, confidence
-intervals, and hypothesis test and regression results. Strings will be
-LaTeX-formatted as necessary and will knit pretty in an 'RMarkdown'
-document. The package also provides a wrapper for the CreateTableOne()
-function in the 'tableone' package to make the results knit-able.
+Following Arroyo-Maté-Roque (2006), the function calculates the distance
+between columns of the dataset using the generalized Minkowski metric as
+described by Ichino-Yaguchi (1994). The distance measure gives more weight
+to differences between quartiles than to differences between extremes,
+making it less sensitive to outliers. Further,the function calculates the
+silhouette width (Rousseeuw 1987) for different numbers of clusters and
+selects the number of clusters that maximizes the average silhouette
+width, unless a specific number of clusters is provided by the user. The
+approach implemented in this package is based on the following
+publications: Rousseeuw (1987) <doi:10.1016/0377-0427(87)90125-7>;
+Ichino-Yaguchi (1994) <doi:10.1109/21.286391>; Arroyo-Maté-Roque (2006)
+<doi:10.1007/3-540-34416-0_7>.
 
 %prep
 %setup -q -c -n %{packname}

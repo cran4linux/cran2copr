@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boxfilter
-%global packver   0.2
+%global packname  Rmalschains
+%global packver   0.2-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.2.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Filter Noisy Data
+Summary:          Continuous Optimization using Memetic Algorithms with Local Search Chains (MA-LS-Chains)
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.9.10
+Requires:         R-CRAN-Rcpp >= 0.9.10
 
 %description
-Noise filter based on determining the proportion of neighboring points. A
-false point will be rejected if it has only few neighbors, but accepted if
-the proportion of neighbors in a rectangular frame is high. The size of
-the rectangular frame as well as the cut-off value, i.e. of a minimum
-proportion of neighbor-points, may be supplied or can be calculated
-automatically. Originally designed for the cleaning of heart rates, but
-suitable for filtering any slowly-changing physiological variable.For more
-information see Signer (2010)<doi:10.1111/j.2041-210X.2009.00010.x>.
+An implementation of an algorithm family for continuous optimization
+called memetic algorithms with local search chains (MA-LS-Chains), as
+proposed in Molina et al. (2010) <doi:10.1162/evco.2010.18.1.18102> and
+Molina et al. (2011) <doi:10.1007/s00500-010-0647-2>. Rmalschains is
+further discussed in Bergmeir et al. (2016) <doi:10.18637/jss.v075.i04>.
+Memetic algorithms are hybridizations of genetic algorithms with local
+search methods. They are especially suited for continuous optimization.
 
 %prep
 %setup -q -c -n %{packname}

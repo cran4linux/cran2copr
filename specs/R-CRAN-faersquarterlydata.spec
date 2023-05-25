@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boxfilter
-%global packver   0.2
+%global packname  faersquarterlydata
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Filter Noisy Data
+Summary:          FDA Adverse Event Reporting System Quarterly Data Extracting Tool
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-tableone 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tableone 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Noise filter based on determining the proportion of neighboring points. A
-false point will be rejected if it has only few neighbors, but accepted if
-the proportion of neighbors in a rectangular frame is high. The size of
-the rectangular frame as well as the cut-off value, i.e. of a minimum
-proportion of neighbor-points, may be supplied or can be calculated
-automatically. Originally designed for the cleaning of heart rates, but
-suitable for filtering any slowly-changing physiological variable.For more
-information see Signer (2010)<doi:10.1111/j.2041-210X.2009.00010.x>.
+An easy framework to read FDA Adverse Event Reporting System XML/ASCII
+files
+<https://www.fda.gov/drugs/questions-and-answers-fdas-adverse-event-reporting-system-faers/fda-adverse-event-reporting-system-faers-latest-quarterly-data-files>.
 
 %prep
 %setup -q -c -n %{packname}

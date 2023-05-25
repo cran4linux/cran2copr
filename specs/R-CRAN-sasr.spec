@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boxfilter
-%global packver   0.2
+%global packname  sasr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Filter Noisy Data
+Summary:          'SAS' Interface
 
-License:          GPL (>= 3)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-reticulate 
 
 %description
-Noise filter based on determining the proportion of neighboring points. A
-false point will be rejected if it has only few neighbors, but accepted if
-the proportion of neighbors in a rectangular frame is high. The size of
-the rectangular frame as well as the cut-off value, i.e. of a minimum
-proportion of neighbor-points, may be supplied or can be calculated
-automatically. Originally designed for the cleaning of heart rates, but
-suitable for filtering any slowly-changing physiological variable.For more
-information see Signer (2010)<doi:10.1111/j.2041-210X.2009.00010.x>.
+Provides a 'SAS' interface, through
+'SASPy'(<https://sassoftware.github.io/saspy/>) and
+'reticulate'(<https://rstudio.github.io/reticulate/>). This package helps
+you create 'SAS' sessions, execute 'SAS' code in remote 'SAS' servers,
+retrieve execution results and log, and exchange datasets between 'SAS'
+and 'R'. It also helps you to install 'SASPy' and create a configuration
+file for the connection. Please review the 'SASPy' license file as
+instructed so that you comply with its separate and independent license.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boxfilter
-%global packver   0.2
+%global packname  argo
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Filter Noisy Data
+Summary:          Accurate Estimation of Influenza Epidemics using Google Search Data
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-boot 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-boot 
 
 %description
-Noise filter based on determining the proportion of neighboring points. A
-false point will be rejected if it has only few neighbors, but accepted if
-the proportion of neighbors in a rectangular frame is high. The size of
-the rectangular frame as well as the cut-off value, i.e. of a minimum
-proportion of neighbor-points, may be supplied or can be calculated
-automatically. Originally designed for the cleaning of heart rates, but
-suitable for filtering any slowly-changing physiological variable.For more
-information see Signer (2010)<doi:10.1111/j.2041-210X.2009.00010.x>.
+Augmented Regression with General Online data (ARGO) for accurate
+estimation of influenza epidemics in United States on national level,
+regional level and state level. It replicates the method introduced in
+paper Yang, S., Santillana, M. and Kou, S.C. (2015)
+<doi:10.1073/pnas.1515373112>; Ning, S., Yang, S. and Kou, S.C. (2019)
+<doi:10.1038/s41598-019-41559-6>; Yang, S., Ning, S. and Kou, S.C. (2021)
+<doi:10.1038/s41598-021-83084-5>.
 
 %prep
 %setup -q -c -n %{packname}

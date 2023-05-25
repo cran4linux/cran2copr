@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arcpullr
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pull Data from an 'ArcGIS REST' API
 
@@ -25,10 +25,9 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-tidyr >= 1.0.2
 BuildRequires:    R-CRAN-sf >= 0.9.7
 BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-rgdal 
 Requires:         R-CRAN-raster >= 3.4.5
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-jsonlite >= 1.6.1
@@ -37,10 +36,9 @@ Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-tidyr >= 1.0.2
 Requires:         R-CRAN-sf >= 0.9.7
 Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-methods 
-Requires:         R-CRAN-bslib 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-rgdal 
 
 %description
 Functions to efficiently query 'ArcGIS REST' APIs

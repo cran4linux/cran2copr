@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lavaanExtra
-%global packver   0.1.4
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convenience Functions for Package 'lavaan'
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-insight 
 Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-insight 
 
 %description
 Affords an alternative, vector-based syntax to 'lavaan', as well as other

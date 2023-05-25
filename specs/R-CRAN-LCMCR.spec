@@ -1,36 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boxfilter
-%global packver   0.2
+%global packname  LCMCR
+%global packver   0.4.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.4.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Filter Noisy Data
+Summary:          Bayesian Non-Parametric Latent-Class Capture-Recapture
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    gsl-devel
+BuildRequires:    R-devel >= 3.5.1
+Requires:         R-core >= 3.5.1
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Noise filter based on determining the proportion of neighboring points. A
-false point will be rejected if it has only few neighbors, but accepted if
-the proportion of neighbors in a rectangular frame is high. The size of
-the rectangular frame as well as the cut-off value, i.e. of a minimum
-proportion of neighbor-points, may be supplied or can be calculated
-automatically. Originally designed for the cleaning of heart rates, but
-suitable for filtering any slowly-changing physiological variable.For more
-information see Signer (2010)<doi:10.1111/j.2041-210X.2009.00010.x>.
+Bayesian population size estimation using non parametric latent-class
+models.
 
 %prep
 %setup -q -c -n %{packname}

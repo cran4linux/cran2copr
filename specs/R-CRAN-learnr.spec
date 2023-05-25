@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  learnr
-%global packver   0.11.3
+%global packver   0.11.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.11.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Tutorials for R
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-renv >= 0.8.0
 BuildRequires:    R-CRAN-htmltools >= 0.3.5
 BuildRequires:    R-CRAN-ellipsis >= 0.2.0.1
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-evaluate 
 BuildRequires:    R-CRAN-htmlwidgets 
@@ -47,7 +46,6 @@ Requires:         R-CRAN-renv >= 0.8.0
 Requires:         R-CRAN-htmltools >= 0.3.5
 Requires:         R-CRAN-ellipsis >= 0.2.0.1
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-evaluate 
 Requires:         R-CRAN-htmlwidgets 

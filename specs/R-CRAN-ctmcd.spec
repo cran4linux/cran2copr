@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boxfilter
-%global packver   0.2
+%global packname  ctmcd
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Filter Noisy Data
+Summary:          Estimating the Parameters of a Continuous-Time Markov Chain from Discrete-Time Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.17
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.17
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Noise filter based on determining the proportion of neighboring points. A
-false point will be rejected if it has only few neighbors, but accepted if
-the proportion of neighbors in a rectangular frame is high. The size of
-the rectangular frame as well as the cut-off value, i.e. of a minimum
-proportion of neighbor-points, may be supplied or can be calculated
-automatically. Originally designed for the cleaning of heart rates, but
-suitable for filtering any slowly-changing physiological variable.For more
-information see Signer (2010)<doi:10.1111/j.2041-210X.2009.00010.x>.
+Estimation of Markov generator matrices from discrete-time observations.
+The implemented approaches comprise diagonal and weighted adjustment of
+matrix logarithm based candidate solutions as in Israel (2001)
+<doi:10.1111/1467-9965.00114> as well as a quasi-optimization approach.
+Moreover, the expectation-maximization algorithm and the Gibbs sampling
+approach of Bladt and Sorensen (2005)
+<doi:10.1111/j.1467-9868.2005.00508.x> are included.
 
 %prep
 %setup -q -c -n %{packname}
