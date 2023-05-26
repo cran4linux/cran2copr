@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rlistings
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Trial Style Data Readout Listings
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-formatters >= 0.4.0
+BuildRequires:    R-CRAN-formatters >= 0.5.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-checkmate 
@@ -25,7 +25,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-formatters >= 0.4.0
+Requires:         R-CRAN-formatters >= 0.5.0
 Requires:         R-methods 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-checkmate 

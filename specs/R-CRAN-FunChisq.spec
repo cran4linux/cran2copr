@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FunChisq
-%global packver   2.5.2
+%global packver   2.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          2.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Free Functional Chi-Squared and Exact Tests
 
@@ -15,12 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Rdpack >= 0.6.1
+BuildRequires:    R-CRAN-Rdpack >= 0.6
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dqrng 
 BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rdpack >= 0.6.1
+Requires:         R-CRAN-Rdpack >= 0.6
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-dqrng 
@@ -32,12 +33,13 @@ test statistics are asymmetric and functionally optimal, unique from other
 related statistics. Tests in this package reveal evidence for causality
 based on the causality-by- functionality principle. They include
 asymptotic functional chi-squared tests (Zhang & Song 2013)
-<arXiv:1311.2707>, an adapted functional chi-squared test, and an exact
-functional test (Zhong & Song 2019) <doi:10.1109/TCBB.2018.2809743>
-(Nguyen et al. 2020) <doi:10.24963/ijcai.2020/372>. The normalized
-functional chi-squared test was used by Best Performer 'NMSUSongLab' in
-HPN-DREAM (DREAM8) Breast Cancer Network Inference Challenges (Hill et al.
-2016) <doi:10.1038/nmeth.3773>. A function index (Zhong & Song 2019)
+<arXiv:1311.2707>, an adapted functional chi-squared test (Kumar & Song
+2022) <doi:10.1093/bioinformatics/btac206>, and an exact functional test
+(Zhong & Song 2019) <doi:10.1109/TCBB.2018.2809743> (Nguyen et al. 2020)
+<doi:10.24963/ijcai.2020/372>. The normalized functional chi-squared test
+was used by Best Performer 'NMSUSongLab' in HPN-DREAM (DREAM8) Breast
+Cancer Network Inference Challenges (Hill et al. 2016)
+<doi:10.1038/nmeth.3773>. A function index (Zhong & Song 2019)
 <doi:10.1186/s12920-019-0565-9> (Kumar et al. 2018)
 <doi:10.1109/BIBM.2018.8621502> derived from the functional test statistic
 offers a new effect size measure for the strength of functional
@@ -56,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

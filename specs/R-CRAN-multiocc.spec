@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  multiocc
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fits Multivariate Spatio-Temporal Occupancy Model
 
@@ -17,19 +18,19 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-tmvtnorm 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-interp 
-BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-interp 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-tmvtnorm 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-interp 
-Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-coda 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-interp 
 
 %description
 Spatio-temporal multivariate occupancy models can handle multiple species

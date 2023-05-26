@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qlcal
-%global packver   0.0.6
+%global packname  hSDM
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings to the Calendaring Functionality of 'QuantLib'
+Summary:          Hierarchical Bayesian Species Distribution Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    gsl-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-coda 
 
 %description
-'QuantLib' bindings are provided for R using 'Rcpp' via an evolved version
-of the initial header-only 'Quantuccia' project offering an subset of
-'QuantLib' (now maintained separately just for the calendaring subset).
-See the included file 'AUTHORS' for a full list of contributors to
-'QuantLib' (and hence also 'Quantuccia').
+User-friendly and fast set of functions for estimating parameters of
+hierarchical Bayesian species distribution models (Latimer and others 2006
+<doi:10.1890/04-0609>). Such models allow interpreting the observations
+(occurrence and abundance of a species) as a result of several
+hierarchical processes including ecological processes (habitat
+suitability, spatial dependence and anthropogenic disturbance) and
+observation processes (species detectability). Hierarchical species
+distribution models are essential for accurately characterizing the
+environmental response of species, predicting their probability of
+occurrence, and assessing uncertainty in the model results.
 
 %prep
 %setup -q -c -n %{packname}

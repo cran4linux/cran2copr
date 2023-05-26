@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtables
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reporting Tables
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-formatters >= 0.4.0
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-formatters >= 0.5.0
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-methods 
 BuildRequires:    R-grid 
-Requires:         R-CRAN-formatters >= 0.4.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-formatters >= 0.5.0
 Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
-Requires:         R-CRAN-htmltools 
+Requires:         R-methods 
 Requires:         R-grid 
+Requires:         R-CRAN-htmltools 
+Requires:         R-stats 
 
 %description
 Reporting tables often have structure that goes beyond simple rectangular

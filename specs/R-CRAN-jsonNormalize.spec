@@ -1,31 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qlcal
-%global packver   0.0.6
+%global packname  jsonNormalize
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings to the Calendaring Functionality of 'QuantLib'
+Summary:          Normalization of 'JSON' Strings
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-V8 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-V8 
 
 %description
-'QuantLib' bindings are provided for R using 'Rcpp' via an evolved version
-of the initial header-only 'Quantuccia' project offering an subset of
-'QuantLib' (now maintained separately just for the calendaring subset).
-See the included file 'AUTHORS' for a full list of contributors to
-'QuantLib' (and hence also 'Quantuccia').
+Provides a function allowing to normalize a 'JSON' string, for example by
+adding double quotes around the keys when they are missing. Also provides
+'RStudio' addins for the same purpose.
 
 %prep
 %setup -q -c -n %{packname}

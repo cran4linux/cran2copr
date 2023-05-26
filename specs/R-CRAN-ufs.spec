@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ufs
-%global packver   0.5.2
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Utilities
 
@@ -33,6 +34,7 @@ BuildRequires:    R-CRAN-rmdpartials >= 0.5.8
 BuildRequires:    R-CRAN-ggridges >= 0.5.0
 BuildRequires:    R-CRAN-htmltools >= 0.4.0
 BuildRequires:    R-CRAN-gtable >= 0.2.0
+BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-CRAN-pwr 
 Requires:         R-grDevices >= 3.0.0
 Requires:         R-CRAN-gridExtra >= 2.3
@@ -51,6 +53,7 @@ Requires:         R-CRAN-rmdpartials >= 0.5.8
 Requires:         R-CRAN-ggridges >= 0.5.0
 Requires:         R-CRAN-htmltools >= 0.4.0
 Requires:         R-CRAN-gtable >= 0.2.0
+Requires:         R-CRAN-GPArotation 
 Requires:         R-CRAN-pwr 
 
 %description

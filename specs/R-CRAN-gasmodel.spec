@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gasmodel
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Autoregressive Score Models
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-arrangements 
+BuildRequires:    R-CRAN-CircStats 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-nloptr 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-CRAN-pracma 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-arrangements 
+Requires:         R-CRAN-CircStats 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-nloptr 

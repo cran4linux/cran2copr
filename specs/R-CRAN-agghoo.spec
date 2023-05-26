@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qlcal
-%global packver   0.0.6
+%global packname  agghoo
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings to the Calendaring Functionality of 'QuantLib'
+Summary:          Aggregated Hold-Out Cross Validation
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-class 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-FNN 
+Requires:         R-CRAN-class 
+Requires:         R-parallel 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-FNN 
 
 %description
-'QuantLib' bindings are provided for R using 'Rcpp' via an evolved version
-of the initial header-only 'Quantuccia' project offering an subset of
-'QuantLib' (now maintained separately just for the calendaring subset).
-See the included file 'AUTHORS' for a full list of contributors to
-'QuantLib' (and hence also 'Quantuccia').
+The 'agghoo' procedure is an alternative to usual cross-validation.
+Instead of choosing the best model trained on V subsamples, it determines
+a winner model for each subsample, and then aggregates the V outputs. For
+the details, see "Aggregated hold-out" by Guillaume Maillard, Sylvain
+Arlot, Matthieu Lerasle (2021) <arXiv:1909.04890> published in Journal of
+Machine Learning Research 22(20):1--55.
 
 %prep
 %setup -q -c -n %{packname}

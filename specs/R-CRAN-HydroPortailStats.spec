@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qlcal
-%global packver   0.0.6
+%global packname  HydroPortailStats
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings to the Calendaring Functionality of 'QuantLib'
+Summary:          'HydroPortail' Statistical Functions
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-evd 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-numDeriv 
 
 %description
-'QuantLib' bindings are provided for R using 'Rcpp' via an evolved version
-of the initial header-only 'Quantuccia' project offering an subset of
-'QuantLib' (now maintained separately just for the calendaring subset).
-See the included file 'AUTHORS' for a full list of contributors to
-'QuantLib' (and hence also 'Quantuccia').
+Statistical functions used in the French 'HydroPortail'
+<https://hydro.eaufrance.fr/>. This includes functions to estimate
+distributions, quantile curves and uncertainties, along with various other
+utilities. Technical details are available (in French) in Renard (2016)
+<https://hal.inrae.fr/hal-02605318>.
 
 %prep
 %setup -q -c -n %{packname}

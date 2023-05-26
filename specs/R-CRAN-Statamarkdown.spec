@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Statamarkdown
-%global packver   0.7.2
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Stata' Markdown
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.15
+BuildRequires:    R-CRAN-knitr >= 1.43
 BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.15
+Requires:         R-CRAN-knitr >= 1.43
 Requires:         R-CRAN-xfun >= 0.4
 
 %description

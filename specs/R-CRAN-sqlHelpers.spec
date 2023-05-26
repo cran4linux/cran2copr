@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qlcal
-%global packver   0.0.6
+%global packname  sqlHelpers
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings to the Calendaring Functionality of 'QuantLib'
+Summary:          Collection of 'SQL' Utilities for 'T-SQL' and 'Postgresql'
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-toolbox 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-odbc 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-toolbox 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-odbc 
+Requires:         R-parallel 
+Requires:         R-CRAN-stringi 
 
 %description
-'QuantLib' bindings are provided for R using 'Rcpp' via an evolved version
-of the initial header-only 'Quantuccia' project offering an subset of
-'QuantLib' (now maintained separately just for the calendaring subset).
-See the included file 'AUTHORS' for a full list of contributors to
-'QuantLib' (and hence also 'Quantuccia').
+Includes functions for interacting with common meta data fields, writing
+insert statements, calling functions, and more for 'T-SQL' and
+'Postgresql'.
 
 %prep
 %setup -q -c -n %{packname}

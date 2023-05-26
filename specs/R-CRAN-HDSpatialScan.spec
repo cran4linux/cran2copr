@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  HDSpatialScan
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate and Functional Spatial Scan Statistics
 
@@ -28,7 +29,7 @@ BuildRequires:    R-CRAN-TeachingDemos
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-fmsb 
 BuildRequires:    R-CRAN-swfscMisc 
-BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
@@ -47,7 +48,7 @@ Requires:         R-CRAN-TeachingDemos
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-fmsb 
 Requires:         R-CRAN-swfscMisc 
-Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-raster 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-grDevices 
@@ -61,11 +62,12 @@ functional data. Martin KULLDORFF and Lan HUANG and Kevin KONTY (2009)
 Caroline LANIER and Florent OCCELLI (2017)
 <doi:10.1016/j.spasta.2017.06.001>, Lionel CUCALA and Michael GENIN and
 Florent OCCELLI and Julien SOULA (2019)
-<doi:10.1016/j.spasta.2018.10.002>, Zaineb SMIDA and Lionel CUCALA and Ali
-GANNOUN (2020) <https://hal.archives-ouvertes.fr/hal-02908496>, Camille
-FREVENT and Mohamed-Salem AHMED and Matthieu MARBAC and Michael GENIN
-(2021) <arXiv:2011.03482>, Camille FREVENT and Mohamed-Salem AHMED and
-Sophie DABO-NIANG and Michael GENIN (2021) <arXiv:2103.14401>.
+<doi:10.1016/j.spasta.2018.10.002>, Camille FREVENT and Mohamed-Salem
+AHMED and Matthieu MARBAC and Michael GENIN (2021)
+<doi:10.1016/j.spasta.2021.100550>, Zaineb SMIDA and Lionel CUCALA and Ali
+GANNOUN and Ghislain Durif (2022) <doi:10.1016/j.csda.2021.107378>,
+Camille FREVENT and Mohamed-Salem AHMED and Sophie DABO-NIANG and Michael
+GENIN (2023) <doi:10.1093/jrsssc/qlad017>.
 
 %prep
 %setup -q -c -n %{packname}

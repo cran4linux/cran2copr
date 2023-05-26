@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cotram
-%global packver   0.4-2
+%global packver   0.4-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Count Transformation Models
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-mlt >= 1.2.1
 BuildRequires:    R-CRAN-basefun >= 1.0.5
 BuildRequires:    R-CRAN-variables >= 1.0.2
-BuildRequires:    R-CRAN-tram >= 0.7.2
+BuildRequires:    R-CRAN-tram >= 0.8.0
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
@@ -29,7 +29,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-mlt >= 1.2.1
 Requires:         R-CRAN-basefun >= 1.0.5
 Requires:         R-CRAN-variables >= 1.0.2
-Requires:         R-CRAN-tram >= 0.7.2
+Requires:         R-CRAN-tram >= 0.8.0
 Requires:         R-CRAN-alabama 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 

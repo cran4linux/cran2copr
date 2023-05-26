@@ -1,33 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ORKM
-%global packver   0.7.0.0
+%global packname  countDM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Online Regularized K-Means Clustering Algorithm
+Summary:          Estimation of Count Data Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-lamW 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-numbers 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-miscTools 
+Requires:         R-CRAN-lamW 
 Requires:         R-stats 
+Requires:         R-CRAN-numbers 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-miscTools 
 
 %description
-Algorithm of online regularized k-means to deal with online multi(single)
-view data. The philosophy of the package is described in Guo G. (2020)
-<doi:10.1080/02331888.2020.1823979>.
+The maximum likelihood estimation (MLE) of the count data models along
+with standard error of the estimates and Akaike information model section
+criterion are provided. The functions allow to compute the MLE for the
+following distributions such as the Bell distribution, the Borel
+distribution, the Poisson distribution, zero inflated Bell distribution,
+zero inflated Bell Touchard distribution, zero inflated Poisson
+distribution, zero one inflated Bell distribution and zero one inflated
+Poisson distribution. Moreover, the probability mass function (PMF),
+distribution function (CDF), quantile function (QF) and random numbers
+generation of the Bell Touchard and zero inflated Bell Touchard
+distribution are also provided.
 
 %prep
 %setup -q -c -n %{packname}

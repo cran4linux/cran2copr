@@ -1,46 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MCDA
-%global packver   0.0.24
+%global packname  gFormulaMI
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.24
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for the Multicriteria Decision Aiding Process
+Summary:          G-Formula for Causal Inference via Multiple Imputation
 
-License:          EUPL (== 1.1)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-glpkAPI 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-combinat 
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-glpkAPI 
-Requires:         R-methods 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-combinat 
-Requires:         R-CRAN-triangle 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mice 
+Requires:         R-CRAN-mice 
 
 %description
-Support for the analyst in a Multicriteria Decision Aiding (MCDA) process
-with algorithms, preference elicitation and data visualisation functions.
-Sébastien Bigaret, Richard Hodgett, Patrick Meyer, Tatyana Mironova,
-Alexandru Olteanu (2017) Supporting the multi-criteria decision aiding
-process : R and the MCDA package, Euro Journal On Decision Processes,
-Volume 5, Issue 1 - 4, pages 169 - 194 <doi:10.1007/s40070-017-0064-1>.
+Implements the G-Formula method for causal inference with time-varying
+treatments and confounders using Bayesian multiple imputation methods, as
+described by Bartlett, Olarte Parra and Daniel (2023) <arXiv:2301.12026>.
+It creates multiple synthetic imputed datasets under treatment regimes of
+interest using the 'mice' package. These can then be analysed using rules
+developed for analysing multiple synthetic datasets.
 
 %prep
 %setup -q -c -n %{packname}

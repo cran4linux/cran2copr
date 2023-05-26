@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  async
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Coroutines: Generators / Yield, Async / Await, and Streams
 
@@ -19,14 +19,18 @@ Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-testthat >= 3.0.0
 BuildRequires:    R-CRAN-nseval >= 0.4.3
+BuildRequires:    R-CRAN-iterors 
 BuildRequires:    R-CRAN-later 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-nseval >= 0.4.3
+Requires:         R-CRAN-iterors 
 Requires:         R-CRAN-later 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-stringr 
+Requires:         R-methods 
 
 %description
 Write sequential-looking code that pauses and resumes. gen() creates a

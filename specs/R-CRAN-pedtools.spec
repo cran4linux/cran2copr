@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pedtools
-%global packver   2.1.1
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating and Working with Pedigrees and Marker Data
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-kinship2 
+BuildRequires:    R-CRAN-pedmut 
 Requires:         R-CRAN-kinship2 
+Requires:         R-CRAN-pedmut 
 
 %description
 A comprehensive collection of tools for creating, manipulating and
