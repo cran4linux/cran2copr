@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rusquant
-%global packver   1.0.1
+%global packname  bioSNR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantitative Trading Framework
+Summary:          Bioacoustic Basic Operations with Decibels and the Passive Sonar Equation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quantmod 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-quantmod 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jose 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-rvest 
 
 %description
-Collection of functions to retrieve financial data from various sources,
-including brokerage and exchange platforms, financial websites, and data
-providers. Includes functions to retrieve account information, portfolio
-information, and place/cancel orders from different brokers. Additionally,
-allows users to download historical data such as earnings, dividends,
-stock splits.
+A beginners toolbox to help those in ecology who want to deepen their
+understanding or utilize Bioacoustics in their work. The package has a
+number of utilizations from calculating frequency from waveform,
+performing operations in dB, and determining acoustic range of recorders.
+The majority of this package is based on key concepts learned from the K.
+Lisa Yang Center for Conservation Bioacoustics at Cornell University and
+their associated course: Introduction to Bioacoustics course. More
+information can be found within the walk through vignettes at
+<https://github.com/MattyD797/bioSNR/tree/main/vignettes>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,26 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qvcalc
-%global packver   1.0.3
+%global packname  bayesRecon
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quasi Variances for Factor Effects in Statistical Models
+Summary:          Probabilistic Reconciliation via Conditioning
 
-License:          GPL-2 | GPL-3
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lpSolve >= 5.6.18
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-lpSolve >= 5.6.18
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Functions to compute quasi variances and associated measures of
-approximation error.
+Provides methods for probabilistic reconciliation of hierarchical
+forecasts of time series. The available methods include analytical
+Gaussian reconciliation (Corani et al., 2021)
+<doi:10.1007/978-3-030-67664-3_13>, MCMC reconciliation of count time
+series (Corani et al., 2022) <doi:10.48550/arXiv.2207.09322>, Bottom-Up
+Importance Sampling (Zambon et al., 2022) <doi:10.48550/arXiv.2210.02286>.
 
 %prep
 %setup -q -c -n %{packname}

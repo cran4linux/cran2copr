@@ -1,26 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qvcalc
-%global packver   1.0.3
+%global packname  caplot
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quasi Variances for Factor Effects in Statistical Models
+Summary:          Correspondence Analysis with Geometric Frequency Interpretation
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggrepel >= 0.9.0
+BuildRequires:    R-CRAN-ca >= 0.71
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggrepel >= 0.9.0
+Requires:         R-CRAN-ca >= 0.71
 
 %description
-Functions to compute quasi variances and associated measures of
-approximation error.
+Performs Correspondence Analysis on the given dataframe and plots the
+results in a scatterplot that emphasizes the geometric interpretation
+aspect of the analysis, following Yelland (2010). It is particularly
+useful for highlighting the relationships between a selected row (or
+column) category and the column (or row) categories. See Yelland (2010)
+<doi:10.3888/tmj.12-4>.
 
 %prep
 %setup -q -c -n %{packname}

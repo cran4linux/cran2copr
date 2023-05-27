@@ -1,26 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qvcalc
-%global packver   1.0.3
+%global packname  covidnor
+%global packver   2023.05.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2023.05.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quasi Variances for Factor Effects in Statistical Models
+Summary:          Public COVID-19 Data for Norway
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-Functions to compute quasi variances and associated measures of
-approximation error.
+Publicly available COVID-19 data for Norway cleaned and merged into one
+dataset, including PCR confirmed cases, tests, hospitalisation and
+vaccination.
 
 %prep
 %setup -q -c -n %{packname}

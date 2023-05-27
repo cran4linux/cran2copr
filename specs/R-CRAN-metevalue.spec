@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metevalue
-%global packver   0.2.2
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          E-Value in the Omics Data Association Studies
 
@@ -26,14 +26,16 @@ Requires:         R-CRAN-dplyr
 
 %description
 In the omics data association studies, it is common to conduct the p-value
-corrections to control the false significance. Among those p-value
-correction methods, E-value is recently studied based on V. Vovk and R.
-Wang (2021) <doi:10.1214/20-AOS2020>. This package provides e-value
-calculation for several types of omics data association studies.
-Currently, four data formats are supported: BiSeq, MDRfinder, methylKit
-and metilene data. The relevant references are listed below: Katja
-Hebestreit and Hans-Ulrich Klein (2022) <doi:10.18129/B9.bioc.BiSeq>;
-Altuna Akalin et.al (2012) <doi:10.18129/B9.bioc.methylKit>.
+corrections to control the false significance. Beyond the P-value
+corrections, E-value is recently studied to facilitate multiple testing
+correction based on V. Vovk and R. Wang (2021) <doi:10.1214/20-AOS2020>.
+This package provides E-value calculation for DNA methylation data and
+RNA-seq data. Currently, five data formats are supported: DNA methylation
+levels using DMR detection tools (BiSeq, DMRfinder, MethylKit, Metilene
+and other DNA methylation tools) and RNA-seq data. The relevant references
+are listed below: Katja Hebestreit and Hans-Ulrich Klein (2022)
+<doi:10.18129/B9.bioc.BiSeq>; Altuna Akalin et.al (2012)
+<doi:10.18129/B9.bioc.methylKit>.
 
 %prep
 %setup -q -c -n %{packname}

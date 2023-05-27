@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qvcalc
-%global packver   1.0.3
+%global packname  rebib
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quasi Variances for Factor Effects in Statistical Models
+Summary:          Convert and Aggregate Bibliographies
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,10 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-logger 
+BuildRequires:    R-CRAN-xfun 
+Requires:         R-tools 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-logger 
+Requires:         R-CRAN-xfun 
 
 %description
-Functions to compute quasi variances and associated measures of
-approximation error.
+Authors working with 'LaTeX' articles use the built-in bibliography
+options and 'BibTeX' files. While this might work with 'LaTeX', it does
+not function well with Web articles. As a way out, 'rebib' offers tools to
+convert and combine bibliographies from both sources.
 
 %prep
 %setup -q -c -n %{packname}

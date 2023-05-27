@@ -1,26 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qvcalc
-%global packver   1.0.3
+%global packname  spfa
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quasi Variances for Factor Effects in Statistical Models
+Summary:          Semi-Parametric Factor Analysis
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Functions to compute quasi variances and associated measures of
-approximation error.
+Estimation, scoring, and plotting functions for the semi-parametric factor
+model proposed by Liu & Wang (2022) <doi:10.1007/s11336-021-09832-8> and
+Liu & Wang (2023) <arXiv:2303.10079>. Both the conditional densities of
+observed responses given the latent factors and the joint density of
+latent factors are estimated non-parametrically. Functional parameters are
+approximated by smoothing splines, whose coefficients are estimated by
+penalized maximum likelihood using an expectation-maximization (EM)
+algorithm. E- and M-steps can be parallelized on multi-thread computing
+platforms that support 'OpenMP'. Both continuous and unordered categorical
+response variables are supported.
 
 %prep
 %setup -q -c -n %{packname}

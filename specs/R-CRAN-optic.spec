@@ -1,41 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EFAutilities
-%global packver   2.1.3
+%global packname  optic
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utility Functions for Exploratory Factor Analysis
+Summary:          Simulation Tool for Causal Inference Using Longitudinal Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GPArotation 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-did 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-GPArotation 
-Requires:         R-CRAN-plyr 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-did 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-A number of utility function for exploratory factor analysis are included
-in this package. In particular, it computes standard errors for parameter
-estimates and factor correlations under a variety of conditions.
+Implements a simulation study to assess the strengths and weaknesses of
+causal inference methods for estimating policy effects using panel data.
+See Griffin et al. (2021) <doi:10.1007/s10742-022-00284-w> and Griffin et
+al. (2022) <doi:10.1186/s12874-021-01471-y> for a description of our
+methods.
 
 %prep
 %setup -q -c -n %{packname}

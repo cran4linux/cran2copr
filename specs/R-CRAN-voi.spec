@@ -1,26 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qvcalc
-%global packver   1.0.3
+%global packname  voi
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quasi Variances for Factor Effects in Statistical Models
+Summary:          Expected Value of Information
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-dbarts 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-earth 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-dbarts 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-Matrix 
 
 %description
-Functions to compute quasi variances and associated measures of
-approximation error.
+Methods to calculate the expected value of information from a
+decision-analytic model.  This includes the expected value of perfect
+information (EVPI), partial perfect information (EVPPI) and sample
+information (EVSI), and the expected net benefit of sampling (ENBS).  A
+range of alternative computational methods are provided under the same
+user interface.  See Jackson et al. (2022)
+<doi:10.1146/annurev-statistics-040120-010730>.
 
 %prep
 %setup -q -c -n %{packname}

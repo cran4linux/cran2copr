@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nodbi
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'NoSQL' Database Connector
 
@@ -19,13 +19,11 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-jsonify 
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-jqr 
 BuildRequires:    R-CRAN-DBI 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonify 
 Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-jqr 
 Requires:         R-CRAN-DBI 
