@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eventPred
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Event Prediction
 
@@ -45,10 +45,8 @@ Requires:         R-CRAN-erify >= 0.4.0
 Requires:         R-CRAN-tmvtnsim >= 0.1.3
 
 %description
-Predicts enrollment and events at the design stage using assumed
-enrollment and treatment-specific time-to-event models, or at the analysis
-stage using blinded data and specified enrollment and time-to-event models
-through simulations.
+Predicts enrollment and events at the design or analysis stage using
+specified enrollment and time-to-event models through simulations.
 
 %prep
 %setup -q -c -n %{packname}

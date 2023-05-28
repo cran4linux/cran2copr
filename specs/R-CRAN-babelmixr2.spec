@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  babelmixr2
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use 'nlmixr2' to Interact with Open Source and Commercial Software
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-lotri 
 BuildRequires:    R-CRAN-nlmixr2est 
+BuildRequires:    R-CRAN-nonmem2rx 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-qs 
 BuildRequires:    R-CRAN-rex 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-lotri 
 Requires:         R-CRAN-nlmixr2est 
+Requires:         R-CRAN-nonmem2rx 
 Requires:         R-methods 
 Requires:         R-CRAN-qs 
 Requires:         R-CRAN-rex 
