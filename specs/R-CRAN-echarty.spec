@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  echarty
-%global packver   1.5.0
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimal R/Shiny Interface to JavaScript Library 'ECharts'
 
@@ -17,18 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.7.0
 BuildRequires:    R-CRAN-data.tree >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-data.tree >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-jsonlite 
 
 %description
 Deliver the full functionality of 'ECharts' with minimal overhead.
