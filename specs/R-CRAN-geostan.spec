@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geostan
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Spatial Analysis
 
@@ -62,9 +62,10 @@ diagnostics, and special methods for inference with small area survey data
 surveillance data. Models are pre-specified using the Stan programming
 language, a platform for Bayesian inference using Markov chain Monte Carlo
 (MCMC). References: Carpenter et al. (2017) <doi:10.18637/jss.v076.i01>;
-Donegan (2021) <doi:10.31219/osf.io/3ey65>; Donegan, Chun and Hughes
-(2020) <doi:10.1016/j.spasta.2020.100450>; Donegan, Chun and Griffith
-(2021) <doi:10.3390/ijerph18136856>; Morris et al. (2019)
+Donegan (2021) <doi:10.31219/osf.io/3ey65>; Donegan (2022)
+<doi:10.21105/joss.04716>; Donegan, Chun and Hughes (2020)
+<doi:10.1016/j.spasta.2020.100450>; Donegan, Chun and Griffith (2021)
+<doi:10.3390/ijerph18136856>; Morris et al. (2019)
 <doi:10.1016/j.sste.2019.100301>.
 
 %prep

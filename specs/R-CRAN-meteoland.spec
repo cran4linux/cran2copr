@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meteoland
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Landscape Meteorology Tools
 
@@ -16,13 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-meteospain 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-lifecycle 
@@ -36,14 +33,10 @@ BuildRequires:    R-CRAN-ncdfgeom
 BuildRequires:    R-CRAN-ncmeta 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-cubelyr 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-sp 
+Requires:         R-methods 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-meteospain 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-lifecycle 
@@ -57,7 +50,6 @@ Requires:         R-CRAN-ncdfgeom
 Requires:         R-CRAN-ncmeta 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-cubelyr 
-Requires:         R-grDevices 
 
 %description
 Functions to estimate weather variables at any position of a landscape [De

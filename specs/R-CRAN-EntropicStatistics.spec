@@ -1,56 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jstable
-%global packver   1.1.1
+%global packname  EntropicStatistics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Tables from Different Types of Regression
+Summary:          Functions Based on Entropic Statistics
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 3.0.0
-BuildRequires:    R-CRAN-geepack 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-tableone 
-BuildRequires:    R-CRAN-coxme 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-hrbrthemes 
+BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-survival >= 3.0.0
-Requires:         R-CRAN-geepack 
-Requires:         R-CRAN-lme4 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-tableone 
-Requires:         R-CRAN-coxme 
-Requires:         R-CRAN-survey 
-Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-hrbrthemes 
+Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
 
 %description
-Create regression tables from generalized linear model(GLM), generalized
-estimating equation(GEE), generalized linear mixed-effects model(GLMM),
-Cox proportional hazards model, survey-weighted generalized linear
-model(svyglm) and survey-weighted Cox model results for publication.
+Contains methods for data analysis in entropic perspective. These entropic
+perspective methods are nonparametric, and perform better on non-ordinal
+data. Currently, the package has a function HeatMap() for visualizing
+distributional characteristics among multiple populations (groups).
 
 %prep
 %setup -q -c -n %{packname}

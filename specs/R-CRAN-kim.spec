@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kim
-%global packver   0.5.212
+%global packver   0.5.260
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.212
+Version:          0.5.260
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolkit for Behavioral Scientists
 

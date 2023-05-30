@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  woodendesc
-%global packver   0.1.0
+%global packname  MVPBT
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find Packages and Their Dependencies in Any 'R' Repository
+Summary:          Publication Bias Tests for Meta-Analysis of Diagnostic Accuracy Test
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-versionsort >= 1.1.0
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-versionsort >= 1.1.0
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-mada 
+BuildRequires:    R-CRAN-mvmeta 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-mada 
+Requires:         R-CRAN-mvmeta 
 
 %description
-Simplifies getting the available packages, their version codes and
-dependencies from any 'R' repository. Uses extensive caching for repeated
-queries.
+Generalized Egger tests for detecting publication bias in meta-analysis
+for diagnostic accuracy test (Noma (2020) <doi:10.1111/biom.13343>, Noma
+(2022) <doi:10.48550/arXiv.2209.07270>). These publication bias tests are
+generally more powerful compared with the conventional univariate
+publication bias tests and can incorporate correlation information between
+the outcome variables.
 
 %prep
 %setup -q -c -n %{packname}

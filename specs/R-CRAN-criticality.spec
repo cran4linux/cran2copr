@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  criticality
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Fissile Material Operations in Nuclear Facilities
 
@@ -13,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bnlearn 
 BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-bnlearn 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-CRAN-fitdistrplus 
@@ -27,8 +28,8 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-bnlearn 
 Requires:         R-CRAN-caret 
+Requires:         R-CRAN-bnlearn 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-fitdistrplus 

@@ -1,28 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pgenlibr
-%global packver   0.3.3
+%global packname  EBEN
+%global packver   5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          PLINK 2 Binary (.pgen) Reader
+Summary:          Empirical Bayesian Elastic Net
 
-License:          LGPL (>= 3)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 
 %description
-A thin wrapper over PLINK 2's core libraries which provides an R interface
-for reading .pgen files.  A minimal .pvar loader is also included.  Chang
-et al. (2015) <doi:10.1186/s13742-015-0047-8>.
+Provides the Empirical Bayesian Elastic Net for handling multicollinearity
+in generalized linear regression models.  As a special case of the
+'EBglmnet' package (also available on CRAN), this package encourages a
+grouping effects to select relevant variables and estimate the
+corresponding non-zero effects.
 
 %prep
 %setup -q -c -n %{packname}

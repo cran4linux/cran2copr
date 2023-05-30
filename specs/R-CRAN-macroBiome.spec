@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  macroBiome
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool for Mapping the Distribution of the Biomes and Bioclimate
 
@@ -19,13 +19,11 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-palinsol 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rworldmap 
 BuildRequires:    R-CRAN-rworldxtra 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-strex 
 Requires:         R-CRAN-palinsol 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rworldmap 
 Requires:         R-CRAN-rworldxtra 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-strex 
@@ -37,7 +35,7 @@ equilibrium biome models are currently implemented in the package: the
 Holdridge Life Zone (HLZ) system (Holdridge 1947,
 <doi:10.1126/science.105.2727.367>), the Köppen-Geiger classification
 (KGC) system (Köppen 1936,
-<http://koeppen-geiger.vu-wien.ac.at/pdf/Koppen_1936.pdf>) and the BIOME
+<https://koeppen-geiger.vu-wien.ac.at/pdf/Koppen_1936.pdf>) and the BIOME
 model (Prentice et al. 1992, <doi:10.2307/2845499>). Three climatic
 forest-steppe models are also implemented. An approach for estimating
 monthly time series of relative sunshine duration from temperature and

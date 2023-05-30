@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maptools
-%global packver   1.1-6
+%global packver   1.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Handling Spatial Objects
 
@@ -34,10 +34,11 @@ Requires:         R-utils
 Requires:         R-grDevices 
 
 %description
-Please note that 'maptools' will be retired during 2023, plan transition
-at your earliest convenience; some functionality will be moved to 'sp'.
-Set of tools for manipulating geographic data. It includes binary access
-to 'GSHHG' shoreline files. The package also provides interface wrappers
+Please note that 'maptools' will be retired during October 2023, plan
+transition at your earliest convenience (see
+<https://r-spatial.org/r/2023/05/15/evolution4.html> and earlier blogs for
+guidance); some functionality will be moved to 'sp'. Set of tools for
+manipulating geographic data. The package also provides interface wrappers
 for exchanging spatial objects with packages such as 'PBSmapping',
 'spatstat.geom', 'maps', and others.
 
