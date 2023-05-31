@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  elevatr
-%global packver   0.4.2
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Elevation Data from Various APIs
 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-slippymath 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-httr 
@@ -40,6 +42,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-methods 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-slippymath 
+Requires:         R-CRAN-curl 
 
 %description
 Several web services are available that provide access to elevation data.
@@ -49,7 +52,7 @@ services or as a raster object from raster elevation services.  Currently,
 the package supports access to the Amazon Web Services Terrain Tiles
 <https://registry.opendata.aws/terrain-tiles/>, the Open Topography Global
 Datasets API <https://opentopography.org/developers/>, and the USGS
-Elevation Point Query Service <https://nationalmap.gov/epqs/>.
+Elevation Point Query Service <https://apps.nationalmap.gov/epqs/>.
 
 %prep
 %setup -q -c -n %{packname}

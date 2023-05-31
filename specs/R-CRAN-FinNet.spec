@@ -1,49 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FIESTA
-%global packver   3.5.4
+%global packname  FinNet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Inventory Estimation and Analysis
+Summary:          Quickly Build and Manipulate Financial Networks
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FIESTAutils >= 1.1.7
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-gdalraster 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-FIESTAutils >= 1.1.7
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-gdalraster 
 Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sqldf 
-Requires:         R-utils 
 
 %description
-A research estimation tool for analysts that work with sample-based
-inventory data from the U.S. Department of Agriculture, Forest Service,
-Forest Inventory and Analysis (FIA) Program.
+Providing classes, methods, and functions to deal with financial networks.
+Users can easily store information about both physical and legal persons
+by using pre-made classes that are studied for integration with scraping
+packages such as 'rvest' and 'RSelenium'. Moreover, the package assists in
+creating various types of financial networks depending on the type of
+relation between its units depending on the relation under scrutiny
+(ownership, board interlocks, etc.), the desired tie type (valued or
+binary), and renders them in the most common formats (adjacency matrix,
+incidence matrix, edge list, 'igraph', 'network').
 
 %prep
 %setup -q -c -n %{packname}

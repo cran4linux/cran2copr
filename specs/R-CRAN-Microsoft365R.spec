@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Microsoft365R
-%global packver   2.3.4
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'Microsoft 365' Suite of Cloud Services
 
@@ -19,6 +20,8 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-AzureGraph >= 1.3.1
 BuildRequires:    R-CRAN-AzureAuth 
 BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -28,6 +31,8 @@ BuildRequires:    R-CRAN-mime
 Requires:         R-CRAN-AzureGraph >= 1.3.1
 Requires:         R-CRAN-AzureAuth 
 Requires:         R-utils 
+Requires:         R-parallel 
+Requires:         R-tools 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 

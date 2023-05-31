@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LGDtoolkit
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Tools for LGD Rating Model Development
 
@@ -36,7 +36,9 @@ they are explained for PD model, the same designs are applicable for LGD
 model with different underlying regression methods (OLS and fractional
 logistic regression). To cover other important steps for LGD model
 development, it is recommended to use 'LGDtoolkit' package along with
-'PDtoolkit', and 'monobin' (or 'monobinShiny') packages.
+'PDtoolkit', and 'monobin' (or 'monobinShiny') packages. Additionally,
+'LGDtoolkit' provides set of procedures handy for initial and periodical
+model validation.
 
 %prep
 %setup -q -c -n %{packname}

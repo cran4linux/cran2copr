@@ -1,49 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FIESTA
-%global packver   3.5.4
+%global packname  MCPModPack
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Inventory Estimation and Analysis
+Summary:          Simulation-Based Design and Analysis of Dose-Finding Trials
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-FIESTAutils >= 1.1.7
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-gdalraster 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-FIESTAutils >= 1.1.7
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-gdalraster 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sqldf 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.4.1
+Requires:         R-core >= 3.4.1
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-devEMF 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-devEMF 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppNumerical 
 
 %description
-A research estimation tool for analysts that work with sample-based
-inventory data from the U.S. Department of Agriculture, Forest Service,
-Forest Inventory and Analysis (FIA) Program.
+An efficient implementation of the MCPMod (Multiple Comparisons and
+Modeling) method to support a simulation-based design and analysis of
+dose-finding trials with normally distributed, binary and count endpoints
+(Bretz et al. (2005) <doi:10.1111/j.1541-0420.2005.00344.x>).
 
 %prep
 %setup -q -c -n %{packname}

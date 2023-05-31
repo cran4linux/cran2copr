@@ -1,49 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FIESTA
-%global packver   3.5.4
+%global packname  halfmoon
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Inventory Estimation and Analysis
+Summary:          Techniques to Build Better Balance
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FIESTAutils >= 1.1.7
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-gdalraster 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-FIESTAutils >= 1.1.7
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-gdalraster 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sqldf 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tidysmd >= 0.2.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-tidysmd >= 0.2.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyselect 
 
 %description
-A research estimation tool for analysts that work with sample-based
-inventory data from the U.S. Department of Agriculture, Forest Service,
-Forest Inventory and Analysis (FIA) Program.
+Build better balance in causal inference models. 'halfmoon' helps you
+assess propensity score models for balance between groups using metrics
+like standardized mean differences and visualization techniques like
+mirrored histograms. 'halfmoon' supports both weighting and matching
+techniques.
 
 %prep
 %setup -q -c -n %{packname}

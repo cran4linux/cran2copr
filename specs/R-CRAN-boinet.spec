@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClusBoot
-%global packver   1.0.1
+%global packname  boinet
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap a Clustering Solution to Establish the Stability of the Clusters
+Summary:          Conduct Simulation Study of Bayesian Optimal Interval Design with BOIN-ET Family
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Iso 
+BuildRequires:    R-CRAN-mfp 
+BuildRequires:    R-CRAN-copula 
+Requires:         R-CRAN-Iso 
+Requires:         R-CRAN-mfp 
+Requires:         R-CRAN-copula 
 
 %description
-Providing a cluster allocation for n samples, either with an $n times p$
-data matrix or an $n times n$ distance matrix, a bootstrap procedure is
-performed. The proportion of bootstrap replicates where a pair of samples
-cluster in the same cluster indicates who tightly the samples in a
-particular cluster clusters together.
+Bayesian optimal interval based on both efficacy and toxicity outcomes
+(BOIN-ET) design is a model-assisted oncology phase I trial design, aiming
+to establish an optimal biological dose accounting for efficacy and
+toxicity in the framework of dose-finding. Some extensions of BOIN-ET
+design are also available to allow for time-to-event efficacy and toxicity
+outcomes based on cumulative and pending data (time-to-event BOIN-ET:
+TITE-BOIN-ET), multicategorical efficacy and toxicity outcomes
+(generalized BOIN-ET: gBOIN-ET), and their combination (TITE-gBOIN-ET).
+'boinet' is a package to implement the BOIN-ET design family and supports
+the conduct of simulation studies to assess operating characteristics of
+BOIN-ET, TITE-BOIN-ET, gBOIN-ET, and TITE-gBOIN-ET, where users can choose
+design parameters in flexible and straightforward ways depending on their
+own application.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FIESTA
-%global packver   3.5.4
+%global packname  dmetatools
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.4
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Inventory Estimation and Analysis
+Summary:          Computational Tools for Meta-Analysis of Diagnostic Accuracy Test
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FIESTAutils >= 1.1.7
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-gdalraster 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-FIESTAutils >= 1.1.7
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-gdalraster 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sqldf 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mada 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mada 
 
 %description
-A research estimation tool for analysts that work with sample-based
-inventory data from the U.S. Department of Agriculture, Forest Service,
-Forest Inventory and Analysis (FIA) Program.
+Computational tools for meta-analysis of diagnostic accuracy test.
+Bootstrap-based computational methods of the confidence interval for AUC
+of summary ROC curve and some related AUC-based inference methods are
+available (Noma et al. (2021) <doi:10.1080/23737484.2021.1894408>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesTools
-%global packver   0.2.13
+%global packver   0.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.13
+Version:          0.2.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Bayesian Analyses
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-bridgesampling
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-extraDistr 
@@ -35,9 +36,12 @@ Requires:         R-CRAN-bridgesampling
 Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides tools for conducting Bayesian analyses. The package contains
+Provides tools for conducting Bayesian analyses and Bayesian model
+averaging (Kass and Raftery, 1995, <doi:10.1080/01621459.1995.10476572>,
+Hoeting et al., 1999, <doi:10.1214/ss/1009212519>). The package contains
 functions for creating a wide range of prior distribution objects, mixing
 posterior samples from 'JAGS' and 'Stan' models, plotting posterior
 distributions, and etc... The tools for working with prior distribution

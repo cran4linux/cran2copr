@@ -1,49 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FIESTA
-%global packver   3.5.4
+%global packname  dwctaxon
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.4
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Inventory Estimation and Analysis
+Summary:          Edit and Validate Darwin Core Taxon Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FIESTAutils >= 1.1.7
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-gdalraster 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-FIESTAutils >= 1.1.7
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-gdalraster 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sqldf 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-settings 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-settings 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-A research estimation tool for analysts that work with sample-based
-inventory data from the U.S. Department of Agriculture, Forest Service,
-Forest Inventory and Analysis (FIA) Program.
+Edit and validate taxonomic data in compliance with Darwin Core standards
+(Darwin Core 'Taxon' class <https://dwc.tdwg.org/terms/#taxon>).
 
 %prep
 %setup -q -c -n %{packname}
