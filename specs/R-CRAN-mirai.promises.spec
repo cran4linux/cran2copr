@@ -1,43 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiscaleDTM
-%global packver   0.8.1
+%global packname  mirai.promises
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Scale Geomorphometric Terrain Attributes
+Summary:          Make 'Mirai' 'Promises'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rgl 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.12
+Requires:         R-core >= 2.12
+BuildArch:        noarch
+BuildRequires:    R-CRAN-promises >= 1.1.0
+BuildRequires:    R-CRAN-later >= 1.0.0
+BuildRequires:    R-CRAN-mirai 
+Requires:         R-CRAN-promises >= 1.1.0
+Requires:         R-CRAN-later >= 1.0.0
+Requires:         R-CRAN-mirai 
 
 %description
-Calculates multi-scale geomorphometric terrain attributes from regularly
-gridded digital terrain models using a variable focal windows size (Ilich
-et al. (2023) <doi:10.1111/tgis.13067>).
+Allows 'mirai' objects encapsulating asynchronous computations, from the
+'mirai' package by Gao (2023) <doi:10.5281/zenodo.7912722>, to be used
+interchangeably with 'promise' objects from the 'promises' package by
+Cheng (2021) <https://CRAN.R-project.org/package=promises>. This
+facilitates their use with packages 'plumber' by Schloerke and Allen
+(2022) <https://CRAN.R-project.org/package=plumber> and 'shiny' by Cheng,
+Allaire, Sievert, Schloerke, Xie, Allen, McPherson, Dipert and Borges
+(2022) <https://CRAN.R-project.org/package=shiny>.
 
 %prep
 %setup -q -c -n %{packname}

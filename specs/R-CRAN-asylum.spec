@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asylum
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data on Asylum and Resettlement for the UK
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 
 %description
 Data on Asylum and Resettlement for the UK, provided by the Home Office
-<https://www.gov.uk/government/statistical-data-sets/immigration-system-statistics-data-tables-year-ending-december-2022>.
+<https://www.gov.uk/government/statistical-data-sets/immigration-system-statistics-data-tables-year-ending-march-2023>.
 
 %prep
 %setup -q -c -n %{packname}

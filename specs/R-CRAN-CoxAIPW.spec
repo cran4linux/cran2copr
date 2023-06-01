@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CoxAIPW
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Doubly Robust Inference for Cox Marginal Structural Model with Informative Censoring
 
@@ -43,9 +43,9 @@ score model only depends on Z. With the help of cross-fitting techniques,
 achieves the rate-doubly robust property that allows the use of most
 machine learning or non-parametric methods for all 3 working models, which
 are not permitted in classic inverse probability weighting or doubly
-robust estimators. Reference: Robins & Finkelstein
-(2000)<doi:10.1111/j.0006-341x.2000.00779.x>; Hernan et al
-(2001)<doi:10.1198/016214501753168154>.
+robust estimators. Reference: Luo & Xu (2022)
+<doi:10.48550/arXiv.2206.02296>; Rava (2021)
+<https://escholarship.org/uc/item/8h1846gs>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  regsem
-%global packver   1.9.3
+%global packname  fdakma
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.3
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularized Structural Equation Modeling
+Summary:          Functional Data Analysis: K-Mean Alignment
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Rsolnp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fdacluster 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fdacluster 
+Requires:         R-CRAN-rlang 
 
 %description
-Uses both ridge and lasso penalties (and extensions) to penalize specific
-parameters in structural equation models. The package offers additional
-cost functions, cross validation, and other extensions beyond traditional
-structural equation models. Also contains a function to perform
-exploratory mediation (XMed).
+It performs simultaneously clustering and alignment of a multidimensional
+or unidimensional functional dataset by means of k-mean alignment.
 
 %prep
 %setup -q -c -n %{packname}

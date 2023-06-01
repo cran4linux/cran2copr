@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  attachment
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deal with Dependencies
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-roxygen2
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-glue >= 1.3.0
@@ -39,14 +40,15 @@ Requires:         R-CRAN-roxygen2
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-yaml 
 
 %description
 Manage dependencies during package development. This can retrieve all
 dependencies that are used in ".R" files in the "R/" directory, in ".Rmd"
 files in "vignettes/" directory and in 'roxygen2' documentation of
 functions. There is a function to update the "DESCRIPTION" file of your
-package with 'CRAN' packages or any other remote package. All functions to
-retrieve dependencies of ".R" scripts and ".Rmd" or ".qmd" files can be
+package with 'CRAN' packages or any other remote package.  All functions
+to retrieve dependencies of ".R" scripts and ".Rmd" or ".qmd" files can be
 used independently of a package development.
 
 %prep

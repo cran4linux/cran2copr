@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  peramo
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Permutation Tests for Randomization Model
 
@@ -14,17 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-lme4 >= 1.1.32
-BuildRequires:    R-CRAN-dplyr >= 1.1.1
+BuildRequires:    R-CRAN-emmeans >= 1.8.6
+BuildRequires:    R-CRAN-lme4 >= 1.1.33
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
+BuildRequires:    R-CRAN-parameters >= 0.21.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-lme4 >= 1.1.32
-Requires:         R-CRAN-dplyr >= 1.1.1
+Requires:         R-CRAN-emmeans >= 1.8.6
+Requires:         R-CRAN-lme4 >= 1.1.33
+Requires:         R-CRAN-dplyr >= 1.1.2
+Requires:         R-CRAN-parameters >= 0.21.0
 Requires:         R-stats 
 Requires:         R-utils 
 

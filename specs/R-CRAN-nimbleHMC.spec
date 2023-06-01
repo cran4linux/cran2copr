@@ -1,43 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiscaleDTM
-%global packver   0.8.1
+%global packname  nimbleHMC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Scale Geomorphometric Terrain Attributes
+Summary:          Hamiltonian Monte Carlo and Other Gradient-Based MCMC Sampling Algorithms for 'nimble'
 
-License:          GPL (>= 3)
+License:          BSD_3_clause + file LICENSE | GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rgl 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nimble >= 1.0.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-nimble >= 1.0.0
+Requires:         R-methods 
 
 %description
-Calculates multi-scale geomorphometric terrain attributes from regularly
-gridded digital terrain models using a variable focal windows size (Ilich
-et al. (2023) <doi:10.1111/tgis.13067>).
+Provides gradient-based MCMC sampling algorithms for use with the MCMC
+engine provided by the 'nimble' package.  This includes Hamiltonian Monte
+Carlo (HMC) and (under development) Langevin samplers.  The HMC sampler
+dynamically determines step size and number of leapfrog steps using the
+No-U-Turn (NUTS) algorithm as described in Hoffman and Gelman (2014)
+<arXiv:1111.4246>.  In addition, convenience functions are provided for
+generating and modifying MCMC configuration objects which employ HMC
+sampling.
 
 %prep
 %setup -q -c -n %{packname}

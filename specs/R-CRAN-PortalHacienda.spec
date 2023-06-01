@@ -1,40 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hubeau
-%global packver   0.4.1
+%global packname  PortalHacienda
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get Data from the French National Database on Water 'Hub'Eau'
+Summary:          Acceder Con R a Los Datos Del Portal De Hacienda
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forecast >= 8.12
+BuildRequires:    R-CRAN-tibble >= 3.0.1
+BuildRequires:    R-CRAN-timetk >= 2.0
+BuildRequires:    R-CRAN-zoo >= 1.8.8
+BuildRequires:    R-CRAN-lubridate >= 1.7.8
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-xts >= 0.12.0
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forecast >= 8.12
+Requires:         R-CRAN-tibble >= 3.0.1
+Requires:         R-CRAN-timetk >= 2.0
+Requires:         R-CRAN-zoo >= 1.8.8
+Requires:         R-CRAN-lubridate >= 1.7.8
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-xts >= 0.12.0
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-urltools 
-Requires:         R-utils 
 
 %description
-Collection of functions to help retrieving data from 'Hub'Eau' the free
-and public French National APIs on water <https://hubeau.eaufrance.fr/>.
+Obtener listado de datos, acceder y extender series del Portal de Datos de
+Hacienda.Las proyecciones se realizan con 'forecast', Hyndman RJ,
+Khandakar Y (2008) <doi:10.18637/jss.v027.i03>. Search, download and
+forecast time-series from the Ministry of Economy of Argentina. Forecasts
+are built with the 'forecast' package, Hyndman RJ, Khandakar Y (2008)
+<doi:10.18637/jss.v027.i03>.
 
 %prep
 %setup -q -c -n %{packname}

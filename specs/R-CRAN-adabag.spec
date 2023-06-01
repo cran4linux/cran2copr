@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adabag
-%global packver   4.3
+%global packver   5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3
+Version:          5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Applies Multiclass AdaBoost.M1, SAMME and Bagging
 
@@ -14,17 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ConsRank >= 2.1.3
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-ConsRank >= 2.1.3
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
+Requires:         R-methods 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
 
 %description
 It implements Freund and Schapire's Adaboost.M1 algorithm and Breiman's
@@ -47,7 +55,9 @@ Bagging pruning (Guo and Boukir, 2013) and a function to auto prune the
 'rpart' tree. Moreover, three new plots are also available
 importanceplot(), plot.errorevol() and plot.margins(). Version 4.1 allows
 to predict on unlabeled data. Version 4.2 includes the parallel
-computation option for some of the functions.
+computation option for some of the functions. Version 5.0 includes the
+Boosting and Bagging algorithms for label ranking (Albano, Sciandra and
+Plaia, 2023).
 
 %prep
 %setup -q -c -n %{packname}

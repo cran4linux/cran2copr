@@ -1,43 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiscaleDTM
-%global packver   0.8.1
+%global packname  ino
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Scale Geomorphometric Terrain Attributes
+Summary:          Initialization of Numerical Optimization
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-optimizeR >= 0.3.1
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-raster 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-optimizeR >= 0.3.1
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rgl 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-Calculates multi-scale geomorphometric terrain attributes from regularly
-gridded digital terrain models using a variable focal windows size (Ilich
-et al. (2023) <doi:10.1111/tgis.13067>).
+Analysis of the initialization for numerical optimization of real-valued
+functions, including likelihood functions of statistical models.
 
 %prep
 %setup -q -c -n %{packname}

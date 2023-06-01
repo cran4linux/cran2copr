@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  downscale
-%global packver   4.2-0
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Downscaling Species Occupancy
 
@@ -16,23 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster >= 2.4.20
-BuildRequires:    R-CRAN-sp >= 1.2.0
+BuildRequires:    R-CRAN-terra >= 1.7.3
 BuildRequires:    R-CRAN-minpack.lm >= 1.1.9
 BuildRequires:    R-CRAN-cubature >= 1.1.2
-BuildRequires:    R-CRAN-Rmpfr >= 0.5.7
+BuildRequires:    R-CRAN-sf >= 1.0.9
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-raster >= 2.4.20
-Requires:         R-CRAN-sp >= 1.2.0
+Requires:         R-CRAN-terra >= 1.7.3
 Requires:         R-CRAN-minpack.lm >= 1.1.9
 Requires:         R-CRAN-cubature >= 1.1.2
-Requires:         R-CRAN-Rmpfr >= 0.5.7
+Requires:         R-CRAN-sf >= 1.0.9
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-CRAN-Rmpfr 
 Requires:         R-stats 
 
 %description

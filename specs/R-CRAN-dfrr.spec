@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bootImpute
-%global packver   1.2.0
+%global __requires_exclude ^libmpi
+%global packname  dfrr
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Inference for Multiple Imputation
+Summary:          Dichotomized Functional Response Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-smcfcs 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-smcfcs 
+BuildRequires:    R-CRAN-fda >= 5.1.4
+BuildRequires:    R-CRAN-tmvtnorm >= 1.4
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+Requires:         R-CRAN-fda >= 5.1.4
+Requires:         R-CRAN-tmvtnorm >= 1.4
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 
 %description
-Bootstraps and imputes incomplete datasets. Then performs inference on
-estimates obtained from analysing the imputed datasets as proposed by von
-Hippel and Bartlett (2019) <arXiv:1210.0870v10>.
+Implementing Function-on-Scalar Regression model in which the response
+function is dichotomized and observed sparsely. This package provides
+smooth estimations of functional regression coefficients and principal
+components for the dichotomized functional response regression (dfrr)
+model.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
