@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BIDistances
-%global packver   0.0.2
+%global packname  intrinsicKappa
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bioinformatic Distances
+Summary:          Sample Size Planning Based on Intrinsic Kappa Value
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parallelDist 
-Requires:         R-CRAN-parallelDist 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-A few high-performant methods for computing distances measures for
-bioinformatics data. The weighted euclidean distance can be computed with
-'OpenCL' on the GPU or with a parallelized version on the CPU. Other
-important distance measures for bioinformatics data are selected from the
-R package 'parallelDist'. A special distance measure for the Gene Ontology
-is available.
+Kappa statistics is one of the most used methods to evaluate the
+effectiveness of inpsections based on attribute assessments in industry.
+However, its estimation by available methods does not provide its "real"
+or "intrinstic" value. This package provides functions for the computation
+of the intrinsic kappa value as it is described in: Rafael
+Sanchez-Marquez, Frank Gerhorst and David Schindler (2023) "Effectiveness
+of quality inspections of attributive characteristics – A novel and
+practical method for estimating the “intrinsic” value of kappa based on
+alpha and beta statistics." <doi:10.1016/j.cie.2023.109006>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mecoturn
-%global packver   0.2.0
+%global packname  AFFECT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Decipher Microbial Turnover along a Gradient
+Summary:          Accelerated Functional Failure Time Model with Error-Contaminated Survival Times
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.1
+Requires:         R-core >= 3.3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-microeco >= 0.19.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggpubr 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-microeco >= 0.19.0
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggpubr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Two pipelines are provided to study microbial turnover along a gradient,
-including the beta diversity and microbial abundance change. The
-'betaturn' class consists of the steps of community dissimilarity matrix
-generation, matrix conversion, differential test and visualization. The
-workflow of 'taxaturn' class includes the taxonomic abundance calculation,
-abundance transformation, abundance change summary, statistical analysis
-and visualization. Multiple statistical approaches can contribute to the
-analysis of microbial turnover.
+We aim to deal with data with measurement error in the response and
+misclassification censoring status under an AFT model. This package
+primarily contains three functions, which are used to generate artificial
+data, correction for error-prone data and estimate the functional
+covariates for an AFT model.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ftsa
-%global packver   6.1
+%global packver   6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.1
+Version:          6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Time Series Analysis
 
@@ -37,6 +38,7 @@ BuildRequires:    R-CRAN-LaplacesDemon
 BuildRequires:    R-CRAN-evgam 
 BuildRequires:    R-CRAN-ROOPSD 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-rainbow 
 Requires:         R-CRAN-sde 
@@ -58,10 +60,12 @@ Requires:         R-CRAN-LaplacesDemon
 Requires:         R-CRAN-evgam 
 Requires:         R-CRAN-ROOPSD 
 Requires:         R-CRAN-glue 
+Requires:         R-methods 
 
 %description
 Functions for visualizing, modeling, forecasting and hypothesis testing of
-functional time series.
+functional time series. n Jim'{e}nez-Var'{o}n, C., Sun, Y. and Shang,
+H. L. (2023) <arXiv: 2305.19749>.
 
 %prep
 %setup -q -c -n %{packname}
