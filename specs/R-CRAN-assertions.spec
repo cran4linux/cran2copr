@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mvpd
-%global packver   0.0.3
+%global __requires_exclude ^libmpi
+%global packname  assertions
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Product Distributions for Elliptically Contoured Distributions
+Summary:          Simple Assertions for Beautiful and Customisable Error Messages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-stabledist 
-BuildRequires:    R-CRAN-libstableR 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-stabledist 
-Requires:         R-CRAN-libstableR 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rlang 
 
 %description
-Estimates multivariate subgaussian stable densities and probabilities as
-well as generates random variates using product distribution theory.  A
-function for estimating the parameters from data to fit a distribution to
-data is also provided, using the method from Nolan (2013)
-<DOI:10.1007/s00180-013-0396-7>.
+Provides simple assertions with sensible defaults and customisable error
+messages. It offers convenient assertion call wrappers and a general
+assert function that can handle any condition. Default error messages are
+user friendly and easily customized with inline code evaluation and
+styling powered by the 'cli' package.
 
 %prep
 %setup -q -c -n %{packname}

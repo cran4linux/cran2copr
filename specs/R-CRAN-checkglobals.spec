@@ -1,35 +1,25 @@
 %global __brp_check_rpaths %{nil}
-%global packname  giftwrap
-%global packver   0.0.4
+%global __requires_exclude ^libmpi
+%global packname  checkglobals
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Take Shell Commands and Turn Them into R Functions
+Summary:          Static Analysis of R-Code Dependencies
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-namespace 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-namespace 
-Requires:         R-CRAN-processx 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 
 %description
-Wrapping command line functions into R functions, which in turn run the
-command line functions.
+A minimal R-package to approximately detect global and imported functions
+or variables from R-source code or R-packages by static code analysis.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +29,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

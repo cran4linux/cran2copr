@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  piecemaker
-%global packver   1.0.2
+%global packname  ClimProjDiags
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Preparing Text for Tokenizers
+Summary:          Set of Tools to Compute Various Climate Indices
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-multiApply >= 2.0.0
+BuildRequires:    R-CRAN-PCICt 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-multiApply >= 2.0.0
+Requires:         R-CRAN-PCICt 
+Requires:         R-CRAN-plyr 
+Requires:         R-stats 
 
 %description
-Tokenizers break text into pieces that are more usable by machine learning
-models. Many tokenizers share some preparation steps. This package
-provides those shared steps, along with a simple tokenizer.
+Set of tools to compute metrics and indices for climate analysis. The
+package provides functions to compute extreme indices, evaluate the
+agreement between models and combine theses models into an ensemble.
+Multi-model time series of climate indices can be computed either after
+averaging the 2-D fields from different models provided they share a
+common grid or by combining time series computed on the model native grid.
+Indices can be assigned weights and/or combined to construct new indices.
 
 %prep
 %setup -q -c -n %{packname}

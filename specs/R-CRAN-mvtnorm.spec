@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mvtnorm
-%global packver   1.1-3
+%global packver   1.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Normal and t Distributions
 
@@ -16,13 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
 Requires:         R-stats 
-Requires:         R-methods 
 
 %description
 Computes multivariate normal and t probabilities, quantiles, random
-deviates and densities.
+deviates, and densities. Log-likelihoods for multivariate Gaussian models
+and Gaussian copulae parameterised by Cholesky factors of covariance or
+precision matrices are implemented for interval-censored and exact data,
+or a mix thereof. Score functions for these log-likelihoods are available.
+A class representing multiple lower triangular matrices and corresponding
+methods are part of this package.
 
 %prep
 %setup -q -c -n %{packname}

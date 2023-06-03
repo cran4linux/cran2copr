@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dodgr
-%global packver   0.2.19
+%global packver   0.2.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.19
+Version:          0.2.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distances on Directed Graphs
 

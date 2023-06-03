@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  naryn
-%global packver   2.6.14
+%global packver   2.6.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.14
+Version:          2.6.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Native Access Medical Record Retriever for High Yield Analytics
 
@@ -25,6 +25,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
@@ -34,6 +35,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-yaml 
 
 %description
 A toolkit for medical records data analysis. The 'naryn' package

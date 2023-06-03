@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  piecemaker
-%global packver   1.0.2
+%global packname  ineq.2d
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Preparing Text for Tokenizers
+Summary:          Two-Dimensional Decomposition of the Theil Index and the Squared Coefficient of Variation
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
 
 %description
-Tokenizers break text into pieces that are more usable by machine learning
-models. Many tokenizers share some preparation steps. This package
-provides those shared steps, along with a simple tokenizer.
+Decomposition of income inequality by groups formed of individuals
+possessing similar characteristics (e.g., sex, education, age) and their
+income sources at the same time. Decomposition of the Theil index is based
+on Giammatteo, M. (2007)
+<https://www.lisdatacenter.org/wps/liswps/466.pdf>. Decomposition of the
+squared coefficient of variation is based on Garcia-Penalosa, C., &
+Orgiazzi, E. (2013) <doi:10.1111/roiw.12054>.
 
 %prep
 %setup -q -c -n %{packname}

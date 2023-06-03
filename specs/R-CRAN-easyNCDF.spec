@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  piecemaker
-%global packver   1.0.2
+%global packname  easyNCDF
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Preparing Text for Tokenizers
+Summary:          Tools to Easily Read/Write NetCDF Files into/from Multidimensional R Arrays
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-abind 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-abind 
 
 %description
-Tokenizers break text into pieces that are more usable by machine learning
-models. Many tokenizers share some preparation steps. This package
-provides those shared steps, along with a simple tokenizer.
+Set of wrappers for the 'ncdf4' package to simplify and extend its
+reading/writing capabilities into/from multidimensional R arrays.
 
 %prep
 %setup -q -c -n %{packname}
