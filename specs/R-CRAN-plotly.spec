@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plotly
-%global packver   4.10.1
+%global packver   4.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.10.1
+Version:          4.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Interactive Web Graphics via 'plotly.js'
 

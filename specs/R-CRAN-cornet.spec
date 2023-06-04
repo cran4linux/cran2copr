@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cornet
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elastic Net with Dichotomised Outcomes
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-palasso
 
 %description
 Implements lasso and ridge regression for dichotomised outcomes
-(Rauschenberger et al. 2022). Such outcomes are not naturally but
+(Rauschenberger et al. 2023). Such outcomes are not naturally but
 artificially binary. They indicate whether an underlying measurement is
 greater than a threshold.
 
