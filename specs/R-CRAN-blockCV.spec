@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blockCV
-%global packver   3.1-2
+%global packver   3.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial and Environmental Blocking for K-Fold and LOO Cross-Validation
 

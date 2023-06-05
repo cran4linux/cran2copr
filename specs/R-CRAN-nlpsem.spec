@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlpsem
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear and Nonlinear Longitudinal Process in Structural Equation Modeling Framework
 
@@ -35,39 +35,17 @@ Requires:         R-CRAN-nnet
 Requires:         R-CRAN-readr 
 
 %description
-Provides computational resources for nonlinear longitudinal models,
-specifically those that are intrinsically nonlinear, in four distinct
-contexts: (1) univariate longitudinal processes represented by latent
-variables, with an option of incorporating covariates such as
-time-invariant covariates (TICs) and time-varying covariates (TVCs); (2)
-multivariate longitudinal sequences that facilitate the assessment of
-correlations or causative relationships between longitudinal variables;
-(3) multiple-group structures for models found in scenarios (1) and (2),
-allowing for the exploration of disparities among manifested classes; and
-(4) mixture models for scenarios (1) and (2), premised on the assumption
-that trajectories are from multiple latent classes. The methods
-implemented are based on Peugh & Fan (2015)
-<doi:10.1080/10705511.2014.919823>, Lubke & Muthén (2007)
-<doi:10.1080/10705510709336735>, Casella & Berger (2002, ISBN:
-9780534243128), Madansky (1965) <https://www.jstor.org/stable/1266390>,
-Matthews (1988) <https://www.jstor.org/stable/2336444>, Efron & Tibshirani
-(1994, ISBN: 9780412042317>, Estabrook & Neale (2013)
-<doi:10.1080/00273171.2012.730072>, Priestley & Subba Rao (1975)
-<doi:10.1080/00207177508922050>, Dumenci (2011)
-<doi:10.1177/1094428110374649>, Landis & Koch (1977)
-<doi:10.2307/2529310>, Agresti (2012, ISBN: 9780470463635), Liu & Perera
-(2023) <arXiv:2201.00470v6>, Liu (2022) <arXiv:2210.16916>, Grimm, Zhang,
-Hamagami & Mazzocco (2013) <doi:10.1080/00273171.2012.755111>, Liu,
-Perera, Kang, Sabo, and Kirkpatrick (2021)
-<doi:10.3102/10769986211052009>, Sterba (2014)
-<doi:10.1080/10705511.2014.919828>, Liu & Perera (2021)
-<doi:10.1037/met0000309>, Blozis (2004) <doi:10.1037/1082-989X.9.3.334>,
-Liu & Perera (2022) <doi:10.3758/s13428-022-01940-2>, MacKinnon (2008,
-ISBN: 9780805864298), Cheong, MacKinnon & Khoo (2003)
-<doi:10.1207/S15328007SEM1002_5>, Soest & Hagtvet (2011)
-<doi:10.1080/10705511.2011.557344>, Liu & Perera (2022)
-<doi:10.1037/met0000436>, Liu & Perera (2022) <doi:10.1037/met0000500>,
-and Liu (2023) <arXiv:2301.06014>.
+Provides computational tools for nonlinear longitudinal models, in
+particular the intrinsically nonlinear models, in four scenarios: (1)
+univariate longitudinal processes with growth factors, with or without
+covariates including time-invariant covariates (TICs) and time-varying
+covariates (TVCs); (2) multivariate longitudinal processes that facilitate
+the assessment of correlation or causation between multiple longitudinal
+variables; (3) multiple-group models for scenarios (1) and (2) to evaluate
+differences among manifested groups, and (4) longitudinal mixture models
+for scenarios (1) and (2), with an assumption that trajectories are from
+multiple latent classes. The methods implemented are introduced in Jin Liu
+(2023) <arXiv:2302.03237v2>.
 
 %prep
 %setup -q -c -n %{packname}

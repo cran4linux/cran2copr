@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiblock
-%global packver   0.8.5
+%global packver   0.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiblock Data Fusion in Statistics and Machine Learning
 
@@ -18,8 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-geigen 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mixlm 
@@ -28,17 +26,12 @@ BuildRequires:    R-CRAN-pls
 BuildRequires:    R-CRAN-plsVarSel 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-r.jive 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RegularizedSCA 
-BuildRequires:    R-CRAN-RGCCA 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-SSBtools 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-car 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-geigen 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mixlm 
@@ -47,10 +40,7 @@ Requires:         R-CRAN-pls
 Requires:         R-CRAN-plsVarSel 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-r.jive 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RegularizedSCA 
-Requires:         R-CRAN-RGCCA 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-SSBtools 
 

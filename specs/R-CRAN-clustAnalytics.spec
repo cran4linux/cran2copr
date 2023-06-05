@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clustAnalytics
-%global packver   0.5.2
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Evaluation on Graphs
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-mclust
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-fossil 
+BuildRequires:    R-CRAN-aricode 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-Rcpp >= 1.0.1
@@ -32,6 +33,7 @@ Requires:         R-CRAN-mclust
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-fossil 
+Requires:         R-CRAN-aricode 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Rdpack 
 
