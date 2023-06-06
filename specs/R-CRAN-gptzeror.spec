@@ -1,43 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  golem
-%global packver   0.4.1
+%global packname  gptzeror
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Robust Shiny Applications
+Summary:          Identify Text Written by Large Language Models using 'GPTZero'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-attempt >= 0.3.0
-BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-attempt >= 0.3.0
-Requires:         R-CRAN-config 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-htmltools 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-tidyr 
 
 %description
-An opinionated framework for building a production-ready 'Shiny'
-application. This package contains a series of tools for building a robust
-'Shiny' application from start to finish.
+An R interface to the 'GPTZero' API (<https://gptzero.me/docs>). Allows
+users to classify text into human and computer written with probabilities.
+Formats the data into data frames where each sentence is an observation.
+Paragraph-level and document-level predictions are organized to align with
+the sentences.
 
 %prep
 %setup -q -c -n %{packname}

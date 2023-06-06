@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BCEA
-%global packver   2.4.3
+%global packver   2.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          2.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Cost Effectiveness Analysis
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MCMCvis 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-reshape2 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MCMCvis 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-reshape2 

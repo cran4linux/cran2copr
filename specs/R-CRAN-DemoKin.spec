@@ -1,43 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  golem
-%global packver   0.4.1
+%global packname  DemoKin
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Robust Shiny Applications
+Summary:          Estimate Population Kin Distribution
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-attempt >= 0.3.0
-BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-attempt >= 0.3.0
-Requires:         R-CRAN-config 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-htmltools 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lifecycle 
 
 %description
-An opinionated framework for building a production-ready 'Shiny'
-application. This package contains a series of tools for building a robust
-'Shiny' application from start to finish.
+Estimate population kin counts and its distribution by type, age and sex.
+The package implements one-sex and two-sex framework for studying
+living-death availability, with time varying rates or not, and multi-stage
+model.
 
 %prep
 %setup -q -c -n %{packname}

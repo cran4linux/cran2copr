@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eHDPrep
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quality Control and Semantic Enrichment of Datasets
 
@@ -57,12 +57,13 @@ Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-A tool for the preparation and enrichment of health datasets for analysis.
-Provides functionality for assessing data quality and for improving the
-reliability and machine interpretability of a dataset. 'eHDPrep' also
-enables semantic enrichment of a dataset where metavariables are
-discovered from the relationships between input variables determined from
-user-provided ontologies.
+A tool for the preparation and enrichment of health datasets for analysis
+(Toner et al. (2023) <doi:10.1093/gigascience/giad030>). Provides
+functionality for assessing data quality and for improving the reliability
+and machine interpretability of a dataset. 'eHDPrep' also enables semantic
+enrichment of a dataset where metavariables are discovered from the
+relationships between input variables determined from user-provided
+ontologies.
 
 %prep
 %setup -q -c -n %{packname}

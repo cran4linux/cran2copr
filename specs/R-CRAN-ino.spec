@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ino
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Initialization of Numerical Optimization
 
@@ -46,7 +46,8 @@ Requires:         R-CRAN-scales
 
 %description
 Analysis of the initialization for numerical optimization of real-valued
-functions, including likelihood functions of statistical models.
+functions, including likelihood functions of statistical models. See
+<https://loelschlaeger.de/ino/> for more details.
 
 %prep
 %setup -q -c -n %{packname}

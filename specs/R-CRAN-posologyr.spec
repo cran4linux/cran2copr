@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nat.templatebrains
-%global packver   1.0
+%global __requires_exclude ^libmpi
+%global packname  posologyr
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          NeuroAnatomy Toolbox ('nat') Extension for Handling Template Brains
+Summary:          Individual Dose Optimization using Population Pharmacokinetics
 
-License:          GPL-3
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nat >= 1.8.6
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-rappdirs 
-Requires:         R-CRAN-nat >= 1.8.6
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rxode2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-rxode2 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-data.table 
 
 %description
-Extends package 'nat' (NeuroAnatomy Toolbox) by providing objects and
-functions for handling template brains.
+Determine individual pharmacokinetic (and pharmacokinetic-pharmacodynamic)
+profiles and use them to personalise drug regimens. You provide the data
+and a population pharmacokinetic model, 'posologyr' provides the
+individual a posteriori estimate and allows you to determine the optimal
+dosing. The empirical Bayes estimates are computed as described in Kang et
+al. (2012) <doi:10.4196/kjpp.2012.16.2.97>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

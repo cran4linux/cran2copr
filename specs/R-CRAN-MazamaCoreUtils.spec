@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MazamaCoreUtils
-%global packver   0.4.13
+%global packver   0.4.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.13
+Version:          0.4.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Production R Code
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-devtools
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-futile.logger 
+BuildRequires:    R-CRAN-geohashTools 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-devtools
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-futile.logger 
+Requires:         R-CRAN-geohashTools 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
