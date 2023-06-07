@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fastshap
-%global packver   0.0.7
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Approximate Shapley Values
 
@@ -13,23 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-ggplot2 >= 3.3.4
 Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-foreach 
+Requires:         R-utils 
 
 %description
 Computes fast (relative to other implementations) approximate Shapley

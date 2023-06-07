@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brsim
-%global packver   0.2
+%global packname  ami
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Brainerd-Robinson Similarity Coefficient Matrix
+Summary:          Checks for Various Computing Environments
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grDevices >= 4.0.0
-BuildRequires:    R-stats >= 4.0.0
-BuildRequires:    R-CRAN-RcmdrMisc >= 2.7.0
-BuildRequires:    R-CRAN-cluster >= 2.1.4
-BuildRequires:    R-CRAN-corrplot >= 0.92
-Requires:         R-grDevices >= 4.0.0
-Requires:         R-stats >= 4.0.0
-Requires:         R-CRAN-RcmdrMisc >= 2.7.0
-Requires:         R-CRAN-cluster >= 2.1.4
-Requires:         R-CRAN-corrplot >= 0.92
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-Provides the facility to calculate the Brainerd-Robinson similarity
-coefficient for the rows of an input table, and to calculate the
-significance of each coefficient based on a permutation approach;
-optionally, hierarchical agglomerative clustering can be performed and the
-silhouette method is used to identify an optimal number of clusters.
+A collection of lightweight functions that can be used to determine the
+computing environment in which your code is running. This includes
+operating systems, continuous integration (CI) environments, containers,
+and more.
 
 %prep
 %setup -q -c -n %{packname}

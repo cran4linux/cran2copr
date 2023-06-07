@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caplot
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correspondence Analysis with Geometric Frequency Interpretation
 
@@ -27,9 +27,10 @@ Requires:         R-CRAN-ca >= 0.71
 %description
 Performs Correspondence Analysis on the given dataframe and plots the
 results in a scatterplot that emphasizes the geometric interpretation
-aspect of the analysis, following Yelland (2010). It is particularly
-useful for highlighting the relationships between a selected row (or
-column) category and the column (or row) categories. See Yelland (2010)
+aspect of the analysis, following Borg-Groenen (2005) and Yelland (2010).
+It is particularly useful for highlighting the relationships between a
+selected row (or column) category and the column (or row) categories. See
+Borg-Groenen (2005, ISBN:978-0-387-28981-6); Yelland (2010)
 <doi:10.3888/tmj.12-4>.
 
 %prep

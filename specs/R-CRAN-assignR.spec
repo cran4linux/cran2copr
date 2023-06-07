@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  assignR
-%global packver   2.2.3
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infer Geographic Origin from Isotopic Data
 
@@ -17,17 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-terra >= 1.7.23
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-geosphere 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-terra >= 1.7.23
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-geosphere 

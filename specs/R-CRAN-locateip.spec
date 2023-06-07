@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brsim
-%global packver   0.2
+%global packname  locateip
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Brainerd-Robinson Similarity Coefficient Matrix
+Summary:          Locate IP Addresses with 'ip-api'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grDevices >= 4.0.0
-BuildRequires:    R-stats >= 4.0.0
-BuildRequires:    R-CRAN-RcmdrMisc >= 2.7.0
-BuildRequires:    R-CRAN-cluster >= 2.1.4
-BuildRequires:    R-CRAN-corrplot >= 0.92
-Requires:         R-grDevices >= 4.0.0
-Requires:         R-stats >= 4.0.0
-Requires:         R-CRAN-RcmdrMisc >= 2.7.0
-Requires:         R-CRAN-cluster >= 2.1.4
-Requires:         R-CRAN-corrplot >= 0.92
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Provides the facility to calculate the Brainerd-Robinson similarity
-coefficient for the rows of an input table, and to calculate the
-significance of each coefficient based on a permutation approach;
-optionally, hierarchical agglomerative clustering can be performed and the
-silhouette method is used to identify an optimal number of clusters.
+Download Internet Protocol (IP) address location and more from the
+'ip-api' application programming interface (API) <https://ip-api.com/>.
+The package makes it easy to get the latitude, longitude, country, region,
+and organisation associated to the provided IP address. The information is
+conveniently returned in a rectangular format.
 
 %prep
 %setup -q -c -n %{packname}

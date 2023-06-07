@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IRTBEMM
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Family of Bayesian EMM Algorithm for Item Response Models
 
@@ -28,11 +29,11 @@ guessing (1PLG) and (4) one parameter logistic ability-based guessing
 <doi:10.1177/0146621605282773>. The BEMM family includes (1) the BEMM
 algorithm for 3PL model proposed by Guo & Zheng (2019)
 <doi:10.3389/fpsyg.2019.01175>; (2) the BEMM algorithm for 1PLG model and
-(3) the BEMM algorithm for 1PLAG model proposed by Guo, Wu, Zheng, & Wang
-(2018) <https:www.ncme.org/news/past-meetings/2018-recap>; (4) the BEMM
-algorithm for 4PL model proposed by Zhang, Guo, & Zheng (2018)
-<https:www.ncme.org/news/past-meetings/2018-recap>; and (5) their maximum
-likelihood estimation versions proposed by Zheng, Meng, Guo, & Liu (2018)
+(3) the BEMM algorithm for 1PLAG model proposed by Guo, Wu, Zheng, & Chen
+(2021) <doi:10.1177/0146621621990761>; (4) the BEMM algorithm for 4PL
+model proposed by Zheng, Guo, & Kern (2021)
+<doi:10.1177/21582440211052556>; and (5) their maximum likelihood
+estimation versions proposed by Zheng, Meng, Guo, & Liu (2018)
 <doi:10.3389/fpsyg.2017.02302>. Thus, both Bayesian modal estimates and
 maximum likelihood estimates are available.
 
@@ -44,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
