@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GaussSuppression
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tabular Data Suppression using Gaussian Elimination
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.4.3
+BuildRequires:    R-CRAN-SSBtools >= 1.4.5
 BuildRequires:    R-CRAN-RegSDC >= 0.7.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-SSBtools >= 1.4.3
+Requires:         R-CRAN-SSBtools >= 1.4.5
 Requires:         R-CRAN-RegSDC >= 0.7.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 

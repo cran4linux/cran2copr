@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semptools
-%global packver   0.2.9.6
+%global packver   0.2.9.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9.6
+Version:          0.2.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Customizing Structural Equation Modelling Plots
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-semPlot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-semPlot 
 
 %description
 Most function focus on specific ways to customize a graph. They use a

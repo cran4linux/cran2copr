@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdi
-%global packver   1.1.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Volumetric Analysis using Graphic Double Integration
 
@@ -31,7 +31,7 @@ animals, and the package 'gdi' aims to make this technique as convenient
 and versatile as possible. The main functions of 'gdi' provide utilities
 for automatically measuring diameters from digital silhouettes provided as
 image files, and for calculating volume via graphic double integration
-with a simple elliptical superelliptical (following Motani 2001
+with a simple elliptical, superelliptical (following Motani 2001
 <doi:10.1666/0094-8373(2001)027%%3C0735:EBMFST%%3E2.0.CO;2>) or complex
 cross-sectional model.
 

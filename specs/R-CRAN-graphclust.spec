@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  graphclust
-%global packver   1.0.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Graph Clustering for a Collection of Networks
 
@@ -29,9 +29,9 @@ Requires:         R-CRAN-sClust
 %description
 Graph clustering using an agglomerative algorithm to maximize the
 integrated classification likelihood criterion and a mixture of stochastic
-block models. The method is described in the article "Model-based graph
-clustering of a collection of networks using an agglomerative algorithm"
-by T. Rebafka (2022) <arXiv:2211.02314>.
+block models. The method is described in the article "Model-based
+clustering of multiple networks with a hierarchical algorithm" by T.
+Rebafka (2022) <arXiv:2211.02314>.
 
 %prep
 %setup -q -c -n %{packname}

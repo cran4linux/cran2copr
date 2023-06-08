@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vscc
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Selection for Clustering and Classification
 
@@ -30,7 +30,8 @@ classification framework. In particular, it can be used in an automated
 fashion using mixture model-based methods ('teigen' and 'mclust' are
 currently supported). Can account for mixtures of non-Gaussian
 distributions via Manly transform (via 'ManlyMix'). See Andrews and
-McNicholas (2014) <doi:10.1007/s00357-013-9139-2>.
+McNicholas (2014) <doi:10.1007/s00357-013-9139-2> and Neal and McNicholas
+(2023) <doi:10.48550/arXiv.2305.16464>.
 
 %prep
 %setup -q -c -n %{packname}

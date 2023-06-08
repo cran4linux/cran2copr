@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readtext
-%global packver   0.82
+%global packver   0.90
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.82
+Version:          0.90
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import and Handling for Plain and Formatted Text Files
 

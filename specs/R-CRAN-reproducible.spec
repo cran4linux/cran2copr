@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reproducible
-%global packver   2.0.2
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhance Reproducibility of R Code
 
@@ -37,18 +37,17 @@ Requires:         R-utils
 
 %description
 A collection of high-level, machine- and OS-independent tools for making
-deeply reproducible and reusable content in R. The two workhorse functions
-are Cache() and prepInputs(). Cache() allows for nested caching, is robust
-to environments and objects with environments (like functions), and has
-deals with some classes of file-backed R objects e.g., from terra and
-raster packages. Both functions have been developed to be foundational
-components of data retrieval and processing in continuous workflow
-situations. In both functions, efforts are made to make the first and
-subsequent calls of functions have the same result, but faster at
-subsequent times by way of checksums and digesting. Several features are
-still under development, including cloud storage of cached objects,
-allowing for sharing between users. Several advanced options are
-available, see ?reproducibleOptions().
+reproducible and reusable content in R. The two workhorse functions are
+Cache() and prepInputs(). Cache() allows for nested caching, is robust to
+environments and objects with environments (like functions), and has deals
+with some classes of file-backed R objects e.g., from terra and raster
+packages. Both functions have been developed to be foundational components
+of data retrieval and processing in continuous workflow situations. In
+both functions, efforts are made to make the first and subsequent calls of
+functions have the same result, but faster at subsequent times by way of
+checksums and digesting. Several features are still under development,
+including cloud storage of cached objects, allowing for sharing between
+users. Several advanced options are available, see ?reproducibleOptions().
 
 %prep
 %setup -q -c -n %{packname}

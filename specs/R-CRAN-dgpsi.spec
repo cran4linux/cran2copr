@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dgpsi
-%global packver   2.1.6
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'dgpsi' for Deep and Linked Gaussian Process Emulations
 
@@ -45,8 +45,9 @@ Interface to the 'python' package 'dgpsi' for Gaussian process, deep
 Gaussian process, and linked Gaussian process emulations of computer
 models and systems of computer models. The implementations follow Ming &
 Guillas (2021) <doi:10.1137/20M1323771> and Ming, Williamson, & Guillas
-(2022) <doi:10.1080/00401706.2022.2124311>. To get started with the
-package, see <https://mingdeyu.github.io/dgpsi-R/>.
+(2023) <doi:10.1080/00401706.2022.2124311> and Ming & Williamson (2023)
+<arXiv:2306.01212>. To get started with the package, see
+<https://mingdeyu.github.io/dgpsi-R/>.
 
 %prep
 %setup -q -c -n %{packname}

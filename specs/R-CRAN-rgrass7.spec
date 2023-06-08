@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgrass7
-%global packver   0.2-11
+%global packver   0.2-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.11
+Version:          0.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deprecated Interface Between GRASS Geographical Information System and R
 
@@ -28,8 +28,10 @@ Requires:         R-utils
 Requires:         R-methods 
 
 %description
+This package will be archived in October 2023 together with 'rgdal'.
 Deprecated interpreted interface between 'GRASS' geographical information
-system and R. Transition to new package 'rgrass'.
+system and R. Transition to new package 'rgrass'
+<https://grass.osgeo.org/news/2023_06_05_retirement_of_rgrass7/>.
 
 %prep
 %setup -q -c -n %{packname}

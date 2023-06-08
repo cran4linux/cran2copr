@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hbamr
-%global packver   1.1.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Bayesian Aldrich-McKelvey Scaling via 'Stan'
 
@@ -60,14 +60,13 @@ Monte Carlo via 'Stan'. Aldrich-McKelvey ('AM') scaling is a method for
 estimating the ideological positions of survey respondents and political
 actors on a common scale using positional survey data. The hierarchical
 versions of the Bayesian 'AM' model included in this package outperform
-other versions by a considerable margin both in terms of yielding
-meaningful posterior distributions for respondent positions and in terms
-of recovering true respondent positions in simulations. The package
-contains functions for preparing data, fitting models, extracting
-estimates, plotting key results, and comparing models using
-cross-validation. The models in this package are described in: Bølstad
-(forthcoming) ''Hierarchical Bayesian Aldrich-McKelvey Scaling'',
-Political Analysis.
+other versions both in terms of yielding meaningful posterior
+distributions for respondent positions and in terms of recovering true
+respondent positions in simulations. The package contains functions for
+preparing data, fitting models, extracting estimates, plotting key
+results, and comparing models using cross-validation. The key model in
+this package is described in: Bølstad (forthcoming) 'Hierarchical Bayesian
+Aldrich-McKelvey Scaling', Political Analysis.
 
 %prep
 %setup -q -c -n %{packname}

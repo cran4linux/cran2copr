@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BayesX
-%global packver   0.3-1.1
+%global packver   0.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Utilities Accompanying the Software Package BayesX
 
@@ -18,25 +19,27 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shapefiles 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-splines 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-interp 
 Requires:         R-CRAN-shapefiles 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-coda 
 Requires:         R-splines 
 Requires:         R-methods 
+Requires:         R-CRAN-interp 
 
 %description
 Functions for exploring and visualising estimation results obtained with
 BayesX, a free software for estimating structured additive regression
-models (<http://www.BayesX.org>). In addition, functions that allow to
-read, write and manipulate map objects that are required in spatial
-analyses performed with BayesX.
+models (<https://www.uni-goettingen.de/de/bayesx/550513.html>). In
+addition, functions that allow to read, write and manipulate map objects
+that are required in spatial analyses performed with BayesX.
 
 %prep
 %setup -q -c -n %{packname}

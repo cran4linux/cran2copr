@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cjbart
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heterogeneous Effects Analysis of Conjoint Experiments
 
@@ -17,19 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-randomForestSRC >= 3.2.2
 BuildRequires:    R-CRAN-BART 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-randomForestSRC 
 BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-randomForestSRC >= 3.2.2
 Requires:         R-CRAN-BART 
 Requires:         R-stats 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-randomForestSRC 
 Requires:         R-CRAN-Rdpack 
 
 %description

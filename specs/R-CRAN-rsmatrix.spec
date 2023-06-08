@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsmatrix
-%global packver   0.2.4
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matrices for Repeat-Sales Price Indexes
 
@@ -14,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.2.17
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Matrix >= 1.2.17
+Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-methods 
 Requires:         R-stats 
 

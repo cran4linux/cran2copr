@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Statamarkdown
-%global packver   0.7.4
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Stata' Markdown
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-knitr >= 1.43
-BuildRequires:    R-CRAN-xfun >= 0.4
+BuildRequires:    R-CRAN-xfun >= 0.39
 Requires:         R-CRAN-knitr >= 1.43
-Requires:         R-CRAN-xfun >= 0.4
+Requires:         R-CRAN-xfun >= 0.39
 
 %description
 Settings and functions to extend the 'knitr' 'Stata' engine.

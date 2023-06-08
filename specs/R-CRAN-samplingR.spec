@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  samplingR
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sampling and Estimation Methods
 
@@ -25,7 +25,7 @@ Requires:         R-methods
 %description
 Functions to take samples of data, sample size estimation and getting
 useful estimators such as total, mean, proportion about its population
-using simple random, stratified and systematic sampling.
+using simple random, stratified, systematic and cluster sampling.
 
 %prep
 %setup -q -c -n %{packname}

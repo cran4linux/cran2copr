@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reticulate
-%global packver   1.28
+%global packver   1.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28
+Version:          1.29
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Python'
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 Requires:         python3
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.7
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppTOML 
 BuildRequires:    R-graphics 
@@ -27,8 +27,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-Rcpp >= 0.12.7
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-RcppTOML 
 Requires:         R-graphics 
@@ -38,6 +39,7 @@ Requires:         R-methods
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-utils 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-withr 
 
 %description

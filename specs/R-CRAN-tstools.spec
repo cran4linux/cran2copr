@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tstools
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Time Series Toolbox for Official Statistics
 
@@ -17,18 +18,18 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-zoo >= 1.7.12
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-zoo >= 1.7.12
-Requires:         R-CRAN-xts 
-Requires:         R-stats 
+Requires:         R-CRAN-data.table 
 Requires:         R-graphics 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-data.table 
+Requires:         R-stats 
+Requires:         R-CRAN-xts 
 Requires:         R-CRAN-yaml 
 
 %description

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ttservice
-%global packver   0.2.2
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Service for Tidy Transcriptomics Software Suite
 
@@ -17,7 +18,9 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Matrix 
 
 %description
 It provides generic methods that are used by more than one package,

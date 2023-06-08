@@ -2,11 +2,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StanHeaders
-%global packver   2.26.25
+%global packver   2.26.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.26.25
+Version:          2.26.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          C++ Header Files for Stan
 

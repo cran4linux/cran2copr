@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapTidieR
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract 'REDCap' Databases into Tidy 'Tibble's
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lobstr 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringi 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lobstr 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringi 

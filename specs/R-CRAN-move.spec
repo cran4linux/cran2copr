@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  move
-%global packver   4.1.12
+%global packver   4.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.12
+Version:          4.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing and Analyzing Animal Track Data
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-raster >= 3.6.14
 BuildRequires:    R-CRAN-geosphere >= 1.4.3
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-xml2 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-raster >= 3.6.14
 Requires:         R-CRAN-geosphere >= 1.4.3
 Requires:         R-methods 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-xml2 

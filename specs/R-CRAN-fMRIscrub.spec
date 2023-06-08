@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fMRIscrub
-%global packver   0.12.1
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scrubbing and Other Data Cleaning Routines for fMRI
 
@@ -19,23 +19,29 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fMRItools >= 0.2.2
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-cellWise 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-pesel 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-gamlss 
 Requires:         R-CRAN-fMRItools >= 0.2.2
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-cellWise 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-pesel 
 Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
+Requires:         R-CRAN-expm 
 Requires:         R-utils 
+Requires:         R-CRAN-gamlss 
 
 %description
 Data-driven fMRI denoising with projection scrubbing (Pham et al (2022)
-<arXiv:2108.00319>). Also includes routines for DVARS (Derivatives
-VARianceS) (Afyouni and Nichols (2018)
+<doi:10.1016/j.neuroimage.2023.119972>). Also includes routines for DVARS
+(Derivatives VARianceS) (Afyouni and Nichols (2018)
 <doi:10.1016/j.neuroimage.2017.12.098>), motion scrubbing (Power et al
 (2012) <doi:10.1016/j.neuroimage.2011.10.018>), aCompCor (anatomical
 Components Correction) (Muschelli et al (2014)

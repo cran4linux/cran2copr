@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sharp
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stability-enHanced Approaches using Resampling Procedures
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-lavaan
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-regsem 
 Requires:         R-CRAN-withr >= 2.4.0
 Requires:         R-CRAN-fake >= 1.4.0
 Requires:         R-CRAN-glassoFast >= 1.0
@@ -42,7 +41,6 @@ Requires:         R-CRAN-lavaan
 Requires:         R-CRAN-mclust 
 Requires:         R-parallel 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-regsem 
 
 %description
 In stability selection (N Meinshausen, P Bühlmann (2010)
