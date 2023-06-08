@@ -1,12 +1,13 @@
 script_name <- function()
   strsplit(grep("--file=", commandArgs(FALSE), value=TRUE), "=")[[1]][2]
 
+script_call <- function(...)
+  if (system2(...)) q("no", status = 1, runLast = FALSE)
+
 get_args <- function(...) {
   args <- commandArgs(TRUE)
-  if (!length(args) || "-h" %in% args) {
-    message(...)
-    quit(status=1)
-  }
+  if (!length(args) || "-h" %in% args)
+    stop(...)
   args
 }
 

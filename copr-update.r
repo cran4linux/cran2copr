@@ -17,6 +17,6 @@ pkgs.upd <- with_deps(pkgs.upd, cran)
 pkgs.upd <- pkgs.upd[need_update(pkgs.upd, cran)]
 
 if (length(pkgs.del))
-  system2("./copr-delete.r", paste(pkgs.del, collapse=" "))
+  script_call("./copr-delete.r", paste(pkgs.del, collapse=" "))
 if (length(pkgs.upd))
-  system2("./copr-add.r", paste(pkgs.upd, collapse=" "))
+  script_call("./copr-add.r", paste(pkgs.upd, collapse=" "))
