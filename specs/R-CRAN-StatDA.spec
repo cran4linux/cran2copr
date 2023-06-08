@@ -1,49 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  delaunay
-%global packver   2.0.0
+%global packname  StatDA
+%global packver   1.7.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.7.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          2d, 2.5d, and 3d Delaunay Tessellations
+Summary:          Statistical Analysis for Environmental Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-randomcoloR 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sgeostat 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MBA 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Rvcg 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-gplots 
-Requires:         R-graphics 
-Requires:         R-CRAN-randomcoloR 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-geoR 
+Requires:         R-methods 
+Requires:         R-CRAN-sgeostat 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MBA 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Rvcg 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sets 
-Requires:         R-utils 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-geoR 
 
 %description
-Construction and visualization of 2d Delaunay triangulations, possibly
-constrained, 2.5d (i.e. elevated) Delaunay triangulations, 3d Delaunay
-triangulations, and 2D Voronoï tessellations.
+Statistical analysis methods for environmental data are implemented. There
+is a particular focus on robust methods, and on methods for compositional
+data. In addition, larger data sets from geochemistry are provided. The
+statistical methods are described in Reimann, Filzmoser, Garrett, Dutter
+(2008, ISBN:978-0-470-98581-6).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rnaturalearth
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          World Map Data from Natural Earth
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-httr >= 1.1.0
 BuildRequires:    R-CRAN-sp >= 1.0.15
 BuildRequires:    R-CRAN-sf >= 0.3.4
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-utils >= 3.2.3
 Requires:         R-CRAN-httr >= 1.1.0
 Requires:         R-CRAN-sp >= 1.0.15
 Requires:         R-CRAN-sf >= 0.3.4
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-terra 
 
 %description
 Facilitates mapping by making natural earth map data from

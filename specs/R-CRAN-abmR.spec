@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  abmR
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Agent-Based Models in R
 
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-rnaturalearth 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-table1 
@@ -51,12 +50,11 @@ Requires:         R-CRAN-raster
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rnaturalearth 
 
 %description
 Supplies tools for running agent-based models (ABM) in R, as discussed in
-Gochanour et al. (2021) <doi:10.1101/2021.09.15.460374> The package
+Gochanour et al. (2022) <doi:10.1111/2041-210X.14014>. The package
 contains two movement functions, each of which is based on the
 Ornstein-Uhlenbeck (OU) model (Ornstein & Uhlenbeck, 1930)
 <doi:10.1103/PhysRev.36.823>. It also contains several visualization and

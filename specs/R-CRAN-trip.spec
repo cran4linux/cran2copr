@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trip
-%global packver   1.8.7
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.7
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tracking Data
 
@@ -54,7 +54,7 @@ and 'ltraj' from 'adehabitatLT', and between 'trip' and 'psp' and 'ppp'
 from 'spatstat'. Trip objects can be created from raw or grouped data
 frames, and from types in the 'sp', sf', 'amt', 'trackeR', 'mousetrap',
 and other packages, Sumner, MD (2011)
-<https://eprints.utas.edu.au/12273/3/sumner.pdf>.
+<https://figshare.utas.edu.au/articles/thesis/The_tag_location_problem/23209538>.
 
 %prep
 %setup -q -c -n %{packname}

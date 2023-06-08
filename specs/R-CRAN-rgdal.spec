@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgdal
-%global packver   1.6-6
+%global packver   1.6-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          1.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings for the 'Geospatial' Data Abstraction Library
 
@@ -35,17 +35,19 @@ Requires:         R-utils
 %description
 Provides bindings to the 'Geospatial' Data Abstraction Library ('GDAL')
 (>= 1.11.4) and access to projection/transformation operations from the
-'PROJ' library. Please note that 'rgdal' will be retired by the end of
+'PROJ' library. Please note that 'rgdal' will be retired during October
 2023, plan transition to sf/stars/'terra' functions using 'GDAL' and
-'PROJ' at your earliest convenience. Use is made of classes defined in the
-'sp' package. Raster and vector map data can be imported into R, and
-raster and vector 'sp' objects exported. The 'GDAL' and 'PROJ' libraries
-are external to the package, and, when installing the package from source,
-must be correctly installed first; it is important that 'GDAL' < 3 be
-matched with 'PROJ' < 6. From 'rgdal' 1.5-8, installed with to 'GDAL' >=3,
-'PROJ' >=6 and 'sp' >= 1.4, coordinate reference systems use 'WKT2_2019'
-strings, not 'PROJ' strings. 'Windows' and 'macOS' binaries (including
-'GDAL', 'PROJ' and their dependencies) are provided on 'CRAN'.
+'PROJ' at your earliest convenience (see
+<https://r-spatial.org/r/2023/05/15/evolution4.html> and earlier blogs for
+guidance). Use is made of classes defined in the 'sp' package. Raster and
+vector map data can be imported into R, and raster and vector 'sp' objects
+exported. The 'GDAL' and 'PROJ' libraries are external to the package,
+and, when installing the package from source, must be correctly installed
+first; it is important that 'GDAL' < 3 be matched with 'PROJ' < 6. From
+'rgdal' 1.5-8, installed with to 'GDAL' >=3, 'PROJ' >=6 and 'sp' >= 1.4,
+coordinate reference systems use 'WKT2_2019' strings, not 'PROJ' strings.
+'Windows' and 'macOS' binaries (including 'GDAL', 'PROJ' and their
+dependencies) are provided on 'CRAN'.
 
 %prep
 %setup -q -c -n %{packname}

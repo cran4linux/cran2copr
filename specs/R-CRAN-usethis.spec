@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  usethis
-%global packver   2.1.6
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automate Package and Project Setup
 
@@ -13,20 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.1
 BuildRequires:    R-CRAN-curl >= 2.7
 BuildRequires:    R-CRAN-withr >= 2.3.0
+BuildRequires:    R-CRAN-desc >= 1.4.2
 BuildRequires:    R-CRAN-gert >= 1.4.1
-BuildRequires:    R-CRAN-desc >= 1.4.0
 BuildRequires:    R-CRAN-fs >= 1.3.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-gh >= 1.2.1
 BuildRequires:    R-CRAN-rprojroot >= 1.2
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-clipr >= 0.3.0
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-jsonlite 
@@ -40,14 +41,14 @@ BuildRequires:    R-CRAN-yaml
 Requires:         R-CRAN-cli >= 3.0.1
 Requires:         R-CRAN-curl >= 2.7
 Requires:         R-CRAN-withr >= 2.3.0
+Requires:         R-CRAN-desc >= 1.4.2
 Requires:         R-CRAN-gert >= 1.4.1
-Requires:         R-CRAN-desc >= 1.4.0
 Requires:         R-CRAN-fs >= 1.3.0
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-gh >= 1.2.1
 Requires:         R-CRAN-rprojroot >= 1.2
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-lifecycle >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-clipr >= 0.3.0
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-jsonlite 

@@ -1,49 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  delaunay
-%global packver   2.0.0
+%global packname  texor
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          2d, 2.5d, and 3d Delaunay Tessellations
+Summary:          Converting 'LaTeX' 'R Journal' Articles into 'RJ-web-articles'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-randomcoloR 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Rvcg 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-gplots 
-Requires:         R-graphics 
-Requires:         R-CRAN-randomcoloR 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Rvcg 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sets 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-tinytex 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-logger 
+BuildRequires:    R-CRAN-rjtools 
+BuildRequires:    R-CRAN-rebib 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-pdftools 
+Requires:         R-tools 
+Requires:         R-CRAN-tinytex 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-logger 
+Requires:         R-CRAN-rjtools 
+Requires:         R-CRAN-rebib 
 
 %description
-Construction and visualization of 2d Delaunay triangulations, possibly
-constrained, 2.5d (i.e. elevated) Delaunay triangulations, 3d Delaunay
-triangulations, and 2D Voronoï tessellations.
+Articles in the 'R Journal' were first authored in 'LaTeX', which performs
+admirably for 'PDF' files but is less than ideal for modern online
+interfaces. The 'texor' package does all the transitional chores and
+conversions necessary to move to the online versions.
 
 %prep
 %setup -q -c -n %{packname}

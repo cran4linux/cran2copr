@@ -1,49 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  delaunay
-%global packver   2.0.0
+%global packname  Transform
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          2d, 2.5d, and 3d Delaunay Tessellations
+Summary:          Statistical Transformations
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-randomcoloR 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Rvcg 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-gplots 
-Requires:         R-graphics 
-Requires:         R-CRAN-randomcoloR 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Rvcg 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sets 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
 
 %description
-Construction and visualization of 2d Delaunay triangulations, possibly
-constrained, 2.5d (i.e. elevated) Delaunay triangulations, 3d Delaunay
-triangulations, and 2D Voronoï tessellations.
+Performs various statistical transformations; Box-Cox and Log (Box and
+Cox, 1964) <doi:10.1111/j.2517-6161.1964.tb00553.x>, Glog (Durbin et al.,
+2002) <doi:10.1093/bioinformatics/18.suppl_1.S105>, Neglog (Whittaker et
+al., 2005) <doi:10.1111/j.1467-9876.2005.00520.x>, Reciprocal (Tukey,
+1957), Log Shift (Feng et al., 2016) <doi:10.1002/sta4.104>,
+Bickel-Docksum (Bickel and Doksum, 1981)
+<doi:10.1080/01621459.1981.10477649>, Yeo-Johnson (Yeo and Johnson, 2000)
+<doi:10.1093/biomet/87.4.954>, Square Root (Medina et al., 2019), Manly
+(Manly, 1976) <doi:10.2307/2988129>, Modulus (John and Draper, 1980)
+<doi:10.2307/2986305>, Dual (Yang, 2006)
+<doi:10.1016/j.econlet.2006.01.011>, Gpower (Kelmansky et al., 2013)
+<doi:10.1515/sagmb-2012-0030>. It also performs graphical approaches,
+assesses the success of the transformation via tests and plots.
 
 %prep
 %setup -q -c -n %{packname}

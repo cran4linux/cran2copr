@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  torchopt
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced Optimizers for Torch
 
@@ -41,7 +41,7 @@ Luo et al.(2019), <arXiv:1902.09843>; (c) 'adahessian' by Yao et al.(2021)
 and Yarats(2019), <arXiv:1810.06801>; (h) 'radam' by Liu et al. (2019),
 <arXiv:1908.03265>; (i) 'swats' by Shekar and Sochee (2018),
 <arXiv:1712.07628>; (j) 'yogi' by Zaheer et al.(2019),
-<https:://papers.nips.cc/paper/8186-adaptive-methods-for-nonconvex-optimization>.
+<https://papers.nips.cc/paper/8186-adaptive-methods-for-nonconvex-optimization>.
 
 %prep
 %setup -q -c -n %{packname}

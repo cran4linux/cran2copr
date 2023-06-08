@@ -1,42 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgeedim
-%global packver   0.2.4
+%global packname  rgoogleclassroom
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search, Composite, and Download 'Google Earth Engine' Imagery with the 'Python' Module 'geedim'
+Summary:          API Wrapper for Google Classroom and Google Forms
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-attempt 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-ottrpal 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-attempt 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-ottrpal 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-knitr 
 
 %description
-Search, composite, and download 'Google Earth Engine' imagery with
-'reticulate' bindings for the 'Python' module 'geedim' by Dugal Harris.
-Read the 'geedim' documentation here: <https://geedim.readthedocs.io/>.
-Wrapper functions are provided to make it more convenient to use 'geedim'
-to download images larger than the 'Google Earth Engine' size limit
-<https://developers.google.com/earth-engine/apidocs/ee-image-getdownloadurl>.
-By default the "High Volume" API endpoint
-<https://developers.google.com/earth-engine/cloud/highvolume> is used to
-download data and this URL can be customized during initialization of the
-package.
+This is a Google Forms and Google Classroom API Wrapper for R for managing
+Google Classrooms from R. The documentation for these APIs is here
+<https://developers.google.com/forms/api/guides> .
 
 %prep
 %setup -q -c -n %{packname}

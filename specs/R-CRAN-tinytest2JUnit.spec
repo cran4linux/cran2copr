@@ -1,49 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  delaunay
-%global packver   2.0.0
+%global packname  tinytest2JUnit
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          2d, 2.5d, and 3d Delaunay Tessellations
+Summary:          Convert 'tinytest' Output to JUnit XML
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-randomcoloR 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Rvcg 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-gplots 
-Requires:         R-graphics 
-Requires:         R-CRAN-randomcoloR 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Rvcg 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sets 
-Requires:         R-utils 
+BuildArch:        noarch
 
 %description
-Construction and visualization of 2d Delaunay triangulations, possibly
-constrained, 2.5d (i.e. elevated) Delaunay triangulations, 3d Delaunay
-triangulations, and 2D Voronoï tessellations.
+Unit testing is a solid component of automated CI/CD pipelines. 'tinytest'
+- a light-weight, zero-dependency alternative to 'testthat' was developed.
+To be able to integrate 'tinytests' results into common CI/CD systems the
+'tinytests'-object needs to be converted to JUnit XML format.
+'tinytest2JUnit' enables this conversion while keeping the zero-dependency
+nature.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RoBTT
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Bayesian T-Test
 
@@ -22,19 +22,21 @@ BuildRequires:    R-CRAN-StanHeaders >= 2.18.1
 BuildRequires:    R-CRAN-BH >= 1.69.0
 BuildRequires:    R-CRAN-rstantools >= 1.5.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
-BuildRequires:    R-CRAN-BayesTools >= 0.2.12
+BuildRequires:    R-CRAN-BayesTools >= 0.2.14
 BuildRequires:    R-CRAN-Rcpp >= 0.12.19
 BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstan >= 2.21.2
 Requires:         R-CRAN-rstantools >= 1.5.0
-Requires:         R-CRAN-BayesTools >= 0.2.12
+Requires:         R-CRAN-BayesTools >= 0.2.14
 Requires:         R-CRAN-Rcpp >= 0.12.19
 Requires:         R-CRAN-bridgesampling 
 Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rstantools
 
