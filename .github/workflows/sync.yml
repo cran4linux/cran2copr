@@ -32,4 +32,4 @@ jobs:
         git add specs
         git diff-index --quiet HEAD || git commit -m "sync"
         git push
-        test -f failure && exit 1
+        ! test -f failure
