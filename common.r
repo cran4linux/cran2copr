@@ -313,7 +313,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
       readLines(file.path(path, "inst/buildnum.txt")), "/Rjar/h2o.jar"),
     RcppCGAL = paste0(
       "Source1:          https://github.com/CGAL/cgal/releases/download/v",
-      v <- readLines(file.path(path, "inst/VERSION")), "/CGAL-", v, "-library.tar.xz")
+      v <- read.dcf(file.path(path, "DESCRIPTION"), fields="Version"), "/CGAL-", v, "-library.tar.xz")
   ))
 
   # setup
