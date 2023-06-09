@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PaRe
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Way to Perform Code Review or QA on Other Packages
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils >= 4.2.2
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-lintr >= 3.0.2
 BuildRequires:    R-CRAN-R6 >= 2.5.1
@@ -32,10 +31,10 @@ BuildRequires:    R-CRAN-igraph >= 1.3.5
 BuildRequires:    R-CRAN-cyclocomp >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.9
-BuildRequires:    R-CRAN-pak >= 0.5.1
 BuildRequires:    R-CRAN-git2r >= 0.31.0
+BuildRequires:    R-CRAN-pak >= 0.2.0
 BuildRequires:    R-CRAN-DiagrammeRsvg >= 0.1
-Requires:         R-utils >= 4.2.2
+BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-lintr >= 3.0.2
 Requires:         R-CRAN-R6 >= 2.5.1
@@ -50,9 +49,10 @@ Requires:         R-CRAN-igraph >= 1.3.5
 Requires:         R-CRAN-cyclocomp >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-DiagrammeR >= 1.0.9
-Requires:         R-CRAN-pak >= 0.5.1
 Requires:         R-CRAN-git2r >= 0.31.0
+Requires:         R-CRAN-pak >= 0.2.0
 Requires:         R-CRAN-DiagrammeRsvg >= 0.1
+Requires:         R-utils 
 
 %description
 Reviews other packages during code review by looking at their

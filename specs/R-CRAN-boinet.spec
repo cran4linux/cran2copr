@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boinet
-%global packver   0.0.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conduct Simulation Study of Bayesian Optimal Interval Design with BOIN-ET Family
 
@@ -26,18 +26,18 @@ Requires:         R-CRAN-copula
 
 %description
 Bayesian optimal interval based on both efficacy and toxicity outcomes
-(BOIN-ET) design is a model-assisted oncology phase I trial design, aiming
-to establish an optimal biological dose accounting for efficacy and
+(BOIN-ET) design is a model-assisted oncology phase I/II trial design,
+aiming to establish an optimal biological dose accounting for efficacy and
 toxicity in the framework of dose-finding. Some extensions of BOIN-ET
 design are also available to allow for time-to-event efficacy and toxicity
 outcomes based on cumulative and pending data (time-to-event BOIN-ET:
-TITE-BOIN-ET), multicategorical efficacy and toxicity outcomes
-(generalized BOIN-ET: gBOIN-ET), and their combination (TITE-gBOIN-ET).
-'boinet' is a package to implement the BOIN-ET design family and supports
-the conduct of simulation studies to assess operating characteristics of
-BOIN-ET, TITE-BOIN-ET, gBOIN-ET, and TITE-gBOIN-ET, where users can choose
-design parameters in flexible and straightforward ways depending on their
-own application.
+TITE-BOIN-ET), ordinal graded efficacy and toxicity outcomes (generalized
+BOIN-ET: gBOIN-ET), and their combination (TITE-gBOIN-ET). 'boinet' is a
+package to implement the BOIN-ET design family and supports the conduct of
+simulation studies to assess operating characteristics of BOIN-ET,
+TITE-BOIN-ET, gBOIN-ET, and TITE-gBOIN-ET, where users can choose design
+parameters in flexible and straightforward ways depending on their own
+application.
 
 %prep
 %setup -q -c -n %{packname}
