@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  saeHB.ME.beta
-%global packver   1.0.1
+%global packname  fritools2
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          SAE with Measurement Error using HB under Beta Distribution
+Summary:          Utilities for the Forest Research Institute of the State Baden-Wuerttemberg
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-coda 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rjags 
+BuildRequires:    R-utils 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-Implementation of Small Area Estimation (SAE) using Hierarchical Bayesian
-(HB) Method when auxiliary variable measured with error under Beta
-Distribution. The 'rjags' package is employed to obtain parameter
-estimates. For the references, see J.N.K & Molina (2015)
-<doi:10.1002/9781118735855>, Ybarra and Sharon (2008)
-<doi:10.1093/biomet/asn048>, and Ntzoufras (2009, ISBN-10: 1118210352).
+Miscellaneous utilities, tools and helper functions for finding and
+searching files on disk, searching for and removing R objects from the
+workspace. Does not import or depend on any third party package, but on
+core R only (i.e. it may depend on packages with priority 'base').
 
 %prep
 %setup -q -c -n %{packname}

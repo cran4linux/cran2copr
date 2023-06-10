@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RESI
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Effect Size Index (RESI) Estimation
 
@@ -18,21 +18,27 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-aod 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-clubSandwich 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-regtools 
 BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-aod 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-clubSandwich 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-regtools 
 Requires:         R-CRAN-sandwich 
 
 %description
 Summarize model output using a robust effect size index. The index is
-introduced in Vandekar, Rao, & Blume (2020)
+introduced in Vandekar, Tao, & Blume (2020)
 <doi:10.1007/s11336-020-09698-2>.
 
 %prep

@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  saeHB.ME.beta
-%global packver   1.0.1
+%global packname  epiworldR
+%global packver   0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          SAE with Measurement Error using HB under Beta Distribution
+Summary:          Fast Agent-Based Epi Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-coda 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rjags 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-utils 
 
 %description
-Implementation of Small Area Estimation (SAE) using Hierarchical Bayesian
-(HB) Method when auxiliary variable measured with error under Beta
-Distribution. The 'rjags' package is employed to obtain parameter
-estimates. For the references, see J.N.K & Molina (2015)
-<doi:10.1002/9781118735855>, Ybarra and Sharon (2008)
-<doi:10.1093/biomet/asn048>, and Ntzoufras (2009, ISBN-10: 1118210352).
+A flexible framework for Agent-Based Models (ABM), the 'epiworldR' package
+provides methods for prototyping disease outbreaks and transmission models
+using a 'C++' backend, making it very fast. It supports multiple
+epidemiological models, including the Susceptible-Infected-Susceptible
+(SIS), Susceptible-Infected-Removed (SIR),
+Susceptible-Exposed-Infected-Removed (SEIR), and others, involving
+arbitrary mitigation policies and multiple-disease models. Users can
+specify infectiousness/susceptibility rates as a function of agents'
+features, providing great complexity for the model dynamics. Furthermore,
+'epiworldR' is ideal for simulation studies featuring large populations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIRthresholded
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sliced Inverse Regression with Thresholding
 
@@ -21,8 +21,9 @@ BuildRequires:    R-CRAN-strucchange
 Requires:         R-CRAN-strucchange 
 
 %description
-Implements a thresholded version of the Sliced Inverse Regression method,
-which allows to do variable selection.
+Implements a thresholded version of the Sliced Inverse Regression method
+(Li, K. C. (1991) <doi:10.2307/2290563>), which allows to do variable
+selection.
 
 %prep
 %setup -q -c -n %{packname}

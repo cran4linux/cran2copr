@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survstan
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Survival Regression Models via 'Stan'
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rlang 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rlang 
@@ -52,11 +54,12 @@ Requires:         R-CRAN-rstantools
 Parametric survival regression models under the maximum likelihood
 approach via 'Stan'. Implemented regression models include accelerated
 failure time models, proportional hazards models, proportional odds
-models, and accelerated hazard models. Available baseline survival
-distributions include exponential, Weibull, log-normal, and log-logistic
-distributions. References: Lawless (2002) <ISBN:9780471372158>; Bennett
-(1982) <doi:10.1002/sim.4780020223>; Chen and Wang(2000)
-<doi:10.1080/01621459.2000.10474236>.
+models, accelerated hazard models, and Yang and Prentice models. Available
+baseline survival distributions include exponential, Weibull, log-normal,
+and log-logistic distributions. References: Lawless (2002)
+<ISBN:9780471372158>; Bennett (1982) <doi:10.1002/sim.4780020223>; Chen
+and Wang(2000) <doi:10.1080/01621459.2000.10474236>; Demarqui and Mayrink
+(2021) <doi:10.1214/20-BJPS471>.
 
 %prep
 %setup -q -c -n %{packname}

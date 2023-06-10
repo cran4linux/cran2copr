@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sharp
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stability-enHanced Approaches using Resampling Procedures
 
@@ -25,9 +25,9 @@ BuildRequires:    R-CRAN-beepr
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-withr >= 2.4.0
 Requires:         R-CRAN-fake >= 1.4.0
@@ -37,9 +37,9 @@ Requires:         R-CRAN-beepr
 Requires:         R-CRAN-glmnet 
 Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-mclust 
 Requires:         R-parallel 
+Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-Rdpack 
 
 %description

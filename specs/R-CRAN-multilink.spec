@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  saeHB.ME.beta
-%global packver   1.0.1
+%global packname  multilink
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          SAE with Measurement Error using HB under Beta Distribution
+Summary:          Multifile Record Linkage and Duplicate Detection
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,27 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-RecordLinkage 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-mcclust 
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-coda 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rjags 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-RecordLinkage 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-utils 
+Requires:         R-CRAN-mcclust 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-stringr 
 
 %description
-Implementation of Small Area Estimation (SAE) using Hierarchical Bayesian
-(HB) Method when auxiliary variable measured with error under Beta
-Distribution. The 'rjags' package is employed to obtain parameter
-estimates. For the references, see J.N.K & Molina (2015)
-<doi:10.1002/9781118735855>, Ybarra and Sharon (2008)
-<doi:10.1093/biomet/asn048>, and Ntzoufras (2009, ISBN-10: 1118210352).
+Implementation of the methodology of Aleshin-Guendel & Sadinle (2022)
+<doi:10.1080/01621459.2021.2013242>. It handles the general problem of
+multifile record linkage and duplicate detection, where any number of
+files are to be linked, and any of the files may have duplicates.
 
 %prep
 %setup -q -c -n %{packname}

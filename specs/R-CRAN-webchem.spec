@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  webchem
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chemical Information from the Web
 
@@ -48,9 +48,8 @@ Requires:         R-utils
 Chemical information from around the web. This package interacts with a
 suite of web services for chemical information. Sources include: Alan
 Wood's Compendium of Pesticide Common Names, Chemical Identifier Resolver,
-ChEBI, Chemical Translation Service, ChemIDplus, ChemSpider, ETOX,
-Flavornet, NIST Chemistry WebBook, OPSIN, PAN Pesticide Database, PubChem,
-SRS, Wikidata.
+ChEBI, Chemical Translation Service, ChemSpider, ETOX, Flavornet, NIST
+Chemistry WebBook, OPSIN, PubChem, SRS, Wikidata.
 
 %prep
 %setup -q -c -n %{packname}

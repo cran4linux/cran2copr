@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multilevelcoda
-%global packver   1.0.0
+%global packname  OBRE
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Bayesian Multilevel Models for Compositional Data
+Summary:          Optimal B-Robust Estimator Tools
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,37 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-compositions 
-BuildRequires:    R-CRAN-zCompositions 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-brms 
-BuildRequires:    R-CRAN-extraoperators 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-insight 
-BuildRequires:    R-CRAN-ggsci 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-data.table >= 1.12.0
-Requires:         R-stats 
-Requires:         R-CRAN-compositions 
-Requires:         R-CRAN-zCompositions 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-brms 
-Requires:         R-CRAN-extraoperators 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-insight 
-Requires:         R-CRAN-ggsci 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-pracma >= 1.7.3
+BuildRequires:    R-methods 
+Requires:         R-CRAN-pracma >= 1.7.3
+Requires:         R-methods 
 
 %description
-Implement Bayesian Multilevel Modelling for compositional data in a
-multilevel framework. Compute multilevel compositional data and Isometric
-log ratio (ILR) at between and within-person levels, fit Bayesian
-multilevel models for compositional predictors and outcomes, and run
-post-hoc analyses such as isotemporal substitution models.
+An implementation for computing Optimal B-Robust Estimators of
+two-parameter distribution. The procedure is composed of some equations
+that are evaluated alternatively until the solution is reached. Some tools
+for analyzing the estimates are included. The most relevant is covariance
+matrix computation using a closed formula.
 
 %prep
 %setup -q -c -n %{packname}

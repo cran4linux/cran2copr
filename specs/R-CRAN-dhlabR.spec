@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  saeHB.ME.beta
-%global packver   1.0.1
+%global packname  dhlabR
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          SAE with Measurement Error using HB under Beta Distribution
+Summary:          National Library of Norway Quantitative Text Data API Tools
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-coda 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rjags 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-zoo 
 
 %description
-Implementation of Small Area Estimation (SAE) using Hierarchical Bayesian
-(HB) Method when auxiliary variable measured with error under Beta
-Distribution. The 'rjags' package is employed to obtain parameter
-estimates. For the references, see J.N.K & Molina (2015)
-<doi:10.1002/9781118735855>, Ybarra and Sharon (2008)
-<doi:10.1093/biomet/asn048>, and Ntzoufras (2009, ISBN-10: 1118210352).
+Tools for accessing data from National Library of Norway's dhlab (digital
+humanities laboratory). Provides wrappers for accessing our API services
+at <https://api.nb.no/dhlab/>. To learn more about dhlab, visit out site
+<https://www.nb.no/dh-lab/>.
 
 %prep
 %setup -q -c -n %{packname}

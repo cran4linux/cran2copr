@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  octopusR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interact with the 'Octopus Energy' API
 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tibble 
 
 %description
-This package is a simple wrapper for the 'Octopus Energy' API
+A simple wrapper for the 'Octopus Energy' API
 <https://developer.octopus.energy/docs/api/>. It handles authentication,
 by storing a provided API key and meter details. Implemented endpoints
 include 'products' for viewing tariff details and 'consumption' for

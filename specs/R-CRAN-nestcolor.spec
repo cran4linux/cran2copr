@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  saeHB.ME.beta
-%global packver   1.0.1
+%global packname  nestcolor
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          SAE with Measurement Error using HB under Beta Distribution
+Summary:          Colors for NEST Graphs
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-coda 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rjags 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Implementation of Small Area Estimation (SAE) using Hierarchical Bayesian
-(HB) Method when auxiliary variable measured with error under Beta
-Distribution. The 'rjags' package is employed to obtain parameter
-estimates. For the references, see J.N.K & Molina (2015)
-<doi:10.1002/9781118735855>, Ybarra and Sharon (2008)
-<doi:10.1093/biomet/asn048>, and Ntzoufras (2009, ISBN-10: 1118210352).
+Clinical reporting figures require to use consistent colors and
+configurations. As a part of the Roche open-source clinical reporting
+project, namely the NEST project, the 'nestcolor' package specifies the
+color code and default theme with specifying 'ggplot2' theme parameters.
+Users can easily customize color and theme settings before using the reset
+of NEST packages to ensure consistent settings in both static and
+interactive output at the downstream.
 
 %prep
 %setup -q -c -n %{packname}
