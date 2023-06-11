@@ -1,52 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gargle
-%global packver   1.5.0
+%global packname  manynet
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Working with Google APIs
+Summary:          Many Ways to Make, Manipulate, and Map Myriad Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.0.1
-BuildRequires:    R-CRAN-httr >= 1.4.5
-BuildRequires:    R-CRAN-fs >= 1.3.1
-BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli >= 3.0.1
-Requires:         R-CRAN-httr >= 1.4.5
-Requires:         R-CRAN-fs >= 1.3.1
-Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-tidygraph 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-tidygraph 
 
 %description
-Provides utilities for working with Google APIs
-<https://developers.google.com/apis-explorer>.  This includes functions
-and classes for handling common credential types and for preparing,
-executing, and processing HTTP requests.
+A set of tools for making, manipulating, and mapping many different types
+of networks. All functions operate with matrices, edge lists, and
+'igraph', 'network', and 'tidygraph' objects, and on one-mode, two-mode
+(bipartite), and sometimes three-mode networks. The package includes
+functions for importing and exporting, creating and generating networks,
+molding and manipulating networks and node and tie attributes, and
+describing and visualizing networks with sensible defaults.
 
 %prep
 %setup -q -c -n %{packname}

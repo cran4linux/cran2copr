@@ -1,29 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modules
-%global packver   0.11.0
+%global packname  AlteredPQR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Self Contained Units of Source Code
+Summary:          Detection of Altered Protein Quantitative Relationships
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
 
 %description
-Provides modules as an organizational unit for source code. Modules
-enforce to be more rigorous when defining dependencies and have a local
-search path. They can be used as a sub unit within packages or in scripts.
+Inference of protein complex states from quantitative proteomics data. The
+package takes information on known stable protein interactions (i.e.
+protein components of the same complex) and assesses how protein
+quantitative ratios change between different conditions. It reports
+protein pairs for which relative protein quantities to each other have
+been significantly altered in the tested condition.
 
 %prep
 %setup -q -c -n %{packname}

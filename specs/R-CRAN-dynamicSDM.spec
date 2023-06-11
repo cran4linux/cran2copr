@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dynamicSDM
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution and Abundance Modelling at High Spatio-Temporal Resolution
 
@@ -18,17 +18,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geodist 
-BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-googledrive 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rgee 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spThin 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
@@ -37,17 +33,13 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geodist 
-Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-googledrive 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rgee 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spThin 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyr 
 Requires:         R-grDevices 
 Requires:         R-graphics 

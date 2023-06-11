@@ -1,53 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fitPS
-%global packver   0.2-6
+%global packname  rmfanova
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Zeta Distributions to Forensic Data
+Summary:          Repeated Measures Functional Analysis of Variance
 
-License:          GPL (>= 2)
+License:          LGPL-2 | LGPL-3 | GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-refund 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-ks 
-Requires:         R-methods 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-refund 
 
 %description
-Fits Zeta distributions (discrete power laws) to data that arises from
-forensic surveys of clothing on the presence of glass and paint in various
-populations. The general method is described to some extent in Coulson,
-S.A., Buckleton, J.S., Gummer, A.B., and Triggs, C.M. (2001)
-<doi:10.1016/S1355-0306(01)71847-3>, although the implementation differs.
+The provided package implements the statistical tests for the functional
+repeated measures analysis problem (Kurylo and Smaga, 2023,
+<arXiv:2306.03883>). These procedures enable us to verify the overall
+hypothesis regarding equality, as well as hypotheses for pairwise
+comparisons (i.e., post hoc analysis) of mean functions corresponding to
+repeated experiments.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,52 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gargle
-%global packver   1.5.0
+%global packname  mlexperiments
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Working with Google APIs
+Summary:          Machine Learning Experiments
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.0.1
-BuildRequires:    R-CRAN-httr >= 1.4.5
-BuildRequires:    R-CRAN-fs >= 1.3.1
-BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-kdry 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-splitTools 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli >= 3.0.1
-Requires:         R-CRAN-httr >= 1.4.5
-Requires:         R-CRAN-fs >= 1.3.1
-Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-kdry 
+Requires:         R-parallel 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-splitTools 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
-Provides utilities for working with Google APIs
-<https://developers.google.com/apis-explorer>.  This includes functions
-and classes for handling common credential types and for preparing,
-executing, and processing HTTP requests.
+Provides 'R6' objects to perform parallelized hyperparameter optimization
+and cross-validation. Hyperparameter optimization can be performed with
+Bayesian optimization (via 'ParBayesianOptimization'
+<https://cran.r-project.org/package=ParBayesianOptimization>) and grid
+search. The optimized hyperparameters can be validated using k-fold
+cross-validation. Alternatively, hyperparameter optimization and
+validation can be performed with nested cross-validation. While
+'mlexperiments' focuses on core wrappers for machine learning experiments,
+additional learner algorithms can be supplemented by inheriting from the
+provided learner base class.
 
 %prep
 %setup -q -c -n %{packname}
