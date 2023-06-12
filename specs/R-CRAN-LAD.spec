@@ -1,48 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  texor
-%global packver   1.0.2
+%global packname  LAD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converting 'LaTeX' 'R Journal' Articles into 'RJ-web-articles'
+Summary:          Derive Leaf Angle Distribution (LAD) from Measured Leaf Inclination Angles
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-tinytex 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-logger 
-BuildRequires:    R-CRAN-rjtools 
-BuildRequires:    R-CRAN-rebib 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-pdftools 
-Requires:         R-tools 
-Requires:         R-CRAN-tinytex 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-logger 
-Requires:         R-CRAN-rjtools 
-Requires:         R-CRAN-rebib 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Articles in the 'R Journal' were first authored in 'LaTeX', which performs
-admirably for 'PDF' files but is less than ideal for modern online
-interfaces. The 'texor' package does all the transitional chores and
-conversions necessary to move to the online versions.
+Calculate mean statistics and leaf angle distribution type from measured
+leaf inclination angles. LAD distribution is fitted using a two-parameters
+(mu, nu) Beta distribution and compared with six theoretical LAD
+distributions. Additional information is provided in Chianucci and
+Cesaretti (2022) <doi:10.1101/2022.10.28.513998>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  summclust
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Module to Compute Influence and Leverage Statistics for Regression Models with Clustered Errors
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-dreamerr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
 Module to compute cluster specific information for regression models with

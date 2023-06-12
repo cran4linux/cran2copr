@@ -1,44 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DUBStepR
-%global packver   1.2.0
+%global __requires_exclude ^libmpi
+%global packname  uci
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correlation-Based Feature Selection for Single-Cell RNA Sequencing Data
+Summary:          Urban Centrality Index
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-qlcMatrix 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Seurat 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-qlcMatrix 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-Seurat 
-Requires:         R-methods 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-sf 
+Requires:         R-utils 
 
 %description
-Determining the optimal set of feature genes to characterise cell types in
-single-cell RNA sequencing data using stepwise regression on gene-gene
-correlations. <doi:10.1101/2020.10.07.330563>.
+Calculates the Urban Centrality Index (UCI) as in Pereira et al., (2013)
+<doi:10.1111/gean.12002>. The UCI measures the extent to which the spatial
+organization of a city or region varies from extreme monocentric to
+extreme polycentric in a continuous scale from 0 to 1. Values closer to 0
+indicate more polycentric patterns and values closer to 1 indicate a more
+monocentric urban form.
 
 %prep
 %setup -q -c -n %{packname}

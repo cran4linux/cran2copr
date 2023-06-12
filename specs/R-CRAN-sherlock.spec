@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sherlock
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical Displays to Aid Structured Problem Solving and Diagnosis
+Summary:          Graphical Displays for Structured Problem Solving and Diagnosis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-tidytext 
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-forcats 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-tidytext 
 
 %description
 Powerful graphical displays and statistical tools for structured problem

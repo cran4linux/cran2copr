@@ -1,25 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sparseSEM
-%global packver   3.8-1
+%global packver   3.8-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1
+Version:          3.8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse-Aware Maximum Likelihood for Structural Equation Models
+Summary:          Elastic Net Penalized Maximum Likelihood for Structural Equation Models
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-parallel 
+Requires:         R-parallel 
 
 %description
-Provides Sparse-aware maximum likelihood for structural equation models in
-inferring network structure (topology).
+Provides elastic net regularized maximum likelihood for structural
+equation models (SEM) in inferring network structure (topology) and
+estimating causal effects. The package implements `lasso` and `elastic
+net` (l1/l2) penalized SEM and estimates the model parameters with an
+efficient block coordinate ascent algorithm that maximizes the penalized
+likelihood of the SEM.  Hyperparameters are inferred from cross-validation
+(CV).  A Stability Selection (STS) function is also available to provide
+accurate causal effect selection.
 
 %prep
 %setup -q -c -n %{packname}

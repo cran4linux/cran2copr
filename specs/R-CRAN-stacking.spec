@@ -1,30 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cubature
-%global packver   2.1.0
+%global packname  stacking
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Multivariate Integration over Hypercubes
+Summary:          Building Predictive Models with Stacking
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-caret 
+Requires:         R-parallel 
 
 %description
-R wrappers around the cubature C library of Steven G. Johnson for adaptive
-multivariate integration over hypercubes and the Cuba C library of Thomas
-Hahn for deterministic and Monte Carlo integration. Scalar and vector
-interfaces for cubature and Cuba routines are provided; the vector
-interfaces are highly recommended as demonstrated in the package vignette.
+Building predictive models with stacking which is a type of ensemble
+learning. Learners can be specified from those implemented in 'caret'. For
+more information of the package, see Nukui and Onogi (2023)
+<doi:10.1101/2023.06.06.543970>.
 
 %prep
 %setup -q -c -n %{packname}

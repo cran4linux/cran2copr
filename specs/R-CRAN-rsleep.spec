@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsleep
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Sleep Data
 
@@ -33,15 +33,8 @@ Requires:         R-CRAN-signal
 Requires:         R-CRAN-xml2 
 
 %description
-Provides users functions for sleep data management and analysis such as
-European Data Format (EDF) to Morpheo Data Format (MDF) conversion:
-P.Bouchequet, D.Jin, G.Solelhac, M.Chennaoui, D.Leger (2018)
-<doi:10.1016/j.msom.2018.01.130> "Morpheo Data Format (MDF), un nouveau
-format de donnees simple, robuste et performant pour stocker et analyser
-les enregistrements de sommeil". Provides hypnogram statistics computing
-and visualisation functions from the American Academy of Sleep Medicine
-(AASM) manual "The AASM Manual for the Scoring of Sleep and Associated
-Events" <https://aasm.org/clinical-resources/scoring-manual/>.
+A toolbox for sleep data processing, visualization and analysis. Tools for
+state of the art automatic sleep stages scoring.
 
 %prep
 %setup -q -c -n %{packname}

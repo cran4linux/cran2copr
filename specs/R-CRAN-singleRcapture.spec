@@ -1,48 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  texor
-%global packver   1.0.2
+%global packname  singleRcapture
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converting 'LaTeX' 'R Journal' Articles into 'RJ-web-articles'
+Summary:          Single-Source Capture-Recapture Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-tinytex 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-logger 
-BuildRequires:    R-CRAN-rjtools 
-BuildRequires:    R-CRAN-rebib 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-pdftools 
-Requires:         R-tools 
-Requires:         R-CRAN-tinytex 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-logger 
-Requires:         R-CRAN-rjtools 
-Requires:         R-CRAN-rebib 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lamW 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-rootSolve 
+Requires:         R-stats 
+Requires:         R-CRAN-lamW 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-rootSolve 
 
 %description
-Articles in the 'R Journal' were first authored in 'LaTeX', which performs
-admirably for 'PDF' files but is less than ideal for modern online
-interfaces. The 'texor' package does all the transitional chores and
-conversions necessary to move to the online versions.
+Implementation of single-source capture-recapture methods for population
+size estimation using zero-truncated, zero-one truncated and
+zero-truncated one-inflated Poisson, Geometric and Negative Binomial
+regression as well as Zelterman's and Chao's regression. Package includes
+point and interval estimators for the population size with variances
+estimated using analytical or bootstrap method. Details can be found in:
+van der Heijden et all. (2003) <doi:10.1191/1471082X03st057oa>,
+B{"o}hning and van der Heijden (2019) <doi:10.1214/18-AOAS1232>,
+B{"o}hning et al. (2020) Capture-Recapture Methods for the Social and
+Medical Sciences or B{"o}hning and Friedl (2021)
+<doi:10.1007/s10260-021-00556-8>.
 
 %prep
 %setup -q -c -n %{packname}

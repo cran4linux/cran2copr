@@ -1,30 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cubature
-%global packver   2.1.0
+%global packname  gwbr
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Multivariate Integration over Hypercubes
+Summary:          Local and Global Beta Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-R wrappers around the cubature C library of Steven G. Johnson for adaptive
-multivariate integration over hypercubes and the Cuba C library of Thomas
-Hahn for deterministic and Monte Carlo integration. Scalar and vector
-interfaces for cubature and Cuba routines are provided; the vector
-interfaces are highly recommended as demonstrated in the package vignette.
+Fit a regression model for when the response variable is presented as a
+ratio or proportion. This adjustment can occur globally, with the same
+estimate for the entire study space, or locally, where a beta regression
+model is fitted for each region, considering only influential locations
+for that area. Da Silva, A. R. and Lima, A. O. (2017)
+<doi:10.1016/j.spasta.2017.07.011>.
 
 %prep
 %setup -q -c -n %{packname}

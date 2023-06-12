@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cubature
-%global packver   2.1.0
+%global packname  discursive
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Multivariate Integration over Hypercubes
+Summary:          Measuring Discursive Sophistication in Open-Ended Survey Responses
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-SnowballC 
+BuildRequires:    R-CRAN-stm 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-SnowballC 
+Requires:         R-CRAN-stm 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tm 
+Requires:         R-utils 
 
 %description
-R wrappers around the cubature C library of Steven G. Johnson for adaptive
-multivariate integration over hypercubes and the Cuba C library of Thomas
-Hahn for deterministic and Monte Carlo integration. Scalar and vector
-interfaces for cubature and Cuba routines are provided; the vector
-interfaces are highly recommended as demonstrated in the package vignette.
+A simple approach to measure political sophistication based on open-ended
+survey responses. Discursive sophistication captures the complexity of
+individual attitude expression by quantifying its relative size, range,
+and constraint. For more information on the measurement approach see:
+Kraft, Patrick W. 2023. "Women Also Know Stuff: Challenging the Gender Gap
+in Political Sophistication." American Political Science Review
+(forthcoming).
 
 %prep
 %setup -q -c -n %{packname}

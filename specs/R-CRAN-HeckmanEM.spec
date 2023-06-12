@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HeckmanEM
-%global packver   0.1.3
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Normal or Student-t Heckman Selection Models
 
@@ -21,15 +21,20 @@ BuildRequires:    R-CRAN-MomTrunc >= 5.79
 BuildRequires:    R-CRAN-PerformanceAnalytics >= 2.0.4
 BuildRequires:    R-CRAN-sampleSelection >= 1.2.6
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-MomTrunc >= 5.79
 Requires:         R-CRAN-PerformanceAnalytics >= 2.0.4
 Requires:         R-CRAN-sampleSelection >= 1.2.6
 Requires:         R-CRAN-mvtnorm >= 1.1.0
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 
 %description
-Maximum likelihood estimation by an EM algorithm of Heckman-type sample
-selection Normal or Student-t models. The reference is Lachos, Prates and
-Dey (2020) <doi:10.1016/j.jmva.2021.104737>.
+It performs maximum likelihood estimation for the Heckman selection model
+(Normal or Student-t) using an EM-algorithm
+<doi:10.1016/j.jmva.2021.104737>. It also performs influence diagnostic
+through global and local influence for four possible perturbation schema.
 
 %prep
 %setup -q -c -n %{packname}
