@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  D3mirt
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive 3D Multidimensional Item Response Theory Modeling
 
@@ -23,14 +23,14 @@ Requires:         R-CRAN-rgl >= 1.0.1
 Requires:         R-CRAN-mirt 
 
 %description
-The 'D3mirt' package is used for identifying, estimating, and plotting
-descriptive multidimensional item response theory models, restricted to 3D
-and dichotomous or polytomous data that fit the two-parameter logistic
-model or the graded response model. The method is foremost explorative and
-centered around the plot function that exposes item characteristics and
-constructs, represented by vector arrows, located in a three-dimensional
-interactive space. The results can be useful for item-level analysis as
-well as test development.
+For identifying, estimating, and plotting descriptive multidimensional
+item response theory models, restricted to 3D and dichotomous or
+polytomous data that fit the two-parameter logistic model or the graded
+response model. The method is foremost explorative and centered around the
+plot function that exposes item characteristics and constructs,
+represented by vector arrows, located in a three-dimensional interactive
+space. The results can be useful for item-level analysis as well as test
+development.
 
 %prep
 %setup -q -c -n %{packname}

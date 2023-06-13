@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quickPlot
-%global packver   0.1.8
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A System of Plotting Optimized for Speed and Modularity
 
@@ -14,47 +14,36 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-fpCompare 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridBase 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-CRAN-backports 
 Requires:         R-CRAN-fpCompare 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-gridBase 
-Requires:         R-CRAN-igraph 
 Requires:         R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
+Requires:         R-utils 
 
 %description
-A high-level plotting system, built using 'grid' graphics, that is
-optimized for speed and modularity. This has great utility for quick
-visualizations when testing code, with the key benefit that visualizations
-are updated independently of one another. The suggested packages 'fastshp'
-and 'visualTest' can be installed with e.g., 'install.packages("fastshp",
-repos = "https://PredictiveEcology.r-universe.dev")'.
+A high-level plotting system, compatible with `ggplot2` objects, maps from
+`sf`, `terra`, `raster`, `sp`. It is built primarily on the 'grid'
+package. The objective of the package is to provide a plotting system that
+is built for speed and modularity. This is useful for quick visualizations
+when testing code and for plotting multiple figures to the same device
+from independent sources that may be independent of one another (i.e.,
+different function or modules the create the visualizations).  The
+suggested package 'fastshp' can be installed from the repository
+(<https://PredictiveEcology.r-universe.dev>).
 
 %prep
 %setup -q -c -n %{packname}

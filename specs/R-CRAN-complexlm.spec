@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bvartools
-%global packver   0.2.2
+%global packname  complexlm
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference of Vector Autoregressive and Error Correction Models
+Summary:          Linear Fitting for Complex Valued Data
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-CRAN-coda 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-parallel 
+Requires:         R-grDevices 
+Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-pracma 
+Requires:         R-graphics 
 Requires:         R-stats 
 
 %description
-Assists in the set-up of algorithms for Bayesian inference of vector
-autoregressive (VAR) and error correction (VEC) models. Functions for
-posterior simulation, forecasting, impulse response analysis and forecast
-error variance decomposition are largely based on the introductory texts
-of Chan, Koop, Poirier and Tobias (2019, ISBN: 9781108437493), Koop and
-Korobilis (2010) <doi:10.1561/0800000013> and Luetkepohl (2006, ISBN:
-9783540262398).
+Tools for linear fitting with complex variables. Includes ordinary
+least-squares (zlm()) and robust M-estimation (rzlm()), and complex
+methods for oft used generics. Originally adapted from the rlm() functions
+of 'MASS' and the lm() functions of 'stats'.
 
 %prep
 %setup -q -c -n %{packname}

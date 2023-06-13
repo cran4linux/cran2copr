@@ -1,41 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rim
-%global packver   0.6.0
+%global packname  WeibullR.shiny
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R's Interface to Maxima, Bringing Symbolic Computation into R
+Summary:          A 'Shiny' App for Weibull Analysis from 'WeibullR'
 
-License:          GPL (>= 3)
+License:          Apache License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         maxima
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-GlobalOptions 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-GlobalOptions 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rhandsontable 
+BuildRequires:    R-CRAN-WeibullR 
+BuildRequires:    R-CRAN-WeibullR.plotly 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+Requires:         R-CRAN-rhandsontable 
+Requires:         R-CRAN-WeibullR 
+Requires:         R-CRAN-WeibullR.plotly 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
 
 %description
-An interface to the powerful and fairly complete computer algebra system
-'Maxima'. It can be used to start and control 'Maxima' from within R by
-entering 'Maxima' commands. Results from 'Maxima' can be parsed and
-evaluated in R. It facilitates outputting results from 'Maxima' in 'LaTeX'
-and 'MathML'. 2D and 3D plots can be displayed directly. This package also
-registers a 'knitr'-engine enabling 'Maxima' code chunks to be written in
-'RMarkdown' documents.
+A 'Shiny' web application for life data analysis that depends on
+'WeibullR' by David Silkworth and Jurgen Symynck (2022)
+<https://CRAN.R-project.org/package=WeibullR>, an R package for Weibull
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

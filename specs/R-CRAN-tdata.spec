@@ -1,45 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bvartools
-%global packver   0.2.2
+%global packname  tdata
+%global packver   0.2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference of Vector Autoregressive and Error Correction Models
+Summary:          Prepare Your Time-Series Data for Further Analysis
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-CRAN-coda 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-readxl 
 
 %description
-Assists in the set-up of algorithms for Bayesian inference of vector
-autoregressive (VAR) and error correction (VEC) models. Functions for
-posterior simulation, forecasting, impulse response analysis and forecast
-error variance decomposition are largely based on the introductory texts
-of Chan, Koop, Poirier and Tobias (2019, ISBN: 9781108437493), Koop and
-Korobilis (2010) <doi:10.1561/0800000013> and Luetkepohl (2006, ISBN:
-9783540262398).
+Provides a set of tools for managing time-series data, with a particular
+emphasis on defining various frequency types such as daily and weekly. It
+also includes functionality for converting data between different
+frequencies.
 
 %prep
 %setup -q -c -n %{packname}

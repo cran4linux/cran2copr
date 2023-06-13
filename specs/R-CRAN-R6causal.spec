@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R6causal
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R6 Class for Structural Causal Models
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-dosearch
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-causaleffect 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dosearch 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-R6 
 Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
 The implemented R6 class 'SCM' aims to simplify working with structural

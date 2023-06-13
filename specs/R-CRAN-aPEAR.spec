@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdm2id
-%global packver   0.9.9
+%global packname  aPEAR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Mining and R Programming for Beginners
+Summary:          Advanced Pathway Enrichment Analysis Representation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,28 +18,43 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-arules 
-BuildRequires:    R-CRAN-arulesViz 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-bayesbio 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-lsa 
+BuildRequires:    R-CRAN-MCL 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggforce 
 Requires:         R-CRAN-arules 
-Requires:         R-CRAN-arulesViz 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-bayesbio 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-lsa 
+Requires:         R-CRAN-MCL 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-pls 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggforce 
 
 %description
-Contains functions to simplify the use of data mining methods
-(classification, regression, clustering, etc.), for students and beginners
-in R programming. Various R packages are used and wrappers are built
-around the main functions, to standardize the use of data mining methods
-(input/output): it brings a certain loss of flexibility, but also a gain
-of simplicity. The package name came from the French "Fouille de Données
-en Master 2 Informatique Décisionnelle".
+Simplify pathway enrichment analysis results by detecting clusters of
+similar pathways and visualizing it as an enrichment network, where nodes
+and edges describe the pathways and similarity between them, respectively.
+This reduces the redundancy of the overlapping pathways and helps to
+notice the most important biological themes in the data (Kerseviciute and
+Gordevicius (2023) <doi:10.1101/2023.03.28.534514>).
 
 %prep
 %setup -q -c -n %{packname}

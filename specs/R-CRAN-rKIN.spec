@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rKIN
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          (Kernel) Isotope Niche Estimation
 
@@ -14,23 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-maptools 
+BuildRequires:    R-CRAN-randomcoloR 
+BuildRequires:    R-CRAN-shades 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ks 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-randomcoloR 
+Requires:         R-CRAN-shades 
+Requires:         R-CRAN-dplyr 
 
 %description
 Applies methods used to estimate animal homerange, but instead of

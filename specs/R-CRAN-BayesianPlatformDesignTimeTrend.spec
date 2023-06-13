@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesianPlatformDesignTimeTrend
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate and Analyse Bayesian Platform Trial with Time Trend
 
@@ -55,12 +55,12 @@ Requires:         R-methods
 Requires:         R-CRAN-rstantools
 
 %description
-Simulating the multi-arm multi-stage or platform trial with Bayesian
-approach using the 'rstan' package, which provides the R interface for the
-Stan. This package supports fixed ratio and Bayesian adaptive
-randomization approaches for randomization. Additionally, it allows for
-the study of time trend problems in platform trials. There are demos
-available for a multi-arm multi-stage trial with two different null
+Simulating the sequential multi-arm multi-stage or platform trial with
+Bayesian approach using the 'rstan' package, which provides the R
+interface for the Stan. This package supports fixed ratio and Bayesian
+adaptive randomization approaches for randomization. Additionally, it
+allows for the study of time trend problems in platform trials. There are
+demos available for a multi-arm multi-stage trial with two different null
 scenarios, as well as for Bayesian trial cutoff screening. The Bayesian
 adaptive randomisation approaches are described in: Trippa et al. (2012)
 <doi:10.1200/JCO.2011.39.8420> and Wathen et al. (2017)

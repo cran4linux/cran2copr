@@ -1,45 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bvartools
-%global packver   0.2.2
+%global packname  drcarlate
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference of Vector Autoregressive and Error Correction Models
+Summary:          Improving Estimation Efficiency in CAR with Imperfect Compliance
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-splus2R 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-CRAN-coda 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-splus2R 
+Requires:         R-CRAN-glmnet 
 Requires:         R-stats 
+Requires:         R-CRAN-purrr 
 
 %description
-Assists in the set-up of algorithms for Bayesian inference of vector
-autoregressive (VAR) and error correction (VEC) models. Functions for
-posterior simulation, forecasting, impulse response analysis and forecast
-error variance decomposition are largely based on the introductory texts
-of Chan, Koop, Poirier and Tobias (2019, ISBN: 9781108437493), Koop and
-Korobilis (2010) <doi:10.1561/0800000013> and Luetkepohl (2006, ISBN:
-9783540262398).
+We provide a list of functions for replicating the results of the Monte
+Carlo simulations and empirical application of Jiang et al. (2022). In
+particular, we provide corresponding functions for generating the three
+types of random data described in this paper, as well as all the
+estimation strategies. Detailed information about the data generation
+process and estimation strategy can be found in Jiang et al. (2022)
+<doi:10.48550/arXiv.2201.13004>.
 
 %prep
 %setup -q -c -n %{packname}

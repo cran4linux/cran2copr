@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bvartools
-%global packver   0.2.2
+%global packname  ergmgp
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference of Vector Autoregressive and Error Correction Models
+Summary:          Tools for Modeling ERGM Generating Processes
 
-License:          GPL (>= 2)
+License:          GPL-3 + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-statnet.common >= 4.2.0
+BuildRequires:    R-CRAN-ergm >= 3.10.1
+BuildRequires:    R-CRAN-network >= 1.15
+BuildRequires:    R-CRAN-networkDynamic >= 0.10
 BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-CRAN-coda 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
+Requires:         R-CRAN-statnet.common >= 4.2.0
+Requires:         R-CRAN-ergm >= 3.10.1
+Requires:         R-CRAN-network >= 1.15
+Requires:         R-CRAN-networkDynamic >= 0.10
 Requires:         R-parallel 
-Requires:         R-stats 
 
 %description
-Assists in the set-up of algorithms for Bayesian inference of vector
-autoregressive (VAR) and error correction (VEC) models. Functions for
-posterior simulation, forecasting, impulse response analysis and forecast
-error variance decomposition are largely based on the introductory texts
-of Chan, Koop, Poirier and Tobias (2019, ISBN: 9781108437493), Koop and
-Korobilis (2010) <doi:10.1561/0800000013> and Luetkepohl (2006, ISBN:
-9783540262398).
+Provides tools for simulating draws from continuous time processes with
+well-defined exponential family random graph (ERGM) equilibria, i.e. ERGM
+generating processes (EGPs).  A number of EGPs are supported, including
+the families identified in Butts (2023)
+<doi:10.1080/0022250X.2023.2180001>, as are functions for hazard
+calculation and timing calibration.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bvartools
-%global packver   0.2.2
+%global packname  fritools
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference of Vector Autoregressive and Error Correction Models
+Summary:          Utilities for the Forest Research Institute of the State Baden-Wuerttemberg
 
-License:          GPL (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-CRAN-coda 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
 Requires:         R-methods 
-Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Assists in the set-up of algorithms for Bayesian inference of vector
-autoregressive (VAR) and error correction (VEC) models. Functions for
-posterior simulation, forecasting, impulse response analysis and forecast
-error variance decomposition are largely based on the introductory texts
-of Chan, Koop, Poirier and Tobias (2019, ISBN: 9781108437493), Koop and
-Korobilis (2010) <doi:10.1561/0800000013> and Luetkepohl (2006, ISBN:
-9783540262398).
+Miscellaneous utilities, tools and helper functions for finding and
+searching files on disk, searching for and removing R objects from the
+workspace. Does not import or depend on any third party package, but on
+core R only (i.e. it may depend on packages with priority 'base').
 
 %prep
 %setup -q -c -n %{packname}

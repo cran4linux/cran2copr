@@ -1,45 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bvartools
-%global packver   0.2.2
+%global packname  mop
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference of Vector Autoregressive and Error Correction Models
+Summary:          Mobility Oriented-Parity Metric
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-terra >= 1.6.7
+BuildRequires:    R-CRAN-foreach >= 1.5
+BuildRequires:    R-CRAN-doSNOW >= 1.0
+BuildRequires:    R-CRAN-snow >= 0.4
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-CRAN-coda 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-terra >= 1.6.7
+Requires:         R-CRAN-foreach >= 1.5
+Requires:         R-CRAN-doSNOW >= 1.0
+Requires:         R-CRAN-snow >= 0.4
 Requires:         R-methods 
 Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Assists in the set-up of algorithms for Bayesian inference of vector
-autoregressive (VAR) and error correction (VEC) models. Functions for
-posterior simulation, forecasting, impulse response analysis and forecast
-error variance decomposition are largely based on the introductory texts
-of Chan, Koop, Poirier and Tobias (2019, ISBN: 9781108437493), Koop and
-Korobilis (2010) <doi:10.1561/0800000013> and Luetkepohl (2006, ISBN:
-9783540262398).
+A set of tools to perform multiple versions of the Mobility
+Oriented-Parity metric. This multivariate analysis helps to characterize
+levels of dissimilarity between a set of conditions of reference and
+another set of conditions of interest. If predictive models are
+transferred to conditions different from those over which models were
+calibrated (trained), this metric helps to identify transfer conditions
+that differ substantially from those of calibration. These tools are
+implemented following principles proposed in Owens et al. (2013)
+<doi:10.1016/j.ecolmodel.2013.04.011>, and expanded to obtain more
+detailed results that aid in interpretation.
 
 %prep
 %setup -q -c -n %{packname}

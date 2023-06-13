@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MSCquartets
-%global packver   1.1.2
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Gene Tree Quartets under the Multi-Species Coalescent
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ape >= 5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-CRAN-zipfR 
 BuildRequires:    R-graphics 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-ape >= 5.0
+Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-zipfR 
 Requires:         R-graphics 
