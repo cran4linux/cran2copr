@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  goeveg
-%global packver   0.6.5
+%global packname  TrumpetPlots
+%global packver   0.0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Community Data and Ordinations
+Summary:          Visualization of Genetic Association Studies
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-purrr >= 1.0.1
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-purrr >= 1.0.1
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
 
 %description
-A collection of functions useful in (vegetation) community analyses and
-ordinations. Includes automatic species selection for ordination diagrams,
-NMDS stress/scree plots, species response curves and rank-abundance curves
-as well as calculation and sorting of synoptic tables.
+Visualizes the relationship between allele frequency and effect size in
+genetic association studies. The input is a data frame containing
+association results. The output is a plot with the effect size of risk
+variants in the Y axis, and the allele frequency spectrum in the X axis.
+Corte et al (2023) <doi:10.1101/2023.04.21.23288923>.
 
 %prep
 %setup -q -c -n %{packname}

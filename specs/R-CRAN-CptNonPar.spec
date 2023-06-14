@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  goeveg
-%global packver   0.6.5
+%global packname  CptNonPar
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Community Data and Ordinations
+Summary:          Nonparametric Change Point Detection for Multivariate Time Series
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-Hmisc 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-iterators 
+Requires:         R-stats 
 
 %description
-A collection of functions useful in (vegetation) community analyses and
-ordinations. Includes automatic species selection for ordination diagrams,
-NMDS stress/scree plots, species response curves and rank-abundance curves
-as well as calculation and sorting of synoptic tables.
+Implements the nonparametric moving sum procedure for detecting changes in
+the joint characteristic function (NP-MOJO) for multiple change point
+detection in multivariate time series. See McGonigle, E. T., Cho, H.
+(2023) <arXiv:2305.07581> for description of the NP-MOJO methodology.
 
 %prep
 %setup -q -c -n %{packname}

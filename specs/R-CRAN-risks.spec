@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  alkahest
-%global packver   1.1.1
+%global packname  risks
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pre-Processing XY Data from Experimental Methods
+Summary:          Estimate Risk Ratios and Risk Differences using Regression
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-bcaboot 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grDevices 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-bcaboot 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-A lightweight, dependency-free toolbox for pre-processing XY data from
-experimental methods (i.e. any signal that can be measured along a
-continuous variable). This package provides methods for baseline
-estimation and correction, smoothing, normalization, integration and peaks
-detection. Baseline correction methods includes polynomial fitting as
-described in Lieber and Mahadevan-Jansen (2003)
-<doi:10.1366/000370203322554518>, Rolling Ball algorithm after Kneen and
-Annegarn (1996) <doi:10.1016/0168-583X(95)00908-6>, SNIP algorithm after
-Ryan et al. (1988) <doi:10.1016/0168-583X(88)90063-8>, 4S Peak Filling
-after Liland (2015) <doi:10.1016/j.mex.2015.02.009> and more.
+Risk ratios and risk differences are estimated using regression models
+that allow for binary, categorical, and continuous exposures and
+confounders. Implemented are marginal standardization after fitting
+logistic models (g-computation) with delta-method and bootstrap standard
+errors, Miettinen's case-duplication approach (Schouten et al. 1993,
+<doi:10.1002/sim.4780121808>), log-binomial (Poisson) models with
+empirical variance (Zou 2004, <doi:10.1093/aje/kwh090>), binomial models
+with starting values from Poisson models (Spiegelman and Hertzmark 2005,
+<doi:10.1093/aje/kwi188>), and others.
 
 %prep
 %setup -q -c -n %{packname}

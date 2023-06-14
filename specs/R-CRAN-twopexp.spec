@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  goeveg
-%global packver   0.6.5
+%global packname  twopexp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Community Data and Ordinations
+Summary:          The Two Parameter Exponential Distribution
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-Hmisc 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-A collection of functions useful in (vegetation) community analyses and
-ordinations. Includes automatic species selection for ordination diagrams,
-NMDS stress/scree plots, species response curves and rank-abundance curves
-as well as calculation and sorting of synoptic tables.
+Density, distribution function, quantile function, and random generation
+function, maximum likelihood estimation (MLE), penalized maximum
+likelihood estimation (PMLE), the quartiles method estimation (QM), and
+median rank estimation (MEDRANK) for the two-parameter exponential
+distribution. MLE and PMLE are based on Mengjie Zheng
+(2013)<https://scse.d.umn.edu/sites/scse.d.umn.edu/files/mengjie-thesis_masters-1.pdf>.
+QM is based on Entisar Elgmati and Nadia Gregni
+(2016)<doi:10.5539/ijsp.v5n5p12>. MEDRANK is based on Matthew Reid
+(2022)<doi:10.5281/ZENODO.3938000>.
 
 %prep
 %setup -q -c -n %{packname}

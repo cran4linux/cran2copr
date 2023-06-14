@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  goeveg
-%global packver   0.6.5
+%global packname  GeneScape
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Community Data and Ordinations
+Summary:          Simulation of Single Cell RNA-Seq Data with Complex Structure
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-MASS >= 7.3.53.1
+BuildRequires:    R-CRAN-corpcor >= 1.6.10
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS >= 7.3.53.1
+Requires:         R-CRAN-corpcor >= 1.6.10
+Requires:         R-stats 
 
 %description
-A collection of functions useful in (vegetation) community analyses and
-ordinations. Includes automatic species selection for ordination diagrams,
-NMDS stress/scree plots, species response curves and rank-abundance curves
-as well as calculation and sorting of synoptic tables.
+Simulating single cell RNA-seq data with complicated structure. This
+package is developed based on the Splat method (Zappia, Phipson and
+Oshlack (2017) <doi:10.1186/s13059-017-1305-0>). 'GeneScape' incorporates
+additional features to simulate single cell RNA-seq data with complicated
+differential expression and correlation structures, such as
+sub-cell-types, correlated genes (pathway genes) and hub genes.
 
 %prep
 %setup -q -c -n %{packname}

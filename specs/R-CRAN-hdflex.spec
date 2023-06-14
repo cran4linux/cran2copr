@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  goeveg
-%global packver   0.6.5
+%global packname  hdflex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Community Data and Ordinations
+Summary:          High-Dimensional Aggregate Density Forecasts
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-Hmisc 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-parallel >= 4.1.0
+BuildRequires:    R-stats >= 4.1.0
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-roll >= 1.1.6
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-parallel >= 4.1.0
+Requires:         R-stats >= 4.1.0
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-roll >= 1.1.6
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-Rcpp 
 
 %description
-A collection of functions useful in (vegetation) community analyses and
-ordinations. Includes automatic species selection for ordination diagrams,
-NMDS stress/scree plots, species response curves and rank-abundance curves
-as well as calculation and sorting of synoptic tables.
+Provides a forecasting method that maps vast numbers of (scalar-valued)
+signals of any type into an aggregate density forecast in a time-varying
+and computationally fast manner. The method proceeds in two steps: First,
+it transforms a predictive signal into a density forecast. Second, it
+combines the generated candidate density forecasts into an ultimate
+density forecast. The methods are explained in detail in Adaemmer et al.
+(2023) <doi:10.2139/ssrn.4342487>.
 
 %prep
 %setup -q -c -n %{packname}

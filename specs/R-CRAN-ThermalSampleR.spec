@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ThermalSampleR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Sample Sizes Required for Critical Thermal Limits Experiments
 
@@ -31,6 +32,7 @@ BuildRequires:    R-CRAN-cowplot
 BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-stats >= 3.4.0
 Requires:         R-graphics >= 3.4.0
@@ -46,16 +48,18 @@ Requires:         R-CRAN-cowplot
 Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-sn 
 Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-testthat 
 
 %description
 We present a range of simulations to aid researchers in determining
 appropriate sample sizes when performing critical thermal limits studies
 (e.g. CTmin/CTmin experiments). A number of wrapper functions are provided
 for plotting and summarising outputs from these simulations. These
-simulations are presented in Owen, C., Sutton, G., Martin, G., van
-Steenderen, C., and Coetzee, J. Sample size determination for critical
-thermal limits studies. 2022. Physiological Entomology. Under review. The
-GUI version of this package is available on the R Shiny online server at:
+simulations are presented in van Steenderen, C.J.M., Sutton, G.F., Owen,
+C.A., Martin, G.D., and Coetzee, J.A. Sample size assessments for thermal
+physiology studies: An R package and R Shiny GUI. 2023. Physiological
+Entomology. Under review. The GUI version of this package is available on
+the R Shiny online server at:
 <https://clarkevansteenderen.shinyapps.io/ThermalSampleR_Shiny/> , or it
 is accessible via GitHub at
 <https://github.com/clarkevansteenderen/ThermalSampleR_Shiny/>. We would

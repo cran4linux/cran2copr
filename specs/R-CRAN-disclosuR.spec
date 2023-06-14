@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dynmix
-%global packver   2.0
+%global packname  disclosuR
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Dynamic Finite Mixtures
+Summary:          Text Conversion from Nexis Uni PDFs to R Data Frames
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,27 +16,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-qdap 
+BuildRequires:    R-CRAN-SentimentAnalysis 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-syuzhet 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-graphics 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-SnowballC 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-qdap 
+Requires:         R-CRAN-SentimentAnalysis 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-syuzhet 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-SnowballC 
+Requires:         R-CRAN-tm 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
-Allows to perform the dynamic mixture estimation with state-space
-components and normal regression components, and clustering with normal
-mixture. Quasi-Bayesian estimation, as well as, that based on the Kerridge
-inaccuracy approximation are implemented. Main references: Nagy and
-Suzdaleva (2013) <doi:10.1016/j.apm.2013.05.038>; Nagy et al. (2011)
-<doi:10.1002/acs.1239>.
+Transform 'newswire' and earnings call transcripts as PDF obtained from
+'Nexis Uni' to R data frames. Various 'newswires' and 'FairDisclosure'
+earnings call formats are supported. Further, users can apply several
+pre-defined dictionaries on the data based on Graffin et al.
+(2016)<doi:10.5465/amj.2013.0288> and Gamache et al.
+(2015)<doi:10.5465/amj.2013.0377>.
 
 %prep
 %setup -q -c -n %{packname}

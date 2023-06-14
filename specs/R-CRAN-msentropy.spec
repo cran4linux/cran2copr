@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  goeveg
-%global packver   0.6.5
+%global packname  msentropy
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Community Data and Ordinations
+Summary:          Spectral Entropy for Mass Spectrometry Data
 
-License:          GPL (>= 2)
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-Rcpp >= 1.0.10
 
 %description
-A collection of functions useful in (vegetation) community analyses and
-ordinations. Includes automatic species selection for ordination diagrams,
-NMDS stress/scree plots, species response curves and rank-abundance curves
-as well as calculation and sorting of synoptic tables.
+Clean the MS/MS spectrum, calculate spectral entropy, unweighted entropy
+similarity, and entropy similarity for mass spectrometry data. The entropy
+similarity is a novel similarity measure for MS/MS spectra which
+outperform the widely used dot product similarity in compound
+identification. For more details, please refer to the paper: Yuanyue Li et
+al. (2021) "Spectral entropy outperforms MS/MS dot product similarity for
+small-molecule compound identification" <doi:10.1038/s41592-021-01331-z>.
 
 %prep
 %setup -q -c -n %{packname}

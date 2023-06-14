@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MG1StationaryProbability
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computes Stationary Distribution for M/G/1 Queuing System
 
@@ -14,19 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-parallel >= 4.3.0
-BuildRequires:    R-stats >= 4.3.0
 BuildRequires:    R-CRAN-memoise >= 2.0.1
 BuildRequires:    R-CRAN-foreach >= 1.5.2
 BuildRequires:    R-CRAN-doParallel >= 1.0.17
-Requires:         R-parallel >= 4.3.0
-Requires:         R-stats >= 4.3.0
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-memoise >= 2.0.1
 Requires:         R-CRAN-foreach >= 1.5.2
 Requires:         R-CRAN-doParallel >= 1.0.17
+Requires:         R-parallel 
+Requires:         R-stats 
 
 %description
 The idea of a computational algorithm described in the article by Andronov
