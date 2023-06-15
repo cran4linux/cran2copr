@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PatientProfiles
-%global packver   0.2.0
+%global packname  nat.templatebrains
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identify Characteristics of Patients in the OMOP Common Data Model
+Summary:          NeuroAnatomy Toolbox ('nat') Extension for Handling Template Brains
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.0.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-CDMConnector >= 1.0.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
+BuildRequires:    R-CRAN-nat >= 1.8.6
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-Morpho 
+Requires:         R-CRAN-nat >= 1.8.6
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-Morpho 
 
 %description
-Identify the characteristics of patients in data mapped to the
-Observational Medical Outcomes Partnership (OMOP) common data model.
+Extends package 'nat' (NeuroAnatomy Toolbox) by providing objects and
+functions for handling template brains.
 
 %prep
 %setup -q -c -n %{packname}

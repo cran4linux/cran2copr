@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gbm.auto
-%global packver   1.5.0
+%global packver   2023.06.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          2023.06.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Boosted Regression Tree Modelling and Mapping Suite
 
@@ -17,34 +18,32 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats >= 3.3.1
-BuildRequires:    R-CRAN-raster >= 2.5.8
 BuildRequires:    R-CRAN-gbm >= 2.1.1
+BuildRequires:    R-CRAN-stringi >= 1.6.1
 BuildRequires:    R-CRAN-mapplots >= 1.5
+BuildRequires:    R-CRAN-dismo >= 1.3.14
 BuildRequires:    R-CRAN-beepr >= 1.2
-BuildRequires:    R-CRAN-rgdal >= 1.1.10
-BuildRequires:    R-CRAN-dismo >= 1.0.15
+BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-sf >= 0.9.7
-BuildRequires:    R-CRAN-maptools >= 0.9.1
 BuildRequires:    R-CRAN-shapefiles >= 0.7
-BuildRequires:    R-CRAN-rgeos >= 0.3.19
+BuildRequires:    R-CRAN-Metrics >= 0.1.4
 Requires:         R-stats >= 3.3.1
-Requires:         R-CRAN-raster >= 2.5.8
 Requires:         R-CRAN-gbm >= 2.1.1
+Requires:         R-CRAN-stringi >= 1.6.1
 Requires:         R-CRAN-mapplots >= 1.5
+Requires:         R-CRAN-dismo >= 1.3.14
 Requires:         R-CRAN-beepr >= 1.2
-Requires:         R-CRAN-rgdal >= 1.1.10
-Requires:         R-CRAN-dismo >= 1.0.15
+Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-sf >= 0.9.7
-Requires:         R-CRAN-maptools >= 0.9.1
 Requires:         R-CRAN-shapefiles >= 0.7
-Requires:         R-CRAN-rgeos >= 0.3.19
+Requires:         R-CRAN-Metrics >= 0.1.4
 
 %description
 Automates delta log-normal boosted regression tree abundance prediction.
 Loops through parameters provided (LR (learning rate), TC (tree
 complexity), BF (bag fraction)), chooses best, simplifies, & generates
 line, dot & bar plots, & outputs these & predictions & a report, makes
-predicted abundance maps, and Unrepresentativeness surfaces. Package core
+predicted abundance maps, and Unrepresentativeness surfaces.  Package core
 built around 'gbm' (gradient boosting machine) functions in 'dismo'
 (Hijmans, Phillips, Leathwick & Jane Elith, 2020 & ongoing), itself built
 around 'gbm' (Greenwell, Boehmke, Cunningham & Metcalfe, 2020 & ongoing,

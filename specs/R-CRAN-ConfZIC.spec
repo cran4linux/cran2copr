@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ConfZIC
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Confidence Envelopes for Model Selection Criteria Based on Minimum ZIC
 
@@ -41,7 +41,8 @@ Criteria) values for regression and time series data. Functions involve
 the computation of multivariate normal-probabilities with covariance
 matrices based on minimum ZIC inverting the CDF of the minimum ZIC. It
 involves both the computation of singular and non-singular probabilities
-as described in Genz (1992) <https:doi.org/10.2307/1390838>.
+as described in Genz (1992)
+<[https:doi.org/10.2307/1390838]https:doi.org/10.2307/1390838>.
 
 %prep
 %setup -q -c -n %{packname}

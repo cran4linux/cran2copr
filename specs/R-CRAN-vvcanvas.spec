@@ -1,46 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PatientProfiles
-%global packver   0.2.0
+%global packname  vvcanvas
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identify Characteristics of Patients in the OMOP Common Data Model
+Summary:          'Canvas' LMS API Integration
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.0.0
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-htm2txt 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-CDMConnector >= 1.0.0
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-htm2txt 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Identify the characteristics of patients in data mapped to the
-Observational Medical Outcomes Partnership (OMOP) common data model.
+Allow R users to interact with the 'Canvas' Learning Management System
+(LMS) API (see <https://canvas.instructure.com/doc/api/all_resources.html>
+for details). It provides a set of functions to access and manipulate
+course data, assignments, grades, users, and other resources available
+through the 'Canvas' API.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PatientProfiles
-%global packver   0.2.0
+%global packname  boxly
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identify Characteristics of Patients in the OMOP Common Data Model
+Summary:          Interactive Box Plot
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.0.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-brew 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-CDMConnector >= 1.0.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-CRAN-crosstalk 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-metalite 
+BuildRequires:    R-CRAN-plotly 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-brew 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-crosstalk 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-metalite 
+Requires:         R-CRAN-plotly 
 
 %description
-Identify the characteristics of patients in data mapped to the
-Observational Medical Outcomes Partnership (OMOP) common data model.
+Interactive box plot using 'plotly' for clinical trial analysis.
 
 %prep
 %setup -q -c -n %{packname}

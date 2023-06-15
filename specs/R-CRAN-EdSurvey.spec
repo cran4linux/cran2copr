@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EdSurvey
-%global packver   3.1.0
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of NCES Education Survey and Assessment Data
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-LaF >= 0.7
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-glm2 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-LaF >= 0.7
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-glm2 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 

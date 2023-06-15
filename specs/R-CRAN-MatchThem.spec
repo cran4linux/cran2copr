@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MatchThem
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matching and Weighting Multiply Imputed Datasets
 
@@ -28,18 +29,15 @@ Requires:         R-CRAN-survey
 Requires:         R-CRAN-WeightIt 
 
 %description
-Provides the necessary tools for the pre-processing techniques of matching
-and weighting multiply imputed datasets to control for effects of
-confounders and to reduce the degree of dependence on certain modeling
-assumptions in studying the causal associations between an exposure and an
-outcome. This package includes functions to perform matching within and
-across the multiply imputed datasets using several matching methods, to
-estimate weights of units in the imputed datasets using several weighting
-methods, to calculate the causal effect estimate in each matched or
-weighted dataset using parametric or non-parametric statistical models,
-and to pool the obtained estimates from these models according to Rubin's
-rules (please see
-<https://journal.r-project.org/archive/2021/RJ-2021-073/> for details).
+Provides essential tools for the pre-processing techniques of matching and
+weighting multiply imputed datasets. The package includes functions for
+matching within and across multiply imputed datasets using various
+methods, estimating weights for units in the imputed datasets using
+multiple weighting methods, calculating causal effect estimates in each
+matched or weighted dataset using parametric or non-parametric statistical
+models, and pooling the resulting estimates according to Rubin's rules
+(please see <https://journal.r-project.org/archive/2021/RJ-2021-073/> for
+more details).
 
 %prep
 %setup -q -c -n %{packname}

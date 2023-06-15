@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statpsych
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Psychologists
 
@@ -19,14 +19,14 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-mnonr 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-mathjaxr 
-Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-mnonr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-mathjaxr 
 
 %description
 Implements confidence interval and sample size methods that are especially

@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PatientProfiles
-%global packver   0.2.0
+%global packname  WH
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identify Characteristics of Patients in the OMOP Common Data Model
+Summary:          Enhanced Implementation of Whittaker-Henderson Smoothing
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.0.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-CDMConnector >= 1.0.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Identify the characteristics of patients in data mapped to the
-Observational Medical Outcomes Partnership (OMOP) common data model.
+An enhanced implementation of Whittaker-Henderson smoothing for the
+gradation of one-dimensional and two-dimensional actuarial tables used to
+quantify Life Insurance risks. 'WH' is based on the methods described in
+Biessy (2023) <doi:10.48550/arXiv.2306.06932>. Among other features, it
+generalizes the original smoothing algorithm to maximum likelihood
+estimation, automatically selects the smoothing parameter(s) and
+extrapolates beyond the range of data.
 
 %prep
 %setup -q -c -n %{packname}

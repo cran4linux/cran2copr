@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  remap
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regional Spatial Modeling with Continuous Borders
 
@@ -14,22 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-graphics >= 3.6.0
-BuildRequires:    R-methods >= 3.6.0
-BuildRequires:    R-parallel >= 3.6.0
-BuildRequires:    R-stats >= 3.6.0
-BuildRequires:    R-utils >= 3.6.0
-BuildRequires:    R-CRAN-sf >= 0.9.6
+BuildRequires:    R-graphics >= 4.1.0
+BuildRequires:    R-methods >= 4.1.0
+BuildRequires:    R-parallel >= 4.1.0
+BuildRequires:    R-stats >= 4.1.0
+BuildRequires:    R-utils >= 4.1.0
+BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-CRAN-units >= 0.6.7
-Requires:         R-graphics >= 3.6.0
-Requires:         R-methods >= 3.6.0
-Requires:         R-parallel >= 3.6.0
-Requires:         R-stats >= 3.6.0
-Requires:         R-utils >= 3.6.0
-Requires:         R-CRAN-sf >= 0.9.6
+Requires:         R-graphics >= 4.1.0
+Requires:         R-methods >= 4.1.0
+Requires:         R-parallel >= 4.1.0
+Requires:         R-stats >= 4.1.0
+Requires:         R-utils >= 4.1.0
+Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-units >= 0.6.7
 
 %description
@@ -37,8 +37,8 @@ Automatically creates separate regression models for different spatial
 regions. The prediction surface is smoothed using a regional border
 smoothing method. If regional models are continuous, the resulting
 prediction surface is continuous across the spatial dimensions, even at
-region borders. Methodology is described in Wagstaff (2021)
-<https://digitalcommons.usu.edu/etd/8065/>.
+region borders. Methodology is described in Wagstaff and Bean (2023)
+<doi:10.32614/RJ-2023-004>.
 
 %prep
 %setup -q -c -n %{packname}

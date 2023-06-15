@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PatientProfiles
-%global packver   0.2.0
+%global packname  document
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identify Characteristics of Patients in the OMOP Common Data Model
+Summary:          Run 'roxygen2' on (Chunks of) Single Code Files
 
-License:          Apache License (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.0.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-CDMConnector >= 1.0.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-fritools 
+BuildRequires:    R-CRAN-rcmdcheck 
+BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-fritools 
+Requires:         R-CRAN-rcmdcheck 
+Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-Identify the characteristics of patients in data mapped to the
-Observational Medical Outcomes Partnership (OMOP) common data model.
+Have you ever been tempted to create 'roxygen2'-style documentation
+comments for one of your functions that was not part of one of your
+packages (yet)? This is exactly what this package is about: running
+'roxygen2' on (chunks of) a single code file.
 
 %prep
 %setup -q -c -n %{packname}

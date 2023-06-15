@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aum
-%global packver   2023.4.4
+%global packver   2023.6.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.4.4
+Version:          2023.6.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Area Under Minimum of False Positives and Negatives
 

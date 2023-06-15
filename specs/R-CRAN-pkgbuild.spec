@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkgbuild
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Tools Needed to Build R Packages
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-callr >= 3.2.0
-BuildRequires:    R-CRAN-withr >= 2.3.0
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-prettyunits 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-rprojroot 
 Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-callr >= 3.2.0
-Requires:         R-CRAN-withr >= 2.3.0
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-prettyunits 
