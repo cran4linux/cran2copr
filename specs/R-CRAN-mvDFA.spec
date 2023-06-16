@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  npde
-%global packver   3.4
+%global packname  mvDFA
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Normalised Prediction Distribution Errors for Nonlinear Mixed-Effect Models
+Summary:          Multivariate Detrended Fluctuation Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mclust 
-Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-longmemo 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-RobPer 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-longmemo 
+Requires:         R-stats 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-RobPer 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pracma 
 
 %description
-Provides routines to compute normalised prediction distribution errors, a
-metric designed to evaluate non-linear mixed effect models such as those
-used in pharmacokinetics and pharmacodynamics.
+This R package provides an implementation of multivariate extensions of a
+well-known fractal analysis technique, Detrended Fluctuations Analysis
+(DFA; Peng et al., 1995<doi:10.1063/1.166141>), for multivariate time
+series: multivariate DFA (mvDFA). Several coefficients are implemented
+that take into account the correlation structure of the multivariate time
+series to varying degrees. These coefficients may be used to analyze long
+memory and changes in the dynamic structure that would by univariate DFA.
+Therefore, this R package aims to extend and complement the original
+univariate DFA (Peng et al., 1995) for estimating the scaling properties
+of nonstationary time series.
 
 %prep
 %setup -q -c -n %{packname}

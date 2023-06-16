@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cascadeSelect
-%global packver   1.1.0
+%global packname  caresid
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Cascade Select Input for 'Shiny'
+Summary:          Correspondence Analysis Plot and Associations Visualisation
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fontawesome 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-reactR 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-fontawesome 
-Requires:         R-grDevices 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-reactR 
-Requires:         R-CRAN-shiny 
-Requires:         R-tools 
+BuildRequires:    R-graphics >= 4.2.0
+BuildRequires:    R-stats >= 4.2.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggrepel >= 0.9.0
+BuildRequires:    R-CRAN-ca >= 0.71
+Requires:         R-graphics >= 4.2.0
+Requires:         R-stats >= 4.2.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggrepel >= 0.9.0
+Requires:         R-CRAN-ca >= 0.71
 
 %description
-Provides a cascade select widget for usage in 'Shiny' applications. This
-is useful for selection of hierarchical choices (e.g. continent, country,
-city). It is taken from the 'JavaScript' library 'PrimeReact'.
+Performs a Correspondence Analysis (CA) on a contingency table and creates
+a scatterplot of the row and column points on the selected dimensions.
+Optionally, the function can add segments to the plot to visualize
+significant associations between row and column categories on the basis of
+positive (unadjusted) standardized residuals larger than a given
+threshold.
 
 %prep
 %setup -q -c -n %{packname}

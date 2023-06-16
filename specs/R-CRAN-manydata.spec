@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manydata
-%global packver   0.8.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Portal for Global Governance Data
 
@@ -28,9 +28,6 @@ BuildRequires:    R-CRAN-usethis
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-migraph 
-BuildRequires:    R-CRAN-cshapes 
-BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-plyr 
@@ -46,9 +43,6 @@ Requires:         R-CRAN-usethis
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-migraph 
-Requires:         R-CRAN-cshapes 
-Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-plyr 

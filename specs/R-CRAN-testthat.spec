@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  testthat
-%global packver   3.1.8
+%global packver   3.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.8
+Version:          3.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unit Testing for R
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-withr >= 2.4.3
 BuildRequires:    R-CRAN-R6 >= 2.2.0
 BuildRequires:    R-CRAN-ps >= 1.3.4
+BuildRequires:    R-CRAN-pkgload >= 1.3.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-waldo >= 0.5.0
 BuildRequires:    R-CRAN-ellipsis >= 0.2.0
@@ -32,7 +33,6 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-praise 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-utils 
@@ -41,6 +41,7 @@ Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-withr >= 2.4.3
 Requires:         R-CRAN-R6 >= 2.2.0
 Requires:         R-CRAN-ps >= 1.3.4
+Requires:         R-CRAN-pkgload >= 1.3.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-waldo >= 0.5.0
 Requires:         R-CRAN-ellipsis >= 0.2.0
@@ -52,7 +53,6 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-praise 
 Requires:         R-CRAN-processx 
 Requires:         R-utils 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  faersquarterlydata
-%global packver   1.1.0
+%global packname  JMH
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          FDA Adverse Event Reporting System Quarterly Data Extracting Tool
+Summary:          Joint Model of Heterogeneous Repeated Measures and Survival Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,30 +16,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-tableone 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-tableone 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-nlme 
 Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-statmod 
+Requires:         R-parallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-caret 
 
 %description
-An easy framework to read FDA Adverse Event Reporting System XML/ASCII
-files
-<https://www.fda.gov/drugs/questions-and-answers-fdas-adverse-event-reporting-system-faers/fda-adverse-event-reporting-system-faers-latest-quarterly-data-files>.
+Maximum likelihood estimation for the semi-parametric joint modeling of
+competing risks and longitudinal data in the presence of heterogeneous
+within-subject variability, proposed by Li and colleagues (2023)
+<arXiv:2301.06584>. The proposed method models the within-subject
+variability of the biomarker and associates it with the risk of the
+competing risks event. The time-to-event data is modeled using a
+(cause-specific) Cox proportional hazards regression model with time-fixed
+covariates. The longitudinal outcome is modeled using a mixed-effects
+location and scale model. The association is captured by shared random
+effects. The model is estimated using an Expectation Maximization
+algorithm.
 
 %prep
 %setup -q -c -n %{packname}

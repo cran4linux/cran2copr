@@ -1,54 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  usedthese
-%global packver   0.3.3
+%global packname  arealDB
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarises Package & Function Usage
+Summary:          Harmonise and Integrate Heterogeneous Areal Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.3.0
-BuildRequires:    R-CRAN-conflicted >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-highr 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-tidyr >= 1.3.0
-Requires:         R-CRAN-conflicted >= 1.2.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-highr 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-tabshiftr 
+BuildRequires:    R-CRAN-ontologics 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rmapshaper 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-tabshiftr 
+Requires:         R-CRAN-ontologics 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rmapshaper 
+Requires:         R-CRAN-progress 
 
 %description
-Consistent with 'knitr' syntax highlighting, 'usedthese' adds a summary
-table of R package & function usage to a Quarto document and enables
-aggregation of usage across a Quarto website. Learn more about 'usedthese'
-at <https://cgoo4.github.io/usedthese/>.
+Many relevant applications in the environmental and socioeconomic sciences
+use areal data, such as biodiversity checklists, agricultural statistics,
+or socioeconomic surveys. For applications that surpass the spatial,
+temporal or thematic scope of any single data source, data must be
+integrated from several heterogeneous sources. Inconsistent concepts,
+definitions, or messy data tables make this a tedious and error-prone
+process. 'arealDB' tackles those problems and helps the user to integrate
+a harmonised databases of areal data. Read the paper at Ehrmann, Seppelt &
+Meyer (2020) <doi:10.1016/j.envsoft.2020.104799>.
 
 %prep
 %setup -q -c -n %{packname}

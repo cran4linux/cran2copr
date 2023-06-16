@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cascadeSelect
-%global packver   1.1.0
+%global packname  csalert
+%global packver   2023.6.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2023.6.17
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Cascade Select Input for 'Shiny'
+Summary:          Alerts from Public Health Surveillance Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fontawesome 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-reactR 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-fontawesome 
-Requires:         R-grDevices 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-reactR 
-Requires:         R-CRAN-shiny 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glm2 
+BuildRequires:    R-CRAN-cstidy 
+BuildRequires:    R-CRAN-cstime 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glm2 
+Requires:         R-CRAN-cstidy 
+Requires:         R-CRAN-cstime 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides a cascade select widget for usage in 'Shiny' applications. This
-is useful for selection of hierarchical choices (e.g. continent, country,
-city). It is taken from the 'JavaScript' library 'PrimeReact'.
+Helps create alerts and determine trends by using various methods to
+analyze public health surveillance data. The primary analysis method is
+based upon a published analytics strategy by Benedetti (2019)
+<doi:10.5588/pha.19.0002>.
 
 %prep
 %setup -q -c -n %{packname}

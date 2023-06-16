@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pcds
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Proximity Catch Digraphs and Their Applications
 
@@ -31,18 +31,17 @@ Requires:         R-CRAN-plot3D
 Requires:         R-CRAN-plotrix 
 
 %description
-Contains the functions for generating patterns of segregation,
-association, complete spatial randomness (CSR)) and Uniform data in one,
-two and three dimensional cases, for testing these patterns based on two
-invariants of various families of the proximity catch digraphs (PCDs) (see
-(Ceyhan (2005) ISBN:978-3-639-19063-2). The graph invariants used in
-testing spatial point data are the domination number (Ceyhan (2011)
-<doi:10.1080/03610921003597211>) and arc density (Ceyhan et al. (2006)
-<doi:10.1016/j.csda.2005.03.002>; Ceyhan et al. (2007)
-<doi:10.1002/cjs.5550350106>) of for two-dimensional data for
-visualization of PCDs for one, two and three dimensional data. The PCD
-families considered are Arc-Slice PCDs, Proportional-Edge PCDs and Central
-Similarity PCDs.
+Contains the functions for construction and visualization of various
+families of the proximity catch digraphs (PCDs) (see (Ceyhan (2005)
+ISBN:978-3-639-19063-2), for computing the graph invariants for testing
+the patterns of segregation and association against complete spatial
+randomness (CSR) or uniformity in one, two and three dimensional cases.
+The package also has tools for generating points from these spatial
+patterns. The graph invariants used in testing spatial point data are the
+domination number (Ceyhan (2011) <doi:10.1080/03610921003597211>) and arc
+density (Ceyhan et al. (2006) <doi:10.1016/j.csda.2005.03.002>; Ceyhan et
+al. (2007) <doi:10.1002/cjs.5550350106>). The PCD families considered are
+Arc-Slice PCDs, Proportional-Edge PCDs, and Central Similarity PCDs.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cascadeSelect
-%global packver   1.1.0
+%global packname  funpca
+%global packver   9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Cascade Select Input for 'Shiny'
+Summary:          Functional Principal Component Analysis
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fontawesome 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-reactR 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-fontawesome 
-Requires:         R-grDevices 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-reactR 
-Requires:         R-CRAN-shiny 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-Brobdingnag 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-fda 
+Requires:         R-CRAN-Brobdingnag 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-fda 
 
 %description
-Provides a cascade select widget for usage in 'Shiny' applications. This
-is useful for selection of hierarchical choices (e.g. continent, country,
-city). It is taken from the 'JavaScript' library 'PrimeReact'.
+Functional principal component analysis under the Linear Mixed Models
+representation of smoothing splines. The method utilizes the
+Demmler-Reinsch basis and assumes error independence. For more details
+see: F. Rosales (2016)
+<https://ediss.uni-goettingen.de/handle/11858/00-1735-0000-0028-87F9-6>.
 
 %prep
 %setup -q -c -n %{packname}

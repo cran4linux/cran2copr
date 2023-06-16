@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sportyR
-%global packver   2.1.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Scaled 'ggplot' Representations of Sports Playing Surfaces
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-ggfittext
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggfittext 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-grid 
+Requires:         R-CRAN-rlang 
 
 %description
 Create scaled 'ggplot' representations of playing surfaces. Playing
