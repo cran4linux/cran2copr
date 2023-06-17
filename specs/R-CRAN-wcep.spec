@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mldr.resampling
-%global packver   0.2.2
+%global packname  wcep
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resampling Algorithms for Multi-Label Datasets
+Summary:          Survival Analysis for Weighted Composite Endpoints
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-mldr 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-vecsets 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-mldr 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-vecsets 
+BuildRequires:    R-graphics >= 3.6.1
+BuildRequires:    R-grDevices >= 3.6.1
+BuildRequires:    R-stats >= 3.6.1
+BuildRequires:    R-CRAN-coin >= 1.3.1
+BuildRequires:    R-CRAN-progress >= 1.2.2
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+Requires:         R-graphics >= 3.6.1
+Requires:         R-grDevices >= 3.6.1
+Requires:         R-stats >= 3.6.1
+Requires:         R-CRAN-coin >= 1.3.1
+Requires:         R-CRAN-progress >= 1.2.2
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-tidyr >= 1.0.0
 
 %description
-Collection of the state of the art multi-label resampling algorithms. The
-objective of these algorithms is to achieve balance in multi-label
-datasets.
+Analyze given data frame with multiple endpoints and return Kaplan-Meier
+survival probabilities together with the specified confidence interval.
 
 %prep
 %setup -q -c -n %{packname}

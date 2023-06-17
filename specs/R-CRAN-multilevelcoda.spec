@@ -1,47 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qualypsoss
-%global packver   1.1.1
+%global packname  multilevelcoda
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Uncertainties of Climate Projections using Smoothing Splines
+Summary:          Estimate Bayesian Multilevel Models for Compositional Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-data.table >= 1.12.0
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-QUALYPSO 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-CRAN-compositions 
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-bayestestR 
+BuildRequires:    R-CRAN-extraoperators 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-data.table >= 1.12.0
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-QUALYPSO 
+Requires:         R-CRAN-compositions 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-bayestestR 
+Requires:         R-CRAN-extraoperators 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-foreach 
 
 %description
-These functions use smoothing-splines for the assessment of single-member
-ensembles of climate projections. - Cheng, C.-I. and P. L. Speckman (2012)
-<doi:10.1016/j.csda.2012.05.020>.
+Implement Bayesian Multilevel Modelling for compositional data in a
+multilevel framework. Compute multilevel compositional data and Isometric
+log ratio (ILR) at between and within-person levels, fit Bayesian
+multilevel models for compositional predictors and outcomes, and run
+post-hoc analyses such as isotemporal substitution models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mldr.resampling
-%global packver   0.2.2
+%global packname  epmrob
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resampling Algorithms for Multi-Label Datasets
+Summary:          Robust Estimation of Probit Models with Endogeneity
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-mldr 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-vecsets 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-mldr 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-vecsets 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-MASS 
 
 %description
-Collection of the state of the art multi-label resampling algorithms. The
-objective of these algorithms is to achieve balance in multi-label
-datasets.
+Package provides a set of tools for robust estimation and inference for
+probit model with endogenous covariates. The current version contains a
+robust two-step estimator. For technical details, see Naghi, Varadi and
+Zhelonkin (2022), <doi:10.1016/j.ecosta.2022.05.001>.
 
 %prep
 %setup -q -c -n %{packname}

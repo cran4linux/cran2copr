@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mldr.resampling
-%global packver   0.2.2
+%global packname  IndexWizard
+%global packver   0.2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resampling Algorithms for Multi-Label Datasets
+Summary:          Constructing and Analyzing Complex Selection Indices
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-mldr 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-vecsets 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-mldr 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-vecsets 
 
 %description
-Collection of the state of the art multi-label resampling algorithms. The
-objective of these algorithms is to achieve balance in multi-label
-datasets.
+Allows the construction selection indices based on estimated breeding
+values in animal and plant breeding and to calculate several analytic
+measures around to assess its impact on genetic and phenotypic progress.
+The methodology thereby allows to analyze genetic gain of traits in the
+breeding goal which are not part of the actual index and automatically
+computes several analytic measures. It further allows to retrospectively
+derive realized economic weights from observed genetic trends. The
+framework is described in Simianer, H., Heise, J., Rensing, S., Pook, T.
+Geibel, J. and Reimer, C. (2023) <doi:10.1186/s12711-023-00807-0>.
 
 %prep
 %setup -q -c -n %{packname}

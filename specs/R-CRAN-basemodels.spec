@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mldr.resampling
-%global packver   0.2.2
+%global packname  basemodels
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resampling Algorithms for Multi-Label Datasets
+Summary:          Baseline Models for Classification and Regression
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-mldr 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-vecsets 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-mldr 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-vecsets 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Collection of the state of the art multi-label resampling algorithms. The
-objective of these algorithms is to achieve balance in multi-label
-datasets.
+Providing equivalent functions for the dummy classifier and regressor used
+in 'Python' 'scikit-learn' library. Our goal is to allow R users to easily
+identify baseline performance for their classification and regression
+problems. Our baseline models use no predictors, and are useful in cases
+of class imbalance, multiclass classification, and when users want to
+quickly identify how much improvement their statistical and machine
+learning models are over several baseline models. We use a "better"
+default (proportional guessing) for the dummy classifier than the 'Python'
+implementation ("prior", which is the most frequent class in the training
+set). The functions in the package can be used on their own, or introduce
+methods named 'dummy_regressor' or 'dummy_classifier' that can be used
+within the caret package pipeline.
 
 %prep
 %setup -q -c -n %{packname}

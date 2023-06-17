@@ -1,41 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pracpac
-%global packver   0.1.0
+%global packname  ppRep
+%global packver   0.42.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.42.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Practical 'R' Packaging in 'Docker'
+Summary:          Analysis of Replication Studies using Power Priors
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-renv 
-BuildRequires:    R-CRAN-pkgbuild 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-renv 
-Requires:         R-CRAN-pkgbuild 
+BuildRequires:    R-CRAN-hypergeo 
+Requires:         R-CRAN-hypergeo 
 
 %description
-Streamline the creation of 'Docker' images with 'R' packages and
-dependencies embedded. The 'pracpac' package provides a 'usethis'-like
-interface to creating Dockerfiles with dependencies managed by 'renv'. The
-'pracpac' functionality is described in Nagraj and Turner (2023)
-<doi:10.48550/arXiv.2303.07876>.
+Provides functionality for Bayesian analysis of replication studies using
+power prior approaches (Pawel et al., 2022)
+<doi:10.48550/arXiv.2207.14720>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mldr.resampling
-%global packver   0.2.2
+%global packname  fakemake
+%global packver   1.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.11.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resampling Algorithms for Multi-Label Datasets
+Summary:          Mock the Unix Make Utility
 
-License:          MIT + file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-mldr 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-vecsets 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-mldr 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-vecsets 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-fritools 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-MakefileR 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-fritools 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-MakefileR 
+Requires:         R-utils 
 
 %description
-Collection of the state of the art multi-label resampling algorithms. The
-objective of these algorithms is to achieve balance in multi-label
-datasets.
+Use R as a minimal build system. This might come in handy if you are
+developing R packages and can not use a proper build system. Stay away if
+you can (use a proper build system).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mldr.resampling
-%global packver   0.2.2
+%global packname  GPoM
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resampling Algorithms for Multi-Label Datasets
+Summary:          Generalized Polynomial Modelling
 
-License:          MIT + file LICENSE
+License:          CeCILL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-mldr 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-vecsets 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-mldr 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-vecsets 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-float 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-float 
 
 %description
-Collection of the state of the art multi-label resampling algorithms. The
-objective of these algorithms is to achieve balance in multi-label
-datasets.
+Platform dedicated to the Global Modelling technique. Its aim is to obtain
+ordinary differential equations of polynomial form directly from time
+series. It can be applied to single or multiple time series under various
+conditions of noise, time series lengths, sampling, etc. This platform is
+developped at the Centre d'Etudes Spatiales de la Biosphere (CESBIO), UMR
+5126 UPS/CNRS/CNES/IRD, 18 av. Edouard Belin, 31401 TOULOUSE, FRANCE. The
+developments were funded by the French program Les Enveloppes Fluides et
+l'Environnement (LEFE, MANU, projets GloMo, SpatioGloMo and MoMu). The
+French program Defi InFiNiTi (CNRS) and PNTS are also acknowledged
+(projects Crops'IChaos and Musc & SlowFast). The method is described in
+the article : Mangiarotti S. and Huc M. (2019) <doi:10.1063/1.5081448>.
 
 %prep
 %setup -q -c -n %{packname}

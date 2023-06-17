@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  naryn
-%global packver   2.6.21
+%global packname  cleanr
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.21
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Native Access Medical Record Retriever for High Yield Analytics
+Summary:          Helps You to Code Cleaner
 
-License:          MIT + file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-fritools 
+BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-rprojroot 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-fritools 
+Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-rprojroot 
 
 %description
-A toolkit for medical records data analysis. The 'naryn' package
-implements an efficient data structure for storing medical records, and
-provides a set of functions for data extraction, manipulation and
-analysis.
+Check your R code for some of the most common layout flaws.  Many tried to
+teach us how to write code less dreadful, be it implicitly as B. W.
+Kernighan and D. M. Ritchie (1988) <ISBN:0-13-110362-8> in 'The C
+Programming Language' did, be it explicitly as R.C. Martin (2008)
+<ISBN:0-13-235088-2> in 'Clean Code: A Handbook of Agile Software
+Craftsmanship' did.  So we should check our code for files too long or
+wide, functions with too many lines, too wide lines, too many arguments or
+too many levels of nesting. Note: This is not a static code analyzer like
+pylint or the like. Checkout <https://cran.r-project.org/package=lintr>
+instead.
 
 %prep
 %setup -q -c -n %{packname}

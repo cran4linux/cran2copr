@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PSS.Health
-%global packver   0.6.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size for Health Researchers via Shiny
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
@@ -67,12 +67,12 @@ calculations for common analysis in the healthcare field. There are
 functionalities to calculate the power, sample size to estimate or test
 hypotheses for means and proportions (including test for correlated
 groups, equivalence, non-inferiority and superiority), association,
-correlations coefficients, regression coefficients (linear, logistic and
-Cox), linear mixed model, Cronbach's alpha, interobserver agreement,
-intraclass correlation coefficients, limit of agreement on Bland-Altman
-plots, area under the curve, sensitivity and specificity incorporating the
-prevalence of disease. You can also use the online version at
-<https://hcpa-unidade-bioestatistica.shinyapps.io/PSS_Health/>.
+correlations coefficients, regression coefficients (linear, logistic,
+gamma, and Cox), linear mixed model, Cronbach's alpha, interobserver
+agreement, intraclass correlation coefficients, limit of agreement on
+Bland-Altman plots, area under the curve, sensitivity and specificity
+incorporating the prevalence of disease. You can also use the online
+version at <https://hcpa-unidade-bioestatistica.shinyapps.io/PSS_Health/>.
 
 %prep
 %setup -q -c -n %{packname}
