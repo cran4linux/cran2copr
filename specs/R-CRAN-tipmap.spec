@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tipmap
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tipping Point Analysis for Bayesian Dynamic Borrowing
 
@@ -32,11 +32,9 @@ borrowing via robust meta-analytic predictive (MAP) priors. Mainly an
 implementation of an approach proposed by Best and colleagues (2021) is
 provided <doi:10.1002/pst.2093>. Further functions facilitate the
 specification of the robust MAP prior via expert elicitation (using the
-roulette method) and computation of the posterior distribution of the
-treatment effect with either fixed or stochastic expert-elicited weights.
-Intended use is the planning, analysis and interpretation of extrapolation
-studies in pediatric drug development, but applicability is generally
-wider.
+roulette method). Intended use is the planning, analysis and
+interpretation of extrapolation studies in pediatric drug development, but
+applicability is generally wider.
 
 %prep
 %setup -q -c -n %{packname}

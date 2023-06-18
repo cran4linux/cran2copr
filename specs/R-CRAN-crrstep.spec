@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pm3
-%global packver   0.1.9
+%global packname  crrstep
+%global packver   2023.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          2023.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Propensity Score Matching for Unordered 3-Group Data
+Summary:          Stepwise Covariate Selection for the Fine & Gray Competing Risks Regression Model
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tableone 
-Requires:         R-CRAN-tableone 
+BuildRequires:    R-CRAN-cmprsk 
+Requires:         R-CRAN-cmprsk 
 
 %description
-You can use this program for 3 sets of categorical data for propensity
-score matching. Assume that the data has 3 different categorical
-variables. You can use it to perform propensity matching of baseline
-indicator groupings. The matching will make the differences in the
-baseline data smaller. This method was described by Alvaro Fuentes (2022)
-<doi:10.1080/00273171.2021.1925521>.
+Performs forward and backwards stepwise regression for the Proportional
+subdistribution hazards model in competing risks (Fine & Gray 1999).
+Procedure uses AIC, BIC and BICcr as selection criteria. BICcr has a
+penalty of k = log(n*), where n* is the number of primary events.
 
 %prep
 %setup -q -c -n %{packname}

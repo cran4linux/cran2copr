@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DCEtool
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient and Accessible Discrete Choice Experiments
 
@@ -16,12 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-DT 
@@ -30,26 +29,19 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-idefix 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-mlogit 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-fastDummies 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-dfidx 
 BuildRequires:    R-CRAN-adjustedcranlogs 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-remotes 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-DT 
@@ -58,20 +50,15 @@ Requires:         R-CRAN-readxl
 Requires:         R-CRAN-idefix 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-mlogit 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-fastDummies 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-dfidx 
 Requires:         R-CRAN-adjustedcranlogs 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
 
 %description
 Design, conduct and analyze 'DCEs' from a virtual interface in shiny.

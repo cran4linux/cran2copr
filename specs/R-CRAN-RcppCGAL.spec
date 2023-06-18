@@ -1,18 +1,18 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppCGAL
-%global packver   5.5.2
+%global packver   5.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.2
+Version:          5.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rcpp Integration for CGAL
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
-Source1:          https://github.com/CGAL/cgal/releases/download/v5.5.2/CGAL-5.5.2-library.tar.xz
+Source1:          https://github.com/CGAL/cgal/releases/download/v5.5.3/CGAL-5.5.3-library.tar.xz
 
 BuildRequires:    R-devel
 Requires:         R-core
@@ -30,11 +30,9 @@ Requires:         R-CRAN-curl
 Creates a header only package to link to the CGAL (Computational Geometry
 Algorithms Library) header files in Rcpp. There are a variety of potential
 uses for the software such as Hilbert sorting, KDtree nearest neighbors,
-and convex hull algorithms. There is only one R function in this package,
-which returns the current version of the CGAL library included. For more
-information about how to use the header files, see the CGAL documentation
-at <https://www.cgal.org>. Currently includes the CGAL 5.5.2 stable
-release.
+and convex hull algorithms. For more information about how to use the
+header files, see the CGAL documentation at <https://www.cgal.org>.
+Currently downloads the latest stable CGAL release from GitHub.
 
 %prep
 %setup -q -c -n %{packname}

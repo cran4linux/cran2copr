@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nda
-%global packver   0.1.6
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network-Based Dimensionality Reduction and Analysis
+Summary:          Generalized Network-Based Dimensionality Reduction and Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,25 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.10
 Requires:         R-core >= 3.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-leidenAlg 
 BuildRequires:    R-CRAN-energy 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ppcor 
 BuildRequires:    R-CRAN-visNetwork 
-Requires:         R-CRAN-leidenAlg 
 Requires:         R-CRAN-energy 
 Requires:         R-CRAN-psych 
 Requires:         R-stats 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ppcor 
 Requires:         R-CRAN-visNetwork 
 
 %description
 Non-parametric dimensionality reduction function. Reduction with and
-without feature selection. Plot functions. Kosztyan et. al. (2022)
-<doi:10.1016/j.knosys.2022.109180>.
+without feature selection. Plot functions. Automated feature selections.
+Kosztyan et. al. (2022) <doi:10.1016/j.knosys.2022.109180>.
 
 %prep
 %setup -q -c -n %{packname}

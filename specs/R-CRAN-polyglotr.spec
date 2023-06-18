@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polyglotr
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Translate Text
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-urltools 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-urltools 
 
 %description
 The goal of the this package is to provide easy methods to translate

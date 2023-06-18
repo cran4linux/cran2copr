@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psychTools
-%global packver   2.3.3
+%global packver   2.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Accompany the 'psych' Package for Psychological Research
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-psych
 %description
 Support functions, data sets, and vignettes for the 'psych' package.
 Contains several of the biggest data sets for the 'psych' package as well
-as one vignette. A few helper functions for file manipulation are included
-as well. For more information, see the
+as four vignettes. A few helper functions for file manipulation are
+included as well. For more information, see the
 <https://personality-project.org/r/> web page.
 
 %prep
