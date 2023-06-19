@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spdl
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for 'RcppSpdlog' Functions
+Summary:          Easier Use of 'RcppSpdlog' Functions via Wrapper
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RcppSpdlog >= 0.0.11
-Requires:         R-CRAN-RcppSpdlog >= 0.0.11
+BuildRequires:    R-CRAN-RcppSpdlog >= 0.0.13
+Requires:         R-CRAN-RcppSpdlog >= 0.0.13
 
 %description
 Logging functions in 'RcppSpdlog' provide access to the logging

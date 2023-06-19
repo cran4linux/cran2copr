@@ -1,41 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EffectLiteR
-%global packver   0.4-6
+%global packname  xtune
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Average and Conditional Effects
+Summary:          Regularized Regression with Feature-Specific Penalties Integrating External Information
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-lavaan >= 0.6.8
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-lavaan >= 0.6.8
-Requires:         R-methods 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-car 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-selectiveInference 
+BuildRequires:    R-CRAN-lbfgs 
+Requires:         R-CRAN-glmnet 
+Requires:         R-stats 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-selectiveInference 
+Requires:         R-CRAN-lbfgs 
 
 %description
-Use structural equation modeling to estimate average and conditional
-effects of a treatment variable on an outcome variable, taking into
-account multiple continuous and categorical covariates.
+Extends standard penalized regression (Lasso, Ridge, and Elastic-net) to
+allow feature-specific shrinkage based on external information with the
+goal of achieving a better prediction accuracy and variable selection.
+Examples of external information include the grouping of predictors, prior
+knowledge of biological importance, external p-values, function
+annotations, etc. The choice of multiple tuning parameters is done using
+an Empirical Bayes approach. A majorization-minimization algorithm is
+employed for implementation.
 
 %prep
 %setup -q -c -n %{packname}

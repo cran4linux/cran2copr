@@ -1,41 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EffectLiteR
-%global packver   0.4-6
+%global packname  pracpac
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Average and Conditional Effects
+Summary:          Practical 'R' Packaging in 'Docker'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-lavaan >= 0.6.8
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-lavaan >= 0.6.8
-Requires:         R-methods 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-car 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-pkgbuild 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-renv 
+Requires:         R-CRAN-pkgbuild 
 
 %description
-Use structural equation modeling to estimate average and conditional
-effects of a treatment variable on an outcome variable, taking into
-account multiple continuous and categorical covariates.
+Streamline the creation of 'Docker' images with 'R' packages and
+dependencies embedded. The 'pracpac' package provides a 'usethis'-like
+interface to creating Dockerfiles with dependencies managed by 'renv'. The
+'pracpac' functionality is described in Nagraj and Turner (2023)
+<doi:10.48550/arXiv.2303.07876>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EffectLiteR
-%global packver   0.4-6
+%global packname  RMixtComp
+%global packver   4.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          4.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Average and Conditional Effects
+Summary:          Mixture Models with Heterogeneous and (Partially) Missing Data
 
-License:          GPL (>= 2)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-lavaan >= 0.6.8
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-RMixtCompUtilities >= 4.1.4
+BuildRequires:    R-CRAN-RMixtCompIO >= 4.0.4
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-lavaan >= 0.6.8
-Requires:         R-methods 
-Requires:         R-CRAN-foreign 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-RMixtCompUtilities >= 4.1.4
+Requires:         R-CRAN-RMixtCompIO >= 4.0.4
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-car 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-scales 
 
 %description
-Use structural equation modeling to estimate average and conditional
-effects of a treatment variable on an outcome variable, taking into
-account multiple continuous and categorical covariates.
+Mixture Composer (Biernacki (2015)
+<https://inria.hal.science/hal-01253393v1>) is a project to perform
+clustering using mixture models with heterogeneous data and partially
+missing data. Mixture models are fitted using a SEM algorithm. It includes
+8 models for real, categorical, counting, functional and ranking data.
 
 %prep
 %setup -q -c -n %{packname}

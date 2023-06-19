@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EffectLiteR
-%global packver   0.4-6
+%global packname  portes
+%global packver   6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Average and Conditional Effects
+Summary:          Portmanteau Tests for Time Series Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-lavaan >= 0.6.8
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-lavaan >= 0.6.8
-Requires:         R-methods 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-car 
+BuildRequires:    R-CRAN-forecast >= 8.21
+BuildRequires:    R-CRAN-vars >= 1.5.9
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-forecast >= 8.21
+Requires:         R-CRAN-vars >= 1.5.9
+Requires:         R-parallel 
 
 %description
-Use structural equation modeling to estimate average and conditional
-effects of a treatment variable on an outcome variable, taking into
-account multiple continuous and categorical covariates.
+Contains common univariate and multivariate portmanteau test statistics
+for time series models. These tests are based on using asymptotic
+distributions such as chi-square distribution and based on using the Monte
+Carlo significance tests. Also, it can be used to simulate from univariate
+and multivariate seasonal time series models.
 
 %prep
 %setup -q -c -n %{packname}
