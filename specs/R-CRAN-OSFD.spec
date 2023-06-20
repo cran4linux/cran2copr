@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RobustAFT
-%global packver   1.4-6
+%global packname  OSFD
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Truncated Maximum Likelihood Fit and Robust Accelerated Failure Time Regression for Gaussian and Log-Weibull Case
+Summary:          Output Space-Filling Design
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-DEoptimR 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-DEoptimR 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-twinning 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-twinning 
+Requires:         R-CRAN-dplyr 
 
 %description
-R functions for the computation of the truncated maximum likelihood and
-the robust accelerated failure time regression for gaussian and
-log-Weibull case.
+A method to generate a design in the input space that sequentially fills
+the output space of a black-box function. The output space-filling design
+will be helpful in inverse design or feature-based modeling problem.
+Please see Wang et al.(2023) <DOI:10.48550/arXiv.2305.07202> for details.
+This work is supported by U.S. National Foundation grant CMMI-1921646.
 
 %prep
 %setup -q -c -n %{packname}

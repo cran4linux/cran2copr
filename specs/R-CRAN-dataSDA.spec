@@ -1,32 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  febr
-%global packver   1.9.9
+%global __requires_exclude ^libmpi
+%global packname  dataSDA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Repository of the Brazilian Soil
+Summary:          Data Sets for Symbolic Data Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Utilities to access and process data from the Data Repository of the
-Brazilian Soil <https://www.pedometria.org/febr/>.
+Collects a diverse range of symbolic data and offers a comprehensive set
+of functions that facilitate the conversion of traditional data into the
+symbolic data format.
 
 %prep
 %setup -q -c -n %{packname}

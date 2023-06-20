@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fable.ata
-%global packver   0.0.3
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ATAforecasting' Modelling Interface for 'fable' Framework
 
@@ -16,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fabletools >= 0.3.1
-BuildRequires:    R-CRAN-ATAforecasting >= 0.0.56
+BuildRequires:    R-CRAN-fabletools >= 0.3.3
+BuildRequires:    R-CRAN-ATAforecasting >= 0.0.60
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
@@ -26,8 +27,8 @@ BuildRequires:    R-CRAN-tsibble
 BuildRequires:    R-CRAN-distributional 
 BuildRequires:    R-CRAN-tsbox 
 BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-fabletools >= 0.3.1
-Requires:         R-CRAN-ATAforecasting >= 0.0.56
+Requires:         R-CRAN-fabletools >= 0.3.3
+Requires:         R-CRAN-ATAforecasting >= 0.0.60
 Requires:         R-stats 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 

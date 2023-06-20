@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdistance
-%global packver   1.6.2
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distances and Routes on Geographical Grids
 
@@ -23,12 +23,14 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-raster >= 1.9.19
 Requires:         R-CRAN-igraph >= 0.7.0
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
 
 %description
 Provides classes and functions to calculate various distance measures and

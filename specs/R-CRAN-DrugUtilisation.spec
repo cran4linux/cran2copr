@@ -1,61 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  respR
-%global packver   2.3.0
+%global packname  DrugUtilisation
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import, Process, Analyse, and Calculate Rates from Respirometry Data
+Summary:          Summarise Patient-Level Drug Utilisation in Data Mapped to the OMOP Common Data Model
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-CDMConnector >= 1.0.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RJSONIO 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-PatientProfiles 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-marelac 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-roll 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-CDMConnector >= 1.0.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RJSONIO 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-PatientProfiles 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-marelac 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-roll 
-Requires:         R-CRAN-segmented 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
 
 %description
-Provides a structural, reproducible workflow for the processing and
-analysis of respirometry data. It contains analytical functions and
-utilities for working with oxygen time-series to determine respiration or
-oxygen production rates, and to make it easier to report and share
-analyses. See Harianto et al. 2019 <doi:10.1111/2041-210X.13162>.
+Summarise patient-level drug utilisation cohorts using data mapped to the
+Observational Medical Outcomes Partnership (OMOP) common data model. New
+users and prevalent users cohorts can be generated and their
+characteristics, indication and drug use summarised.
 
 %prep
 %setup -q -c -n %{packname}

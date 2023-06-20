@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RobustAFT
-%global packver   1.4-6
+%global packname  SCOR
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Truncated Maximum Likelihood Fit and Robust Accelerated Failure Time Regression for Gaussian and Log-Weibull Case
+Summary:          Spherically Constrained Optimization Routine
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-DEoptimR 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-DEoptimR 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-iterators 
+Requires:         R-parallel 
 
 %description
-R functions for the computation of the truncated maximum likelihood and
-the robust accelerated failure time regression for gaussian and
-log-Weibull case.
+A non convex optimization package that optimizes any function under the
+criterion, combination of variables are on the surface of a unit sphere,
+as described in the paper : Das et al. (2019) <arXiv:1909.04024> .
 
 %prep
 %setup -q -c -n %{packname}

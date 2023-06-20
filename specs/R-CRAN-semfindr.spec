@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semfindr
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Influential Cases in Structural Equation Modeling
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
 
 %description
 Sensitivity analysis in structural equation modeling using influence

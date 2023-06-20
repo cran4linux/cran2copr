@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  forecasteR
-%global packver   1.1.6
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Forecast System
 
@@ -19,13 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.0
 BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-golem 
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-keras 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyAce 
@@ -37,13 +39,14 @@ BuildRequires:    R-CRAN-shinycustomloader
 Requires:         R-CRAN-shinydashboardPlus >= 2.0.0
 Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-golem 
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-keras 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyAce 

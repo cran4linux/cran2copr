@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  copBasic
-%global packver   2.1.9
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.9
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Bivariate Copula Theory and Many Utility Functions
 
@@ -30,15 +30,15 @@ diagonal, survival copula, dual of a copula, co-copula, and numerical
 bicopula density. Level sets, horizontal and vertical sections are
 supported. Numerical derivatives and inverses of a bicopula are provided
 through which simulation is implemented. Bicopula composition, convex
-combination, and products also are provided. Support extends to the
-Kendall Function as well as the Lmoments thereof. Kendall Tau, Spearman
-Rho and Footrule, Gini Gamma, Blomqvist Beta, Hoeffding Phi, Schweizer-
-Wolff Sigma, tail dependency, tail order, skewness, and bivariate Lmoments
-are implemented, and positive/negative quadrant dependency, left (right)
-increasing (decreasing) are available. Other features include
-Kullback-Leibler divergence, Vuong procedure, spectral measure, and
-Lcomoments for inference, maximum likelihood, and AIC, BIC, and RMSE for
-goodness-of-fit.
+combination, asymmetry extension, and products also are provided. Support
+extends to the Kendall Function as well as the Lmoments thereof. Kendall
+Tau, Spearman Rho and Footrule, Gini Gamma, Blomqvist Beta, Hoeffding Phi,
+Schweizer- Wolff Sigma, tail dependency, tail order, skewness, and
+bivariate Lmoments are implemented, and positive/negative quadrant
+dependency, left (right) increasing (decreasing) are available. Other
+features include Kullback-Leibler Divergence, Vuong Procedure, spectral
+measure, and Lcomoments for inference, maximum likelihood, and AIC, BIC,
+and RMSE for goodness-of-fit.
 
 %prep
 %setup -q -c -n %{packname}

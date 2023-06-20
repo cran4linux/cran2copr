@@ -1,36 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RobustAFT
-%global packver   1.4-6
+%global packname  bigBits
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Truncated Maximum Likelihood Fit and Robust Accelerated Failure Time Regression for Gaussian and Log-Weibull Case
+Summary:          Perform Boolean Operations on Large Numbers
 
-License:          GPL (>= 2)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-DEoptimR 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-DEoptimR 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-gmp 
+Requires:         R-methods 
 
 %description
-R functions for the computation of the truncated maximum likelihood and
-the robust accelerated failure time regression for gaussian and
-log-Weibull case.
+These tools accept integers in any base from 2 to 36, including 2's
+complement format, and perform actions like "AND," "OR", "NOT", "SHIFTR/L"
+etc. The output can be in any base specified. A direct base to base
+converter is included.
 
 %prep
 %setup -q -c -n %{packname}

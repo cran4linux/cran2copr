@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BMRMM
-%global packver   0.0.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of the Bayesian Markov (Renewal) Mixed Models
 
@@ -14,31 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gsubfn 
 BuildRequires:    R-CRAN-logOfGamma 
 BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-mhsmm 
 BuildRequires:    R-CRAN-multicool 
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-fields 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gsubfn 
 Requires:         R-CRAN-logOfGamma 
 Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-mhsmm 
 Requires:         R-CRAN-multicool 
 Requires:         R-CRAN-pracma 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 The Bayesian Markov renewal mixed models take sequentially observed

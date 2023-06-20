@@ -1,72 +1,76 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecocomDP
-%global packver   1.2.2
+%global packname  tern
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Create, Use, and Convert ecocomDP Data
+Summary:          Create Common TLGs Used in Clinical Trials
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-neonUtilities >= 2.1.1
-BuildRequires:    R-CRAN-EML >= 2.0.5
-BuildRequires:    R-CRAN-emld >= 0.5.1
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-survival >= 3.2.13
+BuildRequires:    R-CRAN-emmeans >= 1.4.5
+BuildRequires:    R-CRAN-forcats >= 1.0.0
+BuildRequires:    R-CRAN-rtables >= 0.6.1
+BuildRequires:    R-CRAN-formatters >= 0.5.0
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-labeling 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-neonUtilities >= 2.1.1
-Requires:         R-CRAN-EML >= 2.0.5
-Requires:         R-CRAN-emld >= 0.5.1
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-survival >= 3.2.13
+Requires:         R-CRAN-emmeans >= 1.4.5
+Requires:         R-CRAN-forcats >= 1.0.0
+Requires:         R-CRAN-rtables >= 0.6.1
+Requires:         R-CRAN-formatters >= 0.5.0
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-labeling 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-xml2 
 
 %description
-Work with the Ecological Community Data Design Pattern. 'ecocomDP' is a
-flexible data model for harmonizing ecological community surveys, in a
-research question agnostic format, from source data published across
-repositories, and with methods that keep the derived data up-to-date as
-the underlying sources change. Described in O'Brien et al. (2021),
-<doi:10.1016/j.ecoinf.2021.101374>.
+Table, Listings, and Graphs (TLG) library for common outputs used in
+clinical trials.
 
 %prep
 %setup -q -c -n %{packname}

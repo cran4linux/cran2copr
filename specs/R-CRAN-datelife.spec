@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datelife
-%global packver   0.6.7
+%global packver   0.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scientific Data on Time of Lineage Divergence for Your Taxa
 
@@ -71,8 +71,8 @@ Methods and workflows to get chronograms (i.e., phylogenetic trees with
 branch lengths proportional to time), using open, peer-reviewed,
 state-of-the-art scientific data on time of lineage divergence. This
 package constitutes the main underlying code of the DateLife web service
-at <https:www.datelife.org>. To obtain a single summary chronogram from a
-group of relevant chronograms, we implement the Super Distance Matrix
+at <https://www.datelife.org>. To obtain a single summary chronogram from
+a group of relevant chronograms, we implement the Super Distance Matrix
 (SDM) method described in Criscuolo et al. (2006)
 <doi:10.1080/10635150600969872>. To find the grove of chronograms with a
 sufficiently overlapping set of taxa for summarizing, we implement theorem

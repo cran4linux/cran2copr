@@ -1,36 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RobustAFT
-%global packver   1.4-6
+%global packname  tidyEdSurvey
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Truncated Maximum Likelihood Fit and Robust Accelerated Failure Time Regression for Gaussian and Log-Weibull Case
+Summary:          Integration of 'dplyr' and 'ggplot2' with 'EdSurvey'
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-EdSurvey >= 4.0.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-DEoptimR 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-EdSurvey >= 4.0.1
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-cli 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-DEoptimR 
+Requires:         R-CRAN-rlang 
+Requires:         R-methods 
 
 %description
-R functions for the computation of the truncated maximum likelihood and
-the robust accelerated failure time regression for gaussian and
-log-Weibull case.
+Takes objects of class edsurvey.data.frame and converts them to a
+data.frame within the calling environment of 'dplyr' and 'ggplot2'
+functions. Additionally, for plotting with 'ggplot2', users can map
+aesthetics to subject scales and all plausible values will be used. This
+package supports student level data; to work with school or teacher level
+data, see '?EdSurvey::getData'.
 
 %prep
 %setup -q -c -n %{packname}
