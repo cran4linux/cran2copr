@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  memapp
-%global packver   2.15
+%global packver   2.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.15
+Version:          2.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Moving Epidemic Method Web Application
 
@@ -13,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mem >= 2.17
+BuildRequires:    R-CRAN-mem >= 2.18
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyWidgets 
@@ -31,7 +32,7 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-formattable 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
-Requires:         R-CRAN-mem >= 2.17
+Requires:         R-CRAN-mem >= 2.18
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyWidgets 

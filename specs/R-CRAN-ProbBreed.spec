@@ -1,34 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggfun
-%global packver   0.1.0
+%global packname  ProbBreed
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for 'ggplot2'
+Summary:          Probability Theory for Selecting Candidates in Plant Breeding
 
-License:          Artistic-2.0
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rstantools
 
 %description
-Useful functions and utilities for 'ggplot' object (e.g., geometric
-layers, themes, and utilities to edit the object).
+Use probability theory under the Bayesian framework for calculating the
+risk of selecting candidates in a multi-environment context [Dias et al.
+(2022) <doi:10.1007/s00122-022-04041-y>]. Contained are functions used to
+fit a Bayesian multi-environment model (based on the available presets),
+extract posterior values and maximum posterior values, compute the
+variance components, check the model’s convergence, and calculate the
+probabilities. For both across and within-environments scopes, the package
+computes the probability of superior performance and the pairwise
+probability of superior performance. Furthermore, the probability of
+superior stability and the pairwise probability of superior stability
+across environments is estimated. A joint probability of superior
+performance and stability is also provided.
 
 %prep
 %setup -q -c -n %{packname}

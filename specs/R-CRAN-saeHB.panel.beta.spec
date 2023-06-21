@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saeHB.panel.beta
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation using HB for Rao Yu Model under Beta Distribution
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-coda 
+Requires:         R-CRAN-dplyr 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-rjags 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
 
 %description
 Several functions are provided for small area estimation at the area level

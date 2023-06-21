@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tensorregress
-%global packver   5.0
+%global packver   5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0
+Version:          5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supervised Tensor Decomposition with Side Information
 
@@ -26,7 +26,11 @@ Requires:         R-methods
 
 %description
 Implement the alternating algorithm for supervised tensor decomposition
-with interactive side information.
+with interactive side information. Details can be found in the publication
+Hu, Jiaxin, Chanwoo Lee, and Miaoyan Wang. "Generalized Tensor
+Decomposition with features on multiple modes." Journal of Computational
+and Graphical Statistics, Vol. 31, No. 1, 204-218, 2022
+<doi:10.1080/10618600.2021.1978471>.
 
 %prep
 %setup -q -c -n %{packname}

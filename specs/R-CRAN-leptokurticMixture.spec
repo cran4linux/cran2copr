@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RITCH
-%global packver   0.1.19
+%global packname  leptokurticMixture
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.19
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Parser for the ITCH-Protocol
+Summary:          Implements Parsimonious Finite Mixtures of Multivariate Elliptical Leptokurtic-Normals
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-bit64 >= 4.0.5
-BuildRequires:    R-CRAN-nanotime >= 0.3.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-bit64 >= 4.0.5
-Requires:         R-CRAN-nanotime >= 0.3.2
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Allows to efficiently parse, filter, and write binary ITCH Files (Version
-5.0) containing detailed financial transactions as distributed by NASDAQ
-to an R data.table.
+A way to fit Parsimonious Finite Mixtures of Multivariate Elliptical
+Leptokurtic-Normals (MLN) based on the component covariance matrix
+eigen-decomposition. Two methods of estimation are implemented. The MLN is
+useful for fitting to data with excess kurtosis. Based on work in Bagnato,
+L., Punzo, A. and Zoia, M.G. (2017) <doi:10.1002/cjs.11308> and Browne
+(2023) <doi:10.1016/j.spl.2022.109640>.
 
 %prep
 %setup -q -c -n %{packname}

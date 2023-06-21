@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GIFT
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to the Global Inventory of Floras and Traits (GIFT)
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.5.3
 Requires:         R-core >= 3.5.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-purrr 
@@ -27,7 +29,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-purrr 

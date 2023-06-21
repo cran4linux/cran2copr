@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  track2KBA
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identifying Important Areas from Animal Tracking Data
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-Matching 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-move 
@@ -48,7 +47,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-maps 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-Matching 
 Requires:         R-methods 
 Requires:         R-CRAN-move 

@@ -1,44 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MetChem
-%global packver   0.3
+%global packname  aides
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chemical Structural Similarity Analysis
+Summary:          Aides for Pooled Analysis of Aggregate Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rcdk >= 3.4.3
-BuildRequires:    R-CRAN-KODAMA >= 2.3
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-meta 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-fingerprint 
-Requires:         R-CRAN-rcdk >= 3.4.3
-Requires:         R-CRAN-KODAMA >= 2.3
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-meta 
 Requires:         R-stats 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-fingerprint 
+Requires:         R-utils 
 
 %description
-A new pipeline to explore chemical structural similarity across
-metabolite. It allows to classify metabolites in structurally-related
-modules and identify common shared functional groups. KODAMA algorithm is
-used to highlight structural similarity between metabolites. See
-Cacciatore S, Tenori L, Luchinat C, Bennett PR, MacIntyre DA. (2017)
-Bioinformatics <doi:10.1093/bioinformatics/btw705> and Cacciatore S,
-Luchinat C, Tenori L. (2014) Proc Natl Acad Sci USA
-<doi:10.1073/pnas.1220873111>.
+A supportive collection of functions for pooled analysis of aggregate
+data. The current version supports users to test assumptions before
+relevant analysis of bias from study size and sequential analysis such as
+mentioned by Wetterslev, J., Jakobsen, J. C., & Gluud, C. (2017)
+<doi:10.1186/s12874-017-0315-7>.
 
 %prep
 %setup -q -c -n %{packname}
