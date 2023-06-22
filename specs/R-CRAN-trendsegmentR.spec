@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  trendsegmentR
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Trend Segmentation
 
@@ -20,7 +21,7 @@ BuildArch:        noarch
 %description
 Performs the detection of linear trend changes for univariate time series
 by implementing the bottom-up unbalanced wavelet transformation proposed
-by H. Maeng and P. Fryzlewicz (2021). The estimated number and locations
+by H. Maeng and P. Fryzlewicz (2023). The estimated number and locations
 of the change-points are returned with the piecewise-linear estimator for
 signal.
 

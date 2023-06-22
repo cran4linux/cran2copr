@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simulariatools
-%global packver   2.5.0
+%global packname  flashlighttext
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simularia Tools for the Analysis of Air Pollution Data
+Summary:          Flashlight Text R Interface
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-ggplot2 >= 3.3
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-zeallot 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-zeallot 
 
 %description
-A set of tools developed at Simularia for Simularia, to help preprocessing
-and post-processing of meteorological and air quality data.
+Provides bindings to part of the Flashlight's Text toolkit. The Flashlight
+Text R package contains beam search decoder, KenLM api, and Dictionary
+components. Jacob Kahn et al. (2022) <arXiv:2201.12465> "Flashlight:
+Enabling Innovation in Tools for Machine Learning". Kenneth Heafield
+(2011) <https://aclanthology.org/W11-2123.pdf> "KenLM: Faster and Smaller
+Language Model Queries".
 
 %prep
 %setup -q -c -n %{packname}

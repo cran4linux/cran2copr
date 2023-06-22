@@ -1,38 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simulariatools
-%global packver   2.5.0
+%global packname  ImpShrinkage
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simularia Tools for the Analysis of Air Pollution Data
+Summary:          Improved Shrinkage Estimations for Multiple Linear Regression
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-ggplot2 >= 3.3
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-terra 
 
 %description
-A set of tools developed at Simularia for Simularia, to help preprocessing
-and post-processing of meteorological and air quality data.
+A variety of improved shrinkage estimators in the area of statistical
+analysis: unrestricted; restricted; preliminary test; improved preliminary
+test; Stein; and positive-rule Stein. More details can be found in chapter
+7 of Saleh, A. K. Md. E. (2006) <ISBN: 978-0-471-56375-4>.
 
 %prep
 %setup -q -c -n %{packname}

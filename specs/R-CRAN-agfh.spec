@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simulariatools
-%global packver   2.5.0
+%global packname  agfh
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simularia Tools for the Analysis of Air Pollution Data
+Summary:          Agnostic Fay-Herriot Model for Small Area Statistics
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-ggplot2 >= 3.3
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-goftest 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-goftest 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
 
 %description
-A set of tools developed at Simularia for Simularia, to help preprocessing
-and post-processing of meteorological and air quality data.
+Implements the Agnostic Fay-Herriot model, an extension of the traditional
+small area model. In place of normal sampling errors, the sampling error
+distribution is estimated with a Gaussian process to accommodate a broader
+class of distributions. This flexibility is most useful in the presence of
+bounded, multi-modal, or heavily skewed sampling errors.
 
 %prep
 %setup -q -c -n %{packname}

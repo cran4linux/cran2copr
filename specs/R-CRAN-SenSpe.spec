@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SenSpe
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Specificity at Controlled Sensitivity, or Vice Versa
 
@@ -21,7 +21,7 @@ Requires:         R-core >= 2.8.0
 Perform biomarker evaluation and comparison in terms of specificity at a
 controlled sensitivity level, or sensitivity at a controlled specificity
 level. Point estimation and exact bootstrap of Huang, Parakati, Patil, and
-Sanda (2023) <doi:10.5705/ss.202021.0020> for the one- and two-sample
+Sanda (2023) <doi:10.5705/ss.202021.0020> for the one- and two-biomarker
 problems are implemented.
 
 %prep

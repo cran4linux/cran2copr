@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simulariatools
-%global packver   2.5.0
+%global packname  dSTEM
+%global packver   2.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simularia Tools for the Analysis of Air Pollution Data
+Summary:          Multiple Testing of Local Extrema for Detection of Change Points
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-ggplot2 >= 3.3
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-A set of tools developed at Simularia for Simularia, to help preprocessing
-and post-processing of meteorological and air quality data.
+Simultaneously detect the number and locations of change points in
+piecewise linear models under stationary Gaussian noise allowing
+autocorrelated random noise. The core idea is to transform the problem of
+detecting change points into the detection of local extrema (local maxima
+and local minima)through kernel smoothing and differentiation of the data
+sequence, see Cheng et al. (2020) <doi:10.1214/20-EJS1751>. A
+low-computational and fast algorithm call 'dSTEM' is introduced to detect
+change points based on the 'STEM' algorithm in D. Cheng and A. Schwartzman
+(2017) <doi:10.1214/16-AOS1458>.
 
 %prep
 %setup -q -c -n %{packname}

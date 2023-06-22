@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simulariatools
-%global packver   2.5.0
+%global packname  topChef
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simularia Tools for the Analysis of Air Pollution Data
+Summary:          Top Chef Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-ggplot2 >= 3.3
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 
 %description
-A set of tools developed at Simularia for Simularia, to help preprocessing
-and post-processing of meteorological and air quality data.
+Several datasets which describe the chef contestants in Top Chef, the
+challenges that they compete in, and the results of those challenges. This
+data is useful for practicing data wrangling, graphing, and analyzing how
+each season of Top Chef played out.
 
 %prep
 %setup -q -c -n %{packname}

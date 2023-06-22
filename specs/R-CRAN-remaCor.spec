@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  remaCor
-%global packver   0.0.11
+%global packver   0.0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.11
+Version:          0.0.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Effects Meta-Analysis for Correlated Test Statistics
 
@@ -16,23 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-RUnit 
-BuildRequires:    R-CRAN-clusterGeneration 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-RUnit 
-Requires:         R-CRAN-clusterGeneration 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-reshape2 
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-grid 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
 

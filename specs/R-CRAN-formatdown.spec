@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  formatdown
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formatting Tools for 'rmarkdown' Documents
 
@@ -19,17 +19,23 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-wrapr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-units 
 Requires:         R-CRAN-wrapr 
 
 %description
 Provides a small set of tools for formatting tasks when creating documents
-in 'rmarkdown' or 'quarto'. Convert the elements of a numerical vector to
-character strings in which the numbers are formatted using powers-of-ten
-notation in scientific or engineering form and delimited for rendering as
-inline equations.
+in R Markdown or Quarto Markdown. Convert the elements of a numerical
+vector to character strings in one of several forms: powers-of-ten
+notation in engineering or scientific form delimited for rendering as
+inline equations; integer or decimal notation delimited for equation
+rendering; numbers with measurement units (non-delimited) where units are
+selected to eliminate the need for powers-of-ten or scientific notation.
+Useful for rendering a numerical scalar in an inline R code chunk as well
+as formatting columns of data frames displayed in a table.
 
 %prep
 %setup -q -c -n %{packname}

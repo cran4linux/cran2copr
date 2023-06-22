@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  C443
-%global packver   3.3.1
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.1
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          See a Forest for the Trees
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -33,6 +34,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-doParallel 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-rpart 
@@ -42,6 +44,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cluster 
 Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-igraph 
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -49,6 +52,7 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-randomForest 
 Requires:         R-methods 
+Requires:         R-CRAN-doParallel 
 
 %description
 Get insight into a forest of classification trees, by calculating

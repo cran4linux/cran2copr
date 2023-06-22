@@ -1,48 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scopr
-%global packver   0.3.4
+%global packname  checkhelper
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Ethoscope Data
+Summary:          Deal with Check Outputs
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.00
-Requires:         R-core >= 3.00
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-behavr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-whisker >= 0.4
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pkgbuild 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rcmdcheck 
+BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-behavr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-whisker >= 0.4
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pkgbuild 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rcmdcheck 
+Requires:         R-CRAN-roxygen2 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-curl 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Handling of behavioural data from the Ethoscope platform (Geissmann,
-Garcia Rodriguez, Beckwith, French, Jamasb and Gilestro (2017)
-<DOI:10.1371/journal.pbio.2003026>). Ethoscopes
-(<https://www.notion.so/giorgiogilestro/Ethoscope-User-Manual-a9739373ae9f4840aa45b277f2f0e3a7>)
-are an open source/open hardware framework made of interconnected
-raspberry pis (<https://www.raspberrypi.org>) designed to quantify the
-behaviour of multiple small animals in a distributed and real-time
-fashion. The default tracking algorithm records primary variables such as
-xy coordinates, dimensions and speed. This package is part of the
-rethomics framework <https://rethomics.github.io/>.
+Deal with packages 'check' outputs and reduce the risk of rejection by
+'CRAN' by following policies.
 
 %prep
 %setup -q -c -n %{packname}
