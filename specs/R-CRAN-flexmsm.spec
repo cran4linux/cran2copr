@@ -1,30 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyC
-%global packver   1.3-41
+%global packname  flexmsm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.41
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conventional Tukey Test
+Summary:          A General Framework for Flexible Multi-State Survival Modelling
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doBy 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-doBy 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-GJRM 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-trust 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-GJRM 
+Requires:         R-CRAN-mgcv 
+Requires:         R-stats 
+Requires:         R-CRAN-trust 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-parallel 
 
 %description
-Perform the conventional Tukey test from formula, lm, aov, aovlist and
-lmer objects.
+A general estimation framework for multi-state Markov processes with
+flexible specification of the transition intensities. The log-transition
+intensities can be specified through Generalised Additive Models which
+allow for virtually any type of covariate effect. Elementary
+specifications such as time-homogeneous processes and simple parametric
+forms are also supported. There are no limitations on the type of process
+one can assume, with both forward and backward transitions allowed and
+virtually any number of states.
 
 %prep
 %setup -q -c -n %{packname}

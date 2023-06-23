@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  imputeREE
-%global packver   0.0.1
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Impute Missing Rare Earth Element Data Using a Lattice-Strain Derived Method
+Summary:          Impute Missing Rare Earth Element Data in Zircon
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -34,9 +35,11 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-broom 
 
 %description
-Set of functions that fit a linear regression to calculate missing Rare
-Earth Element (REE) in zircon based on a method derived from the lattice
-strain theory of Blundy and Wood (1994)<doi:10.1038/372452a0>.
+Set of functions to impute missing rare earth data, calculate La and Pr
+concentrations and Ce anomalies in zircons based on the Chondrite-Onuma
+and Chondrite-Lattice of Carrasco-Godoy and Campbell (2023)
+<doi:10.1007/s00410-023-02025-9> and the Logarithmic regression from Zhong
+et al. (2019) <doi:10.1007/s00710-019-00682-y>.
 
 %prep
 %setup -q -c -n %{packname}

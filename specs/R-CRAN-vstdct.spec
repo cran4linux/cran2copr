@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyC
-%global packver   1.3-41
+%global packname  vstdct
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.41
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conventional Tukey Test
+Summary:          Nonparametric Estimation of Toeplitz Covariance Matrices
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doBy 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-doBy 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-dtt 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nlme 
+Requires:         R-CRAN-dtt 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nlme 
 
 %description
-Perform the conventional Tukey test from formula, lm, aov, aovlist and
-lmer objects.
+A nonparametric method to estimate Toeplitz covariance matrices from a
+sample of n independently and identically distributed p-dimensional
+vectors with mean zero. The data is preprocessed with the discrete cosine
+matrix and a variance stabilization transformation to obtain an
+approximate Gaussian regression setting for the log-spectral density
+function. Estimates of the spectral density function and the inverse of
+the covariance matrix are provided as well. Functions for simulating data
+and a protein data example are included. For details see (Klockmann,
+Krivobokova; 2023), <arXiv:2303.10018>.
 
 %prep
 %setup -q -c -n %{packname}

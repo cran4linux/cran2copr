@@ -1,27 +1,24 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bifurcatingr
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bifurcating Autoregressive Models
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.0
-BuildRequires:    R-graphics >= 4.0.0
-BuildRequires:    R-CRAN-igraph >= 1.2.5
-Requires:         R-CRAN-MASS >= 7.3.0
-Requires:         R-graphics >= 4.0.0
-Requires:         R-CRAN-igraph >= 1.2.5
+BuildRequires:    R-CRAN-fMultivar >= 4021
+Requires:         R-CRAN-fMultivar >= 4021
 
 %description
 Estimation of bifurcating autoregressive models of any order, p, BAR(p) as
@@ -32,7 +29,10 @@ of the autoregressive parameters as described in Zhou and Basawa (2005)
 include bootstrap (single, double and fast-double) bias correction and
 linear-bias-function-based bias correction. Functions for generating and
 plotting bifurcating autoregressive data from any BAR(p) model are also
-included.
+included. This new version includes calculating several type of
+bias-corrected and -uncorrected confidence intervals for the least squares
+estimators of the autoregressive parameters as described in Elbayoumi and
+Mostafa (2023) <doi:10.6339/23-JDS1092>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

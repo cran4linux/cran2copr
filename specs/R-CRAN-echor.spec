@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  echor
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access EPA 'ECHO' Data
 
@@ -20,25 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 

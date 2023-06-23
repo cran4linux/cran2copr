@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyC
-%global packver   1.3-41
+%global packname  mulgar
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.41
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conventional Tukey Test
+Summary:          Functions for Pre-Processing Data for Multivariate Data Visualisation using Tours
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doBy 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-doBy 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-geozoo 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-geozoo 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Perform the conventional Tukey test from formula, lm, aov, aovlist and
-lmer objects.
+This is a companion to the book Cook, D. and Laa, U. (2023)
+<https://dicook.github.io/mulgar_book/> "Interactively exploring
+high-dimensional data and models in R". by Cook and Laa. It contains
+useful functions for processing data in preparation for visualising with a
+tour. There are also several sample data sets.
 
 %prep
 %setup -q -c -n %{packname}

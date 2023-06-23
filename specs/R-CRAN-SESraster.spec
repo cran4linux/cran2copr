@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyC
-%global packver   1.3-41
+%global packname  SESraster
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.41
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conventional Tukey Test
+Summary:          Raster Randomization for Null Hypothesis Testing
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doBy 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-doBy 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-terra 
 
 %description
-Perform the conventional Tukey test from formula, lm, aov, aovlist and
-lmer objects.
+Randomization of presence/absence species distribution raster data with or
+without including spatial structure for calculating standardized effect
+sizes and testing null hypothesis. The spatially unstructured
+randomization algorithms are based on fixed-fixed algorithms for matrices
+(Gotelli 2000, <doi:10.2307/177478>). The spatially structured
+randomization algorithm is based on the preserved richness null model
+(Laffan & Crisp 2003, <doi:10.1046/j.1365-2699.2003.00875.x>).
 
 %prep
 %setup -q -c -n %{packname}

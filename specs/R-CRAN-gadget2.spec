@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyC
-%global packver   1.3-41
+%global packname  gadget2
+%global packver   2.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.41
+Version:          2.3.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conventional Tukey Test
+Summary:          Gadget is the Globally-Applicable Area Disaggregated General Ecosystem Toolbox
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-doBy 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-doBy 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Perform the conventional Tukey test from formula, lm, aov, aovlist and
-lmer objects.
+A statistical ecosystem modelling package, taking many features of the
+ecosystem into account. Gadget works by running an internal model based on
+many parameters, and then comparing the data from the output of this model
+to real data to get a goodness-of-fit likelihood score. These parameters
+can then be adjusted, and the model re-run, until an optimum is found,
+which corresponds to the model with the lowest likelihood score. Gadget
+allows the user to include a number of features into an ecosystem model:
+One or more species, each of which may be split into multiple stocks;
+multiple areas with migration between areas; predation between and within
+species; maturation; reproduction and recruitment; multiple commercial and
+survey fleets taking catches from the populations. For more details see
+<https://gadget-framework.github.io/gadget2/>. This is the C++ Gadget2
+runtime, making it available for R.
 
 %prep
 %setup -q -c -n %{packname}
