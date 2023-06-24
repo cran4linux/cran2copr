@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rsnps
-%global packver   0.5.0.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get 'SNP' ('Single-Nucleotide' 'Polymorphism') Data on the Web
 

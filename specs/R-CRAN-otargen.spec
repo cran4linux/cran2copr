@@ -1,43 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flashlighttext
-%global packver   0.1.0
+%global packname  otargen
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flashlight Text R Interface
+Summary:          Access Open Target Genetics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ghql 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-ggiraphExtra 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ghql 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-ggiraphExtra 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-zeallot 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides bindings to part of the Flashlight's Text toolkit. The Flashlight
-Text R package contains beam search decoder, KenLM api, and Dictionary
-components. Jacob Kahn et al. (2022) <arXiv:2201.12465> "Flashlight:
-Enabling Innovation in Tools for Machine Learning". Kenneth Heafield
-(2011) <https://aclanthology.org/W11-2123.pdf> "KenLM: Faster and Smaller
-Language Model Queries".
+Interact seamlessly with Open Target Genetics' GraphQL endpoint to query
+and retrieve tidy data tables, facilitating the analysis of genetic data.
+For more information about the Open Target Genetics
+API(<https://genetics.opentargets.org/api>).
 
 %prep
 %setup -q -c -n %{packname}

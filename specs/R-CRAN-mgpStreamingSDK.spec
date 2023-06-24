@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multigraph
-%global packver   0.99
+%global packname  mgpStreamingSDK
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot and Manipulate Multigraphs
+Summary:          Interact with the Maxar MGP Streaming API
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiplex >= 3.0.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-multiplex >= 3.0.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-reticulate 
 
 %description
-Functions to plot and manipulate multigraphs, signed and valued graphs,
-bipartite graphs, multilevel graphs, and Cayley graphs with various layout
-options.
+This grants the functionality of the Maxar Geospatial Platform (MGP)
+Streaming API. It can search for images using the WFS method. It can
+Download images using WMS WMTS. It can also Download a full resolution
+image.
 
 %prep
 %setup -q -c -n %{packname}

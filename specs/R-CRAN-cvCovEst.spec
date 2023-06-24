@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cvCovEst
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validated Covariance Matrix Estimation
 
@@ -57,9 +57,10 @@ Requires:         R-CRAN-RMTstat
 %description
 An efficient cross-validated approach for covariance matrix estimation,
 particularly useful in high-dimensional settings. This method relies upon
-the theory of loss-based estimator selection to identify the optimal
-estimator of the covariance matrix from among a prespecified set of
-candidates.
+the theory of high-dimensional loss-based covariance matrix estimator
+selection developed by Boileau et al. (2022)
+<doi:10.1080/10618600.2022.2110883> to identify the optimal estimator from
+among a prespecified set of candidates.
 
 %prep
 %setup -q -c -n %{packname}

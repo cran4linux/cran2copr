@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gamma
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dose Rate Estimation from in-Situ Gamma-Ray Spectrometry Measurements
 
@@ -41,7 +41,7 @@ Process in-situ Gamma-Ray Spectrometry for Luminescence Dating. This
 package allows to import, inspect and correct the energy shifts of
 Gamma-ray spectra. It provides methods for estimating the gamma dose rate
 by the use of a calibration curve as described in Mercier and Falguères
-(2007). The package only supports Canberra CNF and TKA files.
+(2007).  The package only supports Canberra CNF and TKA files.
 
 %prep
 %setup -q -c -n %{packname}

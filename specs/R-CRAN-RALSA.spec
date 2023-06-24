@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RALSA
-%global packver   1.3.0
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Analyzer for Large-Scale Assessments
 
@@ -21,10 +22,12 @@ BuildRequires:    R-CRAN-Hmisc
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-import 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-rclipboard 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-shinydashboard 
@@ -36,10 +39,12 @@ Requires:         R-CRAN-Hmisc
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-import 
 Requires:         R-methods 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-rclipboard 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-shinydashboard 

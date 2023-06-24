@@ -1,31 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multigraph
-%global packver   0.99
+%global packname  FitDynMix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot and Manipulate Multigraphs
+Summary:          Estimation of Dynamic Mixtures
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiplex >= 3.0.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-multiplex >= 3.0.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-evir 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-evir 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-parallel 
+Requires:         R-CRAN-ks 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Functions to plot and manipulate multigraphs, signed and valued graphs,
-bipartite graphs, multilevel graphs, and Cayley graphs with various layout
-options.
+Estimation of a dynamic lognormal - Generalized Pareto mixture via the
+Approximate Maximum Likelihood and the Cross-Entropy methods. See Bee, M.
+(2023) <doi:10.1016/j.csda.2023.107764>.
 
 %prep
 %setup -q -c -n %{packname}

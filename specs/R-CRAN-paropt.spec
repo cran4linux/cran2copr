@@ -1,31 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multigraph
-%global packver   0.99
+%global packname  paropt
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot and Manipulate Multigraphs
+Summary:          Parameter Optimizing of ODE-Systems
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-multiplex >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-ast2ast 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-multiplex >= 3.0.0
+BuildRequires:    R-CRAN-dfdr 
+BuildRequires:    R-CRAN-RcppThread 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-ast2ast 
 Requires:         R-methods 
+Requires:         R-CRAN-dfdr 
+Requires:         R-CRAN-RcppThread 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions to plot and manipulate multigraphs, signed and valued graphs,
-bipartite graphs, multilevel graphs, and Cayley graphs with various layout
-options.
+Enable optimization of parameters of ordinary differential equations.
+Therefore, using 'SUNDIALS' to solve the ODE-System (see Hindmarsh, Alan
+C., Peter N. Brown, Keith E. Grant, Steven L. Lee, Radu Serban, Dan E.
+Shumaker, and Carol S. Woodward. (2005) <doi:10.1145/1089014.1089020>).
+Furthermore, for optimization the particle swarm algorithm is used (see:
+Akman, Devin, Olcay Akman, and Elsa Schaefer. (2018)
+<doi:10.1155/2018/9160793> and Sengupta, Saptarshi, Sanchita Basak, and
+Richard Peters. (2018) <doi:10.3390/make1010010>).
 
 %prep
 %setup -q -c -n %{packname}

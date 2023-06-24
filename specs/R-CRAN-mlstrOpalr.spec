@@ -1,52 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BayesTools
-%global packver   0.2.15
+%global packname  mlstrOpalr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.15
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Bayesian Analyses
+Summary:          Support Compatibility Between 'Maelstrom' R Packages and 'Opal' Environment
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-bridgesampling 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-bridgesampling 
-Requires:         R-parallel 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-opalr 
+BuildRequires:    R-CRAN-fabR 
+BuildRequires:    R-CRAN-madshapR 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-tools 
+Requires:         R-CRAN-opalr 
+Requires:         R-CRAN-fabR 
+Requires:         R-CRAN-madshapR 
 
 %description
-Provides tools for conducting Bayesian analyses and Bayesian model
-averaging (Kass and Raftery, 1995, <doi:10.1080/01621459.1995.10476572>,
-Hoeting et al., 1999, <doi:10.1214/ss/1009212519>). The package contains
-functions for creating a wide range of prior distribution objects, mixing
-posterior samples from 'JAGS' and 'Stan' models, plotting posterior
-distributions, and etc... The tools for working with prior distribution
-span from visualization, generating 'JAGS' and 'bridgesampling' syntax to
-basic functions such as rng, quantile, and distribution functions.
+The goal of this package is to provide functions to support compatibility
+between 'Maelstrom' R packages and 'Opal' environment. 'Opal' is the
+'OBiBa' core database application for biobanks. It is used to build data
+repositories that integrates data collected from multiple sources. 'Opal
+Maelstrom' is a specific implementation of this software. This 'Opal'
+client is specifically designed to interact with 'Opal Maelstrom'
+distributions to perform operations on the R server side. The user must
+have adequate credentials. Please see <https://opaldoc.obiba.org/en/dev/>
+for complete documentation.
 
 %prep
 %setup -q -c -n %{packname}

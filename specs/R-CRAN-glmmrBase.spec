@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmmrBase
-%global packver   0.3.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalised Linear Mixed Models in R
 
@@ -33,13 +33,13 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-R6 
 
 %description
-Specification of generalised linear mixed models with a range of related
-functions and calculations. The package provides classes 'Covariance',
-'MeanFunction' and 'Model', which allow for flexible specification of
-generalised linear mixed models, as well as functionality to produce
-relevant matrices, values, and analyses. See
-<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
-detailed manual.
+Specification, analysis, simulation, and fitting of generalised linear
+mixed models. Includes Markov Chain Monte Carlo Maximum likelihood and
+Laplace approximation model fitting for a range of models, non-linear
+fixed effect specifications, a wide range of flexible covariance functions
+that can be combined arbitrarily, robust and bias-corrected standard error
+estimation, power calculation, data simulation, and more. See
+<https://samuel-watson.github.io/glmmr-web/> for a detailed manual.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  aroma.apd
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Probe-Level Data File Format Used by 'aroma.affymetrix' [deprecated]
 
@@ -18,11 +19,11 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R.utils >= 2.2.0
 BuildRequires:    R-CRAN-R.methodsS3 >= 1.7.1
-BuildRequires:    R-CRAN-R.oo >= 1.20.0
+BuildRequires:    R-CRAN-R.oo >= 1.23.0
 BuildRequires:    R-CRAN-R.huge >= 0.9.0
 Requires:         R-CRAN-R.utils >= 2.2.0
 Requires:         R-CRAN-R.methodsS3 >= 1.7.1
-Requires:         R-CRAN-R.oo >= 1.20.0
+Requires:         R-CRAN-R.oo >= 1.23.0
 Requires:         R-CRAN-R.huge >= 0.9.0
 
 %description

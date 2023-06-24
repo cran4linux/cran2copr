@@ -1,31 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multigraph
-%global packver   0.99
+%global packname  tree3d
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot and Manipulate Multigraphs
+Summary:          3D Tree Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiplex >= 3.0.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-multiplex >= 3.0.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-rayvertex >= 0.7.8
+Requires:         R-CRAN-rayvertex >= 0.7.8
 
 %description
-Functions to plot and manipulate multigraphs, signed and valued graphs,
-bipartite graphs, multilevel graphs, and Cayley graphs with various layout
-options.
+Provides customizable 3D tree models (as 'OBJ' files) for use in data
+visualization. Includes both planar and solid tree models, various crown
+types (columnar, oval, palm, pyramidal, rounded, spreading, vase,
+weeping), and options to change the diameter, height, and color of the
+tree's crown and trunk.
 
 %prep
 %setup -q -c -n %{packname}

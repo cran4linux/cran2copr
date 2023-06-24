@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  filearray
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          File-Backed Array for Out-of-Memory Computation
 
@@ -16,10 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-fastmap >= 1.1.1
+BuildRequires:    R-CRAN-uuid >= 1.1.0
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-fastmap >= 1.1.1
+Requires:         R-CRAN-uuid >= 1.1.0
 Requires:         R-CRAN-digest 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 

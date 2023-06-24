@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  itdr
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integral Transformation Methods for SDR in Regression
 
@@ -18,35 +19,31 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-geigen 
+BuildRequires:    R-CRAN-magic 
+BuildRequires:    R-CRAN-energy 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-geigen 
+Requires:         R-CRAN-magic 
+Requires:         R-CRAN-energy 
+Requires:         R-CRAN-tidyr 
 
 %description
 The routine, itdr(), which allows to estimate the sufficient dimension
 reduction subspaces, i.e., central mean subspace or central subspace in
 regression, using Fourier transformation proposed by Zhu and Zeng (2006)
-<https:doi.org/10.1198/016214506000000140>, convolution transformation
-proposed by Zeng and Zhu (2010) <https:doi.org/10.1016/j.jmva.2009.08.004>
-and iterative Hessian transformation methods proposed by Cook and Li
-(2002) <https:doi.org/10.1214/aos/1021379861>. The predictor variables can
-be consider to have a multivariate normal distribution or an elliptical
-contoured distribution. If the distribution of the predictor variables is
-unknown, then the predictors' distribution can be estimated by the kernel
-density estimation method. Moreover, each of these routines is supported
-with a bootstrap procedure to estimate their tuning parameters. That is,
-wx() estimates the tuning parameter for the predictor variables, wy()
-estimates the tuning parameter for the response variable, and wh()
-estimates the bandwidth parameter for the kernel density estimation
-method. The function invFM() estimates the central subspace using Fourier
-transform approach for inverse dimension reduction method proposed by Weng
-and Yin (2018) <https:doi.org/10.1080/10485252.2018.1515432>. The function
-d.test() estimates the dimension of the central mean subspace using
-hypothesis under invFM(). Moreover, the dsp() function provides the two
-distance measures between two subspaces spanned by the columns of two
-matrices; Vector correlation proposed by Hooper (1959)
-<https:doi.org/10.2307/1909445>, and Trace correlation proposed by
-Hotelling (1936) <https:doi.org/10.2307/2333955>.
+<doi:10.1198/016214506000000140>, convolution transformation proposed by
+Zeng and Zhu (2010) <doi:10.1016/j.jmva.2009.08.004> and iterative Hessian
+transformation methods proposed by Cook and Li (2002)
+<doi:10.1214/aos/1021379861>. The function fm_xire() function provides
+optimal estimators by optimizing a discrepancy function using a Fourier
+transform approach proposed by Weng and Yin (2022)
+<doi:10.5705/ss.202020.0312>. The admmft() function selects the sufficient
+variables using a Fourier transform sparse inverse regression estimators
+proposed by Weng (2022) <doi:10.1016/j.csda.2021.107380>.
 
 %prep
 %setup -q -c -n %{packname}

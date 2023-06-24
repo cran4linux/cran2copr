@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcTensor
-%global packver   1.1.0
+%global packname  bennu
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discrete Matrix/Tensor Decomposition
+Summary:          Bayesian Estimation of Naloxone Kit Number Under-Reporting
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstantools >= 2.2.0
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-rTensor 
-BuildRequires:    R-CRAN-nnTensor 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidybayes 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstantools >= 2.2.0
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-rTensor 
-Requires:         R-CRAN-nnTensor 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidybayes 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rstantools
 
 %description
-Semi-Binary and Semi-Ternary Matrix Decomposition are performed based on
-Non-negative Matrix Factorization (NMF) and Singular Value Decomposition
-(SVD). For the details of the methods, see the reference section of GitHub
-README.md <https://github.com/rikenbit/dcTensor>.
+Bayesian model and associated tools for generating estimates of total
+naloxone kit numbers distributed and used from naloxone kit orders data.
+Provides functions for generating simulated data of naloxone kit use and
+functions for generating samples from the posterior.
 
 %prep
 %setup -q -c -n %{packname}

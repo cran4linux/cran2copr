@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  planningML
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Sample Size Calculator for Machine Learning Applications in Healthcare
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-Matrix 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-MESS
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-Matrix 
