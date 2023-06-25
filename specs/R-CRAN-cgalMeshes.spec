@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cgalMeshes
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R6 Based Utilities for 3D Meshes using 'CGAL'
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-onion
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-tools 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppCGAL 
 BuildRequires:    R-CRAN-RcppColors 
@@ -39,15 +38,14 @@ Requires:         R-CRAN-onion
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rgl 
 Requires:         R-tools 
-Requires:         R-utils 
 
 %description
 Provides some utilities for 3D meshes: clipping of a mesh to the volume
 bounded by another mesh, decomposition into convex parts, distance between
 a mesh and a point, Hausdorff distance between two meshes, triangulation,
 geodesic distance, Boolean operations (intersection, union, difference),
-connected components, subdivision algorithms, random sampling on a mesh,
-volume, area, and centroid. Also provides two algorithms for surface
+Minkowski sum, subdivision algorithms, random sampling on a mesh, volume,
+area, and centroid. Also provides two algorithms for surface
 reconstruction from a cloud of points. Meshes are represented by R6
 classes. All algorithms are performed by the 'C++' library 'CGAL'
 (<https://www.cgal.org/>).

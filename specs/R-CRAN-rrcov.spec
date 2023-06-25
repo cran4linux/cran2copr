@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rrcov
-%global packver   1.7-3
+%global packver   1.7-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalable Robust Estimators with High Breakdown Point
 
@@ -38,7 +38,7 @@ Todorov (2013), <doi:10.1016/j.ins.2012.10.017>), linear and quadratic
 discriminant analysis (Todorov and Pires (2007)), multivariate tests
 (Todorov and Filzmoser (2010) <doi:10.1016/j.csda.2009.08.015>), outlier
 detection (Todorov et al. (2010) <doi:10.1007/s11634-010-0075-2>). See
-also Todorov and Filzmoser (2009) <ISBN-13:978-3838108148>, Todorov and
+also Todorov and Filzmoser (2009) <urn:isbn:978-3838108148>, Todorov and
 Filzmoser (2010) <doi:10.18637/jss.v032.i03> and Boudt et al. (2019)
 <doi:10.1007/s11222-019-09869-x>.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clarabel
-%global packver   0.4.1
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interior Point Conic Optimization Solver
 
@@ -19,8 +19,8 @@ Requires:         R-core
 
 %description
 A versatile interior point solver that solves linear programs (LPs),
-quadratic programs (QPs), second-order cone programs (SOCPs), and problems
-with exponential and power cone constraints
+quadratic programs (QPs), second-order cone programs (SOCPs), semidefinite
+programs (SDPs), and problems with exponential and power cone constraints
 (<https://oxfordcontrol.github.io/ClarabelDocs/stable/>). For quadratic
 objectives, unlike interior point solvers based on the standard
 homogeneous self-dual embedding (HSDE) model, 'Clarabel' handles quadratic

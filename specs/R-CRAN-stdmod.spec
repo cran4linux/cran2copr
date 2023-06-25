@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stdmod
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standardized Moderation Effect and Its Confidence Interval
 
@@ -21,11 +21,15 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-manymome 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-manymome 
 Requires:         R-CRAN-rlang 
 
 %description

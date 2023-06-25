@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggplot2.utils
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Selected Utilities Extending 'ggplot2'
 
@@ -18,23 +18,27 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-ggpp 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-ggpp 
+Requires:         R-CRAN-survival 
 
 %description
 Selected utilities, in particular 'geoms' and 'stats' functions, extending
-the 'ggplot2' package. Note that this package does not define the
-functions itself, but instead imports them from a collection of other
-packages and then exports them. These functions are tested as well to make
-sure that they work reliably. Currently, the selected functions are from
-'EnvStats' <doi:10.1007/978-1-4614-8456-1>, 'GGally'
-<doi:10.5281/zenodo.5009047> and 'ggpp'
-<https://CRAN.R-project.org/package=ggpp>.
+the 'ggplot2' package. This package imports functions from 'EnvStats'
+<doi:10.1007/978-1-4614-8456-1>, 'GGally' <doi:10.5281/zenodo.5009047> and
+'ggpp' <https://CRAN.R-project.org/package=ggpp> and then exports them.
+This package also contains modified code from 'ggquickeda'
+<https://CRAN.R-project.org/package=ggquickeda> for Kaplan-Meier lines and
+ticks additions to plots.  All functions are tested to make sure that they
+work reliably.
 
 %prep
 %setup -q -c -n %{packname}

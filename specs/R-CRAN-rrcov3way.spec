@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rrcov3way
-%global packver   0.2-5
+%global packver   0.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Methods for Multiway Data Analysis, Applicable also for Compositional Data
 
@@ -33,7 +33,10 @@ Provides methods for multiway data analysis by means of Parafac and Tucker
 3 models. Robust versions (Engelen and Hubert (2011)
 <doi:10.1016/j.aca.2011.04.043>) and versions for compositional data are
 also provided (Gallo (2015) <doi:10.1080/03610926.2013.798664>, Di Palma
-et al. (2018) <doi:10.1080/02664763.2017.1381669>.
+et al. (2018) <doi:10.1080/02664763.2017.1381669>). Several optimization
+methods alternative to ALS are available (Simonacci and Gallo (2019)
+<doi:10.1016/j.chemolab.2019.103822>, Simonacci and Gallo (2020)
+<doi:10.1007/s00500-019-04320-9>).
 
 %prep
 %setup -q -c -n %{packname}
