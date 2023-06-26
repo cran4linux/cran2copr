@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vcr
-%global packver   1.2.0
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Record 'HTTP' Calls to Disk
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crul >= 0.8
+BuildRequires:    R-CRAN-crul >= 0.8.4
 BuildRequires:    R-CRAN-webmockr >= 0.8.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-urltools 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-yaml
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-rprojroot 
-Requires:         R-CRAN-crul >= 0.8
+Requires:         R-CRAN-crul >= 0.8.4
 Requires:         R-CRAN-webmockr >= 0.8.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-urltools 

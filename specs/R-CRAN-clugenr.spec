@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clugenr
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Cluster Generation Using Support Lines
 
@@ -22,10 +22,10 @@ Requires:         R-CRAN-mathjaxr
 
 %description
 An implementation of the clugen algorithm for generating multidimensional
-clusters. Each cluster is supported by a line segment, the position,
-orientation and length of which guide where the respective points are
-placed. This package is described in Fachada & de Andrade (2023)
-<doi:10.48550/arXiv.2301.10327>.
+clusters with arbitrary distributions. Each cluster is supported by a line
+segment, the position, orientation and length of which guide where the
+respective points are placed. This package is described in Fachada & de
+Andrade (2023) <doi:10.48550/arXiv.2301.10327>.
 
 %prep
 %setup -q -c -n %{packname}
