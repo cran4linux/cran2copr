@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggbreak
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Set Axis Break for 'ggplot2'
 
@@ -18,15 +18,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-aplot >= 0.1.5
+BuildRequires:    R-CRAN-ggfun >= 0.1.1
 BuildRequires:    R-CRAN-ggplotify >= 0.0.7
-BuildRequires:    R-CRAN-ggfun >= 0.0.4
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-aplot >= 0.1.5
+Requires:         R-CRAN-ggfun >= 0.1.1
 Requires:         R-CRAN-ggplotify >= 0.0.7
-Requires:         R-CRAN-ggfun >= 0.0.4
 Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 

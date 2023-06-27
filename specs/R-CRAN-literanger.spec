@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inlpubs
-%global packver   1.0.6
+%global packname  literanger
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS INL Project Office Publications
+Summary:          Random Forests for Multiple Imputation Based on 'ranger'
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-cpp11 >= 0.4.3
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tm 
-Requires:         R-CRAN-checkmate 
 Requires:         R-stats 
-Requires:         R-CRAN-tm 
 
 %description
-Contains bibliographic information for the U.S. Geological Survey (USGS)
-Idaho National Laboratory (INL) Project Office.
+An updated implementation of R package 'ranger' by Wright et al, (2017)
+<doi:10.18637/jss.v077.i01> for training and predicting from random
+forests, particularly suited to high-dimensional data, and for embedding
+in 'Multiple Imputation by Chained Equations' (MICE) by van Buuren (2007)
+<doi:10.1177/0962280206074463>. Ensembles of classification and regression
+trees are currently supported. Sparse data of class 'dgCMatrix' (R package
+'Matrix') can be directly analyzed. Conventional bagged predictions are
+available alongside an efficient prediction for MICE via the algorithm
+proposed by Doove et al (2014) <doi:10.1016/j.csda.2013.10.025>. Survival
+and probability forests are not supported in the update, nor is data of
+class 'gwaa.data' (R package 'GenABEL'); use the original 'ranger' package
+for these analyses.
 
 %prep
 %setup -q -c -n %{packname}

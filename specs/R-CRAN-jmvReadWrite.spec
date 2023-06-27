@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jmvReadWrite
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write 'jamovi' Files ('.omv')
 
@@ -27,8 +27,8 @@ The free and open a statistical spreadsheet 'jamovi'
 (<https://www.jamovi.org>) aims to make statistical analyses easy and
 intuitive. 'jamovi' produces syntax that can directly be used in R (in
 connection with the R-package 'jmv'). Having import / export routines for
-the data files 'jamovi' produces ('.omv') permits an easy transfer of
-analyses between 'jamovi' and R.
+the data files 'jamovi' produces ('.omv') permits an easy transfer of data
+and analyses between 'jamovi' and R.
 
 %prep
 %setup -q -c -n %{packname}

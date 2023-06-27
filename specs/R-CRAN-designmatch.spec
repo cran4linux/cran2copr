@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  designmatch
-%global packver   0.4.1
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matched Samples that are Balanced and Representative by Design
 
@@ -20,11 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-slam 
-BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-highs 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-slam 
-Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-highs 
 
 %description
 Includes functions for the construction of matched samples that are
@@ -33,7 +33,7 @@ be used for matching in observational studies with treated and control
 units, with cases and controls, in related settings with instrumental
 variables, and in discontinuity designs.  Also, they can be used for the
 design of randomized experiments, for example, for matching before
-randomization.  By default, 'designmatch' uses the 'GLPK' optimization
+randomization.  By default, 'designmatch' uses the 'highs' optimization
 solver, but its performance is greatly enhanced by the 'Gurobi'
 optimization solver and its associated R interface.  For their
 installation, please follow the instructions at

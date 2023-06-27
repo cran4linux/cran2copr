@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inlpubs
-%global packver   1.0.6
+%global packname  EconGeo
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS INL Project Office Publications
+Summary:          Computing Key Indicators of the Spatial Distribution of Economic Activities
 
-License:          CC0
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.3.1
+Requires:         R-core >= 3.3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tm 
-Requires:         R-CRAN-checkmate 
-Requires:         R-stats 
-Requires:         R-CRAN-tm 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-reshape 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-reshape 
 
 %description
-Contains bibliographic information for the U.S. Geological Survey (USGS)
-Idaho National Laboratory (INL) Project Office.
+Computes a series of indices commonly used in the fields of economic
+geography, economic complexity, and evolutionary economics to describe the
+location, distribution, spatial organization, structure, and complexity of
+economic activities. Functions include basic spatial indicators such as
+the location quotient, the Krugman specialization index, the Herfindahl or
+the Shannon entropy indices but also more advanced functions to compute
+different forms of normalized relatedness between economic activities or
+network-based measures of economic complexity. Most of the functions use
+matrix calculus and are based on bipartite (incidence) matrices consisting
+of region - industry pairs. These are described in Balland (2017)
+<http://econ.geo.uu.nl/peeg/peeg1709.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

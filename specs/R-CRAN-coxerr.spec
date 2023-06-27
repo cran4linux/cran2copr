@@ -1,32 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inlpubs
-%global packver   1.0.6
+%global packname  coxerr
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS INL Project Office Publications
+Summary:          Cox Regression with Dependent Error in Covariates
 
-License:          CC0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tm 
-Requires:         R-CRAN-checkmate 
-Requires:         R-stats 
-Requires:         R-CRAN-tm 
+BuildRequires:    R-devel >= 2.8.0
+Requires:         R-core >= 2.8.0
 
 %description
-Contains bibliographic information for the U.S. Geological Survey (USGS)
-Idaho National Laboratory (INL) Project Office.
+Perform the functional modeling methods of Huang and Wang (2018)
+<doi:10.1111/biom.12741> to accommodate dependent error in covariates of
+the proportional hazards model. The adopted measurement error model has
+minimal assumptions on the dependence structure, and an instrumental
+variable is supposed to be available.
 
 %prep
 %setup -q -c -n %{packname}

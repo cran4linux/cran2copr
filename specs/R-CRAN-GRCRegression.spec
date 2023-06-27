@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inlpubs
-%global packver   1.0.6
+%global packname  GRCRegression
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS INL Project Office Publications
+Summary:          Modified Poisson Regression of Grouped and Right-Censored Counts
 
-License:          CC0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tm 
-Requires:         R-CRAN-checkmate 
-Requires:         R-stats 
-Requires:         R-CRAN-tm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-pracma 
 
 %description
-Contains bibliographic information for the U.S. Geological Survey (USGS)
-Idaho National Laboratory (INL) Project Office.
+Implement maximum likelihood estimation for Poisson generalized linear
+models with grouped and right-censored count data. Intended to be used for
+analyzing grouped and right-censored data, which is widely applied in many
+branches of social sciences. The algorithm implemented is described in Fu
+et al., (2021) <doi:10.1111/rssa.12678>.
 
 %prep
 %setup -q -c -n %{packname}

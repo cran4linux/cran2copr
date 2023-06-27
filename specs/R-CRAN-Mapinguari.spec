@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Mapinguari
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process-Based Biogeographical Analysis
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-testthat 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-testthat 

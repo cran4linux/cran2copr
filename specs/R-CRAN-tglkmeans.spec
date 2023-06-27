@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tglkmeans
-%global packver   0.3.8
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Implementation of K-Means++ Algorithm
 
@@ -44,8 +44,7 @@ Efficient implementation of K-Means++ algorithm. For more information see
 (1) "kmeans++ the advantages of the k-means++ algorithm" by David Arthur
 and Sergei Vassilvitskii (2007), Proceedings of the eighteenth annual
 ACM-SIAM symposium on Discrete algorithms, Society for Industrial and
-Applied Mathematics, Philadelphia, PA, USA, pp. 1027-1035,
-<http://ilpubs.stanford.edu:8090/778/1/2006-13.pdf>, and (2) "The
+Applied Mathematics, Philadelphia, PA, USA, pp. 1027-1035, and (2) "The
 Effectiveness of Lloyd-Type Methods for the k-Means Problem" by Rafail
 Ostrovsky, Yuval Rabani, Leonard J. Schulman and Chaitanya Swamy
 <doi:10.1145/2395116.2395117>.

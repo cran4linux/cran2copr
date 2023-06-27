@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  orders
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sampling from k-th Order Statistics of New Families of Distributions
 
@@ -19,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Newdistns 
 BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-VGAM 
 Requires:         R-CRAN-Newdistns 
 Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-VGAM 
 
 %description
 Set of tools to generate samples of k-th order statistics and others
@@ -31,20 +34,22 @@ size distributions in economics and actuarial sciences; Gentle, J. (2009),
 Computational Statistics, Springer-Verlag; Naradajah, S. and Rocha, R.
 (2016), <DOI:10.18637/jss.v069.i10> and Stasinopoulos, M. and Rigby, R.
 (2015), <DOI:10.1111/j.1467-9876.2005.00510.x>. The families of
-distributions are: Burr distributions, Feller-Pareto distributions,
-Generalized Pareto Distributions, The Inverse Paralogistic Distributions,
-Marshall-Olkin G distributions, exponentiated G distributions, beta G
-distributions, gamma G distributions, Kumaraswamy G distributions,
-generalized beta G distributions, beta extended G distributions, gamma G
-distributions, gamma uniform G distributions, beta exponential G
-distributions, Weibull G distributions, log gamma G I distributions, log
-gamma G II distributions, exponentiated generalized G distributions,
-exponentiated Kumaraswamy G distributions, geometric exponential Poisson G
-distributions, truncated-exponential skew-symmetric G distributions,
-modified beta G distributions, exponentiated exponential Poisson G
-distributions, Poisson-inverse gaussian distribution, Skew normal type 1
-distributions, Skew student t distribution, Sinh-Arcsinh distribution,
-Sichel distribution, Zero inflated Poisson.
+distributions are: Benini distributions, Burr distributions, Dagum
+distributions, Feller-Pareto distributions, Generalized Pareto
+distributions, Inverse Pareto distributions, The Inverse Paralogistic
+distributions, Marshall-Olkin G distributions, exponentiated G
+distributions, beta G distributions, gamma G distributions, Kumaraswamy G
+distributions, generalized beta G distributions, beta extended G
+distributions, gamma G distributions, gamma uniform G distributions, beta
+exponential G distributions, Weibull G distributions, log gamma G I
+distributions, log gamma G II distributions, exponentiated generalized G
+distributions, exponentiated Kumaraswamy G distributions, geometric
+exponential Poisson G distributions, truncated-exponential skew-symmetric
+G distributions, modified beta G distributions, exponentiated exponential
+Poisson G distributions, Poisson-inverse gaussian distributions, Skew
+normal type 1 distributions, Skew student t distributions, Singh-Maddala
+distributions, Sinh-Arcsinh distributions, Sichel distributions, Zero
+inflated Poisson distributions.
 
 %prep
 %setup -q -c -n %{packname}
