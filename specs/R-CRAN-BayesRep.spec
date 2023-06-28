@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rconfig
-%global packver   0.3.0
+%global packname  BayesRep
+%global packver   0.42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.42
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manage R Configuration at the Command Line
+Summary:          Bayesian Analysis of Replication Studies
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lamW 
+BuildRequires:    R-CRAN-hypergeo 
+Requires:         R-CRAN-lamW 
+Requires:         R-CRAN-hypergeo 
 
 %description
-Configuration management using files (YAML, JSON, INI, TXT), JSON strings,
-and command line arguments. Command line arguments can be used to override
-configuration. Period-separated command line flags are parsed as
-hierarchical lists. Environment variables, R global variables, and
-configuration values can be substituted.
+Provides tools for the analysis of replication studies using Bayes factors
+(Pawel and Held, 2022) <doi:10.1111/rssb.12491>.
 
 %prep
 %setup -q -c -n %{packname}

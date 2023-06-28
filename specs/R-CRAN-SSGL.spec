@@ -1,54 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ChainLadder
-%global packver   0.2.18
+%global packname  SSGL
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.18
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods and Models for Claims Reserving in General Insurance
+Summary:          Spike-and-Slab Group Lasso for Group-Regularized Generalized Linear Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cplm >= 0.7.3
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-systemfit 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-cplm >= 0.7.3
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-actuar 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-grpreg 
 Requires:         R-stats 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-CRAN-tweedie 
-Requires:         R-utils 
-Requires:         R-CRAN-systemfit 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-grpreg 
 
 %description
-Various statistical methods and models which are typically used for the
-estimation of outstanding claims reserves in general insurance, including
-those to estimate the claims development result as required under Solvency
-II.
+Fits group-regularized generalized linear models (GLMs) using the
+spike-and-slab group lasso (SSGL) prior introduced by Bai et al. (2022)
+<doi:10.1080/01621459.2020.1765784> and extended to GLMs by Bai (2023)
+<arXiv:2007.07021>. This package supports fitting the SSGL model for the
+following GLMs with group sparsity: Gaussian linear regression, binary
+logistic regression, Poisson regression, negative binomial regression, and
+gamma regression. Stand-alone functions for group-regularized negative
+binomial regression and group-regularized gamma regression are also
+available, with the option of employing the group lasso penalty of Yuan
+and Lin (2006) <doi:10.1111/j.1467-9868.2005.00532.x>, the group minimax
+concave penalty (MCP) of Breheny and Huang
+<doi:10.1007/s11222-013-9424-2>, or the group smoothly clipped absolute
+deviation (SCAD) penalty of Breheny and Huang (2015)
+<doi:10.1007/s11222-013-9424-2>.
 
 %prep
 %setup -q -c -n %{packname}

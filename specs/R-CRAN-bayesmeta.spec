@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesmeta
-%global packver   3.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Random-Effects Meta-Analysis and Meta-Regression
 
@@ -33,7 +33,7 @@ and providing functionality to evaluate joint and marginal posterior
 probability distributions, predictive distributions, shrinkage effects,
 posterior predictive p-values, etc.; For more details, see also Roever C
 (2020) <doi:10.18637/jss.v093.i06>, or Roever C and Friede T (2022)
-<arXiv:2209.06004>.
+<doi:10.1016/j.cmpb.2022.107303>.
 
 %prep
 %setup -q -c -n %{packname}

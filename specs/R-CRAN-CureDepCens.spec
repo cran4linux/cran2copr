@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rconfig
-%global packver   0.3.0
+%global packname  CureDepCens
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manage R Configuration at the Command Line
+Summary:          Dependent Censoring Regression Models with Cure Fraction
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dlm 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dlm 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-stats 
 
 %description
-Configuration management using files (YAML, JSON, INI, TXT), JSON strings,
-and command line arguments. Command line arguments can be used to override
-configuration. Period-separated command line flags are parsed as
-hierarchical lists. Environment variables, R global variables, and
-configuration values can be substituted.
+Cure dependent censoring regression models for long-term survival
+multivariate data. These models are based on extensions of the frailty
+models, capable to accommodating the cure fraction and the dependence
+between failure and censoring times, with Weibull and piecewise
+exponential marginal distributions. Theoretical details regarding the
+models implemented in the package can be found in Schneider et al. (2022)
+<doi:10.1007/s10651-022-00549-0>.
 
 %prep
 %setup -q -c -n %{packname}

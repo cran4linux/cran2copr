@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rconfig
-%global packver   0.3.0
+%global packname  rMultiNet
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manage R Configuration at the Command Line
+Summary:          Multi-Layer Networks Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-geigen 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-geigen 
+Requires:         R-CRAN-glmnet 
+Requires:         R-graphics 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-rTensor 
+Requires:         R-stats 
 
 %description
-Configuration management using files (YAML, JSON, INI, TXT), JSON strings,
-and command line arguments. Command line arguments can be used to override
-configuration. Period-separated command line flags are parsed as
-hierarchical lists. Environment variables, R global variables, and
-configuration values can be substituted.
+Provides two general frameworks to generate a multi-layer network. This
+also provides several methods to reveal the embedding of both nodes and
+layers. The reference paper can be found from the URL mentioned below.
+Ting Li, Zhongyuan Lyu, Chenyu Ren, Dong Xia (2023) <arXiv:2302.04437>.
 
 %prep
 %setup -q -c -n %{packname}

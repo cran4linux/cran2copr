@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  saemix
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Approximation Expectation Maximization (SAEM) Algorithm
 
@@ -24,6 +25,9 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-npde >= 3.2
 Requires:         R-graphics 
 Requires:         R-stats 
@@ -32,6 +36,9 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-MASS 
 
 %description
 The 'saemix' package implements the Stochastic Approximation EM algorithm

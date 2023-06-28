@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SmoothHazard
-%global packver   2022.08.23
+%global packver   2023.06.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.08.23
+Version:          2023.06.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Smooth Hazard Models for Interval-Censored Data with Applications to Survival and Illness-Death Models
 

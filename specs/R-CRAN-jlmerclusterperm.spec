@@ -1,33 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rconfig
-%global packver   0.3.0
+%global packname  jlmerclusterperm
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manage R Configuration at the Command Line
+Summary:          Cluster-Based Permutation Analysis for Densely Sampled Time Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-JuliaConnectoR 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-JuliaConnectoR 
+Requires:         R-CRAN-lme4 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Configuration management using files (YAML, JSON, INI, TXT), JSON strings,
-and command line arguments. Command line arguments can be used to override
-configuration. Period-separated command line flags are parsed as
-hierarchical lists. Environment variables, R global variables, and
-configuration values can be substituted.
+An implementation of fast cluster-based permutation analysis (CPA) for
+densely-sampled time data developed in Maris & Oostenveld, 2007
+<doi:10.1016/j.jneumeth.2007.03.024>. Supports (generalized,
+mixed-effects) regression models for the calculation of timewise
+statistics. Provides both a wholesale and a piecemeal interface to the CPA
+procedure with an emphasis on interpretability and diagnostics. Integrates
+'Julia' libraries 'MixedModels.JL' and 'GLM.JL' for performance
+improvements, with additional functionalities for interfacing with 'Julia'
+from 'R' powered by the 'JuliaConnectoR' package.
 
 %prep
 %setup -q -c -n %{packname}

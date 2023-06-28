@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rconfig
-%global packver   0.3.0
+%global packname  testCompareR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manage R Configuration at the Command Line
+Summary:          Comparing Two Diagnostic Tests with Dichotomous Results using Paired Data
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Configuration management using files (YAML, JSON, INI, TXT), JSON strings,
-and command line arguments. Command line arguments can be used to override
-configuration. Period-separated command line flags are parsed as
-hierarchical lists. Environment variables, R global variables, and
-configuration values can be substituted.
+Provides a method for comparing the results of two binary diagnostic tests
+using paired data. Users can rapidly perform descriptive and inferential
+statistics in a single function call. Options permit users to select which
+parameters they are interested in comparing and methods for correction for
+multiple comparisons. Confidence intervals are calculated using the
+methods with the best coverage. Hypothesis tests use the methods with the
+best asymptotic performance. A summary of the methods is available in
+Roldán-Nofuentes (2020) <doi:10.1186/s12874-020-00988-y>. This package is
+targeted at clinical researchers who want to rapidly and effectively
+compare results from binary diagnostic tests.
 
 %prep
 %setup -q -c -n %{packname}

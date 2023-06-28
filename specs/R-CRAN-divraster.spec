@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rconfig
-%global packver   0.3.0
+%global packname  divraster
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manage R Configuration at the Command Line
+Summary:          Diversity Metrics Calculations for Rasterized Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-BAT 
+BuildRequires:    R-CRAN-SESraster 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-BAT 
+Requires:         R-CRAN-SESraster 
+Requires:         R-stats 
+Requires:         R-CRAN-terra 
+Requires:         R-utils 
 
 %description
-Configuration management using files (YAML, JSON, INI, TXT), JSON strings,
-and command line arguments. Command line arguments can be used to override
-configuration. Period-separated command line flags are parsed as
-hierarchical lists. Environment variables, R global variables, and
-configuration values can be substituted.
+Alpha and beta diversity for taxonomic (TD), functional (FD), and
+phylogenetic (PD) dimensions based on rasters. Spatial and temporal beta
+diversity can be partitioned into replacement and richness difference
+components. It also calculates standardized effect size for FD and PD
+alpha diversity and the average individual traits across multilayer
+rasters. The layers of the raster represent species, while the cells
+represent communities. Methods details can be found at Cardoso et al. 2022
+<https://CRAN.R-project.org/package=BAT> and Heming et al. 2023
+<https://CRAN.R-project.org/package=SESraster>.
 
 %prep
 %setup -q -c -n %{packname}
