@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  IsoMemo
-%global packver   1.0.6
+%global __requires_exclude ^libmpi
+%global packname  script
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data using the 'IsoMemo' API
+Summary:          Identify Script Name
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-modules 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-modules 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-API wrapper that contains functions to retrieve data from the 'IsoMemo'
-partnership databases. Web services for API:
-<https://isomemodb.com/api/v1/iso-data>.
+Identifies the name of the current script in a variety of contexts, e.g.
+interactively or when sourced.  Attempts to support RStudio environment.
+Based on <https://stackoverflow.com/a/32016824/2292993> and
+<https://stackoverflow.com/a/35842176/2292993>.
 
 %prep
 %setup -q -c -n %{packname}
