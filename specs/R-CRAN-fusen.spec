@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fusen
-%global packver   0.4.2
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build a Package from Rmarkdown Files
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-desc
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringi 
@@ -33,6 +34,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-usethis >= 2.0.0
 Requires:         R-CRAN-here >= 1.0.0
 Requires:         R-CRAN-parsermd >= 0.1.0
@@ -42,6 +44,7 @@ Requires:         R-CRAN-desc
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-roxygen2 
 Requires:         R-stats 
 Requires:         R-CRAN-stringi 
@@ -49,6 +52,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
 Use Rmarkdown First method to build your package. Start your package with

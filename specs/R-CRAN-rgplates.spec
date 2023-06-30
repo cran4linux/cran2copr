@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgplates
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface for the GPlates Web Service and Desktop Application
 
@@ -19,10 +19,8 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-sf 
 Requires:         R-methods 
-Requires:         R-utils 
 
 %description
 Query functions to the GPlates <https://www.gplates.org/> Desktop
@@ -36,8 +34,8 @@ external installation of the GPlates Desktop Application, but allows the
 efficient batch rotation of thousands of coordinates, Simple Features (sf)
 and Spatial (sp) objects with custom reconstruction trees and partitioning
 polygons. Examples of such plate tectonic models are accessible via the
-chronosphere-portal <https://cran.r-project.org/package=chronosphere>.
-This R extension is developed under the umbrella of the DFG (Deutsche
+chronosphere <https://cran.r-project.org/package=chronosphere>. This R
+extension is developed under the umbrella of the DFG (Deutsche
 Forschungsgemeinschaft) Research Unit TERSANE2 (For 2332, TEmperature
 Related Stressors in ANcient Extinctions).
 

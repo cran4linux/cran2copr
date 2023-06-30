@@ -1,39 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flightsbr
-%global packver   0.3.0
+%global packname  SEARS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Flight and Airport Data from Brazil
+Summary:          Seamless Dose Escalation/Expansion with Adaptive Randomization Scheme
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-parzer 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-parzer 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-CRAN-BOIN 
+Requires:         R-CRAN-BOIN 
 
 %description
-Download flight and airport data from Brazil’s Civil Aviation Agency
-(ANAC) <https://www.gov.br/anac>. The data includes detailed information
-on all aircrafts, aerodromes, airports, and airport movements registered
-in ANAC, on airfares and on every international flight to and from Brazil,
-as well as domestic flights within the country.
+A seamless design that combines phase I dose escalation based on toxicity
+with phase II dose expansion and dose comparison based on efficacy.
 
 %prep
 %setup -q -c -n %{packname}

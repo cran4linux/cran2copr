@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdalraster
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to the 'Geospatial Data Abstraction Library' Raster API
 
@@ -17,11 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
 
@@ -41,9 +47,9 @@ hash table; a raster overlay utility to identify and count unique
 combinations across multiple inputs; and a calculation utility for
 evaluating an R expression on raster layers with pixel coordinates
 available as variables. 'gdalraster' may be suitable for applications that
-primarily need low-level raster I/O, explicit manipulation of VRT format,
-or prefer native 'GDAL'-like calling. Additional functionality is somewhat
-aimed at thematic data analysis but may have other utility.
+primarily need low-level raster I/O or prefer native 'GDAL'-like calling.
+Additional functionality is somewhat aimed at thematic data analysis but
+may have other utility.
 
 %prep
 %setup -q -c -n %{packname}

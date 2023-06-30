@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robStepSplitReg
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Stepwise Split Regularized Regression
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-cellWise 
-BuildRequires:    R-CRAN-pense 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-cellWise 
-Requires:         R-CRAN-pense 
+Requires:         R-CRAN-glmnet 
 
 %description
 Functions to perform robust stepwise split regularized regression. The

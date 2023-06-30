@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IDSL.FSA
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fragmentation Spectra Analysis (FSA)
 
@@ -26,7 +26,7 @@ Euclidean mass error (NEME) followed by intelligent pre-filtering steps
 for rapid spectra searches. 'IDSL.FSA' also provides a number of modules
 to convert and manipulate .msp and .mgf files. The 'IDSL.FSA' workflow was
 integrated in the 'IDSL.CSA' and 'IDSL.NPA' packages introduced in
-<doi:10.1101/2023.02.09.527886>.
+<doi:10.1021/acs.analchem.3c00376>.
 
 %prep
 %setup -q -c -n %{packname}

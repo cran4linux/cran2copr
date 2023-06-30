@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doudpackage
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Elegant Table 1 in HTML/'LaTeX' for Bio-Statistics
+Summary:          Create Elegant Table 1 in HTML for Bio-Statistics
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringi 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-tidyr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-CRAN-stringi 

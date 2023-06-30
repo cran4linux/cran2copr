@@ -1,39 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flightsbr
-%global packver   0.3.0
+%global packname  minioclient
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Flight and Airport Data from Brazil
+Summary:          Interface to the 'MinIO' Client
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-parzer 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-parzer 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-processx 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-processx 
 
 %description
-Download flight and airport data from Brazil’s Civil Aviation Agency
-(ANAC) <https://www.gov.br/anac>. The data includes detailed information
-on all aircrafts, aerodromes, airports, and airport movements registered
-in ANAC, on airfares and on every international flight to and from Brazil,
-as well as domestic flights within the country.
+An R interface to the 'MinIO' Client. The 'MinIO' Client ('mc') provides a
+modern alternative to UNIX commands like 'ls', 'cat', 'cp', 'mirror',
+'diff', 'find' etc. It supports 'filesystems' and Amazon "S3" compatible
+cloud storage service ("AWS" Signature v2 and v4). This package provides
+convenience functions for installing the 'MinIO' client and running any
+operations, as described in the official documentation,
+<https://min.io/docs/minio/linux/reference/minio-mc.html?ref=docs-redirect>.
+This package provides a flexible and high-performance alternative to
+'aws.s3'.
 
 %prep
 %setup -q -c -n %{packname}

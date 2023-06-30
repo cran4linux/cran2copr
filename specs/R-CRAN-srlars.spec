@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flightsbr
-%global packver   0.3.0
+%global packname  srlars
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Flight and Airport Data from Brazil
+Summary:          Split Robust Least Angle Regression
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-parzer 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-parzer 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-CRAN-cellWise 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-cellWise 
+Requires:         R-CRAN-glmnet 
 
 %description
-Download flight and airport data from Brazil’s Civil Aviation Agency
-(ANAC) <https://www.gov.br/anac>. The data includes detailed information
-on all aircrafts, aerodromes, airports, and airport movements registered
-in ANAC, on airfares and on every international flight to and from Brazil,
-as well as domestic flights within the country.
+Functions to perform split robust least angle regression. The approach
+first uses the least angle regression algorithm to split the variables
+into the models of an ensemble and robust estimates of the correlation
+between predictors. An elastic net estimator is then applied to the
+selected predictors in each model using the imputed data from the detect
+deviating cell (DDC) method.
 
 %prep
 %setup -q -c -n %{packname}

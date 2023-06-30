@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flightsbr
-%global packver   0.3.0
+%global packname  rsmatch
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Flight and Airport Data from Brazil
+Summary:          Matching Methods for Time-Varying Observational Studies
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,23 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-parzer 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-parzer 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
 
 %description
-Download flight and airport data from Brazil’s Civil Aviation Agency
-(ANAC) <https://www.gov.br/anac>. The data includes detailed information
-on all aircrafts, aerodromes, airports, and airport movements registered
-in ANAC, on airfares and on every international flight to and from Brazil,
-as well as domestic flights within the country.
+Implements popular methods for matching in time-varying observational
+studies. Matching is difficult in this scenario because participants can
+be treated at different times which may have an influence on the outcomes.
+The core methods include: "Balanced Risk Set Matching" from Li, Propert,
+and Rosenbaum (2011) <doi:10.1198/016214501753208573> and "Propensity
+Score Matching with Time-Dependent Covariates" from Lu (2005)
+<doi:10.1111/j.1541-0420.2005.00356.x>. Some functions use the 'Gurobi'
+optimization back-end to improve the optimization problem speed; the
+'gurobi' R package and associated software can be downloaded from
+<https://www.gurobi.com> after obtaining a license.
 
 %prep
 %setup -q -c -n %{packname}

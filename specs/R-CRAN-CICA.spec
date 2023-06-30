@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CICA
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clusterwise Independent Component Analysis
 
@@ -17,9 +18,27 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ica 
-BuildRequires:    R-CRAN-NMFN 
+BuildRequires:    R-CRAN-RNifti 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-multiway 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-neurobase 
+BuildRequires:    R-CRAN-oro.nifti 
+BuildRequires:    R-CRAN-servr 
+BuildRequires:    R-CRAN-htmltools 
 Requires:         R-CRAN-ica 
-Requires:         R-CRAN-NMFN 
+Requires:         R-CRAN-RNifti 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-multiway 
+Requires:         R-methods 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-neurobase 
+Requires:         R-CRAN-oro.nifti 
+Requires:         R-CRAN-servr 
+Requires:         R-CRAN-htmltools 
 
 %description
 Clustering multi-subject resting state functional Magnetic Resonance
@@ -37,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

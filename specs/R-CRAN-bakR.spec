@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bakR
-%global packver   0.4.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze and Compare Nucleotide Recoding RNA Sequencing Datasets
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Hmisc 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-methods 
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Hmisc 
@@ -50,7 +52,7 @@ Requires:         R-CRAN-rstantools
 Several implementations of a novel Bayesian hierarchical statistical model
 of nucleotide recoding RNA-seq experiments (NR-seq; TimeLapse-seq,
 SLAM-seq, TUC-seq, etc.) for analyzing and comparing NR-seq datasets (see
-'Vock and Simon' (2022) <doi:10.1101/2022.09.02.505697>). NR-seq is a
+'Vock and Simon' (2023) <doi:10.1261/rna.079451.122>). NR-seq is a
 powerful extension of RNA-seq that provides information about the kinetics
 of RNA metabolism (e.g., RNA degradation rate constants), which is notably
 lacking in standard RNA-seq data. The statistical model makes maximal use

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readysignal
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Ready Signal' API Wrapper
 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-progress
 A simple way to interact with the 'Ready Signal' API without leaving your
 'R' environment. Discover features, manage signals, and retrieve data
 easily. View the full API documentation at
-<https://readysignal.com/ready-signal-api-documentation>.
+<https://readysignal.com/ready-signal-api-documentation/>.
 
 %prep
 %setup -q -c -n %{packname}

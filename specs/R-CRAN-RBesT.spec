@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RBesT
-%global packver   1.6-6
+%global packver   1.6-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          1.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Bayesian Evidence Synthesis Tools
 
@@ -18,9 +18,9 @@ Requires:         pandoc
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstantools >= 2.3.1
 BuildRequires:    R-CRAN-rstan >= 2.19.3
 BuildRequires:    R-CRAN-StanHeaders >= 2.19.0
-BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-BH >= 1.72.0
 BuildRequires:    R-CRAN-bayesplot >= 1.4.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
@@ -37,8 +37,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstantools >= 2.3.1
 Requires:         R-CRAN-rstan >= 2.19.3
-Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-bayesplot >= 1.4.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 

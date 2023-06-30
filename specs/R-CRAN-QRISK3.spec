@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QRISK3
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          10-Year Cardiovascular Disease Risk Calculator (QRISK3 2017)
 
@@ -20,8 +20,9 @@ BuildArch:        noarch
 
 %description
 This function aims to calculate risk of developing cardiovascular disease
-of individual patients in next 10 years. The package was based on
-published risk prediction algorithm <https://qrisk.org/three/src.php>.
+of individual patients in next 10 years. This unofficial package was based
+on published open-sourced free risk prediction algorithm QRISK3-2017
+<https://qrisk.org/src.php>.
 
 %prep
 %setup -q -c -n %{packname}

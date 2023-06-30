@@ -1,51 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hgnc
-%global packver   0.1.3
+%global packname  respR
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Import the HUGO Gene Nomenclature Committee ('HGNC') Data Set into R
+Summary:          Import, Process, Analyse, and Calculate Rates from Respirometry Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-marelac 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-roll 
+BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-glue 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-marelac 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-roll 
+Requires:         R-CRAN-segmented 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-A set of routines to quickly download and import the 'HGNC' data set on
-mapping of gene symbols to gene entries in other popular databases or
-resources.
+Provides a structural, reproducible workflow for the processing and
+analysis of respirometry data. It contains analytical functions and
+utilities for working with oxygen time-series to determine respiration or
+oxygen production rates, and to make it easier to report and share
+analyses. See Harianto et al. 2019 <doi:10.1111/2041-210X.13162>.
 
 %prep
 %setup -q -c -n %{packname}

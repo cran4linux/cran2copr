@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IDSL.CSA
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite Spectra Analysis (CSA) for High-Resolution Mass Spectrometry Analyses
 
@@ -34,7 +34,7 @@ deconvolute fragmentation spectra from Composite Spectra Analysis (CSA),
 Data Dependent Acquisition (DDA) analysis, and various Data-Independent
 Acquisition (DIA) methods such as MS^E, All-Ion Fragmentation (AIF) and
 SWATH-MS analysis. The 'IDSL.CSA' package was introduced in
-<doi:10.1101/2023.02.09.527886>.
+<doi:10.1021/acs.analchem.3c00376>.
 
 %prep
 %setup -q -c -n %{packname}

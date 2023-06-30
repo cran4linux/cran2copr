@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   6.2
+%global packver   6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2
+Version:          6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -93,7 +93,7 @@ without zero values. Journal of Data Science, 17(1): 219--238.
 A folded model for compositional data analysis. Australian and New Zealand
 Journal of Statistics, 62(2):249--277. <doi:10.1111/anzs.12289>. j)
 Alenazi A. (2021). Alenazi, A. (2021). A review of compositional data
-analysis and recent advances. Communications in Statistics-Theory and
+analysis and recent advances. Communications in Statistics--Theory and
 Methods (Accepted for publication). <doi:10.1080/03610926.2021.2014890>.
 k) Alenazi, A. A. (2022). f-divergence regression models for compositional
 data. Pakistan Journal of Statistics and Operation Research, 867--882.
