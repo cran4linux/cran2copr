@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  APIS
-%global packver   2.0.1
+%global packname  GenoTriplo
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Auto-Adaptive Parentage Inference Software Tolerant to Missing Parents
+Summary:          Genotyping Triploids (or Diploids) from Luminescence Data
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,42 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rmixmod 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-htmltools 
-Requires:         R-methods 
-Requires:         R-CRAN-plotly 
+Requires:         R-parallel 
+Requires:         R-CRAN-processx 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rmixmod 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-tidyr 
 
 %description
-Parentage assignment package. Parentage assignment is performed based on
-observed average Mendelian transmission probability distributions or
-Exclusion. The main functions of this package are the function APIS_2n(),
-APIS_3n and launch_APIShiny(), which perform parentage assignment.
+Genotyping of triploid individuals from luminescence data (marker probeset
+A and B). Works also for diploids. Two main functions: Run_Clustering()
+that regroups individuals with a same genotype based on proximity and
+Run_Genotyping() that assigns a genotype to each cluster. For Shiny
+interface use: launch_GenoShiny().
 
 %prep
 %setup -q -c -n %{packname}

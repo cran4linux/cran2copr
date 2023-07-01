@@ -1,39 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MCMCglmm
-%global packver   2.35
+%global packname  rirods
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.35
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Generalised Linear Mixed Models
+Summary:          R Client for 'iRODS'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-tensorA 
-BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 0.2.2
+BuildRequires:    R-CRAN-askpass 
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-tensorA 
-Requires:         R-CRAN-cubature 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-httr2 >= 0.2.2
+Requires:         R-CRAN-askpass 
+Requires:         R-CRAN-base64enc 
 Requires:         R-methods 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Fits Multivariate Generalised Linear Mixed Models (and related models)
-using Markov chain Monte Carlo techniques (Hadfield 2010 J. Stat. Soft.).
+The open sourced data management software 'Integrated Rule-Oriented Data
+System' ('iRODS') offers solutions for the whole data life cycle
+(<https://irods.org/>). The loosely constructed and highly configurable
+architecture of 'iRODS' frees the user from strict formatting constraints
+and single-vendor solutions. This package provides an interface to the
+'iRODS' REST API, allowing you to manage your data and metadata in 'iRODS'
+with R. Storage of annotated files and R objects in 'iRODS' ensures
+findability, accessibility, interoperability, and reusability of data.
 
 %prep
 %setup -q -c -n %{packname}

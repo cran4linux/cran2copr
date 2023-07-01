@@ -1,57 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  APIS
-%global packver   2.0.1
+%global packname  corrViz
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Auto-Adaptive Parentage Inference Software Tolerant to Missing Parents
+Summary:          Visualise Correlations
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-DendSer 
+BuildRequires:    R-CRAN-gganimate 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-circlize 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
-Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-htmltools 
-Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-CRAN-visNetwork 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-DendSer 
+Requires:         R-CRAN-gganimate 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-circlize 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
 
 %description
-Parentage assignment package. Parentage assignment is performed based on
-observed average Mendelian transmission probability distributions or
-Exclusion. The main functions of this package are the function APIS_2n(),
-APIS_3n and launch_APIShiny(), which perform parentage assignment.
+An investigative tool designed to help users visualize correlations
+between variables in their datasets. This package aims to provide an easy
+and effective way to explore and visualize these correlations, making it
+easier to interpret and communicate results.
 
 %prep
 %setup -q -c -n %{packname}

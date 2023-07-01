@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rerddap
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Purpose Client for 'ERDDAP' Servers
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
 BuildRequires:    R-CRAN-ncdf4 >= 1.16
 BuildRequires:    R-CRAN-data.table >= 1.12.0
-BuildRequires:    R-CRAN-crul >= 0.7
+BuildRequires:    R-CRAN-crul >= 0.7.4
 BuildRequires:    R-CRAN-hoardr >= 0.5.2
 BuildRequires:    R-CRAN-dplyr >= 0.5.0
 BuildRequires:    R-utils 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-xml2 >= 1.2.0
 Requires:         R-CRAN-ncdf4 >= 1.16
 Requires:         R-CRAN-data.table >= 1.12.0
-Requires:         R-CRAN-crul >= 0.7
+Requires:         R-CRAN-crul >= 0.7.4
 Requires:         R-CRAN-hoardr >= 0.5.2
 Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-utils 

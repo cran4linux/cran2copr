@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gmailr
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the 'Gmail' 'RESTful' API
 
@@ -13,26 +14,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gargle >= 1.5.1
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-gargle 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-rematch2 
+Requires:         R-CRAN-gargle >= 1.5.1
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-gargle 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mime 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-rematch2 
 
 %description

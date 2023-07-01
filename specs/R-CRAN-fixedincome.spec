@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dvir
-%global packver   3.0.1
+%global packname  fixedincome
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Disaster Victim Identification
+Summary:          Fixed Income Models, Calculations, Data Structures and Instruments
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 2.2.0
-BuildRequires:    R-CRAN-forrel >= 1.5.2
-BuildRequires:    R-CRAN-pedprobr >= 0.8.0
-Requires:         R-CRAN-pedtools >= 2.2.0
-Requires:         R-CRAN-forrel >= 1.5.2
-Requires:         R-CRAN-pedprobr >= 0.8.0
+BuildRequires:    R-CRAN-bizdays >= 1.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-bizdays >= 1.0.0
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 
 %description
-Joint DNA-based disaster victim identification (DVI), as described in
-Vigeland and Egeland (2021) <doi:10.21203/rs.3.rs-296414/v1>.
-Identification is performed by optimising the joint likelihood of all
-victim samples and reference individuals. Individual identification
-probabilities, conditional on all available information, are derived from
-the joint solution in the form of posterior pairing probabilities. 'dvir'
-is part of the 'pedsuite' collection of packages for pedigree analysis.
+Fixed income mathematics made easy. A rich set of functions that helps
+with calculations of interest rates and fixed income. It has objects that
+abstract interest rates, compounding factors, day count rules, forward
+rates and term structure of interest rates. Many interpolation methods and
+parametric curve models commonly used by practitioners are implemented.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bfsMaps
-%global packver   0.9.8
+%global packver   1.99.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          1.99.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Maps from Switzerland by Swiss Federal Statistical Office
 
@@ -19,40 +19,27 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-base 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-base 
 Requires:         R-stats 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-DescTools 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-sf 
 
 %description
 At the Swiss Federal Statistical Office (SFSO), spatial maps of
 Switzerland are available free of charge as 'Cartographic bases for
 small-scale thematic mapping'. This package contains convenience functions
 to import ESRI (Environmental Systems Research Institute) shape files
-using the package 'rgdal' and to plot them easily and quickly without
-having to worry too much about the technical details. It contains
-utilities to combine multiple areas to one single polygon and to find
-neighbours for single regions. For any point on a map, a special locator
-can be used to determine to which municipality, district or canton it
-belongs.
+using the package 'sf' and to plot them easily and quickly without having
+to worry too much about the technical details. It contains utilities to
+combine multiple areas to one single polygon and to find neighbours for
+single regions. For any point on a map, a special locator can be used to
+determine to which municipality, district or canton it belongs.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admisc
-%global packver   0.32
+%global packver   0.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.32
+Version:          0.33
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adrian Dusa's Miscellaneous
 
@@ -28,7 +28,7 @@ functions perform various other checks if possibly numeric (even if all
 numbers reside in a character vector) and coerce to numeric, or check if
 the numbers are whole. It also offers, among many others, a highly
 versatile recoding routine and some more flexible alternatives to the base
-function 'with()' and 'within()'. SOP simplification functions in this
+functions 'with()' and 'within()'. SOP simplification functions in this
 package use related minimization from package 'QCA', which is recommended
 to be installed despite not being listed in the Imports field, due to
 circular dependency issues.

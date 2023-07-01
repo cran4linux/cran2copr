@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sphereTessellation
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Delaunay and Voronoï Tessellations on the Sphere
 
@@ -20,7 +20,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-randomcoloR 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-s2 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppCGAL 
 BuildRequires:    R-CRAN-RcppEigen 
@@ -28,7 +27,6 @@ Requires:         R-grDevices
 Requires:         R-CRAN-randomcoloR 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-s2 
 
 %description
 Performs Delaunay and Voronoï tessellations on spheres and provides some

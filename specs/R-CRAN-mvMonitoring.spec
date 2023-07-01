@@ -1,54 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cubble
-%global packver   0.3.0
+%global packname  mvMonitoring
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Vector Spatio-Temporal Data Structure for Data Analysis
+Summary:          Multi-State Adaptive Dynamic Principal Component Analysis for Multivariate Process Monitoring
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-tsibble 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-tsibble 
-Requires:         R-CRAN-vctrs 
+Requires:         R-utils 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-robustbase 
+Requires:         R-graphics 
 
 %description
-A spatiotemperal data object in a relational data structure to separate
-the recording of time variant/ invariant variables.
+Use multi-state splitting to apply Adaptive-Dynamic PCA (ADPCA) to data
+generated from a continuous-time multivariate industrial or natural
+process. Employ PCA-based dimension reduction to extract linear
+combinations of relevant features, reducing computational burdens. For a
+description of ADPCA, see <doi:10.1007/s00477-016-1246-2>, the 2016 paper
+from Kazor et al. The multi-state application of ADPCA is from a
+manuscript under current revision entitled "Multi-State Multivariate
+Statistical Process Control" by Odom, Newhart, Cath, and Hering, and is
+expected to appear in Q1 of 2018.
 
 %prep
 %setup -q -c -n %{packname}

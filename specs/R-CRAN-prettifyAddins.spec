@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  prettifyAddins
-%global packver   2.5.0
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addins to Prettify 'JavaScript', 'C++', 'Python', and More
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-chromote 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-shiny 
@@ -24,6 +26,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-webdriver 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-XRJulia 
+Requires:         R-CRAN-chromote 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-shiny 

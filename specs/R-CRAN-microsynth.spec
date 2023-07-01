@@ -1,37 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dvir
-%global packver   3.0.1
+%global packname  microsynth
+%global packver   2.0.44
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          2.0.44
 Release:          1%{?dist}%{?buildtag}
-Summary:          Disaster Victim Identification
+Summary:          Synthetic Control Methods with Micro- And Meso-Level Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 2.2.0
-BuildRequires:    R-CRAN-forrel >= 1.5.2
-BuildRequires:    R-CRAN-pedprobr >= 0.8.0
-Requires:         R-CRAN-pedtools >= 2.2.0
-Requires:         R-CRAN-forrel >= 1.5.2
-Requires:         R-CRAN-pedprobr >= 0.8.0
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-kernlab 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-survey 
+Requires:         R-utils 
 
 %description
-Joint DNA-based disaster victim identification (DVI), as described in
-Vigeland and Egeland (2021) <doi:10.21203/rs.3.rs-296414/v1>.
-Identification is performed by optimising the joint likelihood of all
-victim samples and reference individuals. Individual identification
-probabilities, conditional on all available information, are derived from
-the joint solution in the form of posterior pairing probabilities. 'dvir'
-is part of the 'pedsuite' collection of packages for pedigree analysis.
+A generalization of the 'Synth' package that is designed for data at a
+more granular level (e.g., micro-level). Provides functions to construct
+weights (including propensity score-type weights) and run analyses for
+synthetic control methods with micro- and meso-level data; see Robbins,
+Saunders, and Kilmer (2017) <doi:10.1080/01621459.2016.1213634> and
+Robbins and Davenport (2021) <doi:10.18637/jss.v097.i02>.
 
 %prep
 %setup -q -c -n %{packname}

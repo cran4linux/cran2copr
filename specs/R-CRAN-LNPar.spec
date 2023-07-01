@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netseg
-%global packver   1.0-1
+%global packname  LNPar
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measures of Network Segregation and Homophily
+Summary:          Estimation and Testing for a Lognormal-Pareto Mixture
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph >= 0.6.0
-Requires:         R-CRAN-igraph >= 0.6.0
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-parallel 
+Requires:         R-stats 
 
 %description
-Segregation is a network-level property such that edges between predefined
-groups of vertices are relatively less likely. Network homophily is a
-individual-level tendency to form relations with people who are similar on
-some attribute (e.g. gender, music taste, social status, etc.). In general
-homophily leads to segregation, but segregation might arise without
-homophily. This package implements descriptive indices measuring
-homophily/segregation. It is a computational companion to Bojanowski &
-Corten (2014) <doi:10.1016/j.socnet.2014.04.001>.
+Estimates a lognormal-Pareto mixture by maximizing the profile likelihood
+function. A likelihood ratio test for discriminating between lognormal and
+Pareto tail is also implemented. See Bee, M. (2022)
+<doi:10.1007/s11634-022-00497-4>.
 
 %prep
 %setup -q -c -n %{packname}

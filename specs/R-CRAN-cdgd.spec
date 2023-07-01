@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cdgd
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Decomposition of Group Disparities
 
@@ -21,14 +21,12 @@ BuildRequires:    R-CRAN-caret >= 6.0.0
 Requires:         R-CRAN-caret >= 6.0.0
 
 %description
-The causal decompositions of group disparities developed by Yu and Elwert
-(2023)
-<https://ang-yu.github.io/files/Causal_Decomposition_of_Group_Disparities_2023.pdf>.
-This package implements the estimators for the decomposition components
-that are based on efficient influence functions. For the nuisance
-functions of the estimators, both parametric and nonparametric options are
-provided, as well as manual options in case the default models are not
-satisfying.
+The framework of causal decomposition of group disparities developed by Yu
+and Elwert (2023) <arXiv:2306.16591>. This package implements the
+decomposition estimators that are based on efficient influence functions.
+For the nuisance functions of the estimators, both parametric and
+nonparametric options are provided, as well as manual options in case the
+default models are not satisfying.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dvir
-%global packver   3.0.1
+%global packname  IndGenErrors
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Disaster Victim Identification
+Summary:          Tests of Independence Between Innovations of Generalized Error Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 2.2.0
-BuildRequires:    R-CRAN-forrel >= 1.5.2
-BuildRequires:    R-CRAN-pedprobr >= 0.8.0
-Requires:         R-CRAN-pedtools >= 2.2.0
-Requires:         R-CRAN-forrel >= 1.5.2
-Requires:         R-CRAN-pedprobr >= 0.8.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Joint DNA-based disaster victim identification (DVI), as described in
-Vigeland and Egeland (2021) <doi:10.21203/rs.3.rs-296414/v1>.
-Identification is performed by optimising the joint likelihood of all
-victim samples and reference individuals. Individual identification
-probabilities, conditional on all available information, are derived from
-the joint solution in the form of posterior pairing probabilities. 'dvir'
-is part of the 'pedsuite' collection of packages for pedigree analysis.
+Computation of test statistics of independence between (continuous)
+innovations of time series. They Can be used with stochastic volatility
+models and Hidden Markov Models (HMM). This improves the results in
+Duchesne, Ghoudi & Remillard (2012) <doi:10.1002/cjs.11141>.
 
 %prep
 %setup -q -c -n %{packname}
