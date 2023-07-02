@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  decor
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Code Decorations
 
@@ -15,12 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
 
 %description
 Retrieves code comment decorations for C++ languages of the form '\

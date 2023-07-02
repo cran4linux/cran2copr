@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sparklyr
-%global packver   1.8.1
+%global packver   1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          1.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Apache Spark
 
@@ -29,18 +29,14 @@ BuildRequires:    R-CRAN-config >= 0.2
 BuildRequires:    R-CRAN-rstudioapi >= 0.10
 BuildRequires:    R-CRAN-rlang >= 0.1.4
 BuildRequires:    R-CRAN-ellipsis >= 0.1.0
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-forge 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-r2d3 
 BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-uuid 
@@ -58,18 +54,14 @@ Requires:         R-CRAN-config >= 0.2
 Requires:         R-CRAN-rstudioapi >= 0.10
 Requires:         R-CRAN-rlang >= 0.1.4
 Requires:         R-CRAN-ellipsis >= 0.1.0
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-forge 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-globals 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-r2d3 
 Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-uuid 

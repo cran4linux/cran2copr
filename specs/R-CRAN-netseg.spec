@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  seededlda
-%global packver   1.1.0
+%global packname  netseg
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seeded Sequential LDA for Topic Modeling
+Summary:          Measures of Network Segregation and Homophily
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-quanteda >= 3.3.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
-BuildRequires:    R-CRAN-proxyC >= 0.3.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-quanteda >= 3.3.0
-Requires:         R-CRAN-proxyC >= 0.3.1
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 0.6.0
+Requires:         R-CRAN-igraph >= 0.6.0
 
 %description
-Seeded Sequential LDA can classify sentences of texts into pre-define
-topics with a small number of seed words (Watanabe & Baturo, 2023)
-<doi:10.1177/08944393231178605>. Implements Seeded LDA (Lu et al., 2010)
-<doi:10.1109/ICDMW.2011.125> and Sequential LDA (Du et al., 2012)
-<doi:10.1007/s10115-011-0425-1> with the distributed LDA algorithm
-(Newman, et al., 2009) for parallel computing.
+Segregation is a network-level property such that edges between predefined
+groups of vertices are relatively less likely. Network homophily is a
+individual-level tendency to form relations with people who are similar on
+some attribute (e.g. gender, music taste, social status, etc.). In general
+homophily leads to segregation, but segregation might arise without
+homophily. This package implements descriptive indices measuring
+homophily/segregation. It is a computational companion to Bojanowski &
+Corten (2014) <doi:10.1016/j.socnet.2014.04.001>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  seededlda
-%global packver   1.1.0
+%global packname  rcdk
+%global packver   3.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          3.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seeded Sequential LDA for Topic Modeling
+Summary:          Interface to the 'CDK' Libraries
 
-License:          GPL-3
+License:          LGPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-quanteda >= 3.3.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
-BuildRequires:    R-CRAN-proxyC >= 0.3.1
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rcdklibs >= 2.8
+BuildRequires:    R-CRAN-fingerprint 
+BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-quanteda >= 3.3.0
-Requires:         R-CRAN-proxyC >= 0.3.1
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-itertools 
+Requires:         R-CRAN-rcdklibs >= 2.8
+Requires:         R-CRAN-fingerprint 
+Requires:         R-CRAN-rJava 
 Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-itertools 
 
 %description
-Seeded Sequential LDA can classify sentences of texts into pre-define
-topics with a small number of seed words (Watanabe & Baturo, 2023)
-<doi:10.1177/08944393231178605>. Implements Seeded LDA (Lu et al., 2010)
-<doi:10.1109/ICDMW.2011.125> and Sequential LDA (Du et al., 2012)
-<doi:10.1007/s10115-011-0425-1> with the distributed LDA algorithm
-(Newman, et al., 2009) for parallel computing.
+Allows the user to access functionality in the 'CDK', a Java framework for
+chemoinformatics. This allows the user to load molecules, evaluate
+fingerprints, calculate molecular descriptors and so on. In addition, the
+'CDK' API allows the user to view structures in 2D.
 
 %prep
 %setup -q -c -n %{packname}
