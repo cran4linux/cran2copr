@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jlmerclusterperm
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster-Based Permutation Analysis for Densely Sampled Time Data
 
@@ -39,7 +39,7 @@ densely-sampled time data developed in Maris & Oostenveld, 2007
 mixed-effects) regression models for the calculation of timewise
 statistics. Provides both a wholesale and a piecemeal interface to the CPA
 procedure with an emphasis on interpretability and diagnostics. Integrates
-'Julia' libraries 'MixedModels.JL' and 'GLM.JL' for performance
+'Julia' libraries 'MixedModels.jl' and 'GLM.jl' for performance
 improvements, with additional functionalities for interfacing with 'Julia'
 from 'R' powered by the 'JuliaConnectoR' package.
 
