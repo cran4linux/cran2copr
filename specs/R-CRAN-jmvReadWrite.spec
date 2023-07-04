@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jmvReadWrite
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write 'jamovi' Files ('.omv')
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-zip 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MBMethPred
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Medulloblastoma Subgroups Prediction
 
@@ -64,7 +64,7 @@ Bayes, K-Nearest Neighbor, Support Vector Machines, Extreme Gradient
 Boosting, and Linear Discriminant Analysis) and a deep Artificial Neural
 Network model, 'MBMethPred' can predict medulloblastoma subgroups,
 including wingless (WNT), sonic hedgehog (SHH), Group 3, and Group 4 from
-methylation data.
+DNA methylation beta values.
 
 %prep
 %setup -q -c -n %{packname}

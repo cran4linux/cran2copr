@@ -1,43 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flashlighttext
-%global packver   0.1.0
+%global packname  omicsTools
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flashlight Text R Interface
+Summary:          Omics Data Process Toolbox
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.7.2
+BuildRequires:    R-CRAN-golem >= 0.3.5
+BuildRequires:    R-CRAN-config >= 0.3.1
+BuildRequires:    R-CRAN-bs4Dash 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-shiny >= 1.7.2
+Requires:         R-CRAN-golem >= 0.3.5
+Requires:         R-CRAN-config >= 0.3.1
+Requires:         R-CRAN-bs4Dash 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-zeallot 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides bindings to part of the Flashlight's Text toolkit. The Flashlight
-Text R package contains beam search decoder, KenLM api, and Dictionary
-components. Jacob Kahn et al. (2022) <arXiv:2201.12465> "Flashlight:
-Enabling Innovation in Tools for Machine Learning". Kenneth Heafield
-(2011) <https://aclanthology.org/W11-2123.pdf> "KenLM: Faster and Smaller
-Language Model Queries".
+Processing and analyzing omics data from genomics, transcriptomics,
+proteomics, and metabolomics platforms. It provides functions for
+preprocessing, normalization, visualization, and statistical analysis, as
+well as machine learning algorithms for predictive modeling. 'omicsTools'
+is an essential tool for researchers working with high-throughput omics
+data in fields such as biology, bioinformatics, and medicine.The QC-RLSC
+(quality control–based robust LOESS signal correction) algorithm is used
+for normalization. Dunn et al. (2011) <doi:10.1038/nprot.2011.335>.
 
 %prep
 %setup -q -c -n %{packname}

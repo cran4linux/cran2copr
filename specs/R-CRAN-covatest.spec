@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  covatest
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests on Properties of Space-Time Covariance Functions
 
@@ -22,8 +22,10 @@ BuildRequires:    R-CRAN-sp >= 0.9.72
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-V8 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-gstat 
 Requires:         R-CRAN-spacetime >= 1.0.0
@@ -31,8 +33,10 @@ Requires:         R-CRAN-sp >= 0.9.72
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-mathjaxr 
 Requires:         R-methods 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-V8 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-gstat 
 

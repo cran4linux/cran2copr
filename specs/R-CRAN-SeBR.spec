@@ -1,44 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ordbetareg
-%global packver   0.7.1
+%global packname  SeBR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ordered Beta Regression Models with 'brms'
+Summary:          Semiparametric Bayesian Regression Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-brms >= 2.18.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-transformr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gganimate 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-brms >= 2.18.0
-Requires:         R-stats 
-Requires:         R-CRAN-transformr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gganimate 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-GpGp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-spikeSlabGAM 
+BuildRequires:    R-CRAN-statmod 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-GpGp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-spikeSlabGAM 
+Requires:         R-CRAN-statmod 
 
 %description
-Implements ordered beta regression models, which are for modeling
-continuous variables with upper and lower bounds, such as survey sliders,
-dose-response relationships and indexes. For more information, see Kubinec
-(2022) <doi:10.31235/osf.io/2sx6y>. The package is a front-end to the R
-package 'brms', which facilitates a range of regression specifications,
-including hierarchical, dynamic and multivariate modeling.
+Monte Carlo and MCMC sampling algorithms for semiparametric Bayesian
+regression analysis. These models feature a nonparametric (unknown)
+transformation of the data paired with widely-used regression models
+including linear regression, spline regression, quantile regression, and
+Gaussian processes. The transformation enables broader applicability of
+these key models, including for real-valued, positive, and
+compactly-supported data with challenging distributional features. The
+samplers prioritize computational scalability and, for most cases, Monte
+Carlo (not MCMC) sampling for greater efficiency. Details of the methods
+and algorithms are provided in Kowal and Wu (2023) <arXiv:2306.05498>.
 
 %prep
 %setup -q -c -n %{packname}

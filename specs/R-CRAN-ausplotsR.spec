@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ausplotsR
-%global packver   1.2.9
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          TERN AusPlots Analysis Package
+Summary:          TERN AusPlots Australian Ecosystem Monitoring Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,32 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-mapdata 
+BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-jose 
 BuildRequires:    R-CRAN-betapart 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-r2r 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-maps 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-mapdata 
+Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-jose 
 Requires:         R-CRAN-betapart 

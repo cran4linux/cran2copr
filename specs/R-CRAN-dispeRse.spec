@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dispeRse
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Demic Diffusion with Environmental Constraints
 
@@ -18,10 +18,10 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sf 
 
 %description
 Simulates demic diffusion building on models previously developed for the

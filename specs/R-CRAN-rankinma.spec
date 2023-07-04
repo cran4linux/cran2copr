@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rankinma
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Treatment Ranking in Network Meta-Analysis
+Summary:          Ranking in Network Meta-Analysis
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}

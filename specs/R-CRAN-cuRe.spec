@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cuRe
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Cure Model Estimation
 
@@ -33,8 +34,8 @@ Requires:         R-CRAN-reshape2
 
 %description
 Contains functions for estimating generalized parametric mixture and
-non-mixture cure models, loss of lifetime, mean residual lifetime, and
-crude event probabilities.
+non-mixture cure models <doi:10.1016/j.cmpb.2022.107125>, loss of
+lifetime, mean residual lifetime, and crude event probabilities.
 
 %prep
 %setup -q -c -n %{packname}
