@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QurvE
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust and User-Friendly Analysis of Growth and Fluorescence Curves
 
@@ -76,7 +76,9 @@ dose-response models. Complete data analysis workflows can be executed in
 a single step via user-friendly wrapper functions. The results of these
 workflows are summarized in detailed reports as well as intuitively
 navigable 'R' data containers. A 'shiny' application provides access to
-all features without requiring any programming knowledge.
+all features without requiring any programming knowledge. The package is
+described in further detail in Wirth et al. (2023)
+<doi:10.1038/s41596-023-00850-7>.
 
 %prep
 %setup -q -c -n %{packname}

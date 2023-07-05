@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctmva
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous-Time Multivariate Analysis
 
@@ -28,8 +28,8 @@ several techniques of multivariate analysis in continuous-time setting.
 Specifically, we introduced continuous-time analogues of several classical
 techniques of multivariate analysis, such as principal component analysis,
 canonical correlation analysis, Fisher linear discriminant analysis,
-K-means clustering, and so on. Details are in Philip T Reiss and Biplab
-Paul (2022) "Continuous-time multivariate analysis"; James O Ramsay,
+K-means clustering, and so on. Details are in Biplab Paul and Philip T
+Reiss (2022) "Continuous-time multivariate analysis"; James O Ramsay,
 Bernard W Silverman (2005) <ISBN:978-0-387-22751-1> "Functional Data
 Analysis"; James O Ramsay, Giles Hooker and Spencer Graves (2009)
 <ISBN:978-0-387-98185-7> "Functional Data Analysis with R and MATLAB".

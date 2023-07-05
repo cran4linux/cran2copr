@@ -1,43 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  covid19br
-%global packver   0.1.6
+%global packname  BASS
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Brazilian COVID-19 Pandemic Data
+Summary:          Bayesian Adaptive Spline Surfaces
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-truncdist 
+BuildRequires:    R-CRAN-hypergeo 
+Requires:         R-CRAN-truncdist 
+Requires:         R-CRAN-hypergeo 
 
 %description
-Set of functions to import COVID-19 pandemic data into R. The Brazilian
-COVID-19 data, obtained from the official Brazilian repository at
-<https://covid.saude.gov.br/>, is available at country, region, state, and
-city-levels. The package also downloads the world-level COVID-19 data from
-the John Hopkins University's repository.
+Bayesian fitting and sensitivity analysis methods for adaptive spline
+surfaces described in <doi:10.18637/jss.v094.i08>. Built to handle
+continuous and categorical inputs as well as functional or scalar output.
+An extension of the methodology in Denison, Mallick and Smith (1998)
+<doi:10.1023/A:1008824606259>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sfaR
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stochastic Frontier Analysis using R
+Summary:          Stochastic Frontier Analysis Routines
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,49 +17,51 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-emdbook 
-BuildRequires:    R-CRAN-fBasics 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-fastGHQuad 
 BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-marqLevAlg 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-mnorm 
 BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-primes 
+BuildRequires:    R-CRAN-plm 
 BuildRequires:    R-CRAN-qrng 
 BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-texreg 
 BuildRequires:    R-CRAN-trustOptim 
 BuildRequires:    R-CRAN-ucminf 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-emdbook 
-Requires:         R-CRAN-fBasics 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-fastGHQuad 
 Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-gsl 
 Requires:         R-CRAN-marqLevAlg 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-maxLik 
 Requires:         R-methods 
-Requires:         R-CRAN-moments 
+Requires:         R-CRAN-mnorm 
 Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-primes 
+Requires:         R-CRAN-plm 
 Requires:         R-CRAN-qrng 
 Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
+Requires:         R-CRAN-texreg 
 Requires:         R-CRAN-trustOptim 
 Requires:         R-CRAN-ucminf 
 
 %description
 Maximum likelihood estimation for stochastic frontier analysis (SFA) of
-production (profit) and cost functions. The package includes several
-distributions for the one-sided error term (i.e. Rayleigh, Gamma, Weibull,
-lognormal, uniform, generalized exponential and truncated skewed Laplace)
-as well as the latent class stochastic frontier model (LCM) as described
-in Dakpo et al. (2021) <doi:10.1111/1477-9552.12422>. Several
-possibilities in terms of optimization algorithms are proposed.
+production (profit) and cost functions. The package includes the basic
+stochastic frontier for cross-sectional or pooled data with several
+distributions for the one-sided error term (i.e., Rayleigh, gamma,
+Weibull, lognormal, uniform, generalized exponential and truncated skewed
+Laplace), the latent class stochastic frontier model (LCM) as described in
+Dakpo et al. (2021) <doi:10.1111/1477-9552.12422>, for cross-sectional and
+pooled data, and the sample selection model as described in Greene (2010)
+<doi:10.1007/s11123-009-0159-1>, and applied in Dakpo et al. (2021)
+<doi:10.1111/agec.12683>.  Several possibilities in terms of optimization
+algorithms are proposed.
 
 %prep
 %setup -q -c -n %{packname}

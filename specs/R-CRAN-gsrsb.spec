@@ -1,43 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  covid19br
-%global packver   0.1.6
+%global packname  gsrsb
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Brazilian COVID-19 Pandemic Data
+Summary:          Group Sequential Refined Secondary Boundary
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-stats >= 4.0.0
+BuildRequires:    R-CRAN-ldbounds >= 2.0.0
+BuildRequires:    R-CRAN-xtable >= 1.8.0
+BuildRequires:    R-CRAN-mvtnorm >= 1.1.0
+Requires:         R-stats >= 4.0.0
+Requires:         R-CRAN-ldbounds >= 2.0.0
+Requires:         R-CRAN-xtable >= 1.8.0
+Requires:         R-CRAN-mvtnorm >= 1.1.0
 
 %description
-Set of functions to import COVID-19 pandemic data into R. The Brazilian
-COVID-19 data, obtained from the official Brazilian repository at
-<https://covid.saude.gov.br/>, is available at country, region, state, and
-city-levels. The package also downloads the world-level COVID-19 data from
-the John Hopkins University's repository.
+A gate-keeping procedure to test a primary and a secondary endpoint in a
+group sequential design with multiple interim looks. Computations related
+to group sequential primary and secondary boundaries. Refined secondary
+boundaries are calculated for a gate-keeping test on a primary and a
+secondary endpoint in a group sequential design with multiple interim
+looks. The choices include both the standard boundaries and the boundaries
+using error spending functions. See Tamhane et al. (2018), "A gatekeeping
+procedure to test a primary and a secondary endpoint in a group sequential
+design with multiple interim looks", Biometrics, 74(1), 40-48.
 
 %prep
 %setup -q -c -n %{packname}

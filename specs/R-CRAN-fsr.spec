@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fsr
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Fuzzy Spatial Data
 
@@ -16,10 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.6.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-tibble >= 3.0.1
-BuildRequires:    R-CRAN-FuzzyR >= 2.3.0
 BuildRequires:    R-methods >= 2.0.0
 BuildRequires:    R-CRAN-e1071 >= 1.7.3
 BuildRequires:    R-CRAN-stringr >= 1.4.0
@@ -28,10 +27,8 @@ BuildRequires:    R-CRAN-pso >= 1.0.3
 BuildRequires:    R-CRAN-sf >= 0.9.4
 BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-lwgeom >= 0.2.6
-Requires:         R-utils >= 3.6.3
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-tibble >= 3.0.1
-Requires:         R-CRAN-FuzzyR >= 2.3.0
 Requires:         R-methods >= 2.0.0
 Requires:         R-CRAN-e1071 >= 1.7.3
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -45,13 +42,17 @@ Requires:         R-CRAN-lwgeom >= 0.2.6
 Support for fuzzy spatial objects, their operations, and fuzzy spatial
 inference models based on Spatial Plateau Algebra. It employs fuzzy set
 theory and fuzzy logic as foundation to deal with spatial fuzziness. It
-implements underlying concepts defined in the following research papers:
-(i) "Spatial Plateau Algebra: An Executable Type System for Fuzzy Spatial
-Data Types" <doi:10.1109/FUZZ-IEEE.2018.8491565>; (ii) "A Systematic
-Approach to Creating Fuzzy Region Objects from Real Spatial Data Sets"
-<doi:10.1109/FUZZ-IEEE.2019.8858878>; (iii) "Fuzzy Inference on Fuzzy
+mainly implements underlying concepts defined in the following research
+papers: (i) "Spatial Plateau Algebra: An Executable Type System for Fuzzy
+Spatial Data Types" <doi:10.1109/FUZZ-IEEE.2018.8491565>; (ii) "A
+Systematic Approach to Creating Fuzzy Region Objects from Real Spatial
+Data Sets" <doi:10.1109/FUZZ-IEEE.2019.8858878>; (iii) "Spatial Data Types
+for Heterogeneously Structured Fuzzy Spatial Collections and Compositions"
+<doi:10.1109/FUZZ48607.2020.9177620>; (iv) "Fuzzy Inference on Fuzzy
 Spatial Objects (FIFUS) for Spatial Decision Support Systems"
-<doi:10.1109/FUZZ-IEEE.2017.8015707>.
+<doi:10.1109/FUZZ-IEEE.2017.8015707>; (v) "Evaluating Region Inference
+Methods by Using Fuzzy Spatial Inference Models"
+<doi:10.1109/FUZZ-IEEE55066.2022.9882658>.
 
 %prep
 %setup -q -c -n %{packname}

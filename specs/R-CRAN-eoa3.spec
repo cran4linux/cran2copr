@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  covid19br
-%global packver   0.1.6
+%global packname  eoa3
+%global packver   1.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Brazilian COVID-19 Pandemic Data
+Summary:          Wildlife Mortality Estimator for Low Fatality Rates and Imperfect Detection
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-GenEst 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-GenEst 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-VGAM 
 
 %description
-Set of functions to import COVID-19 pandemic data into R. The Brazilian
-COVID-19 data, obtained from the official Brazilian repository at
-<https://covid.saude.gov.br/>, is available at country, region, state, and
-city-levels. The package also downloads the world-level COVID-19 data from
-the John Hopkins University's repository.
+Evidence of Absence software (EoA) is a user-friendly application for
+estimating bird and bat fatalities at wind farms and designing search
+protocols. The software is particularly useful in addressing whether the
+number of fatalities has exceeded a given threshold and what search
+parameters are needed to give assurance that thresholds were not exceeded.
+The models are applicable even when zero carcasses have been found in
+searches, following Huso et al. (2015) <doi:10.1890/14-0764.1>, Dalthorp
+et al. (2017) <doi:10.3133/ds1055>, and Dalthorp and Huso (2015)
+<doi:10.3133/ofr20151227>.
 
 %prep
 %setup -q -c -n %{packname}

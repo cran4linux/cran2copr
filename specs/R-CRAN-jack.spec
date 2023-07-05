@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jack
-%global packver   5.2.0
+%global packver   5.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.0
+Version:          5.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Jack, Zonal, and Schur Polynomials
 
@@ -18,24 +18,20 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-gmp 
-BuildRequires:    R-CRAN-JuliaConnectoR 
 BuildRequires:    R-CRAN-multicool 
 BuildRequires:    R-CRAN-mvp 
 BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-CRAN-qspray 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Ryacas 
 BuildRequires:    R-CRAN-spray 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-gmp 
-Requires:         R-CRAN-JuliaConnectoR 
 Requires:         R-CRAN-multicool 
 Requires:         R-CRAN-mvp 
 Requires:         R-CRAN-partitions 
 Requires:         R-CRAN-qspray 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Ryacas 
 Requires:         R-CRAN-spray 
 
 %description

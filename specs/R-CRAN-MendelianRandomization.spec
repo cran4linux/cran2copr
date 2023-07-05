@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MendelianRandomization
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mendelian Randomization Package
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
-BuildArch:        noarch
 BuildRequires:    R-CRAN-quantreg >= 5.01
 BuildRequires:    R-CRAN-plotly >= 3.6.0
 BuildRequires:    R-CRAN-Matrix >= 1.2
@@ -28,6 +27,9 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-quantreg >= 5.01
 Requires:         R-CRAN-plotly >= 3.6.0
 Requires:         R-CRAN-Matrix >= 1.2
@@ -39,6 +41,8 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Encodes several methods for performing Mendelian randomization analyses
