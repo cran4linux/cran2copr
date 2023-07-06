@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RDP
-%global packver   0.3.0
+%global packname  YPmodelPhreg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Ramer-Douglas-Peucker Algorithm
+Summary:          The Short-Term and Long-Term Hazard Ratio Model with Proportional Adjustment
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-survival 
 
 %description
-Pretty fast implementation of the Ramer-Douglas-Peucker algorithm for
-reducing the number of points on a 2D curve. Urs Ramer (1972), "An
-iterative procedure for the polygonal approximation of plane curves"
-<doi:10.1016/S0146-664X(72)80017-0>. David H. Douglas and Thomas K.
-Peucker (1973), "Algorithms for the Reduction of the Number of Points
-Required to Represent a Digitized Line or its Caricature"
-<doi:10.3138/FM57-6770-U75U-7727>.
+Provides covariate-adjusted comparison of two groups of right censored
+data, where the binary group variable has separate short-term and
+long-term effects on the hazard function, while effects of covariates such
+as age, blood pressure, etc. are proportional on the hazard. The model was
+studied in Yang and Prentice (2015) <doi:10.1002/sim.6453> and it extends
+the two sample version of the short-term and long-term hazard ratio model
+proposed in Yang and Prentice (2005) <doi:10.1093/biomet/92.1.1>. The
+model extends the usual Cox proportional hazards model to allow more
+flexible hazard ratio patterns, such as gradual onset of effect,
+diminishing effect, and crossing hazard or survival functions. This
+package provides the following: 1) point estimates and confidence
+intervals for model parameters; 2) point estimate and confidence interval
+of the average hazard ratio; and 3) plots of estimated hazard ratio
+function with point-wise and simultaneous confidence bands.
 
 %prep
 %setup -q -c -n %{packname}

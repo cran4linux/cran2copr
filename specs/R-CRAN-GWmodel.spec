@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GWmodel
-%global packver   2.2-9
+%global packver   2.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.9
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographically-Weighted Models
 
@@ -15,30 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-maptools >= 0.5.2
 BuildRequires:    R-CRAN-sp > 1.4.0
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-spatialreg 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-spacetime 
 BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-spatialreg 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-maptools >= 0.5.2
 Requires:         R-CRAN-sp > 1.4.0
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-spatialreg 
 Requires:         R-methods 
+Requires:         R-CRAN-sf 
 Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-graphics 
 Requires:         R-CRAN-spacetime 
 Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-spatialreg 
 Requires:         R-CRAN-FNN 
 
 %description

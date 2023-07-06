@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SESraster
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raster Randomization for Null Hypothesis Testing
 
@@ -23,11 +23,9 @@ Requires:         R-CRAN-terra
 %description
 Randomization of presence/absence species distribution raster data with or
 without including spatial structure for calculating standardized effect
-sizes and testing null hypothesis. The spatially unstructured
-randomization algorithms are based on fixed-fixed algorithms for matrices
-(Gotelli 2000, <doi:10.2307/177478>). The spatially structured
-randomization algorithm is based on the preserved richness null model
-(Laffan & Crisp 2003, <doi:10.1046/j.1365-2699.2003.00875.x>).
+sizes and testing null hypothesis. The randomization algorithms are based
+on classical algorithms for matrices (Gotelli 2000, <doi:10.2307/177478>)
+but implemented for raster data.
 
 %prep
 %setup -q -c -n %{packname}

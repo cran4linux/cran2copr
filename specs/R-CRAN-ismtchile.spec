@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mpmi
-%global packver   0.43.2.1
+%global packname  ismtchile
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.43.2.1
+Version:          2.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed-Pair Mutual Information Estimators
+Summary:          Calculating Socio Material Territorial Index
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-KernSmooth 
-Requires:         R-CRAN-KernSmooth 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Uses a kernel smoothing approach to calculate Mutual Information for
-comparisons between all types of variables including continuous vs
-continuous, continuous vs discrete and discrete vs discrete. Uses a
-nonparametric bias correction giving Bias Corrected Mutual Information
-(BCMI). Implemented efficiently in Fortran 95 with OpenMP and suited to
-large genomic datasets.
+Paquete creado con el fin de facilitar el cálculo y distribución del
+índice Socio Material Territorial (ISMT), elaborado por el Observatorio de
+Ciudades UC. La metodología completa está disponible en "ISMT"
+(<https://ideocuc-ocuc.hub.arcgis.com/datasets/6ed956450cfc4293b7d90df3ce3474e4/about>)
+[Observatorio de Ciudades UC (2019)]. || Package created to facilitate the
+calculation and distribution of the Socio-Material Territorial Index by
+Observatorio de Ciudades UC. The full methodology is available at "ISMT"
+(<https://ideocuc-ocuc.hub.arcgis.com/datasets/6ed956450cfc4293b7d90df3ce3474e4/about>)
+[Observatorio de Ciudades UC (2019)].
 
 %prep
 %setup -q -c -n %{packname}

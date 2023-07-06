@@ -1,31 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mpmi
-%global packver   0.43.2.1
+%global packname  hystar
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.43.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed-Pair Mutual Information Estimators
+Summary:          Fit the Hysteretic Threshold Autoregressive Model
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-KernSmooth 
-Requires:         R-CRAN-KernSmooth 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Uses a kernel smoothing approach to calculate Mutual Information for
-comparisons between all types of variables including continuous vs
-continuous, continuous vs discrete and discrete vs discrete. Uses a
-nonparametric bias correction giving Bias Corrected Mutual Information
-(BCMI). Implemented efficiently in Fortran 95 with OpenMP and suited to
-large genomic datasets.
+Estimate parameters of the hysteretic threshold autoregressive (HysTAR)
+model, using conditional least squares. In addition, you can generate time
+series data from the HysTAR model. For details, see Li, Guan, Li and Yu
+(2015) <doi:10.1093/biomet/asv017>.
 
 %prep
 %setup -q -c -n %{packname}

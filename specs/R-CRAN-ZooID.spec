@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mpmi
-%global packver   0.43.2.1
+%global packname  ZooID
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.43.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed-Pair Mutual Information Estimators
+Summary:          Load, Segment and Classify Zooplankton Images
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-KernSmooth 
-Requires:         R-CRAN-KernSmooth 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Uses a kernel smoothing approach to calculate Mutual Information for
-comparisons between all types of variables including continuous vs
-continuous, continuous vs discrete and discrete vs discrete. Uses a
-nonparametric bias correction giving Bias Corrected Mutual Information
-(BCMI). Implemented efficiently in Fortran 95 with OpenMP and suited to
-large genomic datasets.
+This tool provides functions to load, segment and classify zooplankton
+images. The image processing algorithms and the machine learning
+classifiers in this package are (will be, since these have not been added
+yet) direct ports of an early 'python' implementation that can be found at
+<https://github.com/arickGrootveld/ZooID>. The model weights and datasets
+(also not added yet) that are a part of this package can also be found at
+Arick Grootveld, Eva R. Kozak, Carmen Franco-Gordo (2023)
+<doi:10.5281/zenodo.7979996>.
 
 %prep
 %setup -q -c -n %{packname}

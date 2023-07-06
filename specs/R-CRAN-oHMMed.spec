@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  forestat
-%global packver   1.0.2
+%global packname  oHMMed
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Carbon Sequestration and Potential Productivity Calculation
+Summary:          HMMs with Ordered Hidden States and Emission Densities
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cvms 
+BuildRequires:    R-CRAN-ggmcmc 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-mistr 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-vcd 
+Requires:         R-CRAN-cvms 
+Requires:         R-CRAN-ggmcmc 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-mistr 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-CRAN-vcd 
 
 %description
-Include assessing site classes based on the stand height growth and
-establishing a nonlinear mixed-effect biomass model under different site
-classes based on the whole stand model to achieve more accurate estimation
-of carbon sequestration. In particular, a carbon sequestration potential
-productivity calculation method based on the potential mean annual
-increment is proposed. This package is applicable to both natural forests
-and plantations. It can quantitatively assess stand’s potential
-productivity, realized productivity, and possible improvement under
-certain site, and can be used in many aspects such as site quality
-assessment, tree species suitability evaluation, and forest degradation
-evaluation. Reference: Lei X, Fu L, Li H, et al (2018)
-<doi:10.11707/j.1001-7488.20181213>. Fu L, Sharma R P, Zhu G, et al (2017)
-<doi:10.3390/f8040119>.
+Inference using a class of Hidden Markov models (HMMs) called
+'oHMMed'(ordered HMM with emission densities
+<doi:10.1101/2023.06.26.546495>): The 'oHMMed' algorithms identify the
+number of comparably homogeneous regions within observed sequences with
+autocorrelation patterns. These are modelled as discrete hidden states;
+the observed data points are then realisations of continuous probability
+distributions with state-specific means that enable ordering of these
+distributions. The observed sequence is labelled according to the hidden
+states, permitting only neighbouring states that are also neighbours
+within the ordering of their associated distributions. The parameters that
+characterise these state-specific distributions are then inferred.
+Relevant for application to genomic sequences, time series, or any other
+sequence data with serial autocorrelation.
 
 %prep
 %setup -q -c -n %{packname}

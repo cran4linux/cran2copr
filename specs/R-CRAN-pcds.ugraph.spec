@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spectator
-%global packver   0.2.0
+%global packname  pcds.ugraph
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'Spectator Earth' API
+Summary:          Underlying Graphs of Proximity Catch Digraphs and Their Applications
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geojsonsf 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-geojsonsf 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-CRAN-pcds 
+BuildRequires:    R-CRAN-interp 
+Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-pcds 
+Requires:         R-CRAN-interp 
 
 %description
-Provides interface to the 'Spectator Earth' API
-<https://api.spectator.earth/>, mainly for obtaining the acquisition plans
-and satellite overpasses for Sentinel-1, Sentinel-2, Landsat-8 and
-Landsat-9 satellites. Current position and trajectory can also be obtained
-for a much larger set of satellites. It is also possible to search the
-archive for available images over the area of interest for a given (past)
-period, get the URL links to download the whole image tiles, or
-alternatively to download the image for just the area of interest based on
-selected spectral bands.
+Contains the functions for construction and visualization of underlying
+and reflexivity graphs of the three families of the proximity catch
+digraphs (PCDs), see (Ceyhan (2005) ISBN:978-3-639-19063-2), and for
+computing the edge density of these PCD-based graphs which are then used
+for testing the patterns of segregation and association against complete
+spatial randomness (CSR)) or uniformity in one and two dimensional cases.
+The PCD families considered are Arc-Slice PCDs, Proportional-Edge (PE)
+PCDs (Ceyhan et al. (2006) <doi:10.1016/j.csda.2005.03.002>) and Central
+Similarity PCDs (Ceyhan et al. (2007) <doi:10.1002/cjs.5550350106>). See
+also (Ceyhan (2016) <doi:10.1016/j.stamet.2016.07.003>) for edge density
+of the underlying and reflexivity graphs of PE-PCDs. The package also has
+tools for visualization of PCD-based graphs for one, two, and three
+dimensional data.
 
 %prep
 %setup -q -c -n %{packname}

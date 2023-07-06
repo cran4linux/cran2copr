@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ROI.plugin.deoptim
-%global packver   1.0-1
+%global packname  protHMM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'DEoptim' and 'DEoptimR' Plugin for the 'R' Optimization Interface
+Summary:          Protein Feature Extraction from Profile Hidden Markov Models
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DEoptimR >= 1.0.10
-BuildRequires:    R-CRAN-ROI >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-DEoptim 
-Requires:         R-CRAN-DEoptimR >= 1.0.10
-Requires:         R-CRAN-ROI >= 1.0.0
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-phonTools 
+Requires:         R-CRAN-gtools 
 Requires:         R-utils 
-Requires:         R-CRAN-DEoptim 
+Requires:         R-stats 
+Requires:         R-CRAN-phonTools 
 
 %description
-Enhances the R Optimization Infrastructure ('ROI') package with the
-'DEoptim' and 'DEoptimR' package. 'DEoptim' is used for unconstrained
-optimization and 'DEoptimR' for constrained optimization.
+Calculates a comprehensive list of features from profile hidden Markov
+models (HMMs) of proteins. Adapts and ports features for use with HMMs
+instead of Position Specific Scoring Matrices, in order to take advantage
+of more accurate multiple sequence alignment by programs such as 'HHBlits'
+Remmert et al. (2012) <DOI:10.1038/nmeth.1818> and 'HMMer' Eddy (2011)
+<DOI:10.1371/journal.pcbi.1002195>. Features calculated by this package
+can be used for protein fold classification, protein structural class
+prediction, sub-cellular localization and protein-protein interaction,
+among other tasks. Some examples of features extracted are found in Song
+et al. (2018) <DOI:10.3390/app8010089>, Jin & Zhu (2021)
+<DOI:10.1155/2021/8629776>, Lyons et al. (2015)
+<DOI:10.1109/tnb.2015.2457906> and Saini et al. (2015)
+<DOI:10.1016/j.jtbi.2015.05.030>.
 
 %prep
 %setup -q -c -n %{packname}

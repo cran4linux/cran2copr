@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mpmi
-%global packver   0.43.2.1
+%global packname  ipsRdbs
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.43.2.1
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed-Pair Mutual Information Estimators
+Summary:          Introduction to Probability, Statistics and R for Data Based Sciences
 
-License:          GPL-3
+License:          GPL (>= 3) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-KernSmooth 
-Requires:         R-CRAN-KernSmooth 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-extraDistr 
+Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-extraDistr 
 
 %description
-Uses a kernel smoothing approach to calculate Mutual Information for
-comparisons between all types of variables including continuous vs
-continuous, continuous vs discrete and discrete vs discrete. Uses a
-nonparametric bias correction giving Bias Corrected Mutual Information
-(BCMI). Implemented efficiently in Fortran 95 with OpenMP and suited to
-large genomic datasets.
+Contains data sets, programmes and illustrations discussed in the book,
+"Introduction to Probability, Statistics and R: Foundations for Data-Based
+Sciences."  Sahu (2023, isbn:978-3-031-37864-5) describes the methods in
+detail.
 
 %prep
 %setup -q -c -n %{packname}

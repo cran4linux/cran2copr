@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MazamaCoreUtils
-%global packver   0.4.15
+%global packname  VectorCodeR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.15
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utility Functions for Production R Code
+Summary:          Easily Analyze Your Gait Patterns Using Vector Coding Technique
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,39 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-futile.logger 
-BuildRequires:    R-CRAN-geohashTools 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-futile.logger 
-Requires:         R-CRAN-geohashTools 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xml2 
 
 %description
-A suite of utility functions providing functionality commonly needed for
-production level projects such as logging, error handling, cache
-management and date-time parsing. Functions for date-time parsing and
-formatting require that time zones be specified explicitly, avoiding a
-common source of error when working with environmental time series.
+Facilitate the analysis of inter-limb and intra-limb coordination in human
+movement. It provides functions for calculating the phase angle between
+two segments, enabling researchers and practitioners to quantify the
+coordination patterns within and between limbs during various motor tasks.
+Needham, R., Naemi, R., & Chockalingam, N. (2014)
+<doi:10.1016/j.jbiomech.2013.12.032>. Needham, R., Naemi, R., &
+Chockalingam, N. (2015) <doi:10.1016/j.jbiomech.2015.07.023>. Tepavac, D.,
+& Field-Fote, E. C. (2001) <doi:10.1123/jab.17.3.259>.
 
 %prep
 %setup -q -c -n %{packname}

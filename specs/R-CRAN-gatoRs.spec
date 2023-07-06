@@ -1,31 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mpmi
-%global packver   0.43.2.1
+%global packname  gatoRs
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.43.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed-Pair Mutual Information Estimators
+Summary:          Geographic and Taxonomic Occurrence R-Based Scrubbing
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-KernSmooth 
-Requires:         R-CRAN-KernSmooth 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-ridigbio 
+BuildRequires:    R-CRAN-rgbif 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-CoordinateCleaner 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-spThin 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-parsedate 
+BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-ridigbio 
+Requires:         R-CRAN-rgbif 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-CoordinateCleaner 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-spThin 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-parsedate 
+Requires:         R-CRAN-spatstat.geom 
 
 %description
-Uses a kernel smoothing approach to calculate Mutual Information for
-comparisons between all types of variables including continuous vs
-continuous, continuous vs discrete and discrete vs discrete. Uses a
-nonparametric bias correction giving Bias Corrected Mutual Information
-(BCMI). Implemented efficiently in Fortran 95 with OpenMP and suited to
-large genomic datasets.
+Streamlines downloading and cleaning biodiversity data from Integrated
+Digitized Biocollections (iDigBio) and the Global Biodiversity Information
+Facility (GBIF).
 
 %prep
 %setup -q -c -n %{packname}
