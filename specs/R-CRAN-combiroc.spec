@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  combiroc
-%global packver   0.2.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Selection and Ranking of Omics Biomarkers Combinations Made Easy
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-devtools 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -35,16 +35,17 @@ Requires:         R-CRAN-stringr
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-moments 
-Requires:         R-CRAN-devtools 
 
 %description
 Provides functions and a workflow to easily and powerfully calculating
 specificity, sensitivity and ROC curves of biomarkers combinations. Allows
 to rank and select multi-markers signatures as well as to find the best
-performing sub-signatures. The method used was first published as a Shiny
-app and described in Mazzara et al. (2017) <doi:10.1038/srep45477> and
-further described in Bombaci & Rossi (2019)
-<doi:10.1007/978-1-4939-9164-8_16>.
+performing sub-signatures, now also from single-cell RNA-seq datasets. The
+method used was first published as a Shiny app and described in Mazzara et
+al. (2017) <doi:10.1038/srep45477> and further described in Bombaci &
+Rossi (2019) <doi:10.1007/978-1-4939-9164-8_16>, and widely expanded as a
+package as presented in the bioRxiv pre print Ferrari et al.
+<doi:10.1101/2022.01.17.476603>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  irtQ
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unidimensional Item Response Theory Modeling
 
@@ -64,7 +64,10 @@ bisection() function was written by modifying the bisection() function
 (Howard (2017, ISBN:9780367657918)). The code of the inverse test
 characteristic curve scoring in the est_score() function was written by
 modifying the irt.eq.tse() function (González (2014)
-<doi:10.18637/jss.v059.i07>).
+<doi:10.18637/jss.v059.i07>). In est_score() function, the code of
+weighted likelihood estimation method was written by referring to the
+Pi(), Ji(), and Ii() functions of the catR package (Magis & Barrada (2017)
+<doi:10.18637/jss.v076.c01>).
 
 %prep
 %setup -q -c -n %{packname}

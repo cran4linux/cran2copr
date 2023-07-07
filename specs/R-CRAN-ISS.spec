@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ISS
-%global packver   0.1.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Isotonic Subgroup Selection
 
@@ -26,10 +26,10 @@ Requires:         R-stats
 
 %description
 Methodology for subgroup selection in the context of isotonic regression
-with sub-Gaussian errors, including, in particular, options for the
-classification setting. See the documentation of ISS(). Details can be
-found in the paper by Müller, Reeve, Cannings and Samworth (2023)
-<arXiv:2305.04852>.
+including methods for sub-Gaussian errors, classification, homoscedastic
+Gaussian errors and quantile regression. See the documentation of ISS().
+Details can be found in the paper by Müller, Reeve, Cannings and Samworth
+(2023) <arXiv:2305.04852v2>.
 
 %prep
 %setup -q -c -n %{packname}

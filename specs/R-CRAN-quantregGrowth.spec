@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quantregGrowth
-%global packver   1.6-2
+%global packver   1.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Crossing Additive Regression Quantiles and Non-Parametric Growth Charts
 
@@ -19,8 +19,12 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-quantreg 
 Requires:         R-splines 
+Requires:         R-CRAN-SparseM 
+Requires:         R-methods 
 
 %description
 Fits non-crossing regression quantiles as a function of linear covariates

@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hsdar
-%global packver   1.0.4
+%global __requires_exclude ^libmpi
+%global packname  rim
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manage, Analyse and Simulate Hyperspectral Data
+Summary:          Interface to 'Maxima', Enabling Symbolic Computation
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.1
-Requires:         R-core >= 3.3.1
-BuildRequires:    R-CRAN-raster >= 2.5.8
-BuildRequires:    R-CRAN-rgdal >= 1.1.10
-BuildRequires:    R-CRAN-signal 
+Requires:         maxima
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-Boruta 
-Requires:         R-CRAN-raster >= 2.5.8
-Requires:         R-CRAN-rgdal >= 1.1.10
-Requires:         R-CRAN-signal 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-GlobalOptions 
 Requires:         R-methods 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-Boruta 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-GlobalOptions 
 
 %description
-Transformation of reflectance spectra, calculation of vegetation indices
-and red edge parameters, spectral resampling for hyperspectral remote
-sensing, simulation of reflectance and transmittance using the leaf
-reflectance model PROSPECT and the canopy reflectance model PROSAIL.
+An interface to the powerful and fairly complete computer algebra system
+'Maxima'. It can be used to start and control 'Maxima' from within R by
+entering 'Maxima' commands. Results from 'Maxima' can be parsed and
+evaluated in R. It facilitates outputting results from 'Maxima' in 'LaTeX'
+and 'MathML'. 2D and 3D plots can be displayed directly. This package also
+registers a 'knitr'-engine enabling 'Maxima' code chunks to be written in
+'RMarkdown' documents.
 
 %prep
 %setup -q -c -n %{packname}

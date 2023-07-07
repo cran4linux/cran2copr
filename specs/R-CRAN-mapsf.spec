@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mapsf
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Thematic Cartography
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
@@ -26,7 +25,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-classInt 
 Requires:         R-graphics 
-Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 

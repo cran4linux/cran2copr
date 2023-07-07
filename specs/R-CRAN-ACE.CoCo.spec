@@ -1,29 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stockfish
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  ACE.CoCo
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Chess Games with the 'Stockfish' Engine
+Summary:          Analysis of Correlated High-Dimensional Expression (ACE) Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-CRAN-quantreg 
 
 %description
-An implementation of the UCI open communication protocol that ships with
-'Stockfish' <https://stockfishchess.org/>, a very popular, open source,
-powerful chess engine written in C++.
+A function for estimating factor models. Give factor-adjusted statistics,
+factor-adjusted mean estimation (one-sample test) or factor-adjusted mean
+difference estimation (two-sample test).
 
 %prep
 %setup -q -c -n %{packname}

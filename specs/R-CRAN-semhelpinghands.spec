@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semhelpinghands
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Structural Equation Modeling
 
@@ -19,8 +19,14 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-boot 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 
 %description
 An assortment of helper functions for doing structural equation modeling,

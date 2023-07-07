@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cleangeo
-%global packver   0.2-4
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cleaning Geometries from Spatial Objects
 
@@ -16,21 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.15
 Requires:         R-core >= 2.15
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-maptools 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-methods 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 
 %description
 Provides a set of utility tools to inspect spatial objects, facilitate
-handling and reporting of topology errors and geometry validity issues.
-Finally, it provides a geometry cleaner that will fix all geometry
-problems, and eliminate (at least reduce) the likelihood of having issues
-when doing spatial data processing.
+handling and reporting of topology errors and geometry validity issue with
+sp objects. Finally, it provides a geometry cleaner that will fix all
+geometry problems, and eliminate (at least reduce) the likelihood of
+having issues when doing spatial data processing.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
