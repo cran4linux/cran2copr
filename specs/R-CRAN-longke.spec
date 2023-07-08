@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spectacles
-%global packver   0.5-4
+%global packname  longke
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Storing, Manipulating and Analysis Spectroscopy and Associated Data
+Summary:          Nonparametric Predictive Model for Sparse and Irregular Longitudinal Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-baseline 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-epiR 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-baseline 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-epiR 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-bvls 
+BuildRequires:    R-CRAN-fdapace 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-bvls 
+Requires:         R-CRAN-fdapace 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
 
 %description
-Stores and eases the manipulation of spectra and associated data, with
-dedicated classes for spatial and soil-related data.
+The proposed method aims at predicting the longitudinal mean response
+trajectory by a kernel-based estimator. The kernel estimator is
+constructed by imposing weights based on subject-wise similarity on L2
+metric space between predictor trajectories as well as time proximity.
+Users could also perform variable selections to derive functional
+predictors with predictive significance by the proposed multiplicative
+model with multivariate Gaussian kernels.
 
 %prep
 %setup -q -c -n %{packname}

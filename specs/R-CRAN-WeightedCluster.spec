@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WeightedCluster
-%global packver   1.6-2
+%global packver   1.6-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Weighted Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-nnet 
 Requires:         R-CRAN-TraMineR >= 2.0.6
 Requires:         R-CRAN-cluster 
 Requires:         R-utils 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-nnet 
 
 %description
 Clusters state sequences and weighted data. It provides an optimized

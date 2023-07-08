@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spectacles
-%global packver   0.5-4
+%global packname  fastLogisticRegressionWrap
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Storing, Manipulating and Analysis Spectroscopy and Associated Data
+Summary:          Fast Logistic Regression Wrapper
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-baseline 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-epiR 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-baseline 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-epiR 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-RcppNumerical 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-checkmate 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
-Stores and eases the manipulation of spectra and associated data, with
-dedicated classes for spatial and soil-related data.
+Provides very fast logistic regression with inferences plus other useful
+methods such as a forward stepwise model generator. It is fundamentally a
+wrapper to the amazing fastLR() method in the 'RcppNumerical' package by
+Yixuan Qiu et al. This package allows their work to be more useful to the
+wider community.
 
 %prep
 %setup -q -c -n %{packname}

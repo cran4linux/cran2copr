@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pks
-%global packver   0.5-0
+%global packver   0.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Knowledge Structures
 
@@ -25,9 +26,10 @@ Requires:         R-graphics
 
 %description
 Fitting and testing probabilistic knowledge structures, especially the
-basic local independence model (BLIM, Doignon & Flamagne, 1999), using the
-minimum discrepancy maximum likelihood (MDML) method (Heller &
-Wickelmaier, 2013 <doi:10.1016/j.endm.2013.05.145>).
+basic local independence model (BLIM, Doignon & Flamagne, 1999) and the
+simple learning model (SLM), using the minimum discrepancy maximum
+likelihood (MDML) method (Heller & Wickelmaier, 2013
+<doi:10.1016/j.endm.2013.05.145>).
 
 %prep
 %setup -q -c -n %{packname}

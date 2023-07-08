@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spectacles
-%global packver   0.5-4
+%global packname  AMIM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Storing, Manipulating and Analysis Spectroscopy and Associated Data
+Summary:          Compute the Adjusted Market Inefficiency Measure
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
+BuildRequires:    R-devel >= 3.10
+Requires:         R-core >= 3.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-baseline 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-epiR 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-baseline 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-epiR 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-Stores and eases the manipulation of spectra and associated data, with
-dedicated classes for spatial and soil-related data.
+Fast tool to calculate the Adjusted Market Inefficiency Measure following
+Tran & Leirvik (2019) <doi:10.1016/j.frl.2019.03.004>. This tool provides
+rolling window estimates of the Adjusted Market Inefficiency Measure for
+multiple instruments simultaneously.
 
 %prep
 %setup -q -c -n %{packname}

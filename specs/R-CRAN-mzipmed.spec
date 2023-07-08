@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mzipmed
-%global packver   1.3.5
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediation using MZIP Model
 
@@ -18,13 +18,13 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-robust 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-robust 
 Requires:         R-stats 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-sandwich 
 
 %description
 We implement functions allowing for mediation analysis to be performed in

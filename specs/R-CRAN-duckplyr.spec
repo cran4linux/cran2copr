@@ -1,35 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rasterList
-%global packver   0.5.17
+%global packname  duckplyr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.17
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Raster Where Cells are Generic Objects
+Summary:          Alternative Implementations of the Grammar of Data Manipulations
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-methods 
 
 %description
-A S4 class has been created such that complex operations can be executed
-on each cells of a raster map. The raster of objects contains the
-traditional raster map with the addition of a list of generic objects: one
-object for each raster cells. It allows to write few lines of R code for
-complex map algebra. Two environmental applications about frequency
-analysis of raster map of precipitation and creation of a raster map of
-soil water retention curves have been presented.
+Defines a set of generics that provide a low-level implementer's interface
+for the high-level user interface of 'dplyr'.
 
 %prep
 %setup -q -c -n %{packname}

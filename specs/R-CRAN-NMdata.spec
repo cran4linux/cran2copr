@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NMdata
-%global packver   0.0.17
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.17
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preparation, Checking and Post-Processing Data for PK/PD Modeling
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fst 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fst 
 
 %description
 Efficient tools for preparation, checking and post-processing of data in

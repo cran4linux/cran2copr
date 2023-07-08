@@ -1,49 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GDPuc
-%global packver   0.11.0
+%global packname  NMA
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Convert GDP Data
+Summary:          Network Meta-Analysis Package for R
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 2.4.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli >= 2.4.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-forestplot 
+BuildRequires:    R-grid 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-forestplot 
+Requires:         R-grid 
 
 %description
-A function to convert GDP time series from one unit to another.  All
-common GDP units are included, i.e. current and constant local currency
-units, US$ via market exchange rates and international dollars via
-purchasing power parities. Conversion factors can easily be customized.
-Conversion at a regional/aggregated level is also possible.
+Network meta-analysis tools based on the contrast-based approach using the
+multivariate meta-analysis and meta-regression models (Noma et al. (2023)
+<Forthcoming>). The standard REML (restricted maximum likelihood)
+estimation and the Noma-Hamura's improved REML-based analysis methods
+(Noma et al. (2023) <doi:10.1002/jrsm.1652> <doi:10.1002/jrsm.1651>) are
+available. The local and global inconsistency tests based on the Higgins'
+design-by-treatment interaction model and the side-splitting can be used.
+Also, standard graphical tools for network meta-analysis (e.g., network
+plot, ranked forest plot) are available.
 
 %prep
 %setup -q -c -n %{packname}

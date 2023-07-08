@@ -1,42 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spectacles
-%global packver   0.5-4
+%global packname  ecan
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Storing, Manipulating and Analysis Spectroscopy and Associated Data
+Summary:          Ecological Analysis and Visualization
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-dendextend 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-labdsv 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-baseline 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-epiR 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-dendextend 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-labdsv 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-baseline 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-epiR 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vegan 
 
 %description
-Stores and eases the manipulation of spectra and associated data, with
-dedicated classes for spatial and soil-related data.
+Support ecological analyses such as ordination and clustering. Contains
+consistent and easy wrapper functions of 'stat', 'vegan', and 'labdsv'
+packages, and visualisation functions of ordination and clustering.
 
 %prep
 %setup -q -c -n %{packname}
