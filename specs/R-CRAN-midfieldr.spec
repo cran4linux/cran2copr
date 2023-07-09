@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgload
-%global packver   1.3.2.1
+%global packname  midfieldr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Package Installation and Attach
+Summary:          Tools and Methods for Working with MIDFIELD Data in 'R'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-withr >= 2.4.3
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-withr >= 2.4.3
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-data.table >= 1.9.8
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-wrapr 
+Requires:         R-CRAN-data.table >= 1.9.8
+Requires:         R-CRAN-checkmate 
+Requires:         R-stats 
+Requires:         R-CRAN-wrapr 
 
 %description
-Simulates the process of installing a package and then attaching it. This
-is a key part of the 'devtools' package as it allows you to rapidly
-iterate while developing a package.
+Provides tools and demonstrates methods for working with individual
+undergraduate student-level records (registrar's data) in 'R'. Tools
+include filters for program codes, data sufficiency, and timely
+completion. Methods include gathering blocs of records, computing
+quantitative metrics such as graduation rate, and creating charts to
+visualize comparisons. 'midfieldr' interacts with practice data provided
+in 'midfielddata', a data package with an installed size of about 24 Mb
+available via a 'drat' repository. Instructions at
+<https://midfieldr.github.io/midfielddata/>. This work is supported by the
+US National Science Foundation through grant numbers 1545667 and 2142087.
 
 %prep
 %setup -q -c -n %{packname}

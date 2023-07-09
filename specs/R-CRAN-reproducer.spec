@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reproducer
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproduce Statistical Analyses and Meta-Analyses
 
@@ -55,15 +55,15 @@ Requires:         R-CRAN-dplyr >= 0.8.0.1
 Requires:         R-CRAN-GetoptLong >= 0.1.7
 
 %description
-Includes data analysis functions (e.g., to calculate effect sizes and 95%%
-Confidence Intervals (CI) on Standardised Effect Sizes (d) for AB/BA
-cross-over repeated-measures experimental designs), data presentation
-functions (e.g., density curve overlaid on histogram), and the data sets
-analyzed in different research papers in software engineering (e.g.,
-related to software defect prediction or multi-site experiment concerning
-the extent to which structured abstracts were clearer and more complete
-than conventional abstracts) to streamline reproducible research in
-software engineering.
+Includes data analysis and meta-analysis functions (e.g., to calculate
+effect sizes and 95%% Confidence Intervals (CI) on Standardised Effect
+Sizes (d) for AB/BA cross-over repeated-measures experimental designs),
+data presentation functions (e.g., density curve overlaid on
+histogram),and the data sets analyzed in different research papers in
+software engineering (e.g., related to software defect prediction or
+multi- site experiment concerning the extent to which structured abstracts
+were clearer and more complete than conventional abstracts) to streamline
+reproducible research in software engineering.
 
 %prep
 %setup -q -c -n %{packname}

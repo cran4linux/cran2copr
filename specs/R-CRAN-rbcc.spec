@@ -1,47 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgload
-%global packver   1.3.2.1
+%global packname  rbcc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Package Installation and Attach
+Summary:          Risk-Based Control Charts
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.00
+Requires:         R-core >= 4.00
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-withr >= 2.4.3
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-withr >= 2.4.3
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-qcc 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-PearsonDS 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-qcc 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-PearsonDS 
+Requires:         R-CRAN-pracma 
 
 %description
-Simulates the process of installing a package and then attaching it. This
-is a key part of the 'devtools' package as it allows you to rapidly
-iterate while developing a package.
+Univariate and multivariate versions of risk-based control charts.
+Univariate versions of control charts, such as the risk-based version of
+X-bar, Moving Average (MA), Exponentially Weighted Moving Average Control
+Charts (EWMA), and Cumulative Sum Control Charts (CUSUM) charts. The
+risk-based version of the multivariate T2 control chart. Plot and summary
+functions. Kosztyan et. al. (2016) <doi:10.1016/j.eswa.2016.06.019>.
 
 %prep
 %setup -q -c -n %{packname}

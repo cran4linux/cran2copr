@@ -1,47 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgload
-%global packver   1.3.2.1
+%global packname  eummd
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2.1
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Package Installation and Attach
+Summary:          Efficient Univariate Maximum Mean Discrepancy
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-withr >= 2.4.3
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-withr >= 2.4.3
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Simulates the process of installing a package and then attaching it. This
-is a key part of the 'devtools' package as it allows you to rapidly
-iterate while developing a package.
+Computes maximum mean discrepancy two-sample test for univariate data
+using the Laplacian kernel. It is also possible to compute the p-value
+using permutations. Also includes implementation for computing the robust
+median difference statistic 'Q_n' from Croux and Rousseeuw (1992)
+<doi:10.1007/978-3-662-26811-7_58> based on Johnson and Mizoguchi (1978)
+<doi:10.1137/0207013>.
 
 %prep
 %setup -q -c -n %{packname}

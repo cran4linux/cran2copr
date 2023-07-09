@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgload
-%global packver   1.3.2.1
+%global packname  AutoAds
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Package Installation and Attach
+Summary:          Advertisement Metrics Calculation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-withr >= 2.4.3
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-withr >= 2.4.3
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-Simulates the process of installing a package and then attaching it. This
-is a key part of the 'devtools' package as it allows you to rapidly
-iterate while developing a package.
+Calculations of the most common metrics of automated advertisement and
+plotting of them with trend and forecast. Calculations and description of
+metrics is taken from different RTB platforms support documentation.
+Plotting and forecasting is based on packages 'forecast', described in Rob
+J Hyndman and George Athanasopoulos (2021) "Forecasting: Principles and
+Practice" <https://otexts.com/fpp3/> and Rob J Hyndman et al
+"Documentation for 'forecast'" (2003)
+<https://pkg.robjhyndman.com/forecast/>, and 'ggplot2', described in
+Hadley Wickham et al "Documentation for 'ggplot2'" (2015)
+<https://ggplot2.tidyverse.org/>, and Hadley Wickham, Danielle Navarro,
+and Thomas Lin Pedersen (2015) "ggplot2: Elegant Graphics for Data
+Analysis" <https://ggplot2-book.org/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgload
-%global packver   1.3.2.1
+%global packname  MMAD
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Package Installation and Attach
+Summary:          MM Algorithm Based on the Assembly-Decomposition Technology
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-withr >= 2.4.3
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-withr >= 2.4.3
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-CRAN-survival 
 
 %description
-Simulates the process of installing a package and then attaching it. This
-is a key part of the 'devtools' package as it allows you to rapidly
-iterate while developing a package.
+The Minorize-Maximization(MM) algorithm based on
+Assembly-Decomposition(AD) technology can be used for model estimation of
+parametric models, semi-parametric models and non-parametric models. We
+selected parametric models including left truncated normal distribution,
+type I multivariate zero-inflated generalized poisson distribution and
+multivariate compound zero-inflated generalized poisson distribution;
+semiparametric models include Cox model and gamma frailty model;
+nonparametric model is estimated for type II interval-censored data. These
+general methods are proposed based on the following papers, Tian, Huang
+and Xu (2019) <doi:10.5705/SS.202016.0488>, Huang, Xu and Tian (2019)
+<doi:10.5705/ss.202016.0516>, Zhang and Huang (2022)
+<doi:10.1117/12.2642737>.
 
 %prep
 %setup -q -c -n %{packname}
