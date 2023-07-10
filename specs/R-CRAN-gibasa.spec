@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gibasa
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Alternative 'Rcpp' Wrapper of 'MeCab'
 
@@ -14,22 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-audubon >= 0.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-audubon >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringi 
 Requires:         R-utils 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kfa
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          K-Fold Cross Validation for Factor Analysis
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-semPlot 
 BuildRequires:    R-CRAN-simstandard 
 Requires:         R-CRAN-lavaan >= 0.6.9
 Requires:         R-CRAN-flextable >= 0.6.3
@@ -41,7 +40,6 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-officer 
 Requires:         R-parallel 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-semPlot 
 Requires:         R-CRAN-simstandard 
 
 %description

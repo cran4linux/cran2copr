@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  afttest
-%global packver   4.2.3
+%global packver   4.3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.3
+Version:          4.3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Diagnostics for Accelerated Failure Time Models
 
