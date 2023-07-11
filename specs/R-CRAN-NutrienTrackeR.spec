@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NutrienTrackeR
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Food Composition Information and Dietary Assessment
 
@@ -24,13 +25,13 @@ Requires:         R-CRAN-shiny
 %description
 Provides a tool set for food information and dietary assessment. It uses
 food composition data from several reference databases, including: 'USDA'
-(United States), 'CIQUAL' (France), 'BEDCA' (Spain) and 'CNF' (Canada).
-'NutrienTrackeR' calculates the intake levels for both macronutrient and
-micronutrients, and compares them with the recommended dietary allowances
-(RDA). It includes a number of visualization tools, such as time series
-plots of nutrient intake, and pie-charts showing the main foods
-contributing to the intake level of a given nutrient. A shiny app exposing
-the main functionalities of the package is also provided.
+(United States), 'CIQUAL' (France), 'BEDCA' (Spain), 'CNF' (Canada) and
+'STFCJ' (Japan). 'NutrienTrackeR' calculates the intake levels for both
+macronutrient and micronutrients, and compares them with the recommended
+dietary allowances (RDA). It includes a number of visualization tools,
+such as time series plots of nutrient intake, and pie-charts showing the
+main foods contributing to the intake level of a given nutrient. A shiny
+app exposing the main functionalities of the package is also provided.
 
 %prep
 %setup -q -c -n %{packname}

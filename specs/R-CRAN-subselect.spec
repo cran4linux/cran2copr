@@ -1,44 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dwctaxon
-%global packver   2.0.2
+%global packname  subselect
+%global packver   0.15.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.15.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Edit and Validate Darwin Core Taxon Data
+Summary:          Selecting Variable Subsets
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-settings 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-settings 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ISwR 
+BuildRequires:    R-CRAN-corpcor 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ISwR 
+Requires:         R-CRAN-corpcor 
 
 %description
-Edit and validate taxonomic data in compliance with Darwin Core standards
-(Darwin Core 'Taxon' class <https://dwc.tdwg.org/terms/#taxon>).
+A collection of functions which (i) assess the quality of variable subsets
+as surrogates for a full data set, in either an exploratory data analysis
+or in the context of a multivariate linear model, and (ii) search for
+subsets which are optimal under various criteria. Theoretical support for
+the heuristic search methods and exploratory data analysis criteria is in
+Cadima, Cerdeira, Minhoto (2003, <doi:10.1016/j.csda.2003.11.001>).
+Theoretical support for the leap and bounds algorithm and the criteria for
+the general multivariate linear model is in Duarte Silva (2001,
+<doi:10.1006/jmva.2000.1920>). There is a package vignette "subselect",
+which includes additional references.
 
 %prep
 %setup -q -c -n %{packname}

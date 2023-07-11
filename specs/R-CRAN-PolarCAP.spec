@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mathpix
-%global packver   0.5.0
+%global __requires_exclude ^libmpi
+%global packname  PolarCAP
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for the 'Mathpix' API (Image to 'LaTeX')
+Summary:          Access the Polarization in Comparative Attitudes Project
 
-License:          GPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-texPreview >= 2.0.0
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-texPreview >= 2.0.0
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-magick 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-countrycode 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-countrycode 
 
 %description
-Given an image of a formula (typeset or handwritten) this package provides
-calls to the 'Mathpix' service to produce the 'LaTeX' code which should
-generate that image, and pastes it into a (e.g. an 'rmarkdown') document.
-See <https://docs.mathpix.com/> for full details. 'Mathpix' is an external
-service and use of the API is subject to their terms and conditions.
+Distributes data from the Polarization in Comparative Attitudes Project.
+Helper functions enable data retrieval in wide and tidy formats for
+user-defined countries and years. Provides support for case-insensitive
+country names in many languages. Mehlhaff (2022)
+<https://imehlhaff.net/files/Polarization%%20and%%20Democracy.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

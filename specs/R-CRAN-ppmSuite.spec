@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  r2rtf
-%global packver   1.1.0
+%global packname  ppmSuite
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create Production-Ready Rich Text Format (RTF) Table and Figure
+Summary:          A Collection of Models that Employ Product Partition Distributions as a Prior on Partitions
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-tools 
-Requires:         R-grDevices 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix 
 
 %description
-Create production-ready Rich Text Format (RTF) table and figure with
-flexible format.
+Provides a suite of functions that fit models that use PPM type priors for
+partitions. Models include hierarchical Gaussian and probit ordinal models
+with a (covariate dependent) PPM.  If a covariate dependent product
+partition model is selected, then all the options detailed in Page, G.L.;
+Quintana, F.A. (2018) <doi:10.1007/s11222-017-9777-z> are available.  If
+covariate values are missing, then the approach detailed in Page, G.L.;
+Quintana, F.A.; Mueller, P (2020) <doi:10.1080/10618600.2021.1999824> is
+employed.  Also included in the package is a function that fits a Gaussian
+likelihood spatial product partition model that is detailed in Page, G.L.;
+Quintana, F.A. (2016) <doi:10.1214/15-BA971>, and multivariate PPM change
+point models that are detailed in Quinlan, J.J.; Page, G.L.; Castro, L.M.
+(2023) <doi:10.1214/22-BA1344>. In addition, a function that fits a
+univariate or bivariate functional data model that employs a PPM or a PPMx
+to cluster curves based on B-spline coefficients is provided.
 
 %prep
 %setup -q -c -n %{packname}

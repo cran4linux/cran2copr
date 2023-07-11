@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BrailleR
-%global packver   0.32.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.32.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Improved Access for Blind Users
 
@@ -13,60 +14,56 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         python3dist(wxpython) >= 4
+Requires:         python3dist(wxpython)
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-extrafont 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridGraphics 
 BuildRequires:    R-CRAN-gridSVG 
 BuildRequires:    R-CRAN-hunspell 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-roloc 
 BuildRequires:    R-CRAN-rolocISCCNBS 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-extrafont 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
 Requires:         R-CRAN-gridGraphics 
 Requires:         R-CRAN-gridSVG 
 Requires:         R-CRAN-hunspell 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-moments 
-Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-roloc 
 Requires:         R-CRAN-rolocISCCNBS 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-xtable 
+Requires:         R-grDevices 
 
 %description
 Blind users do not have access to the graphical output from R without
 printing the content of graphics windows to an embosser of some kind. This
 is not as immediate as is required for efficient access to statistical
-output. The functions here are created so that blind people can make even
+output.  The functions here are created so that blind people can make even
 better use of R. This includes the text descriptions of graphs,
 convenience functions to replace the functionality offered in many GUI
 front ends, and experimental functionality for optimising graphical

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swipeR
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Carousels using the 'JavaScript' Library 'Swiper'
 
@@ -17,15 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-rChoiceDialogs 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-rChoiceDialogs 
+Requires:         R-tools 
 
 %description
 Create carousels using the 'JavaScript' library 'Swiper' and the package
 'htmlwidgets'. The carousels can be displayed in the 'RStudio' viewer
-pane, in 'Shiny' applications and in 'R markdown' documents.
+pane, in 'Shiny' applications and in 'R markdown' documents. The package
+also provides a 'RStudio' addin allowing to choose image files and to
+display them in the viewer pane.
 
 %prep
 %setup -q -c -n %{packname}

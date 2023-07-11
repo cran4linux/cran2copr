@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epca
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Principal Component Analysis
 
@@ -20,14 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-GPArotation 
 Requires:         R-CRAN-clue 
 Requires:         R-CRAN-irlba 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-GPArotation 
 
 %description

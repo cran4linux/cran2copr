@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PTXQC
-%global packver   1.0.16
+%global packver   1.0.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          1.0.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quality Report Generation for MaxQuant and mzTab Results
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-knitr >= 1.10
-BuildRequires:    R-CRAN-rmzqc >= 0.4.2
+BuildRequires:    R-CRAN-rmzqc >= 0.5.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggdendro 
 BuildRequires:    R-grid 
@@ -43,7 +43,7 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-knitr >= 1.10
-Requires:         R-CRAN-rmzqc >= 0.4.2
+Requires:         R-CRAN-rmzqc >= 0.5.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggdendro 
 Requires:         R-grid 

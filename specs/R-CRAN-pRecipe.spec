@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pRecipe
-%global packver   2.5.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Precipitation R Recipes
 
@@ -23,36 +23,42 @@ BuildRequires:    R-parallel
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-openair 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-openair 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
 
 %description
 An open-access tool/framework to download, validate, visualize, and
-analyze multi-source precipitation data across various spatio-temporal
-scales. Ultimately providing the hydrology science community with the
-tools for consistent and reproducible analysis regarding precipitation.
+analyze multi-source precipitation data. More information and an example
+of implementation can be found in Vargas Godoy and Markonis (2023,
+<doi:10.1016/j.envsoft.2023.105711>).
 
 %prep
 %setup -q -c -n %{packname}

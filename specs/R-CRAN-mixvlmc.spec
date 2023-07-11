@@ -1,53 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgudhi
-%global packver   0.2.0
+%global packname  mixvlmc
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to the GUDHI Library for Topological Data Analysis
+Summary:          Variable Length Markov Chains with Covariates
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack >= 2.4
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-butcher 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-Rdpack >= 2.4
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-Rcpp >= 1.0.8.3
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-butcher 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-withr 
 
 %description
-Provides an interface to the GUDHI library which is a generic open source
-C++ library, with a Python interface, for topological data analysis (TDA)
-and higher dimensional geometry understanding. The library offers
-state-of-the-art data structures and algorithms to construct simplicial
-complexes and compute persistent homology.
+Estimates Variable Length Markov Chains (VLMC) models and VLMC with
+covariates models from discrete sequences. Supports model selection via
+information criteria and simulation of new sequences from an estimated
+model. See Bühlmann, P. and Wyner, A. J. (1999)
+<doi:10.1214/aos/1018031204> for VLMC and Zanin Zambom, A., Kim, S. and
+Lopes Garcia, N. (2022) <doi:10.1111/jtsa.12615> for VLMC with covariates.
 
 %prep
 %setup -q -c -n %{packname}

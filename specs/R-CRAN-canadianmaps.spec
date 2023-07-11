@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  canadianmaps
-%global packver   1.0.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Canadian Mapping Made Easy
+Summary:          Effortlessly Create Stunning Canadian Maps
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,20 +19,21 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dplyr 
 
 %description
-Several functions to make mapping provincial, regional, and forward
-sortation area data easy using 'ggplot2'.
+Simple and seamless access to a variety of 'StatCan' shapefiles for
+mapping Canadian provinces, regions, forward sortation areas, census
+divisions, and subdivisions using the popular 'ggplot2' package.
 
 %prep
 %setup -q -c -n %{packname}
