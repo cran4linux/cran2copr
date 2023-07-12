@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CAMAN
-%global packver   0.77
+%global packname  easyclimate
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.77
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Finite Mixture Models and Meta-Analysis Tools - Based on C.A.MAN
+Summary:          Easy Access to High-Resolution Daily Climate Data for Europe
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.2.13
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-terra >= 1.2.13
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-RCurl 
+Requires:         R-stats 
 
 %description
-Tools for the analysis of finite semiparametric mixtures. These are useful
-when data is heterogeneous, e.g. in pharmacokinetics or meta-analysis. The
-NPMLE and VEM algorithms (flexible support size) and EM algorithms (fixed
-support size) are provided for univariate (Bohning et al., 1992;
-<doi:10.2307/2532756>) and bivariate data (Schlattmann et al., 2015;
-<doi:10.1016/j.jclinepi.2014.08.013>).
+Get high-resolution (1 km) daily climate data (precipitation, minimum and
+maximum temperatures) for points and polygons within Europe.
 
 %prep
 %setup -q -c -n %{packname}

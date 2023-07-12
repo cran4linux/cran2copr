@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDFEstimator
-%global packver   4.3
+%global packname  eunis.habitats
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Nonparametric Probability Density Estimator
+Summary:          EUNIS Habitat Classification
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-MultiRNG 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-MultiRNG 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
-multivariate nonparametric density estimator based on the maximum-entropy
-method.  Accurately predicts a probability density function (PDF) for
-random data using a novel iterative scoring function to determine the best
-fit without overfitting to the sample.
+The EUNIS habitat classification is a comprehensive pan-European system
+for habitat identification
+<https://www.eea.europa.eu/data-and-maps/data/eunis-habitat-classification-1>.
+This is an R data package providing the EUNIS classification system. The
+classification is hierarchical and covers all types of habitats from
+natural to artificial, from terrestrial to freshwater and marine. The
+habitat types are identified by specific codes, names and descriptions and
+come with schema crosswalks to other habitat typologies.
 
 %prep
 %setup -q -c -n %{packname}

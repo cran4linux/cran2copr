@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mvPot
-%global packver   0.1.5
+%global __requires_exclude ^libmpi
+%global packname  oaii
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Peaks-over-Threshold Modelling for Spatial Extreme Events
+Summary:          'OpenAI' API R Interface
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-evd 
-BuildRequires:    R-CRAN-numbers 
-BuildRequires:    R-CRAN-gmp 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-evd 
-Requires:         R-CRAN-numbers 
-Requires:         R-CRAN-gmp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-utils 
 
 %description
-Tools for high-dimensional peaks-over-threshold inference and simulation
-of spatial extremal processes. Key references include de Fondeville and
-Davison (2018) <doi:10.1093/biomet/asy026>, Thibaud and Opitz (2015)
-<doi:10.1093/biomet/asv045>, Wadsworth and Tawn
-<doi:10.1093/biomet/ast042>.
+A comprehensive set of helpers that streamline data transmission and
+processing, making it effortless to interact with the 'OpenAI' API
+<https://platform.openai.com/docs/api-reference/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

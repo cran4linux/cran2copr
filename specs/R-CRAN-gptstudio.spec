@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gptstudio
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Large Language Models Directly in your Development Environment
 
@@ -14,16 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr >= 1.5.0
 BuildRequires:    R-CRAN-bslib >= 0.4.2
 BuildRequires:    R-CRAN-rstudioapi >= 0.12
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-fontawesome 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-htmltools 
@@ -31,22 +31,20 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shiny.i18n 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-waiter 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-stringr >= 1.5.0
 Requires:         R-CRAN-bslib >= 0.4.2
 Requires:         R-CRAN-rstudioapi >= 0.12
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-fontawesome 
 Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
 Requires:         R-CRAN-htmltools 
@@ -54,15 +52,13 @@ Requires:         R-CRAN-htmlwidgets
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shiny.i18n 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-usethis 
 Requires:         R-utils 
+Requires:         R-CRAN-waiter 
+Requires:         R-CRAN-yaml 
 
 %description
 Large language models are readily accessible via API. This package lowers

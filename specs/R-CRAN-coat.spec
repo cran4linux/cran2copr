@@ -1,37 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ASMap
-%global packver   1.0-5
+%global packname  coat
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linkage Map Construction using the MSTmap Algorithm
+Summary:          Conditional Method Agreement Trees (COAT)
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-qtl 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-gtools 
-Requires:         R-CRAN-qtl 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-gtools 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggparty 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggtext 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-ggparty 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggtext 
 
 %description
-Functions for Accurate and Speedy linkage map construction, manipulation
-and diagnosis of Doubled Haploid, Backcross and Recombinant Inbred 'R/qtl'
-objects. This includes extremely fast linkage map clustering and optimal
-marker ordering using 'MSTmap' (see Wu et al.,2008).
+Agreement of continuously scaled measurements made by two techniques,
+devices or methods is usually evaluated by the well-established
+Bland-Altman analysis or plot. Conditional method agreement trees (COAT),
+proposed by Karapetyan, Zeileis, Henriksen, and Hapfelmeier (2023)
+<doi:10.48550/arXiv.2306.04456>, embed the Bland-Altman analysis in the
+framework of recursive partitioning to explore heterogeneous method
+agreement in dependence of covariates. COAT can also be used to perform a
+Bland-Altman test for differences in method agreement.
 
 %prep
 %setup -q -c -n %{packname}

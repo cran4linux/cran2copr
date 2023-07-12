@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fMultivar
-%global packver   4021.83
+%global packver   4031.84
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4021.83
+Version:          4031.84
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rmetrics - Modeling of Multivariate Financial Return Distributions
 
@@ -34,7 +35,9 @@ Requires:         R-graphics
 Requires:         R-stats 
 
 %description
-A collection of functions to manage, investigate and analyze bivariate and
+A collection of functions inspired by Venables and Ripley (2002)
+<doi:10.1007/978-0-387-21706-2> and Azzalini and Capitanio (1999)
+<arXiv:0911.2093> to manage, investigate and analyze bivariate and
 multivariate data sets of financial returns.
 
 %prep
