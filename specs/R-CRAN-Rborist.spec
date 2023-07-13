@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rborist
-%global packver   0.3-2
+%global packver   0.3-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensible, Parallelizable Implementation of the Random Forest Algorithm
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildRequires:    R-CRAN-data.table >= 1.9.8
 BuildRequires:    R-CRAN-Rcpp >= 0.12.2
+BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-Rcpp >= 0.12.2
+Requires:         R-CRAN-digest 
 
 %description
 Scalable implementation of classification and regression forests, as

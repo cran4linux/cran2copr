@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DDIwR
-%global packver   0.14
+%global packver   0.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14
+Version:          0.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          DDI with R
 
@@ -18,14 +18,14 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-admisc >= 0.32
-BuildRequires:    R-CRAN-declared >= 0.21
+BuildRequires:    R-CRAN-declared >= 0.22
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-admisc >= 0.32
-Requires:         R-CRAN-declared >= 0.21
+Requires:         R-CRAN-declared >= 0.22
 Requires:         R-tools 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-haven 

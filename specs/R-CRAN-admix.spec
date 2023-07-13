@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admix
-%global packver   2.1-1
+%global packver   2.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package Admix for Admixture (aka Contamination) Models
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-base 
+BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-fdrtool 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Iso 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-base 
+Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-fdrtool 
 Requires:         R-graphics 
 Requires:         R-CRAN-Iso 

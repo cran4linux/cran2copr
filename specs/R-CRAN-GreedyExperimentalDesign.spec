@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GreedyExperimentalDesign
-%global packver   1.5.5
+%global packver   1.5.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          1.5.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Greedy Experimental Design Construction
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-nbpMatching 
 BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-kernlab 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-nbpMatching 
 Requires:         R-CRAN-survey 
+Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-kernlab 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DEoptimR
-%global packver   1.0-14
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.14
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Differential Evolution Optimization in Pure R
 
@@ -21,13 +21,15 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Differential Evolution (DE) stochastic algorithms for global optimization
-of problems with and without constraints. The aim is to curate a
-collection of its state-of-the-art variants that (1) do not sacrifice
+Differential Evolution (DE) stochastic heuristic algorithms for global
+optimization of problems with and without general constraints. The aim is
+to curate a collection of its variants that (1) do not sacrifice
 simplicity of design, (2) are essentially tuning-free, and (3) can be
-efficiently implemented directly in the R language. Currently, it only
-provides an implementation of the 'jDE' algorithm by Brest et al. (2006)
-<doi:10.1109/TEVC.2006.872133>.
+efficiently implemented directly in the R language. Currently, it provides
+implementations of the algorithms 'jDE' by Brest et al. (2006)
+<doi:10.1109/TEVC.2006.872133> for single-objective optimization and
+'NCDE' by Qu et al. (2012) <doi:10.1109/TEVC.2011.2161873> for multimodal
+optimization.
 
 %prep
 %setup -q -c -n %{packname}
