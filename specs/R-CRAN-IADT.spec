@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SVDNF
-%global packver   0.1.6
+%global packname  IADT
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discrete Nonlinear Filtering for Stochastic Volatility Models
+Summary:          Interaction Difference Test for Prediction Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-mvnfast 
+Requires:         R-CRAN-Rmpfr 
 Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-mvnfast 
 
 %description
-Generates simulated paths from various financial stochastic volatility
-models with jumps and applies the discrete nonlinear filter (DNF) of
-Kitagawa (1987) <doi:10.1080/01621459.1987.10478534> to compute likelihood
-evaluations, filtering distribution estimates, and maximum likelihood
-parameter estimates. The algorithm is implemented following the work of
-Bégin and Boudreault (2021) <doi:10.1080/10618600.2020.1840995>.
+Provides functions to conduct a model-agnostic asymptotic hypothesis test
+for the identification of interaction effects in black-box machine
+learning models. The null hypothesis assumes that a given set of
+covariates does not contribute to interaction effects in the prediction
+model. The test statistic is based on the difference of variances of
+partial dependence functions (Friedman (2008) <doi:10.1214/07-AOAS148> and
+Welchowski (2022) <doi:10.1007/s13253-021-00479-7>) with respect to the
+original black-box predictions and the predictions under the null
+hypothesis. The hypothesis test can be applied to any black-box prediction
+model, and the null hypothesis of the test can be flexibly specified
+according to the research question of interest. Furthermore, the test is
+computationally fast to apply as the null distribution does not require
+resampling or refitting black-box prediction models.
 
 %prep
 %setup -q -c -n %{packname}

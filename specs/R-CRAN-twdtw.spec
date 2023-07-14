@@ -1,25 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GenSA
-%global packver   1.1.9
+%global packname  twdtw
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Functions for Generalized Simulated Annealing
+Summary:          Time-Weighted Dynamic Time Warping
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-proxy 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-proxy 
 
 %description
-Performs search for global minimum of a very complex non-linear objective
-function with a very large number of optima.
+Implements Time-Weighted Dynamic Time Warping (TWDTW), a measure for
+quantifying time series similarity. The TWDTW algorithm, described in Maus
+et al. (2016) <doi:10.1109/JSTARS.2016.2517118> and Maus et al. (2019)
+<doi:10.18637/jss.v088.i05>, is applicable to multi-dimensional time
+series of various resolutions. It is particularly suitable for comparing
+time series with seasonality for environmental and ecological data
+analysis, covering domains such as remote sensing imagery, climate data,
+hydrology, and animal movement. The 'twdtw' package offers a user-friendly
+'R' interface, efficient 'Fortran' routines for TWDTW calculations,
+flexible time weighting definitions, as well as utilities for time series
+preprocessing and visualization.
 
 %prep
 %setup -q -c -n %{packname}

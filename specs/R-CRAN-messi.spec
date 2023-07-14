@@ -1,25 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GenSA
-%global packver   1.1.9
+%global packname  messi
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Functions for Generalized Simulated Annealing
+Summary:          Mediation Analysis with External Summary-Level Information on Total Effect
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
+BuildRequires:    R-devel >= 3.6.2
+Requires:         R-core >= 3.6.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-progress 
 
 %description
-Performs search for global minimum of a very complex non-linear objective
-function with a very large number of optima.
+Fits the hard constraint, soft constraint, and unconstrained models in
+Boss et al. (2023) <arXiv:2306.17347> for mediation analyses with external
+summary-level information on the total effect.
 
 %prep
 %setup -q -c -n %{packname}

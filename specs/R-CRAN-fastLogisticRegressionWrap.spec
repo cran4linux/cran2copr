@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastLogisticRegressionWrap
-%global packver   1.0.1
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Logistic Regression Wrapper
 
@@ -21,19 +21,23 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-RcppNumerical 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-checkmate 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 
 %description
-Provides very fast logistic regression with inferences plus other useful
-methods such as a forward stepwise model generator. It is fundamentally a
-wrapper to the amazing fastLR() method in the 'RcppNumerical' package by
-Yixuan Qiu et al. This package allows their work to be more useful to the
-wider community.
+Provides very fast logistic regression with coefficient inferences plus
+other useful methods such as a forward stepwise model generator (see the
+benchmarks by visiting the github page at the URL below). The inputs are
+flexible enough to accomodate GPU computations. The coefficient estimation
+is the fastLR() method in the 'RcppNumerical' package by Yixuan Qiu et al.
+This package allows their work to be more useful to a wider community that
+demands inference.
 
 %prep
 %setup -q -c -n %{packname}

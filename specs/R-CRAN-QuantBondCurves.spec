@@ -1,25 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GenSA
-%global packver   1.1.9
+%global packname  QuantBondCurves
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Functions for Generalized Simulated Annealing
+Summary:          Calculates Bond Values and Interest Rate Curves for Finance
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-quantdates 
+BuildRequires:    R-CRAN-Rsolnp 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-quantdates 
+Requires:         R-CRAN-Rsolnp 
 
 %description
-Performs search for global minimum of a very complex non-linear objective
-function with a very large number of optima.
+Values different types of assets and calibrates discount curves for
+quantitative financial analysis. It covers fixed coupon assets, floating
+note assets, interest and cross currency swaps with different payment
+frequencies. Enables the calibration of spot, instantaneous forward and
+basis curves, making it a powerful tool for accurate and flexible bond
+valuation and curve generation. The valuation and calibration techniques
+presented here are consistent with industry standards and incorporates
+author's own calculations. Tuckman, B., Serrat, A. (2022, ISBN:
+978-1-119-83555-4).
 
 %prep
 %setup -q -c -n %{packname}
