@@ -1,31 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  port4me
-%global packver   0.6.0
+%global packname  babelwhale
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get the Same, Personal, Free 'TCP' Port over and over
+Summary:          Talking to 'Docker' and 'Singularity' Containers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+Requires:         docker
+Requires:         singularity
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-processx >= 3.5.0
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-dynutils 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-processx >= 3.5.0
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-dynutils 
+Requires:         R-CRAN-purrr 
+Requires:         R-utils 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-glue 
 
 %description
-An R implementation of the cross-platform, language-independent "port4me"
-algorithm (<https://github.com/HenrikBengtsson/port4me>), which (1) finds
-a free Transmission Control Protocol ('TCP') port in [1024,65535] that the
-user can open, (2) is designed to work in multi-user environments, (3),
-gives different users, different ports, (4) gives the user the same port
-over time with high probability, (5) gives different ports for different
-software tools, and (6) requires no configuration.
+Provides a unified interface to interact with 'docker' and 'singularity'
+containers.  You can execute a command inside a container, mount a volume
+or copy a file.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  slendr
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simulation Framework for Spatiotemporal Population Genetics
 
@@ -17,8 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
@@ -26,16 +24,12 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rnaturalearth 
-BuildRequires:    R-CRAN-gganimate 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-ijtiff 
+BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
@@ -43,13 +37,11 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rnaturalearth 
-Requires:         R-CRAN-gganimate 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-ijtiff 
+Requires:         R-CRAN-ape 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-ape 
 Requires:         R-CRAN-scales 
 
 %description

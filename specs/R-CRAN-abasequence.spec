@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  port4me
-%global packver   0.6.0
+%global packname  abasequence
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get the Same, Personal, Free 'TCP' Port over and over
+Summary:          Coding 'ABA' Patterns for Sequence Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description
-An R implementation of the cross-platform, language-independent "port4me"
-algorithm (<https://github.com/HenrikBengtsson/port4me>), which (1) finds
-a free Transmission Control Protocol ('TCP') port in [1024,65535] that the
-user can open, (2) is designed to work in multi-user environments, (3),
-gives different users, different ports, (4) gives the user the same port
-over time with high probability, (5) gives different ports for different
-software tools, and (6) requires no configuration.
+Provides a suite of functions for analyzing sequences of events. Users can
+generate and code sequences based on predefined rules, with a special
+focus on the identification of sequences coded as 'ABA' (when one element
+appears, followed by a different one, and then followed by the first).
+Additionally, the package offers the ability to calculate the length of
+consecutive 'ABA'-coded sequences sharing common elements. The methods
+implemented in this package are based on the work by Ziembowicz, K.,
+Rychwalska, A., & Nowak, A. (2022). <doi:10.1177/10464964221118674>.
 
 %prep
 %setup -q -c -n %{packname}

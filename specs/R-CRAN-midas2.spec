@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  midas2
-%global packver   0.1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Drug-Combination Platform Design(MIDAS-2)
+Summary:          Bayesian Platform Design with Subgroup Efficacy Exploration(MIDAS-2)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,24 +20,27 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-R2jags 
+Requires:         R-stats 
 
 %description
-Implementation of Bayesian drug-combination platform design. More and more
-immuno-oncology drug combinations make the traditional two-arm phase II
-trials inefficient, which stimulate the emerge of platform trials. In the
-case of multiple trial objectives such as candidates screening and
-subgroup analysis, we propose an information borrowing drug-combination
-Bayesian design for platform trials with subgroup exploration. MIDAS-2
-consists of one control arm and several experimental agents. We use
-Bayesian spike and slab prior to identify factors that should be included
-in regression model and borrow information between combinations in the
-existence of subgroup interaction. Promising drug combinations are allowed
-to graduated early to move to next stage and new combination strategies
-can be added accordingly. Catch-up rule, curtail rule and early stopping
-rules are also applied to accelerate the trial process.
+The rapid screening of effective and optimal therapies from large numbers
+of candidate combinations, as well as exploring subgroup efficacy, remains
+challenging, which necessitates innovative, integrated, and efficient
+trial designs(Yuan, Y., et al. (2016) <doi:10.1002/sim.6971>). MIDAS-2
+package enables quick and continuous screening of promising combination
+strategies and exploration of their subgroup effects within a unified
+platform design framework. We used a regression model to characterize the
+efficacy pattern in subgroups. Information borrowing was applied through
+Bayesian hierarchical model to improve trial efficiency considering the
+limited sample size in subgroups(Cunanan, K. M., et al. (2019)
+<doi:10.1177/1740774518812779>). MIDAS-2 provides an adaptive drug
+screening and subgroup exploring framework to accelerate immunotherapy
+development in an efficient, accurate, and integrated fashion(Wathen, J.
+K., & Thall, P. F. (2017) <doi: 10.1177/1740774517692302>).
 
 %prep
 %setup -q -c -n %{packname}
