@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pliman
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Plant Image Analysis
 
@@ -15,17 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lattice 
-Requires:         R-CRAN-lattice 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides tools for image manipulation that will help you to quantify plant
-leaf area, disease severity, number of disease lesions, and obtain
-statistics of image objects such as grains, pods, pollen, leaves, and
-more. Tools to segment images and create binary images using the method of
-automatic threshold selection proposed by Otsu (1979)
-<doi:10.1109/tsmc.1979.4310076> are also provided.
+Tools for single or batch image manipulation and analysis as described by
+Olivoto (2022) <doi:10.1111/2041-210X.13803> that can be used to quantify
+plant leaf area, assess disease severity, count objects, obtain shape
+measures, object landmarks, and compute Elliptical Fourier Analysis of the
+object outline, as described by Claude (2008)
+<doi:10.1007/978-0-387-77789-4>. Additionally, the package includes tools
+for analyzing grids, which enables high throughput field phenotyping using
+RGB imagery captured by unmanned aerial vehicles.
 
 %prep
 %setup -q -c -n %{packname}

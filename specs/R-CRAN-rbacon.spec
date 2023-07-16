@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbacon
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Age-Depth Modelling using Bayesian Statistics
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rintcal >= 0.6.0
+BuildRequires:    R-CRAN-rintcal >= 0.6.1
 BuildRequires:    R-CRAN-coda >= 0.19.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-graphics 
@@ -24,7 +24,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-rintcal >= 0.6.0
+Requires:         R-CRAN-rintcal >= 0.6.1
 Requires:         R-CRAN-coda >= 0.19.1
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-graphics 
@@ -36,8 +36,8 @@ Requires:         R-CRAN-data.table
 %description
 An approach to age-depth modelling that uses Bayesian statistics to
 reconstruct accumulation histories for deposits, through combining
-radiocarbon and other dates with prior information. See Blaauw & Christen
-(2011).
+radiocarbon and other dates with prior information on accumulation rates
+and their variability. See Blaauw & Christen (2011).
 
 %prep
 %setup -q -c -n %{packname}

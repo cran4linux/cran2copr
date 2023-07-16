@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smerc
-%global packver   1.7.2
+%global packver   1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Regional Counts
 
@@ -16,16 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-MESS 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-MESS 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-Rcpp 
 
 %description

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MapGAM
-%global packver   1.2-6
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mapping Smoothed Effect Estimates from Individual-Level Data
 
@@ -19,13 +20,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-gam 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-PBSmapping 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-gam 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-PBSmapping 
 
 %description
 Contains functions for mapping odds ratios, hazard ratios, or other effect

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qspray
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Polynomials with Rational Coefficients
 
@@ -39,7 +39,8 @@ Requires:         R-utils
 %description
 Symbolic calculation and evaluation of multivariate polynomials with
 rational coefficients. This package is strongly inspired by the 'spray'
-package.
+package. It also provides a function to compute Gröbner bases (reference
+<doi:10.1007/978-3-319-16721-3>).
 
 %prep
 %setup -q -c -n %{packname}
