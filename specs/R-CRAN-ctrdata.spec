@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctrdata
-%global packver   1.13.3
+%global packver   1.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.3
+Version:          1.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-jqr 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-curl >= 5.0
 Requires:         R-CRAN-nodbi >= 0.9.3
 Requires:         R-CRAN-jsonlite 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-jqr 
+Requires:         R-CRAN-dplyr 
 
 %description
 A system for querying, retrieving and analyzing protocol- and
@@ -51,9 +53,9 @@ information is downloaded, converted and stored in a database
 documents in registers associated with trials can also be downloaded.
 Other functions identify deduplicated records, easily find and extract
 variables (fields) of interest even from complex nested data as used by
-the registers, and update queries. The package can be used for
-meta-analysis and trend-analysis of the design and conduct as well as of
-the results of clinical trials.
+the registers, merge variables and update queries. The package can be used
+for meta-analysis and trend-analysis of the design and conduct as well as
+of the results of clinical trials.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  onmaRg
-%global packver   0.2.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import Public Health Ontario's Ontario Marginalization Index
 
@@ -33,13 +33,19 @@ Requires:         R-utils
 %description
 The Ontario Marginalization Index is a socioeconomic model that is built
 on Statistics Canada census data. The model consists of four dimensions:
-Residential Instability, Material Deprivation, Dependency and Ethnic
-Concentration. Each of these dimensions are imported for a variety of
-geographic levels (DA, CD, etc.) for both the 2011 and 2016
-administrations of the census (2021 pending). These data sets contribute
-to community analysis of equity with respect to Ontario's Anti-Racism Act.
-The Ontario Marginalization Index data is retrieved from the Public Health
-Ontario website:
+In 2021, these dimensions were updated to "Material Resources" (previously
+called "Material Deprivation"), "Households and Dwellings" (previously
+called "Residential Instability"), "Age and Labour Force" (previously
+called "Dependency"), and "Racialized and Newcomer Populations"
+(previously called "Ethnic Concentration"). This update reflects a
+movement away from deficit-based language. 2021 data will load with these
+new dimension names, wheras 2011 and 2016 data will load with the
+historical dimension names. Each of these dimensions are imported for a
+variety of geographic levels (DA, CD, etc.) for the 2021, 2011 and 2016
+administrations of the census. These data sets contribute to community
+analysis of equity with respect to Ontario's Anti-Racism Act. The Ontario
+Marginalization Index data is retrieved from the Public Health Ontario
+website:
 <https://www.publichealthontario.ca/en/data-and-analysis/health-equity/ontario-marginalization-index>.
 The shapefile data is retrieved from the Statistics Canada website:
 <https://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/bound-limit-eng.cfm>.

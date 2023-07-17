@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  raveio
-%global packver   0.1.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          File-System Toolbox for RAVE Project
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-dipsaus
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rpymat 
 BuildRequires:    R-CRAN-ravetools 
 Requires:         R-CRAN-callr >= 3.7.0
 Requires:         R-CRAN-R.matlab >= 3.6.2
@@ -56,6 +57,7 @@ Requires:         R-CRAN-dipsaus
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-globals 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rpymat 
 Requires:         R-CRAN-ravetools 
 
 %description

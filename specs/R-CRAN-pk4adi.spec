@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IDConverter
-%global packver   0.3.4
+%global packname  pk4adi
+%global packver   0.1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Identifiers in Biological Databases
+Summary:          PK for Anesthetic Depth Indicators
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-data.table >= 1.10
+BuildRequires:    R-stats 
+Requires:         R-CRAN-data.table >= 1.10
+Requires:         R-stats 
 
 %description
-Identifiers in biological databases connect different levels of metadata,
-phenotype data or genotype data. This tool is designed to easily convert
-identifiers within or between different biological databases (Wang,
-Shixiang, et al. (2021) <DOI:10.1371/journal.pgen.1009557>).
+Calculate and compare the prediction probability (PK) values for
+Anesthetic Depth Indicators. The PK values are widely used for measuring
+the performance of anesthetic depth and were first proposed by the group
+of Dr. Warren D. Smith in the paper Warren D. Smith; Robert C. Dutton; Ty
+N. Smith (1996) <doi:10.1097/00000542-199601000-00005> and Warren D.
+Smith; Robert C. Dutton; Ty N. Smith (1996)
+<doi:10.1002/(SICI)1097-0258(19960615)15:11%%3C1199::AID-SIM218%%3E3.0.CO;2-Y>.
+The authors provided two 'Microsoft Excel' files in xls format for
+calculating and comparing PK values. This package provides an easy-to-use
+API for calculating and comparing PK values in R.
 
 %prep
 %setup -q -c -n %{packname}

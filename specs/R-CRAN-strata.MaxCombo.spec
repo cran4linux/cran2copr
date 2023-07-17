@@ -1,27 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RDSsamplesize
-%global packver   0.4.0
+%global packname  strata.MaxCombo
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          RDS Sample Size Estimation and Power Calculation
+Summary:          Stratified Max-Combo Test
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Provides functionality for carrying out sample size estimation and power
-calculation in Respondent-Driven Sampling.
+Non-proportional hazard (NPH) is commonly observed in immuno-oncology
+studies, where the survival curves of the treatment and control groups
+show delayed separation. To properly account for NPH, several statistical
+methods have been developed. One such method is Max-Combo test, which is a
+straightforward and flexible hypothesis testing method that can
+simultaneously test for constant, early, middle, and late treatment
+effects. However, the majority of the Max-Combo test performed in clinical
+studies are unstratified, ignoring the important prognostic stratification
+factors. To fill this gap, we have developed an R package for stratified
+Max-Combo testing that accounts for stratified baseline factors. Our
+package explores various methods for calculating combined test statistics,
+estimating joint distributions, and determining the p-values.
 
 %prep
 %setup -q -c -n %{packname}

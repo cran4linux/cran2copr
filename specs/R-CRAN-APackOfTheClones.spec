@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  APackOfTheClones
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of T-Cell Clonal Expansion
 
@@ -16,25 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-hash 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Seurat 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-hash 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Seurat 
 Requires:         R-stats 

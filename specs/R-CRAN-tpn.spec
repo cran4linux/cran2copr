@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tpn
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Truncated Positive Normal Model and Extensions
 
@@ -28,12 +28,11 @@ Requires:         R-CRAN-VGAM
 
 %description
 Provide data generation and estimation tools for the truncated positive
-normal model discussed in Gomez, Olmos, Varela and Bolfarine (2018)
-<doi:10.1007/s11766-018-3354-x>, the slash truncated positive normal
-distribution discussed in Gomez, Gallardo and Santoro (2021)
-<doi:10.3390/sym13112164>, the bimodal truncated positive normal
-distribution discussed in Gomez et al. (2022) <doi:10.3390/sym14040665>
-and the flexible truncated positive normal model.
+normal (tpn) model discussed in Gomez, Olmos, Varela and Bolfarine (2018)
+<doi:10.1007/s11766-018-3354-x>, the slash tpn distribution discussed in
+Gomez, Gallardo and Santoro (2021) <doi:10.3390/sym13112164>, the bimodal
+tpn distribution discussed in Gomez et al. (2022)
+<doi:10.3390/sym14040665> and the flexible tpn model.
 
 %prep
 %setup -q -c -n %{packname}

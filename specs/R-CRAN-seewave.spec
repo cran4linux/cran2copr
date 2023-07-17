@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  seewave
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sound Analysis and Synthesis
 
@@ -13,7 +14,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         libsndfile
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jfa
-%global packver   0.6.6
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Auditing
 
@@ -17,29 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
 BuildRequires:    R-CRAN-rstantools >= 2.2.0
 BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-extraDistr >= 1.9.1
 BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-truncdist >= 1.0.2
+BuildRequires:    R-CRAN-bde >= 1.0.1.1
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-bde 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-truncdist 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-ggplot2 >= 3.4.2
 Requires:         R-CRAN-rstantools >= 2.2.0
 Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-extraDistr >= 1.9.1
+Requires:         R-CRAN-truncdist >= 1.0.2
+Requires:         R-CRAN-bde >= 1.0.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-bde 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-truncdist 
 Requires:         R-CRAN-rstantools
 
 %description

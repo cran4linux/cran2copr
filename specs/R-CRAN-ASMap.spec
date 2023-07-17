@@ -1,27 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RDSsamplesize
-%global packver   0.4.0
+%global packname  ASMap
+%global packver   1.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          RDS Sample Size Estimation and Power Calculation
+Summary:          Linkage Map Construction using the MSTmap Algorithm
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-qtl 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-qtl 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-gtools 
 
 %description
-Provides functionality for carrying out sample size estimation and power
-calculation in Respondent-Driven Sampling.
+Functions for Accurate and Speedy linkage map construction, manipulation
+and diagnosis of Doubled Haploid, Backcross and Recombinant Inbred 'R/qtl'
+objects. This includes extremely fast linkage map clustering and optimal
+marker ordering using 'MSTmap' (see Wu et al.,2008).
 
 %prep
 %setup -q -c -n %{packname}

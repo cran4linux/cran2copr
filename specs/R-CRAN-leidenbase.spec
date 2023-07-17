@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  leidenbase
-%global packver   0.1.18
+%global packver   0.1.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.18
+Version:          0.1.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          R and C/C++ Wrappers to Run the Leiden find_partition() Function
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-igraph >= 0.8.2
-Requires:         R-CRAN-igraph >= 0.8.2
+BuildRequires:    R-CRAN-igraph >= 0.9.0
+Requires:         R-CRAN-igraph >= 0.9.0
 
 %description
 An R to C/C++ interface that runs the Leiden community detection algorithm
@@ -29,6 +29,8 @@ the R 'igraph' package.  The 'leidenalg' distribution is available from
 <https://github.com/vtraag/leidenalg/> and the R 'igraph' package is
 available from <https://igraph.org/r/>. The Leiden algorithm is described
 in the article by Traag et al. (2019) <doi:10.1038/s41598-019-41695-z>.
+Leidenbase includes code from the packages: igraph version 0.9.8 with
+license GPL (>= 2), leidenalg version 0.8.10 with license GPL 3.
 
 %prep
 %setup -q -c -n %{packname}

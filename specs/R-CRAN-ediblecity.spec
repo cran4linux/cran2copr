@@ -1,27 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RDSsamplesize
-%global packver   0.4.0
+%global packname  ediblecity
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          RDS Sample Size Estimation and Power Calculation
+Summary:          Modeling Urban Agriculture at City Scale
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.6
+BuildRequires:    R-CRAN-rlang >= 1.0
+BuildRequires:    R-CRAN-sf >= 0.9
+BuildRequires:    R-CRAN-stars >= 0.5
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-dplyr >= 1.0.6
+Requires:         R-CRAN-rlang >= 1.0
+Requires:         R-CRAN-sf >= 0.9
+Requires:         R-CRAN-stars >= 0.5
 
 %description
-Provides functionality for carrying out sample size estimation and power
-calculation in Respondent-Driven Sampling.
+The purpose of this package is to estimate the potential of urban
+agriculture to contribute to addressing several urban challenges at the
+city-scale. Within this aim, we selected 8 indicators directly related to
+one or several urban challenges. Also, a function is provided to compute
+new scenarios of urban agriculture. Methods are described by Pueyo-Ros,
+Comas & Corominas (2023) <doi:10.12688/openreseurope.16054.1>.
 
 %prep
 %setup -q -c -n %{packname}

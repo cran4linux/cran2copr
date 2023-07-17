@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  conf
-%global packver   1.8.1
+%global packver   1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          1.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Analysis of Statistical Measures of Confidence
 
@@ -72,8 +72,8 @@ product-limit estimator for a particular sample size n. The km.pmf()
 function generates the probability mass function for the support values of
 the Kaplan-Meier product-limit estimator for a particular sample size n,
 probability of observing a failure h at the time of interest expressed as
-the cumulative probability perc associated with X = min(T, C), where T is
-the failure time and C is the censoring time under a random-censoring
+the cumulative probability percentile associated with X = min(T, C), where
+T is the failure time and C is the censoring time under a random-censoring
 scheme. The km.surv() function generates multiple probability mass
 functions of the Kaplan-Meier product-limit estimator for the same
 arguments as those given for km.pmf().
