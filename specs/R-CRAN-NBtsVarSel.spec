@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyglotr
-%global packver   1.2.0
+%global packname  NBtsVarSel
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate Text
+Summary:          Variable Selection in a Specific Regression Time Series of Counts
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-urltools 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mpath 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-glmnet 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mpath 
+Requires:         R-CRAN-ggplot2 
 
 %description
-The goal of the this package is to provide easy methods to translate
-pieces of text. Functions send requests to translation services online.
+Performs variable selection in sparse negative binomial GLARMA
+(Generalised Linear Autoregressive Moving Average) models. For further
+details we refer the reader to the paper Gomtsyan (2023),
+<arXiv:2307.00929>.
 
 %prep
 %setup -q -c -n %{packname}

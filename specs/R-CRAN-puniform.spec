@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  puniform
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis Methods Correcting for Publication Bias
 
@@ -29,24 +30,23 @@ Requires:         R-CRAN-metafor
 Provides meta-analysis methods that correct for publication bias and
 outcome reporting bias. Four methods and a visual tool are currently
 included in the package. The p-uniform method as described in van Assen,
-van Aert, and Wicherts (2015)
-<https:psycnet.apa.org/record/2014-48759-001> can be used for estimating
-the average effect size, testing the null hypothesis of no effect, and
-testing for publication bias using only the statistically significant
-effect sizes of primary studies. The second method in the package is the
-p-uniform* method as described in van Aert and van Assen (2019)
-<doi:10.31222/osf.io/zqjr9>. This method is an extension of the p-uniform
-method that allows for estimation of the average effect size and the
-between-study variance in a meta-analysis, and uses both the statistically
-significant and nonsignificant effect sizes. The third method in the
-package is the hybrid method as described in van Aert and van Assen (2017)
-<doi:10.3758/s13428-017-0967-6>. The hybrid method is a meta-analysis
-method for combining an original study and replication and while taking
-into account statistical significance of the original study. The p-uniform
-and hybrid method are based on the statistical theory that the
-distribution of p-values is uniform conditional on the population effect
-size. The fourth method in the package is the Snapshot Bayesian Hybrid
-Meta-Analysis Method as described in van Aert and van Assen (2018)
+van Aert, and Wicherts (2015) <doi:10.1037/met0000025> can be used for
+estimating the average effect size, testing the null hypothesis of no
+effect, and testing for publication bias using only the statistically
+significant effect sizes of primary studies. The second method in the
+package is the p-uniform* method as described in van Aert and van Assen
+(2023) <doi:10.31222/osf.io/zqjr9>. This method is an extension of the
+p-uniform method that allows for estimation of the average effect size and
+the between-study variance in a meta-analysis, and uses both the
+statistically significant and nonsignificant effect sizes. The third
+method in the package is the hybrid method as described in van Aert and
+van Assen (2017) <doi:10.3758/s13428-017-0967-6>. The hybrid method is a
+meta-analysis method for combining an original study and replication and
+while taking into account statistical significance of the original study.
+The p-uniform and hybrid method are based on the statistical theory that
+the distribution of p-values is uniform conditional on the population
+effect size. The fourth method in the package is the Snapshot Bayesian
+Hybrid Meta-Analysis Method as described in van Aert and van Assen (2018)
 <doi:10.1371/journal.pone.0175302>. This method computes posterior
 probabilities for four true effect sizes (no, small, medium, and large)
 based on an original study and replication while taking into account
@@ -56,9 +56,9 @@ analysis in null hypothesis significance testing. The meta-plot is a
 visual tool for meta-analysis that provides information on the primary
 studies in the meta-analysis, the results of the meta-analysis, and
 characteristics of the research on the effect under study (van Assen et
-al., 2021). Helper functions to apply the Correcting for Outcome Reporting
+al., 2023). Helper functions to apply the Correcting for Outcome Reporting
 Bias (CORB) method to correct for outcome reporting bias in a
-meta-analysis (van Aert & Wicherts, 2021).
+meta-analysis (van Aert & Wicherts, 2023).
 
 %prep
 %setup -q -c -n %{packname}

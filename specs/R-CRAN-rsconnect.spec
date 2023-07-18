@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsconnect
-%global packver   0.8.29
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.29
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deployment Interface for R Markdown Documents and Shiny Applications
+Summary:          Deploy Docs, Apps, and APIs to 'Posit Connect', 'shinyapps.io', and 'RPubs'
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-yaml >= 2.1.5
 BuildRequires:    R-CRAN-openssl >= 2.0.0
+BuildRequires:    R-CRAN-renv >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-packrat >= 0.6
 BuildRequires:    R-CRAN-rstudioapi >= 0.5
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-yaml >= 2.1.5
 Requires:         R-CRAN-openssl >= 2.0.0
+Requires:         R-CRAN-renv >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-packrat >= 0.6
 Requires:         R-CRAN-rstudioapi >= 0.5
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-tools 
 
 %description

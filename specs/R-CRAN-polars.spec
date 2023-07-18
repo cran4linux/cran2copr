@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyglotr
-%global packver   1.2.0
+%global packname  polars
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate Text
+Summary:          Lightning-Fast 'DataFrame' Library
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-urltools 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-codetools 
+Requires:         R-utils 
+Requires:         R-CRAN-codetools 
 
 %description
-The goal of the this package is to provide easy methods to translate
-pieces of text. Functions send requests to translation services online.
+Lightning-fast 'DataFrame' library written in 'Rust'. Convert R data to
+'Polars' data and vice versa. Perform fast, lazy, larger-than-memory and
+optimized data queries. 'Polars' is interoperable with the package
+'arrow', as both are based on the 'Apache Arrow' Columnar Format.
 
 %prep
 %setup -q -c -n %{packname}

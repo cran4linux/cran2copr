@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redcapAPI
-%global packver   2.7.1
+%global packver   2.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          2.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'REDCap'
 
@@ -37,7 +37,9 @@ Requires:         R-CRAN-yaml
 %description
 Access data stored in 'REDCap' databases using the Application Programming
 Interface (API).  'REDCap' (Research Electronic Data CAPture;
-<https://projectredcap.org>) is a web application for building and
+<https://projectredcap.org>, Harris, et al. (2009)
+<doi:10.1016/j.jbi.2008.08.010>, Harris, et al. (2019)
+<doi:10.1016/j.jbi.2019.103208>) is a web application for building and
 managing online surveys and databases developed at Vanderbilt University.
 The API allows users to access data and project meta data (such as the
 data dictionary) from the web programmatically. The 'redcapAPI' package

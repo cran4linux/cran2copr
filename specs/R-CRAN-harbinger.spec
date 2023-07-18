@@ -1,55 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pressuRe
-%global packver   0.2.1
+%global packname  harbinger
+%global packver   1.0.707
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.707
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imports, Processes, and Visualizes Biomechanical Pressure Data
+Summary:          An Unified Time Series Event Detection Framework
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggmap 
+BuildRequires:    R-CRAN-daltoolbox 
+BuildRequires:    R-CRAN-TSPred 
+BuildRequires:    R-CRAN-tsmp 
+BuildRequires:    R-CRAN-dtwclust 
+BuildRequires:    R-CRAN-rugarch 
+BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggmap 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-daltoolbox 
+Requires:         R-CRAN-TSPred 
+Requires:         R-CRAN-tsmp 
+Requires:         R-CRAN-dtwclust 
+Requires:         R-CRAN-rugarch 
+Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-reticulate 
 
 %description
-Allows biomechanical pressure data from a range of systems to be imported
-and processed in a reproducible manner. Automatic and manual tools are
-included to let the user define regions (masks) to be analyzed. Also
-includes functions for visualizing and animating pressure data. Example
-methods are described in Shi et al., (2022)
-<doi:10.1038/s41598-022-19814-0>, Lee et al., (2014)
-<doi:10.1186/1757-1146-7-18>, van der Zward et al., (2014)
-<doi:10.1186/1757-1146-7-20>, and Najafi et al., (2010)
-<doi:10.1016/j.gaitpost.2009.09.003>.
+By analyzing time series, it is possible to observe significant changes in
+the behavior of observations that frequently characterize events. Events
+present themselves as anomalies, change points, or motifs. In the
+literature, there are several methods for detecting events. However,
+searching for a suitable time series method is a complex task, especially
+considering that the nature of events is often unknown. This work presents
+Harbinger, a framework for integrating and analyzing event detection
+methods. Harbinger contains several state-of-the-art methods described in
+Salles et al. (2020) <doi:10.5753/sbbd.2020.13626>.
 
 %prep
 %setup -q -c -n %{packname}

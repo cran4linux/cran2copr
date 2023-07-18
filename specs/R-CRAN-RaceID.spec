@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RaceID
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identification of Cell Types and Inference of Lineage Trees from Single-Cell RNA-Seq Data
+Summary:          Identification of Cell Types, Inference of Lineage Trees, and Prediction of Noise Dynamics from Single-Cell RNA-Seq Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -75,8 +75,12 @@ Requires:         R-CRAN-vegan
 
 %description
 Application of 'RaceID' allows inference of cell types and prediction of
-lineage trees by he StemID2 algorithm. Herman, J.S., Sagar, Grün D. (2018)
-<DOI:10.1038/nmeth.4662>.
+lineage trees by the 'StemID2' algorithm (Herman, J.S., Sagar, Grün D.
+(2018) <DOI:10.1038/nmeth.4662>). 'VarID2' is part of this package and
+allows quantification of biological gene expression noise at single-cell
+resolution (Rosales-Alvarez, R.E., Rettkowski, J., Herman, J.S., Dumbovic,
+G., Cabezas-Wallscheid, N., Grun, D. (2023)
+<DOI:10.1186/s13059-023-02974-1>).
 
 %prep
 %setup -q -c -n %{packname}

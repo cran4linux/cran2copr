@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yamlet
-%global packver   0.10.21
+%global packver   0.10.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.21
+Version:          0.10.28
 Release:          1%{?dist}%{?buildtag}
 Summary:          Versatile Curation of Table Metadata
 
@@ -49,8 +49,7 @@ A YAML-based mechanism for working with table metadata. Supports compact
 syntax for creating, modifying, viewing, exporting, importing, displaying,
 and plotting metadata coded as column attributes. The 'yamlet' dialect is
 valid 'YAML' with defaults and conventions chosen to improve readability.
-See ?yamlet, ?decorate.data.frame and ?modify.default. See ?read_yamlet
-?write_yamlet, ?io_csv, and ?ggplot.decorated.
+See ?yamlet, ?decorate, ?modify, ?io_csv, and ?ggplot.decorated.
 
 %prep
 %setup -q -c -n %{packname}

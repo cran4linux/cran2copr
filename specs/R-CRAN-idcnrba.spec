@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  idcnrba
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Application for Analyzing Representativeness and Nonresponse Bias
 
@@ -19,8 +19,9 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survey >= 4.1.1
 BuildRequires:    R-CRAN-rstudioapi >= 0.5
+BuildRequires:    R-CRAN-DT >= 0.28
+BuildRequires:    R-CRAN-nrba >= 0.2.0
 BuildRequires:    R-CRAN-miniUI >= 0.1.1
-BuildRequires:    R-CRAN-nrba 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-shiny 
@@ -29,7 +30,6 @@ BuildRequires:    R-CRAN-markdown
 BuildRequires:    R-CRAN-flexdashboard 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-srvyr 
 BuildRequires:    R-CRAN-haven 
@@ -38,8 +38,9 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-survey >= 4.1.1
 Requires:         R-CRAN-rstudioapi >= 0.5
+Requires:         R-CRAN-DT >= 0.28
+Requires:         R-CRAN-nrba >= 0.2.0
 Requires:         R-CRAN-miniUI >= 0.1.1
-Requires:         R-CRAN-nrba 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-shiny 
@@ -48,7 +49,6 @@ Requires:         R-CRAN-markdown
 Requires:         R-CRAN-flexdashboard 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-srvyr 
 Requires:         R-CRAN-haven 

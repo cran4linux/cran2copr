@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyglotr
-%global packver   1.2.0
+%global packname  AtlasMaker
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate Text
+Summary:          Make Multiple 'leaflet' Maps in 'Shiny'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-urltools 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-shiny 
 
 %description
-The goal of the this package is to provide easy methods to translate
-pieces of text. Functions send requests to translation services online.
+Simplify creating multiple, related 'leaflet' maps across tabs for a
+'shiny' application. Users build lists of any polygons, points, and
+polylines needed for the project, use the map_server() function to assign
+built lists and other chosen aesthetics into each tab, and the package
+leverages modules to generate all map tabs.
 
 %prep
 %setup -q -c -n %{packname}

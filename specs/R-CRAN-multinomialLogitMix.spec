@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multinomialLogitMix
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering Multinomial Count Data under the Presence of Covariates
 
@@ -41,9 +41,9 @@ Requires:         R-CRAN-RColorBrewer
 %description
 Methods for model-based clustering of multinomial counts under the
 presence of covariates using mixtures of multinomial logit models, as
-implemented in Papastamoulis (2022) <DOI:10.48550/arXiv.2207.13984>. These
-models are estimated under a frequentist as well as a Bayesian setup using
-the Expectation-Maximization algorithm and Markov chain Monte Carlo
+implemented in Papastamoulis (2023) <DOI:10.1007/s11634-023-00547-5>.
+These models are estimated under a frequentist as well as a Bayesian setup
+using the Expectation-Maximization algorithm and Markov chain Monte Carlo
 sampling (MCMC), respectively. The (unknown) number of clusters is
 selected according to the Integrated Completed Likelihood criterion (for
 the frequentist model), and estimating the number of non-empty components

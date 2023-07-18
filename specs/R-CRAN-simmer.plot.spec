@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  simmer.plot
-%global packver   0.1.17
+%global packver   0.1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.17
+Version:          0.1.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Methods for 'simmer'
 
@@ -17,14 +18,14 @@ BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-simmer >= 3.6.0
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-tidyr >= 0.7.0
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-simmer >= 3.6.0
-Requires:         R-CRAN-ggplot2 >= 2.2.0
+Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-DiagrammeR >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-tidyr >= 0.7.0
