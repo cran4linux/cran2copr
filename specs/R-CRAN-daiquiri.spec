@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daiquiri
-%global packver   1.0.3
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality Reporting for Temporal Datasets
 
@@ -18,20 +18,22 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-readr >= 1.3.1
+BuildRequires:    R-CRAN-readr >= 2.0.0
 BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-cowplot >= 0.9.3
 BuildRequires:    R-CRAN-reactable >= 0.2.3
+BuildRequires:    R-CRAN-xfun >= 0.15
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-readr >= 1.3.1
+Requires:         R-CRAN-readr >= 2.0.0
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-cowplot >= 0.9.3
 Requires:         R-CRAN-reactable >= 0.2.3
+Requires:         R-CRAN-xfun >= 0.15
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-utils 
 Requires:         R-stats 

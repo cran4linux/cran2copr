@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PatientProfiles
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Characteristics of Patients in the OMOP Common Data Model
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-CDMConnector >= 1.0.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-DBI
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-stringr 
 
 %description
 Identify the characteristics of patients in data mapped to the

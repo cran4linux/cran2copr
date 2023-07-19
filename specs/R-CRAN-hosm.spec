@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pseudohouseholds
+%global packname  hosm
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Pseudohouseholds on Road Networks in Regions
+Summary:          High Order Spatial Matrix
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-maps 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-readxl 
 
 %description
-Given an arbitrary set of spatial regions and road networks, generate a
-set of representative points, or pseudohouseholds, that can be used for
-travel burden analysis. Parallel processing is supported.
+Automatically displays the order and spatial weighting matrix of the
+distance between locations. This concept was derived from the research of
+Mubarak, Aslanargun, and Siklar (2021) <doi:10.52403/ijrr.20211150> and
+Mubarak, Aslanargun, and Siklar (2022) <doi:10.17654/0972361722052>.
+Distance data between locations can be imported from 'Ms. Excel', 'maps'
+package or created in 'R' programming directly. This package also provides
+5 simulations of distances between locations derived from fictitious data,
+the 'maps' package, and from research by Mubarak, Aslanargun, and Siklar
+(2022) <doi:10.29244/ijsa.v6i1p90-100>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdakma
-%global packver   1.3.1
+%global packname  hstats
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functional Data Analysis: K-Mean Alignment
+Summary:          Interaction Statistics
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fdacluster 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fdacluster 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-It performs simultaneously clustering and alignment of a multidimensional
-or unidimensional functional dataset by means of k-mean alignment.
+Fast, model-agnostic implementation of different H-statistics introduced
+by Jerome H. Friedman and Bogdan E. Popescu (2008)
+<doi:10.1214/07-AOAS148>.  These statistics quantify interaction strength
+per feature, feature pair, and feature triple.  The package supports
+multi-output predictions and can account for case weights. In addition,
+several variants of the original statistics are provided. The shape of the
+interactions can be explored through partial dependence plots or
+individual conditional expectation plots. 'DALEX' explainers, meta
+learners ('mlr3', 'tidymodels', 'caret') and most other models work
+out-of-the-box.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daltoolbox
-%global packver   1.0.77
+%global packver   1.0.707
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.77
+Version:          1.0.707
 Release:          1%{?dist}%{?buildtag}
 Summary:          Leveraging Experiment Lines to Data Analytics
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-nnet
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-tree 
+BuildRequires:    R-CRAN-reticulate 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-MLmetrics 
 Requires:         R-CRAN-caret 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-nnet
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-tree 
+Requires:         R-CRAN-reticulate 
 
 %description
 The natural increase in the complexity of current research experiments and
@@ -62,9 +64,7 @@ integration with existing libraries and languages. Overall, the package
 provides researchers with a comprehensive set of functionalities for data
 science, promoting ease of use, extensibility, and integration with
 various tools and libraries. Information on Experiment Line is based on
-Ogasawara et al. (2009) <doi:10.1007/978-3-642-02279-1_20>. Information on
-the package is based on Ogasawara et al. (2023):
-<https://eic.cefet-rj.br/~dal/leveraging-experiment-lines-to-data-analytics/>.
+Ogasawara et al. (2009) <doi:10.1007/978-3-642-02279-1_20>.
 
 %prep
 %setup -q -c -n %{packname}

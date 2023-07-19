@@ -1,31 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polars
-%global packver   0.7.0
+%global packname  mllrnrs
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightning-Fast 'DataFrame' Library
+Summary:          R6-Based ML Learners for 'mlexperiments'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-codetools 
-Requires:         R-utils 
-Requires:         R-CRAN-codetools 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-kdry 
+BuildRequires:    R-CRAN-mlexperiments 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-kdry 
+Requires:         R-CRAN-mlexperiments 
+Requires:         R-CRAN-R6 
+Requires:         R-stats 
 
 %description
-Lightning-fast 'DataFrame' library written in 'Rust'. Convert R data to
-'Polars' data and vice versa. Perform fast, lazy, larger-than-memory and
-optimized data queries. 'Polars' is interoperable with the package
-'arrow', as both are based on the 'Apache Arrow' Columnar Format.
+Enhances 'mlexperiments'
+<https://CRAN.R-project.org/package=mlexperiments> with additional machine
+learning ('ML') learners. The package provides R6-based learners for the
+following algorithms: 'glmnet'
+<https://CRAN.R-project.org/package=glmnet>, 'ranger'
+<https://CRAN.R-project.org/package=ranger>, 'xgboost'
+<https://CRAN.R-project.org/package=xgboost>, and 'lightgbm'
+<https://CRAN.R-project.org/package=lightgbm>. These can be used directly
+with the 'mlexperiments' R package.
 
 %prep
 %setup -q -c -n %{packname}

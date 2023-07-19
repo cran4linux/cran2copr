@@ -1,42 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sperich
-%global packver   1.5-9
+%global packname  foodwebWrapper
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Auxiliary Functions to Estimate Centers of Biodiversity
+Summary:          Enhanced Wrapper to Show Which Functions Call What
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvbutils 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-foreach 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-raster 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-R2HTML 
+BuildRequires:    R-CRAN-textshaping 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyverse 
+Requires:         R-CRAN-mvbutils 
 Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-R2HTML 
+Requires:         R-CRAN-textshaping 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyverse 
 
 %description
-Provides some easy-to-use functions to interpolate species range based on
-species occurrences and to estimate centers of biodiversity.
+Enhances the functionality of the mvbutils::foodweb() program. The
+matrix-format output of the original program contains identical row names
+and column names, each name representing a retrieved function. This format
+is enhanced by using the find_funs() program [see Sebastian (2017)
+<https://sebastiansauer.github.io/finds_funs/>] to concatenate the package
+name to the function name. Each package is assigned a unique color, that
+is used to color code the text naming the packages and the functions. This
+color coding is extended to the entries of value "1" within the matrix,
+indicating the pattern of ancestor and descendent functions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  quadtree
-%global packver   0.1.10
+%global packname  quickcode
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Region Quadtrees for Spatial Data
+Summary:          A Compilation of Some Frequently Used R Functions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-utils 
 Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
 Requires:         R-stats 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-Provides functionality for working with raster-like quadtrees (also called
-“region quadtrees”), which allow for variable-sized cells. The package
-allows for flexibility in the quadtree creation process.  Several
-functions defining how to split and aggregate cells are provided, and
-custom functions can be written for both of these processes. In addition,
-quadtrees can be created using other quadtrees as “templates”, so that the
-new quadtree's structure is identical to the template quadtree. The
-package also includes functionality for modifying quadtrees, querying
-values, saving quadtrees to a file, and calculating least-cost paths using
-the quadtree as a resistance surface.
+The NOT functions and a simple compilation of various functions for easy
+usage. Shorthand code to save memory usage.
 
 %prep
 %setup -q -c -n %{packname}

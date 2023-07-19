@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgeos
-%global packver   0.6-3
+%global packver   0.6-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to Geometry Engine - Open Source ('GEOS')
 
@@ -32,7 +32,7 @@ Requires:         R-graphics
 Interface to Geometry Engine - Open Source ('GEOS') using the C 'API' for
 topology operations on geometries. Please note that 'rgeos' will be
 retired during October 2023, plan transition to 'sf' or 'terra' functions
-using 'GEOS' at your earliest convenience (see
+using 'GEOS', or the 'geos' package, at your earliest convenience (see
 <https://r-spatial.org/r/2023/05/15/evolution4.html> and earlier blogs for
 guidance). The 'GEOS' library is external to the package, and, when
 installing the package from source, must be correctly installed first.
