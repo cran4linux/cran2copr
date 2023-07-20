@@ -1,51 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MSEtool
-%global packver   3.7.0
+%global packname  randomForestVIP
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Management Strategy Evaluation Toolkit
+Summary:          Tune Random Forests Based on Variable Importance & Plot Results
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-minerva 
+BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-car 
 Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-grDevices 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-minerva 
+Requires:         R-CRAN-randomForest 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
 
 %description
-Development, simulation testing, and implementation of management
-procedures for fisheries (see Carruthers & Hordyk (2018)
-<doi:10.1111/2041-210X.13081>).
+Functions for assessing variable relations and associations prior to
+modeling with a Random Forest algorithm (although these are relevant for
+any predictive model). Metrics such as partial correlations and variance
+inflation factors are tabulated as well as plotted for the user. A
+function is available for tuning the main Random Forest hyper-parameter
+based on model performance and variable importance metrics. This
+grid-search technique provides tables and plots showing the effect of the
+main hyper-parameter on each of the assessment metrics. It also returns
+each of the evaluated models to the user. The package also provides
+superior variable importance plots for individual models. All of the plots
+are developed so that the user has the ability to edit and improve further
+upon the plots. Derivations and methodology are described in Bladen (2022)
+<https://digitalcommons.usu.edu/etd/8587/>.
 
 %prep
 %setup -q -c -n %{packname}

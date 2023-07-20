@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  theft
-%global packver   0.4.2.4
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2.4
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Handling Extraction of Features from Time Series
 
@@ -35,7 +35,7 @@ BuildRequires:    R-CRAN-Rcatch22
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-R.matlab 
-BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-janitor 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
@@ -55,7 +55,7 @@ Requires:         R-CRAN-Rcatch22
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-R.matlab 
-Requires:         R-CRAN-caret 
+Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-janitor 
 
 %description

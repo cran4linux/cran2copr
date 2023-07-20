@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  discourseGT
-%global packver   1.2.0
+%global packname  fmeffects
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Group Patterns using Graph Theory in Educational Settings
+Summary:          Model-Agnostic Interpretations with Forward Marginal Effects
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-ggparty 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-network 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-GGally 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-ggparty 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-network 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-testthat 
 
 %description
-Analyzes group patterns using discourse analysis data with graph theory
-mathematics. Takes the order of which individuals talk and converts it to
-a network edge and weight list. Returns the density, centrality,
-centralization, and subgroup information for each group. Based on the
-analytical framework laid out in Chai et al. (2019)
-<doi:10.1187/cbe.18-11-0222>.
+Create local, regional, and global explanations for any machine learning
+model with forward marginal effects. You provide a model and data, and
+'fmeffects' computes feature effects. The package is based on the theory
+in: C. A. Scholbeck, G. Casalicchio, C. Molnar, B. Bischl, and C. Heumann
+(2022) <arXiv:2201.08837>.
 
 %prep
 %setup -q -c -n %{packname}

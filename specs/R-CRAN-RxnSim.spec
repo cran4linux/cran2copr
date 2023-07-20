@@ -1,48 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  discourseGT
-%global packver   1.2.0
+%global packname  RxnSim
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Group Patterns using Graph Theory in Educational Settings
+Summary:          Functions to Compute Chemical and Chemical Reaction Similarity
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-network 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-network 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rcdk >= 3.8.1
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-fingerprint 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-rcdk >= 3.8.1
+Requires:         R-methods 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-fingerprint 
+Requires:         R-CRAN-data.table 
 
 %description
-Analyzes group patterns using discourse analysis data with graph theory
-mathematics. Takes the order of which individuals talk and converts it to
-a network edge and weight list. Returns the density, centrality,
-centralization, and subgroup information for each group. Based on the
-analytical framework laid out in Chai et al. (2019)
-<doi:10.1187/cbe.18-11-0222>.
+Methods to compute chemical similarity between two or more reactions and
+molecules. Allows masking of chemical substructures for weighted
+similarity computations. Uses packages 'rCDK' and 'fingerprint' for
+cheminformatics functionality. Methods for reaction similarity and
+sub-structure masking are as described in: Giri et al. (2015)
+<doi:10.1093/bioinformatics/btv416>.
 
 %prep
 %setup -q -c -n %{packname}

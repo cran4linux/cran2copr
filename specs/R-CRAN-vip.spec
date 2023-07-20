@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  vip
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Importance Plots
 
@@ -13,23 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 0.9.0
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yardstick 
 Requires:         R-CRAN-ggplot2 >= 0.9.0
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-foreach 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
+Requires:         R-CRAN-yardstick 
 
 %description
 A general framework for constructing variable importance plots from
@@ -52,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

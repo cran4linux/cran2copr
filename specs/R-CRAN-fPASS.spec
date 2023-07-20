@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  text2speech
+%global packname  fPASS
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Text to Speech Conversion
+Summary:          Power and Sample Size for Projection Test under Repeated Measures
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,49 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aws.signature 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-googleAuthR 
-BuildRequires:    R-CRAN-googleLanguageR 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-face 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-conrad 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-gamm4 
+BuildRequires:    R-CRAN-gss 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-aws.signature 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-googleAuthR 
-Requires:         R-CRAN-googleLanguageR 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-face 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-conrad 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-gamm4 
+Requires:         R-CRAN-gss 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
-Converts text into speech using various text-to-speech (TTS) engines and
-provides an unified interface for accessing their functionality. With this
-package, users can easily generate audio files of spoken words, phrases,
-or sentences from plain text data. The package supports multiple TTS
-engines, including Google's 'Cloud Text-to-Speech API', 'Amazon Polly',
-Microsoft's 'Cognitive Services Text to Speech REST API', and a free TTS
-engine called 'Coqui TTS'.
+Computes the power and sample size (PASS) required to test for the
+difference in the mean function between two groups under a repeatedly
+measured longitudinal or sparse functional design. See the manuscript by
+Koner and Luo (2023)
+<https://salilkoner.github.io/assets/PASS_manuscript.pdf> for details of
+the PASS formula and computational details. The details of the testing
+procedure for univariate and multivariate response are presented in Wang
+(2021) <doi:10.1214/21-EJS1802> and Koner and Luo (2023)
+<arXiv:2302.05612> respectively.
 
 %prep
 %setup -q -c -n %{packname}

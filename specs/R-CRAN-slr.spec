@@ -1,48 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  discourseGT
-%global packver   1.2.0
+%global packname  slr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Group Patterns using Graph Theory in Educational Settings
+Summary:          Semi-Latin Rectangles
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-network 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-network 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ibd 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ibd 
 
 %description
-Analyzes group patterns using discourse analysis data with graph theory
-mathematics. Takes the order of which individuals talk and converts it to
-a network edge and weight list. Returns the density, centrality,
-centralization, and subgroup information for each group. Based on the
-analytical framework laid out in Chai et al. (2019)
-<doi:10.1187/cbe.18-11-0222>.
+A facility to generate balanced and partially balanced semi-Latin
+rectangles with cell size two, see Uto, N.P. and Bailey, R.A. (2020).
+"Balanced Semi-Latin rectangles: properties, existence and constructions
+for block size two". Journal of Statistical Theory and Practice, 14(3),
+1-11, <doi:10.1007/s42519-020-00118-3>.
 
 %prep
 %setup -q -c -n %{packname}

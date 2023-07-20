@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biometryassist
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Assist Design and Analysis of Agronomic Experiments
 
@@ -21,28 +21,26 @@ BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-agricolae 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-farver 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-predictmeans 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-agricolae 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-farver 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-predictmeans 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-withr 
 
 %description
 Provides functions to aid in the design and analysis of agronomic and

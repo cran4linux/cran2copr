@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  litRiddle
-%global packver   0.4.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dataset and Tools to Research the Riddle of Literary Quality
 
@@ -27,7 +28,10 @@ is a part of the Riddle of Literary Quality project, and it contains the
 data of a reader survey about fiction in Dutch, a description of the
 novels the readers rated, and the results of stylistic measurements of the
 novels. The package also contains functions to combine, analyze, and
-visualize these data.
+visualize these data. For more details, see: Eder M, van Zundert J,
+Lensink S, van Dalen-Oskam K (2022). Replicating The Riddle of Literary
+Quality: The litRiddle package for R. In _Digital Humanities 2022:
+Conference Abstracts_, 636-637.
 
 %prep
 %setup -q -c -n %{packname}

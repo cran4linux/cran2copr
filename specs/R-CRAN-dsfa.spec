@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsfa
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributional Stochastic Frontier Analysis
 
@@ -40,8 +40,8 @@ spatial effects on all the parameters of the distribution of the output,
 e.g. effects on the production or cost function, heterogeneity of the
 noise and inefficiency. Available distributions are the normal-halfnormal
 and normal-exponential distribution. Estimation via the fast and reliable
-routines of the 'mgcv' package. For more details see Schmidt R, Kneib T
-(2022) <doi:10.48550/arXiv.2208.10294>.
+routines of the 'mgcv' package. For more details see
+<doi:10.1016/j.csda.2023.107796>.
 
 %prep
 %setup -q -c -n %{packname}

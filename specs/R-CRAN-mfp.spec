@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mfp
-%global packver   1.5.2.2
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2.2
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariable Fractional Polynomials
 
@@ -17,7 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-numDeriv 
 
 %description
 Fractional polynomials are used to represent curvature in regression

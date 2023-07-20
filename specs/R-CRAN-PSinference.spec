@@ -1,47 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jlmerclusterperm
-%global packver   1.0.3
+%global packname  PSinference
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cluster-Based Permutation Analysis for Densely Sampled Time Data
+Summary:          Inference for Released Plug-in Sampling Single Synthetic Dataset
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-JuliaConnectoR 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-JuliaConnectoR 
-Requires:         R-CRAN-lme4 
-Requires:         R-parallel 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-An implementation of fast cluster-based permutation analysis (CPA) for
-densely-sampled time data developed in Maris & Oostenveld, 2007
-<doi:10.1016/j.jneumeth.2007.03.024>. Supports (generalized,
-mixed-effects) regression models for the calculation of timewise
-statistics. Provides both a wholesale and a piecemeal interface to the CPA
-procedure with an emphasis on interpretability and diagnostics. Integrates
-'Julia' libraries 'MixedModels.jl' and 'GLM.jl' for performance
-improvements, with additional functionalities for interfacing with 'Julia'
-from 'R' powered by the 'JuliaConnectoR' package.
+Considering the singly imputed synthetic data generated via plug-in
+sampling under the multivariate normal model, draws inference procedures
+including the generalized variance, the sphericity test, the test for
+independence between two subsets of variables, and the test for the
+regression of one set of variables on the other. For more details see
+Klein et al. (2021) <doi:10.1007/s13571-019-00215-9>.
 
 %prep
 %setup -q -c -n %{packname}

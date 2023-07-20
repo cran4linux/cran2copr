@@ -1,49 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlstrOpalr
-%global packver   1.0.1
+%global packname  forestly
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support Compatibility Between 'Maelstrom' R Packages and 'Opal' Environment
+Summary:          Interactive Forest Plot
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-brew 
+BuildRequires:    R-CRAN-crosstalk 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-metalite 
+BuildRequires:    R-CRAN-metalite.ae 
+BuildRequires:    R-CRAN-reactable 
+BuildRequires:    R-CRAN-reactR 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-opalr 
-BuildRequires:    R-CRAN-fabR 
-BuildRequires:    R-CRAN-madshapR 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-brew 
+Requires:         R-CRAN-crosstalk 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-metalite 
+Requires:         R-CRAN-metalite.ae 
+Requires:         R-CRAN-reactable 
+Requires:         R-CRAN-reactR 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-tools 
-Requires:         R-CRAN-opalr 
-Requires:         R-CRAN-fabR 
-Requires:         R-CRAN-madshapR 
 
 %description
-The goal of this package is to provide functions to support compatibility
-between 'Maelstrom' R packages and 'Opal' environment. 'Opal' is the
-'OBiBa' core database application for biobanks. It is used to build data
-repositories that integrates data collected from multiple sources. 'Opal
-Maelstrom' is a specific implementation of this software. This 'Opal'
-client is specifically designed to interact with 'Opal Maelstrom'
-distributions to perform operations on the R server side. The user must
-have adequate credentials. Please see <https://opaldoc.obiba.org/en/dev/>
-for complete documentation.
+Interactive forest plot for clinical trial safety analysis using
+'metalite', 'reactable', 'plotly', and Analysis Data Model (ADaM)
+datasets. Includes functionality for adverse event filtering,
+incidence-based group filtering, hover-over reveals, and search and sort
+operations. The workflow allows for metadata construction, data
+preparation, output formatting, and interactive plot generation.
 
 %prep
 %setup -q -c -n %{packname}

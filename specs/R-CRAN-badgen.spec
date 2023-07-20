@@ -1,47 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jlmerclusterperm
-%global packver   1.0.3
+%global packname  badgen
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cluster-Based Permutation Analysis for Densely Sampled Time Data
+Summary:          Fast and Simple Badge Generator
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-JuliaConnectoR 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-JuliaConnectoR 
-Requires:         R-CRAN-lme4 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-V8 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-V8 
 
 %description
-An implementation of fast cluster-based permutation analysis (CPA) for
-densely-sampled time data developed in Maris & Oostenveld, 2007
-<doi:10.1016/j.jneumeth.2007.03.024>. Supports (generalized,
-mixed-effects) regression models for the calculation of timewise
-statistics. Provides both a wholesale and a piecemeal interface to the CPA
-procedure with an emphasis on interpretability and diagnostics. Integrates
-'Julia' libraries 'MixedModels.jl' and 'GLM.jl' for performance
-improvements, with additional functionalities for interfacing with 'Julia'
-from 'R' powered by the 'JuliaConnectoR' package.
+Bindings to 'badgen' <https://www.npmjs.com/package/badgen> to generate
+beautiful 'svg' badges in R without internet access. Images can be
+converted to 'png' using the 'rsvg' package as shown in examples.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jlmerclusterperm
-%global packver   1.0.3
+%global packname  ProteoBayes
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cluster-Based Permutation Analysis for Densely Sampled Time Data
+Summary:          Bayesian Statistical Tools for Quantitative Proteomics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-JuliaConnectoR 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-JuliaConnectoR 
-Requires:         R-CRAN-lme4 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-extraDistr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-extraDistr 
 
 %description
-An implementation of fast cluster-based permutation analysis (CPA) for
-densely-sampled time data developed in Maris & Oostenveld, 2007
-<doi:10.1016/j.jneumeth.2007.03.024>. Supports (generalized,
-mixed-effects) regression models for the calculation of timewise
-statistics. Provides both a wholesale and a piecemeal interface to the CPA
-procedure with an emphasis on interpretability and diagnostics. Integrates
-'Julia' libraries 'MixedModels.jl' and 'GLM.jl' for performance
-improvements, with additional functionalities for interfacing with 'Julia'
-from 'R' powered by the 'JuliaConnectoR' package.
+Bayesian toolbox for quantitative proteomics. In particular, this package
+provides functions to generate synthetic datasets, execute Bayesian
+differential analysis methods, and display results as, described in the
+associated article Marie Chion and Arthur Leroy (2023) <arXiv:2307.08975>.
 
 %prep
 %setup -q -c -n %{packname}

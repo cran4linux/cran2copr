@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataquieR
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality in Epidemiological Research
 
@@ -61,7 +61,7 @@ extensive metadata which can be provided in spreadsheet tables. Either
 standardized (e.g. as 'html5' reports) or individually tailored reports
 can be generated. For an introduction into the specification of
 corresponding metadata, please refer to the 'package website'
-<https://dataquality.ship-med.uni-greifswald.de/Annotation_of_Metadata.html>.
+<https://dataquality.qihs.uni-greifswald.de/Annotation_of_Metadata.html>.
 
 %prep
 %setup -q -c -n %{packname}
