@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  indicspecies
-%global packver   1.7.13
+%global packver   1.7.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.13
+Version:          1.7.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relationship Between Species and Groups of Sites
 

@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snowquery
-%global packver   1.0.0
+%global packname  ipolygrowth
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query 'Snowflake' Databases with 'SQL'
+Summary:          Individual Growth Curve Parameter Calculation using Polynomial Functions
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RPostgres 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-A wrapper allowing 'SQL' queries to be run on a 'Snowflake' instance
-directly from an 'R' script, by using the 'snowflake-connector-python'
-package in the background.
+Calculation of key bacterial growth curve parameters using fourth degree
+polynomial functions. Six growth curve parameters are provided including
+peak growth rate, doubling time, lag time, maximum growth, and etc.
+'ipolygrowth' takes time series data from individual biological samples
+(with technical replicates) or multiple samples.
 
 %prep
 %setup -q -c -n %{packname}

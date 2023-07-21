@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  agricolaeplotr
-%global packver   0.2.2
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of Design of Experiments from the 'agricolae' Package
 
@@ -13,15 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sp >= 2.0.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-agricolae 
-BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-FielDHub 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-sp >= 2.0.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-agricolae 
-Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-raster 
+Requires:         R-methods 
+Requires:         R-CRAN-FielDHub 
+Requires:         R-utils 
 
 %description
 Visualization of Design of Experiments from the 'agricolae' package with

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cpd
-%global packver   0.3.1
+%global packname  smosr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Complex Pearson Distributions
+Summary:          Acquire and Explore BEC-SMOS L4 Soil Moisture Data in R
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hypergeo 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-dgof 
+BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-hypergeo 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-dgof 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-fields 
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lubridate 
+Requires:         R-methods 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Probability mass function, distribution function, quantile function and
-random generation for the Complex Triparametric Pearson (CTP) and Complex
-Biparametric Pearson (CBP) distributions developed by Rodriguez-Avi et al
-(2003) <doi:10.1007/s00362-002-0134-7>, Rodriguez-Avi et al (2004)
-<doi:10.1007/BF02778271> and Olmo-Jimenez et al (2018)
-<doi:10.1080/00949655.2018.1482897>. The package also contains
-maximum-likelihood fitting functions for these models.
+Provides functions that automate accessing, downloading and exploring Soil
+Moisture and Ocean Salinity (SMOS) Level 4 (L4) data developed by
+Barcelona Expert Center (BEC). Particularly, it includes functions to
+search for, acquire, extract, and plot BEC-SMOS L4 soil moisture data
+downscaled to ~1 km spatial resolution. Note that SMOS is one of Earth
+Explorer Opportunity missions by the European Space Agency (ESA). More
+information about SMOS products can be found at
+<https://earth.esa.int/eogateway/missions/smos/data>.
 
 %prep
 %setup -q -c -n %{packname}

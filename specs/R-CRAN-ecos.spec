@@ -1,28 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dfsaneacc
-%global packver   1.0.0
+%global packname  ecos
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accelerated Derivative-Free Method for Large-Scale Nonlinear Systems of Equations
+Summary:          Economic Statistics System of the Bank of Korea
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-XML >= 3.99
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-CRAN-httr >= 1.4.3
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-XML >= 3.99
+Requires:         R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-httr >= 1.4.3
+Requires:         R-CRAN-stringr >= 1.4.0
 
 %description
-Secant acceleration applied to derivative-free Spectral Residual Methods
-for solving large-scale nonlinear systems of equations. The main
-references follows: W. La Cruz, J. M. Martinez, and M. Raydan (2006)
-<doi:10.1090/S0025-5718-06-01840-0>; E. G. Birgin and J. M. Martinez
-(2022) <doi:10.1137/20M1388024>.
+API wrapper to download statistical information from the Economic
+Statistics System (ECOS) of the Bank of Korea <https://ecos.bok.or.kr/>.
 
 %prep
 %setup -q -c -n %{packname}

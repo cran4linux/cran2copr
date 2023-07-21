@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r2mlm
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R-Squared Measures for Multilevel Models
 
@@ -19,22 +19,22 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-methods >= 3.6.3
 BuildRequires:    R-CRAN-nlme >= 3.1.14
+BuildRequires:    R-CRAN-rockchalk >= 1.8.157
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-lme4 >= 1.1.23
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-rlang >= 0.4.6
-BuildRequires:    R-CRAN-misty >= 0.4.12
 Requires:         R-methods >= 3.6.3
 Requires:         R-CRAN-nlme >= 3.1.14
+Requires:         R-CRAN-rockchalk >= 1.8.157
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-lme4 >= 1.1.23
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang >= 0.4.6
-Requires:         R-CRAN-misty >= 0.4.12
 
 %description
 Generates both total- and level-specific R-squared measures from Rights

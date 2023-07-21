@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  photobiologyInOut
-%global packver   0.4.26
+%global packver   0.4.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.26
+Version:          0.4.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Spectral and Logged Data from Foreign Files
 
@@ -17,32 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-readr >= 2.1.4
+BuildRequires:    R-CRAN-lubridate >= 1.9.2
+BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-readxl >= 1.4.3
 BuildRequires:    R-CRAN-colorSpec >= 1.4.0
-BuildRequires:    R-CRAN-readr >= 1.3.1
-BuildRequires:    R-CRAN-readxl >= 1.3.1
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-tidyr >= 0.8.3
-BuildRequires:    R-CRAN-dplyr >= 0.8.1
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
 BuildRequires:    R-CRAN-anytime >= 0.3.9
-BuildRequires:    R-CRAN-photobiology >= 0.10.10
+BuildRequires:    R-CRAN-photobiology >= 0.10.15
 BuildRequires:    R-methods 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-readr >= 2.1.4
+Requires:         R-CRAN-lubridate >= 1.9.2
+Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-readxl >= 1.4.3
 Requires:         R-CRAN-colorSpec >= 1.4.0
-Requires:         R-CRAN-readr >= 1.3.1
-Requires:         R-CRAN-readxl >= 1.3.1
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-tidyr >= 0.8.3
-Requires:         R-CRAN-dplyr >= 0.8.1
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.1.2
 Requires:         R-CRAN-anytime >= 0.3.9
-Requires:         R-CRAN-photobiology >= 0.10.10
+Requires:         R-CRAN-photobiology >= 0.10.15
 Requires:         R-methods 
 Requires:         R-tools 
 Requires:         R-utils 

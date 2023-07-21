@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RBesT
-%global packver   1.6-7
+%global packver   1.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.7
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Bayesian Evidence Synthesis Tools
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstantools >= 2.3.1
@@ -51,6 +52,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-rstantools
 
 %description

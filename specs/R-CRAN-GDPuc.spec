@@ -1,35 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snowquery
-%global packver   1.0.0
+%global packname  GDPuc
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.11.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query 'Snowflake' Databases with 'SQL'
+Summary:          Easily Convert GDP Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RPostgres 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-cli >= 2.4.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli >= 2.4.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-withr 
 
 %description
-A wrapper allowing 'SQL' queries to be run on a 'Snowflake' instance
-directly from an 'R' script, by using the 'snowflake-connector-python'
-package in the background.
+Convert GDP time series data from one unit to another. All common GDP
+units are included, i.e. current and constant local currency units, US$
+via market exchange rates and international dollars via purchasing power
+parities.
 
 %prep
 %setup -q -c -n %{packname}

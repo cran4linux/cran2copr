@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snowquery
-%global packver   1.0.0
+%global packname  UpDown
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query 'Snowflake' Databases with 'SQL'
+Summary:          Detecting Group Disturbances from Longitudinal Observations
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RPostgres 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RPostgres 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-CRAN-mixtools 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-shiny 
 
 %description
-A wrapper allowing 'SQL' queries to be run on a 'Snowflake' instance
-directly from an 'R' script, by using the 'snowflake-connector-python'
-package in the background.
+Provides an algorithm to detect and characterize disturbances (start, end
+dates, intensity) that can occur at different hierarchical levels by
+studying the dynamics of longitudinal observations at the unit level and
+group level based on Nadaraya-Watson's smoothing curves, but also a shiny
+app which allows to visualize the observations and the detected
+disturbances. Finally the package provides a dataframe mimicking a pig
+farming system subsected to disturbances simulated according to Le et
+al.(2022) <doi:10.1016/j.animal.2022.100496>.
 
 %prep
 %setup -q -c -n %{packname}

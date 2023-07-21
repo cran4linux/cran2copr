@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snowquery
-%global packver   1.0.0
+%global packname  Phi2rho
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query 'Snowflake' Databases with 'SQL'
+Summary:          Owen's T Function and Bivariate Normal Integral
 
-License:          GPL (>= 3)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RPostgres 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RPostgres 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rmpfr 
+Requires:         R-stats 
+Requires:         R-CRAN-Rmpfr 
 
 %description
-A wrapper allowing 'SQL' queries to be run on a 'Snowflake' instance
-directly from an 'R' script, by using the 'snowflake-connector-python'
-package in the background.
+Computes the Owen's T function or the bivariate normal integral using one
+of the following: modified Euler's arctangent series, tetrachoric series,
+or Vasicek's series.
 
 %prep
 %setup -q -c -n %{packname}

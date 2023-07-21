@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  migraph
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multimodal Network Analysis and More
 
@@ -47,15 +47,15 @@ Requires:         R-CRAN-tidygraph
 Requires:         R-CRAN-tidyr 
 
 %description
-A set of tools for analysing multimodal networks. All functions operate
-with matrices, edge lists, and 'igraph', 'network', and 'tidygraph'
-objects, and on one-mode, two-mode (bipartite), and sometimes three-mode
-networks. It includes functions for measuring centrality, centralization,
-cohesion, closure, and constraint, as well as for network block-modelling,
-regression, and diffusion models. The package is released as a complement
-to 'Multimodal Political Networks' (2021, ISBN:9781108985000), and
-includes various datasets used in the book in addition to other network
-data.
+A set of tools for analysing multimodal networks. It includes functions
+for measuring centrality, centralization, cohesion, closure, constraint
+and diversity, as well as for network block-modelling, regression, and
+diffusion models. The package is released as a complement to 'Multimodal
+Political Networks' (2021, ISBN:9781108985000), and includes various
+datasets used in the book. Built on the 'manynet' package, all functions
+operate with matrices, edge lists, and 'igraph', 'network', and
+'tidygraph' objects, and on one-mode, two-mode (bipartite), and sometimes
+three-mode networks.
 
 %prep
 %setup -q -c -n %{packname}

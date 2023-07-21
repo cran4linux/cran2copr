@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snowquery
-%global packver   1.0.0
+%global packname  frab
+%global packver   0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query 'Snowflake' Databases with 'SQL'
+Summary:          An Alternative Interpretation of Named Vectors
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RPostgres 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RPostgres 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-disordR >= 0.9.8.1
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-disordR >= 0.9.8.1
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-methods 
 
 %description
-A wrapper allowing 'SQL' queries to be run on a 'Snowflake' instance
-directly from an 'R' script, by using the 'snowflake-connector-python'
-package in the background.
+An alternative interpretation of named vectors as generalized tables, so
+that c(a=1,b=2,c=3) + c(b=3,a=-1) will return c(b=5,c=3).  Uses 'disordR'
+discipline (Hankin, 2022, <doi:10.48550/ARXIV.2210.03856>).  Extraction
+and replacement methods are provided.  The underlying mathematical
+structure is the Free Abelian group, hence the name.
 
 %prep
 %setup -q -c -n %{packname}

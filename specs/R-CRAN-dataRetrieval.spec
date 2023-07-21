@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataRetrieval
-%global packver   2.7.12
+%global packver   2.7.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.12
+Version:          2.7.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieval Functions for USGS and EPA Hydrology and Water Quality Data
 
@@ -18,16 +18,16 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lubridate >= 1.5.0
+BuildRequires:    R-CRAN-readr >= 1.4.0
 BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-readr >= 1.0.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate >= 1.5.0
+Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-readr >= 1.0.0
 Requires:         R-CRAN-curl 
 Requires:         R-stats 
 Requires:         R-utils 

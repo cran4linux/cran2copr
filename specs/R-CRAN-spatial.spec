@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatial
-%global packver   7.3-16
+%global packver   7.3-17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.16
+Version:          7.3.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Kriging and Point Pattern Analysis
 
