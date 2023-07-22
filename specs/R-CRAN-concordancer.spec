@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsapi
-%global packver   0.5.4
+%global packname  concordancer
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'sf'-Compatible Interface to 'Google Maps' APIs
+Summary:          An 'Rcpp' Implementation of Lin's Concordance Correlation Coefficient (CCC)
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-bitops 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-RgoogleMaps 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-bitops 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-RgoogleMaps 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Interface to the 'Google Maps' APIs: (1) routing directions based on the
-'Directions' API, returned as 'sf' objects, either as single feature per
-alternative route, or a single feature per segment per alternative route;
-(2) travel distance or time matrices based on the 'Distance Matrix' API;
-(3) geocoded locations based on the 'Geocode' API, returned as 'sf'
-objects, either points or bounds; (4) map images using the 'Maps Static'
-API, returned as 'stars' objects.
+Lin's Concordance Correlation Coefficient (CCC) is a statistic which
+measures the degree of agreement between two variables. The CCC is useful
+for assessing (i) the measurement agreement between two variables
+(typically outputs between two devices); (ii) the reproducibility between
+two measurements obtained from the same device; and (iii) inter-rater
+reliability. The 'concordancer' package provides a 'C++' implementation of
+Lin's CCC via 'Rcpp'. In so doing, the ccc() function contained herein is
+a much faster implementation than those contained in other R packages. For
+more details on Lin's CCC, please see
+<https://en.wikipedia.org/wiki/Concordance_correlation_coefficient>.
 
 %prep
 %setup -q -c -n %{packname}

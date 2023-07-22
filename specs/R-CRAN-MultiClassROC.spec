@@ -1,43 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsapi
-%global packver   0.5.4
+%global packname  MultiClassROC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'sf'-Compatible Interface to 'Google Maps' APIs
+Summary:          ROC Curves for Multi-Class Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-bitops 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-RgoogleMaps 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-bitops 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-RgoogleMaps 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pROC 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pROC 
 
 %description
-Interface to the 'Google Maps' APIs: (1) routing directions based on the
-'Directions' API, returned as 'sf' objects, either as single feature per
-alternative route, or a single feature per segment per alternative route;
-(2) travel distance or time matrices based on the 'Distance Matrix' API;
-(3) geocoded locations based on the 'Geocode' API, returned as 'sf'
-objects, either points or bounds; (4) map images using the 'Maps Static'
-API, returned as 'stars' objects.
+Function multiroc() can be used for computing and visualizing Receiver
+Operating Characteristics (ROC) and Area Under the Curve (AUC) for
+multi-class classification problems. It supports both One-vs-One approach
+by M.Bishop, C. (2006, ISBN:978-0-387-31073-2) and One-vs-All approach by
+Murphy P., K. (2012, ISBN:9780262018029).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dm
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relational Data Models
 
@@ -20,10 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-cli >= 2.2.0
 BuildRequires:    R-CRAN-pillar >= 1.7.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-rlang >= 1.0.2
-BuildRequires:    R-CRAN-tidyselect >= 1.0.1
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.2
 BuildRequires:    R-CRAN-backports 
@@ -33,14 +34,14 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-cli >= 2.2.0
 Requires:         R-CRAN-pillar >= 1.7.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-rlang >= 1.0.2
-Requires:         R-CRAN-tidyselect >= 1.0.1
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-vctrs >= 0.3.2
 Requires:         R-CRAN-backports 
@@ -50,7 +51,6 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-memoise 
 Requires:         R-methods 
-Requires:         R-CRAN-purrr 
 
 %description
 Provides tools for working with multiple related tables, stored as data

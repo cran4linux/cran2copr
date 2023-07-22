@@ -1,43 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsapi
-%global packver   0.5.4
+%global packname  BET
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'sf'-Compatible Interface to 'Google Maps' APIs
+Summary:          Binary Expansion Testing
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-bitops 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-RgoogleMaps 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-bitops 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-RgoogleMaps 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-Rcpp >= 0.12.3
 
 %description
-Interface to the 'Google Maps' APIs: (1) routing directions based on the
-'Directions' API, returned as 'sf' objects, either as single feature per
-alternative route, or a single feature per segment per alternative route;
-(2) travel distance or time matrices based on the 'Distance Matrix' API;
-(3) geocoded locations based on the 'Geocode' API, returned as 'sf'
-objects, either points or bounds; (4) map images using the 'Maps Static'
-API, returned as 'stars' objects.
+Nonparametric detection of nonuniformity and dependence with Binary
+Expansion Testing (BET). See Kai Zhang (2019) BET on Independence, Journal
+of the American Statistical Association, 114:528, 1620-1637,
+<DOI:10.1080/01621459.2018.1537921>, Kai Zhang, Zhigen Zhai, and Wen Zhou.
+(2021). BEAUTY Powered BEAST, <arXiv:2103.00674> and Zhigen Zhao, Michael
+Baiocchi, Kai Zhang. SorBET: A Fast and Powerful Algorithm to Test
+Dependence of Variables.
 
 %prep
 %setup -q -c -n %{packname}
