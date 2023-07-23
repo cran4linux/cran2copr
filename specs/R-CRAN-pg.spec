@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  viridis
-%global packver   0.6.4
+%global packname  pg
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Colorblind-Friendly Color Maps for R
+Summary:          Polya Gamma Distribution Sampler
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 1.0.1
-BuildRequires:    R-CRAN-viridisLite >= 0.4.0
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 >= 1.0.1
-Requires:         R-CRAN-viridisLite >= 0.4.0
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Color maps designed to improve graph readability for readers with common
-forms of color blindness and/or color vision deficiency. The color maps
-are also perceptually-uniform, both in regular form and also when
-converted to black-and-white for printing. This package also contains
-'ggplot2' bindings for discrete and continuous color and fill scales. A
-lean version of the package called 'viridisLite' that does not include the
-'ggplot2' bindings can be found at
-<https://cran.r-project.org/package=viridisLite>.
+Provides access to a high performant random distribution sampler for the
+Polya Gamma Distribution using either 'C++' headers for 'Rcpp' or
+'RcppArmadillo' and 'R'.
 
 %prep
 %setup -q -c -n %{packname}

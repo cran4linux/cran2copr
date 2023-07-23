@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daltoolbox
-%global packver   1.0.707
+%global packver   1.0.717
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.707
+Version:          1.0.717
 Release:          1%{?dist}%{?buildtag}
 Summary:          Leveraging Experiment Lines to Data Analytics
 
