@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  refund
-%global packver   0.1-31
+%global packver   0.1-32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.31
+Version:          0.1.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression with Functional Data
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv >= 1.8.23
+BuildRequires:    R-CRAN-mgcv >= 1.9
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-lattice 
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-pbs 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-mgcv >= 1.8.23
+Requires:         R-CRAN-mgcv >= 1.9
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-lattice 
