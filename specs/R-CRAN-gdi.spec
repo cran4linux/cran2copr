@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdi
-%global packver   1.2.2
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Volumetric Analysis using Graphic Double Integration
 
@@ -33,7 +33,9 @@ for automatically measuring diameters from digital silhouettes provided as
 image files, and for calculating volume via graphic double integration
 with a simple elliptical, superelliptical (following Motani 2001
 <doi:10.1666/0094-8373(2001)027%%3C0735:EBMFST%%3E2.0.CO;2>) or complex
-cross-sectional model.
+cross-sectional model. Additionally, the package contains functions to
+help with estimating the position of the center of mass (COM), and for
+visualizing results.
 
 %prep
 %setup -q -c -n %{packname}

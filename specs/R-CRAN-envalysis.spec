@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  envalysis
-%global packver   0.5.4
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for Environmental Analyses
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-drc 
 BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-drc 
 Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-ggplot2 
 
 %description
 Small toolbox for data analyses in environmental chemistry and

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  common
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solutions for Common Problems in Base R
 
@@ -17,9 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-this.path < 2.0
 BuildRequires:    R-utils 
-Requires:         R-CRAN-this.path < 2.0
 Requires:         R-utils 
 
 %description

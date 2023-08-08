@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecos
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Economic Statistics System of the Bank of Korea
 
@@ -28,7 +28,8 @@ Requires:         R-CRAN-stringr >= 1.4.0
 
 %description
 API wrapper to download statistical information from the Economic
-Statistics System (ECOS) of the Bank of Korea <https://ecos.bok.or.kr/>.
+Statistics System (ECOS) of the Bank of Korea
+<https://ecos.bok.or.kr/api/#/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  waterquality
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Satellite Derived Water Quality Detection Algorithms
 
@@ -17,23 +18,17 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-pingr 
 Requires:         R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-caret 
-Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-pingr 
 
 %description
 The main purpose of waterquality is to quickly and easily convert

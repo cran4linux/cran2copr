@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qspray
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Polynomials with Rational Coefficients
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-RationalMatrix
 BuildRequires:    R-CRAN-Ryacas 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-gmp 

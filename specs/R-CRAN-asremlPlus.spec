@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asremlPlus
-%global packver   4.3.55
+%global packver   4.4.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.55
+Version:          4.4.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Augments 'ASReml-R' in Fitting Mixed Models and Packages Generally in Exploring Prediction Differences
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dae 
+BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -25,8 +26,8 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-qqplotr 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
@@ -35,6 +36,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-sticky 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dae 
+Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -42,8 +44,8 @@ Requires:         R-CRAN-foreach
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-parallel 
 Requires:         R-CRAN-qqplotr 
+Requires:         R-parallel 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
@@ -66,10 +68,10 @@ help). A history of the fitting of a sequence of models is kept in a data
 frame. Procedures are available for choosing models that conform to the
 hierarchy or marginality principle and for displaying predictions for
 significant terms in tables and graphs. The 'asreml' package provides a
-computationally efficient algorithm for fitting mixed models using
-Residual Maximum Likelihood. It is a commercial package that can be
-purchased from 'VSNi' <https://vsni.co.uk/> as 'asreml-R', who will supply
-a zip file for local installation/updating (see
+computationally efficient algorithm for fitting a wide range of linear
+mixed models using Residual Maximum Likelihood. It is a commercial package
+that can be purchased from 'VSNi' <https://vsni.co.uk/> as 'asreml-R', who
+will supply a zip file for local installation/updating (see
 <https://asreml.kb.vsni.co.uk/>). It is not needed for functions that are
 methods for 'alldiffs' and 'data.frame' objects. The package 'asremPlus'
 can also be installed from <http://chris.brien.name/rpackages/>.

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ShapePattern
-%global packver   2.2.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Analyzing Shapes and Patterns
 
@@ -13,20 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-landscapemetrics 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-raster 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-landscapemetrics 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-raster 
 
 %description

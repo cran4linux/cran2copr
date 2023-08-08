@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hdImpute
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Batch Process for High Dimensional Imputation
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-missRanger 
 Requires:         R-CRAN-plyr 
@@ -31,14 +33,16 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-cli 
 
 %description
-A correlation-based batch process for fast imputation for high dimensional
-missing data problems via chained random forests. See Stekhoven and
-Bühlmann (2012) <doi:10.1093/bioinformatics/btr597> for more on
-missForest, and Mayer (2022) <https://github.com/mayer79/missRanger> for
-more on missRanger.
+A correlation-based batch process for fast, accurate imputation for high
+dimensional missing data problems via chained random forests. See Waggoner
+(2023) <doi:10.1007/s00180-023-01325-9> for more on 'hdImpute', Stekhoven
+and Bühlmann (2012) <doi:10.1093/bioinformatics/btr597> for more on
+'missForest', and Mayer (2022) <https://github.com/mayer79/missRanger> for
+more on 'missRanger'.
 
 %prep
 %setup -q -c -n %{packname}

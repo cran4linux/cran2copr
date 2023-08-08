@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  misty
-%global packver   0.4.12
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.12
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions 'T. Yanagida'
 
@@ -46,9 +46,12 @@ scores, reading and writing SPSS and Excel files), missing data (e.g.,
 descriptive statistics for missing data, missing data pattern, Little's
 test of Missing Completely at Random, and auxiliary variable analysis),
 item analysis (e.g., coefficient alpha and omega, multilevel confirmatory
-factor analysis, and multilevel composite reliability), and statistical
-analysis (e.g., confidence intervals, collinearity diagnostics, analysis
-of variance, t-test, z-test, sample size determination).
+factor analysis, between-group and longitudinal measurement equivalence
+evaluation, cross-level measurement equivalence evaluation, and multilevel
+composite reliability), and statistical analysis (e.g., confidence
+intervals, collinearity and residual diagnostics, dominance analysis,
+between- and within-subject analysis of variance, t-test, z-test, sample
+size determination).
 
 %prep
 %setup -q -c -n %{packname}

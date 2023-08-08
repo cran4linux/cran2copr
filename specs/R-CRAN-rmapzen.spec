@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmapzen
-%global packver   0.4.4
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for 'Mapzen' and Related Map APIs
 
@@ -21,34 +21,26 @@ BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-ISOcodes 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-geojsonio 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rgeos 
 Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-maps 
+Requires:         R-CRAN-ISOcodes 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-geojsonio 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-maptools 
 Requires:         R-utils 
-Requires:         R-CRAN-rgeos 
 
 %description
 Provides an interface to 'Mapzen'-based APIs (including geocode.earth,

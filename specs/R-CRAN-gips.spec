@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gips
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Model Invariant by Permutation Symmetry
 
@@ -17,23 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-numbers 
 BuildRequires:    R-CRAN-permutations 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-numbers 
 Requires:         R-CRAN-permutations 
-Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 
 %description
 Find the permutation symmetry group such that the covariance matrix of the
-given data is invariant under it. Discovering such a permutation decreases
-the number of observations needed to fit a Gaussian model, which is of
-great use when it is smaller than the number of variables. Even if that is
-not the case, the covariance matrix found with 'gips' approximates the
-actual covariance with less statistical error. The methods implemented in
-this package are described in Graczyk et al. (2022)
+given data is approximately invariant under it. Discovering such a
+permutation decreases the number of observations needed to fit a Gaussian
+model, which is of great use when it is smaller than the number of
+variables. Even if that is not the case, the covariance matrix found with
+'gips' approximates the actual covariance with less statistical error. The
+methods implemented in this package are described in Graczyk et al. (2022)
 <doi:10.1214/22-AOS2174>.
 
 %prep

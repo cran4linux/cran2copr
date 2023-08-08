@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DMRnet
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Delete or Merge Regressors Algorithms for Linear and Logistic Model Selection and High-Dimensional Data
 
@@ -17,11 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-hclust1d 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-grpreg 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-hclust1d 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-grpreg 
 Requires:         R-stats 
@@ -32,7 +34,11 @@ Requires:         R-utils
 Model selection algorithms for regression and classification, where the
 predictors can be continuous or categorical and the number of regressors
 may exceed the number of observations. The selected model consists of a
-subset of numerical regressors and partitions of levels of factors.
+subset of numerical regressors and partitions of levels of factors. Szymon
+Nowakowski, Piotr Pokarowski, Wojciech Rejchel and Agnieszka Sołtys, 2023.
+Improving Group Lasso for High-Dimensional Categorical Data. In:
+Computational Science – ICCS 2023. Lecture Notes in Computer Science, vol
+14074, p. 455-470. Springer, Cham. <doi:10.1007/978-3-031-36021-3_47>.
 Aleksandra Maj-Kańska, Piotr Pokarowski and Agnieszka Prochenka, 2015.
 Delete or merge regressors for linear model selection. Electronic Journal
 of Statistics 9(2): 1749-1778. <doi:10.1214/15-EJS1050>. Piotr Pokarowski

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dae
-%global packver   3.2.15
+%global packver   3.2.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.15
+Version:          3.2.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions Useful in the Design and ANOVA of Experiments
 
@@ -18,11 +18,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-plyr 

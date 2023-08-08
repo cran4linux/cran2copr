@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rfast2
-%global packver   0.1.5
+%global packver   0.1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Efficient and Extremely Fast R Functions II
 

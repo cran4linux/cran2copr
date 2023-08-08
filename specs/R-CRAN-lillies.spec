@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lillies
-%global packver   0.2.10
+%global packver   0.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Life Years Lost
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ddpcr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-pracma 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-ddpcr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-pracma 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opencpu
-%global packver   2.2.10
+%global packver   2.2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.10
+Version:          2.2.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Producing and Reproducing Results
 
@@ -26,6 +26,9 @@ BuildRequires:    R-CRAN-httpuv >= 1.3
 BuildRequires:    R-CRAN-webutils >= 0.6
 BuildRequires:    R-CRAN-evaluate >= 0.12
 BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-protolite 
@@ -40,6 +43,9 @@ Requires:         R-CRAN-httpuv >= 1.3
 Requires:         R-CRAN-webutils >= 0.6
 Requires:         R-CRAN-evaluate >= 0.12
 Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
+Requires:         R-methods 
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-protolite 

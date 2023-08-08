@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyDatetimePickers
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Some Datetime Pickers for 'Shiny'
 
@@ -18,13 +18,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-reactR 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-reactR 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-reactR 
+Requires:         R-CRAN-shiny 
 
 %description
 Provides three types of datetime pickers for usage in a 'Shiny' UI. A

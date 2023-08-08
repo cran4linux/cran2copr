@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  happign
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'IGN' Web Services
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sf >= 1.0.7
 BuildRequires:    R-CRAN-archive 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-terra 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-xml2
 Requires:         R-CRAN-sf >= 1.0.7
 Requires:         R-CRAN-archive 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr2 
 Requires:         R-methods 
 Requires:         R-CRAN-terra 

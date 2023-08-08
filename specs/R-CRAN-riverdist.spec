@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  riverdist
-%global packver   0.15.5
+%global packver   0.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.5
+Version:          0.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          River Network Distance Computation and Applications
 
@@ -13,14 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp >= 1.0.15
-BuildRequires:    R-CRAN-rgdal >= 0.9.1
+BuildRequires:    R-CRAN-sf >= 1.0.14
 BuildRequires:    R-methods 
-Requires:         R-CRAN-sp >= 1.0.15
-Requires:         R-CRAN-rgdal >= 0.9.1
+Requires:         R-CRAN-sf >= 1.0.14
 Requires:         R-methods 
 
 %description

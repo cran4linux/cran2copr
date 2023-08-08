@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RecordTest
-%global packver   2.1.2
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference Tools in Time Series Based on Record Statistics
 
@@ -28,7 +28,8 @@ occurrence in a sequence of independent and identically distributed
 continuous random variables. In particular, tools to prepare a time series
 as well as distribution-free trend and change-point tests and graphical
 tools to study the record occurrence. Details about the implemented tools
-can be found in Castillo-Mateo et al. (2023) <doi:10.18637/jss.v106.i05>.
+can be found in Castillo-Mateo et al. (2023a) <doi:10.18637/jss.v106.i05>
+and Castillo-Mateo et al. (2023b) <doi:10.1016/j.atmosres.2023.106934>.
 
 %prep
 %setup -q -c -n %{packname}

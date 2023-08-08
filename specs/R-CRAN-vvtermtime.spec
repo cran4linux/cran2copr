@@ -1,36 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nse2r
-%global packver   0.1.6
+%global packname  vvtermtime
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fetch Data from 'National Stock Exchange (India)'
+Summary:          Interface for 'Semestry TermTime' Services
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yahoofinancer 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-yahoofinancer 
 
 %description
-Fetch data related to stocks, index, futures & options from the 'NSE
-(National Stock Exchange, India)'. This package is community maintained
-and is not officially supported by 'NSE'. The accuracy of data is only as
-correct as provided on <https://www.nseindia.com>.
+Provides an R interface for interacting with the 'Semestry TermTime'
+services. It allows users to retrieve scheduling data from the API. see
+<https://github.com/vusaverse/vvtermtime/blob/main/openapi_7.7.0.pdf> for
+details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forstringr
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          String Manipulation Package for Those Familiar with 'Microsoft Excel'
 
@@ -14,18 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 
 
 %description
