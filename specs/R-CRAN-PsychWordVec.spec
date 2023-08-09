@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PsychWordVec
-%global packver   0.3.2
+%global packver   2023.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          2023.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Word Embedding Research Framework for Psychological Science
 
@@ -59,7 +59,7 @@ Requires:         R-CRAN-text
 Requires:         R-CRAN-reticulate 
 
 %description
-An integrated toolbox of word embedding research that provides: (1) a
+An integrative toolbox of word embedding research that provides: (1) a
 collection of 'pre-trained' static word vectors in the '.RData' compressed
 format <https://psychbruce.github.io/WordVector_RData.pdf>; (2) a series
 of functions to process, analyze, and visualize word vectors; (3) a range
@@ -70,9 +70,8 @@ significance; (4) a set of training methods to locally train (static) word
 vectors from text corpora, including 'Word2Vec' <arXiv:1301.3781>, 'GloVe'
 <doi:10.3115/v1/D14-1162>, and 'FastText' <arXiv:1607.04606>; (5) a group
 of functions to download 'pre-trained' language models (e.g., 'GPT',
-'BERT'), extract contextualized (dynamic) word vectors (based on the R
-package 'text'), and perform language analysis tasks (e.g., fill in the
-blank masks).
+'BERT') and extract contextualized (dynamic) word vectors (based on the R
+package 'text').
 
 %prep
 %setup -q -c -n %{packname}

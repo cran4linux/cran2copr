@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MBNMAdose
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dose-Response MBNMA Models
 
@@ -23,8 +24,7 @@ BuildRequires:    R-CRAN-reshape2 >= 1.4.3
 BuildRequires:    R-CRAN-igraph >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-R2jags >= 0.5.7
-BuildRequires:    R-CRAN-rgeos >= 0.5.2
-BuildRequires:    R-CRAN-Rdpack >= 0.11.0
+BuildRequires:    R-CRAN-Rdpack >= 0.11
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -37,8 +37,7 @@ Requires:         R-CRAN-reshape2 >= 1.4.3
 Requires:         R-CRAN-igraph >= 1.1.2
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-R2jags >= 0.5.7
-Requires:         R-CRAN-rgeos >= 0.5.2
-Requires:         R-CRAN-Rdpack >= 0.11.0
+Requires:         R-CRAN-Rdpack >= 0.11
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-graphics 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  weibullness
-%global packver   1.22.12
+%global packver   1.23.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22.12
+Version:          1.23.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit Test for Weibull Distribution (Weibullness)
 
@@ -14,18 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Performs a goodness-of-fit test of Weibull distribution (weibullness test)
-and provides the maximum likelihood estimates of the three-parameter
-Weibull distribution. Note that the threshold parameter is estimated based
-on the correlation from the Weibull plot. For more details, see Park
-(2018) <doi:10.1155/2018/6056975>. This work was supported by the National
+Performs a goodness-of-fit test for Weibull distribution (weibullness
+test) and provides the parameter estimates of the two- and three-parameter
+Weibull distributions. Note that the threshold parameter is estimated
+based on the correlation from the Weibull plot. For more details, see
+<doi:10.23055/ijietap.2017.24.4.2848>, <doi:10.1155/2018/6056975>, and
+<doi:10.3390/math11143156>. This work was supported by the National
 Research Foundation of Korea (NRF) grant funded by the Korea government
-(MSIT) (No. 2022R1A2C1091319).
+(MSIT) (No. 2022R1A2C1091319, RS-2023-00242528).
 
 %prep
 %setup -q -c -n %{packname}

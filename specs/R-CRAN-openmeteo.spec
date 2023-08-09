@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openmeteo
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Weather Data from the Open-Meteo API
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tibblify 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-lutz 
 Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-tibble 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tibblify 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-lutz 
 
 %description
 A client for the Open-Meteo API that retrieves Open-Meteo weather data in

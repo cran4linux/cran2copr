@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  frailtyMMpen
-%global packver   1.1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Algorithm for High-Dimensional Frailty Model
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppGSL 
@@ -27,6 +28,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-mgcv 
+Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-stats 
 

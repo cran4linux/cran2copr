@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  noctua
-%global packver   2.6.1
+%global packver   2.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.1
+Version:          2.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to 'AWS Athena' using R 'AWS SDK' 'paws' ('DBI' Interface)
 
@@ -19,14 +19,14 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.12.4
 BuildRequires:    R-CRAN-DBI >= 0.7
-BuildRequires:    R-CRAN-paws >= 0.1.5
+BuildRequires:    R-CRAN-paws >= 0.2.0
 BuildRequires:    R-CRAN-uuid >= 0.1.4
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.12.4
 Requires:         R-CRAN-DBI >= 0.7
-Requires:         R-CRAN-paws >= 0.1.5
+Requires:         R-CRAN-paws >= 0.2.0
 Requires:         R-CRAN-uuid >= 0.1.4
 Requires:         R-methods 
 Requires:         R-stats 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matchingMarkets
-%global packver   1.0-3
+%global packver   1.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Stable Matchings
 
@@ -46,9 +46,8 @@ well as two-sided matching of students to schools (Aue et al., 2020)
 contains algorithms to find stable matchings in the three most common
 matching problems: the stable roommates problem (Irving, 1985)
 <doi:10.1016/0196-6774(85)90033-1>, the college admissions problem (Gale
-and Shapley, 1962) <https://www.jstor.org/stable/2312726>, and the house
-allocation problem (Shapley and Scarf, 1974)
-<doi:10.1016/0304-4068(74)90033-0>.
+and Shapley, 1962) <doi:10.2307/2312726>, and the house allocation problem
+(Shapley and Scarf, 1974) <doi:10.1016/0304-4068(74)90033-0>.
 
 %prep
 %setup -q -c -n %{packname}

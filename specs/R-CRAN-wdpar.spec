@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wdpar
-%global packver   1.3.4
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the World Database on Protected Areas
 
@@ -26,13 +26,12 @@ BuildRequires:    R-CRAN-xml2 >= 1.2.0
 BuildRequires:    R-CRAN-pingr >= 1.1.2
 BuildRequires:    R-CRAN-countrycode >= 1.1.0
 BuildRequires:    R-CRAN-webdriver >= 1.0.6
-BuildRequires:    R-CRAN-sf >= 1.0.2
+BuildRequires:    R-CRAN-sf >= 1.0.13
 BuildRequires:    R-CRAN-cli >= 1.0.1
 BuildRequires:    R-CRAN-rappdirs >= 0.3.1
 BuildRequires:    R-CRAN-lwgeom >= 0.2.1
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-curl >= 3.2
 Requires:         R-CRAN-withr >= 2.5.0
 Requires:         R-CRAN-tibble >= 2.1.3
@@ -42,13 +41,12 @@ Requires:         R-CRAN-xml2 >= 1.2.0
 Requires:         R-CRAN-pingr >= 1.1.2
 Requires:         R-CRAN-countrycode >= 1.1.0
 Requires:         R-CRAN-webdriver >= 1.0.6
-Requires:         R-CRAN-sf >= 1.0.2
+Requires:         R-CRAN-sf >= 1.0.13
 Requires:         R-CRAN-cli >= 1.0.1
 Requires:         R-CRAN-rappdirs >= 0.3.1
 Requires:         R-CRAN-lwgeom >= 0.2.1
 Requires:         R-CRAN-assertthat >= 0.2.0
 Requires:         R-utils 
-Requires:         R-CRAN-sp 
 
 %description
 Fetch and clean data from the World Database on Protected Areas (WDPA) and

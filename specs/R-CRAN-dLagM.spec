@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dLagM
-%global packver   1.1.8
+%global packver   1.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          1.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Regression Models with Distributed Lag Models
 

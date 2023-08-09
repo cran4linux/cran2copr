@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  repeated
-%global packver   1.1.6
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Normal Repeated Measurements Models
 
@@ -34,8 +34,8 @@ Dependence, Repeated Measurements Models for Continuous Variables with
 Frailty or Serial Dependence, Ordinal Random Effects Models with Dropouts,
 marginal homogeneity models for square contingency tables, correlated
 negative binomial models with Kalman update. References include Lindsey's
-text books, JK Lindsey (2001) <isbn-10:0198508123> and JK Lindsey (1999)
-<isbn-10:0198505590>.
+text books, JK Lindsey (2001) <isbn:10-0198508123> and JK Lindsey (1999)
+<isbn:10-0198505590>.
 
 %prep
 %setup -q -c -n %{packname}

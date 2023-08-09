@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EgoCor
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Presentation of Estimated Exponential Semi-Variograms
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-SpatialTools 
 BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-gstat 
@@ -33,6 +35,8 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-SpatialTools 
 Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
 User friendly interface based on the R package 'gstat' to fit exponential

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MGMM
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missingness Aware Gaussian Mixture Models
 
@@ -40,9 +41,9 @@ components. The output includes the marginal cluster membership
 probabilities; the mean and covariance of each cluster; the posterior
 probabilities of cluster membership; and a completed version of the input
 data, with missing values imputed to their posterior expectations. For
-additional details, please see McCaw ZR, Julienne H, Aschard H. "MGMM: an
-R package for fitting Gaussian Mixture Models on Incomplete Data."
-<doi:10.1101/2019.12.20.884551>.
+additional details, please see McCaw ZR, Julienne H, Aschard H. "Fitting
+Gaussian mixture models on incomplete data."
+<doi:10.1186/s12859-022-04740-9>.
 
 %prep
 %setup -q -c -n %{packname}

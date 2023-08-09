@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  airt
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of Algorithm Collections Using Item Response Theory
 
@@ -24,6 +25,9 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-RColorBrewer 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-mirt 
 Requires:         R-CRAN-tidyr 
@@ -32,6 +36,9 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
 An evaluation framework for algorithm portfolios using Item Response
