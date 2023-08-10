@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  text
-%global packver   0.9.99.2
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.99.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyses of Text using Transformers Models from HuggingFace, Natural Language Processing and Machine Learning
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.00
 Requires:         R-core >= 4.00
 BuildArch:        noarch
+BuildRequires:    R-CRAN-recipes >= 0.1.16
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringi 
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-tune 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-yardstick
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-overlapping 
+Requires:         R-CRAN-recipes >= 0.1.16
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringi 
@@ -48,7 +49,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-tune 

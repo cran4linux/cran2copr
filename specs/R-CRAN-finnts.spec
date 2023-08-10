@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  finnts
-%global packver   0.2.4
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microsoft Finance Time Series Forecasting Framework
 
@@ -21,11 +21,14 @@ BuildRequires:    R-CRAN-modeltime
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-Cubist 
 BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-earth 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-hts 
@@ -33,7 +36,6 @@ BuildRequires:    R-CRAN-kernlab
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-modeltime.resample 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-plyr 
@@ -41,22 +43,28 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-rules 
+BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-timetk 
 BuildRequires:    R-CRAN-tune 
+BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-workflows 
+BuildRequires:    R-CRAN-yardstick 
 Requires:         R-CRAN-modeltime 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Cubist 
 Requires:         R-CRAN-dials 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-earth 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-generics 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-hts 
@@ -64,7 +72,6 @@ Requires:         R-CRAN-kernlab
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-modeltime.resample 
 Requires:         R-parallel 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-plyr 
@@ -72,13 +79,16 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-rules 
+Requires:         R-CRAN-snakecase 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-timetk 
 Requires:         R-CRAN-tune 
+Requires:         R-CRAN-vroom 
 Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-yardstick 
 
 %description
 Automated time series forecasting developed by Microsoft Finance. The

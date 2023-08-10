@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  eudract
-%global packver   0.10.1
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creates Safety Results Summary in XML to Upload to EudraCT, or ClinicalTrials.gov
 
@@ -23,6 +24,10 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-grid 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-xslt 
 Requires:         R-CRAN-dplyr 
@@ -30,6 +35,10 @@ Requires:         R-CRAN-xml2
 Requires:         R-utils 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-grid 
 
 %description
 The remit of the European Clinical Trials Data Base (EudraCT

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  clinDR
-%global packver   2.3.5
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Analysis Tools for Clinical Dose Response Modeling
 
@@ -18,39 +19,39 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rstan >= 2.17.3
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-waiter 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-DoseFinding 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-utils 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-waiter 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.17.3
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-waiter 
 Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-DoseFinding 
 Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-utils 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-waiter 
 Requires:         R-CRAN-rstantools
 
 %description
@@ -71,6 +72,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

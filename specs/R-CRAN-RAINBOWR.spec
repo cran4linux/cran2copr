@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RAINBOWR
-%global packver   0.1.29
+%global packver   0.1.32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.29
+Version:          0.1.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genome-Wide Association Study with SNP-Set Methods
 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-gaston 
 BuildRequires:    R-CRAN-MM4LMM 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Matrix 
@@ -50,6 +52,7 @@ Requires:         R-CRAN-htmlwidgets
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-gaston 
 Requires:         R-CRAN-MM4LMM 
+Requires:         R-CRAN-R.utils 
 
 %description
 By using 'RAINBOWR' (Reliable Association INference By Optimizing Weights

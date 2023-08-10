@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forsearch
-%global packver   3.3.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostic Analysis Using Forward Search Procedure for Various Models
 
@@ -19,12 +19,14 @@ Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Hmisc >= 4.7.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-survival >= 3.4
 BuildRequires:    R-CRAN-tibble >= 3.1.8
 BuildRequires:    R-CRAN-nlme >= 3.1.157
 BuildRequires:    R-CRAN-formula.tools >= 1.7.0
 BuildRequires:    R-CRAN-Cairo >= 1.6.0
 Requires:         R-CRAN-Hmisc >= 4.7.0
 Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-survival >= 3.4
 Requires:         R-CRAN-tibble >= 3.1.8
 Requires:         R-CRAN-nlme >= 3.1.157
 Requires:         R-CRAN-formula.tools >= 1.7.0
@@ -35,8 +37,8 @@ Identifies potential data outliers and their impact on estimates and
 analyses. Uses the forward search approach of Atkinson and Riani, "Robust
 Diagnostic Regression Analysis", 2000,<ISBN: o-387-95017-6> to prepare
 descriptive statistics of a dataset that is to be analyzed by stats::lm(),
-stats::glm(), or nlme::lme().  Includes graphics functions to display the
-descriptive statistics.
+stats::glm(), nlme::lme() or survival::coxph().  Includes graphics
+functions to display the descriptive statistics.
 
 %prep
 %setup -q -c -n %{packname}

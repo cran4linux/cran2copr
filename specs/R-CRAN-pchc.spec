@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pchc
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Learning with the PCHC and Related Algorithms
 
@@ -14,12 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bigstatsr 
 BuildRequires:    R-CRAN-bnlearn 
 BuildRequires:    R-CRAN-dcov 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-CRAN-robustbase 
@@ -27,6 +30,9 @@ BuildRequires:    R-stats
 Requires:         R-CRAN-bigstatsr 
 Requires:         R-CRAN-bnlearn 
 Requires:         R-CRAN-dcov 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
 Requires:         R-CRAN-robustbase 
@@ -37,7 +43,7 @@ Bayesian network learning using the PCHC algorithm. PCHC stands for PC
 Hill-Climbing, a new hybrid algorithm that uses PC to construct the
 skeleton of the BN and then applies the Hill-Climbing greedy search. More
 algorithms and variants have been added, such as MMHC, FEDHC, and the Tabu
-search variants, PCTABU, MMTABU and FEDTABU. The relevant papers are a)
+search variants, PCTABU, MMTABU and FEDTABU. The relevant papers are: a)
 Tsagris M. (2021). A new scalable Bayesian network learning algorithm with
 applications to economics. Computational Economics, 57(1): 341-367.
 <doi:10.1007/s10614-020-10065-7>. b) Tsagris M. (2022). The FEDHC Bayesian

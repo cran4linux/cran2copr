@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bayesPop
-%global packver   9.0-1
+%global packver   10.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.0.1
+Version:          10.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Population Projection
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.2
-Requires:         R-core >= 2.14.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-bayesTFR >= 7.1.0
 BuildRequires:    R-CRAN-bayesLife >= 5.0.0
 BuildRequires:    R-CRAN-MortCast >= 2.6.1

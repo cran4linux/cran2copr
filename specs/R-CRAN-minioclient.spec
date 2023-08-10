@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  minioclient
-%global packver   0.0.2
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'MinIO' Client
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-processx 
+Requires:         R-CRAN-jsonlite 
 
 %description
 An R interface to the 'MinIO' Client. The 'MinIO' Client ('mc') provides a

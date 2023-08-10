@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Bayesrel
-%global packver   0.7.5
+%global packver   0.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Reliability Estimation
 
@@ -49,9 +49,9 @@ from the posterior inverse 'Wishart' for the covariance matrix based
 measures (see 'Murphy', 2007,
 <https://groups.seas.harvard.edu/courses/cs281/papers/murphy-2007.pdf>.
 The Bayesian omegas (u, t, and h) are obtained by 'Gibbs' sampling from
-the conditional posterior distributions of (1) the single factor model and
-(2) the second-order factor model ('Lee', 2007,
-<https://onlinelibrary.wiley.com/doi/book/10.1002/9780470024737>).
+the conditional posterior distributions of (1) the single factor model,
+(2) the second-order factor model, (3) the bi-factor model, (4) the
+correlated factor model ('Lee', 2007, <doi:10.1002/9780470024737>).
 
 %prep
 %setup -q -c -n %{packname}

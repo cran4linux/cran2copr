@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moreparty
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for Conditional Inference Trees and Random Forests
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-vip >= 0.4.0
 BuildRequires:    R-CRAN-party 
 BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-CRAN-varImp 
@@ -27,7 +28,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-iml 
 BuildRequires:    R-CRAN-pdp 
-BuildRequires:    R-CRAN-vip 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-rclipboard
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-datamods 
 BuildRequires:    R-CRAN-phosphoricons 
+Requires:         R-CRAN-vip >= 0.4.0
 Requires:         R-CRAN-party 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-varImp 
@@ -46,7 +47,6 @@ Requires:         R-methods
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-iml 
 Requires:         R-CRAN-pdp 
-Requires:         R-CRAN-vip 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 

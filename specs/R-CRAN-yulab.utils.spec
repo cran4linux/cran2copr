@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yulab.utils
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supporting Functions for Packages Maintained by 'YuLab-SMU'
 
@@ -17,8 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
 

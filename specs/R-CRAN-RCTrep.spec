@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RCTrep
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Validation of Estimates of Treatment Effects in Observational Data
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-base 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-MatchIt 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-geex 
-BuildRequires:    R-CRAN-optmatch 
 BuildRequires:    R-CRAN-BART 
 BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-CRAN-tidyr 
@@ -41,7 +39,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-caret 
 Requires:         R-base 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-MatchIt 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
@@ -50,7 +47,6 @@ Requires:         R-CRAN-numDeriv
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geex 
-Requires:         R-CRAN-optmatch 
 Requires:         R-CRAN-BART 
 Requires:         R-CRAN-fastDummies 
 Requires:         R-CRAN-tidyr 

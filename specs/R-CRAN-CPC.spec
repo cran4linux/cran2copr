@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CPC
-%global packver   2.3.0
+%global packver   2.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of Cluster-Polarization Coefficient
 
@@ -31,7 +31,8 @@ Implements cluster-polarization coefficient for measuring distributional
 polarization in single or multiple dimensions, as well as associated
 functions. Contains support for hierarchical clustering, k-means,
 partitioning around medoids, density-based spatial clustering with noise,
-and manually imposed cluster membership.
+and manually imposed cluster membership. Mehlhaff (forthcoming)
+<https://imehlhaff.net/files/CPC_note.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  canvasXpress
-%global packver   1.43.7
+%global packver   1.45.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.43.7
+Version:          1.45.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization Package for CanvasXpress in R
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets >= 1.0
 BuildRequires:    R-CRAN-htmltools 

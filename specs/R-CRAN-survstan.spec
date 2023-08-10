@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survstan
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Survival Regression Models via 'Stan'
 
@@ -26,13 +26,16 @@ BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-actuar >= 3.0.0
@@ -41,13 +44,16 @@ Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rstantools
 
 %description

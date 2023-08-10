@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  this.path
-%global packver   1.4.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Executing Script's Path
 
@@ -22,7 +22,7 @@ Determine the path of the executing script. Compatible with a few popular
 GUIs: 'Rgui', 'RStudio', 'VSCode', 'Jupyter', and 'Rscript' (shell).
 Compatible with several functions and packages: 'source()',
 'sys.source()', 'debugSource()' in 'RStudio', 'testthat::source_file()',
-'knitr::knit()',' 'compiler::loadcmp()', and 'box::use()'.
+'knitr::knit()', 'compiler::loadcmp()', and 'box::use()'.
 
 %prep
 %setup -q -c -n %{packname}

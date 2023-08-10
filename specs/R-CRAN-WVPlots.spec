@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WVPlots
-%global packver   1.3.3
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Plots for Analysis
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-wrapr >= 2.0.9
 BuildRequires:    R-CRAN-rquery >= 1.4.9
 BuildRequires:    R-CRAN-rqdatatable >= 1.3.1
@@ -31,7 +31,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-wrapr >= 2.0.9
 Requires:         R-CRAN-rquery >= 1.4.9
 Requires:         R-CRAN-rqdatatable >= 1.3.1

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PlaneGeometry
-%global packver   1.5.1
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plane Geometry
 
@@ -40,10 +40,11 @@ Requires:         R-CRAN-uniformly
 
 %description
 An extensive set of plane geometry routines. Provides R6 classes
-representing triangles, circles, circular arcs, ellipses, elliptical arcs
-and lines, and their plot methods. Also provides R6 classes representing
-transformations: rotations, reflections, homotheties, scalings, general
-affine transformations, inversions, Möbius transformations.
+representing triangles, circles, circular arcs, ellipses, elliptical arcs,
+lines, hyperbolae, and their plot methods. Also provides R6 classes
+representing transformations: rotations, reflections, homotheties,
+scalings, general affine transformations, inversions, Möbius
+transformations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultiGroupSequential
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group-Sequential Procedures with Multiple Hypotheses
 
@@ -18,11 +18,9 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-OpenMx 
 BuildRequires:    R-CRAN-hommel 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-OpenMx 
 Requires:         R-CRAN-hommel 
 
@@ -36,13 +34,14 @@ researchers to tackle this challenge. The procedures provided include the
 sequential procedures described in Luo and Quan (2023)
 <doi:10.1080/19466315.2023.2191989> and the graphical procedure proposed
 by Maurer and Bretz (2013) <doi:10.1080/19466315.2013.807748>. Luo and
-Quan (2013) describes three procedure and the functions to implement these
-procedures are (1) seqgspgx() implements a sequential graphical procedure
-based on the group-sequential p-values; (2) seqgsphh() implements a
-sequential Hochberg/Hommel procedure based on the group-sequential
-p-values; and (3) seqqvalhh() implements a sequential Hochberg/Hommel
-procedure based on the q-values. In addition, seqmbgx() implements the
-sequential graphical procedure described in Maurer and Bretz (2013).
+Quan (2013) describes three procedures, and the functions to implement
+these procedures are (1) seqgspgx() implements a sequential graphical
+procedure based on the group-sequential p-values; (2) seqgsphh()
+implements a sequential Hochberg/Hommel procedure based on the
+group-sequential p-values; and (3) seqqvalhh() implements a sequential
+Hochberg/Hommel procedure based on the q-values. In addition, seqmbgx()
+implements the sequential graphical procedure described in Maurer and
+Bretz (2013).
 
 %prep
 %setup -q -c -n %{packname}

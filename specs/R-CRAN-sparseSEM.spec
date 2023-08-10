@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sparseSEM
-%global packver   3.8-2
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.2
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Elastic Net Penalized Maximum Likelihood for Structural Equation Models
+Summary:          Elastic Net Penalized Maximum Likelihood for Structural Equation Models with Network GPT Framework
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,14 +20,17 @@ BuildRequires:    R-parallel
 Requires:         R-parallel 
 
 %description
-Provides elastic net regularized maximum likelihood for structural
-equation models (SEM) in inferring network structure (topology) and
-estimating causal effects. The package implements `lasso` and `elastic
-net` (l1/l2) penalized SEM and estimates the model parameters with an
-efficient block coordinate ascent algorithm that maximizes the penalized
-likelihood of the SEM.  Hyperparameters are inferred from cross-validation
-(CV).  A Stability Selection (STS) function is also available to provide
-accurate causal effect selection.
+Provides elastic net penalized maximum likelihood estimator for structural
+equation models (SEM). The package implements `lasso` and `elastic net`
+(l1/l2) penalized SEM and estimates the model parameters with an efficient
+block coordinate ascent algorithm that maximizes the penalized likelihood
+of the SEM.  Hyperparameters are inferred from cross-validation (CV).  A
+Stability Selection (STS) function is also available to provide accurate
+causal effect selection. The software achieves high accuracy performance
+through a `Network Generative Pre-trained Transformer` (Network GPT)
+Framework with two steps: 1) pre-trains the model to generate a complete
+(fully connected) graph; and 2) uses the complete graph as the initial
+state to fit the `elastic net` penalized SEM.
 
 %prep
 %setup -q -c -n %{packname}

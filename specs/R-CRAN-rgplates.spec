@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgplates
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface for the GPlates Web Service and Desktop Application
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-methods 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-sf 
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
 Query functions to the GPlates <https://www.gplates.org/> Desktop

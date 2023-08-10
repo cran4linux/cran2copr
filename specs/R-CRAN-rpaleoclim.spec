@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpaleoclim
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Paleoclimate Data from 'PaleoClim'
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.5.12
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-terra >= 1.5.12
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-terra 
 Requires:         R-utils 
 
 %description
