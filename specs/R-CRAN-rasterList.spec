@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oaii
-%global packver   0.1.8
+%global packname  rasterList
+%global packver   0.5.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.5.19
 Release:          1%{?dist}%{?buildtag}
-Summary:          'OpenAI' API R Interface
+Summary:          A Raster Where Cells are Generic Objects
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-raster 
+Requires:         R-methods 
 
 %description
-A comprehensive set of helpers that streamline data transmission and
-processing, making it effortless to interact with the 'OpenAI' API
-<https://platform.openai.com/docs/api-reference/>.
+A S4 class has been created such that complex operations can be executed
+on each cell of a raster map. The raster of objects contains a raster map
+with the addition of a list of generic objects: one object for each raster
+cells. It allows to write few lines of R code for complex map algebra. Two
+environmental applications about frequency analysis of raster map of
+precipitation and creation of a raster map of soil water retention curves
+have been presented.
 
 %prep
 %setup -q -c -n %{packname}

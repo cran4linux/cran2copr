@@ -1,45 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gutenbergr
-%global packver   0.2.3
+%global packname  MMOC
+%global packver   0.1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Process Public Domain Works from Project Gutenberg
+Summary:          Multi-Omic Spectral Clustering using the Flag Manifold
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-urltools 
+BuildRequires:    R-CRAN-MASS >= 7.3.58.1
+BuildRequires:    R-CRAN-igraph >= 1.4.1
+BuildRequires:    R-CRAN-Spectrum >= 1.1
+Requires:         R-CRAN-MASS >= 7.3.58.1
+Requires:         R-CRAN-igraph >= 1.4.1
+Requires:         R-CRAN-Spectrum >= 1.1
 
 %description
-Download and process public domain works in the Project Gutenberg
-collection <http://www.gutenberg.org/>. Includes metadata for all Project
-Gutenberg works, so that they can be searched and retrieved.
+Multi-omic (or any multi-view) spectral clustering methods often assume
+the same number of clusters across all datasets. We supply methods for
+multi-omic spectral clustering when the number of distinct clusters
+differs among the omics profiles (views).
 
 %prep
 %setup -q -c -n %{packname}

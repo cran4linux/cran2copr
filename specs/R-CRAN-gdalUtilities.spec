@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdalUtilities
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrappers for 'GDAL' Utilities Executables
 
@@ -28,10 +28,10 @@ this package provides an R wrapper whose formal arguments closely mirror
 those of the 'GDAL' command line interface. The utilities operate on data
 stored in files and typically write their output to other files.
 Therefore, to process data stored in any of R's more common spatial
-formats (i.e. those supported by the 'sp', 'sf', and 'raster' packages),
-first write them to disk, then process them with the package's wrapper
-functions before reading the outputted results back into R. GDAL function
-arguments introduced in GDAL version 3.5.2 or earlier are supported.
+formats (i.e. those supported by the 'sf' and 'terra' packages), first
+write them to disk, then process them with the package's wrapper functions
+before reading the outputted results back into R. GDAL function arguments
+introduced in GDAL version 3.5.2 or earlier are supported.
 
 %prep
 %setup -q -c -n %{packname}

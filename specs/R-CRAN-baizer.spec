@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baizer
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Functions for Data Processing
 
@@ -21,32 +21,36 @@ BuildRequires:    R-CRAN-tibble >= 3.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-diffobj 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rematch2 
 BuildRequires:    R-CRAN-seriation 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-waldo 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-tibble >= 3.1
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-diffobj 
 Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rematch2 
 Requires:         R-CRAN-seriation 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-waldo 
+Requires:         R-CRAN-vctrs 
 
 %description
 In ancient Chinese mythology, Bai Ze is a divine creature that knows the

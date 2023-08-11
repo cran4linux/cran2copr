@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lvec
-%global packver   0.2.5
+%global packname  mxsem
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Out of Memory Vectors
+Summary:          Specify 'OpenMx' Models with a 'lavaan'-Style Syntax
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-OpenMx 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-OpenMx 
 Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
-Core functionality for working with vectors (numeric, integer, logical and
-character) that are too large to keep in memory. The vectors are kept
-(partially) on disk using memory mapping. This package contains the basic
-functionality for working with these memory mapped vectors (e.g. creating,
-indexing, ordering and sorting) and provides C++ headers which can be used
-by other packages to extend the functionality provided in this package.
+Provides a 'lavaan'-like syntax for 'OpenMx' models. The syntax supports
+definition variables, bounds, and parameter transformations. This allows
+for latent growth curve models with person-specific measurement occasions,
+moderated nonlinear factor analysis and much more.
 
 %prep
 %setup -q -c -n %{packname}

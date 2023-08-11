@@ -1,48 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SimSurvey
-%global packver   0.1.5
+%global __requires_exclude ^libmpi
+%global packname  boodist
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Surveys by Simulating Spatially-Correlated Populations
+Summary:          Some Distributions from the 'Boost' Library and More
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppNumerical 
+Requires:         R-stats 
 
 %description
-Simulate age-structured populations that vary in space and time and
-explore the efficacy of a range of built-in or user-defined sampling
-protocols to reproduce the population parameters of the known population.
-(See Regular et al. (2020) <doi:10.1371/journal.pone.0232822> for more
-details).
+Make some distributions from the 'C++' library 'Boost' available in 'R'.
+In addition, the normal-inverse Gaussian distribution and the generalized
+inverse Gaussian distribution are provided. The distributions are
+represented by 'R6' classes. The method to sample from the generalized
+inverse Gaussian distribution is the one given in "Random variate
+generation for the generalized inverse Gaussian distribution" Luc Devroye
+(2012) <doi:10.1007/s11222-012-9367-z>.
 
 %prep
 %setup -q -c -n %{packname}

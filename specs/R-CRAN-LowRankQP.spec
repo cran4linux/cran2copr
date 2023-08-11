@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rpcop
-%global packver   1.1
+%global packname  LowRankQP
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Curves of Oriented Points
+Summary:          Low Rank Quadratic Programming
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-princurve 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-princurve 
 
 %description
-Principal curves generalize the notion of a first principal component to
-the case in which it is a non linear smooth curve. This package provides a
-function pcop(X) to compute principal curves with the algorithm defined in
-Delicado (2001) <doi:10.1006/jmva.2000.1917> from a data matrix X.
+Solves quadratic programming problems where the Hessian is represented as
+the product of two matrices. Thanks to Greg Hunt for helping getting this
+version back on CRAN. The methods in this package are described in:
+Ormerod, Wand and Koch (2008) "Penalised spline support vector
+classifiers: computational issues" <doi:10.1007/s00180-007-0102-8>.
 
 %prep
 %setup -q -c -n %{packname}

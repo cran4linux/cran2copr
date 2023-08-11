@@ -1,51 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spldv
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  RTMB
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Models for Limited Dependent Variables
+Summary:          'R' Bindings for 'TMB'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-TMB >= 1.9.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-maxLik 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sphet 
-BuildRequires:    R-CRAN-memisc 
-BuildRequires:    R-CRAN-car 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-spatialreg 
-Requires:         R-CRAN-Formula 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB >= 1.9.5
+Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-maxLik 
-Requires:         R-stats 
-Requires:         R-CRAN-sphet 
-Requires:         R-CRAN-memisc 
-Requires:         R-CRAN-car 
 Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-spatialreg 
 
 %description
-The current version of this package estimates spatial autoregressive
-models for binary dependent variables using GMM estimators. It supports
-one-step (Pinkse and Slade, 1998) <doi:10.1016/S0304-4076(97)00097-3> and
-two-step GMM estimator along with the linearized GMM estimator proposed by
-Klier and McMillen (2008) <doi:10.1198/073500107000000188>. It also allows
-for either Probit or Logit model and compute the average marginal effects.
+Native 'R' interface to 'TMB' (Template Model Builder) so models can be
+written entirely in 'R' rather than 'C++'. Automatic differentiation, to
+any order, is available for a rich subset of 'R' features, including
+linear algebra for dense and sparse matrices, complex arithmetic, Fast
+Fourier Transform, probability distributions and special functions. 'RTMB'
+provides easy access to model fitting and validation following the
+principles of Kristensen, K., Nielsen, A., Berg, C. W., Skaug, H., & Bell,
+B. M. (2016) <DOI:10.18637/jss.v070.i05> and Thygesen, U.H., Albertsen,
+C.M., Berg, C.W. et al. (2017) <DOI:10.1007/s10651-017-0372-4>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  reclin
-%global packver   0.1.2
+%global __requires_exclude ^libmpi
+%global packname  invgamstochvol
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Record Linkage Toolkit
+Summary:          Obtains the Log Likelihood for an Inverse Gamma Stochastic Volatility Model
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lvec 
-BuildRequires:    R-CRAN-ldat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-CRAN-lvec 
-Requires:         R-CRAN-ldat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringdist 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.10
 
 %description
-Functions to assist in performing probabilistic record linkage and
-deduplication: generating pairs, comparing records, em-algorithm for
-estimating m- and u-probabilities, forcing one-to-one matching. Can also
-be used for pre- and post-processing for machine learning methods for
-record linkage.
+Computes the log likelihood for an inverse gamma stochastic volatility
+model using a closed form expression of the likelihood. The details of the
+computation of this closed form expression are given in Gonzalez and
+Majoni (2023) <http://rcea.org/RePEc/pdf/wp23-11.pdf> . The closed form
+expression is obtained for a stationary inverse gamma stochastic
+volatility model by marginalising out the volatility. This allows the user
+to obtain the maximum likelihood estimator for this non linear non
+Gaussian state space model. In addition, the user can obtain the estimates
+of the smoothed volatility using the exact smoothing distributions.
 
 %prep
 %setup -q -c -n %{packname}

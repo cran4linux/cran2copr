@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Delaporte
-%global packver   8.1.1
+%global packver   8.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.1.1
+Version:          8.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Functions for the Delaporte Distribution
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
 Requires:         R-stats 
+Requires:         R-parallel 
 
 %description
 Provides probability mass, distribution, quantile, random-variate

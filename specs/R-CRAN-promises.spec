@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  promises
-%global packver   1.2.0.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Abstractions for Promise-Based Asynchronous Programming
 
@@ -15,18 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-fastmap >= 1.1.0
+BuildRequires:    R-CRAN-later 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-later 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-fastmap >= 1.1.0
+Requires:         R-CRAN-later 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-later 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-magrittr 
 
 %description
 Provides fundamental abstractions for doing asynchronous programming in R
@@ -43,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

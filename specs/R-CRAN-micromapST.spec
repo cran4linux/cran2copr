@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  micromapST
-%global packver   2.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linked Micromap Plots for U. S. and Other Geographic Areas
 
@@ -14,49 +14,37 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-tools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-labeling 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-rmapshaper 
-BuildRequires:    R-CRAN-cleangeo 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-stats 
 Requires:         R-methods 
-Requires:         R-tools 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-utils 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-labeling 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-rmapshaper 
-Requires:         R-CRAN-cleangeo 
-Requires:         R-CRAN-pbapply 
+Requires:         R-tools 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-writexl 
+Requires:         R-stats 
 
 %description
 Provides the users with the ability to quickly create linked micromap
@@ -78,12 +66,15 @@ abbreviations, numeric identification and alias matching strings for the
 specific geographic area.  By specifying a border group, the package
 create linked micromap plots for any geographic region.  The user can
 create and provide their own border group dataset for any area beyond the
-areas contained within the package. References: Carr and Pickle, Chapman
-and Hall/CRC, Visualizing Data Patterns with Micromaps, CRC Press, 2010.
-Pickle, Pearson, and Carr (2015), micromapST: Exploring and Communicating
-Geospatial Patterns in US State Data., Journal of Statistical Software,
-63(3), 1-25., <https://www.jstatsoft.org/v63/i03/>. Copyrighted 2013,
-2014, 2015, 2016, and 2022 by Carr, Pearson and Pickle.
+areas contained within the package. In version 3.0.0, the
+'BuildBorderGroup' function was upgraded to not use the retiring
+'maptools', 'rgdal', and 'rgeos' packages. References: Carr and Pickle,
+Chapman and Hall/CRC, Visualizing Data Patterns with Micromaps, CRC Press,
+2010. Pickle, Pearson, and Carr (2015), micromapST: Exploring and
+Communicating Geospatial Patterns in US State Data., Journal of
+Statistical Software, 63(3), 1-25., <https://www.jstatsoft.org/v63/i03/>.
+Copyrighted 2013, 2014, 2015, 2016, 2022, and 2023 by Carr, Pearson and
+Pickle.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qgcomp
-%global packver   2.10.1
+%global packver   2.15.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.1
+Version:          2.15.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile G-Computation
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-generics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-generics
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-pscl 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 

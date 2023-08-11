@@ -1,61 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prettyglm
-%global packver   1.0.0
+%global packname  ineptR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pretty Summaries of Generalized Linear Model Coefficients
+Summary:          Wrapper for Statistics Portugal API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidycat 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-vip 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-car 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-knitr 
-Requires:         R-methods 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidycat 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-vip 
 
 %description
-One of the main advantages of using Generalised Linear Models is their
-interpretability.  The goal of 'prettyglm' is to provide a set of
-functions which easily create beautiful coefficient summaries which can
-readily be shared and explained. 'prettyglm' helps users create
-coefficient summaries which include categorical base levels, variable
-importance and type III p.values. 'prettyglm' also creates beautiful
-relativity plots for categorical, continuous and splined coefficients.
+Set of wrapper and helper functions to facilitate interaction with the
+Statistics Portugal (Instituto Nacional de Estatistica - INE) API
+(<https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_api&INST=322751522&xlang=en>).
 
 %prep
 %setup -q -c -n %{packname}

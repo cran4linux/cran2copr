@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  randomizr
-%global packver   0.24.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy-to-Use Tools for Common Forms of Random Assignment and Sampling
 

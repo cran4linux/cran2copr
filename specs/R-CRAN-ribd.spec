@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ribd
-%global packver   1.5.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pedigree-based Relatedness Coefficients
 
@@ -14,14 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools 
+BuildRequires:    R-CRAN-pedtools >= 2.0.0
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-kinship2 
 BuildRequires:    R-CRAN-slam 
-Requires:         R-CRAN-pedtools 
+Requires:         R-CRAN-pedtools >= 2.0.0
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-kinship2 
 Requires:         R-CRAN-slam 
@@ -35,13 +35,11 @@ described in Vigeland (2020) <doi:10.1007/s00285-020-01505-x>. In addition
 to the standard coefficients, 'ribd' also computes a range of lesser-known
 coefficients, including generalised kinship coefficients (Karigl (1981)
 <doi:10.1111/j.1469-1809.1981.tb00341.x>; Weeks and Lange (1988)
-<https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1715269>), two-locus
-coefficients (Thompson (1988) <doi:10.1093/imammb/5.4.261>) and
-multi-person coefficients. This package is part of the 'ped suite', a
-collection of packages for pedigree analysis in R. Several methods of
-'ribd' are featured in the online app 'QuickPed' available at
-<https://magnusdv.shinyapps.io/quickped>. See Vigeland (2022)
-<doi:10.1186/s12859-022-04759-y>.
+<https://pubmed.ncbi.nlm.nih.gov/3422543/>), two-locus coefficients
+(Thompson (1988) <doi:10.1093/imammb/5.4.261>) and multi-person
+coefficients. Many features of 'ribd' are available through the online app
+'QuickPed' at <https://magnusdv.shinyapps.io/quickped>; see Vigeland
+(2022) <doi:10.1186/s12859-022-04759-y>.
 
 %prep
 %setup -q -c -n %{packname}
