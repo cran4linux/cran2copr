@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sirt
-%global packver   3.12-66
+%global packver   3.13-228
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.12.66
+Version:          3.13.228
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supplementary Item Response Theory Models
 
@@ -18,6 +19,8 @@ Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-CDM 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-TAM 
@@ -27,6 +30,8 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-CDM 
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-TAM 

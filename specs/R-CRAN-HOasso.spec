@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rasterList
-%global packver   0.5.19
+%global packname  HOasso
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.19
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Raster Where Cells are Generic Objects
+Summary:          Higher Order Assortativity for Complex Networks
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A S4 class has been created such that complex operations can be executed
-on each cell of a raster map. The raster of objects contains a raster map
-with the addition of a list of generic objects: one object for each raster
-cells. It allows to write few lines of R code for complex map algebra. Two
-environmental applications about frequency analysis of raster map of
-precipitation and creation of a raster map of soil water retention curves
-have been presented.
+Allows to evaluate Higher Order Assortativity of complex networks defined
+through objects of class 'igraph' from the package of the same name. The
+package returns a result also for directed and weighted graphs.
+References, Arcagni, A., Grassi, R., Stefani, S., & Torriero, A. (2017)
+<doi:10.1016/j.ejor.2017.04.028> Arcagni, A., Grassi, R., Stefani, S., &
+Torriero, A. (2021) <doi:10.1016/j.jbusres.2019.10.008> Arcagni, A.,
+Cerqueti, R., & Grassi, R. (2023) <doi:10.48550/arXiv.2304.01737>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chromote
-%global packver   0.1.2
+%global packname  CFtime
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Headless Chrome Web Browser Interface
+Summary:          Using CF-Compliant Calendars with Climate Projection Data
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-websocket >= 1.2.0
-BuildRequires:    R-CRAN-promises >= 1.1.1
-BuildRequires:    R-CRAN-later >= 1.1.0
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-fastmap 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-websocket >= 1.2.0
-Requires:         R-CRAN-promises >= 1.1.1
-Requires:         R-CRAN-later >= 1.1.0
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-fastmap 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-An implementation of the 'Chrome DevTools Protocol', for controlling a
-headless Chrome web browser.
+Support for all calendars as specified in the Climate and Forecast (CF)
+Metadata Conventions for climate and forecasting data. The CF Metadata
+Conventions is widely used for distributing files with climate
+observations or projections, including the Coupled Model Intercomparison
+Project (CMIP) data used by climate change scientists and the
+Intergovernmental Panel on Climate Change (IPCC). This package
+specifically allows the user to work with any of the CF-compliant
+calendars (many of which are not compliant with POSIXt). The CF time
+coordinate is formally defined in the CF Metadata Conventions document
+available at
+<https://cfconventions.org/Data/cf-conventions/cf-conventions-1.10/cf-conventions.html#time-coordinate>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MALDIquantForeign
-%global packver   0.13
+%global packver   0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13
+Version:          0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import/Export Routines for 'MALDIquant'
 
@@ -18,14 +19,14 @@ Requires:         R-core >= 3.2.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-readMzXmlData >= 2.7
 BuildRequires:    R-CRAN-readBrukerFlexData >= 1.7
-BuildRequires:    R-CRAN-MALDIquant >= 1.16
+BuildRequires:    R-CRAN-MALDIquant >= 1.16.4
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-readMzXmlData >= 2.7
 Requires:         R-CRAN-readBrukerFlexData >= 1.7
-Requires:         R-CRAN-MALDIquant >= 1.16
+Requires:         R-CRAN-MALDIquant >= 1.16.4
 Requires:         R-methods 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-digest 

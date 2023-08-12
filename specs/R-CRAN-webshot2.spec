@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  webshot2
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Take Screenshots of Web Pages
 
@@ -17,15 +18,15 @@ BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-chromote >= 0.1.0
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-promises 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-promises 
 Requires:         R-CRAN-chromote >= 0.1.0
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-promises 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-callr 
+Requires:         R-CRAN-later 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-promises 
 
 %description
 Takes screenshots of web pages, including Shiny applications and R

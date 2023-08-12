@@ -1,39 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rjazz
-%global packver   0.1.7
+%global __requires_exclude ^libmpi
+%global packname  DRquality
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Official Client for 'Jazz'
+Summary:          Quality Measurements for Dimensionality Reduction
 
-License:          Apache License (== 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RCurl 
-Requires:         R-stats 
-Requires:         R-CRAN-RCurl 
+BuildRequires:    R-CRAN-DatabionicSwarm 
+Requires:         R-CRAN-DatabionicSwarm 
 
 %description
-This is the official 'Jazz' client. 'Jazz' is a lightweight modular data
-processing framework, including a web server. It provides data persistence
-and computation capabilities accessible from 'R' and 'Python' and also
-through a REST API. <https://github.com/bbvadata/Jazz> See ?rjazz::rjazz
-to get a 'Jazz' server.
+Several quality measurements for investigating the performance of
+dimensionality reduction methods are provided here. In addition a new
+quality measurement called Gabriel classification error is made
+accessible.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -43,6 +47,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

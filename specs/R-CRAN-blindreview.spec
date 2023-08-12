@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blindreview
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Blind Review Using Forward Search Procedures
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Hmisc >= 4.7.2
-BuildRequires:    R-CRAN-forsearch >= 3.1.0
+BuildRequires:    R-CRAN-forsearch >= 4.0.0
 Requires:         R-CRAN-Hmisc >= 4.7.2
-Requires:         R-CRAN-forsearch >= 3.1.0
+Requires:         R-CRAN-forsearch >= 4.0.0
 
 %description
 Randomly assigns identification to one of the variables of the dataset,

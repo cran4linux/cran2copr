@@ -1,43 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bisg
-%global packver   0.1.0
+%global packname  NetworkComparr
+%global packver   0.0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Performs Bayesian Improved Surname Geocoding
+Summary:          Statistical Comparison of Networks
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wru >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidycensus 
-BuildRequires:    R-CRAN-tigris 
-Requires:         R-CRAN-wru >= 1.0.0
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-networktools 
+BuildRequires:    R-CRAN-gdata 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidycensus 
-Requires:         R-CRAN-tigris 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-networktools 
+Requires:         R-CRAN-gdata 
 
 %description
-Performs Bayesian Improved Surname Geocoding (BISG) analysis to obtain
-probabilistic estimates of race based on surname and geolocation. This
-package can be used in tandem with the 'eiCompare' package. Methods
-implemented in this package are described in Decter-Frain, A., Sachdeva,
-P., Collingwood, L., Burke, J., Murayama, H., Barreto, M., … Zingher, J.
-(2022). "Comparing Methods for Estimating Demographics in Racially
-Polarized Voting Analyses" <doi:10.31235/osf.io/e854z>.
+A permutation-based hypothesis test for statistical comparison of two
+networks based on the invariance measures of the R package
+'NetworkComparisonTest' by van Borkulo et al. (2022),
+<doi:10.1037/met0000476>: network structure invariance, global strength
+invariance, edge invariance, and various centrality measures. Edgelists
+from dependent or independent samples are used as input. These edgelists
+are generated from concept maps and summed into two comparable group
+networks. The networks can be directed or undirected.
 
 %prep
 %setup -q -c -n %{packname}

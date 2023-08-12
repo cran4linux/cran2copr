@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flexdashboard
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Markdown Format for Flexible Dashboards
 
@@ -18,29 +18,29 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 2.8
-BuildRequires:    R-CRAN-knitr >= 1.13
+BuildRequires:    R-CRAN-knitr >= 1.30
 BuildRequires:    R-CRAN-htmlwidgets >= 0.6
 BuildRequires:    R-CRAN-htmltools >= 0.5.1
 BuildRequires:    R-CRAN-bslib >= 0.2.5
 BuildRequires:    R-CRAN-shiny >= 0.13
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sass 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sass 
 Requires:         R-CRAN-rmarkdown >= 2.8
-Requires:         R-CRAN-knitr >= 1.13
+Requires:         R-CRAN-knitr >= 1.30
 Requires:         R-CRAN-htmlwidgets >= 0.6
 Requires:         R-CRAN-htmltools >= 0.5.1
 Requires:         R-CRAN-bslib >= 0.2.5
 Requires:         R-CRAN-shiny >= 0.13
 Requires:         R-grDevices 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sass 
+Requires:         R-CRAN-scales 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sass 
 
 %description
 Format for converting an R Markdown document to a grid oriented dashboard.

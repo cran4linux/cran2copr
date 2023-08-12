@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MSinference
-%global packver   0.1.0
+%global packname  smoothy
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiscale Inference for Nonparametric Time Trend(s)
+Summary:          Automatic Estimation of the Most Likely Drug Combination using Smooth Algorithm
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-Requires:         R-CRAN-Rcpp >= 1.0.9
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-zoo >= 1.8
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-zoo >= 1.8
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
 
 %description
-Performs a multiscale analysis of a nonparametric regression or
-nonparametric regressions with time series errors. In case of one
-regression, with the help of this package it is possible to detect the
-regions where the trend function is increasing or decreasing. In case of
-multiple regressions, the test identifies regions where the trend
-functions are different from each other. See Khismatullina and Vogt (2020)
-<doi:10.1111/rssb.12347>, Khismatullina and Vogt (2022)
-<doi:10.48550/arXiv.2209.10841> and Khismatullina and Vogt (2023)
-<doi:10.1016/j.jeconom.2021.04.010> for more details on theory and
-applications.
+A flexible moving average algorithm for modeling drug exposure in
+pharmacoepidemiology studies as presented in the article: Ouchi, D.,
+Giner-Soriano, M., Gómez-Lumbreras, A., Vedia Urgell, C.,Torres, F., &
+Morros, R. (2022). "Automatic Estimation of the Most Likely Drug
+Combination in Electronic Health Records Using the Smooth Algorithm :
+Development and Validation Study." JMIR medical informatics, 10(11),
+e37976. <doi:10.2196/37976>.
 
 %prep
 %setup -q -c -n %{packname}

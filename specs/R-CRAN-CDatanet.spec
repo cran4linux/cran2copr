@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDatanet
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Count Data with Peer Effects
 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-Matrix
 Likelihood-based estimation and data generation from a class of models
 used to estimate peer effects on count data by controlling for the network
 endogeneity. This class includes count data models with social
-interactions (Houndetoungan 2022; <doi:10.2139/ssrn.3721250>), spatial
+interactions (Houndetoungan 2023; <doi:10.2139/ssrn.3721250>), spatial
 tobit models (Xu and Lee 2015; <doi:10.1016/j.jeconom.2015.05.004>), and
 spatial linear-in-means models (Lee 2004;
 <doi:10.1111/j.1468-0262.2004.00558.x>).

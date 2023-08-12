@@ -1,40 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CommEcol
-%global packver   1.7.1
+%global __requires_exclude ^libmpi
+%global packname  binomCI
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Community Ecology Analyses
+Summary:          Confidence Intervals for a Binomial Proportion
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-picante 
-BuildRequires:    R-CRAN-adespatial 
-BuildRequires:    R-CRAN-betapart 
-BuildRequires:    R-CRAN-gmp 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-picante 
-Requires:         R-CRAN-adespatial 
-Requires:         R-CRAN-betapart 
-Requires:         R-CRAN-gmp 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Autosimilarity curves, standardization of spatial extent, dissimilarity
-indexes that overweight rare species, phylogenetic and functional
-(pairwise and multisample) dissimilarity indexes and nestedness for
-phylogenetic, functional and other diversity metrics. This should be a
-complement to available packages, particularly 'vegan'.
+12 confidence intervals for one binomial proportion or a vector of
+binomial proportions are computed. The confidence intervals are: Jeffreys,
+Wald, Wald corrected, Wald, Blyth and Still, Agresti and Coull, Wilson,
+Score, Score corrected, Wald logit, Wald logit corrected, Arcsine and
+Exact binomial. References include, among others: Vollset, S. E. (1993).
+Confidence intervals for a binomial proportion. Statistics in Medicine,
+12(9): 809-824. <doi:10.1002/sim.4780120902>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,46 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TMB
-%global packver   1.9.6
+%global packname  ecoregime
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.6
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Template Model Builder: A General Random Effect Tool Inspired by 'ADMB'
+Summary:          Analysis of Ecological Dynamic Regimes
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         gcc-c++
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Matrix >= 1.0.12
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ecotraj 
+BuildRequires:    R-CRAN-GDAtools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-shape 
+BuildRequires:    R-CRAN-smacof 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Matrix >= 1.0.12
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ecotraj 
+Requires:         R-CRAN-GDAtools 
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-CRAN-shape 
+Requires:         R-CRAN-smacof 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-stringr 
 
 %description
-With this tool, a user should be able to quickly implement complex random
-effect models through simple C++ templates. The package combines 'CppAD'
-(C++ automatic differentiation), 'Eigen' (templated matrix-vector library)
-and 'CHOLMOD' (sparse matrix routines available from R) to obtain an
-efficient implementation of the applied Laplace approximation with exact
-derivatives. Key features are: Automatic sparseness detection, parallelism
-through 'BLAS' and parallel user templates.
+A toolbox for implementing the Ecological Dynamic Regime framework
+(Sánchez-Pinillos et al., 2023 <doi:10.1002/ecm.1589>) to characterize and
+compare groups of ecological trajectories in multidimensional spaces
+defined by state variables. The package includes the RETRA-EDR algorithm
+to identify representative trajectories, functions to generate, summarize,
+and visualize representative trajectories, and several metrics to quantify
+the distribution and heterogeneity of trajectories in an ecological
+dynamic regime and quantify the dissimilarity between two or more
+ecological dynamic regimes.
 
 %prep
 %setup -q -c -n %{packname}
-sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

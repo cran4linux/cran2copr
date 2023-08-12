@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manynet
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Many Ways to Make, Manipulate, and Map Myriad Networks
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 1.5.0.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-tidygraph 
+Requires:         R-CRAN-igraph >= 1.5.0.1
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-tidygraph 
 

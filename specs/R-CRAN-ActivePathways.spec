@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ActivePathways
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrative Pathway Enrichment Analysis of Multivariate Omics Data
 
@@ -29,11 +30,12 @@ followed by ranked hypergeometric tests to determine enriched pathways and
 processes. This approach allows researchers to interpret a series of omics
 datasets in the context of known biology and gene function, and discover
 associations that are only apparent when several datasets are combined.
-The package is part of the following publication: Integrative Pathway
-Enrichment Analysis of Multivariate Omics Data. Paczkowska M^, Barenboim
-J^, Sintupisut N, Fox NS, Zhu H, Abd-Rabbo D, Mee MW, Boutros PC, PCAWG
-Drivers and Functional Interpretation Working Group; Reimand J, PCAWG
-Consortium. Nature Communications (2020) <doi:10.1038/s41467-019-13983-9>.
+The first version of the package is part of the following publication:
+Integrative Pathway Enrichment Analysis of Multivariate Omics Data.
+Paczkowska M^, Barenboim J^, Sintupisut N, Fox NS, Zhu H, Abd-Rabbo D, Mee
+MW, Boutros PC, PCAWG Drivers and Functional Interpretation Working Group;
+Reimand J, PCAWG Consortium. Nature Communications (2020)
+<doi:10.1038/s41467-019-13983-9>.
 
 %prep
 %setup -q -c -n %{packname}
