@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  copent
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Copula Entropy and Transfer Entropy
 
@@ -22,12 +22,13 @@ Requires:         R-stats
 
 %description
 The nonparametric methods for estimating copula entropy, transfer entropy,
-and the statistic for testing multivariate normality are implemented. The
-methods for estimating transfer entropy and the statistic for testing
-multivariate normality are based on the method for estimating copula
-entropy. Please refer to Ma and Sun (2011)
-<doi:10.1016/S1007-0214(11)70008-6>, Ma (2019) <arXiv:1910.04375>, and Ma
-(2022) <arXiv:2206.05956> for more information.
+and the statistics for multivariate normality test and two-sample test are
+implemented. The methods for estimating transfer entropy and the
+statistics for multivariate normality test and two-sample test are based
+on the method for estimating copula entropy. Please refer to Ma and Sun
+(2011) <doi:10.1016/S1007-0214(11)70008-6>, Ma (2019) <arXiv:1910.04375>,
+Ma (2022) <arXiv:2206.05956>, and Ma (2023) <arXiv:2307.07247> for more
+information.
 
 %prep
 %setup -q -c -n %{packname}

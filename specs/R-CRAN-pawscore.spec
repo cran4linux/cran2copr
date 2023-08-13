@@ -1,27 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kit
-%global packver   0.0.14
+%global packname  pawscore
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.14
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Manipulation Functions Implemented in C
+Summary:          Pain Assessment at Withdrawal Speeds (PAWS)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-signal >= 0.7
+BuildRequires:    R-CRAN-brglm2 >= 0.6
+Requires:         R-CRAN-signal >= 0.7
+Requires:         R-CRAN-brglm2 >= 0.6
 
 %description
-Basic functions, implemented in C, for large data manipulation. Fast
-vectorised ifelse()/nested if()/switch() functions, psum()/pprod()
-functions equivalent to pmin()/pmax() plus others which are missing from
-base R. Most of these functions are callable at C level.
+Automated pain scoring from paw withdrawal tracking data. Based on Jones
+et al. (2020) "A machine-vision approach for automated pain measurement at
+millisecond timescales" <doi:10.7554/eLife.57258>.
 
 %prep
 %setup -q -c -n %{packname}

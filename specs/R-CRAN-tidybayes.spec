@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidybayes
-%global packver   3.0.4
+%global packver   3.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Data and 'Geoms' for Bayesian Models
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-ggdist >= 3.0.0
@@ -44,6 +45,7 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-vctrs 
 
 %description

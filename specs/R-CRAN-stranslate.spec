@@ -1,27 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kit
-%global packver   0.0.14
+%global packname  stranslate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.14
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Manipulation Functions Implemented in C
+Summary:          Simple Translation Between Different Languages
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-stringr 
 
 %description
-Basic functions, implemented in C, for large data manipulation. Fast
-vectorised ifelse()/nested if()/switch() functions, psum()/pprod()
-functions equivalent to pmin()/pmax() plus others which are missing from
-base R. Most of these functions are callable at C level.
+Message translation is often managed with 'po' files and the 'gettext'
+programme, but sometimes another solution is needed. In contrast to 'po'
+files, a more flexible approach is used as in the Fluent
+<https://projectfluent.org/> project with RMarkdown snippets. The
+key-value approach allows easier handling of the translated messages.
 
 %prep
 %setup -q -c -n %{packname}

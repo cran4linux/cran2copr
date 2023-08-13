@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dodgr
-%global packver   0.2.21
+%global packname  ecce
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.21
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distances on Directed Graphs
+Summary:          Translate English Words into Chinese, or Translate Chinese Words into English
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.6
-BuildRequires:    R-CRAN-callr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-osmdata 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-RcppThread 
-Requires:         R-CRAN-Rcpp >= 0.12.6
-Requires:         R-CRAN-callr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-osmdata 
-Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Distances on dual-weighted directed graphs using priority-queue shortest
-paths (Padgham (2019) <doi:10.32866/6945>). Weighted directed graphs have
-weights from A to B which may differ from those from B to A.
-Dual-weighted directed graphs have two sets of such weights. A canonical
-example is a street network to be used for routing in which routes are
-calculated by weighting distances according to the type of way and mode of
-transport, yet lengths of routes must be calculated from direct distances.
+If translate English words into Chinese, there is a faster way for R user.
+'RYoudaoTranslate' package provides interface to 'Youdao'
+<http://youdao.com/> translation open API for R user. 'entcn' package also
+provides similar features. But it does not support Chinese words
+translation into English, I have made some improvements on the basis of
+this software. You can pass in an English or Chinese word, ecce package
+support both English and Chinese translation. It also support browse
+translation results in website.
 
 %prep
 %setup -q -c -n %{packname}

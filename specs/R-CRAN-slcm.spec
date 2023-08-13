@@ -1,27 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kit
-%global packver   0.0.14
+%global packname  slcm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.14
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Manipulation Functions Implemented in C
+Summary:          Sparse Latent Class Model for Cognitive Diagnosis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Basic functions, implemented in C, for large data manipulation. Fast
-vectorised ifelse()/nested if()/switch() functions, psum()/pprod()
-functions equivalent to pmin()/pmax() plus others which are missing from
-base R. Most of these functions are callable at C level.
+Perform a Bayesian estimation of the exploratory Sparse Latent Class Model
+for Binary Data described by Chen, Y., Culpepper, S. A., and Liang, F.
+(2020) <doi:10.1007/s11336-019-09693-2>.
 
 %prep
 %setup -q -c -n %{packname}

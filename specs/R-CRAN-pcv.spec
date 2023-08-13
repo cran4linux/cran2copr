@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pcv
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procrustes Cross-Validation
 
@@ -27,8 +27,8 @@ Requires:         R-stats
 %description
 Implements Procrustes cross-validation method for Principal Component
 Analysis, Principal Component Regression and Partial Least Squares
-regression models. S. Kucheryavskiy (2020)
-<doi:10.1016/j.chemolab.2020.103937>.
+regression models. S. Kucheryavskiy (2023)
+<doi:10.1016/j.aca.2023.341096>.
 
 %prep
 %setup -q -c -n %{packname}

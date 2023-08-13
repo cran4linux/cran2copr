@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  giedata
-%global packver   0.1.1
+%global packname  DivInsight
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          API Wrapper for GIE's AGSI+/ALSI+ Natural Gas Storage Transparency Platform
+Summary:          Diversity Index Calculation & Visualisation for Taxa and Location
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rgbif 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rgbif 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Functions to access the API for Gas Infrastructure Europe's (GIE)
-AGSI+/ALSI+ natural gas storage transparency platform
-(<https://agsi.gie.eu/> and <https://alsi.gie.eu/>). Lets the user easily
-download metadata on companies and gas storage units covered by the API as
-well as the respective data on regional, country, company or facility
-level.
+Repurpose occurrence data for calculating diversity index values, creating
+visuals, and generating species composition matrices for a chosen taxon
+and location.
 
 %prep
 %setup -q -c -n %{packname}

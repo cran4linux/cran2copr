@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  populR
-%global packver   0.2.1
+%global packname  ppendemic
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Population Downscaling Using Areal Interpolation
+Summary:          A Glimpse at the Diversity of Peru's Endemic Plants
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-Metrics 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-osmdata 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-Metrics 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-osmdata 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-units 
 
 %description
-Given a set of source zone polygons such as census tracts or city blocks
-alongside with population counts and a target zone of incogruent yet
-superimposed polygon features (such as individual buildings) populR
-transforms population counts from the former to the latter using Areal
-Interpolation methods.
+Introducing a novel and updated database showcasing Peru's endemic plants.
+This meticulously compiled and revised botanical collection encompasses a
+remarkable assemblage of over 7,249 distinct species. The data for this
+resource was sourced from the work of Govaerts, R., Nic Lughadha, E.,
+Black, N. et al., titled 'The World Checklist of Vascular Plants: A
+continuously updated resource for exploring global plant diversity',
+published in Sci Data 8, 215 (2021) <doi:10.1038/s41597-021-00997-6>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  osmdata
-%global packver   0.2.4
+%global packname  mlsurvlrnrs
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import 'OpenStreetMap' Data as Simple Features or Spatial Objects
+Summary:          R6-Based ML Survival Learners for 'mlexperiments'
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reproj 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-reproj 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-kdry 
+BuildRequires:    R-CRAN-mlexperiments 
+BuildRequires:    R-CRAN-mllrnrs 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-kdry 
+Requires:         R-CRAN-mlexperiments 
+Requires:         R-CRAN-mllrnrs 
+Requires:         R-CRAN-R6 
+Requires:         R-stats 
 
 %description
-Download and import of 'OpenStreetMap' ('OSM') data as 'sf' or 'sp'
-objects.  'OSM' data are extracted from the 'Overpass' web server
-(<https://overpass-api.de/>) and processed with very fast 'C++' routines
-for return to 'R'.
+Enhances 'mlexperiments'
+<https://CRAN.R-project.org/package=mlexperiments> with additional machine
+learning ('ML') learners for survival analysis. The package provides
+R6-based survival learners for the following algorithms: 'glmnet'
+<https://CRAN.R-project.org/package=glmnet>, 'ranger'
+<https://CRAN.R-project.org/package=ranger>, 'xgboost'
+<https://CRAN.R-project.org/package=xgboost>, and 'rpart'
+<https://CRAN.R-project.org/package=rpart>. These can be used directly
+with the 'mlexperiments' R package.
 
 %prep
 %setup -q -c -n %{packname}

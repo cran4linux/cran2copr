@@ -1,56 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  riverconn
-%global packver   0.3.28
+%global packname  starschemar
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.28
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fragmentation and Connectivity Indices for Riverscapes
+Summary:          Obtaining Stars from Flat Tables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-dodgr 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
+Requires:         R-CRAN-generics 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-snakecase 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-dodgr 
-Requires:         R-CRAN-reshape2 
 
 %description
-Indices for assessing riverscape fragmentation, including the Dendritic
-Connectivity Index, the Population Connectivity Index, the River
-Fragmentation Index, the Probability of Connectivity, and the Integral
-Index of connectivity. For a review, see Jumani et al. (2020)
-<doi:10.1088/1748-9326/abcb37> and Baldan et al. (2022)
-<doi:10.1016/j.envsoft.2022.105470> Functions to calculate temporal
-indices improvement when fragmentation due to barriers is reduced are also
-included.
+Data in multidimensional systems is obtained from operational systems and
+is transformed to adapt it to the new structure. Frequently, the
+operations to be performed aim to transform a flat table into a star
+schema. Transformations can be carried out using professional extract,
+transform and load tools or tools intended for data transformation for end
+users. With the tools mentioned, this transformation can be carried out,
+but it requires a lot of work. The main objective of this package is to
+define transformations that allow obtaining stars from flat tables easily.
+In addition, it includes basic data cleaning, dimension enrichment,
+incremental data refresh and query operations, adapted to this context.
 
 %prep
 %setup -q -c -n %{packname}
