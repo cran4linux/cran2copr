@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tipmap
-%global packver   0.4.2
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tipping Point Analysis for Bayesian Dynamic Borrowing
 
@@ -18,23 +18,32 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RBesT 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-RBesT 
+Requires:         R-CRAN-assertthat 
+Requires:         R-stats 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
 
 %description
 Tipping point analysis for clinical trials that employ Bayesian dynamic
-borrowing via robust meta-analytic predictive (MAP) priors. Mainly an
-implementation of an approach proposed by Best and colleagues (2021) is
-provided <doi:10.1002/pst.2093>. Further functions facilitate the
-specification of the robust MAP prior via expert elicitation (using the
-roulette method). Intended use is the planning, analysis and
-interpretation of extrapolation studies in pediatric drug development, but
-applicability is generally wider.
+borrowing via robust meta-analytic predictive (MAP) priors. Further
+functions facilitate expert elicitation of a primary weight of the
+informative component of the robust MAP prior and computation of operating
+characteristics. Intended use is the planning, analysis and interpretation
+of extrapolation studies in pediatric drug development, but applicability
+is generally wider.
 
 %prep
 %setup -q -c -n %{packname}

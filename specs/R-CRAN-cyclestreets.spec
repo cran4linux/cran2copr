@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cyclestreets
-%global packver   0.6.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cycle Routing and Data for Cycling Advocacy
 
@@ -20,31 +20,31 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geodist 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-RcppSimdJson 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geodist 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-RcppSimdJson 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 
 %description
 An interface to the cycle routing/data services provided by

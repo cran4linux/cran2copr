@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tvem
-%global packver   1.3.1
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time-Varying Effect Models
 
@@ -25,18 +26,18 @@ varying-coefficient models in the context of longitudinal data, allowing
 the strength of linear, logistic, or Poisson regression relationships to
 change over time.  These models are described further in Tan, Shiyko, Li,
 Li & Dierker (2012) <doi:10.1037/a0025814>.  We thank Kaylee Litson,
-Patricia Berglund, and Yajnaseni Chakraborti for their valuable help with
-testing the package and documentation. The development of this package was
-part of a research project supported by National Institutes of Health
-grants P50 DA039838 from the National Institute of Drug Abuse and 1R01
-CA229542-01 from the National Cancer Institute and the NIH Office of
-Behavioral and Social Science Research. Content is solely the
-responsibility of the authors and does not necessarily represent the
-official views of the funding institutions mentioned above. This software
-is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
-details.
+Patricia Berglund, Yajnaseni Chakraborti, and Hanjoo Kim for their
+valuable help with testing the package and the documentation. The
+development of this package was part of a research project supported by
+National Institutes of Health grants P50 DA039838 from the National
+Institute of Drug Abuse and 1R01 CA229542-01 from the National Cancer
+Institute and the NIH Office of Behavioral and Social Science Research.
+Content is solely the responsibility of the authors and does not
+necessarily represent the official views of the funding institutions
+mentioned above. This software is distributed in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GEOmap
-%global packver   2.5-0
+%global packver   2.5-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Topographic and Geologic Mapping
 
@@ -16,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildRequires:    R-CRAN-RPMG 
-BuildRequires:    R-CRAN-splancs 
 BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-MBA 
 Requires:         R-CRAN-RPMG 
-Requires:         R-CRAN-splancs 
 Requires:         R-CRAN-fields 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-MBA 
 
 %description

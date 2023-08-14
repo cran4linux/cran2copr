@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bolsec
-%global packver   0.1.0
+%global packname  frailtySurv
+%global packver   1.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bolivian Securities
+Summary:          General Semiparametric Shared Frailty Model
 
-License:          GPL-3
+License:          LGPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-formattable 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-formattable 
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-survival 
 Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Provides data import and offers 3 daily snapshot functions from securities
-of varying prices traded on the Bolivian Securities Exchange, website
-<https://www.bbv.com.bo/>. The snapshots include a detailed list, scatter
-plot correlation, and descriptive statistics table for the securities.
+Simulates and fits semiparametric shared frailty models under a wide range
+of frailty distributions using a consistent and asymptotically-normal
+estimator. Currently supports: gamma, power variance function, log-normal,
+and inverse Gaussian frailty models.
 
 %prep
 %setup -q -c -n %{packname}

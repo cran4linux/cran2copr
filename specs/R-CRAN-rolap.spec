@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rolap
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Obtaining Star Databases from Flat Tables
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dm 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-snakecase 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dm 
 Requires:         R-CRAN-dplyr 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-snakecase 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggstats
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'ggplot2' for Plotting Stats
 
@@ -18,33 +18,37 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-broom.helpers >= 1.11.0
+BuildRequires:    R-CRAN-broom.helpers >= 1.14.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-broom.helpers >= 1.11.0
+Requires:         R-CRAN-broom.helpers >= 1.14.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 
 %description
-Provides suite of functions to plot regression model coefficients ("forest
-plots"). The suite also includes new statistics to compute proportions,
-weighted mean and cross-tabulation statistics, as well as new geometries
-to add alternative background color to a plot.
+Provides new statistics, new geometries and new positions for "ggplot2"
+and a suite of functions to facilitate the creation of statistical plots.
 
 %prep
 %setup -q -c -n %{packname}

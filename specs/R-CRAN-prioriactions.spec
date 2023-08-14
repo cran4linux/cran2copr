@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prioriactions
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Action Conservation Planning
 
@@ -42,14 +42,17 @@ find an optimal combination of management actions that abate threats, in
 an efficient way while accounting for spatial aspects. Thus, optimizing
 the connectivity and conservation effectiveness of the prioritized units
 and of the deployed actions. The package is capable of handling different
-commercial (gurobi, CPLEX) and non-commercial (symphony) MIP solvers.
+commercial (gurobi, CPLEX) and non-commercial (symphony, CBC) MIP solvers.
 Gurobi optimization solver can be installed using comprehensive
-instructions in the gurobi installation vignette of the prioritizr package
-(available in
+instructions in the 'gurobi' installation vignette of the prioritizr
+package (available in
 <https://prioritizr.net/articles/gurobi_installation_guide.html>).
-Instead, CPLEX optimization solver can be obtain from IBM CPLEX web page
+Instead, 'CPLEX' optimization solver can be obtain from IBM CPLEX web page
 (available here
 <https://www.ibm.com/es-es/products/ilog-cplex-optimization-studio>).
+Additionally, the 'rcbc' R package (available at
+<https://github.com/dirkschumacher/rcbc>) can be used to obtain solutions
+using the CBC optimization software (<https://github.com/coin-or/Cbc>).
 Methods used in the package refers to Salgado-Rojas et al. (2020)
 <doi:10.1016/j.ecolmodel.2019.108901>, Beyer et al. (2016)
 <doi:10.1016/j.ecolmodel.2016.02.005>, Cattarino et al. (2015)
