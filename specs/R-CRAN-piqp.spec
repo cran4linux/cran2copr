@@ -1,50 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aphylo
-%global packver   0.3-2
+%global packname  piqp
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference and Prediction of Annotations in Phylogenetic Trees
+Summary:          R Interface to Proximal Interior Point Quadratic Programming Solver
 
-License:          MIT + file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ape >= 5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-fmcmc 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-ape >= 5.0
-Requires:         R-CRAN-Rcpp >= 0.12.1
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-fmcmc 
-Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implements a parsimonious evolutionary model to analyze and predict
-gene-functional annotations in phylogenetic trees as described in Vega Yon
-et al. (2021) <doi:10.1371/journal.pcbi.1007948>. With a focus on
-computational efficiency, 'aphylo' makes it possible to estimate pooled
-phylogenetic models, including thousands (hundreds) of annotations (trees)
-in the same run. The package also provides the tools for visualization of
-annotated phylogenies, calculation of posterior probabilities
-(prediction,) and goodness-of-fit assessment featured in Vega Yon et al.
-(2021).
+An embedded proximal interior point quadratic programming solver, which
+can solve dense and sparse quadratic programs, described in Schwan, Jiang,
+Kuhn, and Jones (2023) <doi:10.48550/arXiv.2304.00290>. Combining an
+infeasible interior point method with the proximal method of multipliers,
+the algorithm can handle ill-conditioned convex quadratic programming
+problems without the need for linear independence of the constraints. The
+solver is written in header only 'C++ 14' leveraging the 'Eigen' library
+for vectorized linear algebra. For small dense problems, vectorized
+instructions and cache locality can be exploited more efficiently.
+Allocation free problem updates and re-solves are also provided.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HYPEtools
-%global packver   1.4.1
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Processing and Analyzing Files from the Hydrological Catchment Model HYPE
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-ggspatial 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-hydroGOF 
@@ -45,7 +44,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-ggspatial 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-hydroGOF 

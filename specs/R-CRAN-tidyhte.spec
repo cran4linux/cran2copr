@@ -1,49 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tipmap
-%global packver   0.5.2
+%global packname  tidyhte
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tipping Point Analysis for Bayesian Dynamic Borrowing
+Summary:          Tidy Estimation of Heterogeneous Treatment Effects
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RBesT 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RBesT 
-Requires:         R-CRAN-assertthat 
-Requires:         R-stats 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-tibble 
 
 %description
-Tipping point analysis for clinical trials that employ Bayesian dynamic
-borrowing via robust meta-analytic predictive (MAP) priors. Further
-functions facilitate expert elicitation of a primary weight of the
-informative component of the robust MAP prior and computation of operating
-characteristics. Intended use is the planning, analysis and interpretation
-of extrapolation studies in pediatric drug development, but applicability
-is generally wider.
+Estimates heterogeneous treatment effects using tidy semantics on
+experimental or observational data.  Methods are based on the
+doubly-robust learner of Kennedy (n.d.) <arXiv:2004.14497>. You provide a
+simple recipe for what machine learning algorithms to use in estimating
+the nuisance functions and 'tidyhte' will take care of cross-validation,
+estimation, model selection, diagnostics and construction of relevant
+quantities of interest about the variability of treatment effects.
 
 %prep
 %setup -q -c -n %{packname}

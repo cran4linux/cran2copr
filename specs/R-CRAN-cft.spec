@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tipmap
-%global packver   0.5.2
+%global packname  cft
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tipping Point Analysis for Bayesian Dynamic Borrowing
+Summary:          Climate Futures Toolbox
 
-License:          Apache License 2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-osmdata 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RBesT 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-tidync 
 BuildRequires:    R-CRAN-future 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-epitools 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-pipeR 
+BuildRequires:    R-CRAN-rlist 
+Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-osmdata 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RBesT 
-Requires:         R-CRAN-assertthat 
-Requires:         R-stats 
-Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-tidync 
 Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-epitools 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-pipeR 
+Requires:         R-CRAN-rlist 
 
 %description
-Tipping point analysis for clinical trials that employ Bayesian dynamic
-borrowing via robust meta-analytic predictive (MAP) priors. Further
-functions facilitate expert elicitation of a primary weight of the
-informative component of the robust MAP prior and computation of operating
-characteristics. Intended use is the planning, analysis and interpretation
-of extrapolation studies in pediatric drug development, but applicability
-is generally wider.
+Developed as a collaboration between Earth lab and the North Central
+Climate Adaptation Science Center to help users gain insights from
+available climate data. Includes tools and instructions for downloading
+climate data via a 'USGS' API and then organizing those data for
+visualization and analysis that drive insight. Web interface for 'USGS'
+API can be found at
+<http://thredds.northwestknowledge.net:8080/thredds/reacch_climate_CMIP5_aggregated_macav2_catalog.html>.
 
 %prep
 %setup -q -c -n %{packname}

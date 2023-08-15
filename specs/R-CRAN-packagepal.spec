@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sEparaTe
-%global packver   0.3.1
+%global packname  packagepal
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Estimation and Likelihood Ratio Test Functions for Separable Variance-Covariance Structures
+Summary:          Guidelines and Checklists for Building CRAN-Worthy Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-utils >= 4.2.3
+BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-usethis >= 2.2.2
+BuildRequires:    R-CRAN-available >= 1.1.0
+Requires:         R-utils >= 4.2.3
+Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-usethis >= 2.2.2
+Requires:         R-CRAN-available >= 1.1.0
 
 %description
-Maximum likelihood estimation of the parameters of matrix and 3rd-order
-tensor normal distributions with unstructured factor variance covariance
-matrices, two procedures, and for unbiased modified likelihood ratio
-testing of simple and double separability for variance-covariance
-structures, two procedures. References: Dutilleul P. (1999)
-<doi:10.1080/00949659908811970>, Manceur AM, Dutilleul P. (2013)
-<doi:10.1016/j.cam.2012.09.017>, and Manceur AM, Dutilleul P. (2013)
-<doi:10.1016/j.spl.2012.10.020>.
+Provides essential checklists for R package developers, whether you're
+creating your first package or beginning a new project. This tool guides
+you through each step of the development process, including specific
+considerations for submitting your package to the Comprehensive R Archive
+Network (CRAN). Simplify your workflow and ensure adherence to best
+practices with 'packagepal'.
 
 %prep
 %setup -q -c -n %{packname}

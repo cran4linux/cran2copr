@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sEparaTe
-%global packver   0.3.1
+%global packname  portn
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Estimation and Likelihood Ratio Test Functions for Separable Variance-Covariance Structures
+Summary:          Portfolio Analysis for Nature
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rsolnp 
+Requires:         R-CRAN-Rsolnp 
 
 %description
-Maximum likelihood estimation of the parameters of matrix and 3rd-order
-tensor normal distributions with unstructured factor variance covariance
-matrices, two procedures, and for unbiased modified likelihood ratio
-testing of simple and double separability for variance-covariance
-structures, two procedures. References: Dutilleul P. (1999)
-<doi:10.1080/00949659908811970>, Manceur AM, Dutilleul P. (2013)
-<doi:10.1016/j.cam.2012.09.017>, and Manceur AM, Dutilleul P. (2013)
-<doi:10.1016/j.spl.2012.10.020>.
+The functions are designed to find the efficient mean-variance frontier or
+portfolio weights for static portfolio (called Markowitz portfolio)
+analysis in resource economics or nature conservation. Using the nonlinear
+programming solver ('Rsolnp'), this package deals with the quadratic
+minimization of the variance-covariances without shorting (i.e.,
+non-negative portfolio weights) studied in Ando and Mallory (2012)
+<doi:10.1073/pnas.1114653109>. See the examples, testing versions, and
+more details from: <https://github.com/ysd2004/portn>.
 
 %prep
 %setup -q -c -n %{packname}

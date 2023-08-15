@@ -1,32 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sEparaTe
-%global packver   0.3.1
+%global packname  libstable4u
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Estimation and Likelihood Ratio Test Functions for Separable Variance-Covariance Structures
+Summary:          Stable Distribution Functions...For You
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.9
+BuildRequires:    R-CRAN-RcppGSL 
+Requires:         R-CRAN-Rcpp >= 0.12.9
 
 %description
-Maximum likelihood estimation of the parameters of matrix and 3rd-order
-tensor normal distributions with unstructured factor variance covariance
-matrices, two procedures, and for unbiased modified likelihood ratio
-testing of simple and double separability for variance-covariance
-structures, two procedures. References: Dutilleul P. (1999)
-<doi:10.1080/00949659908811970>, Manceur AM, Dutilleul P. (2013)
-<doi:10.1016/j.cam.2012.09.017>, and Manceur AM, Dutilleul P. (2013)
-<doi:10.1016/j.spl.2012.10.020>.
+Tools for fast and accurate evaluation of skew stable distributions (CDF,
+PDF and quantile functions), random number generation, and parameter
+estimation.  This is 'libstableR' as per Royuela del Val,
+Simmross-Wattenberg, and Alberola López (2017) <doi:10.18637/jss.v078.i01>
+under a new maintainer.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,54 +1,56 @@
 %global __brp_check_rpaths %{nil}
-%global packname  workboots
-%global packver   0.2.0
+%global __requires_exclude ^libmpi
+%global packname  riverconn
+%global packver   0.3.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.28
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Bootstrap Prediction Intervals from a 'tidymodels' Workflow
+Summary:          Fragmentation and Connectivity Indices for Riverscapes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-Metrics 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vip 
-BuildRequires:    R-CRAN-workflows 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-dodgr 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-Metrics 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
+Requires:         R-parallel 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rsample 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vip 
-Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-dodgr 
+Requires:         R-CRAN-reshape2 
 
 %description
-Provides functions for generating bootstrap prediction intervals from a
-'tidymodels' workflow. 'tidymodels' <https://www.tidymodels.org/> is a
-collection of packages for modeling and machine learning using 'tidyverse'
-<https://www.tidyverse.org/> principles. This package is not affiliated
-with or maintained by 'RStudio' or the 'tidymodels' maintainers.
+Indices for assessing riverscape fragmentation, including the Dendritic
+Connectivity Index, the Population Connectivity Index, the River
+Fragmentation Index, the Probability of Connectivity, and the Integral
+Index of connectivity. For a review, see Jumani et al. (2020)
+<doi:10.1088/1748-9326/abcb37> and Baldan et al. (2022)
+<doi:10.1016/j.envsoft.2022.105470> Functions to calculate temporal
+indices improvement when fragmentation due to barriers is reduced are also
+included.
 
 %prep
 %setup -q -c -n %{packname}

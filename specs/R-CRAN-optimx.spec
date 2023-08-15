@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  optimx
-%global packver   2022-4.30
+%global packver   2023-8.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.4.30
+Version:          2023.8.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Expanded Replacement and Extension of the 'optim' Function
 
@@ -17,7 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-pracma 
 
 %description
 Provides a replacement and extension of the optim() function to call to

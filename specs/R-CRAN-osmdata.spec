@@ -1,47 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vip
-%global packver   0.4.0
+%global packname  osmdata
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Importance Plots
+Summary:          Import 'OpenStreetMap' Data as Simple Features or Spatial Objects
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 0.9.0
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.2.4
+Requires:         R-core >= 3.2.4
+BuildRequires:    R-CRAN-Rcpp >= 0.12.4
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-reproj 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yardstick 
-Requires:         R-CRAN-ggplot2 >= 0.9.0
-Requires:         R-CRAN-foreach 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-Rcpp >= 0.12.4
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-reproj 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-CRAN-yardstick 
+Requires:         R-CRAN-xml2 
 
 %description
-A general framework for constructing variable importance plots from
-various types of machine learning models in R. Aside from some standard
-model- specific variable importance measures, this package also provides
-model- agnostic approaches that can be applied to any supervised learning
-algorithm. These include 1) an efficient permutation-based variable
-importance measure, 2) variable importance based on Shapley values
-(Strumbelj and Kononenko, 2014) <doi:10.1007/s10115-013-0679-x>, and 3)
-the variance-based approach described in Greenwell et al. (2018)
-<arXiv:1805.04755>. A variance-based method for quantifying the relative
-strength of interaction effects is also included (see the previous
-reference for details).
+Download and import of 'OpenStreetMap' ('OSM') data as 'sf' or 'sp'
+objects.  'OSM' data are extracted from the 'Overpass' web server
+(<https://overpass-api.de/>) and processed with very fast 'C++' routines
+for return to 'R'.
 
 %prep
 %setup -q -c -n %{packname}

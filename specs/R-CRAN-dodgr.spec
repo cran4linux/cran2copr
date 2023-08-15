@@ -1,49 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tipmap
-%global packver   0.5.2
+%global packname  dodgr
+%global packver   0.2.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.2.21
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tipping Point Analysis for Bayesian Dynamic Borrowing
+Summary:          Distances on Directed Graphs
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.6
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RBesT 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-osmdata 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-Rcpp >= 0.12.6
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RBesT 
-Requires:         R-CRAN-assertthat 
-Requires:         R-stats 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
+Requires:         R-methods 
+Requires:         R-CRAN-osmdata 
+Requires:         R-CRAN-RcppParallel 
 
 %description
-Tipping point analysis for clinical trials that employ Bayesian dynamic
-borrowing via robust meta-analytic predictive (MAP) priors. Further
-functions facilitate expert elicitation of a primary weight of the
-informative component of the robust MAP prior and computation of operating
-characteristics. Intended use is the planning, analysis and interpretation
-of extrapolation studies in pediatric drug development, but applicability
-is generally wider.
+Distances on dual-weighted directed graphs using priority-queue shortest
+paths (Padgham (2019) <doi:10.32866/6945>). Weighted directed graphs have
+weights from A to B which may differ from those from B to A.
+Dual-weighted directed graphs have two sets of such weights. A canonical
+example is a street network to be used for routing in which routes are
+calculated by weighting distances according to the type of way and mode of
+transport, yet lengths of routes must be calculated from direct distances.
 
 %prep
 %setup -q -c -n %{packname}

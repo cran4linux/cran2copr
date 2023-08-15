@@ -1,32 +1,25 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sEparaTe
-%global packver   0.3.1
+%global packname  lterdatasampler
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Estimation and Likelihood Ratio Test Functions for Separable Variance-Covariance Structures
+Summary:          Educational Dataset Examples from the Long Term Ecological Research Program
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Maximum likelihood estimation of the parameters of matrix and 3rd-order
-tensor normal distributions with unstructured factor variance covariance
-matrices, two procedures, and for unbiased modified likelihood ratio
-testing of simple and double separability for variance-covariance
-structures, two procedures. References: Dutilleul P. (1999)
-<doi:10.1080/00949659908811970>, Manceur AM, Dutilleul P. (2013)
-<doi:10.1016/j.cam.2012.09.017>, and Manceur AM, Dutilleul P. (2013)
-<doi:10.1016/j.spl.2012.10.020>.
+Curated datasets from US Long Term Ecological Research sites.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tipmap
-%global packver   0.5.2
+%global packname  rgTest
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tipping Point Analysis for Bayesian Dynamic Borrowing
+Summary:          Robust Graph-Based Two-Sample Test
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RBesT 
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RBesT 
-Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-ade4 
 Requires:         R-stats 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
 
 %description
-Tipping point analysis for clinical trials that employ Bayesian dynamic
-borrowing via robust meta-analytic predictive (MAP) priors. Further
-functions facilitate expert elicitation of a primary weight of the
-informative component of the robust MAP prior and computation of operating
-characteristics. Intended use is the planning, analysis and interpretation
-of extrapolation studies in pediatric drug development, but applicability
-is generally wider.
+Useful tools for determining whether two samples are from the same
+distribution. Utilizes a robust method to address the problematic
+structure of the similarity graph constructed from high-dimensional data.
+The method is provided in Yichuan Bai and Lynna Chu (2023)
+<arXiv:2307.12325>.
 
 %prep
 %setup -q -c -n %{packname}
