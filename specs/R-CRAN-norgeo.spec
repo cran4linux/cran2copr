@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  norgeo
-%global packver   2.1.6
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tracking Geo Code Change of Regional Granularity in Norway
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-odbc 
@@ -23,16 +23,14 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr2 
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-odbc 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr2 
 
 %description
 Regional granularity levels in Norway which are depicted by different

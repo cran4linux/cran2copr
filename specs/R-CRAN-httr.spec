@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  httr
-%global packver   1.4.6
+%global packver   1.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Working with URLs and HTTP
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 3.0.0
+BuildRequires:    R-CRAN-curl >= 5.0.2
 BuildRequires:    R-CRAN-openssl >= 0.8
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-curl >= 3.0.0
+Requires:         R-CRAN-curl >= 5.0.2
 Requires:         R-CRAN-openssl >= 0.8
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-mime 

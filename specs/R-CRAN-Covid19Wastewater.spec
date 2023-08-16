@@ -1,43 +1,71 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fqar
-%global packver   0.4.0
+%global packname  Covid19Wastewater
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Floristic Quality Assessment Tools for R
+Summary:          Prepare, Analyze, and Visualize Covid-19 Wastewater Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-RcppRoll 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-memoise 
+Requires:         R-grDevices 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-methods 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-RcppRoll 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-signal 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-zoo 
 
 %description
-Tools for downloading and analyzing floristic quality assessment data. See
-Freyman et al. (2015) <doi:10.1111/2041-210X.12491> for more information
-about floristic quality assessment and the associated database.
+Intended to make the process of analyzing epidemiological wastewater data
+easier and more insightful. Includes tools for preparing, analyzing, and
+visualizing data. It additionally includes Wisconsin's Covid19 data.
 
 %prep
 %setup -q -c -n %{packname}

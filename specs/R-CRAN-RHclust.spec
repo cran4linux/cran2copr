@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RHclust
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vectors in Partitioning
+Summary:          Vector in Partition
 
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,14 +28,14 @@ Requires:         R-utils
 
 %description
 Non-parametric clustering of joint pattern multi-genetic/epigenetic
-factors. The goal of this package is to cluster subjects based on gene
-features including single nucleotide polymorphisms (SNPs), DNA methylation
-(CPG), and gene expression (GE). The novel concept follows the general
-K-means (Hartigan and Wong (1979) <doi:10.2307/2346830> framework but uses
-weighted Euclidean distances across the gene features to cluster subjects.
-This approach is unique in that it attempts to capture all pairwise
-interactions in an effort to cluster based on their complex biological
-interactions.
+factors. This package contains functions designed to cluster subjects
+based on gene features including single nucleotide polymorphisms (SNPs),
+DNA methylation (CPG), gene expression (GE), and covariate data. The novel
+concept follows the general K-means (Hartigan and Wong (1979)
+<doi:10.2307/2346830> framework but uses weighted Euclidean distances
+across the gene features to cluster subjects. This approach is unique in
+that it attempts to capture all pairwise interactions in an effort to
+cluster based on their complex biological interactions.
 
 %prep
 %setup -q -c -n %{packname}

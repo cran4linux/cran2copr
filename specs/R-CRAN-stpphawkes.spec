@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modeldatatoo
-%global packver   0.2.0
+%global packname  stpphawkes
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          More Data Sets Useful for Modeling Examples
+Summary:          Missing Data for Marked Hawkes Process
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-pins 
-Requires:         R-CRAN-pins 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-RcppGSL 
+Requires:         R-CRAN-interp 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-Rcpp 
 
 %description
-More data sets used for demonstrating or testing model-related packages
-are contained in this package.
+Estimation of model parameters for marked Hawkes process. Accounts for
+missing data in the estimation of the parameters. Technical details found
+in (Tucker et al., 2019 <DOI:10.1016/j.spasta.2018.12.004>).
 
 %prep
 %setup -q -c -n %{packname}

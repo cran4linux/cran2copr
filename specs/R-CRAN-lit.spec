@@ -1,45 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmmrBase
-%global packver   0.4.5
+%global packname  lit
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalised Linear Mixed Models in R
+Summary:          Latent Interaction Testing for Genome-Wide Studies
 
-License:          GPL (>= 2)
+License:          LGPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-Matrix >= 1.3.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-rminqa >= 0.2.2
-BuildRequires:    R-CRAN-SparseChol >= 0.2.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
+BuildRequires:    R-CRAN-genio 
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Matrix >= 1.3.1
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-methods 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp >= 1.0.11
+Requires:         R-CRAN-genio 
+Requires:         R-CRAN-CompQuadForm 
 
 %description
-Specification, analysis, simulation, and fitting of generalised linear
-mixed models. Includes Markov Chain Monte Carlo Maximum likelihood and
-Laplace approximation model fitting for a range of models, non-linear
-fixed effect specifications, a wide range of flexible covariance functions
-that can be combined arbitrarily, robust and bias-corrected standard error
-estimation, power calculation, data simulation, and more. See
-<https://samuel-watson.github.io/glmmr-web/> for a detailed manual.
+Identifying latent genetic interactions in genome-wide association studies
+using the Latent Interaction Testing (LIT) framework. LIT is a flexible
+kernel-based approach that leverages information across multiple traits to
+detect latent genetic interactions without specifying or observing the
+interacting variable (e.g., environment). LIT accepts standard PLINK files
+as inputs to analyze large genome-wide association studies.
 
 %prep
 %setup -q -c -n %{packname}

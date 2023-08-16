@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  patternize
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantification of Color Pattern Variation
 
@@ -18,12 +19,13 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-Morpho 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-RNiftyReg 
@@ -31,12 +33,13 @@ BuildRequires:    R-CRAN-geomorph
 BuildRequires:    R-CRAN-ClusterR 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-Morpho 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-imager 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-RNiftyReg 

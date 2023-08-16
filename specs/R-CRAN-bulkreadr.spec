@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ineptR
-%global packver   0.2.0
+%global packname  bulkreadr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for Statistics Portugal API
+Summary:          The Ultimate Tool for Reading Data in Bulk
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,33 +17,45 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-googlesheets4 
+BuildRequires:    R-CRAN-inspectdf 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-googlesheets4 
+Requires:         R-CRAN-inspectdf 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 
 %description
-Set of wrapper and helper functions to facilitate interaction with the
-Statistics Portugal (Instituto Nacional de Estatistica - INE) API
-(<https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_api&INST=322751522&xlang=en>).
+Designed to simplify and streamline the process of reading and processing
+large volumes of data in R. With a collection of functions tailored for
+bulk data operations, the package allows users to efficiently read
+multiple sheets from 'Microsoft Excel'/'Google Sheets' workbooks and
+multiple CSV files from a directory.  It returns the data as organized
+data frames, making it convenient for further analysis and manipulation.
+Whether dealing with extensive data sets or batch processing tasks,
+'bulkreadr' empowers users to effortlessly handle data in bulk, saving
+time and effort in data preparation workflows.
 
 %prep
 %setup -q -c -n %{packname}

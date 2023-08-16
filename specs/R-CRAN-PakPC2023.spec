@@ -1,49 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  delaunay
-%global packver   2.0.0
+%global packname  PakPC2023
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          2d, 2.5d, and 3d Delaunay Tessellations
+Summary:          Pakistan Population Census 2023
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-randomcoloR 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Rvcg 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-gplots 
-Requires:         R-graphics 
-Requires:         R-CRAN-randomcoloR 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Rvcg 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sets 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-htmltools 
 
 %description
-Construction and visualization of 2d Delaunay triangulations, possibly
-constrained, 2.5d (i.e. elevated) Delaunay triangulations, 3d Delaunay
-triangulations, and 2D Voronoï tessellations.
+Provides data sets and functions for exploration of Pakistan Population
+Census 2023 (<https://www.pbs.gov.pk/>).
 
 %prep
 %setup -q -c -n %{packname}

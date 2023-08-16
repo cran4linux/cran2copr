@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jmvcore
-%global packver   2.3.19
+%global packver   2.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.19
+Version:          2.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dependencies for the 'jamovi' Framework
 

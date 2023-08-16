@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  statcanR
-%global packver   0.2.5
+%global packname  pfr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for Statistics Canada's Open Economic Data
+Summary:          Interface to the 'C++' Library 'Pf'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-qs 
-BuildRequires:    R-CRAN-qpdf 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-qs 
-Requires:         R-CRAN-qpdf 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-inline >= 0.3.19
+BuildRequires:    R-CRAN-rstudioapi >= 0.13
+BuildRequires:    R-methods 
+Requires:         R-CRAN-inline >= 0.3.19
+Requires:         R-CRAN-rstudioapi >= 0.13
+Requires:         R-methods 
 
 %description
-An easy connection with R to Statistics Canada's Web Data Service. Open
-economic data (formerly known as CANSIM tables, now identified by Product
-IDs (PID)) are accessible as a data frame, directly in the user's R
-environment. Warin, Le Duc (2019) <doi:10.6084/m9.figshare.10544735>.
+Builds and runs 'c++' code for classes that encapsulate state space model,
+particle filtering algorithm pairs. Algorithms include the Bootstrap
+Filter from Gordon et al. (1993) <doi:10.1049/ip-f-2.1993.0015>, the
+generic SISR filter, the Auxiliary Particle Filter from Pitt et al (1999)
+<doi:10.2307/2670179>, and a variety of Rao-Blackwellized particle filters
+inspired by Andrieu et al. (2002) <doi:10.1111/1467-9868.00363>. For more
+details on the 'c++' library 'pf', see Brown (2020)
+<doi:10.21105/joss.02599>.
 
 %prep
 %setup -q -c -n %{packname}

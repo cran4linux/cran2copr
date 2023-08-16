@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  contsurvplot
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize the Effect of a Continuous Variable on a Time-to-Event Outcome
 
@@ -34,8 +34,8 @@ time-to-event outcome using multiple different types of plots based on
 g-computation. Those functions include, among others, survival area plots,
 survival contour plots, survival quantile plots and 3D surface plots. Due
 to the use of g-computation, all plot allow confounder-adjustment
-naturally. For details, see Robin Denz, Nina Timmesfeld (2022)
-<arXiv:2208.04644v1>.
+naturally. For details, see Robin Denz, Nina Timmesfeld (2023)
+<doi:10.1097/EDE.0000000000001630>.
 
 %prep
 %setup -q -c -n %{packname}

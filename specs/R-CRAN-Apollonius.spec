@@ -1,54 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cgalMeshes
-%global packver   2.2.0
+%global packname  Apollonius
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R6 Based Utilities for 3D Meshes using 'CGAL'
+Summary:          2D Apollonius Graphs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-gyro >= 1.3.0
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-onion 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-randomcoloR 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppColors 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.9
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-gyro >= 1.3.0
+Requires:         R-CRAN-abind 
+Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-onion 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rgl 
-Requires:         R-tools 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-randomcoloR 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Provides some utilities for 3D meshes: clipping of a mesh to the volume
-bounded by another mesh, decomposition into convex parts, distance between
-a mesh and a point, Hausdorff distance between two meshes, triangulation,
-geodesic distance, Boolean operations (intersection, union, difference),
-Minkowski sum, subdivision algorithms, random sampling on a mesh, volume,
-area, and centroid. Also provides two algorithms for surface
-reconstruction from a cloud of points. Meshes are represented by R6
-classes. All algorithms are performed by the 'C++' library 'CGAL'
-(<https://www.cgal.org/>).
+Computation of the Apollonius diagram of given 2D points and its dual the
+Apollonius graph, also known as the additively weighted Voronoï diagram,
+and which is a generalization of the classical Voronoï diagram. For
+references, see the bibliography in the CGAL documentation at
+<https://doc.cgal.org/latest/Apollonius_graph_2/citelist.html>.
 
 %prep
 %setup -q -c -n %{packname}

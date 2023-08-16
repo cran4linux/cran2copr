@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rbi
-%global packver   0.10.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'LibBi'
 
@@ -27,11 +28,11 @@ Requires:         R-CRAN-reshape2
 
 %description
 Provides a complete interface to 'LibBi', a library for Bayesian inference
-(see <http://libbi.org> and <doi:10.18637/jss.v067.i10> for more
-information). This includes functions for manipulating 'LibBi' models, for
-reading and writing 'LibBi' input/output files, for converting 'LibBi'
-output to provide traces for use with the coda package, and for running
-'LibBi' to conduct inference.
+(see <https://libbi.org> and Murray, 2015 <doi:10.18637/jss.v067.i10> for
+more information). This includes functions for manipulating 'LibBi'
+models, for reading and writing 'LibBi' input/output files, for converting
+'LibBi' output to provide traces for use with the coda package, and for
+running 'LibBi' to conduct inference.
 
 %prep
 %setup -q -c -n %{packname}

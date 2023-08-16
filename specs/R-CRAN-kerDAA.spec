@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AlphaHull3D
-%global packver   2.0.0
+%global packname  kerDAA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Alpha Hull Computation
+Summary:          New Kernel-Based Test for Differential Association Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Rvcg 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.9
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Rvcg 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Computation of the alpha hull of a set of points in the 3D space, that is
-to say "something like the shape formed by these points". The alpha hull
-depends on a positive parameter alpha. When alpha goes to zero, the alpha
-hull degenerates to the set of points, while it is the convex hull of the
-set of points when alpha goes to infinity. Computations are performed by
-the 'CGAL' 'C++' library <https://www.cgal.org/>.
+A new practical method to evaluate whether relationships between two sets
+of high-dimensional variables are different or not across two conditions.
+Song, H. and Wu, M.C. (2023) <arXiv:2307.15268>.
 
 %prep
 %setup -q -c -n %{packname}

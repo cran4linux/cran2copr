@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fqar
-%global packver   0.4.0
+%global packname  jqbr
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Floristic Quality Assessment Tools for R
+Summary:          'jQuery QueryBuilder' Input for 'Shiny'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-shiny 
 
 %description
-Tools for downloading and analyzing floristic quality assessment data. See
-Freyman et al. (2015) <doi:10.1111/2041-210X.12491> for more information
-about floristic quality assessment and the associated database.
+A highly configurable 'jQuery' plugin offering a simple interface to
+create complex queries/filters in 'Shiny'. The outputted rules can easily
+be parsed into a set of 'R' and/or 'SQL' queries and used to filter data.
+Custom parsing of the rules is also supported. For more information about
+'jQuery QueryBuilder' see <https://querybuilder.js.org/>.
 
 %prep
 %setup -q -c -n %{packname}

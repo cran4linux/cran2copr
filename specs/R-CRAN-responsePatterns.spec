@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  responsePatterns
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Screening for Careless Responding Patterns
 
@@ -30,7 +31,8 @@ Requires:         R-utils
 %description
 Some survey participants tend to respond carelessly which complicates data
 analysis. This package provides functions that make it easier to explore
-responses and identify those that may be problematic.
+responses and identify those that may be problematic. See Gottfried et al.
+(2022) <doi:10.7275/vyxb-gt24> for more information.
 
 %prep
 %setup -q -c -n %{packname}

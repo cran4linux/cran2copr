@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cata
-%global packver   0.0.10.9
+%global packver   0.0.10.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10.9
+Version:          0.0.10.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Check-All-that-Apply (CATA) Data
 
@@ -31,7 +32,9 @@ Carr (2013) <doi:10.1016/j.foodqual.2013.06.010>. Cluster analysis can be
 performed using b-cluster analysis. The quality of cluster analysis
 solutions can be evaluated using various measures. The methods related to
 b-cluster analysis are described in a manuscript by Castura, Meyners,
-Varela & Naes (2022) <doi:10.1016/j.foodqual.2022.104564>.
+Varela & Næs (2022) <doi:10.1016/j.foodqual.2022.104564>. Methods are
+adapted to product-related hedonic responses by Castura, Meyners,
+Pohjanheimo, Varela & Næs (2023) <doi:10.1111/joss.12860>.
 
 %prep
 %setup -q -c -n %{packname}
