@@ -1,34 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clusterGeneration
-%global packver   1.3.8
+%global packname  geneSLOPE
+%global packver   0.38.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          0.38.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Cluster Generation (with Specified Degree of Separation)
+Summary:          Genome-Wide Association Study with SLOPE
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.3
+Requires:         R-core >= 3.1.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-SLOPE 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-grid 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-SLOPE 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-bigmemory 
+Requires:         R-grid 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-We developed the clusterGeneration package to provide functions for
-generating random clusters, generating random covariance/correlation
-matrices, calculating a separation index (data and population version) for
-pairs of clusters or cluster distributions, and 1-D and 2-D projection
-plots to visualize clusters.  The package also contains a function to
-generate random clusters based on factorial designs with factors such as
-degree of separation, number of clusters, number of variables, number of
-noisy variables.
+Genome-wide association study (GWAS) performed with SLOPE, short for
+Sorted L-One Penalized Estimation, a method for estimating the vector of
+coefficients in a linear model. In the first step of GWAS, single
+nucleotide polymorphisms (SNPs) are clumped according to their
+correlations and distances. Then, SLOPE is performed on the data where
+each clump has one representative. Malgorzata Bogdan, Ewout van den Berg,
+Chiara Sabatti, Weijie Su and Emmanuel Candes (2014) "SLOPE - Adaptive
+Variable Selection via Convex Optimization" <arXiv:1407.3824>.
 
 %prep
 %setup -q -c -n %{packname}

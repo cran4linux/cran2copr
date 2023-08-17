@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  expertsurv
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Incorporate Expert Opinion with Parametric Survival Models
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-SHELF 
@@ -54,6 +55,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-loo 
 Requires:         R-methods 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rms 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-SHELF 

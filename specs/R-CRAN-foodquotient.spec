@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDtoolkit
-%global packver   1.1.1
+%global packname  foodquotient
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Tools for PD Rating Model Development and Validation
+Summary:          Food Quotient and Nutrient Analysis for HSFFQ
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-monobin 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-CRAN-monobin 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rpart 
 
 %description
-The goal of this package is to cover the most common steps in probability
-of default (PD) rating model development and validation. The main
-procedures available are those that refer to univariate, bivariate,
-multivariate analysis, calibration and validation. Along with accompanied
-'monobin' and 'monobinShiny' packages, 'PDtoolkit' provides functions
-which are suitable for different data transformation and modeling tasks
-such as: imputations, monotonic binning of numeric risk factors, binning
-of categorical risk factors, weights of evidence (WoE) and information
-value (IV) calculations, WoE coding (replacement of risk factors
-modalities with WoE values), risk factor clustering, area under curve
-(AUC) calculation and others. Additionally, package provides set of
-validation functions for testing homogeneity, heterogeneity,
-discriminatory and predictive power of the model.
+Aids in analysing data from a food frequency questionnaire known as the
+Harvard Service Food Frequency Questionnaire (HSFFQ). Functions from this
+package use answers from the HSFFQ to generate estimates of daily consumed
+micronutrients, calories, macronutrients on an individual level. The
+package also calculates food quotients on individual and group levels.
+Foodquotient calculation is an often tedious step in the calculation of
+total human energy expenditure (TEE) using the doubly labeled water
+method, which is the gold standard for measuring TEE.
 
 %prep
 %setup -q -c -n %{packname}

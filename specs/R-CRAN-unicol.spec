@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clusterGeneration
-%global packver   1.3.8
+%global packname  unicol
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Cluster Generation (with Specified Degree of Separation)
+Summary:          The Colors of your University
 
-License:          GPL (>= 2)
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-unikn 
+Requires:         R-CRAN-unikn 
 
 %description
-We developed the clusterGeneration package to provide functions for
-generating random clusters, generating random covariance/correlation
-matrices, calculating a separation index (data and population version) for
-pairs of clusters or cluster distributions, and 1-D and 2-D projection
-plots to visualize clusters.  The package also contains a function to
-generate random clusters based on factorial designs with factors such as
-degree of separation, number of clusters, number of variables, number of
-noisy variables.
+Most universities use specific color combinations to express their unique
+brand identity. The 'unicol' package provides the colors and color
+palettes of various universities for easy plotting and printing in R. We
+collect and provide a diverse range of color palettes for creating
+scientific visualizations.
 
 %prep
 %setup -q -c -n %{packname}

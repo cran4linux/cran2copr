@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mMARCH.AC
-%global packver   2.4.0.1
+%global packver   2.9.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0.1
+Version:          2.9.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing of Accelerometry Data with 'GGIR' in mMARCH
 
@@ -95,7 +95,7 @@ and multiple commonly used features extracted from minute level actigraphy
 data.  Reference: Guo W, Leroux A, Shou S, Cui L, Kang S, Strippoli MP,
 Preisig M, Zipunnikov V, Merikangas K (2022) Processing of accelerometry
 data with GGIR in Motor Activity Research Consortium for Health (mMARCH)
-Journal for the Measurement of Physical Behaviour.
+Journal for the Measurement of Physical Behaviour, 6(1): 37-44.
 
 %prep
 %setup -q -c -n %{packname}

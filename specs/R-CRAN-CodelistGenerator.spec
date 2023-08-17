@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CodelistGenerator
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Code Lists for the OMOP Common Data Model
 
@@ -28,9 +28,9 @@ BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-CDMConnector >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-PatientProfiles >= 0.3.0
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-PatientProfiles 
 BuildRequires:    R-CRAN-RJSONIO 
 Requires:         R-CRAN-cli >= 3.1.0
 Requires:         R-CRAN-checkmate >= 2.0.0
@@ -43,9 +43,9 @@ Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-CDMConnector >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-PatientProfiles >= 0.3.0
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-PatientProfiles 
 Requires:         R-CRAN-RJSONIO 
 
 %description

@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  frab
-%global packver   0.0-3
+%global packname  micss
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          How to Add Two Tables
+Summary:          Modified Iterative Cumulative Sum of Squares Algorithm
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-disordR >= 0.9.8.1
-BuildRequires:    R-CRAN-mathjaxr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-disordR >= 0.9.8.1
-Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 
 %description
-Methods to "add" two tables; also an alternative interpretation of named
-vectors as generalized tables, so that c(a=1,b=2,c=3) + c(b=3,a=-1) will
-return c(b=5,c=3).  Uses 'disordR' discipline (Hankin, 2022,
-<arxiv:2210.03856>). Extraction and replacement methods are provided.  The
-underlying mathematical structure is the Free Abelian group, hence the
-name. To cite in publications please use Hankin (2023) <arxiv:2307:13184>.
+Companion package of Carrion-i-Silvestre & Sansó (2023): "Generalized
+Extreme Value Approximation to the CUMSUMQ Test for Constant Unconditional
+Variance in Heavy-Tailed Time Series". It implements the Modified
+Iterative Cumulative Sum of Squares Algorithm, which is an extension of
+the Iterative Cumulative Sum of Squares (ICSS) Algorithm of Inclan and
+Tiao (1994), and it checks for changes in the unconditional variance of a
+time series controlling for the tail index of the underlying distribution.
+The fourth order moment is estimated non-parametrically to avoid the size
+problems when the innovations are non-Gaussian (see, Sansó et al., 2004).
+Critical values and p-values are generated using a Generalized Extreme
+Value distribution approach. References Carrion-i-Silvestre J.J & Sansó A
+(2023) <https://www.ub.edu/irea/working_papers/2023/202309.pdf>. Inclan C
+& Tiao G.C (1994) <doi:10.1080/01621459.1994.10476824>, Sansó A & Aragó V
+& Carrion-i-Silvestre J.L (2004)
+<https://dspace.uib.es/xmlui/bitstream/handle/11201/152078/524035.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

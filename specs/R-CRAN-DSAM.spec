@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDtoolkit
-%global packver   1.1.1
+%global packname  DSAM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Tools for PD Rating Model Development and Validation
+Summary:          Data Splitting Algorithms for Model Developments
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-monobin 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-CRAN-monobin 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rpart 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-kohonen 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-kohonen 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pROC 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-xgboost 
 
 %description
-The goal of this package is to cover the most common steps in probability
-of default (PD) rating model development and validation. The main
-procedures available are those that refer to univariate, bivariate,
-multivariate analysis, calibration and validation. Along with accompanied
-'monobin' and 'monobinShiny' packages, 'PDtoolkit' provides functions
-which are suitable for different data transformation and modeling tasks
-such as: imputations, monotonic binning of numeric risk factors, binning
-of categorical risk factors, weights of evidence (WoE) and information
-value (IV) calculations, WoE coding (replacement of risk factors
-modalities with WoE values), risk factor clustering, area under curve
-(AUC) calculation and others. Additionally, package provides set of
-validation functions for testing homogeneity, heterogeneity,
-discriminatory and predictive power of the model.
+Providing six different algorithms that can be used to split the available
+data into training, test and validation subsets with similar distribution
+for hydrological model developments. The dataSplit() function will help
+you divide the data according to specific requirements, and you can refer
+to the par.default() function to set the parameters for data splitting.
+The getAUC() function will help you measure the similarity of distribution
+features between the data subsets. For more information about the data
+splitting algorithms, please refer to: Chen et al. (2022)
+<doi:10.1016/j.jhydrol.2022.128340>, Zheng et al. (2022)
+<doi:10.1029/2021WR031818>.
 
 %prep
 %setup -q -c -n %{packname}

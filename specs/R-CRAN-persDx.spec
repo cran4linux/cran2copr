@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  persDx
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Personalized Diagnostics Rules
+Summary:          Personalized Diagnostics Rules for Subgroup Identification and Personalized Biomarker Discovery
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,12 +19,16 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-survivalROC 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-survivalROC 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Recommend the optimal biomarker for disease screening or diagnosis based
-on patients' individual characteristics.
+Tailoring the optimal biomarker(s) for disease screening or diagnosis
+based on subjects' individual characteristics.
 
 %prep
 %setup -q -c -n %{packname}

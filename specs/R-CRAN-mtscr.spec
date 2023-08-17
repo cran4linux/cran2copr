@@ -1,34 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clusterGeneration
-%global packver   1.3.8
+%global packname  mtscr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Cluster Generation (with Specified Degree of Separation)
+Summary:          Multidimensional Top Scoring for Creativity Research
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-broom.mixed 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-broom.mixed 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glmmTMB 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-We developed the clusterGeneration package to provide functions for
-generating random clusters, generating random covariance/correlation
-matrices, calculating a separation index (data and population version) for
-pairs of clusters or cluster distributions, and 1-D and 2-D projection
-plots to visualize clusters.  The package also contains a function to
-generate random clusters based on factorial designs with factors such as
-degree of separation, number of clusters, number of variables, number of
-noisy variables.
+Implementation of Multidimensional Top Scoring method for creativity
+assessment proposed in Boris Forthmann, Maciej Karwowski, Roger E. Beaty
+(2023) <doi:10.1037/aca0000571>.
 
 %prep
 %setup -q -c -n %{packname}

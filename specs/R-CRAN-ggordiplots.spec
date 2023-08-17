@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clusterGeneration
-%global packver   1.3.8
+%global packname  ggordiplots
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Cluster Generation (with Specified Degree of Separation)
+Summary:          Make 'ggplot2' Versions of Vegan's Ordiplots
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-vegan >= 2.5.2
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-vegan >= 2.5.2
+Requires:         R-CRAN-glue 
 
 %description
-We developed the clusterGeneration package to provide functions for
-generating random clusters, generating random covariance/correlation
-matrices, calculating a separation index (data and population version) for
-pairs of clusters or cluster distributions, and 1-D and 2-D projection
-plots to visualize clusters.  The package also contains a function to
-generate random clusters based on factorial designs with factors such as
-degree of separation, number of clusters, number of variables, number of
-noisy variables.
+The 'vegan' package includes several functions for adding features to
+ordination plots: ordiarrows(), ordiellipse(), ordihull(), ordispider()
+and ordisurf(). This package adds these same features to ordination plots
+made with 'ggplot2'. In addition, gg_ordibubble() sizes points relative to
+the value of an environmental variable.
 
 %prep
 %setup -q -c -n %{packname}

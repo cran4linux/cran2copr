@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clusterGeneration
-%global packver   1.3.8
+%global packname  MRZero
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Cluster Generation (with Specified Degree of Separation)
+Summary:          Diet Mendelian Randomization
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-quantreg >= 5.01
+BuildRequires:    R-CRAN-plotly >= 3.6.0
+BuildRequires:    R-CRAN-ggplot2 >= 1.0.1
+BuildRequires:    R-CRAN-robustbase >= 0.92.6
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-quantreg >= 5.01
+Requires:         R-CRAN-plotly >= 3.6.0
+Requires:         R-CRAN-ggplot2 >= 1.0.1
+Requires:         R-CRAN-robustbase >= 0.92.6
+Requires:         R-methods 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-glmnet 
 
 %description
-We developed the clusterGeneration package to provide functions for
-generating random clusters, generating random covariance/correlation
-matrices, calculating a separation index (data and population version) for
-pairs of clusters or cluster distributions, and 1-D and 2-D projection
-plots to visualize clusters.  The package also contains a function to
-generate random clusters based on factorial designs with factors such as
-degree of separation, number of clusters, number of variables, number of
-noisy variables.
+Encodes several methods for performing Mendelian randomization analyses
+with summarized data. Similar to the 'MendelianRandomization' package, but
+with fewer bells and whistles, and less frequent updates. As described in
+Yavorska (2017) <doi:10.1093/ije/dyx034> and Broadbent (2020)
+<doi:10.12688/wellcomeopenres.16374.2>.
 
 %prep
 %setup -q -c -n %{packname}

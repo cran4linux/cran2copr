@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RcppBigIntAlgos
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor Big Integers with the Parallel Quadratic Sieve
 
@@ -13,14 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
+BuildRequires:    gmp-devel
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-gmp 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppThread 
+BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-gmp 
-Requires:         R-CRAN-Rcpp 
 
 %description
 Features the multiple polynomial quadratic sieve (MPQS) algorithm for
@@ -30,11 +29,10 @@ seminal work of Carl Pomerance (1984) <doi:10.1007/3-540-39757-4_17> along
 with the modification of multiple polynomials introduced by Peter
 Montgomery and J. Davis as outlined by Robert D. Silverman (1987)
 <doi:10.1090/S0025-5718-1987-0866119-8>. Utilizes the C library GMP (GNU
-Multiple Precision Arithmetic) and 'RcppThread' for factoring integers in
-parallel. For smaller integers, a simple Elliptic Curve algorithm is
-attempted followed by a constrained version of Pollard's rho algorithm.
-The Pollard's rho algorithm is the same algorithm used by the factorize
-function in the 'gmp' package.
+Multiple Precision Arithmetic). For smaller integers, a simple Elliptic
+Curve algorithm is attempted followed by a constrained version of
+Pollard's rho algorithm. The Pollard's rho algorithm is the same algorithm
+used by the factorize function in the 'gmp' package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

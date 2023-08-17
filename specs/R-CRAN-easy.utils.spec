@@ -1,43 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDtoolkit
-%global packver   1.1.1
+%global packname  easy.utils
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Tools for PD Rating Model Development and Validation
+Summary:          Frequently Used Functions for Easy R Programming
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-monobin 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-CRAN-monobin 
+BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-CRAN-Polychrome 
+BuildRequires:    R-CRAN-randomcoloR 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-fastmatch 
+Requires:         R-CRAN-Polychrome 
+Requires:         R-CRAN-randomcoloR 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-The goal of this package is to cover the most common steps in probability
-of default (PD) rating model development and validation. The main
-procedures available are those that refer to univariate, bivariate,
-multivariate analysis, calibration and validation. Along with accompanied
-'monobin' and 'monobinShiny' packages, 'PDtoolkit' provides functions
-which are suitable for different data transformation and modeling tasks
-such as: imputations, monotonic binning of numeric risk factors, binning
-of categorical risk factors, weights of evidence (WoE) and information
-value (IV) calculations, WoE coding (replacement of risk factors
-modalities with WoE values), risk factor clustering, area under curve
-(AUC) calculation and others. Additionally, package provides set of
-validation functions for testing homogeneity, heterogeneity,
-discriminatory and predictive power of the model.
+Some utility functions for validation, data manipulation or color
+palettes. These functions can be helpful to reduce internal codes
+everywhere in package development.
 
 %prep
 %setup -q -c -n %{packname}
