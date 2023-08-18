@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fields
-%global packver   14.1
+%global packver   15.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          14.1
+Version:          15.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Spatial Data
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-maps 
 Requires:         R-methods 
 Requires:         R-CRAN-spam 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-maps 
 
 %description

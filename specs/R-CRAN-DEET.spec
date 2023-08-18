@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DEET
-%global packver   1.0.10
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Differential Expression Enrichment Tool
 
@@ -56,7 +56,7 @@ identifies relevant studies based on shared results with the user’s gene
 lists, aiding in hypothesis generation and data-driven literature review.
 Sokolowski, Dustin J., et al. "Differential Expression Enrichment Tool
 (DEET): an interactive atlas of human differential gene expression."
-bioRxiv (2022).
+Nucleic Acids Research Genomics and Bioinformatics (2023).
 
 %prep
 %setup -q -c -n %{packname}

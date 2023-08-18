@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  greeks
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivities of Prices of Financial Options and Implied Volatilites
 
@@ -35,18 +35,18 @@ Requires:         R-CRAN-tidyr
 
 %description
 Methods to calculate sensitivities of financial option prices for
-European, Asian, American and Digital Options options in the Black Scholes
-model, and in more general jump diffusion models. A shiny app to
-interactively view plot the results is included. Furthermore, methods to
-compute implied volatilities are provided for a wide range of option types
-and custom payoff functions. Classical formulas are implemented for
-European options in the Black Scholes Model, as is presented in Hull, J.
-C. (2017). Options, Futures, and Other Derivatives, Global Edition (9th
-Edition). Pearson. In the case of Asian options, Malliavin Monte Carlo
-Greeks are implemented, see Hudde, A. & Rüschendorf, L. (2016). European
-and Asian Greeks for exponential Lévy processes. <arXiv:1603.00920>. For
-American options, the Binomial Tree Method is implemented, as is presented
-in Hull, J. C. (2017).
+European, geometric and arithmetic Asian, and American options, with
+various payoff functions in the Black Scholes model, and in more general
+jump diffusion models. A shiny app to interactively plot the results is
+included. Furthermore, methods to compute implied volatilities are
+provided for a wide range of option types and custom payoff functions.
+Classical formulas are implemented for European options in the Black
+Scholes Model, as is presented in Hull, J. C. (2017), Options, Futures,
+and Other Derivatives. In the case of Asian options, Malliavin Monte Carlo
+Greeks are implemented, see Hudde, A. & Rüschendorf, L. (2023). European
+and Asian Greeks for exponential Lévy processes.
+<doi:10.1007/s11009-023-10014-5>. For American options, the Binomial Tree
+Method is implemented, as is presented in Hull, J. C. (2017).
 
 %prep
 %setup -q -c -n %{packname}

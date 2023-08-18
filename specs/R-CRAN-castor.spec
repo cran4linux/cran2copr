@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  castor
-%global packver   1.7.10
+%global packver   1.7.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.10
+Version:          1.7.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Phylogenetics on Large Trees
 

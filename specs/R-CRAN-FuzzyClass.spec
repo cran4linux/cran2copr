@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FuzzyClass
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy and Non-Fuzzy Classifiers
 
@@ -19,11 +19,11 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caTools 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rdpack 
@@ -31,11 +31,11 @@ BuildRequires:    R-CRAN-rootSolve
 BuildRequires:    R-stats 
 Requires:         R-CRAN-caTools 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rdpack 
@@ -47,13 +47,12 @@ It provides classifiers which can be used for discrete variables and for
 continuous variables based on the Naive Bayes and Fuzzy Naive Bayes
 hypothesis. Those methods were developed by researchers belong to the
 'Laboratory of Technologies for Virtual Teaching and Statistics (LabTEVE)'
-(<http://www.de.ufpb.br/~labteve/>) and 'Laboratory of Applied Statistics
-to Image Processing and Geoprocessing (LEAPIG)'
-(<http://www.de.ufpb.br/~leapig/>) at 'Federal University of Paraiba,
-Brazil'. They considered some statistical distributions and their papers
-were published in the scientific literature, as for instance, the Gaussian
-classifier using fuzzy parameters, proposed by 'Moraes, Ferreira and
-Machado' (2021) <doi:10.1007/s40815-020-00936-4>.
+and 'Laboratory of Applied Statistics to Image Processing and
+Geoprocessing (LEAPIG)' at 'Federal University of Paraiba, Brazil'. They
+considered some statistical distributions and their papers were published
+in the scientific literature, as for instance, the Gaussian classifier
+using fuzzy parameters, proposed by 'Moraes, Ferreira and Machado' (2021)
+<doi:10.1007/s40815-020-00936-4>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  palaeoverse
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prepare and Explore Data for Palaeobiological Analyses
 
@@ -51,7 +51,7 @@ package currently includes functionality for data cleaning, binning (time
 and space), exploration, summarisation and visualisation. Reference
 datasets (i.e. Geological Time Scales <https://stratigraphy.org/chart>)
 and auxiliary functions are also provided. Details can be found in: Jones
-et al., (2022) <doi:10.31223/X5Z94Q>.
+et al., (2023) <doi: 10.1111/2041-210X.14099>.
 
 %prep
 %setup -q -c -n %{packname}

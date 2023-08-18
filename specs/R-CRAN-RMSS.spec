@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RMSS
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Multi-Model Subset Selection
 
@@ -17,12 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-srlars 
 BuildRequires:    R-CRAN-robStepSplitReg 
 BuildRequires:    R-CRAN-cellWise 
+BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-srlars 
 Requires:         R-CRAN-robStepSplitReg 
 Requires:         R-CRAN-cellWise 
+Requires:         R-CRAN-robustbase 
 
 %description
 Efficient algorithms for generating ensembles of robust, sparse and

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  intSDM
-%global packver   1.0.5
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Integrated Species Distribution Models Across Norway using 'INLA'
 
@@ -18,29 +18,31 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-inlabru >= 2.3.1
-BuildRequires:    R-CRAN-sp >= 1.4.5
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-PointedSDMs 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-geodata 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-spocc 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-giscoR 
+BuildRequires:    R-CRAN-blockCV 
+BuildRequires:    R-CRAN-rgbif 
+BuildRequires:    R-CRAN-tidyterra 
 Requires:         R-CRAN-inlabru >= 2.3.1
-Requires:         R-CRAN-sp >= 1.4.5
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-CRAN-PointedSDMs 
 Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-geodata 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-spocc 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-maps 
+Requires:         R-CRAN-giscoR 
+Requires:         R-CRAN-blockCV 
+Requires:         R-CRAN-rgbif 
+Requires:         R-CRAN-tidyterra 
 
 %description
 Integration of disparate datasets is needed in order to make efficient use

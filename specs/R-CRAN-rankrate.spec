@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rankrate
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Tools for Preference Learning with Rankings and Ratings
+Summary:          Joint Statistical Models for Preference Learning with Rankings and Ratings
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +18,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-isotone 
 Requires:         R-stats 
-Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-isotone 
 
 %description
-An implementation of the statistical methodology proposed by Pearce and
-Erosheva, "A Unified Statistical Learning Model for Rankings and Scores
-with Application to Grant Panel Review" (2022), which at time of release
-has been accepted in the Journal of Machine Learning Research. The package
-provides tools for estimating parameters of a Mallows-Binomial model, the
-first joint statistical preference learning model for rankings and
-ratings. The package includes functions for simulating rankings and
-ratings from the model, calculating the density of Mallows-Binomial data,
-estimating parameters using various exact and approximate algorithms, and
-for obtaining approximate confidence intervals based on the nonparametric
-bootstrap.
+Statistical tools for the Mallows-Binomial model, the first joint
+statistical model for preference learning for rankings and ratings.
 
 %prep
 %setup -q -c -n %{packname}

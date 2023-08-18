@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hockeystick
-%global packver   0.7.3
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Visualize Essential Climate Change Data
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-treemapify 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-tools 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-rvest
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-treemapify 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Provides easy access to essential climate change datasets to non-climate
@@ -58,8 +60,7 @@ NOAA Laboratory for Satellite Altimetry
 <https://www.star.nesdis.noaa.gov/socd/lsa/SeaLevelRise/> and HURDAT
 Atlantic Hurricane Database
 <https://www.aoml.noaa.gov/hrd/hurdat/Data_Storm.html>, Vostok Paleo
-carbon dioxide and temperature data:
-<https://cdiac.ess-dive.lbl.gov/trends/co2/vostok.html>.
+carbon dioxide and temperature data: <doi:10.3334/CDIAC/ATG.009>.
 
 %prep
 %setup -q -c -n %{packname}
