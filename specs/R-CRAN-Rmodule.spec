@@ -1,46 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmmrOptim
-%global packver   0.3.1
+%global packname  Rmodule
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate Optimal Experimental Designs Using Generalised Linear Mixed Models
+Summary:          Automated Markov Chain Monte Carlo for Arbitrarily Structured Correlation Matrices
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-glmmrBase >= 0.4.5
-BuildRequires:    R-CRAN-rminqa >= 0.2.2
-BuildRequires:    R-CRAN-SparseChol >= 0.2.1
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppProgress 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-glmmrBase >= 0.4.5
-Requires:         R-methods 
-Requires:         R-CRAN-digest 
 
 %description
-Optimal design analysis algorithms for any study design that can be
-represented or modelled as a generalised linear mixed model including
-cluster randomised trials, cohort studies, spatial and temporal
-epidemiological studies, and split-plot designs. See
-<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
-detailed manual on model specification. A detailed discussion of the
-methods in this package can be found in Watson and Pan (2022)
-<arXiv:2207.09183>.
+Supports automated Markov chain Monte Carlo for arbitrarily structured
+correlation matrices. The user supplies data, a correlation matrix in
+symbolic form, the current state of the chain, a function that computes
+the log likelihood, and a list of prior distributions. The package's
+flagship function then carries out a parameter-at-a-time update of all
+correlation parameters, and returns the new state. The method is presented
+in Hughes (2023), in preparation.
 
 %prep
 %setup -q -c -n %{packname}

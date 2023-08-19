@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  germinationmetrics
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seed Germination Indices and Curve Fitting
 
@@ -22,21 +22,21 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-gslnls 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-mathjaxr 
-Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-gslnls 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Provides functions to compute various germination indices such as

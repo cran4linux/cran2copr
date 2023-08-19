@@ -1,56 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BFS
-%global packver   0.5.3
+%global packname  uniswappeR
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get Data from the Swiss Federal Statistical Office
+Summary:          Interact with the Uniswap Platform
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pxweb 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-tidyRSS 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rstac 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-pxweb 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-tidyRSS 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ghql 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rstac 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-zip 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ghql 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-reticulate 
+Requires:         R-utils 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-purrr 
 
 %description
-Search and download data from the Swiss Federal Statistical Office (BFS)
-APIs <https://www.bfs.admin.ch/>.
+Routines to interact with the Uniswap trading platform and its API
+<https://uniswap.org>. The package contains codebase to interact with the
+uniswap platform directly from R console, Ability to pull and export data
+related to the platform and analyse some aspects.
 
 %prep
 %setup -q -c -n %{packname}

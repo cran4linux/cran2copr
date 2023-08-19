@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nomclust
-%global packver   2.6.2
+%global packver   2.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.2
+Version:          2.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Cluster Analysis of Nominal Data
 
@@ -19,9 +19,11 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-clValid 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-cluster 
 Requires:         R-methods 
+Requires:         R-CRAN-clValid 
 
 %description
 Similarity measures for hierarchical clustering of objects characterized

@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmmrOptim
-%global packver   0.3.1
+%global packname  stepR
+%global packver   2.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate Optimal Experimental Designs Using Generalised Linear Mixed Models
+Summary:          Multiscale Change-Point Inference
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-glmmrBase >= 0.4.5
-BuildRequires:    R-CRAN-rminqa >= 0.2.2
-BuildRequires:    R-CRAN-SparseChol >= 0.2.1
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-lowpassFilter >= 1.0.0
+BuildRequires:    R-CRAN-digest >= 0.6.10
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-CRAN-R.cache >= 0.10.0
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppProgress 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-glmmrBase >= 0.4.5
+Requires:         R-CRAN-lowpassFilter >= 1.0.0
+Requires:         R-CRAN-digest >= 0.6.10
+Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-R.cache >= 0.10.0
+Requires:         R-stats 
+Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-digest 
 
 %description
-Optimal design analysis algorithms for any study design that can be
-represented or modelled as a generalised linear mixed model including
-cluster randomised trials, cohort studies, spatial and temporal
-epidemiological studies, and split-plot designs. See
-<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
-detailed manual on model specification. A detailed discussion of the
-methods in this package can be found in Watson and Pan (2022)
-<arXiv:2207.09183>.
+Allows fitting of step-functions to univariate serial data where neither
+the number of jumps nor their positions is known by implementing the
+multiscale regression estimators SMUCE, simulataneous multiscale
+changepoint estimator, (K. Frick, A. Munk and H. Sieling, 2014)
+<doi:10.1111/rssb.12047> and HSMUCE, heterogeneous SMUCE, (F. Pein, H.
+Sieling and A. Munk, 2017) <doi:10.1111/rssb.12202>. In addition,
+confidence intervals for the change-point locations and bands for the
+unknown signal can be obtained.
 
 %prep
 %setup -q -c -n %{packname}

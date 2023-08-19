@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eummd
-%global packver   0.0.7
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Univariate Maximum Mean Discrepancy
 
@@ -21,9 +21,10 @@ Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
 Computes maximum mean discrepancy two-sample test for univariate data
-using the Laplacian kernel. It is also possible to compute the p-value
-using permutations. Also includes implementation for computing the robust
-median difference statistic 'Q_n' from Croux and Rousseeuw (1992)
+using the Laplacian kernel, as described in Bodenham and Kawahara (2023)
+<doi:10.1007/s11222-023-10271-x>. The p-value is computed using
+permutations. Also includes implementation for computing the robust median
+difference statistic 'Q_n' from Croux and Rousseeuw (1992)
 <doi:10.1007/978-3-662-26811-7_58> based on Johnson and Mizoguchi (1978)
 <doi:10.1137/0207013>.
 

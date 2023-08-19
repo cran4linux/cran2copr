@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GoodFibes
-%global packver   0.1.10
+%global packname  MRMCsamplesize
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detection and Reconstruction of Muscle Fibers from diceCT Image Data
+Summary:          Sample Size Estimations for Planning Multi-Reader Multi-Case (MRMC) Studies Without Pilot Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-imager 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-concaveman 
-BuildRequires:    R-CRAN-prodlim 
-BuildRequires:    R-CRAN-splines2 
-Requires:         R-CRAN-imager 
-Requires:         R-CRAN-rgl 
+BuildRequires:    R-CRAN-fpow 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-concaveman 
-Requires:         R-CRAN-prodlim 
-Requires:         R-CRAN-splines2 
+Requires:         R-CRAN-fpow 
 
 %description
-Reconstruction of muscle fibers from image stacks using textural analysis.
-Includes functions for tracking, smoothing, cleaning, plotting and
-exporting muscle fibers. Also calculates basic fiber properties (e.g.,
-length and curvature).
+Sample size estimations for MRMC studies based on the Obuchowski-Rockette
+(OR) methodology is implemented. The function can calculate sample sizes
+where the endpoint of interest in the study is either ROC AUC
+(Area-Under-the-Receiver-Operating-Characteristics-Curve) or sensitivity.
+The package can also return sample sizes for studies expected to have
+clustering effect (e.g.- multiple pulmonary nodules per patient). All
+calculations assume that the study design is fully crossed (paired-reader,
+paired-case) where each reader reads/interprets each case and that there
+are two interventions/imaging-modalities/techniques in the study. In
+addition to MRMC, it can also be used to estimate sample sizes for
+standalone studies where sensitivity or AUC are the primary endpoints. The
+methods implemented are based on the methods described in Zhou et.al.
+(2011) <doi:10.1002/9780470906514> and Obuchowski (2000)
+<doi:10.1097/EDE.0b013e3181a663cc>.
 
 %prep
 %setup -q -c -n %{packname}

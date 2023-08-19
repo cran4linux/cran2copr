@@ -1,48 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  matsbyname
-%global packver   0.6.4
+%global packname  fmesher
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Implementation of Matrix Mathematics
+Summary:          Triangle Meshes and Related Geometry Tools
 
-License:          MIT + file LICENSE
+License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-sp >= 1.4.5
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RCLabels 
+BuildRequires:    R-CRAN-R.methodsS3 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-sp >= 1.4.5
+Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RCLabels 
+Requires:         R-CRAN-R.methodsS3 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-Rcpp 
 
 %description
-An implementation of matrix mathematics wherein operations are performed
-"by name."
+Generate planar and spherical triangle meshes, compute finite element
+calculations for 1- and 2-dimensional flat and curved manifolds with
+associated basis function spaces, methods for lines and polygons, and
+transparent handling of coordinate reference systems and coordinate
+transformation, including 'sf' and 'sp' geometries. The core 'fmesher'
+library code was originally part of the 'INLA' package, and implements
+parts of "Triangulations and Applications" by Hjelle and Daehlen (2006)
+<doi:10.1007/3-540-33261-8>.
 
 %prep
 %setup -q -c -n %{packname}

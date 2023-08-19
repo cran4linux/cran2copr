@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dplbnDE
+%global packname  MetabolicSyndrome
 %global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discriminative Parameter Learning of Bayesian Networks by Differential Evolution
+Summary:          Diagnosis of Metabolic Syndrome
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bnclassify >= 0.4.5
-Requires:         R-CRAN-bnclassify >= 0.4.5
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Implements Differential Evolution (DE) to train parameters of Bayesian
-Networks for optimizing the Conditional Log-Likelihood (Discriminative
-Learning) instead of the log-likelihood (Generative Learning). Any given
-Bayesian Network structure encodes assumptions about conditional
-independencies among the attributes and will result in an error if they do
-not hold in the data. Such an error includes the classification dimension.
-The main goal of Discriminative learning is to minimize this type of
-error. This package provides main variants of differential evolution
-described in Price & Storn (1996) <doi:10.1109/ICEC.1996.542711> and
-recent ones, described in Tanabe & Fukunaga (2014)
-<doi:10.1109/CEC.2014.6900380> and Zhang & Sanderson (2009)
-<doi:10.1109/TEVC.2009.2014613> with adaptation mechanism for factor
-mutarion and crossover rate.
+The modified Adult Treatment Panel -III guidelines (ATP-III) proposed by
+American Heart Association (AHA) and National Heart, Lung and Blood
+Institute (NHLBI) are used widely for the clinical diagnosis of Metabolic
+Syndrome. The AHA-NHLBI criteria advise using parameters such as waist
+circumference (WC), systolic blood pressure (SBP), diastolic blood
+pressure (DBP), fasting plasma glucose (FPG), triglycerides (TG) and
+high-density lipoprotein cholesterol (HDLC) for diagnosis of metabolic
+syndrome. Each parameter has to be interpreted based on the proposed
+cut-offs, making the diagnosis slightly complex and error-prone. This
+package is developed by incorporating the modified ATP-III guidelines, and
+it will aid in the easy and quick diagnosis of metabolic syndrome in busy
+healthcare settings and also for research purposes. The modified
+ATP-III-AHA-NHLBI criteria for the diagnosis is described by Grundy et al
+., (2005) <doi:10.1161/CIRCULATIONAHA.105.169404>.
 
 %prep
 %setup -q -c -n %{packname}

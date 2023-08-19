@@ -1,39 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dplbnDE
-%global packver   0.1.3
+%global packname  HDSinRdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discriminative Parameter Learning of Bayesian Networks by Differential Evolution
+Summary:          Data for the 'Health Data Science in R' Online Textbook
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bnclassify >= 0.4.5
-Requires:         R-CRAN-bnclassify >= 0.4.5
 
 %description
-Implements Differential Evolution (DE) to train parameters of Bayesian
-Networks for optimizing the Conditional Log-Likelihood (Discriminative
-Learning) instead of the log-likelihood (Generative Learning). Any given
-Bayesian Network structure encodes assumptions about conditional
-independencies among the attributes and will result in an error if they do
-not hold in the data. Such an error includes the classification dimension.
-The main goal of Discriminative learning is to minimize this type of
-error. This package provides main variants of differential evolution
-described in Price & Storn (1996) <doi:10.1109/ICEC.1996.542711> and
-recent ones, described in Tanabe & Fukunaga (2014)
-<doi:10.1109/CEC.2014.6900380> and Zhang & Sanderson (2009)
-<doi:10.1109/TEVC.2009.2014613> with adaptation mechanism for factor
-mutarion and crossover rate.
+Contains seven datasets used in the chapters and exercises of Paul, Alice
+(2023) "Health Data Science in R"
+<https://alicepaul.github.io/health-data-science-in-r/>.
 
 %prep
 %setup -q -c -n %{packname}

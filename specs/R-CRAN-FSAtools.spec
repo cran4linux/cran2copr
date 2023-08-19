@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmmrOptim
-%global packver   0.3.1
+%global packname  FSAtools
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate Optimal Experimental Designs Using Generalised Linear Mixed Models
+Summary:          Fragment Analysis and Capillary Sequencing Tool Kit
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-glmmrBase >= 0.4.5
-BuildRequires:    R-CRAN-rminqa >= 0.2.2
-BuildRequires:    R-CRAN-SparseChol >= 0.2.1
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppProgress 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-glmmrBase >= 0.4.5
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-digest 
 
 %description
-Optimal design analysis algorithms for any study design that can be
-represented or modelled as a generalised linear mixed model including
-cluster randomised trials, cohort studies, spatial and temporal
-epidemiological studies, and split-plot designs. See
-<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
-detailed manual on model specification. A detailed discussion of the
-methods in this package can be found in Watson and Pan (2022)
-<arXiv:2207.09183>.
+A flexible and interfaced framework for importing, processing and ploting
+Applied Biosystems data files. Application to Reverse-Transcriptase
+Multiplex Ligation-dependent Probe Amplification (RT-MLPA) gene-expression
+profiling and classification is illustrated in Mareschal, Ruminy et al
+(2015) <doi:10.1016/j.jmoldx.2015.01.007>. Gene-fusion detection and
+Sanger sequencing are illustrated in Mareschal, Palau et al (2021)
+<doi:10.1182/bloodadvances.2020002517>. Examples are provided for
+genotyping applications as well.
 
 %prep
 %setup -q -c -n %{packname}

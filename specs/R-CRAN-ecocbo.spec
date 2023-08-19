@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DSAM
-%global packver   1.0.1
+%global packname  ecocbo
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.10.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Splitting Algorithms for Model Developments
+Summary:          Calculating Optimum Sampling Effort in Community Ecology
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-kohonen 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-sampling 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xgboost 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-kohonen 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pROC 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-sampling 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-vegan 
 
 %description
-Providing six different algorithms that can be used to split the available
-data into training, test and validation subsets with similar distribution
-for hydrological model developments. The dataSplit() function will help
-you divide the data according to specific requirements, and you can refer
-to the par.default() function to set the parameters for data splitting.
-The getAUC() function will help you measure the similarity of distribution
-features between the data subsets. For more information about the data
-splitting algorithms, please refer to: Chen et al. (2022)
-<doi:10.1016/j.jhydrol.2022.128340>, Zheng et al. (2022)
-<doi:10.1029/2021WR031818>.
+A system for calculating the optimal sampling effort, based on the ideas
+of "Ecological cost-benefit optimization" as developed by A. Underwood
+(1997, ISBN 0 521 55696 1). Data is obtained from simulated ecological
+communities, and the optimization follows the following procedure of four
+functions (1) sim_beta() estimates statistical power and type 2 error by
+using Permutational Multivariate Analysis of Variance, (2) plot_power()
+represents the results of the previous function, (3) scompvar() calculates
+the variation components necessary for (4) sim_cbo() to calculate the
+optimal combination of number of sites and samples depending on either an
+economical budget or on a desired statistical accuracy.
 
 %prep
 %setup -q -c -n %{packname}
