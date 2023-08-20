@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BayesianLaterality
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predict Brain Asymmetry Based on Handedness and Dichotic Listening
 
@@ -16,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tmvtnorm >= 1.4.10
+BuildRequires:    R-CRAN-tmvtnorm >= 1.4
 BuildRequires:    R-CRAN-tidyr >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-tmvtnorm >= 1.4.10
+Requires:         R-CRAN-tmvtnorm >= 1.4
 Requires:         R-CRAN-tidyr >= 1.1.2
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-rlang >= 0.4.7

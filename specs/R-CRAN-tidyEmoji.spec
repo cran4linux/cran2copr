@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tidyEmoji
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discovers Emoji from Text
 
@@ -35,7 +36,7 @@ Requires:         R-utils
 Unicodes are not friendly to work with, and not all Unicodes are Emoji per
 se, making obtaining Emoji statistics a difficult task. This tool can help
 your experience of working with Emoji as smooth as possible, as it has the
-tidyverse style.
+'tidyverse' style.
 
 %prep
 %setup -q -c -n %{packname}

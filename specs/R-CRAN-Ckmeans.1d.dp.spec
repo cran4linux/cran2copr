@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Ckmeans.1d.dp
-%global packver   4.3.4
+%global packver   4.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.4
+Version:          4.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal, Fast, and Reproducible Univariate Clustering
 
@@ -15,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rdpack >= 0.6.1
+BuildRequires:    R-CRAN-Rdpack >= 0.6
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack >= 0.6.1
+Requires:         R-CRAN-Rdpack >= 0.6
 Requires:         R-CRAN-Rcpp 
 
 %description
@@ -28,7 +29,7 @@ programming. Four problems are solved, including univariate k-means (Wang
 multi-channel weighted k-means. Dynamic programming is used to minimize
 the sum of (weighted) within-cluster distances using respective metrics.
 Its advantage over heuristic clustering in efficiency and accuracy is
-pronounced at a large number of clusters. Multi-channel weighted k-means
+pronounced when there are many clusters. Multi-channel weighted k-means
 groups multiple univariate signals into k clusters. An auxiliary function
 generates histograms adaptive to patterns in data. This package provides a
 powerful set of tools for univariate data analysis with guaranteed

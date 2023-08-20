@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  garma
-%global packver   0.9.11
+%global packver   0.9.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.11
+Version:          0.9.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting and Forecasting Gegenbauer ARMA Time Series Models
 
@@ -32,6 +33,8 @@ BuildRequires:    R-CRAN-dfoptim
 BuildRequires:    R-CRAN-pso 
 BuildRequires:    R-CRAN-FKF 
 BuildRequires:    R-CRAN-tswge 
+BuildRequires:    R-CRAN-hypergeo 
+BuildRequires:    R-CRAN-ltsa 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rsolnp 
@@ -48,11 +51,14 @@ Requires:         R-CRAN-dfoptim
 Requires:         R-CRAN-pso 
 Requires:         R-CRAN-FKF 
 Requires:         R-CRAN-tswge 
+Requires:         R-CRAN-hypergeo 
+Requires:         R-CRAN-ltsa 
 
 %description
 Methods for estimating univariate long memory-seasonal/cyclical Gegenbauer
-time series processes. See for example (2018) <doi:10.1214/18-STS649>.
-Refer to the vignette for details of fitting these processes.
+time series processes. See for example (2022)
+<doi:10.1007/s00362-022-01290-3>. Refer to the vignette for details of
+fitting these processes.
 
 %prep
 %setup -q -c -n %{packname}

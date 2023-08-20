@@ -1,65 +1,57 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  causact
-%global packver   0.4.2
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accelerated Bayesian Analytics with DAGs
+Summary:          Fast, Easy, and Visual Bayesian Inference
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-htmlwidgets >= 1.5.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-igraph >= 1.2.5
-BuildRequires:    R-CRAN-DiagrammeR >= 1.0.7
-BuildRequires:    R-CRAN-tidyr >= 1.0.3
-BuildRequires:    R-CRAN-cowplot >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-stringr >= 1.4.1
+BuildRequires:    R-CRAN-reticulate >= 1.30
+BuildRequires:    R-CRAN-igraph >= 1.2.7
+BuildRequires:    R-CRAN-tidyr >= 1.1.4
+BuildRequires:    R-CRAN-cowplot >= 1.1.0
+BuildRequires:    R-CRAN-DiagrammeR >= 1.0.9
+BuildRequires:    R-CRAN-dplyr >= 1.0.8
+BuildRequires:    R-CRAN-rlang >= 1.0.2
+BuildRequires:    R-CRAN-lifecycle >= 1.0.2
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-forcats >= 0.5.0
-BuildRequires:    R-CRAN-rlang >= 0.4.6
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-greta >= 0.3.1
-BuildRequires:    R-CRAN-coda >= 0.19.3
 BuildRequires:    R-CRAN-rstudioapi >= 0.11
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-htmlwidgets >= 1.5.1
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-igraph >= 1.2.5
-Requires:         R-CRAN-DiagrammeR >= 1.0.7
-Requires:         R-CRAN-tidyr >= 1.0.3
-Requires:         R-CRAN-cowplot >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-stringr >= 1.4.1
+Requires:         R-CRAN-reticulate >= 1.30
+Requires:         R-CRAN-igraph >= 1.2.7
+Requires:         R-CRAN-tidyr >= 1.1.4
+Requires:         R-CRAN-cowplot >= 1.1.0
+Requires:         R-CRAN-DiagrammeR >= 1.0.9
+Requires:         R-CRAN-dplyr >= 1.0.8
+Requires:         R-CRAN-rlang >= 1.0.2
+Requires:         R-CRAN-lifecycle >= 1.0.2
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-forcats >= 0.5.0
-Requires:         R-CRAN-rlang >= 0.4.6
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-greta >= 0.3.1
-Requires:         R-CRAN-coda >= 0.19.3
 Requires:         R-CRAN-rstudioapi >= 0.11
-Requires:         R-CRAN-lifecycle 
 
 %description
 Accelerate Bayesian analytics workflows in 'R' through interactive
 modelling, visualization, and inference. Define probabilistic graphical
 models using directed acyclic graphs (DAGs) as a unifying language for
 business stakeholders, statisticians, and programmers. This package relies
-on the sleek and elegant 'greta' package for Bayesian inference. 'greta',
-in turn, is an interface into 'TensorFlow' from 'R'. Install 'greta' using
-instructions available here:
-<https://www.causact.com/install-tensorflow-greta-and-causact.html>. See
-<https://github.com/flyaflya/causact> or <https://www.causact.com/> for
-more documentation.
+on interfacing with the 'numpyro' python package.
 
 %prep
 %setup -q -c -n %{packname}
