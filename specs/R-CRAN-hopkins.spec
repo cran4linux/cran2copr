@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hopkins
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Hopkins Statistic for Clustering
 
@@ -25,7 +26,7 @@ Requires:         R-CRAN-RANN
 
 %description
 Calculate Hopkins statistic to assess the clusterability of data. See
-Hopkins and Skellam (1954) <doi:10.1093/oxfordjournals.aob.a083391>.
+Wright (2023) <doi:10.32614/RJ-2022-055>.
 
 %prep
 %setup -q -c -n %{packname}

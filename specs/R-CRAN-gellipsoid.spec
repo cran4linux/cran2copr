@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gellipsoid
-%global packver   0.7.2
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Ellipsoids
 
@@ -20,10 +21,14 @@ BuildRequires:    R-CRAN-rgl
 Requires:         R-CRAN-rgl 
 
 %description
-Represent generalized geometric ellipsoids with the "(U,D)"
+Represents generalized geometric ellipsoids with the "(U,D)"
 representation. It allows degenerate and/or unbounded ellipsoids, together
-with methods for linear and duality transformations, and for plotting. The
-ideas are described in Friendly, Monette & Fox (2013).
+with methods for linear and duality transformations, and for plotting.
+Thus ellipsoids are naturally extended to include lines, hyperplanes,
+points, cylinders, etc. This permits exploration of a variety to
+statistical issues that can be visualized using ellipsoids as discussed by
+Friendly, Fox & Monette (2013), Elliptical Insights: Understanding
+Statistical Methods Through Elliptical Geometry <doi:10.1214/12-STS402>.
 
 %prep
 %setup -q -c -n %{packname}

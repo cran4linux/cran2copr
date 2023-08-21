@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sdetorus
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Toroidal Diffusions
 
@@ -34,7 +35,7 @@ blocks, is given: (i) based on the exact transition probability density,
 obtained as the numerical solution to the Fokker-Plank equation; (ii)
 based on wrapped pseudo-likelihoods; (iii) based on specific analytic
 approximations by wrapped processes; (iv) based on maximum likelihood of
-the stationary densities. The package allows the reproducibility of the
+the stationary densities. The package allows the replicability of the
 results in García-Portugués et al. (2019) <doi:10.1007/s11222-017-9790-2>.
 
 %prep

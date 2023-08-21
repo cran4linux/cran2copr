@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  designer
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Shiny' UI Prototype Builder
 
@@ -20,23 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-config >= 0.3.1
 BuildRequires:    R-CRAN-golem >= 0.3.1
-BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-bs4Dash 
+BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-cicerone 
 BuildRequires:    R-CRAN-fontawesome 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-shinipsum 
 BuildRequires:    R-CRAN-shinyscreenshot 
 Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-config >= 0.3.1
 Requires:         R-CRAN-golem >= 0.3.1
-Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-bs4Dash 
+Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-cicerone 
 Requires:         R-CRAN-fontawesome 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-shinipsum 
 Requires:         R-CRAN-shinyscreenshot 
 

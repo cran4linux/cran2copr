@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MESS
-%global packver   0.5.9
+%global packver   0.5.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.9
+Version:          0.5.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Esoteric Statistical Scripts
 
@@ -18,6 +19,7 @@ Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-geeM 
 BuildRequires:    R-CRAN-ggplot2 
@@ -31,6 +33,7 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-geeM 
 Requires:         R-CRAN-ggplot2 
