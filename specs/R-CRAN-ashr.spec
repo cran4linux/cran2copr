@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ashr
-%global packver   2.2-54
+%global packver   2.2-63
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.54
+Version:          2.2.63
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Adaptive Shrinkage, using Empirical Bayes
 

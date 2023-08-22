@@ -1,31 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IPMbook
-%global packver   0.1.5
+%global packname  aftR2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Data for the Book 'Integrated Population Models'
+Summary:          R-Squared Measure under Accelerated Failure Time (AFT) Models
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-stats 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-survival 
 
 %description
-Provides functions and data sets to accompany the book 'Integrated
-Population Models: Theory and Ecological Applications with R and JAGS' by
-Michael Schaub and Marc Kéry (ISBN: 9780128205648).
+Compute the R-squared measure under the accelerated failure time (AFT)
+models proposed in Chan et. al. (2018)
+<doi:10.1080/03610918.2016.1177072>.
 
 %prep
 %setup -q -c -n %{packname}

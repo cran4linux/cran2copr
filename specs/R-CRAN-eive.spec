@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eive
-%global packver   3.1.1
+%global packver   3.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Algorithm for Reducing Errors-in-Variable Bias in Simple and Multiple Linear Regression
+Summary:          An Algorithm for Reducing Errors-in-Variable Bias in Simple and Multiple Linear Regressions
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}

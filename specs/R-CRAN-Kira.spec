@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IPMbook
-%global packver   0.1.5
+%global packname  Kira
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Data for the Book 'Integrated Population Models'
+Summary:          Machine Learning
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.3.2
+Requires:         R-core >= 3.3.2
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-abind 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-abind 
 
 %description
-Provides functions and data sets to accompany the book 'Integrated
-Population Models: Theory and Ecological Applications with R and JAGS' by
-Michael Schaub and Marc Kéry (ISBN: 9780128205648).
+Machine learning, containing several algorithms for supervised and
+unsupervised classification, in addition to a function that plots the
+Receiver Operating Characteristic (ROC) and Precision-Recall (PRC) curve
+graphs, and also a function that returns several metrics used for model
+evaluation, the latter can be used in ranking results from other packs.
 
 %prep
 %setup -q -c -n %{packname}

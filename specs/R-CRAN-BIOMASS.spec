@@ -1,52 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CopernicusMarine
-%global packver   0.0.9
+%global packname  BIOMASS
+%global packver   2.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          2.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search Download and Handle Data from Copernicus Marine Service Information
+Summary:          Estimating Aboveground Biomass and Its Uncertainty in Tropical Forests
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-data.table >= 1.9.8
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-proj4 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-data.table >= 1.9.8
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
+Requires:         R-methods 
+Requires:         R-CRAN-proj4 
+Requires:         R-graphics 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-sp 
 
 %description
-Subset and download data from EU Copernicus Marine Service Information:
-<https://data.marine.copernicus.eu>. Import data on the oceans physical
-and biogeochemical state from Copernicus into R without the need of
-external software.
+Contains functions to estimate aboveground biomass/carbon and its
+uncertainty in tropical forests. These functions allow to (1) retrieve and
+to correct taxonomy, (2) estimate wood density and its uncertainty, (3)
+construct height-diameter models, (4) manage tree and plot coordinates,
+(5) estimate the aboveground biomass/carbon at the stand level with
+associated uncertainty. To cite 'BIOMASS', please use citation("BIOMASS").
+See more in the article of Réjou-Méchain et al. (2017)
+<doi:10.1111/2041-210X.12753>.
 
 %prep
 %setup -q -c -n %{packname}

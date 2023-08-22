@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CopernicusMarine
-%global packver   0.0.9
+%global packname  geocausal
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search Download and Handle Data from Copernicus Marine Service Information
+Summary:          Causal Inference with Spatio-Temporal Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,36 +17,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.model 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.model 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Subset and download data from EU Copernicus Marine Service Information:
-<https://data.marine.copernicus.eu>. Import data on the oceans physical
-and biogeochemical state from Copernicus into R without the need of
-external software.
+Spatio-temporal causal inference based on point process data. You provide
+the raw data of locations and timings of treatment and outcome events,
+specify counterfactual scenarios, and the package estimates causal effects
+over specified spatial and temporal windows. See Papadogeorgou, et al.
+(2022) <doi:10.1111/rssb.12548>.
 
 %prep
 %setup -q -c -n %{packname}

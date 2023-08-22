@@ -1,31 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IPMbook
-%global packver   0.1.5
+%global packname  LTAR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Data for the Book 'Integrated Population Models'
+Summary:          Tensor Forecasting Functions
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-vars 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-rTensor2 
+BuildRequires:    R-CRAN-gsignal 
+Requires:         R-CRAN-vars 
 Requires:         R-stats 
-Requires:         R-CRAN-abind 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-rTensor2 
+Requires:         R-CRAN-gsignal 
 
 %description
-Provides functions and data sets to accompany the book 'Integrated
-Population Models: Theory and Ecological Applications with R and JAGS' by
-Michael Schaub and Marc Kéry (ISBN: 9780128205648).
+A set of tools for forecasting the next step in a multidimensional setting
+using tensors.  In the examples, a forecast is made of sea surface
+temperatures of a geographic grid (i.e. lat/long).  Each observation is a
+matrix, the entries in the matrix and the sea surface temperature at a
+particular lattitude/longitude. Cates, J., Hoover, R. C., Caudle, K.,
+Kopp, R., & Ozdemir, C. (2021) "Transform-Based Tensor Auto Regression for
+Multilinear Time Series Forecasting" in 2021 20th IEEE International
+Conference on Machine Learning and Applications (ICMLA) (pp. 461-466),
+IEEE <doi:10.1109/ICMLA52953.2021.00078>.
 
 %prep
 %setup -q -c -n %{packname}

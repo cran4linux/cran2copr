@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fastRG
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Generalized Random Dot Product Graphs in Linear Time
 
@@ -17,24 +18,32 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-igraph 
+Requires:         R-methods 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-tidyr 
 
 %description
-Samples generalized random product graph, a generalization of a broad
+Samples generalized random product graphs, a generalization of a broad
 class of network models. Given matrices X, S, and Y with with non-negative
 entries, samples a matrix with expectation X S Y^T and independent Poisson
 or Bernoulli entries using the fastRG algorithm of Rohe et al. (2017)
