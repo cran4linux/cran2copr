@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  OPI
-%global packver   2.10.1
+%global packver   2.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.1
+Version:          2.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Perimetry Interface
 
-License:          GPL-3
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,7 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-abind 
 Requires:         R-methods 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-abind 
 
 %description
 Implementation of the Open Perimetry Interface (OPI) for simulating and

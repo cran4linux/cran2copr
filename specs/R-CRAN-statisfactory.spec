@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  statisfactory
-%global packver   1.0.1
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical and Geometrical Tools
 
@@ -17,9 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-omnibus 
-BuildRequires:    R-CRAN-rlist 
 Requires:         R-CRAN-omnibus 
-Requires:         R-CRAN-rlist 
 
 %description
 A collection of statistical and geometrical tools including the aligned

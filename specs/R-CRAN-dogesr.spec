@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dogesr
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with the Doges/Dogaresse Dataset
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-qpdf 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-rmarkdown
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-qpdf 

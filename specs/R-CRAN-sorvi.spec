@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sorvi
-%global packver   0.8.20
+%global packver   0.8.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.20
+Version:          0.8.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Finnish Open Data
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dlstats 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,6 +29,8 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-dlstats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -40,6 +43,8 @@ Requires:         R-CRAN-rvest
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
 
 %description
 Misc support functions for rOpenGov and open data downloads.

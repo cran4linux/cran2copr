@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SampleSizeProportions
-%global packver   1.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Sample Size Requirements when Estimating the Difference Between Two Binomial Proportions
 
@@ -29,8 +29,7 @@ Coverage Criterion and the Worst Outcome Criterion in the context of
 binomial observations are provided. In all cases, estimation of the
 difference between two binomial proportions is considered. Functions for
 both the fully Bayesian and the mixed Bayesian/likelihood approaches are
-provided. For reference see Joseph L., du Berger R. and B'elisle P.
-(1997)
+provided. For reference see Joseph L., du Berger R. and Bélisle P. (1997)
 <doi:10.1002/(sici)1097-0258(19970415)16:7%%3C769::aid-sim495%%3E3.0.co;2-v>.
 
 %prep

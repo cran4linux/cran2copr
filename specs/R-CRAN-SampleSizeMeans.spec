@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SampleSizeMeans
-%global packver   1.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Size Calculations for Normal Means
 
@@ -28,7 +28,7 @@ calculation of required sample sizes for the Average Length Criterion, the
 Average Coverage Criterion and the Worst Outcome Criterion in the context
 of normal means are provided. Functions for both the fully Bayesian and
 the mixed Bayesian/likelihood approaches are provided. For reference see
-Joseph L. and B'elisle P. (1997) <https://www.jstor.org/stable/2988525>.
+Joseph L. and Bélisle P. (1997) <https://www.jstor.org/stable/2988525>.
 
 %prep
 %setup -q -c -n %{packname}

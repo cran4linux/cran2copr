@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sphunif
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Uniformity Tests on the Circle, Sphere, and Hypersphere
 
@@ -40,9 +41,9 @@ Furthermore, the unif_stat_MC() function allows parallelizing them in a
 simple way. The asymptotic null distributions of the statistics are
 available through the function unif_stat_distr(). The core of 'sphunif' is
 coded in C++ by relying on the 'Rcpp' package. The package also provides
-several novel datasets and gives the reproducibility for the data
+several novel datasets and gives the replicability for the data
 application in García-Portugués, Navarro-Esteban and Cuesta-Albertos
-(2020) <arXiv:2008.09897>.
+(2023) <arXiv:2008.09897>.
 
 %prep
 %setup -q -c -n %{packname}

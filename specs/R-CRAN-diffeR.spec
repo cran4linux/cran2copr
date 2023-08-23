@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diffeR
-%global packver   0.0-7
+%global packver   0.0-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metrics of Difference for Comparing Pairs of Maps or Pairs of Variables
 

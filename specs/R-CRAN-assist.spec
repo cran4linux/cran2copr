@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  assist
-%global packver   3.1.8
+%global packver   3.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.8
+Version:          3.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Suite of R Functions Implementing Spline Smoothing Techniques
 

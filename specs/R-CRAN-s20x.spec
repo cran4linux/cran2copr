@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  s20x
-%global packver   3.1-38
+%global packver   3.1-40
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.38
+Version:          3.1.40
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for University of Auckland Course STATS 201/208 Data Analysis
 

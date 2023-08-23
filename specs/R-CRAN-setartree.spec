@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  setartree
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          SETAR-Tree: A Novel and Accurate Tree Algorithm for Global Time Series Forecasting
+Summary:          SETAR-Tree - A Novel and Accurate Tree Algorithm for Global Time Series Forecasting
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
+Requires:         R-parallel 
 
 %description
 The implementation of a forecasting-specific tree-based model that is in

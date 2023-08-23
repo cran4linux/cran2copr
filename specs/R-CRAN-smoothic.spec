@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smoothic
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Selection Using a Smooth Information Criterion
 
@@ -24,8 +24,10 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-toOrdinal 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -33,12 +35,14 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-toOrdinal 
 
 %description
 Implementation of the SIC epsilon-telescope method, either using single or
-distributional (multi-parameter) regression. Includes classical regression
+distributional (multiparameter) regression. Includes classical regression
 with normally distributed errors and robust regression, where the errors
 are from the Laplace distribution. The "smooth generalized normal
 distribution" is used, where the estimation of an additional shape

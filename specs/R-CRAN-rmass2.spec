@@ -1,31 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  approxOT
-%global packver   1.0.2
+%global __requires_exclude ^libmpi
+%global packname  rmass2
+%global packver   0.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate and Exact Optimal Transport Methods
+Summary:          Repeated Measures with Attrition: Sample Sizes and Power Levels for 2 Groups
 
-License:          GPL (>= 3.0)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-stats 
+BuildArch:        noarch
+BuildRequires:    R-stats >= 3.6.2
+Requires:         R-stats >= 3.6.2
 
 %description
-R and C++ functions to perform exact and approximate optimal transport.
-All C++ methods are linkable to other R packages via their header files.
+For the calculation of sample size or power in a two-group repeated
+measures design, accounting for attrition and accommodating a variety of
+correlation structures for the repeated measures; details of the method
+can be found in the scientific paper: Donald Hedeker, Robert D. Gibbons,
+Christine Waternaux (1999) <doi:10.3102/10769986024001070>.
 
 %prep
 %setup -q -c -n %{packname}

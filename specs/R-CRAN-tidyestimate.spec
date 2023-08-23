@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tidyestimate
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tidy Implementation of 'ESTIMATE'
 
@@ -16,18 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 

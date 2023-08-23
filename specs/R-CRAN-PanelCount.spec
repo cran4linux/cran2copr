@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PanelCount
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Effects and/or Sample Selection Models for Panel Count Data
 
@@ -27,7 +27,7 @@ Requires:         R-CRAN-MASS
 %description
 A high performance package implementing random effects and/or sample
 selection models for panel count data. The details of the models are
-discussed in Peng and Van den Bulte (2022) <doi:10.2139/ssrn.2702053>.
+discussed in Peng and Van den Bulte (2023) <doi:10.2139/ssrn.2702053>.
 
 %prep
 %setup -q -c -n %{packname}

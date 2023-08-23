@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  omnibus
-%global packver   1.1.3
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Tools for Managing Data, Dates, Missing Values, and Text
 
@@ -23,8 +23,10 @@ An assortment of helper functions for managing data (e.g., rotating values
 in matrices by a user-defined angle, switching from row- to
 column-indexing), dates (e.g., intuiting year from messy date strings),
 handling missing values (e.g., removing elements/rows across multiple
-vectors or matrices if any have an NA), and text (e.g., flushing reports
-to the console in real-time).
+vectors or matrices if any have an NA), text (e.g., flushing reports to
+the console in real-time); and combining data frames with different schema
+(copying, filling, or concatenating columns or applying functions before
+combining).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tipa
-%global packver   1.0.5
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tau-Independent Phase Analysis for Circadian Time-Course Data
 
@@ -16,12 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimr >= 2016.8.16
-Requires:         R-CRAN-optimr >= 2016.8.16
+BuildRequires:    R-CRAN-optimx >= 2023.8.13
+Requires:         R-CRAN-optimx >= 2023.8.13
 
 %description
 Accurately estimates phase shifts by accounting for period changes and for
-the point in the circadian cycle at which the stimulus occurs.
+the point in the circadian cycle at which the stimulus occurs. See
+Tackenberg et al. (2018) <doi:10.1177/0748730418768116>.
 
 %prep
 %setup -q -c -n %{packname}

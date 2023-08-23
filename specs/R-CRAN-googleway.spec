@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  googleway
-%global packver   2.7.7
+%global packver   2.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.7
+Version:          2.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accesses Google Maps APIs to Retrieve Data and Plot Maps
 

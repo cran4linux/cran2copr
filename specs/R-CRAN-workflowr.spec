@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  workflowr
-%global packver   1.7.0
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Reproducible and Collaborative Data Science
 
@@ -13,7 +14,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
@@ -25,14 +25,13 @@ BuildRequires:    R-CRAN-httpuv >= 1.2.2
 BuildRequires:    R-CRAN-rprojroot >= 1.2
 BuildRequires:    R-CRAN-rmarkdown >= 1.18
 BuildRequires:    R-CRAN-rstudioapi >= 0.6
-BuildRequires:    R-CRAN-whisker >= 0.3
+BuildRequires:    R-CRAN-whisker >= 0.3.2
 BuildRequires:    R-CRAN-git2r >= 0.26.0
 BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-callr >= 3.7.0
 Requires:         R-CRAN-stringr >= 1.3.0
@@ -42,14 +41,13 @@ Requires:         R-CRAN-httpuv >= 1.2.2
 Requires:         R-CRAN-rprojroot >= 1.2
 Requires:         R-CRAN-rmarkdown >= 1.18
 Requires:         R-CRAN-rstudioapi >= 0.6
-Requires:         R-CRAN-whisker >= 0.3
+Requires:         R-CRAN-whisker >= 0.3.2
 Requires:         R-CRAN-git2r >= 0.26.0
 Requires:         R-CRAN-getPass 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-xfun 
 Requires:         R-CRAN-yaml 
 
 %description

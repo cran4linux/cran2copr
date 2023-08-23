@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spotoroo
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Clustering of Satellite Hot Spot Data
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-cli >= 2.3.0
 BuildRequires:    R-CRAN-progress >= 1.2.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-ggExtra >= 0.9
-BuildRequires:    R-CRAN-ggbeeswarm >= 0.6.0
+BuildRequires:    R-CRAN-ggbeeswarm >= 0.7.2
 BuildRequires:    R-CRAN-geodist >= 0.0.4
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
@@ -33,7 +33,7 @@ Requires:         R-CRAN-cli >= 2.3.0
 Requires:         R-CRAN-progress >= 1.2.2
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-ggExtra >= 0.9
-Requires:         R-CRAN-ggbeeswarm >= 0.6.0
+Requires:         R-CRAN-ggbeeswarm >= 0.7.2
 Requires:         R-CRAN-geodist >= 0.0.4
 Requires:         R-utils 
 Requires:         R-stats 

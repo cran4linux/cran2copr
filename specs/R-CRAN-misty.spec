@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  misty
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions 'T. Yanagida'
 
@@ -50,8 +50,8 @@ factor analysis, between-group and longitudinal measurement equivalence
 evaluation, cross-level measurement equivalence evaluation, and multilevel
 composite reliability), and statistical analysis (e.g., confidence
 intervals, collinearity and residual diagnostics, dominance analysis,
-between- and within-subject analysis of variance, t-test, z-test, sample
-size determination).
+between- and within-subject analysis of variance, latent class analysis,
+t-test, z-test, sample size determination).
 
 %prep
 %setup -q -c -n %{packname}

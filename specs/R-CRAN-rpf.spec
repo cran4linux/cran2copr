@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rpf
-%global packver   1.0.11
+%global packver   1.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Response Probability Functions
 
@@ -28,12 +29,12 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-lifecycle 
 
 %description
-The purpose of this package is to factor out logic and math common to Item
-Factor Analysis fitting, diagnostics, and analysis. It is envisioned as
-core support code suitable for more specialized IRT packages to build
-upon. Complete access to optimized C functions are made available with
-R_RegisterCCallable(). This software is described in Pritikin & Falk
-(2020) <doi:10.1177/0146621620929431>.
+Factor out logic and math common to Item Factor Analysis fitting,
+diagnostics, and analysis. It is envisioned as core support code suitable
+for more specialized IRT packages to build upon. Complete access to
+optimized C functions are made available with R_RegisterCCallable(). This
+software is described in Pritikin & Falk (2020)
+<doi:10.1177/0146621620929431>.
 
 %prep
 %setup -q -c -n %{packname}

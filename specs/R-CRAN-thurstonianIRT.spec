@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  thurstonianIRT
-%global packver   0.12.1
+%global packver   0.12.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.12.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Thurstonian IRT Models
 
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MplusAutomation 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
@@ -45,7 +45,6 @@ Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-methods 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MplusAutomation 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

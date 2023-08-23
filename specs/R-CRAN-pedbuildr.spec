@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pedbuildr
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pedigree Reconstruction
 
@@ -13,23 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forrel >= 1.3.0
-BuildRequires:    R-CRAN-pedtools >= 0.9.6
-BuildRequires:    R-CRAN-pedprobr 
+BuildRequires:    R-CRAN-pedtools >= 2.2.0
+BuildRequires:    R-CRAN-forrel >= 1.5.0
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-forrel >= 1.3.0
-Requires:         R-CRAN-pedtools >= 0.9.6
-Requires:         R-CRAN-pedprobr 
+BuildRequires:    R-CRAN-pedmut 
+BuildRequires:    R-CRAN-pedprobr 
+BuildRequires:    R-CRAN-ribd 
+Requires:         R-CRAN-pedtools >= 2.2.0
+Requires:         R-CRAN-forrel >= 1.5.0
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-pedmut 
+Requires:         R-CRAN-pedprobr 
+Requires:         R-CRAN-ribd 
 
 %description
 Reconstruct pedigrees from genotype data, by optimising the likelihood
 over all possible pedigrees subject to given restrictions. Tailor-made
 plots facilitate evaluation of the output. This package is part of the
-'ped suite' ecosystem for pedigree analysis. In particular, it imports
+'pedsuite' ecosystem for pedigree analysis. In particular, it imports
 'pedprobr' for calculating pedigree likelihoods and 'forrel' for
 estimating pairwise relatedness.
 
@@ -41,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

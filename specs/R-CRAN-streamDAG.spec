@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RVowpalWabbit
-%global packver   0.0.18
+%global packname  streamDAG
+%global packver   1.4-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.18
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the Vowpal Wabbit
+Summary:          Analytical Methods for Stream DAGs
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    boost-devel
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-asbio 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-plotrix 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-asbio 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-plotrix 
 
 %description
-The 'Vowpal Wabbit' project is a fast out-of-core learning system
-sponsored by Microsoft Research (having started at Yahoo! Research) and
-written by John Langford along with a number of contributors. This R
-package does not include the distributed computing implementation of the
-cluster/ directory of the upstream sources. Use of the software as a
-network service is also not directly supported as the aim is a simpler
-direct call from R for validation and comparison. Note that this package
-contains an embedded older version of 'Vowpal Wabbit'. The package 'rvw'
-at the GitHub repo <https://github.com/rvw-org/rvw-legacy> can provide an
-alternative using an external 'Vowpal Wabbit' library installation.
+Provides indices and tools for directed acyclic graphs (DAGs),
+particularly DAG representations of intermittent streams.  A detailed
+introduction to the package can be found in the publication:
+"Non-perennial stream networks as directed acyclic graphs: The R-package
+streamDAG" (Aho et al., 2023) <doi:10.1016/j.envsoft.2023.105775>, and in
+the introductory package vignette.
 
 %prep
 %setup -q -c -n %{packname}

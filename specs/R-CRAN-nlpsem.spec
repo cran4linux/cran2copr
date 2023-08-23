@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlpsem
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear and Nonlinear Longitudinal Process in Structural Equation Modeling Framework
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-OpenMx 
+BuildRequires:    R-CRAN-OpenMx >= 2.21.8
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-OpenMx 
+Requires:         R-CRAN-OpenMx >= 2.21.8
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -47,7 +47,7 @@ variables; (3) multiple-group models for scenarios (1) and (2) to evaluate
 differences among manifested groups, and (4) longitudinal mixture models
 for scenarios (1) and (2), with an assumption that trajectories are from
 multiple latent classes. The methods implemented are introduced in Jin Liu
-(2023) <arXiv:2302.03237>.
+(2023) <arXiv:2302.03237v2>.
 
 %prep
 %setup -q -c -n %{packname}

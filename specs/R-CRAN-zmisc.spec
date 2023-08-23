@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  zmisc
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vector Look-Ups and Safer Sampling
 
@@ -19,8 +20,9 @@ BuildArch:        noarch
 
 %description
 A collection of utility functions that facilitate looking up vector values
-from a lookup table, and support a safer approach to vector sampling,
-sequence generation, and aggregation.
+from a lookup table, annotate values in at table for clearer viewing, and
+support a safer approach to vector sampling, sequence generation, and
+aggregation.
 
 %prep
 %setup -q -c -n %{packname}

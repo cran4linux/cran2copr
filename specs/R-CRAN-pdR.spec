@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pdR
-%global packver   1.8
+%global packver   1.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Threshold Model and Unit Root Tests in Cross-Section and Time Series Data
 
@@ -13,25 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plm 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-coefplot 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-papeR 
-Requires:         R-CRAN-plm 
-Requires:         R-tcltk 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-coefplot 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-papeR 
 
 %description
 Threshold model, panel version of Hylleberg et al. (1990)

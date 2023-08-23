@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kantorovich
-%global packver   3.0.1
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kantorovich Distance Between Probability Measures
 
@@ -14,23 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.3
-Requires:         R-core >= 2.5.3
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rcdd 
+BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-gmp 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rcdd 
 BuildRequires:    R-CRAN-Rglpk 
 BuildRequires:    R-CRAN-slam 
-BuildRequires:    R-CRAN-CVXR 
-Requires:         R-CRAN-rcdd 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ompr 
+BuildRequires:    R-CRAN-ompr.roi 
+BuildRequires:    R-CRAN-ROI.plugin.glpk 
+Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-gmp 
-Requires:         R-methods 
 Requires:         R-CRAN-lpSolve 
+Requires:         R-methods 
+Requires:         R-CRAN-rcdd 
 Requires:         R-CRAN-Rglpk 
 Requires:         R-CRAN-slam 
-Requires:         R-CRAN-CVXR 
+Requires:         R-utils 
+Requires:         R-CRAN-ompr 
+Requires:         R-CRAN-ompr.roi 
+Requires:         R-CRAN-ROI.plugin.glpk 
 
 %description
 Computes the Kantorovich distance between two probability measures on a

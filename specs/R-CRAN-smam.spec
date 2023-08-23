@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  smam
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Modeling of Animal Movements
 
@@ -14,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
@@ -43,13 +44,14 @@ Requires:         R-CRAN-numDeriv
 Requires:         R-CRAN-EnvStats 
 
 %description
-Animal movement models including moving-resting process with embedded
-Brownian motion according to Yan et al. (2014)
-<doi:10.1007/s10144-013-0428-8>, Pozdnyakov et al. (2017)
-<doi:10.1007/s11009-017-9547-6>, Brownian motion with measurement error
-according to Pozdnyakov et al. (2014) <doi:10.1890/13-0532.1>, and
-moving-resting-handling process with embedded Brownian motion, Pozdnyakov
-et al. (2018) <arXiv:1806.00849>.
+Animal movement models including Moving-Resting Process with Embedded
+Brownian Motion (Yan et al., 2014, <doi:10.1007/s10144-013-0428-8>;
+Pozdnyakov et al., 2017, <doi:10.1007/s11009-017-9547-6>), Brownian Motion
+with Measurement Error (Pozdnyakov et al., 2014, <doi:10.1890/13-0532.1>),
+Moving-Resting-Handling Process with Embedded Brownian Motion (Pozdnyakov
+et al., 2020, <doi:10.1007/s11009-020-09774-1>), Moving-Resting Process
+with Measurement Error (Hu et al., 2021, <doi:10.1111/2041-210X.13694>),
+Moving-Moving Process with two Embedded Brownian Motions.
 
 %prep
 %setup -q -c -n %{packname}

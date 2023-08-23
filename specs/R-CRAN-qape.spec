@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qape
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile of Absolute Prediction Errors
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mvtnorm 
@@ -30,11 +32,12 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-reshape2 
 
 %description
 Estimates QAPE using bootstrap procedures. The residual, parametric and
-double bootstrap algorithms are used. Functions using the parallel
-computing for bootstrapping and Monte Carlo analyses have been added.
+double bootstrap is used. The test of normality using Cholesky
+decomposition is added. Y pop is defined.
 
 %prep
 %setup -q -c -n %{packname}

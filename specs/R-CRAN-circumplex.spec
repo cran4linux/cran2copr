@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  circumplex
-%global packver   0.3.9
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.3.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Visualization of Circular Data
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-ggforce >= 0.3.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.11
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-tibble >= 3.0.0
@@ -42,6 +43,7 @@ Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-ggforce >= 0.3.0
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 
 %description

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  worcs
-%global packver   0.1.10
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflow for Open Reproducible Code in Science
 
@@ -16,28 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-prereg >= 0.6.0
+BuildRequires:    R-CRAN-rticles >= 0.25
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-renv 
-BuildRequires:    R-CRAN-prereg 
 BuildRequires:    R-CRAN-gert 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-rticles 
 BuildRequires:    R-CRAN-tinytex 
 BuildRequires:    R-CRAN-credentials 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-gh 
+Requires:         R-CRAN-prereg >= 0.6.0
+Requires:         R-CRAN-rticles >= 0.25
 Requires:         R-methods 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-renv 
-Requires:         R-CRAN-prereg 
 Requires:         R-CRAN-gert 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-rticles 
 Requires:         R-CRAN-tinytex 
 Requires:         R-CRAN-credentials 
 Requires:         R-CRAN-usethis 

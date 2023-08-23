@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  shinyscreenshot
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Capture Screenshots of Entire Pages or Parts of Pages in 'Shiny'
 
@@ -17,10 +18,12 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.0.0
+BuildRequires:    R-CRAN-htmltools >= 0.3.5
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-shiny >= 1.0.0
+Requires:         R-CRAN-htmltools >= 0.3.5
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-uuid 
