@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmmLasso
-%global packver   1.6.2
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Selection for Generalized Linear Mixed Models by L1-Penalized Estimation
 
@@ -21,14 +21,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-minqa 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-GMMBoost 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-stats 
 Requires:         R-CRAN-minqa 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-GMMBoost 
 
 %description
 A variable selection approach for generalized linear mixed models by

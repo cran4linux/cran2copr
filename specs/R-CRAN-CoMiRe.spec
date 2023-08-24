@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fplyr
-%global packver   1.3.0
+%global packname  CoMiRe
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Apply Functions to Blocks of Files
+Summary:          Convex Mixture Regression
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-parallel >= 3.5.1
-BuildRequires:    R-CRAN-data.table >= 1.1.4
-BuildRequires:    R-CRAN-iotools >= 0.2.5
-Requires:         R-parallel >= 3.5.1
-Requires:         R-CRAN-data.table >= 1.1.4
-Requires:         R-CRAN-iotools >= 0.2.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-splines2 >= 0.3.1
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-splines2 >= 0.3.1
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-rlang 
 
 %description
-Read and process a large delimited file block by block. A block consists
-of all the contiguous rows that have the same value in the first field.
-The result can be returned as a list or a data.table, or even directly
-printed to an output file.
+Posterior inference under the convex mixture regression (CoMiRe) models
+introduced by Canale, Durante, and Dunson (2018) <doi:10.1111/biom.12917>.
 
 %prep
 %setup -q -c -n %{packname}

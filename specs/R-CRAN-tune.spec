@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tune
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tuning Tools
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-cli >= 3.3.0
 BuildRequires:    R-CRAN-tibble >= 3.1.0
 BuildRequires:    R-CRAN-glue >= 1.6.2
 BuildRequires:    R-CRAN-hardhat >= 1.2.0
+BuildRequires:    R-CRAN-rsample >= 1.2.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.8
@@ -30,7 +31,6 @@ BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-dials >= 1.0.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-rsample >= 1.0.0
 BuildRequires:    R-CRAN-workflows >= 1.0.0
 BuildRequires:    R-CRAN-yardstick >= 1.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.6.1
@@ -43,6 +43,7 @@ Requires:         R-CRAN-cli >= 3.3.0
 Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-glue >= 1.6.2
 Requires:         R-CRAN-hardhat >= 1.2.0
+Requires:         R-CRAN-rsample >= 1.2.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.1.2
 Requires:         R-CRAN-dplyr >= 1.0.8
@@ -52,7 +53,6 @@ Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-dials >= 1.0.0
 Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-rsample >= 1.0.0
 Requires:         R-CRAN-workflows >= 1.0.0
 Requires:         R-CRAN-yardstick >= 1.0.0
 Requires:         R-CRAN-vctrs >= 0.6.1

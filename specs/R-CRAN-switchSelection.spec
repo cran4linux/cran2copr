@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  switchSelection
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Endogenous Switching and Sample Selection Regression Models
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-hpa >= 1.3.1
-BuildRequires:    R-CRAN-mnorm >= 1.1.1
+BuildRequires:    R-CRAN-mnorm >= 1.2.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-gena >= 1.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-hpa >= 1.3.1
-Requires:         R-CRAN-mnorm >= 1.1.1
+Requires:         R-CRAN-mnorm >= 1.2.1
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-gena >= 1.0.0
 Requires:         R-methods 

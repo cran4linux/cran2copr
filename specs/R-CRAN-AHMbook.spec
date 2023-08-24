@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AHMbook
-%global packver   0.2.6
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Data for the Book 'Applied Hierarchical Modeling in Ecology' Vols 1 and 2
 

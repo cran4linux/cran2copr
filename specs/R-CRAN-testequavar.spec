@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  testequavar
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Tests for Equality of 2, 3, or 4 Population Variances
 
@@ -26,7 +26,7 @@ bootstrap. The procedure uses a variance-based statistic, and is derived
 from a normal-theory test. The test equivalently expressed the hypothesis
 as a function of the log contrasts of the population variances. A box-type
 acceptance region is constructed to test the hypothesis. See Cahoy (2010)
-<doi:10.1016/j.csda.2010.04.012>.
+doi{10.1016/j.csda.2010.04.012}.
 
 %prep
 %setup -q -c -n %{packname}

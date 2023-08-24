@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  potions
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Options Management
 
@@ -19,11 +19,15 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lobstr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rrapply 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lobstr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rrapply 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-yaml 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  flipr
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Inference via Permutations in R
 
@@ -15,36 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-dials 
-BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-optimParallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rgenoud 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-dials 
-Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-optimParallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-withr 
 
 %description
 A flexible permutation framework for making inference such as point

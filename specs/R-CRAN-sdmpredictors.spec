@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sdmpredictors
-%global packver   0.2.14
+%global packver   0.2.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.14
+Version:          0.2.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Modelling Predictor Datasets
 
@@ -21,12 +21,12 @@ BuildRequires:    R-CRAN-R.utils >= 2.4.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-R.utils >= 2.4.0
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-terra 
 
 %description
 Terrestrial and marine predictors for species distribution modelling from

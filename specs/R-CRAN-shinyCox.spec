@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fplyr
-%global packver   1.3.0
+%global packname  shinyCox
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Apply Functions to Blocks of Files
+Summary:          Create 'shiny' Applications for Cox Proportional Hazards Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-parallel >= 3.5.1
-BuildRequires:    R-CRAN-data.table >= 1.1.4
-BuildRequires:    R-CRAN-iotools >= 0.2.5
-Requires:         R-parallel >= 3.5.1
-Requires:         R-CRAN-data.table >= 1.1.4
-Requires:         R-CRAN-iotools >= 0.2.5
+BuildRequires:    R-CRAN-survival >= 3.3
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-survival >= 3.3
+Requires:         R-CRAN-shiny 
 
 %description
-Read and process a large delimited file block by block. A block consists
-of all the contiguous rows that have the same value in the first field.
-The result can be returned as a list or a data.table, or even directly
-printed to an output file.
+Takes one or more fitted Cox proportional hazards models and writes a
+'shiny' application to a directory specified by the user. The 'shiny'
+application displays predicted survival curves based on user input, and
+contains none of the original data used to create the Cox model or models.
+The goal is towards visualization and presentation of predicted survival
+curves.
 
 %prep
 %setup -q -c -n %{packname}

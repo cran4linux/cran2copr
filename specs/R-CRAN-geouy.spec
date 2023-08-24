@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geouy
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Information of Uruguay
 
@@ -17,46 +17,48 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-ggspatial 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggspatial 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-ggspatial 
-Requires:         R-methods 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggspatial 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
+Requires:         R-CRAN-viridis 
 
 %description
 The toolbox have functions to load and process geographic information for
-Uruguay. And extra-function to get address coordinates and orthophotos
+Uruguay.  And extra-function to get address coordinates and orthophotos
 through the uruguayan 'IDE' API
 <https://www.gub.uy/infraestructura-datos-espaciales/tramites-y-servicios/servicios/sistema-unico-direcciones-geograficas>.
 

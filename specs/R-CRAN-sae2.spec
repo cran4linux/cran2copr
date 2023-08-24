@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamlss.dist
-%global packver   6.1-1
+%global packname  sae2
+%global packver   1.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributions for Generalized Additive Models for Location Scale and Shape
+Summary:          Small Area Estimation: Time-Series Models
 
-License:          GPL-2 | GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
 Requires:         R-CRAN-MASS 
-Requires:         R-graphics 
+Requires:         R-CRAN-survey 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-grDevices 
 
 %description
-A set of distributions which can be used for modelling the response
-variables in Generalized Additive Models for Location Scale and Shape,
-Rigby and Stasinopoulos (2005), <doi:10.1111/j.1467-9876.2005.00510.x>.
-The distributions can be continuous, discrete or mixed distributions.
-Extra distributions can be created, by transforming, any continuous
-distribution defined on the real line, to a distribution defined on ranges
-0 to infinity or 0 to 1, by using a 'log' or a 'logit' transformation
-respectively.
+Time series area-level models for small area estimation. The package
+supplements the functionality of the sae package. Specifically, it
+includes EBLUP fitting of the original Rao-Yu model, which in the original
+form did not have a spatial component. The package also offers a modified
+('dynamic') version of the Rao-Yu model, replacing the assumption of
+stationarity. Both univariate and multivariate applications are supported.
+Of particular note is the allowance for covariance of the area-level
+sample estimates over time, as encountered in rotating panel designs such
+as the U.S. National Crime Victimization Survey or present in a
+time-series of 5-year estimates from the American Community Survey. Key
+references to the methods include J.N.K. Rao and I. Molina (2015,
+ISBN:9781118735787), J.N.K. Rao and M. Yu (1994) <doi:10.2307/3315407>,
+and R.E. Fay and R.A. Herriot (1979) <doi:10.1080/01621459.1979.10482505>.
 
 %prep
 %setup -q -c -n %{packname}

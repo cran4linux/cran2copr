@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stppSim
-%global packver   1.2.7
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Point Patterns Simulation
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-terra 
@@ -41,12 +40,14 @@ BuildRequires:    R-CRAN-leaflet
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-otuSummary 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-future.apply 
 Requires:         R-CRAN-splancs 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-terra 
@@ -65,21 +66,24 @@ Requires:         R-CRAN-leaflet
 Requires:         R-methods 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-otuSummary 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-future.apply 
 
 %description
-Generates artificial spatiotemporal (ST) point patterns through the
-integration of microsimulation (Holm, E.,
+Generates artificial spatiotemporal (ST) point patterns and/or
+interactions through the integration of microsimulation (Holm, E.,
 (2017)<doi:10.1002/9781118786352.wbieg0320>) and agent-based models
-(Bonabeau, E., (2002)<doi:10.1073/pnas.082080899>). Allows a user to
-define the behaviours of a set of 'walkers' (agents, objects, persons,
-etc.) whose interactions with the spatial (landscape) (Quaglietta, L. and
-Porto, M., (2019)<doi:10.1186/s40462-019-0154-8>) and the temporal domains
-produce new point events. The resulting ST patterns from the point cloud
-can be measured and utilized for spatial and/or temporal model testings
-and evaluations. Application: With increasingly limited availability of
-fine-grained spatially and temporally stamped point data, the package
-provides an alternative source of data for a wide range of research in
-social and life sciences.
+(Bonabeau, E., (2002)<doi:10.1073/pnas.082080899>). The tool enables users
+to configure the actions of a group of 'walkers', which can be agents,
+objects, individuals, and more. Their engagements with both spatial
+landscapes (Quaglietta, L. and Porto, M.,
+(2019)<doi:10.1186/s40462-019-0154-8>) and time domains result in specific
+spatiotemporal point patterns and/or interactions. These emerging
+spatiotemporal patterns can be visualized, analyzed, and then employed for
+both spatial and temporal model assessments. Given the growing scarcity of
+detailed spatiotemporal data, this package offers an alternative dataset
+for a broad spectrum of studies in both the social and life sciences.
 
 %prep
 %setup -q -c -n %{packname}

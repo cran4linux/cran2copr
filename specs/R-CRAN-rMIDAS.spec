@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rMIDAS
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Imputation with Denoising Autoencoders
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-mltools 
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rappdirs 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-mltools 
 Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-rappdirs 
 
 %description
 A tool for multiply imputing missing data using 'MIDAS', a deep learning

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  medfate
-%global packver   2.9.3
+%global packver   3.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.3
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediterranean Forest Simulation
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-meteoland >= 2.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-meteoland >= 0.8.1
 BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-meteoland >= 2.0.0
 Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-meteoland >= 0.8.1
 Requires:         R-CRAN-shiny 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TestGardener
-%global packver   3.2.3
+%global packver   3.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          3.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Analysis of Test and Rating Scale Data
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-stringr 
@@ -28,10 +29,10 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-utf8 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-stringr 
@@ -40,7 +41,6 @@ Requires:         R-CRAN-pracma
 Requires:         R-CRAN-utf8 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-plotly 
 
 %description
 Develop, evaluate, and score multiple choice examinations, psychological
