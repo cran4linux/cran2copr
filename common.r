@@ -253,16 +253,22 @@ need_update <- function(pkgs, cran=available_packages()) {
 }
 
 .sys_deps <- function(desc) {
-  deps <- read.csv("sysreqs.csv", na.strings="", stringsAsFactors=FALSE)
-  deps <- deps[deps$pkg == desc$Package,]
+  sreq <- read.csv("sysreqs/sysreqs.csv", na.strings="", stringsAsFactors=FALSE)
+  deps <- read.csv("sysreqs/pkgdb.csv", na.strings="", stringsAsFactors=FALSE)
+  deps <- deps[deps$name == desc$Package,]
   if (!nrow(deps))
     return(character(0))
 
+  resolve_deps <- function(sreq, dname) {
+    idx <- grepl("^R-CRAN-", dname)
+    c(dname[idx], subset(sreq, name %in% dname[!idx])$fedora_rhel)
+  }
+
   x <- character(0)
-  if (!is.na(deps$build))
-    x <- c(x, paste0("BuildRequires:    ", strsplit(deps$build, " ")[[1]]))
-  if (!is.na(deps$run))
-    x <- c(x, paste0("Requires:         ", strsplit(deps$run, " ")[[1]]))
+  if (length(dname <- na.omit(strsplit(deps$build, " ")[[1]])))
+    x <- c(x, paste0("BuildRequires:    ", resolve_deps(sreq, dname)))
+  if (length(dname <- na.omit(strsplit(deps$run, " ")[[1]])))
+    x <- c(x, paste0("Recommends:       ", resolve_deps(sreq, dname)))
   x
 }
 
