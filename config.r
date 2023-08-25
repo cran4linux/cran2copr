@@ -1,7 +1,7 @@
 options(
   copr.cmd         = "copr-cli",
   copr.repo        = "cran",
-  copr.clone.url   = "https://github.com/Enchufa2/cran2copr",
+  copr.clone.url   = "https://github.com/cran4linux/cran2copr",
   copr.subdir      = "specs",
   copr.prefix      = "R-CRAN-",
   copr.tpl         = "spec.in",

@@ -19,7 +19,7 @@ jobs:
         tag: [38, 39, rawhide]
 
     env:
-      REGISTRY: ghcr.io/enchufa2
+      REGISTRY: ghcr.io/cran4linux
 
     steps:
     - name: Checkout

@@ -11,7 +11,7 @@ Release:        1%{?dist}%{?buildtag}
 Summary:        Package Manager for the 'cran2copr' Project
 
 License:        MIT
-URL:            https://github.com/Enchufa2/%{projname}
+URL:            https://github.com/cran4linux/%{projname}
 Source0:        %{url}/archive/v%{version}/%{projname}_%{version}.tar.gz
 
 BuildRequires:  R-devel, python3-devel
@@ -45,7 +45,7 @@ rename %{projname} %{packname} man/* inst/service/%{projname}.py
 sed -i 's/%{projname}/%{packname}/' DESCRIPTION
 sed -i 's/%{projname}/%{packname}/g' man/* R/* inst/scripts/*
 sed -i 's/%{projname}/%{packname}/g' inst/service/dbus.service.in
-sed -i 's@Enchufa2/%{packname}@Enchufa2/%{projname}@g' man/* R/*
+sed -i 's@cran4linux/%{packname}@cran4linux/%{projname}@g' man/* R/*
 sed -i 's/_sys/_copr/g' NAMESPACE man/* R/* inst/scripts/*
 # do not update cache every time the installer runs
 sed -i '/update_cache/d' inst/service/backend/dnf.py

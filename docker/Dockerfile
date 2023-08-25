@@ -2,7 +2,7 @@ ARG VERSION=rawhide
 FROM registry.fedoraproject.org/fedora:$VERSION AS r-fedora
 
 LABEL org.opencontainers.image.licenses="GPL-2.0" \
-      org.opencontainers.image.source="https://github.com/Enchufa2/cran2copr" \
+      org.opencontainers.image.source="https://github.com/cran4linux/cran2copr" \
       org.opencontainers.image.authors="Iñaki Ucar <iucar@fedoraproject.org>"
 
 # install R

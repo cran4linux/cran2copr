@@ -1,17 +1,17 @@
 # cran2copr: RPM repo of CRAN packages for Fedora
 
-[![Daily sync](https://github.com/Enchufa2/cran2copr/actions/workflows/sync.yml/badge.svg)](https://github.com/Enchufa2/cran2copr/actions/workflows/sync.yml)
-[![Docker images](https://github.com/Enchufa2/cran2copr/actions/workflows/docker.yml/badge.svg)](https://github.com/Enchufa2/cran2copr/actions/workflows/docker.yml)
+[![Daily sync](https://github.com/cran4linux/cran2copr/actions/workflows/sync.yml/badge.svg)](https://github.com/cran4linux/cran2copr/actions/workflows/sync.yml)
+[![Docker images](https://github.com/cran4linux/cran2copr/actions/workflows/docker.yml/badge.svg)](https://github.com/cran4linux/cran2copr/actions/workflows/docker.yml)
 
 Bringing R packages to Fedora (in fact, to any distro) is an Herculean task, especially considering the rate at which [CRAN](https://cran.r-project.org) grows nowadays. This is an attempt to maintain RPM repos for most of CRAN (~15k packages as of Feb. 2020) in an automated way using [Fedora Copr](https://copr.fedorainfracloud.org/), while ensuring compatibility with the packages already in the official repos.
 
 ## Support
 
-Currently, only x86_64 chroots for supported (non-EOL) versions of Fedora, including rawhide, are enabled. If you are interested in other chroots (from the supported architectures and distros), please [open an issue on GitHub](https://github.com/Enchufa2/cran2copr/issues) expressing so, but it is unlikely that it will be enabled in the short to medium term due to current storage limitations in the Copr infrastructure.
+Currently, only x86_64 chroots for supported (non-EOL) versions of Fedora, including rawhide, are enabled. If you are interested in other chroots (from the supported architectures and distros), please [open an issue on GitHub](https://github.com/cran4linux/cran2copr/issues) expressing so, but it is unlikely that it will be enabled in the short to medium term due to current storage limitations in the Copr infrastructure.
 
-These repos are automatically synchronized with CRAN every day at 00:00 UTC through a GitHub Action that removes archived packages and builds the most recent updates. If you find any issue with any of the supported packages (see details and limitations below), please [open an issue on GitHub](https://github.com/Enchufa2/cran2copr/issues).
+These repos are automatically synchronized with CRAN every day at 00:00 UTC through a GitHub Action that removes archived packages and builds the most recent updates. If you find any issue with any of the supported packages (see details and limitations below), please [open an issue on GitHub](https://github.com/cran4linux/cran2copr/issues).
 
-Integration with `install.packages` is handled via `CoprManager` (see installation instructions below). If you experience any related issues, please [open an issue in the `bspm` repository](https://github.com/Enchufa2/bspm/issues), which is the upstream source for `CoprManager`.
+Integration with `install.packages` is handled via `CoprManager` (see installation instructions below). If you experience any related issues, please [open an issue in the `bspm` repository](https://github.com/cran4linux/bspm/issues), which is the upstream source for `CoprManager`.
 
 ## Installation
 
