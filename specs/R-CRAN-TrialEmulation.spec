@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eatGADS
-%global packver   1.1.0
+%global packname  TrialEmulation
+%global packver   0.0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Management of Large Hierarchical Data
+Summary:          Causal Analysis of Observational Time-to-Event Data
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.4.0
-BuildRequires:    R-CRAN-eatDB >= 0.5.0
-BuildRequires:    R-CRAN-eatTools >= 0.4.0
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-haven >= 2.4.0
-Requires:         R-CRAN-eatDB >= 0.5.0
-Requires:         R-CRAN-eatTools >= 0.4.0
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-hms 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-data.table >= 1.9.8
+BuildRequires:    R-CRAN-broom >= 0.7.10
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-parglm 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-CRAN-data.table >= 1.9.8
+Requires:         R-CRAN-broom >= 0.7.10
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-parglm 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-sandwich 
 
 %description
-Import 'SPSS' data, handle and change 'SPSS' meta data, store and access
-large hierarchical data in 'SQLite' data bases.
+Implements target trial emulation methods to apply randomized clinical
+trial design and analysis in an observational setting. Using marginal
+structural models, it can estimate intention-to-treat and per-protocol
+effects in emulated trials using electronic health records. A description
+and application of the method can be found in Danaei et al (2013)
+<doi:10.1177/0962280211403603>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  norm2
-%global packver   2.0.4
+%global __requires_exclude ^libmpi
+%global packname  normfluodbf
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Incomplete Multivariate Data under a Normal Model
+Summary:          Cleans and Normalizes 'FLUOstar' 'DBF' Files
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
 
 %description
-Functions for parameter estimation, Bayesian posterior simulation and
-multiple imputation from incomplete multivariate data under a normal
-model.
+Converts a 'FLUOstar' 'DBF' File into a Normalized Data Frame, Ready for
+Analysis.
 
 %prep
 %setup -q -c -n %{packname}
@@ -31,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

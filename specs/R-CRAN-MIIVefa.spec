@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CDSS
-%global packver   0.1-0
+%global packname  MIIVefa
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Course-Dependent Skill Structures
+Summary:          Exploratory Factor Analysis Using Model Implied Instrumental Variables
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openxlsx >= 4.2.0
-BuildRequires:    R-CRAN-readODS >= 1.7.0
-Requires:         R-CRAN-openxlsx >= 4.2.0
-Requires:         R-CRAN-readODS >= 1.7.0
+BuildRequires:    R-CRAN-MIIVsem 
+Requires:         R-CRAN-MIIVsem 
 
 %description
-Deriving skill structures from skill assignment data for courses (sets of
-learning objects).
+Data-driven approach for Exploratory Factor Analysis (EFA) that uses Model
+Implied Instrumental Variables (MIIVs). The method starts with a one
+factor model and arrives at a suggested model with enhanced
+interpretability that allows cross-loadings and correlated errors.
 
 %prep
 %setup -q -c -n %{packname}

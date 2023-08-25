@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fmesher
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Triangle Meshes and Related Geometry Tools
 
@@ -23,7 +23,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-R.methodsS3 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
@@ -38,7 +37,6 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-R.methodsS3 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 

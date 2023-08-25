@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  robCompositions
-%global packver   2.3.1
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -18,12 +19,13 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-cvTools 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-rrcov 
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-ggfortify 
@@ -42,12 +44,13 @@ BuildRequires:    R-CRAN-RcppEigen
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-car 
 Requires:         R-CRAN-cvTools 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-rrcov 
 Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-ggfortify 

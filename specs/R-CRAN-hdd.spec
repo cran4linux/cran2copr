@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wk
-%global packver   0.8.0
+%global packname  hdd
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightweight Well-Known Geometry Parsing
+Summary:          Easy Manipulation of Out of Memory Data Sets
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fst 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dreamerr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fst 
+Requires:         R-utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-dreamerr 
 
 %description
-Provides a minimal R and C++ API for parsing well-known binary and
-well-known text representation of geometries to and from R-native formats.
-Well-known binary is compact and fast to parse; well-known text is
-human-readable and is useful for writing tests. These formats are useful
-in R only if the information they contain can be accessed in R, for which
-high-performance functions are provided here.
+Hard drive data: Class of data allowing the easy importation/manipulation
+of out of memory data sets. The data sets are located on disk but look
+like in-memory, the syntax for manipulation is similar to 'data.table'.
+Operations are performed "chunk-wise" behind the scene.
 
 %prep
 %setup -q -c -n %{packname}

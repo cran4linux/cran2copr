@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tram
-%global packver   0.8-3
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models
 
@@ -16,7 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-mlt >= 1.4.7
+BuildRequires:    R-CRAN-mlt >= 1.4.9
+BuildRequires:    R-CRAN-mvtnorm >= 1.2.0
 BuildRequires:    R-CRAN-basefun >= 1.1.2
 BuildRequires:    R-CRAN-variables >= 1.0.4
 BuildRequires:    R-CRAN-Formula 
@@ -27,8 +28,8 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mlt >= 1.4.7
+Requires:         R-CRAN-mlt >= 1.4.9
+Requires:         R-CRAN-mvtnorm >= 1.2.0
 Requires:         R-CRAN-basefun >= 1.1.2
 Requires:         R-CRAN-variables >= 1.0.4
 Requires:         R-CRAN-Formula 
@@ -39,7 +40,6 @@ Requires:         R-CRAN-survival
 Requires:         R-graphics 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-mvtnorm 
 
 %description
 Formula-based user-interfaces to specific transformation models

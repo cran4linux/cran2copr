@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vivainsights
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze and Visualize Data from 'Microsoft Viva Insights'
 
@@ -40,7 +40,6 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-ggwordcloud 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
@@ -64,7 +63,6 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-ggwordcloud 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-DT 
 
 %description
 Provides a versatile range of functions, including exploratory data

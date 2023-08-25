@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wk
-%global packver   0.8.0
+%global packname  RTLknitr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightweight Well-Known Geometry Parsing
+Summary:          Right to Left Dynamic Documents Using 'knitr'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-bookdown 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-bookdown 
 
 %description
-Provides a minimal R and C++ API for parsing well-known binary and
-well-known text representation of geometries to and from R-native formats.
-Well-known binary is compact and fast to parse; well-known text is
-human-readable and is useful for writing tests. These formats are useful
-in R only if the information they contain can be accessed in R, for which
-high-performance functions are provided here.
+Provide seamless support for right-to-left (RTL) languages, such as
+Persian and Arabic, in R Markdown documents and 'LaTeX' output. It
+includes functions and hooks that enable easy integration of RTL language
+content, allowing users to create documents that adhere to RTL writing
+conventions. For in-depth insights into dynamic documents and the 'knitr'
+package, consider referring to Xie, Y (2014) <ISBN: 978-1-482-20353-0>.
 
 %prep
 %setup -q -c -n %{packname}
