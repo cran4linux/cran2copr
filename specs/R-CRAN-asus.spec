@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbi.helpers
-%global packver   0.4.0
+%global packname  asus
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'rbi' Helper Functions
+Summary:          Adaptive SURE Thresholding Using Side Information
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rbi >= 0.10.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rbi >= 0.10.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-wavethresh 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-wavethresh 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Contains a collection of helper functions to use with 'rbi', the R
-interface to 'LibBi', described in Murray et al. (2015)
-<doi:10.18637/jss.v067.i10>. It contains functions to adapt the proposal
-distribution and number of particles in particle Markov-Chain Monte Carlo,
-as well as calculating the Deviance Information Criterion (DIC) and
-converting between times in 'LibBi' results and R time/dates.
+Provides the ASUS procedure for estimating a high dimensional sparse
+parameter in the presence of auxiliary data that encode side information
+on sparsity. It is a robust data combination procedure in the sense that
+even when pooling non-informative auxiliary data ASUS would be at least as
+efficient as competing soft thresholding based methods that do not use
+auxiliary data. For more information, please see the paper Adaptive Sparse
+Estimation with Side Information by Banerjee, Mukherjee and Sun (JASA
+2020).
 
 %prep
 %setup -q -c -n %{packname}

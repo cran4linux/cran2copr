@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BetaBit
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mini Games from Adventures of Beta and Bit
 
@@ -34,7 +34,7 @@ This time seven sub-tasks are pushing the bar much higher. Do you accept
 the challenge? In regression you will test your modeling skills in a
 series of eight sub-tasks. Try only if ANOVA is your close friend. It's a
 part of Beta and Bit project. You will find more about the Beta and Bit
-project at <https://github.com/BetaAndBit/Wykresy>.
+project at <https://github.com/BetaAndBit/Charts>.
 
 %prep
 %setup -q -c -n %{packname}

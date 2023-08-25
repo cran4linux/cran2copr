@@ -1,49 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gnm
-%global packver   1.1-3
+%global packname  periscope2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Nonlinear Models
+Summary:          Enterprise Streamlined 'shiny' Application Framework Using 'bs4Dash'
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-qvcalc >= 0.8.3
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bs4Dash >= 2.3
+BuildRequires:    R-CRAN-shiny >= 1.7
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-fresh 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-relimp 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-qvcalc >= 0.8.3
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-bs4Dash >= 2.3
+Requires:         R-CRAN-shiny >= 1.7
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-fresh 
 Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-relimp 
-Requires:         R-stats 
+Requires:         R-CRAN-shinyWidgets 
 Requires:         R-utils 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-yaml 
 
 %description
-Functions to specify and fit generalized nonlinear models, including
-models with multiplicative interaction terms such as the UNIDIFF model
-from sociology and the AMMI model from crop science, and many others.
-Over-parameterized representations of models are used throughout;
-functions are provided for inference on estimable parameter combinations,
-as well as standard methods for diagnostics etc.
+A framework for building enterprise, scalable and UI-standardized 'shiny'
+applications. It brings enhanced features such as 'bootstrap' v4
+<https://getbootstrap.com/docs/4.0/getting-started/introduction/>,
+additional and enhanced 'shiny' modules, customizable UI features, as well
+as an enhanced application file organization paradigm. This update allows
+developers to harness the ability to build powerful applications and
+enriches the 'shiny' developers' experience when building and maintaining
+applications.
 
 %prep
 %setup -q -c -n %{packname}

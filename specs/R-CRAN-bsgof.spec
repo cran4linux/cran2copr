@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbi.helpers
-%global packver   0.4.0
+%global packname  bsgof
+%global packver   0.23.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.23.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          'rbi' Helper Functions
+Summary:          Birnbaum-Saunders Goodness-of-Fit Test
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rbi >= 0.10.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rbi >= 0.10.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-Matrix 
 
 %description
-Contains a collection of helper functions to use with 'rbi', the R
-interface to 'LibBi', described in Murray et al. (2015)
-<doi:10.18637/jss.v067.i10>. It contains functions to adapt the proposal
-distribution and number of particles in particle Markov-Chain Monte Carlo,
-as well as calculating the Deviance Information Criterion (DIC) and
-converting between times in 'LibBi' results and R time/dates.
+Performs goodness of fit test for the Birnbaum-Saunders distribution and
+provides the maximum likelihood estimate and the method-of-moments
+estimate. For more details, see Park and Wang (2013) <arXiv:2308.10150>.
+This work was supported by the National Research Foundation of Korea (NRF)
+grants funded by the Korea government (MSIT) (No. 2022R1A2C1091319,
+RS-2023-00242528).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  segregation
-%global packver   0.6.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Entropy-Based Segregation Indices
 
@@ -13,11 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppProgress 
 
 %description
 Computes segregation indices, including the Index of Dissimilarity, as
@@ -31,7 +37,8 @@ units and groups (local segregation), and by within and between terms. The
 package also provides a method to decompose differences in segregation as
 described by Elbers (2021) <doi:10.1177/0049124121986204>. The package
 includes standard error estimation by bootstrapping, which also corrects
-for small sample bias.
+for small sample bias. The package also contains functions for visualizing
+segregation patterns.
 
 %prep
 %setup -q -c -n %{packname}

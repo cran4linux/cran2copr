@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbi.helpers
-%global packver   0.4.0
+%global packname  planr
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'rbi' Helper Functions
+Summary:          Tools for Supply Chain Management, Demand and Supply Planning
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rbi >= 0.10.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rbi >= 0.10.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RcppRoll 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-RcppRoll 
 
 %description
-Contains a collection of helper functions to use with 'rbi', the R
-interface to 'LibBi', described in Murray et al. (2015)
-<doi:10.18637/jss.v067.i10>. It contains functions to adapt the proposal
-distribution and number of particles in particle Markov-Chain Monte Carlo,
-as well as calculating the Deviance Information Criterion (DIC) and
-converting between times in 'LibBi' results and R time/dates.
+Perform flexible and quick calculations for Demand and Supply Planning,
+such as projected inventories and coverages, as well as replenishment
+plan. For any time bucket, daily, weekly or monthly, and any granularity
+level, product or group of products.
 
 %prep
 %setup -q -c -n %{packname}

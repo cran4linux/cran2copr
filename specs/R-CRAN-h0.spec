@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  h0
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Meta Analysis for Estimating the Hubble Constant via Time Delay Cosmography
+Summary:          A Robust Bayesian Meta-Analysis for Estimating the Hubble Constant via Time Delay Cosmography
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,13 +19,15 @@ Requires:         R-core >= 2.2.0
 BuildArch:        noarch
 
 %description
-We provide a toolbox to conduct a meta analysis for estimating the current
-expansion rate of the Universe, called the Hubble constant H0, via time
-delay cosmography. The input data are (i) estimates of Fermat potential
-differences and their one-sigma uncertainties (standard errors), and (ii)
-estimates of time delays and their one-sigma uncertainties. Given these
-inputs, the meta analysis conducts a maximum likelihood estimation or a
-Bayesian inference to infer the Hubble constant.
+We provide a toolbox to conduct a Bayesian meta-analysis for estimating
+the current expansion rate of the Universe, called the Hubble constant H0,
+via time delay cosmography. The input data are Fermat potential difference
+and time delay estimates. For a robust inference, we assume a Student's t
+error for these inputs. Given these inputs, the meta-analysis produces
+posterior samples of the model parameters including the Hubble constant
+via Metropolis-Hastings within Gibbs. The package provides an option to
+implement repelling-attracting Metropolis-Hastings within Gibbs in a case
+where the parameter space has multiple modes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pressuRe
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imports, Processes, and Visualizes Biomechanical Pressure Data
 
@@ -17,23 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gdistance 
 BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gdistance 
 Requires:         R-CRAN-ggmap 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 

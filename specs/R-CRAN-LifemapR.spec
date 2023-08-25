@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbi.helpers
-%global packver   0.4.0
+%global packname  LifemapR
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          'rbi' Helper Functions
+Summary:          Data Visualisation on 'Lifemap' Tree
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rbi >= 0.10.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rbi >= 0.10.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-leaflet.minicharts 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-leaflet.minicharts 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-rlang 
 
 %description
-Contains a collection of helper functions to use with 'rbi', the R
-interface to 'LibBi', described in Murray et al. (2015)
-<doi:10.18637/jss.v067.i10>. It contains functions to adapt the proposal
-distribution and number of particles in particle Markov-Chain Monte Carlo,
-as well as calculating the Deviance Information Criterion (DIC) and
-converting between times in 'LibBi' results and R time/dates.
+Allow to visualise data on the NCBI phylogenetic tree as presented in
+Lifemap '<http://lifemap.univ-lyon1.fr/>'. It takes as input a dataframe
+with at least a "taxid" column containing NCBI format TaxIds and allows to
+draw multiple layers with different visualisation tools.
 
 %prep
 %setup -q -c -n %{packname}

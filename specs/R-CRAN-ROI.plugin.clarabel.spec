@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ROI.plugin.clarabel
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'clarabel' Plug-in for the 'R' Optimization Infrastructure
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ROI >= 1.0.0
-BuildRequires:    R-CRAN-clarabel >= 0.4.1
+BuildRequires:    R-CRAN-clarabel >= 0.5.1
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-slam 
 Requires:         R-CRAN-ROI >= 1.0.0
-Requires:         R-CRAN-clarabel >= 0.4.1
+Requires:         R-CRAN-clarabel >= 0.5.1
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-slam 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbi.helpers
-%global packver   0.4.0
+%global packname  CoastlineFD
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          'rbi' Helper Functions
+Summary:          Calculate the Coastline Fractal Dimension
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rbi >= 0.10.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rbi >= 0.10.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-writexl 
 
 %description
-Contains a collection of helper functions to use with 'rbi', the R
-interface to 'LibBi', described in Murray et al. (2015)
-<doi:10.18637/jss.v067.i10>. It contains functions to adapt the proposal
-distribution and number of particles in particle Markov-Chain Monte Carlo,
-as well as calculating the Deviance Information Criterion (DIC) and
-converting between times in 'LibBi' results and R time/dates.
+A system is used to calculate the fractal dimension of coastline by boxes
+method and Dividers method.
 
 %prep
 %setup -q -c -n %{packname}

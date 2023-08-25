@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  defm
-%global packver   0.1-0
+%global packname  countsplit
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation and Simulation of Multi-Binary Response Models
+Summary:          Splitting a Count Matrix into Independent Folds
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-stats4 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Multi-binary response models are a class of models that allow for the
-estimation of multiple binary outcomes simultaneously. This package
-provides functions to estimate and simulate these models using the
-Discrete Exponential-Family Models [DEFM] framework. In it, we implement
-the models described in Vega Yon, Valente, and Pugh (2023)
-<doi:10.48550/arXiv.2211.00627>. DEFMs include Exponential-Family Random
-Graph Models [ERGMs], which characterize graphs using sufficient
-statistics, which is also the core of DEFMs. Using sufficient statistics,
-we can describe the data through meaningful motifs, for example,
-transitions between different states, joint distribution of the outcomes,
-etc.
+Implements the count splitting methodology from Neufeld et al. (2022)
+<doi:10.1093/biostatistics/kxac047> and Neufeld et al. (2023)
+<arXiv:2307.12985>. Intended for turning a matrix of single-cell RNA
+sequencing counts, or similar count datasets, into independent folds that
+can be used for training/testing or cross validation. Assumes that the
+entries in the matrix are from a Poisson or a negative binomial
+distribution.
 
 %prep
 %setup -q -c -n %{packname}

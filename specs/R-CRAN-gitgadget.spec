@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gadget3
-%global packver   0.10-1
+%global packname  gitgadget
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Globally-Applicable Area Disaggregated General Ecosystem Toolbox V3
+Summary:          'Rstudio' Addin for Version Control and Assignment Management using Git
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-TMB >= 1.7.0
-BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-TMB >= 1.7.0
-Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-digest 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-curl >= 3.2
+BuildRequires:    R-CRAN-callr >= 2.0.4
+BuildRequires:    R-CRAN-shiny >= 1.7.1
+BuildRequires:    R-CRAN-usethis >= 1.5.1
+BuildRequires:    R-CRAN-jsonlite >= 1.5
+BuildRequires:    R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-shinyFiles >= 0.7.5
+BuildRequires:    R-CRAN-rstudioapi >= 0.7
+BuildRequires:    R-CRAN-miniUI >= 0.1.1.1
+BuildRequires:    R-CRAN-markdown 
+Requires:         R-CRAN-curl >= 3.2
+Requires:         R-CRAN-callr >= 2.0.4
+Requires:         R-CRAN-shiny >= 1.7.1
+Requires:         R-CRAN-usethis >= 1.5.1
+Requires:         R-CRAN-jsonlite >= 1.5
+Requires:         R-CRAN-dplyr >= 0.8.3
+Requires:         R-CRAN-shinyFiles >= 0.7.5
+Requires:         R-CRAN-rstudioapi >= 0.7
+Requires:         R-CRAN-miniUI >= 0.1.1.1
+Requires:         R-CRAN-markdown 
 
 %description
-A framework to assist creation of marine ecosystem models, generating
-either 'R' or 'C++' code which can then be optimised using the 'TMB'
-package and standard 'R' tools. Principally designed to reproduce gadget2
-models in 'TMB', but can be extended beyond gadget2's capabilities. Kasper
-Kristensen, Anders Nielsen, Casper W. Berg, Hans Skaug, Bradley M. Bell
-(2016) <doi:10.18637/jss.v070.i05> "TMB: Automatic Differentiation and
-Laplace Approximation.". Begley, J., & Howell, D. (2004)
-<https://core.ac.uk/download/pdf/225936648.pdf> "An overview of Gadget,
-the globally applicable area-disaggregated general ecosystem toolbox.
-ICES.".
+An 'Rstudio' addin for version control that allows users to clone
+repositories, create and delete branches, and sync forks on GitHub,
+GitLab, etc. Furthermore, the addin uses the GitLab API to allow
+instructors to create forks and merge requests for all students/teams with
+one click of a button.
 
 %prep
 %setup -q -c -n %{packname}

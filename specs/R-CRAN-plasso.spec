@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plasso
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validated (Post-) Lasso
 
@@ -36,11 +36,11 @@ Requires:         R-CRAN-iterators
 Built on top of the 'glmnet' library by Friedman, Hastie and Tibshirani
 (2010) <doi:10.18637/jss.v033.i01>, the 'plasso' package follows Knaus
 (2022) <doi:10.1093/ectj/utac015> and comes up with two functions that
-estimate least squares Lasso and Post-Lasso models. The 'plasso()'
-function adds coefficient paths for a Post-Lasso model to the standard
-'glmnet' output. On top of that 'cv.plasso()' cross-validates the
-coefficient paths for both the Lasso and Post-Lasso model and provides
-optimal hyperparameter values for the penalty term lambda.
+estimate least squares Lasso and Post-Lasso models. The plasso() function
+adds coefficient paths for a Post-Lasso model to the standard 'glmnet'
+output. On top of that cv.plasso() cross-validates the coefficient paths
+for both the Lasso and Post-Lasso model and provides optimal
+hyperparameter values for the penalty term lambda.
 
 %prep
 %setup -q -c -n %{packname}

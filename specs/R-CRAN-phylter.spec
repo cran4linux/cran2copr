@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phylter
-%global packver   0.9.7
+%global packver   0.9.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detect and Remove Outliers in Phylogenomics Datasets
 
@@ -16,10 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.2.9.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.6
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mrfDepth 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-RSpectra 
@@ -27,7 +28,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mrfDepth 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-RSpectra 

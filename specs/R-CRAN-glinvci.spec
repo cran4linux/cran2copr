@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glinvci
-%global packver   1.1.21
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.21
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Comparative Methods with Uncertainty Estimates
 
@@ -16,22 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcgmin 
+BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-lbfgsb3c 
 BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcgmin 
+Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-lbfgsb3c 
 Requires:         R-CRAN-BB 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-generics 
 Requires:         R-utils 
 Requires:         R-stats 
 

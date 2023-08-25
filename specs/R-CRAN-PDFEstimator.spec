@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pexm
-%global packver   1.1.2
+%global __requires_exclude ^libmpi
+%global packname  PDFEstimator
+%global packver   4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Loading a JAGS Module for the Piecewise Exponential Distribution
+Summary:          Multivariate Nonparametric Probability Density Estimator
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    jags-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-msm 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-msm 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-MultiRNG 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-MultiRNG 
+Requires:         R-methods 
 
 %description
-Load the Just Another Gibbs Sampling (JAGS) module 'pexm'. The module
-provides the tools to work with the Piecewise Exponential (PE)
-distribution in a Bayesian model with the corresponding Markov Chain Monte
-Carlo algorithm (Gibbs Sampling) implemented via JAGS. Details about the
-module implementation can be found in Mayrink et al. (2021)
-<doi:10.18637/jss.v100.i08>.
+Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
+multivariate nonparametric density estimator based on the maximum-entropy
+method.  Accurately predicts a probability density function (PDF) for
+random data using a novel iterative scoring function to determine the best
+fit without overfitting to the sample.
 
 %prep
 %setup -q -c -n %{packname}

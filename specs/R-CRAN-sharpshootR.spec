@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sharpshootR
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Soil Survey Toolkit
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-cluster
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-RColorBrewer 
@@ -52,7 +51,6 @@ Requires:         R-CRAN-cluster
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-circular 
 Requires:         R-CRAN-RColorBrewer 
