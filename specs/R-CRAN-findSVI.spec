@@ -1,39 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  holodeck
-%global packver   0.2.2
+%global packname  findSVI
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Interface for Simulating Multivariate Data
+Summary:          Calculate Social Vulnerability Index for Communities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidycensus 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidycensus 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
+Requires:         R-utils 
 
 %description
-Provides pipe-friendly (%%>%%) wrapper functions for MASS::mvrnorm() to
-create simulated multivariate data sets with groups of variables with
-different degrees of variance, covariance, and effect size.
+Developed by CDC/ATSDR (Centers for Disease Control and Prevention/ Agency
+for Toxic Substances and Disease Registry), Social Vulnerability Index
+(SVI) serves as a tool to assess the resilience of communities by taking
+into account socioeconomic and demographic factors. Provided with year(s),
+region(s) and a geographic level of interest, 'findSVI' retrieves required
+variables from US census data and calculates SVI for communities in the
+specified area based on CDC/ATSDR SVI documentation. Reference for the
+calculation methods: Flanagan BE, Gregory EW, Hallisey EJ, Heitgerd JL,
+Lewis B (2011) <doi:10.2202/1547-7355.1792>.
 
 %prep
 %setup -q -c -n %{packname}

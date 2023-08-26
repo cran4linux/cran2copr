@@ -1,39 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  holodeck
-%global packver   0.2.2
+%global packname  modeldatatoo
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Interface for Simulating Multivariate Data
+Summary:          More Data Sets Useful for Modeling Examples
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-pins 
+Requires:         R-CRAN-pins 
 
 %description
-Provides pipe-friendly (%%>%%) wrapper functions for MASS::mvrnorm() to
-create simulated multivariate data sets with groups of variables with
-different degrees of variance, covariance, and effect size.
+More data sets used for demonstrating or testing model-related packages
+are contained in this package. The data sets are downloaded and cached,
+allowing for more and bigger data sets.
 
 %prep
 %setup -q -c -n %{packname}

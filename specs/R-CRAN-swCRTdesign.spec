@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  swCRTdesign
-%global packver   3.3
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stepped Wedge Cluster Randomized Trial (SW CRT) Design
 
@@ -16,6 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
 
 %description
 A set of tools for examining the design and analysis aspects of stepped

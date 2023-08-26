@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OmicNavigator
-%global packver   1.13.6
+%global packver   1.13.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.6
+Version:          1.13.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open-Source Software for 'Omic' Data Analysis and Visualization
 

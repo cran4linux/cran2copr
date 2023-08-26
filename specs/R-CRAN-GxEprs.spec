@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  holodeck
-%global packver   0.2.2
+%global packname  GxEprs
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Interface for Simulating Multivariate Data
+Summary:          Genotype-by-Environment Interaction in Polygenic Score Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
 
 %description
-Provides pipe-friendly (%%>%%) wrapper functions for MASS::mvrnorm() to
-create simulated multivariate data sets with groups of variables with
-different degrees of variance, covariance, and effect size.
+A novel PRS model is introduced to enhance the prediction accuracy by
+utilising GxE effects. This package performs Genome Wide Association
+Studies (GWAS) and Genome Wide Environment Interaction Studies (GWEIS)
+using a discovery dataset. The package has the ability to obtain polygenic
+risk scores (PRSs) for a target sample. Finally it predicts the risk
+values of each individual in the target sample. Users have the choice of
+using existing models (Li et al., 2015) <doi:10.1093/annonc/mdu565>,
+(Pandis et al., 2013) <doi:10.1093/ejo/cjt054>, (Peyrot et al., 2018)
+<doi:10.1016/j.biopsych.2017.09.009> and (Song et al., 2022)
+<doi:10.1038/s41467-022-32407-9>, as well as newly proposed models for
+genomic risk prediction (refer to the URL for more details).
 
 %prep
 %setup -q -c -n %{packname}

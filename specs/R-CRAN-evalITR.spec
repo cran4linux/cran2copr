@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  evalITR
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluating Individualized Treatment Rules
 
@@ -17,15 +18,53 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.0
-BuildRequires:    R-CRAN-quadprog >= 1.0
-BuildRequires:    R-CRAN-Matrix >= 1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-Matrix >= 1.0
+BuildRequires:    R-CRAN-quadprog >= 1.0
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-grf 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-rqPen 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-bartCause 
+BuildRequires:    R-CRAN-SuperLearner 
 Requires:         R-CRAN-MASS >= 7.0
-Requires:         R-CRAN-quadprog >= 1.0
-Requires:         R-CRAN-Matrix >= 1.0
 Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-Matrix >= 1.0
+Requires:         R-CRAN-quadprog >= 1.0
 Requires:         R-stats 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-gbm 
+Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-grf 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-rqPen 
+Requires:         R-CRAN-scales 
+Requires:         R-utils 
+Requires:         R-CRAN-bartCause 
+Requires:         R-CRAN-SuperLearner 
 
 %description
 Provides various statistical methods for evaluating Individualized
