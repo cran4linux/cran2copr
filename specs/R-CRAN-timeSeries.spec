@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  timeSeries
-%global packver   4030.106
+%global packver   4031.107
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4030.106
+Version:          4031.107
 Release:          1%{?dist}%{?buildtag}
 Summary:          Financial Time Series Objects (Rmetrics)
 
@@ -18,17 +18,17 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-timeDate >= 2150
+BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
 Requires:         R-CRAN-timeDate >= 2150
+Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-methods 
 
 %description
 'S4' classes and various tools for financial time series: Basic functions

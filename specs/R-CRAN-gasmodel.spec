@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gasmodel
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Autoregressive Score Models
 
@@ -20,19 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-arrangements 
 BuildRequires:    R-CRAN-CircStats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-arrangements 
 Requires:         R-CRAN-CircStats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-tidyr 
 
 %description
 Estimation, forecasting, and simulation of generalized autoregressive

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeSearch
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Analysis with Discrete Character Data
 
@@ -18,13 +18,14 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ape >= 5.6
 BuildRequires:    R-CRAN-cli >= 3.0
-BuildRequires:    R-CRAN-TreeDist >= 2.5.0
-BuildRequires:    R-CRAN-TreeTools >= 1.9.0
+BuildRequires:    R-CRAN-TreeDist >= 2.6.3
 BuildRequires:    R-CRAN-shiny >= 1.6.0
+BuildRequires:    R-CRAN-TreeTools >= 1.10.0
 BuildRequires:    R-CRAN-fastmatch >= 1.1.3
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-Rogue > 2.0.0
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-PlotTools 
 BuildRequires:    R-CRAN-promises 
@@ -34,13 +35,14 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ape >= 5.6
 Requires:         R-CRAN-cli >= 3.0
-Requires:         R-CRAN-TreeDist >= 2.5.0
-Requires:         R-CRAN-TreeTools >= 1.9.0
+Requires:         R-CRAN-TreeDist >= 2.6.3
 Requires:         R-CRAN-shiny >= 1.6.0
+Requires:         R-CRAN-TreeTools >= 1.10.0
 Requires:         R-CRAN-fastmatch >= 1.1.3
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-Rogue > 2.0.0
 Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-PlotTools 
 Requires:         R-CRAN-promises 

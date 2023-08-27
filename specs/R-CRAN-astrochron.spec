@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  astrochron
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Computational Tool for Astrochronology
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-iterators
 BuildRequires:    R-CRAN-IDPmisc 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-palinsol 
 Requires:         R-CRAN-multitaper 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
@@ -31,6 +33,7 @@ Requires:         R-CRAN-iterators
 Requires:         R-CRAN-IDPmisc 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-palinsol 
 
 %description
 Routines for astrochronologic testing, astronomical time scale

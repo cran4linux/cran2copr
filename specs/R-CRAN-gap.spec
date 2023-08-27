@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gap
-%global packver   1.5-1
+%global packver   1.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Analysis Package
 
@@ -16,14 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-gap.datasets 
+BuildRequires:    R-CRAN-gap.datasets >= 0.0.6
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
-Requires:         R-CRAN-gap.datasets 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-gap.datasets >= 0.0.6
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-Rdpack 
 
 %description
 As first reported [Zhao, J. H. 2007. "gap: Genetic Analysis Package". J

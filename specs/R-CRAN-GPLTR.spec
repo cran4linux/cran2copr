@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GPLTR
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Partially Linear Tree-Based Regression Model
 
@@ -27,7 +28,10 @@ same scale. A four-step procedure is proposed to fit the model and test
 the joint effect of the selected tree part while adjusting on confounding
 factors. We also proposed an ensemble procedure based on the bagging to
 improve prediction accuracy and computed several scores of importance for
-variable selection.
+variable selection. See 'Cyprien Mbogning et
+al.'(2014)<doi:10.1186/2043-9113-4-6> and 'Cyprien Mbogning et
+al.'(2015)<doi:10.1159/000380850> for an overview of all the methods
+implemented in this package.
 
 %prep
 %setup -q -c -n %{packname}
