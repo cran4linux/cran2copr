@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mortAAR
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Archaeological Mortality Data
 
@@ -21,11 +21,13 @@ BuildRequires:    R-methods >= 3.3.3
 BuildRequires:    R-CRAN-tibble >= 3.0.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-reshape2 >= 1.4.2
+BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-Rdpack >= 0.4
 Requires:         R-methods >= 3.3.3
 Requires:         R-CRAN-tibble >= 3.0.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-reshape2 >= 1.4.2
+Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-Rdpack >= 0.4
 
 %description

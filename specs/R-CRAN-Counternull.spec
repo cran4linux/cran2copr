@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Counternull
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating Null and Counternull Distributions to Find Counternull Values
+Summary:          Randomization-Based Inference
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,18 +19,25 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-effsize 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-randomizr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-stats 
 Requires:         R-CRAN-effsize 
-Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-randomizr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Calculates the difference in average change over time for variables in
-given dataset. Generates a randomization matrix to resample data for
-permutation testing. Creates and plots null distributions and calculates
-P-Values. Identifies potential counternull values by generating and
-plotting counternull distributions. Rosenthal and Rubin (1994)
-<doi:10.1111/j.1467-9280.1994.tb00281.x>.
+Randomization-Based Inference for customized experiments. Computes
+Fisher-Exact P-Values alongside null randomization distributions.
+Retrieves counternull sets and generates counternull distributions.
+Computes Fisher Intervals and Fisher-Adjusted P-Values. Package includes
+visualization of randomization distributions and Fisher Intervals. Users
+can input custom test statistics and their own methods for randomization.
+Rosenthal and Rubin (1994) <doi:10.1111/j.1467-9280.1994.tb00281.x>.
 
 %prep
 %setup -q -c -n %{packname}

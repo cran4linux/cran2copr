@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  abmR
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Agent-Based Models in R
 
@@ -34,6 +34,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rnaturalearth 
+BuildRequires:    R-CRAN-maps 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-table1 
 Requires:         R-CRAN-googledrive 
@@ -51,6 +52,7 @@ Requires:         R-utils
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-rnaturalearth 
+Requires:         R-CRAN-maps 
 
 %description
 Supplies tools for running agent-based models (ABM) in R, as discussed in

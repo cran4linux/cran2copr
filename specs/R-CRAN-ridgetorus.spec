@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ridgetorus
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          PCA on the Torus via Density Ridges
 
@@ -35,7 +35,8 @@ relevant density ridge for bivariate sine von Mises and bivariate wrapped
 Cauchy distribution models and provides the associated scores and variance
 decomposition. Auxiliary functions for evaluating, fitting, and sampling
 these models are also provided. The package provides replicability to
-García-Portugués and Prieto-Tirado (2022) <arXiv:2212.10856>.
+García-Portugués and Prieto-Tirado (2023)
+<doi:10.1007/s11222-023-10273-9>.
 
 %prep
 %setup -q -c -n %{packname}

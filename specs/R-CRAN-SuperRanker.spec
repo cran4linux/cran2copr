@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SuperRanker
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Rank Agreement
 
@@ -28,7 +29,10 @@ Requires:         R-graphics
 Tools for analysing the agreement of two or more rankings of the same
 items. Examples are importance rankings of predictor variables and risk
 predictions of subjects. Benchmarks for agreement are computed based on
-random permutation and bootstrap.
+random permutation and bootstrap. See Ekstrøm CT, Gerds TA, Jensen, AK
+(2018). "Sequential rank agreement methods for comparison of ranked
+lists." _Biostatistics_, *20*(4), 582-598
+<doi:10.1093/biostatistics/kxy017> for more information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rosm
-%global packver   0.2.6
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Raster Map Tiles from Open Street Map and Other Sources
 
@@ -17,27 +18,19 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-prettymapr 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-wk 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-abind 
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rjson 
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-prettymapr 
-Requires:         R-tools 
+Requires:         R-CRAN-wk 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rlang 
 
 %description
 Download and plot Open Street Map <https://www.openstreetmap.org/>, Bing

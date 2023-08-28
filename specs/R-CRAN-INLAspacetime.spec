@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  INLAspacetime
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial and Spatio-Temporal Models using 'INLA'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-fmesher 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-sp 
 Requires:         R-graphics 
@@ -32,6 +33,7 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-fmesher 
 
 %description
 Prepare objects to implement models over spatial and spacetime domains

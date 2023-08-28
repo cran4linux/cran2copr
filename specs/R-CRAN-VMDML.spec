@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VMDML
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variational Mode Decomposition Based Machine Learning Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-VMDecomp
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-nnfor 
 Requires:         R-CRAN-VMDecomp 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-nnfor 
 
 %description
 Application of Variational Mode Decomposition based different Machine

@@ -1,49 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gnm
-%global packver   1.1-4
+%global packname  NADA2
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Nonlinear Models
+Summary:          Data Analysis for Censored Environmental Data
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-qvcalc >= 0.8.3
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-EnvStats >= 2.4
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-relimp 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-qvcalc >= 0.8.3
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-NADA 
+BuildRequires:    R-CRAN-perm 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-cenGAM 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-coin 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-EnvStats >= 2.4
 Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-relimp 
+Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-NADA 
+Requires:         R-CRAN-perm 
+Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-cenGAM 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-coin 
+Requires:         R-CRAN-survival 
 
 %description
-Functions to specify and fit generalized nonlinear models, including
-models with multiplicative interaction terms such as the UNIDIFF model
-from sociology and the AMMI model from crop science, and many others.
-Over-parameterized representations of models are used throughout;
-functions are provided for inference on estimable parameter combinations,
-as well as standard methods for diagnostics etc.
+Contains methods described by Dennis Helsel in his book "Statistics for
+Censored Environmental Data using Minitab and R" (2011) and courses and
+videos at <https://practicalstats.com>. This package adds new functions to
+the `NADA` Package.
 
 %prep
 %setup -q -c -n %{packname}
