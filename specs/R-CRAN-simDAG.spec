@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mortyr
-%global packver   0.0.2
+%global __requires_exclude ^libmpi
+%global packname  simDAG
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper to 'The Rick and Morty' API
+Summary:          Simulate Data from a DAG and Associated Node Information
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,16 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-rlang 
 
 %description
-Returns information about characters, locations, and episodes from 'The
-Rick and Morty' API: <https://rickandmortyapi.com>.
+Simulate complex data from a given directed acyclic graph and information
+about each individual node. Root nodes are simply sampled from the
+specified distribution. Child Nodes are simulated according to one of many
+implemented regressions, such as logistic regression, linear regression,
+poisson regression and more. Also includes a comprehensive framework for
+discrete-time simulation, which can generate even more complex
+longitudinal data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

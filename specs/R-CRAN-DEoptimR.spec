@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DEoptimR
-%global packver   1.1-1
+%global packver   1.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Differential Evolution Optimization in Pure R
 
@@ -29,7 +29,7 @@ efficiently implemented directly in the R language. Currently, it provides
 implementations of the algorithms 'jDE' by Brest et al. (2006)
 <doi:10.1109/TEVC.2006.872133> for single-objective optimization and
 'NCDE' by Qu et al. (2012) <doi:10.1109/TEVC.2011.2161873> for multimodal
-optimization.
+optimization (single-objective problems with multiple solutions).
 
 %prep
 %setup -q -c -n %{packname}

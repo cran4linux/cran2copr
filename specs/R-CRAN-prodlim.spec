@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prodlim
-%global packver   2023.03.31
+%global packver   2023.08.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.03.31
+Version:          2023.08.28
 Release:          1%{?dist}%{?buildtag}
 Summary:          Product-Limit Estimation for Censored Event History Analysis
 

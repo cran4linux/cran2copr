@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JFE
-%global packver   2.5.4
+%global packver   2.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.4
+Version:          2.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and GUI for Analyzing Time Series Data of Just Finance and Econometrics
 

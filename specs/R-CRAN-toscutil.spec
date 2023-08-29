@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  toscutil
-%global packver   2.5.0
+%global packver   2.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions
 
@@ -16,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-methods 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-languageserver 
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 
+Requires:         R-tools 
+Requires:         R-CRAN-languageserver 
 
 %description
 Base R sometimes requires verbose statements for simple, often recurring

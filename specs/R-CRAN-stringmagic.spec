@@ -1,47 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Apollonius
+%global packname  stringmagic
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          2D Apollonius Graphs
+Summary:          Character String Operations and Interpolation, Magic Edition
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-gyro >= 1.3.0
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-randomcoloR 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-gyro >= 1.3.0
-Requires:         R-CRAN-abind 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-randomcoloR 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-utils 
 Requires:         R-stats 
 
 %description
-Computation of the Apollonius diagram of given 2D points and its dual the
-Apollonius graph, also known as the additively weighted Voronoï diagram,
-and which is a generalization of the classical Voronoï diagram. For
-references, see the bibliography in the CGAL documentation at
-<https://doc.cgal.org/latest/Apollonius_graph_2/citelist.html>.
+Performs complex string operations compactly and efficiently. Supports
+string interpolation jointly with over 50 string operations. Also enhances
+regular string functions (like grep() and co). See an introduction at
+<https://lrberge.github.io/stringmagic/>.
 
 %prep
 %setup -q -c -n %{packname}

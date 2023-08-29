@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TidyConsultant
+%global __requires_exclude ^libmpi
+%global packname  fastbeta
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Consultant Universe
+Summary:          Fast Estimation of Time-Varying Infectious Disease Transmission Rates
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-badger 
-BuildRequires:    R-CRAN-pacman 
-BuildRequires:    R-CRAN-framecleaner 
-BuildRequires:    R-CRAN-validata 
-BuildRequires:    R-CRAN-presenter 
-BuildRequires:    R-CRAN-autostats 
-BuildRequires:    R-CRAN-tidybins 
-Requires:         R-CRAN-badger 
-Requires:         R-CRAN-pacman 
-Requires:         R-CRAN-framecleaner 
-Requires:         R-CRAN-validata 
-Requires:         R-CRAN-presenter 
-Requires:         R-CRAN-autostats 
-Requires:         R-CRAN-tidybins 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-adaptivetau 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-adaptivetau 
+Requires:         R-CRAN-deSolve 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Loads the 5 packages in the Tidy Consultant Universe. This collection of
-packages is useful for anyone doing data science, data analysis, or
-quantitative consulting. The functions in these packages range from data
-cleaning, data validation, data binning, statistical modeling, and file
-exporting.
+Methods for estimating time-varying infectious disease transmission rates
+from disease incidence time series, based on discretizations of an SIR
+model, as analyzed in Jagan et al. (2020)
+<doi:10.1371/journal.pcbi.1008124>.
 
 %prep
 %setup -q -c -n %{packname}

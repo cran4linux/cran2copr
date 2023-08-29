@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sphereTessellation
-%global packver   1.1.0
+%global packname  mRc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Delaunay and Voronoï Tessellations on the Sphere
+Summary:          Multi-Visit Closed Population Mark-Recapture Estimates
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-randomcoloR 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-grDevices 
-Requires:         R-CRAN-randomcoloR 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rgl 
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Performs Delaunay and Voronoï tessellations on spheres and provides some
-functions to plot them. The algorithms are mainly performed by the 'C++'
-library 'CGAL' (<https://www.cgal.org/>).
+Compute bootstrap confidence intervals for the adjusted Schnabel and
+Schumacher-Eschmeyer multi-visit mark-recapture estimators based on
+Dettloff (2023) <doi:10.1016/j.fishres.2023.106756>.
 
 %prep
 %setup -q -c -n %{packname}

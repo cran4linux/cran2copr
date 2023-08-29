@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mindr
-%global packver   1.3.2
+%global __requires_exclude ^libmpi
+%global packname  landform
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Mind Maps with R
+Summary:          Topographic Position Index-Based Landform Classification
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-graphics >= 4.2.0
+BuildRequires:    R-grDevices >= 4.2.0
+BuildRequires:    R-stats >= 4.2.0
+BuildRequires:    R-CRAN-terra >= 1.7.0
+Requires:         R-graphics >= 4.2.0
+Requires:         R-grDevices >= 4.2.0
+Requires:         R-stats >= 4.2.0
+Requires:         R-CRAN-terra >= 1.7.0
 
 %description
-Convert Markdown ('.md') or R Markdown ('.Rmd') texts, R scripts, and
-directory structures, into mind map widgets or files ('.mm'), and vice
-versa. "FreeMind" mind map ('.mm') files can be opened by or imported to
-common mindmap software such as 'FreeMind'
-(<http://freemind.sourceforge.net/wiki/index.php/Main_Page>).
+Provides a function for classifying a landscape into different categories
+based on the Topographic Position Index (TPI) and slope. It offers two
+types of classifications: Slope Position Classification, and Landform
+Classification. The function internally calculates the TPI for the given
+landscape and then uses it along with the slope to perform the
+classification. Optionally, descriptive statistics for every class are
+calculated and plotted. The classifications are useful for identifying the
+position of a location on a slope and for identifying broader landform
+types.
 
 %prep
 %setup -q -c -n %{packname}

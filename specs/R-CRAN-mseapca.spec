@@ -1,38 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cgalPolygons
-%global packver   0.1.1
+%global packname  mseapca
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R6 Based Utilities for Polygons using 'CGAL'
+Summary:          Metabolite Set Enrichment Analysis for Loadings
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.9
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-loadings 
+BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-loadings 
+Requires:         R-CRAN-XML 
 
 %description
-Provides some utilities for polygons: area calculation, decomposition into
-convex parts, Minkowski addition, Boolean operations, and more. Polygons
-with holes are supported. The algorithms are performed by the 'C++'
-library' CGAL' (<https://www.cgal.org/>).
+Computing metabolite set enrichment analysis (MSEA) (Yamamoto, H. et al.
+(2014) <doi:10.1186/1471-2105-15-51>) and single sample enrichment
+analysis (SSEA) (Yamamoto, H. (2023) <doi:10.51094/jxiv.262>).
 
 %prep
 %setup -q -c -n %{packname}

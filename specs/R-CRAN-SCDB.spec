@@ -1,75 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eiCompare
-%global packver   3.0.3
+%global packname  SCDB
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compares Different Ecological Inference Methods
+Summary:          Easily Access and Maintain Time-Based Versioned Data (Slowly-Changing-Dimension)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wru >= 1.0.0
-BuildRequires:    R-CRAN-eiPack 
-BuildRequires:    R-CRAN-ei 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mcmcse 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-overlapping 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-wru >= 1.0.0
-Requires:         R-CRAN-eiPack 
-Requires:         R-CRAN-ei 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mcmcse 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
-Requires:         R-CRAN-overlapping 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-utils 
 
 %description
-Provides a comprehensive suite of tools for estimating the candidate
-preferences of racial/ethnic voting blocs in elections. Includes functions
-for predicting voter race/ethnicity and conducting ecological inference.
-Race/ethnicity prediction builds on race prediction developed by Imai et
-al. (2016) <doi:10.1093/pan/mpw001>. Ecological inference methods are
-based on King (1997) <ISBN: 0691012407>,
-<https://gking.harvard.edu/eicamera/kinroot.html>; King et. al. (2004)
-<ISBN: 0521542804>,
-<https://gking.harvard.edu/files/abs/ecinf04-abs.shtml>.
+A collection of functions that enable easy access and updating of a
+database of data over time. More specifically, the package facilitates
+type-2 history[1] for data-warehouses and provides a number of Quality of
+life improvements for working on SQL databases with R.cr [1] see Ralph
+Kimball and Margy Ross (2013, ISBN 9781118530801).
 
 %prep
 %setup -q -c -n %{packname}

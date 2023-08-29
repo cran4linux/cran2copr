@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modelSSE
-%global packver   0.1-1
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling Infectious Disease Superspreading from Contact Tracing Data
 
@@ -23,8 +23,11 @@ Requires:         R-CRAN-Delaporte
 %description
 Analytical tools to characterize infectious disease superspreading from
 contact tracing surveillance data, using theoretical frameworks of
-branching process (Lloyd-Smith et al. (2005) <doi:10.1038/nature04153>),
-and decomposition of reproduction number (Zhao et al. (2022)
+branching process with transmission heterogeneity (Lloyd-Smith et al.
+(2005) <doi:10.1038/nature04153>), case size distribution (Nishiura et al.
+(2012) <doi:10.1016/j.jtbi.2011.10.039>, and Kucharski and Althaus (2015)
+<doi:10.2807/1560-7917.ES2015.20.25.21167>), and decomposition of
+reproduction number (Zhao et al. (2022)
 <doi:10.1371/journal.pcbi.1010281>).
 
 %prep

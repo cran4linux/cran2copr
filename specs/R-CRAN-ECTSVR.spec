@@ -1,31 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  interpolation
+%global packname  ECTSVR
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpolation of Bivariate Functions
+Summary:          Cointegration Based Support Vector Regression Model
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-urca 
+BuildRequires:    R-CRAN-vars 
+BuildRequires:    R-CRAN-WeightSVM 
+Requires:         R-CRAN-urca 
+Requires:         R-CRAN-vars 
+Requires:         R-CRAN-WeightSVM 
 
 %description
-Provides two different methods, linear and nonlinear, to interpolate a
-bivariate function, scalar-valued or vector-valued. The interpolated data
-are not necessarily gridded. The algorithms are performed by the 'C++'
-library 'CGAL' (<https://www.cgal.org/>).
+The cointegration based support vector regression model enables
+researchers to use data obtained from the cointegrating vector as input in
+the support vector regression model.
 
 %prep
 %setup -q -c -n %{packname}

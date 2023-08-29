@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppCGAL
-%global packver   5.5.3
+%global packname  adace
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rcpp Integration for CGAL
+Summary:          Estimator of the Adherer Average Causal Effect
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
-Source1:          https://github.com/CGAL/cgal/releases/download/v5.5.3/CGAL-5.5.3-library.tar.xz
 
-BuildRequires:    R-devel
-Requires:         R-core
+
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-gh 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-utils 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-gh 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-pracma 
 
 %description
-Creates a header only package to link to the CGAL (Computational Geometry
-Algorithms Library) header files in Rcpp. There are a variety of potential
-uses for the software such as Hilbert sorting, KDtree nearest neighbors,
-and convex hull algorithms. For more information about how to use the
-header files, see the CGAL documentation at <https://www.cgal.org>.
-Currently downloads the latest stable CGAL release from GitHub.
+Estimate the causal treatment effect for subjects that can adhere to one
+or both of the treatments. Given longitudinal data with missing
+observations, consistent causal effects are calculated. Unobserved
+potential outcomes are estimated through direct integration as described
+in: Qu et al., (2019) <doi:10.1080/19466315.2019.1700157> and Zhang et.
+al., (2021) <doi:10.1080/19466315.2021.1891965>.
 
 %prep
 %setup -q -c -n %{packname}
-tar xf %{SOURCE1} -C %{packname}/inst */include --strip-components=1
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
