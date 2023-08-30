@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  htsr
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hydro-Meteorology Time-Series
 
@@ -17,43 +17,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-directlabels 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-editData 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-openair 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-RODBC 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-WriteXLS 
-BuildRequires:    R-CRAN-directlabels 
-BuildRequires:    R-CRAN-openair 
-BuildRequires:    R-CRAN-editData 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-shinyFiles 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-waiter 
+BuildRequires:    R-CRAN-WriteXLS 
 Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-directlabels 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-editData 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-openair 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-RODBC 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-WriteXLS 
-Requires:         R-CRAN-directlabels 
-Requires:         R-CRAN-openair 
-Requires:         R-CRAN-editData 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-shinyFiles 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-waiter 
+Requires:         R-CRAN-WriteXLS 
 
 %description
 Functions for the management and treatment of hydrology and meteorology

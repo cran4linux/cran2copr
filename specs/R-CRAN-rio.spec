@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rio
-%global packver   0.5.29
+%global packver   0.5.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.29
+Version:          0.5.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Swiss-Army Knife for Data I/O
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.9.8
 BuildRequires:    R-CRAN-haven >= 1.1.2

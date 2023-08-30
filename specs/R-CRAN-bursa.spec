@@ -1,45 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semfindr
-%global packver   0.1.5.4
+%global packname  bursa
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Influential Cases in Structural Equation Modeling
+Summary:          R Wrapper for Bursa Municipality Open Data Portal
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-utils 
-Requires:         R-CRAN-Matrix 
 
 %description
-Sensitivity analysis in structural equation modeling using influence
-measures and diagnostic plots. Support leave-one-out casewise sensitivity
-analysis presented by Pek and MacCallum (2011)
-<doi:10.1080/00273171.2011.561068> and approximate casewise influence
-using scores and casewise likelihood.
+Call the data wrappers for Bursa Metropolitan Municipality's Open Data
+Portal <https://acikyesil.bursa.bel.tr/>. This will return all datasets
+stored in different formats.
 
 %prep
 %setup -q -c -n %{packname}

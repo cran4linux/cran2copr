@@ -1,59 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  funkyheatmap
-%global packver   0.4.0
+%global packname  ale
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generating Funky Heatmaps for Data Frames
+Summary:          Interpretable Machine Learning and Statistical Inference with Accumulated Local Effects (ALE)
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-cowplot 
+BuildRequires:    R-CRAN-yaImpute 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggforce 
 Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-yaImpute 
 
 %description
-Allows generating heatmap-like visualisations for benchmark data frames.
-Funky heatmaps can be fine-tuned by providing annotations of the columns
-and rows, which allows assigning multiple palettes or geometries or
-grouping rows and columns together in categories. Saelens et al. (2019)
-<doi:10.1038/s41587-019-0071-9>.
+Accumulated Local Effects (ALE) were initially developed as a
+model-agnostic approach for global explanations of the results of
+black-box machine learning algorithms. (Apley, Daniel W., and Jingyu Zhu.
+"Visualizing the effects of predictor variables in black box supervised
+learning models." Journal of the Royal Statistical Society Series B:
+Statistical Methodology 82.4 (2020): 1059-1086 <doi:10.1111/rssb.12377>.)
+ALE has two primary advantages over other approaches like partial
+dependency plots (PDP) and SHapley Additive exPlanations (SHAP): its
+values are not affected by the presence of interactions among variables in
+a model and its computation is relatively rapid. This package rewrites the
+original code from the 'ALEPlot' package for calculating ALE data and it
+completely reimplements the plotting of ALE values. Future versions hope
+to extend the original ALE concept beyond global explanations with
+ALE-based measures that can be used for statistical inference as well as
+an ALE-based approach for local explanations.
 
 %prep
 %setup -q -c -n %{packname}

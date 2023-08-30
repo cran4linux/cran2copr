@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdalraster
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to the 'Geospatial Data Abstraction Library' Raster API
 
@@ -36,20 +36,20 @@ Interface to the raster API of the 'Geospatial Data Abstraction Library'
 ('GDAL') supporting manual creation of uninitialized datasets, creation
 from existing raster as template, low level I/O, configuration of virtual
 raster (VRT), coordinate transformation, and access to 'gdalwarp' for
-reprojection. Convenience functions facilitate working with spatial
-reference systems. Calling signatures resemble the native C, C++ and
-Python APIs provided by the 'GDAL' project (<https://gdal.org>). Bindings
-to 'GDAL' are implemented in class 'GDALRaster' along with several
-stand-alone functions. Additional functionality includes: class
-'RunningStats' for efficient summary statistics on large data streams;
-class 'CmbTable' for counting unique combinations of integer values with a
-hash table; a raster overlay utility to identify and count unique
-combinations across multiple inputs; and a calculation utility for
-evaluating an R expression on raster layers with pixel coordinates
-available as variables. 'gdalraster' may be suitable for applications that
-primarily need low-level raster I/O or prefer native 'GDAL'-like calling.
-Additional functionality is somewhat aimed at thematic data analysis but
-may have other utility.
+reprojection. Includes selected 'GDAL' algorithms and functions for
+working with spatial reference systems. Calling signatures resemble the
+native C, C++ and Python APIs provided by the 'GDAL' project
+(<https://gdal.org>). Bindings are implemented via 'Rcpp' exposed class
+along with several stand-alone functions. Additional functionality
+includes: class 'RunningStats' for efficient summary statistics on large
+data streams; class 'CmbTable' for counting unique combinations of
+integers with a hash table; raster overlay to identify and count unique
+pixel combinations across multiple input layers; raster calculation by
+evaluating any R expression on a stack of layers with pixel coordinates
+available as variables; and raster display using base 'graphics'.
+'gdalraster' may be suitable for applications that primarily need
+low-level I/O or prefer a direct 'GDAL' API. The additional functionality
+is somewhat aimed at thematic data analysis but may have other utility.
 
 %prep
 %setup -q -c -n %{packname}

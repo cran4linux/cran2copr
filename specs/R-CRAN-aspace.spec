@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semfindr
-%global packver   0.1.5.4
+%global packname  aspace
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5.4
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Influential Cases in Structural Equation Modeling
+Summary:          Functions for Estimating Centrographic Statistics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.3.0
+Requires:         R-core >= 2.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-splancs 
+BuildRequires:    R-CRAN-Hmisc 
+Requires:         R-CRAN-splancs 
+Requires:         R-CRAN-Hmisc 
 
 %description
-Sensitivity analysis in structural equation modeling using influence
-measures and diagnostic plots. Support leave-one-out casewise sensitivity
-analysis presented by Pek and MacCallum (2011)
-<doi:10.1080/00273171.2011.561068> and approximate casewise influence
-using scores and casewise likelihood.
+A collection of functions for computing centrographic statistics (e.g.,
+standard distance, standard deviation ellipse, standard deviation box) for
+observations taken at point locations. Separate plotting functions have
+been developed for each measure. Users interested in writing results to
+ESRI shapefiles can do so by using results from 'aspace' functions as
+inputs to the convert.to.shapefile() and write.shapefile() functions in
+the 'shapefiles' library. We intend to provide 'terra' integration for
+geographic data in a future release. The 'aspace' package was originally
+conceived to aid in the analysis of spatial patterns of travel behaviour
+(see Buliung and Remmel 2008 <doi:10.1007/s10109-008-0063-7>).
 
 %prep
 %setup -q -c -n %{packname}

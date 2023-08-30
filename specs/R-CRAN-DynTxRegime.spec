@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DynTxRegime
-%global packver   4.12
+%global packver   4.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.12
+Version:          4.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Estimating Optimal Dynamic Treatment Regimes
 

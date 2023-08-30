@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  highriskzone
-%global packver   1.4.8
+%global packver   1.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
+Version:          1.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Determining and Evaluating High-Risk Zones
 
@@ -19,7 +19,6 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-spatstat >= 1.54.0
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -31,9 +30,10 @@ BuildRequires:    R-CRAN-maps
 BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-splancs 
+BuildRequires:    R-CRAN-polyclip 
 Requires:         R-CRAN-spatstat >= 1.54.0
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-rgeos 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -45,6 +45,8 @@ Requires:         R-CRAN-maps
 Requires:         R-CRAN-spatstat.random 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-splancs 
+Requires:         R-CRAN-polyclip 
 
 %description
 Functions for determining and evaluating high-risk zones and simulating

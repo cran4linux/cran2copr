@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DT
-%global packver   0.28
+%global packver   0.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.28
+Version:          0.29
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper of the JavaScript Library 'DataTables'
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets >= 1.3
 BuildRequires:    R-CRAN-jsonlite >= 0.9.16
 BuildRequires:    R-CRAN-htmltools >= 0.3.6
+BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-crosstalk 
 BuildRequires:    R-CRAN-jquerylib 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-promises
 Requires:         R-CRAN-htmlwidgets >= 1.3
 Requires:         R-CRAN-jsonlite >= 0.9.16
 Requires:         R-CRAN-htmltools >= 0.3.6
+Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-crosstalk 
 Requires:         R-CRAN-jquerylib 

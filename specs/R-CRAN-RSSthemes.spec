@@ -1,45 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semfindr
-%global packver   0.1.5.4
+%global packname  RSSthemes
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Influential Cases in Structural Equation Modeling
+Summary:          RSS Palettes and Themes
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-lavaan 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-showtext 
+BuildRequires:    R-CRAN-sysfonts 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Matrix 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-showtext 
+Requires:         R-CRAN-sysfonts 
 
 %description
-Sensitivity analysis in structural equation modeling using influence
-measures and diagnostic plots. Support leave-one-out casewise sensitivity
-analysis presented by Pek and MacCallum (2011)
-<doi:10.1080/00273171.2011.561068> and approximate casewise influence
-using scores and casewise likelihood.
+Defines colour palettes and themes for Royal Statistical Society (RSS)
+publications, including Significance magazine. Palettes and themes are
+supported in both base R and 'ggplot2' graphics, and are intended to be
+used by authors submitting to RSS publications.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semfindr
-%global packver   0.1.5.4
+%global packname  MoNAn
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Influential Cases in Structural Equation Modeling
+Summary:          Mobility Network Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-snowfall >= 1.84.6.2
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+Requires:         R-CRAN-snowfall >= 1.84.6.2
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Matrix 
 
 %description
-Sensitivity analysis in structural equation modeling using influence
-measures and diagnostic plots. Support leave-one-out casewise sensitivity
-analysis presented by Pek and MacCallum (2011)
-<doi:10.1080/00273171.2011.561068> and approximate casewise influence
-using scores and casewise likelihood.
+Implements the method to analyse weighted mobility networks or
+distribution networks as outlined in: Block, P., Stadtfeld, C., & Robins,
+G. (2022) <doi:10.1016/j.socnet.2021.08.003>. The purpose of the model is
+to analyse the structure of mobility, incorporating exogenous predictors
+pertaining to individuals and locations known from classical mobility
+analyses, as well as modelling emergent mobility patterns akin to
+structural patterns known from the statistical analysis of social
+networks.
 
 %prep
 %setup -q -c -n %{packname}

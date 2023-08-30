@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rage
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Life History Metrics from Matrix Population Models
 
@@ -18,10 +18,12 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-popdemo 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-expm 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-popdemo 
 Requires:         R-stats 
