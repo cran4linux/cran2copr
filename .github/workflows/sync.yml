@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/cran4linux/r-fedora:38
     steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: true
     - name: Configuration
       run: |
         sudo dnf -y install git copr-cli
@@ -21,6 +18,9 @@ jobs:
         mkdir -p $HOME/.config && echo "$TOKEN" > $HOME/.config/copr
       env:
         TOKEN: ${{ secrets.COPR_TOKEN }}
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
     - name: Sync with CRAN
       run: |
         Rscript copr-sync.r || touch failure
