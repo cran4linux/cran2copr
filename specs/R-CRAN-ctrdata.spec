@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctrdata
-%global packver   1.15.0
+%global packver   1.15.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.0
+Version:          1.15.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -45,9 +45,11 @@ A system for querying, retrieving and analyzing protocol- and
 results-related information on clinical trials from four public registers,
 the 'European Union Clinical Trials Register' ('EUCTR',
 <https://www.clinicaltrialsregister.eu/>), 'ClinicalTrials.gov' ('CTGOV',
-using the classic interface at <https://classic.clinicaltrials.gov/>), the
-'ISRCTN' (<http://www.isrctn.com/>) and the 'European Union Clinical
-Trials Information System' ('CTIS', <https://euclinicaltrials.eu/>). Trial
+using the classic interface at <https://classic.clinicaltrials.gov/>, and
+'CTGOV2', using the current interface at
+<https://www.clinicaltrials.gov/>), the 'ISRCTN'
+(<http://www.isrctn.com/>) and the 'European Union Clinical Trials
+Information System' ('CTIS', <https://euclinicaltrials.eu/>). Trial
 information is downloaded, converted and stored in a database
 ('PostgreSQL', 'SQLite', 'DuckDB' or 'MongoDB'; via package 'nodbi'). All
 documents in registers associated with trials can also be downloaded.

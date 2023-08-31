@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EpiLPS
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Bayesian Tool for Fast and Flexible Estimation of the Reproduction Number
+Summary:          A Fast and Flexible Bayesian Tool for Estimating Epidemiological Parameters
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,14 +29,9 @@ Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-coda >= 0.19.4
 
 %description
-Estimation of the instantaneous reproduction number with
-Laplacian-P-splines following the methodology of Gressani et al. (2022)
-<doi:10.1371/journal.pcbi.1010618>. The negative binomial distribution is
-used to model the time series of incidence data. Two methods are available
-for inference : (1) a sampling-free approach based on a maximum a
-posteriori calibration of the hyperparameter vector and (2) a fully
-stochastic approach with a Metropolis-adjusted Langevin algorithm for
-efficient sampling of the posterior distribution.
+Estimation of epidemiological parameters with Laplacian-P-splines
+following the methodology of Gressani et al. (2022)
+<doi:10.1371/journal.pcbi.1010618>.
 
 %prep
 %setup -q -c -n %{packname}

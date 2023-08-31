@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rnpn
-%global packver   1.2.5
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the National 'Phenology' Network 'API'
 
@@ -23,7 +24,6 @@ BuildRequires:    R-CRAN-jsonlite >= 0.9.19
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-magrittr 
@@ -34,7 +34,6 @@ Requires:         R-CRAN-jsonlite >= 0.9.19
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-magrittr 

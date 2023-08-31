@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SegEnvIneq
-%global packver   1.1
+%global packname  condensr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Environmental Inequality Indices Based on Segregation Measures
+Summary:          Academic Group Website Generator
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-OasisR >= 3.1.0
-BuildRequires:    R-CRAN-spdep >= 1.2.8
-BuildRequires:    R-CRAN-sf >= 1.0.14
-BuildRequires:    R-CRAN-outliers >= 0.15
-Requires:         R-CRAN-OasisR >= 3.1.0
-Requires:         R-CRAN-spdep >= 1.2.8
-Requires:         R-CRAN-sf >= 1.0.14
-Requires:         R-CRAN-outliers >= 0.15
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-whisker 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-whisker 
 
 %description
-A set of segregation-based indices and randomization methods to make
-robust environmental inequality assessments, as described in Schaeffer and
-Tivadar (2019) "Measuring Environmental Inequalities: Insights from the
-Residential Segregation Literature" <doi:10.1016/j.ecolecon.2019.05.009>.
+Helps automate 'Quarto' website creation for small academic groups. Builds
+a database-like structure of people, projects and publications, linking
+them together with a string-based ID system. Then, provides functions to
+automate production of clean markdown for these structures, and in-built
+CSS formatting using CSS flexbox.
 
 %prep
 %setup -q -c -n %{packname}

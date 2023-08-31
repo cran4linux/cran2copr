@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SegEnvIneq
-%global packver   1.1
+%global packname  URooTab
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Environmental Inequality Indices Based on Segregation Measures
+Summary:          Tabular Reporting of 'EViews' Unit Root Tests
 
-License:          GPL-2 | GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-OasisR >= 3.1.0
-BuildRequires:    R-CRAN-spdep >= 1.2.8
-BuildRequires:    R-CRAN-sf >= 1.0.14
-BuildRequires:    R-CRAN-outliers >= 0.15
-Requires:         R-CRAN-OasisR >= 3.1.0
-Requires:         R-CRAN-spdep >= 1.2.8
-Requires:         R-CRAN-sf >= 1.0.14
-Requires:         R-CRAN-outliers >= 0.15
+BuildRequires:    R-CRAN-EviewsR 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-EviewsR 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
-A set of segregation-based indices and randomization methods to make
-robust environmental inequality assessments, as described in Schaeffer and
-Tivadar (2019) "Measuring Environmental Inequalities: Insights from the
-Residential Segregation Literature" <doi:10.1016/j.ecolecon.2019.05.009>.
+Conduct unit root tests based on 'EViews' (<https://eviews.com>) routines
+and report them in tables. 'EViews' (Econometric Views) is a commercial
+software for econometrics.
 
 %prep
 %setup -q -c -n %{packname}

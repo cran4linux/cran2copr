@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lmomco
-%global packver   2.4.9
+%global packver   2.4.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.9
+Version:          2.4.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          L-Moments, Censored L-Moments, Trimmed L-Moments, L-Comoments, and Many Distributions
 
@@ -27,29 +27,26 @@ Requires:         R-CRAN-Lmoments
 Requires:         R-CRAN-MASS 
 
 %description
-Extensive functions for L-moments (LMs) and probability-weighted moments
-(PWMs), parameter estimation for distributions, LM computation for
-distributions, and L-moment ratio diagrams. Maximum likelihood and maximum
-product of spacings estimation are also available. LMs for right-tail and
-left-tail censoring by known or unknown threshold and by indicator
-variable are available. Asymmetric (asy) trimmed LMs (TL-moments, TLMs)
-are supported. LMs of residual (resid) and reversed (rev) residual life
-are implemented along with 13 quantile function operators for reliability
-and survival analyses. Exact analytical bootstrap estimates of order
-statistics, LMs, and variances-covariances of LMs are provided. The
-Harri-Coble Tau34-squared Normality Test is available. Distribution
-support with "L" (LMs), "TL" (TLMs) and added (+) support for right-tail
-censoring (RC) encompasses: Asy Exponential (Exp) Power [L], Asy
-Triangular [L], Cauchy [TL], Eta-Mu [L], Exp. [L], Gamma [L], Generalized
-(Gen) Exp Poisson [L], Gen Extreme Value [L], Gen Lambda [L,TL], Gen
-Logistic [L), Gen Normal [L], Gen Pareto [L+RC, TL], Govindarajulu [L],
-Gumbel [L], Kappa [L], Kappa-Mu [L], Kumaraswamy [L], Laplace [L], Linear
-Mean Residual Quantile Function [L], Normal [L], 3-p log-Normal [L],
-Pearson Type III [L], Polynomial Density- Quantile 3 and 4[L], Rayleigh
-[L], Rev-Gumbel [L+RC], Rice/Rician [L], Slash [TL], 3-p Student t [L],
-Truncated Exponential [L], Wakeby [L], and Weibull [L]. Multivariate
-sample L-comoments (LCMs) are implemented to measure asymmetric
-associations.
+Extensive functions for Lmoments (LMs) and probability-weighted moments
+(PWMs), distribution parameter estimation, LMs for distributions, LM ratio
+diagrams, multivariate Lcomoments, and asymmetric (asy) trimmed LMs
+(TLMs). Maximum likelihood and maximum product spacings estimation are
+available. Right-tail and left-tail LM censoring by threshold or indicator
+variable are available. LMs of residual (resid) and reversed (rev)
+residual life are implemented along with 13 quantile operators for
+reliability analyses. Exact analytical bootstrap estimates of order
+statistics, LMs, and LM var-covars are available. Harri-Coble
+Tau34-squared Normality Test is available. Distributions with L, TL, and
+added (+) support for right-tail censoring (RC) encompass: Asy Exponential
+(Exp) Power [L], Asy Triangular [L], Cauchy [TL], Eta-Mu [L], Exp. [L],
+Gamma [L], Generalized (Gen) Exp Poisson [L], Gen Extreme Value [L], Gen
+Lambda [L, TL], Gen Logistic [L], Gen Normal [L], Gen Pareto [L+RC, TL],
+Govindarajulu [L], Gumbel [L], Kappa [L], Kappa-Mu [L], Kumaraswamy [L],
+Laplace [L], Linear Mean Residual Quantile Function [L], Normal [L], 3p
+log-Normal [L], Pearson Type III [L], Polynomial Density-Quantile 3 and 4
+[L], Rayleigh [L], Rev-Gumbel [L+RC], Rice [L], Singh Maddala [L], Slash
+[TL], 3p Student t [L], Truncated Exponential [L], Wakeby [L], and Weibull
+[L].
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Rlgt
-%global packver   0.1-4
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Exponential Smoothing Models with Trend Modifications
 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rstantools 
 BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
@@ -31,6 +33,7 @@ Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 Requires:         R-CRAN-rstantools 
 Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-sn 
 Requires:         R-CRAN-rstantools
 

@@ -1,46 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kairos
-%global packver   2.0.0
+%global packname  KLINK
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Chronological Patterns from Archaeological Count Data
+Summary:          Kinship Analysis with Linked Markers
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.2.0
-BuildRequires:    R-CRAN-aion >= 1.0.1
-BuildRequires:    R-CRAN-dimensio >= 0.4.0
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pedtools >= 2.3.1
+BuildRequires:    R-CRAN-shiny >= 1.7.4
+BuildRequires:    R-CRAN-forrel >= 1.5.3
+BuildRequires:    R-CRAN-gt >= 0.9.0
+BuildRequires:    R-CRAN-pedprobr >= 0.8.0
+BuildRequires:    R-CRAN-pedmut >= 0.6.0
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.2.0
-Requires:         R-CRAN-aion >= 1.0.1
-Requires:         R-CRAN-dimensio >= 0.4.0
-Requires:         R-CRAN-extraDistr 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-verbalisr 
+Requires:         R-CRAN-pedtools >= 2.3.1
+Requires:         R-CRAN-shiny >= 1.7.4
+Requires:         R-CRAN-forrel >= 1.5.3
+Requires:         R-CRAN-gt >= 0.9.0
+Requires:         R-CRAN-pedprobr >= 0.8.0
+Requires:         R-CRAN-pedmut >= 0.6.0
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-shinydashboard 
 Requires:         R-utils 
+Requires:         R-CRAN-verbalisr 
 
 %description
-A toolkit for absolute and relative dating and analysis of chronological
-patterns. This package includes functions for chronological modeling and
-dating of archaeological assemblages from count data. It provides methods
-for matrix seriation. It also allows to compute time point estimates and
-density estimates of the occupation and duration of an archaeological
-site.
+A 'shiny' application for forensic kinship testing, based on the
+'pedsuite' R packages. 'KLINK' is closely aligned with the (non-R)
+software 'Familias' and 'FamLink', but offers several unique features,
+including visualisations and automated report generation. The calculation
+of likelihood ratios supports pairs of linked markers, and all common
+mutation models.
 
 %prep
 %setup -q -c -n %{packname}

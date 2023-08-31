@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SegEnvIneq
-%global packver   1.1
+%global packname  perms
+%global packver   1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Environmental Inequality Indices Based on Segregation Measures
+Summary:          Fast Permutation Computation
 
-License:          GPL-2 | GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-OasisR >= 3.1.0
-BuildRequires:    R-CRAN-spdep >= 1.2.8
-BuildRequires:    R-CRAN-sf >= 1.0.14
-BuildRequires:    R-CRAN-outliers >= 0.15
-Requires:         R-CRAN-OasisR >= 3.1.0
-Requires:         R-CRAN-spdep >= 1.2.8
-Requires:         R-CRAN-sf >= 1.0.14
-Requires:         R-CRAN-outliers >= 0.15
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A set of segregation-based indices and randomization methods to make
-robust environmental inequality assessments, as described in Schaeffer and
-Tivadar (2019) "Measuring Environmental Inequalities: Insights from the
-Residential Segregation Literature" <doi:10.1016/j.ecolecon.2019.05.009>.
+Implements the algorithm of Christensen (2023) <doi:10.1214/22-BA1353> for
+computing permanents of block rectangular matrices.
 
 %prep
 %setup -q -c -n %{packname}

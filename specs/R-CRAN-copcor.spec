@@ -1,36 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SegEnvIneq
-%global packver   1.1
+%global packname  copcor
+%global packver   2023.8-27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2023.8.27
 Release:          1%{?dist}%{?buildtag}
-Summary:          Environmental Inequality Indices Based on Segregation Measures
+Summary:          Correlates of Protection and Correlates of Risk Functions
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-OasisR >= 3.1.0
-BuildRequires:    R-CRAN-spdep >= 1.2.8
-BuildRequires:    R-CRAN-sf >= 1.0.14
-BuildRequires:    R-CRAN-outliers >= 0.15
-Requires:         R-CRAN-OasisR >= 3.1.0
-Requires:         R-CRAN-spdep >= 1.2.8
-Requires:         R-CRAN-sf >= 1.0.14
-Requires:         R-CRAN-outliers >= 0.15
+BuildRequires:    R-CRAN-kyotil 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-kyotil 
+Requires:         R-methods 
 
 %description
-A set of segregation-based indices and randomization methods to make
-robust environmental inequality assessments, as described in Schaeffer and
-Tivadar (2019) "Measuring Environmental Inequalities: Insights from the
-Residential Segregation Literature" <doi:10.1016/j.ecolecon.2019.05.009>.
+Correlates of protection (CoP) and correlates of risk (CoR) study the
+immune biomarkers associated with an infectious disease outcome, e.g.
+COVID or HIV-1 infection. This package contains shared functions for
+analyzing CoP and CoR, including bootstrapping procedures, competing risk
+estimation, and bootstrapping marginalized risks.
 
 %prep
 %setup -q -c -n %{packname}

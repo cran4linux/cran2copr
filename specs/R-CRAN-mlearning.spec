@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mlearning
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Algorithms with Unified Interface and Confusion Matrices
 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-ipred 
+BuildRequires:    R-CRAN-rpart 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-CRAN-class 
@@ -32,15 +34,17 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ipred 
+Requires:         R-CRAN-rpart 
 
 %description
 A unified interface is provided to various machine learning algorithms
-like LDA, QDA, k-nearest neighbour, LVQ, random forest, SVM, ... It allows
-to train, test, and apply cross-validation using similar functions and
-function arguments with a minimalist and clean, formula-based interface.
-Missing data are threated the same way as base and stats R functions for
-all algorithms, both in training and testing. Confusion matrices are also
-provided with a rich set of metrics calculated and a few specific plots.
+like linear or quadratic discriminant analysis, k-nearest neighbors,
+random forest, support vector machine, ... It allows to train, test, and
+apply cross-validation using similar functions and function arguments with
+a minimalist and clean, formula-based interface. Missing data are
+processed the same way as base and stats R functions for all algorithms,
+both in training and testing. Confusion matrices are also provided with a
+rich set of metrics calculated and a few specific plots.
 
 %prep
 %setup -q -c -n %{packname}

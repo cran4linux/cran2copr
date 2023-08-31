@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dqrng
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Pseudo Random Number Generators
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-sitmo >= 2.0.0
 BuildRequires:    R-CRAN-BH >= 1.64.0.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
@@ -28,11 +29,13 @@ and Xoshiro256+ by Blackman and Vigna (2018 <arXiv:1805.01407>). In
 addition fast functions for generating random numbers according to a
 uniform, normal and exponential distribution are included. The latter two
 use the Ziggurat algorithm originally proposed by Marsaglia and Tsang
-(2000, <doi:10.18637/jss.v005.i08>). These functions are exported to R and
-as a C++ interface and are enabled for use with the default 64 bit
-generator from the PCG family, Xoroshiro128+ and Xoshiro256+ as well as
-the 64 bit version of the 20 rounds Threefry engine (Salmon et al., 2011
-<doi:10.1145/2063384.2063405>) as provided by the package 'sitmo'.
+(2000, <doi:10.18637/jss.v005.i08>). The fast sampling methods support
+unweighted sampling both with and without replacement. These functions are
+exported to R and as a C++ interface and are enabled for use with the
+default 64 bit generator from the PCG family, Xoroshiro128+ and
+Xoshiro256+ as well as the 64 bit version of the 20 rounds Threefry engine
+(Salmon et al., 2011, <doi:10.1145/2063384.2063405>) as provided by the
+package 'sitmo'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtables
-%global packver   0.6.1
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reporting Tables
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-formatters >= 0.5.0
+BuildRequires:    R-CRAN-formatters >= 0.5.2
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-formatters >= 0.5.0
+Requires:         R-CRAN-formatters >= 0.5.2
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-grid 

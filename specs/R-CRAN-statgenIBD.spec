@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statgenIBD
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of IBD Probabilities
 
@@ -19,14 +19,16 @@ Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-stringi 
 
 %description
 For biparental, three and four-way crosses Identity by Descent (IBD)
