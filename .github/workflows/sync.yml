@@ -13,8 +13,8 @@ jobs:
     - name: Configuration
       run: |
         sudo dnf -y install git copr-cli
-        git config --local user.name "Github Action"
-        git config --local user.email "enchufa2@users.noreply.github.com"
+        git config --global user.name "Github Action"
+        git config --global user.email "enchufa2@users.noreply.github.com"
         mkdir -p $HOME/.config && echo "$TOKEN" > $HOME/.config/copr
       env:
         TOKEN: ${{ secrets.COPR_TOKEN }}
