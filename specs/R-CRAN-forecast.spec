@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forecast
-%global packver   8.21
+%global packver   8.21.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.21
+Version:          8.21.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Functions for Time Series and Linear Models
 

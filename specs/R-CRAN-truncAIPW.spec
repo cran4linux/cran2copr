@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rage
-%global packver   1.5.1
+%global packname  truncAIPW
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Life History Metrics from Matrix Population Models
+Summary:          Doubly Robust Estimation under Covariate-Induced Dependent Left Truncation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-popdemo 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-popdemo 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survPen 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survPen 
 
 %description
-Functions for calculating life history metrics using matrix population
-models ('MPMs'). Described in Jones et al. (2021)
-<doi:10.1101/2021.04.26.441330>.
+Doubly robust estimation for the mean of an arbitrarily transformed
+survival time under covariate-induced dependent left truncation and
+noninformative right censoring. The functions truncAIPW(),
+truncAIPW_cen1(), and truncAIPW_cen2() compute the doubly robust
+estimators under the scenario without censoring and the two censoring
+scenarios, respectively. The package also contains three simulated data
+sets 'simu', 'simu_c1', and 'simu_c2', which are used to illustrate the
+usage of the functions in this package. Reference: Wang, Y., Ying, A., Xu,
+R. (2022) "Doubly robust estimation under covariate-induced dependent left
+truncation" <arXiv:2208.06836>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rage
-%global packver   1.5.1
+%global packname  RSocrata
+%global packver   1.7.15-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.7.15.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Life History Metrics from Matrix Population Models
+Summary:          Download or Upload 'Socrata' Data Sets
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-popdemo 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-popdemo 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-plyr >= 1.8.4
+BuildRequires:    R-CRAN-httr >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite >= 0.9.16
+BuildRequires:    R-CRAN-mime >= 0.3
+Requires:         R-CRAN-plyr >= 1.8.4
+Requires:         R-CRAN-httr >= 1.0.0
+Requires:         R-CRAN-jsonlite >= 0.9.16
+Requires:         R-CRAN-mime >= 0.3
 
 %description
-Functions for calculating life history metrics using matrix population
-models ('MPMs'). Described in Jones et al. (2021)
-<doi:10.1101/2021.04.26.441330>.
+Provides easier interaction with 'Socrata' open data portals
+<https://dev.socrata.com>. Users can provide a 'Socrata' data set resource
+URL, or a 'Socrata' Open Data API (SODA) web query, or a 'Socrata'
+"human-friendly" URL, returns an R data frame. Converts dates to 'POSIX'
+format and manages throttling by 'Socrata'. Users can upload data to
+'Socrata' portals directly from R.
 
 %prep
 %setup -q -c -n %{packname}

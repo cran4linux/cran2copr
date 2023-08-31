@@ -1,37 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rage
-%global packver   1.5.1
+%global packname  biplotEZ
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Life History Metrics from Matrix Population Models
+Summary:          EZ-to-Use Biplots
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-popdemo 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-popdemo 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-withr 
 
 %description
-Functions for calculating life history metrics using matrix population
-models ('MPMs'). Described in Jones et al. (2021)
-<doi:10.1101/2021.04.26.441330>.
+Provides users with an EZ-to-use platform for representing data with
+biplots. Currently principal component analysis (PCA) and canonical
+variate analysis (CVA) biplots are included. This is accompanied by
+various formatting options for the samples and axes. Alpha-bags and
+concentration ellipses are included for visual enhancements and
+interpretation. For an extensive discussion on the topic, see Gower, J.C.,
+Lubbe, S. and le Roux, N.J. (2011, ISBN: 978-0-470-01255-0) Understanding
+Biplots. Wiley: Chichester.
 
 %prep
 %setup -q -c -n %{packname}

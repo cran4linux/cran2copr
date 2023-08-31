@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  footBayes
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Bayesian and MLE Football Models
 
@@ -13,6 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Recommends:       pandoc
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
@@ -48,9 +50,10 @@ Requires:         R-CRAN-rstantools
 %description
 This is the first package allowing for the estimation, visualization and
 prediction of the most well-known football models: double Poisson,
-bivariate Poisson, Skellam, student_t. The package allows Hamiltonian
-Monte Carlo (HMC) estimation through the underlying Stan environment and
-Maximum Likelihood estimation (MLE, for 'static' models only). The model
+bivariate Poisson, Skellam, student_t, diagonal-inflated bivariate
+Poisson, and zero-inflated Skellam. The package allows Hamiltonian Monte
+Carlo (HMC) estimation through the underlying Stan environment and Maximum
+Likelihood estimation (MLE, for 'static' models only). The model
 construction relies on the most well-known football references, such as
 Dixon and Coles (1997) <doi:10.1111/1467-9876.00065>, Karlis and Ntzoufras
 (2003) <doi:10.1111/1467-9884.00366> and Egidi, Pauli and Torelli (2018)

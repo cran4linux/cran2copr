@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rage
-%global packver   1.5.1
+%global packname  diagL1
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Life History Metrics from Matrix Population Models
+Summary:          Routines for Fit, Inference and Diagnostics in Linear L1 Models
 
-License:          GPL-3
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-popdemo 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-greekLetters 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-popdemo 
+BuildRequires:    R-CRAN-conquer 
+BuildRequires:    R-CRAN-lawstat 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-greekLetters 
 Requires:         R-stats 
+Requires:         R-CRAN-conquer 
+Requires:         R-CRAN-lawstat 
 
 %description
-Functions for calculating life history metrics using matrix population
-models ('MPMs'). Described in Jones et al. (2021)
-<doi:10.1101/2021.04.26.441330>.
+Diagnostics for linear L1 regression (also known as LAD - Least Absolute
+Deviations), including: estimation, confidence intervals, tests of
+hypotheses, measures of leverage, methods of diagnostics for L1
+regression, special diagnostics graphs and measures of leverage. The
+algorithms are based in Dielman (2005) <doi:10.1080/0094965042000223680>,
+Elian et al. (2000) <doi:10.1080/03610920008832518> and Dodge (1997)
+<doi:10.1006/jmva.1997.1666>. This package builds on the 'quantreg'
+package, which is a well-established package for tuning quantile
+regression models. There are also tests to verify if the errors have a
+Laplace distribution based on the work of Puig and Stephens (2000)
+<doi:10.2307/1270952>.
 
 %prep
 %setup -q -c -n %{packname}

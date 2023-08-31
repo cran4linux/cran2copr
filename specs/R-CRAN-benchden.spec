@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rage
-%global packver   1.5.1
+%global packname  benchden
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Life History Metrics from Matrix Population Models
+Summary:          28 Benchmark Densities from Berlinet/Devroye (1994)
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-popdemo 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-popdemo 
-Requires:         R-stats 
 
 %description
-Functions for calculating life history metrics using matrix population
-models ('MPMs'). Described in Jones et al. (2021)
-<doi:10.1101/2021.04.26.441330>.
+Full implementation of the 28 distributions introduced as benchmarks for
+nonparametric density estimation by Berlinet and Devroye (1994)
+<https://hal.science/hal-03659919>. Includes densities, cdfs, quantile
+functions and generators for samples as well as additional information on
+features of the densities. Also contains the 4 histogram densities used in
+Rozenholc/Mildenberger/Gather (2010) <doi:10.1016/j.csda.2010.04.021>.
 
 %prep
 %setup -q -c -n %{packname}

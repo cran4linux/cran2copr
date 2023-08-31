@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  leaflet
-%global packver   2.1.2
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Interactive Web Maps with the JavaScript 'Leaflet' Library
 
@@ -17,36 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-raster >= 3.6.3
 BuildRequires:    R-CRAN-leaflet.providers >= 1.8.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.5.4
 BuildRequires:    R-CRAN-scales >= 1.0.0
 BuildRequires:    R-CRAN-viridis >= 0.5.1
-BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-crosstalk 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jquerylib 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-xfun 
+Requires:         R-CRAN-raster >= 3.6.3
 Requires:         R-CRAN-leaflet.providers >= 1.8.0
 Requires:         R-CRAN-htmlwidgets >= 1.5.4
 Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-viridis >= 0.5.1
-Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-crosstalk 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jquerylib 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-markdown 
 Requires:         R-methods 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-xfun 
 
 %description
 Create and customize interactive maps using the 'Leaflet' JavaScript

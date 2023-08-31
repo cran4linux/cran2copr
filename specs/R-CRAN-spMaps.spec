@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spMaps
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Europe SpatialPolygonsDataFrame Builder
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgeos 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgeos 
+BuildRequires:    R-CRAN-sp >= 2.0.0
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-sp >= 2.0.0
+Requires:         R-CRAN-sf 
+Requires:         R-methods 
 
 %description
 Build custom Europe SpatialPolygonsDataFrame, if you don't know what is a

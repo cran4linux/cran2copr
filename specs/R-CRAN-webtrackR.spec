@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  webtrackR
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysing Web Tracking Data and Online News Behaviour
+Summary:          Preprocessing and Analyzing Web Tracking Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-urltools 
 Requires:         R-utils 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-httr 
 
 %description
-Implements data structures and methods to work with web tracking data.
-This includes data preprocessing steps, methods to construct audience
-networks as described in Mangold & Scharkow (2020)
-<doi:10.1080/19312458.2020.1724274>, and metrics of news audience
-polarization described in Mangold & Scharkow (2022)
-<doi:10.1080/19312458.2022.2085249>.
+Data structures and methods to work with web tracking data. The functions
+cover data preprocessing steps, enriching web tracking data with external
+information and methods for the analysis of digital behavior as used in
+several academic papers (e.g., Clemm von Hohenberg et al., 2023
+<doi:10.17605/OSF.IO/M3U9P>; Stier et al., 2022
+<doi:10.1017/S0003055421001222>).
 
 %prep
 %setup -q -c -n %{packname}
