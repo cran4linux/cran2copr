@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nc
-%global packver   2023.5.1
+%global packver   2023.8.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.5.1
+Version:          2023.8.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Named Capture to Data Tables
 
