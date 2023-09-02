@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsmmR
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Simulation of Drifting Semi-Markov Models
 
@@ -36,7 +36,12 @@ time distributions. Semi-Markov models are described in: Barbu, V.S.,
 Limnios, N. (2008) <doi:10.1007/978-0-387-73173-5>. Drifting Markov models
 are described in: Vergne, N. (2008) <doi:10.2202/1544-6115.1326>.
 Reliability indicators of Drifting Markov models are described in: Barbu,
-V. S., Vergne, N. (2019) <doi:10.1007/s11009-018-9682-8>.
+V. S., Vergne, N. (2019) <doi:10.1007/s11009-018-9682-8>. We acknowledge
+the DATALAB Project <https://lmrs-num.math.cnrs.fr/projet-datalab.html>
+(financed by the European Union with the European Regional Development
+fund (ERDF) and by the Normandy Region) and the HSMM-INCA Project
+(financed by the French Agence Nationale de la Recherche (ANR) under grant
+ANR-21-CE40-0005).
 
 %prep
 %setup -q -c -n %{packname}

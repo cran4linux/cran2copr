@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gbm.auto
-%global packver   2023.06.13
+%global packver   2023.08.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.06.13
+Version:          2023.08.31
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Boosted Regression Tree Modelling and Mapping Suite
 
@@ -17,26 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
 BuildRequires:    R-stats >= 3.3.1
+BuildRequires:    R-CRAN-ggmap >= 3.0.2
+BuildRequires:    R-CRAN-readr >= 2.1.4
 BuildRequires:    R-CRAN-gbm >= 2.1.1
+BuildRequires:    R-CRAN-lubridate >= 1.9.2
 BuildRequires:    R-CRAN-stringi >= 1.6.1
 BuildRequires:    R-CRAN-mapplots >= 1.5
 BuildRequires:    R-CRAN-dismo >= 1.3.14
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-beepr >= 1.2
+BuildRequires:    R-CRAN-ggspatial >= 1.1.9
 BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-sf >= 0.9.7
-BuildRequires:    R-CRAN-shapefiles >= 0.7
+BuildRequires:    R-CRAN-viridis >= 0.6.4
+BuildRequires:    R-CRAN-stars >= 0.6.3
+BuildRequires:    R-CRAN-starsExtra >= 0.2.7
 BuildRequires:    R-CRAN-Metrics >= 0.1.4
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 >= 3.4.2
 Requires:         R-stats >= 3.3.1
+Requires:         R-CRAN-ggmap >= 3.0.2
+Requires:         R-CRAN-readr >= 2.1.4
 Requires:         R-CRAN-gbm >= 2.1.1
+Requires:         R-CRAN-lubridate >= 1.9.2
 Requires:         R-CRAN-stringi >= 1.6.1
 Requires:         R-CRAN-mapplots >= 1.5
 Requires:         R-CRAN-dismo >= 1.3.14
+Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-beepr >= 1.2
+Requires:         R-CRAN-ggspatial >= 1.1.9
 Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-sf >= 0.9.7
-Requires:         R-CRAN-shapefiles >= 0.7
+Requires:         R-CRAN-viridis >= 0.6.4
+Requires:         R-CRAN-stars >= 0.6.3
+Requires:         R-CRAN-starsExtra >= 0.2.7
 Requires:         R-CRAN-Metrics >= 0.1.4
+Requires:         R-CRAN-lifecycle 
 
 %description
 Automates delta log-normal boosted regression tree abundance prediction.

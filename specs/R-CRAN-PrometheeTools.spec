@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dynamichazard
-%global packver   1.0.2
+%global packname  PrometheeTools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Hazard Models using State Space Models
+Summary:          PROMETHEE and GLNF for Ranking and Sorting Problems
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.6
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.6
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-CRAN-survival 
-Requires:         R-parallel 
-Requires:         R-CRAN-boot 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Contains functions that lets you fit dynamic hazard models using state
-space models. The first implemented model is described in Fahrmeir (1992)
-<doi:10.1080/01621459.1992.10475232> and Fahrmeir (1994)
-<doi:10.1093/biomet/81.2.317>. Extensions hereof are available where the
-Extended Kalman filter is replaced by an unscented Kalman filter. See
-Christoffersen (2021) <doi:10.18637/jss.v099.i07> for more details.
-Particle filters and smoothers are also supported more general state space
-models.
+PROMETHEE (Preference Ranking Organisation METHod for Enrichment of
+Evaluations) based method assesses alternatives to obtain partial and
+complete rankings. The package also provides the GLNF (Global Local Net
+Flow) sorting algorithm to classify alternatives into ordered categories,
+as well as an index function to measure the classification quality.
+Barrera, F., Segura, M., & Maroto, C. (2023) <doi:10.1111/itor.13288>.
+Brans, J.P.; De Smet, Y., (2016) <doi:10.1007/978-1-4939-3094-4_6>.
 
 %prep
 %setup -q -c -n %{packname}

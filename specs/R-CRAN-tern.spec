@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tern
-%global packver   0.8.4
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Common TLGs Used in Clinical Trials
 
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-survival >= 3.2.13
 BuildRequires:    R-CRAN-emmeans >= 1.4.5
 BuildRequires:    R-CRAN-forcats >= 1.0.0
-BuildRequires:    R-CRAN-rtables >= 0.6.1
-BuildRequires:    R-CRAN-formatters >= 0.5.0
+BuildRequires:    R-CRAN-rtables >= 0.6.3
+BuildRequires:    R-CRAN-formatters >= 0.5.2
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-checkmate 
@@ -46,8 +46,8 @@ Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-survival >= 3.2.13
 Requires:         R-CRAN-emmeans >= 1.4.5
 Requires:         R-CRAN-forcats >= 1.0.0
-Requires:         R-CRAN-rtables >= 0.6.1
-Requires:         R-CRAN-formatters >= 0.5.0
+Requires:         R-CRAN-rtables >= 0.6.3
+Requires:         R-CRAN-formatters >= 0.5.2
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-checkmate 

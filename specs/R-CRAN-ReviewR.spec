@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ReviewR
-%global packver   2.3.8
+%global packver   2.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.8
+Version:          2.3.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Light-Weight, Portable Tool for Reviewing Individual Patient Records
 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-shinycssloaders >= 1.0.0
 BuildRequires:    R-CRAN-shinyWidgets >= 0.6.0
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-dashboardthemes 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-DT 
@@ -54,7 +54,6 @@ Requires:         R-CRAN-shinycssloaders >= 1.0.0
 Requires:         R-CRAN-shinyWidgets >= 0.6.0
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-config 
-Requires:         R-CRAN-dashboardthemes 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-DT 

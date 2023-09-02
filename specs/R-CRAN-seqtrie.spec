@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VC2copula
-%global packver   0.1.2
+%global __requires_exclude ^libmpi
+%global packname  seqtrie
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extend the 'copula' Package with Families and Models from 'VineCopula'
+Summary:          Radix Tree and Trie-Based String Distances
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-VineCopula >= 2.3.0
-BuildRequires:    R-CRAN-copula >= 0.999.19.1
-BuildRequires:    R-methods 
-Requires:         R-CRAN-VineCopula >= 2.3.0
-Requires:         R-CRAN-copula >= 0.999.19.1
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.3
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18.3
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-RcppParallel >= 5.1.3
+Requires:         R-CRAN-Rcpp >= 0.12.18.3
+Requires:         R-CRAN-R6 
 
 %description
-Provides new classes for (rotated) BB1, BB6, BB7, BB8, and Tawn copulas,
-extends the existing Gumbel and Clayton families with rotations, and
-allows to set up a vine copula model using the 'copula' API. Corresponding
-objects from the 'VineCopula' API can easily be converted.
+A collection of Radix Tree and Trie algorithms for finding similar
+sequences and calculating sequence distances (Levenshtein and other
+distance metrics). This work was inspired by a trie implementation in
+Python: "Fast and Easy Levenshtein distance using a Trie." Hanov (2011)
+<http://stevehanov.ca/blog/index.php?id=114>.
 
 %prep
 %setup -q -c -n %{packname}
