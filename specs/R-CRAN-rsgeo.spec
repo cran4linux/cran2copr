@@ -1,30 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bootstrapFP
-%global packver   0.4.5
+%global packname  rsgeo
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Algorithms for Finite Population Inference
+Summary:          An Interface to Rust's 'geo' Library
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sampling 
-Requires:         R-CRAN-sampling 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
 
 %description
-Finite Population bootstrap algorithms to estimate the variance of the
-Horvitz-Thompson estimator for single-stage sampling. For a survey of
-bootstrap methods for finite populations, see Mashreghi et Al. (2016)
-<doi:10.1214/16-SS113>.
+An R interface to the GeoRust crates 'geo' and 'geo-types' providing
+access to geometry primitives and algorithms.
 
 %prep
 %setup -q -c -n %{packname}

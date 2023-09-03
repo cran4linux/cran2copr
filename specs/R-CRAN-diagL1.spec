@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diagL1
-%global packver   0.0.3
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Routines for Fit, Inference and Diagnostics in Linear L1 Models
 
@@ -17,16 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-quantreg >= 5.97
 BuildRequires:    R-CRAN-greekLetters 
 BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-conquer 
 BuildRequires:    R-CRAN-lawstat 
-Requires:         R-CRAN-quantreg 
+BuildRequires:    R-CRAN-MatrixModels 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-quantreg >= 5.97
 Requires:         R-CRAN-greekLetters 
 Requires:         R-stats 
+Requires:         R-methods 
 Requires:         R-CRAN-conquer 
 Requires:         R-CRAN-lawstat 
+Requires:         R-CRAN-MatrixModels 
+Requires:         R-CRAN-Matrix 
 
 %description
 Diagnostics for linear L1 regression (also known as LAD - Least Absolute

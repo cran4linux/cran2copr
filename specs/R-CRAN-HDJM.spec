@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bootstrapFP
-%global packver   0.4.5
+%global packname  HDJM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Algorithms for Finite Population Inference
+Summary:          Penalized High-Dimensional Joint Model
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sampling 
-Requires:         R-CRAN-sampling 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-survival >= 3.2
+BuildRequires:    R-CRAN-statmod >= 1.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEnsmallen 
+Requires:         R-CRAN-survival >= 3.2
+Requires:         R-CRAN-statmod >= 1.4
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Finite Population bootstrap algorithms to estimate the variance of the
-Horvitz-Thompson estimator for single-stage sampling. For a survey of
-bootstrap methods for finite populations, see Mashreghi et Al. (2016)
-<doi:10.1214/16-SS113>.
+Joint models have been widely used to study the associations between
+longitudinal biomarkers and a survival outcome. However, existing joint
+models only consider one or a few longitudinal biomarkers and cannot deal
+with high-dimensional longitudinal biomarkers. This package can be used to
+fit our recently developed penalized joint model that can handle
+high-dimensional longitudinal biomarkers. Specifically, an adaptive lasso
+penalty is imposed on the parameters for the effects of the longitudinal
+biomarkers on the survival outcome, which allows for variable selection.
+Also, our algorithm is computationally efficient, which is based on the
+Gaussian variational approximation method.
 
 %prep
 %setup -q -c -n %{packname}

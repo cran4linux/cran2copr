@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lax
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Loglikelihood Adjustment for Extreme Value Models
 
@@ -17,6 +18,7 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-chandwich 
+BuildRequires:    R-CRAN-exdex 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-revdbayes 
@@ -24,6 +26,7 @@ BuildRequires:    R-CRAN-sandwich
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-chandwich 
+Requires:         R-CRAN-exdex 
 Requires:         R-graphics 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-revdbayes 

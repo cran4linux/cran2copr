@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clockify
-%global packver   0.1.2
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper for the 'Clockify' API
 
@@ -17,30 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-anytime 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-anytime 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-anytime 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-logger 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-anytime 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-A wrapper for the Clockify API <https://clockify.me/developers-api>,
-making it possible to query, insert and update time keeping data.
+A wrapper for the Clockify API <https://docs.clockify.me/>, making it
+possible to query, insert and update time keeping data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecce
-%global packver   2.0.2
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Translate English Words into Chinese, or Translate Chinese Words into English
 
@@ -36,7 +36,9 @@ provides similar features. But it does not support Chinese words
 translation into English, I have made some improvements on the basis of
 this software. You can pass in an English or Chinese word, ecce package
 support both English and Chinese translation. It also support browse
-translation results in website.
+translation results in website. In addition, also support obtain the
+pinyin of the Chinese character, so that you can more easily understand
+the pronunciation of the Chinese character.
 
 %prep
 %setup -q -c -n %{packname}

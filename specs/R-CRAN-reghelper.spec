@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  reghelper
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Regression Analysis
 
@@ -17,12 +18,14 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 1.0.0
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 1.0.0
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-lme4 

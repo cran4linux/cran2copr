@@ -1,33 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  isoSurv
-%global packver   0.3.0
+%global packname  VBJM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Isotonic Regression on Survival Analysis
+Summary:          Variational Inference for Joint Model
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Iso 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Iso 
-Requires:         R-CRAN-survival 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-survival >= 3.2
+BuildRequires:    R-CRAN-pracma >= 2.2
+BuildRequires:    R-CRAN-statmod >= 1.4
+BuildRequires:    R-CRAN-Matrix >= 1.3
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEnsmallen 
+Requires:         R-CRAN-survival >= 3.2
+Requires:         R-CRAN-pracma >= 2.2
+Requires:         R-CRAN-statmod >= 1.4
+Requires:         R-CRAN-Matrix >= 1.3
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Nonparametric estimation on survival analysis under order-restrictions.
+The shared random effects joint model is one of the most widely used
+approaches to study the associations between longitudinal biomarkers and a
+survival outcome and make dynamic risk predictions using the
+longitudinally measured biomarkers. One major limitation of joint models
+is that they could be computationally expensive for complex models where
+the number of the shared random effects is large. This package can be used
+to fit complex multivariate joint models using our newly developed
+algorithm Jieqi Tu and Jiehuan Sun (2023) <doi:10.1002/sim.9619>, which is
+based on Gaussian variational approximate inference and is computationally
+efficient.
 
 %prep
 %setup -q -c -n %{packname}
