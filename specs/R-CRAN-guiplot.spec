@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  guiplot
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly GUI Plotting Tools
 
@@ -26,6 +26,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-excelR 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-shiny >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.3.1
@@ -35,6 +36,7 @@ Requires:         R-stats
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-excelR 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Create a user-friendly plotting GUI for 'R'. In addition, one purpose of

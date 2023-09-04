@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mas
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Membership Association Studies
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-truncdist 
 
 %description
-Genome-wide association analysis with membership information, variance
-adjustment, and correlated responses.
+Genome-wide association analysis that accomodate membership information,
+variance adjustment, and correlated responses.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dateback
-%global packver   1.0.3
+%global packname  mvpd
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collect and Install R Packages on a Specified Date with Dependencies
+Summary:          Multivariate Product Distributions for Elliptically Contoured Distributions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-stabledist 
+BuildRequires:    R-CRAN-libstable4u 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-stabledist 
+Requires:         R-CRAN-libstable4u 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-Matrix 
 
 %description
-Works as a virtual CRAN snapshot for source packages. It automatically
-downloads and installs 'tar.gz' files with dependencies, all of which were
-available on a specific day.
+Estimates multivariate subgaussian stable densities and probabilities as
+well as generates random variates using product distribution theory.  A
+function for estimating the parameters from data to fit a distribution to
+data is also provided, using the method from Nolan (2013)
+<doi:10.1007/s00180-013-0396-7>.
 
 %prep
 %setup -q -c -n %{packname}

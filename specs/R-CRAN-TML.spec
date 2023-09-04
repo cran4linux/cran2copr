@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TML
-%global packver   0.1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tropical Geometry Tools for Machine Learning
 
@@ -34,6 +34,9 @@ BuildRequires:    R-CRAN-ape
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-RcppAlgos 
@@ -51,14 +54,17 @@ Requires:         R-CRAN-ape
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
 
 %description
 Suite of tropical geometric tools for use in machine learning
 applications. These methods may be summarized in the following references:
 Yoshida, et al. (2022) <arxiv:2209.15045>, Barnhill et al. (2023)
 <arxiv:2303.02539>, Barnhill and Yoshida (2023)
-<doi:10.21203/rs.3.rs-3047827/v1>, Yoshida et al. (2022)
-<arXiv:2206.04206>, and Yoshida et al. (2019)
+<doi:10.3390/math11153433>, Aliatimis et al. (2023) <arXiv:2306.08796>,
+Yoshida et al. (2022) <arXiv:2206.04206>, and Yoshida et al. (2019)
 <doi:10.1007/s11538-018-0493-4>.
 
 %prep

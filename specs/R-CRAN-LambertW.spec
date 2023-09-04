@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LambertW
-%global packver   0.6.7-1
+%global packver   0.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7.1
+Version:          0.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Models to Analyze and Gaussianize Heavy-Tailed, Skewed Data
 

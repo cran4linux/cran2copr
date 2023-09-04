@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Qtools
-%global packver   1.5.6
+%global packver   1.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.6
+Version:          1.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Quantiles
 
@@ -17,40 +18,44 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-conquer 
 BuildRequires:    R-CRAN-glmx 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-quantdr 
 BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-numDeriv >= 2016.8.1
 Requires:         R-CRAN-Rcpp >= 0.12.13
-Requires:         R-utils 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-conquer 
 Requires:         R-CRAN-glmx 
-Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-gtools 
-Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-np 
+Requires:         R-CRAN-quantdr 
 Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-boot 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Functions for unconditional and conditional quantiles. These include
 methods for transformation-based quantile regression, quantile-based
 measures of location, scale and shape, methods for quantiles of discrete
 variables, quantile-based multiple imputation, restricted quantile
-regression, and directional quantile classification. A vignette is given
-in Geraci (2016, The R Journal) <doi:10.32614/RJ-2016-037> and included in
-the package.
+regression, directional quantile classification, and quantile ratio
+regression. A vignette is given in Geraci (2016, The R Journal)
+<doi:10.32614/RJ-2016-037> and included in the package.
 
 %prep
 %setup -q -c -n %{packname}

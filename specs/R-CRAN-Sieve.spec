@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Sieve
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Estimation by the Method of Sieves
 
@@ -15,28 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-combinat 
 Requires:         R-CRAN-glmnet 
 Requires:         R-methods 
+Requires:         R-CRAN-MASS 
 
 %description
 Performs multivariate nonparametric regression/classification by the
-method of sieves (or using orthogonal series). The method is suitable for
-continuous/binary problems with multivariate or moderate high-dimensional
-features (dimension < 100). The main estimator in this package, penalized
-sieve estimator, is adaptive to the feature dimension with provable
-theoretical guarantees. Moreover, such a method is computationally
-tractable in the sense it typically has a polynomial dependence (rather
-than an exponential one) on the feature dimension and an almost linear
-dependence on the sample size. Details of the methods and model
-assumptions can be found in: Tianyu Zhang, and Noah Simon (2022)
-<arXiv:2206.02994>.
+method of sieves (using orthogonal basis). The method is suitable for
+moderate high-dimensional features (dimension < 100). The l1-penalized
+sieve estimator, a nonparametric generalization of Lasso, is adaptive to
+the feature dimension with provable theoretical guarantees. We also
+include a nonparametric stochastic gradient descent estimator, Sieve-SGD,
+for online or large scale batch problems. Details of the methods and model
+assumptions can be found in: <arXiv:2206.02994> <arXiv:2104.00846>.
 
 %prep
 %setup -q -c -n %{packname}

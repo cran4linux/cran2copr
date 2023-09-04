@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cdfquantreg
-%global packver   1.3.1-2
+%global packname  BGPhazard
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1.2
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile Regression for Random Variables on the Unit Interval
+Summary:          Markov Beta and Gamma Processes for Modeling Hazard Rates
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma >= 2.3
-BuildRequires:    R-CRAN-Formula >= 1.2
+BuildRequires:    R-CRAN-Brobdingnag 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-pracma >= 2.3
-Requires:         R-CRAN-Formula >= 1.2
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Brobdingnag 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Employs a two-parameter family of distributions for modelling random
-variables on the (0, 1) interval by applying the cumulative distribution
-function (cdf) of one parent distribution to the quantile function of
-another.
+Computes the hazard rate estimate as described by Nieto-Barajas & Walker
+(2002), Nieto-Barajas (2003), Nieto-Barajas & Walker (2007) and
+Nieto-Barajas & Yin (2008).
 
 %prep
 %setup -q -c -n %{packname}
