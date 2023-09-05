@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  regfilter
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elimination of Noisy Samples in Regression Datasets using Noise Filters
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-arules
 BuildRequires:    R-CRAN-infotheo 
 BuildRequires:    R-CRAN-entropy 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-gbm 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-arules
 Requires:         R-CRAN-infotheo 
 Requires:         R-CRAN-entropy 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sf 
 
 %description
 Traditional noise filtering methods aim at removing noisy samples from a

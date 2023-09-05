@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MixfMRI
-%global packver   0.1-2
+%global packver   0.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixture fMRI Clustering Analysis
 
@@ -31,7 +32,7 @@ Requires:         R-CRAN-EMCluster
 %description
 Utilizing model-based clustering (unsupervised) for functional magnetic
 resonance imaging (fMRI) data. The developed methods (Chen and Maitra
-(2021) <arXiv:2102.03639>) include 2D and 3D clustering analyses (for
+(2023) <doi:10.1002/hbm.26425>) include 2D and 3D clustering analyses (for
 p-values with voxel locations) and segmentation analyses (for p-values
 alone) for fMRI data where p-values indicate significant level of
 activation responding to stimulate of interesting. The analyses are mainly

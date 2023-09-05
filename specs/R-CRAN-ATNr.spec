@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ATNr
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run Allometric Trophic Networks Models
 
@@ -14,19 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.14
+Requires:         R-core >= 2.14
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-R.rsp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-R.rsp 
 
 %description
 Implements the differential equations associated to different versions of

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dtrackr
-%global packver   0.4.0
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Track your Data Pipelines
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-magrittr 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-pdftools 
 BuildRequires:    R-CRAN-png 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 

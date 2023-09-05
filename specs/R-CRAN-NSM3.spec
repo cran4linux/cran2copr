@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NSM3
-%global packver   1.17
+%global packver   1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17
+Version:          1.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Datasets to Accompany Hollander, Wolfe, and Chicken - Nonparametric Statistical Methods, Third Edition
 
@@ -35,7 +35,6 @@ BuildRequires:    R-CRAN-nortest
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-Rfit 
-BuildRequires:    R-CRAN-SemiPar 
 BuildRequires:    R-CRAN-SuppDists 
 BuildRequires:    R-CRAN-waveslim 
 Requires:         R-CRAN-combinat 
@@ -57,7 +56,6 @@ Requires:         R-CRAN-nortest
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-Rfit 
-Requires:         R-CRAN-SemiPar 
 Requires:         R-CRAN-SuppDists 
 Requires:         R-CRAN-waveslim 
 

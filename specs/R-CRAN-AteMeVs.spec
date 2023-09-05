@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tsPI
-%global packver   1.0.4
+%global packname  AteMeVs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Improved Prediction Intervals for ARIMA Processes and Structural Time Series
+Summary:          Average Treatment Effects with Measurement Error and Variable Selection for Confounders
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-KFAS 
-Requires:         R-CRAN-KFAS 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ncvreg 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ncvreg 
 
 %description
-Prediction intervals for ARIMA and structural time series models using
-importance sampling approach with uninformative priors for model
-parameters, leading to more accurate coverage probabilities in frequentist
-sense. Instead of sampling the future observations and hidden states of
-the state space representation of the model, only model parameters are
-sampled, and the method is based solving the equations corresponding to
-the conditional coverage probability of the prediction intervals. This
-makes method relatively fast compared to for example MCMC methods, and
-standard errors of prediction limits can also be computed
-straightforwardly.
+A recent method proposed by Yi and Chen (2023)
+<doi:10.1177/09622802221146308> is used to estimate the average treatment
+effects using noisy data containing both measurement error and spurious
+variables. The package 'AteMeVs' contains a set of functions that provide
+a step-by-step estimation procedure, including the correction of the
+measurement error effects, variable selection for building the model used
+to estimate the propensity scores, and estimation of the average treatment
+effects. The functions contain multiple options for users to implement,
+including different ways to correct for the measurement error effects,
+distinct choices of penalty functions to do variable selection, and
+various regression models to characterize propensity scores.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tsPI
-%global packver   1.0.4
+%global packname  varoc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Improved Prediction Intervals for ARIMA Processes and Structural Time Series
+Summary:          Value Added Receiver Operating Characteristics Curve
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-KFAS 
-Requires:         R-CRAN-KFAS 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-corrplot 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Prediction intervals for ARIMA and structural time series models using
-importance sampling approach with uninformative priors for model
-parameters, leading to more accurate coverage probabilities in frequentist
-sense. Instead of sampling the future observations and hidden states of
-the state space representation of the model, only model parameters are
-sampled, and the method is based solving the equations corresponding to
-the conditional coverage probability of the prediction intervals. This
-makes method relatively fast compared to for example MCMC methods, and
-standard errors of prediction limits can also be computed
-straightforwardly.
+A continuous version of the receiver operating characteristics (ROC) curve
+to visualize and assess the classification and continuity performances of
+biomarkers, diagnostic tests, or risk prediction models.
 
 %prep
 %setup -q -c -n %{packname}

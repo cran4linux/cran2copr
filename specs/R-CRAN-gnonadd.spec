@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tsPI
-%global packver   1.0.4
+%global packname  gnonadd
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Improved Prediction Intervals for ARIMA Processes and Structural Time Series
+Summary:          Various Non-Additive Models for Genetic Associations
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-KFAS 
-Requires:         R-CRAN-KFAS 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Prediction intervals for ARIMA and structural time series models using
-importance sampling approach with uninformative priors for model
-parameters, leading to more accurate coverage probabilities in frequentist
-sense. Instead of sampling the future observations and hidden states of
-the state space representation of the model, only model parameters are
-sampled, and the method is based solving the equations corresponding to
-the conditional coverage probability of the prediction intervals. This
-makes method relatively fast compared to for example MCMC methods, and
-standard errors of prediction limits can also be computed
-straightforwardly.
+The goal of 'gnonadd' is to simplify workflows in the analysis of
+non-additive effects of sequence variants. This includes variance effects
+(Ivarsdottir et. al (2017) <doi:10.1038/ng.3928>), correlation effects,
+interaction effects and dominance effects. The package also includes
+convenience functions for visualization.
 
 %prep
 %setup -q -c -n %{packname}
