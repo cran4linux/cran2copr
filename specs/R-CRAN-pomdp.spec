@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pomdp
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infrastructure for Partially Observable Markov Decision Processes (POMDP)
 
@@ -16,14 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pomdpSolve 
+BuildRequires:    R-CRAN-pomdpSolve >= 1.0.4
+BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-pomdpSolve 
+Requires:         R-CRAN-pomdpSolve >= 1.0.4
+Requires:         R-CRAN-processx 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 

@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CovRegRF
+%global packname  procs
 %global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Covariance Regression with Random Forests
+Summary:          Recreates Some 'SAS®' Procedures in 'R'
 
-License:          GPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-DiagrammeR 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-DiagrammeR 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-common 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-fmtr 
+BuildRequires:    R-CRAN-reporter 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-common 
+Requires:         R-utils 
+Requires:         R-CRAN-fmtr 
+Requires:         R-CRAN-reporter 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Covariance Regression with Random Forests ('CovRegRF') is a random forest
-method for estimating the covariance matrix of a multivariate response
-given a set of covariates. Random forest trees are built with a new
-splitting rule which is designed to maximize the distance between the
-sample covariance matrix estimates of the child nodes. The method is
-described in Alakus et al. (2022) <arXiv:2209.08173>. 'CovRegRF' uses
-'randomForestSRC' package (Ishwaran and Kogalur, 2022)
-<https://cran.r-project.org/package=randomForestSRC> by freezing at the
-version 3.1.0. The custom splitting rule feature is utilised to apply the
-proposed splitting rule.
+Contains functions to simulate the most commonly used 'SAS®' procedures.
+Specifically, the package aims to simulate the functionality of 'proc
+freq', 'proc means', 'proc transpose', 'proc sort', and 'proc print'. The
+simulation will include recreating all statistics with the highest
+fidelity possible.
 
 %prep
 %setup -q -c -n %{packname}

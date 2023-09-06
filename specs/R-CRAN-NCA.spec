@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NCA
-%global packver   3.3.2
+%global packver   3.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.2
+Version:          3.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Necessary Condition Analysis
 
@@ -39,21 +39,21 @@ Requires:         R-CRAN-plotly
 %description
 Performs a Necessary Condition Analysis (NCA). (Dul, J. 2016. Necessary
 Condition Analysis (NCA). ''Logic and Methodology of 'Necessary but not
-Sufficient' causality." Organizational Research Methods 19(1), 10-52,
-<https://journals.sagepub.com/doi/full/10.1177/1094428115584005>). NCA
-identifies necessary (but not sufficient) conditions in datasets, where x
-causes (e.g. precedes) y. Instead of drawing a regression line ''through
-the middle of the data'' in an xy-plot, NCA draws the ceiling line. The
-ceiling line y = f(x) separates the area with observations from the area
-without observations. (Nearly) all observations are below the ceiling
-line: y <= f(x). The empty zone is in the upper left hand corner of the
-xy-plot (with the convention that the x-axis is ''horizontal'' and the
-y-axis is ''vertical'' and that values increase ''upwards'' and ''to the
-right''). The ceiling line is a (piecewise) linear non-decreasing line: a
-linear step function or a straight line. It indicates which level of x
-(e.g. an effort or input) is necessary but not sufficient for a (desired)
-level of y (e.g. good performance or output). A quick start guide for
-using this package can be found here: <https://repub.eur.nl/pub/78323/> or
+Sufficient' causality." Organizational Research Methods 19(1), 10-52)
+<doi:10.1177/1094428115584005>. NCA identifies necessary (but not
+sufficient) conditions in datasets, where x causes (e.g. precedes) y.
+Instead of drawing a regression line ''through the middle of the data'' in
+an xy-plot, NCA draws the ceiling line. The ceiling line y = f(x)
+separates the area with observations from the area without observations.
+(Nearly) all observations are below the ceiling line: y <= f(x). The empty
+zone is in the upper left hand corner of the xy-plot (with the convention
+that the x-axis is ''horizontal'' and the y-axis is ''vertical'' and that
+values increase ''upwards'' and ''to the right''). The ceiling line is a
+(piecewise) linear non-decreasing line: a linear step function or a
+straight line. It indicates which level of x (e.g. an effort or input) is
+necessary but not sufficient for a (desired) level of y (e.g. good
+performance or output). A quick start guide for using this package can be
+found here: <https://repub.eur.nl/pub/78323/> or
 <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2624981>.
 
 %prep

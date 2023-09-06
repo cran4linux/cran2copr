@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REndo
-%global packver   2.4.8
+%global packver   2.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.8
+Version:          2.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Linear Models with Endogenous Regressors using Latent Instrumental Variables
 
@@ -54,9 +54,11 @@ method that uses Gaussian copula and Kim and Frees's (2007)
 <doi:10.1007/s11336-007-9008-1> multilevel generalized method of moment
 approach that deals with endogeneity in a multilevel setting. These are
 statistical techniques to address the endogeneity problem where no
-external instrumental variables are needed. Note that with version 2.0.0
-sweeping changes were introduced which greatly improve functionality and
-usability but break backwards compatibility.
+external instrumental variables are needed. See the publication related to
+this package in the Journal of Statistical Software for more details:
+<doi:10.18637/jss.v107.i03>. Note that with version 2.0.0 sweeping changes
+were introduced which greatly improve functionality and usability but
+break backwards compatibility.
 
 %prep
 %setup -q -c -n %{packname}

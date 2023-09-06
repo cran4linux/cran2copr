@@ -1,25 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bqtl
-%global packver   1.0-35
+%global packname  editbl
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.35
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian QTL Mapping Toolkit
+Summary:          'DT' Extension for CRUD (Create, Read, Update, Delete) Applications in 'shiny'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fontawesome >= 0.4.0
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-fontawesome >= 0.4.0
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-uuid 
 
 %description
-QTL mapping toolkit for inbred crosses and recombinant inbred lines.
-Includes maximum likelihood and Bayesian tools.
+The core of this package is a function eDT() which enhances
+DT::datatable() such that it can be used to interactively modify data in
+'shiny'. By the use of generic 'dplyr' methods it supports many types of
+data storage, with relational databases ('dbplyr') being the main use
+case.
 
 %prep
 %setup -q -c -n %{packname}

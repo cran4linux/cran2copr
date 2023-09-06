@@ -1,46 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mederrRank
+%global packname  gdim
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Methods for Identifying the Most Harmful Medication Errors
+Summary:          Estimate Graph Dimension using Cross-Validated Eigenvalues
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BB 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-BB 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-utils 
-Requires:         R-graphics 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Two distinct but related statistical approaches to the problem of
-identifying the combinations of medication error characteristics that are
-more likely to result in harm are implemented in this package: 1) a
-Bayesian hierarchical model with optimal Bayesian ranking on the log odds
-of harm, and 2) an empirical Bayes model that estimates the ratio of the
-observed count of harm to the count that would be expected if error
-characteristics and harm were independent. In addition, for the Bayesian
-hierarchical model, the package provides functions to assess the
-sensitivity of results to different specifications of the random effects
-distributions.
+Cross-validated eigenvalues are estimated by splitting a graph into two
+parts, the training and the test graph. The training graph is used to
+estimate eigenvectors, and the test graph is used to evaluate the
+correlation between the training eigenvectors and the eigenvectors of the
+test graph. The correlations follow a simple central limit theorem that
+can be used to estimate graph dimension via hypothesis testing, see Chen
+et al. (2021) <arXiv:2108.03336> for details.
 
 %prep
 %setup -q -c -n %{packname}

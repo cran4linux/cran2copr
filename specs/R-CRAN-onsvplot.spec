@@ -1,25 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bqtl
-%global packver   1.0-35
+%global packname  onsvplot
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.35
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian QTL Mapping Toolkit
+Summary:          National Road Safety Observatory (ONSV) Style for 'ggplot2' Graphics
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-QTL mapping toolkit for inbred crosses and recombinant inbred lines.
-Includes maximum likelihood and Bayesian tools.
+Helps to create 'ggplot2' charts in the style used by the National Road
+Safety Observatory (ONSV). The package includes functions to customize
+'ggplot2' objects with new theme and colors.
 
 %prep
 %setup -q -c -n %{packname}

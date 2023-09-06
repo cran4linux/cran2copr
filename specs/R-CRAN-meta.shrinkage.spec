@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meta.shrinkage
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analyses for Simultaneously Estimating Individual Means
 
@@ -22,8 +22,10 @@ BuildArch:        noarch
 Implement meta-analyses for simultaneously estimating individual means
 with shrinkage, isotonic regression and pretests. Include our original
 implementation of the isotonic regression via the pool-adjacent-violators
-algorithm (PAVA) algorithm. This methodology is published in Taketomi et
-al.(2021) <doi:10.3390/axioms10040267>.
+algorithm (PAVA) algorithm. For the pretest estimator, the confidence
+interval for individual means are provided. Methodologies were published
+in Taketomi et al. (2021) <doi:10.3390/axioms10040267>, Taketomi et al.
+(2022) <doi:10.3390/a15010026>, Taketomi et al. (2023-) (under review).
 
 %prep
 %setup -q -c -n %{packname}

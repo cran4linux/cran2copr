@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funcharts
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Control Charts
 
@@ -43,8 +43,9 @@ Requires:         R-CRAN-stringr
 %description
 Provides functional control charts for statistical process monitoring of
 functional data, using the methods of Capezza et al. (2020)
-<doi:10.1002/asmb.2507> and Centofanti et al. (2020)
-<doi:10.1080/00401706.2020.1753581>.
+<doi:10.1002/asmb.2507> and Centofanti et al. (2021)
+<doi:10.1080/00401706.2020.1753581>. The package is thoroughly illustrated
+in the paper of Capezza et al (2023) <doi:10.1080/00224065.2023.2219012>.
 
 %prep
 %setup -q -c -n %{packname}

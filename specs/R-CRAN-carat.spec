@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  carat
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate-Adaptive Randomization for Clinical Trials
 
@@ -37,7 +37,8 @@ under covariate-adaptive randomization are also available in the package
 to facilitate the inference for treatment effect under the included
 randomization procedures. Additionally, the package provides comprehensive
 and efficient tools to allow one to evaluate and compare the performance
-of randomization procedures and tests based on various criteria.
+of randomization procedures and tests based on various criteria. See Ma W,
+Ye X, Tu F, and Hu F (2023) <doi: 10.18637/jss.v107.i02> for details.
 
 %prep
 %setup -q -c -n %{packname}

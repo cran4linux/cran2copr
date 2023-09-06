@@ -1,25 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bqtl
-%global packver   1.0-35
+%global packname  r2country
+%global packver   2.0.2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.35
+Version:          2.0.2.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian QTL Mapping Toolkit
+Summary:          Country Data with Names, Capitals, Currencies, Populations, Time, Languages and so on
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-quickcode 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-quickcode 
 
 %description
-QTL mapping toolkit for inbred crosses and recombinant inbred lines.
-Includes maximum likelihood and Bayesian tools.
+Obtain information about countries around the globe. Information for
+names, states, languages, time, capitals, currency and many more. Data
+source are 'Wikipedia' <https://www.wikipedia.org>, 'TimeAndDate'
+<https://www.timeanddate.com> and 'CountryCode' <https://countrycode.org>.
 
 %prep
 %setup -q -c -n %{packname}

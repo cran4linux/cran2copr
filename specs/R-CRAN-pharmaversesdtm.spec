@@ -1,25 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bqtl
-%global packver   1.0-35
+%global packname  pharmaversesdtm
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.35
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian QTL Mapping Toolkit
+Summary:          Test Data for the Pharmaverse Family of Packages
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-QTL mapping toolkit for inbred crosses and recombinant inbred lines.
-Includes maximum likelihood and Bayesian tools.
+A set of Study Data Tabulation Model (SDTM) datasets from the Clinical
+Data Interchange Standards Consortium (CDISC) pilot project used for
+testing and developing Analysis Data Model (ADaM) datasets inside the
+pharmaverse family of packages. SDTM dataset specifications are described
+in: CDISC Submission Data Standards Team (2021)
+<https://www.cdisc.org/system/files/members/standard/foundational/SDTMIG%%20v3.4-FINAL_2022-07-21.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

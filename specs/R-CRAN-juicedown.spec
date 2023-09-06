@@ -1,37 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  states
-%global packver   0.3.2
+%global packname  juicedown
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Panels of Independent States
+Summary:          'juice' + 'markdown': Convert 'R Markdown' into 'HTML' with Inline Styles
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-juicyjuice 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-sass 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-juicyjuice 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-sass 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-xml2 
 
 %description
-Create panel data consisting of independent states from 1816 to the
-present. The package includes the Gleditsch & Ward (G&W) and Correlates of
-War (COW) lists of independent states, as well as helper functions for
-working with state panel data and standardizing other data sources to
-create country-year/month/etc. data.
+A convenience tool to create 'HTML' with inline styles using 'juicyjuice'
+and 'markdown' packages. It is particularly useful when working on a
+content management system (CMS) whose code editor eliminates style and
+link tags. The main use case of the package is the learning management
+system, 'Moodle'. Additional helper functions for teaching purposes are
+provided. Learn more about 'juicedown' at
+<https://kenjisato.github.io/juicedown/>.
 
 %prep
 %setup -q -c -n %{packname}

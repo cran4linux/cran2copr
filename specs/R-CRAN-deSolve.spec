@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deSolve
-%global packver   1.37
+%global packver   1.38
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.37
+Version:          1.38
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solvers for Initial Value Problems of Differential Equations ('ODE', 'DAE', 'DDE')
 

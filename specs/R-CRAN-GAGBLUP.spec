@@ -1,25 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bqtl
-%global packver   1.0-35
+%global packname  GAGBLUP
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.35
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian QTL Mapping Toolkit
+Summary:          Genetic Algorithm Assisted Genomic Best Liner Unbiased Prediction
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-CRAN-GA 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 
 %description
-QTL mapping toolkit for inbred crosses and recombinant inbred lines.
-Includes maximum likelihood and Bayesian tools.
+Performs genetic algorithm (Scrucca, L (2013) <doi:10.18637/jss.v053.i04>)
+assisted genomic best liner unbiased prediction for genomic selection. It
+also provides a binning method in natural population for genomic selection
+under the principle of linkage disequilibrium for dimensional reduction.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mispitools
-%global packver   0.4.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missing Person Identification Tools
 
@@ -49,9 +49,14 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-shiny 
 
 %description
-Open-source software for computing Likelihood ratios thresholds and error
-rates in DNA kinship testing. Marsico FL. et al (2021)
-<doi:10.1016/j.fsigen.2021.102519>.
+A set of decision making tools to conduct missing person searches.
+Particularly, it allows computing optimal LR threshold for declaring
+potential matches in DNA-based database search. More recently 'mispitools'
+incorporates preliminary investigation data based LRs. Statistical weight
+of different traces of evidence such as biological sex, age and hair color
+are presented. For citing mispitools please use the following references:
+Marsico and Caridi, 2023 <doi:10.1016/j.fsigen.2023.102891> and Marsico,
+Vigeland et al. 2021 <doi:10.1016/j.fsigen.2021.102519>.
 
 %prep
 %setup -q -c -n %{packname}

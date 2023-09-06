@@ -1,25 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bqtl
-%global packver   1.0-35
+%global packname  RcppInt64
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.35
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian QTL Mapping Toolkit
+Summary:          'Rcpp'-Based Helper Functions to Pass 'Int64' Values Between 'R' and 'C++'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-bit64 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-bit64 
 
 %description
-QTL mapping toolkit for inbred crosses and recombinant inbred lines.
-Includes maximum likelihood and Bayesian tools.
+'Int64' values can be created and accessed via the 'bit64' package and its
+'integer64' class which package the 'int64' representation cleverly into a
+'double'. This packages helps conversions between 'R' and 'C++' via
+several helper functions provided via a single header file. A complete
+example client package is included as an illustration.
 
 %prep
 %setup -q -c -n %{packname}
