@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AzureGraph
-%global packver   1.3.2
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Interface to 'Microsoft Graph'
 
@@ -33,7 +34,7 @@ Requires:         R-CRAN-R6
 
 %description
 A simple interface to the 'Microsoft Graph' API
-<https://docs.microsoft.com/en-us/graph/overview>. 'Graph' is a
+<https://learn.microsoft.com/en-us/graph/overview>. 'Graph' is a
 comprehensive framework for accessing data in various online Microsoft
 services. This package was originally intended to provide an R interface
 only to the 'Azure Active Directory' part, with a view to supporting

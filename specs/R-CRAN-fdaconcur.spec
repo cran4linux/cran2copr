@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdaconcur
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Concurrent Regression and History Index Models for Functional Data
 
@@ -23,11 +23,11 @@ Requires:         R-CRAN-fdapace
 Requires:         R-stats 
 
 %description
-Provides implementation of concurrent or varying coefficient regression
+Provides an implementation of concurrent or varying coefficient regression
 methods for functional data. The implementations are done for both dense
 and sparsely observed functional data. Pointwise confidence bands can be
 constructed for each case. Further, the influence of past predictor values
-is modeled by a smooth history index function, while the effects on the
+are modeled by a smooth history index function, while the effects on the
 response are described by smooth varying coefficient functions, which are
 very useful in analyzing real data such as COVID data. References: Yao,
 F., Müller, H.G., Wang, J.L. (2005) <doi: 10.1214/009053605000000660>.

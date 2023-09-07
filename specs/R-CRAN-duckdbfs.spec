@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  duckdbfs
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance Remote File System Access Using 'duckdb'
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-duckdb >= 0.3.2
+BuildRequires:    R-CRAN-duckdb >= 0.8.1
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-duckdb >= 0.3.2
+Requires:         R-CRAN-duckdb >= 0.8.1
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 

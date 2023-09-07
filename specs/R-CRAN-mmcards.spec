@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tastypie
+%global packname  mmcards
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Pie Charts
+Summary:          Playing Cards Utility Functions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shadowtext 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-packcircles 
-BuildRequires:    R-CRAN-fmsb 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shadowtext 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-packcircles 
-Requires:         R-CRAN-fmsb 
 
 %description
-You only need to type 'why pie charts are bad' on Google to find thousands
-of articles full of (valid) reasons why other types of charts should be
-preferred over this one. Therefore, because of the little use due to the
-reasons already mentioned, making pie charts (and related) in R is not
-straightforward, so other functions are needed to simplify things. In this
-R package there are useful functions to make 'tasty' pie charts
-immediately by exploiting the many cool templates provided.
+Early insights in probability theory were largely influenced by questions
+about gambling and games of chance, as noted by Blitzstein and Hwang
+(2019, ISBN:978-1138369917). In modern times, playing cards continue to
+serve as an effective teaching tool for probability, statistics, and even
+'R' programming, as demonstrated by Grolemund (2014, ISBN:978-1449359010).
+The 'mmcards' package offers a collection of utility functions designed to
+aid in the creation, manipulation, and utilization of playing card decks
+in multiple formats. These include a standard 52-card deck, as well as
+alternative decks such as decks defined by custom anonymous functions and
+custom interleaved decks. Optimized for the development of educational
+'shiny' applications, the package is particularly useful for teaching
+statistics and probability through card-based games. Functions include
+shuffle_deck(), which creates either a shuffled standard deck or a
+shuffled custom alternative deck; deal_card(), which takes a deck and
+returns a list object containing both the dealt card and the updated deck;
+and i_deck(), which adds image paths to card objects, further enriching
+the package's utility in the development of interactive 'shiny'
+application card games.
 
 %prep
 %setup -q -c -n %{packname}

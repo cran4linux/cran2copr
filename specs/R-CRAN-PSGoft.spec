@@ -1,31 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  monochromeR
-%global packver   0.2.0
+%global packname  PSGoft
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create, View and Use Monochrome Colour Palettes
+Summary:          Modified Lilliefors Goodness-of-Fit Normality Test
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-moments 
+Requires:         R-CRAN-moments 
 
 %description
-Generate a monochrome palette from a starting colour for a specified
-number of colours. The package can also be used to display colour palettes
-in the plot window, with or without hex codes and colour labels.
+Presentation of a new goodness-of-fit normality test based on the
+Lilliefors method. For details on this method see: Sulewski (2019)
+<doi:10.1080/03610918.2019.1664580>.
 
 %prep
 %setup -q -c -n %{packname}

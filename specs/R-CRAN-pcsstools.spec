@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pcsstools
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Regression Using Pre-Computed Summary Statistics
 
@@ -29,7 +30,7 @@ summary statistics (i.e. means, variances, and covariances) in place of
 individual participant data. Possible models include linear models for
 linear combinations, products, and logical combinations of phenotypes.
 Implements methods presented in Wolf et al. (2021)
-<doi:10.1101/2021.03.08.433979> Wolf et al. (2020)
+<doi:10.3389/fgene.2021.745901> Wolf et al. (2020)
 <doi:10.1142/9789811215636_0063> and Gasdaska et al. (2019)
 <doi:10.1142/9789813279827_0036>.
 
@@ -41,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

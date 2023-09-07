@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survex
-%global packver   1.0.0
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explainable Machine Learning in Survival Analysis
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-DALEX >= 2.2.1
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-kernelshap 
 BuildRequires:    R-CRAN-pec 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-patchwork 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-DALEX >= 2.2.1
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-kernelshap 
 Requires:         R-CRAN-pec 
 Requires:         R-CRAN-survival 

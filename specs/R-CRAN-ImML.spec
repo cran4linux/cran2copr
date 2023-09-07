@@ -1,31 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  monochromeR
-%global packver   0.2.0
+%global packname  ImML
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create, View and Use Monochrome Colour Palettes
+Summary:          Machine Learning Algorithms Fitting and Validation for Forestry
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-caret >= 6.0.94
+BuildRequires:    R-CRAN-randomForest >= 4.7.1.1
+BuildRequires:    R-CRAN-rpart >= 4.1.19
+BuildRequires:    R-stats >= 4.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
+BuildRequires:    R-CRAN-e1071 >= 1.7.13
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-caret >= 6.0.94
+Requires:         R-CRAN-randomForest >= 4.7.1.1
+Requires:         R-CRAN-rpart >= 4.1.19
+Requires:         R-stats >= 4.1.0
+Requires:         R-CRAN-ggplot2 >= 3.4.2
+Requires:         R-CRAN-e1071 >= 1.7.13
+Requires:         R-CRAN-dplyr >= 1.1.2
+Requires:         R-CRAN-rlang >= 1.1.1
 
 %description
-Generate a monochrome palette from a starting colour for a specified
-number of colours. The package can also be used to display colour palettes
-in the plot window, with or without hex codes and colour labels.
+Fitting and validation of machine learning algorithms for volume
+prediction of trees, currently for conifer trees based on diameter at
+breast height and height as explanatory variables.
 
 %prep
 %setup -q -c -n %{packname}

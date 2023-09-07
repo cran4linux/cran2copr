@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  infer
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Statistical Inference
 
@@ -20,29 +20,31 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-rlang >= 0.2.0
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-rlang >= 0.2.0
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-broom 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-vctrs 
 
 %description
 The objective of this package is to perform inference using an expressive

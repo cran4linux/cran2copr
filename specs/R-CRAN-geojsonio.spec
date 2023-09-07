@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geojsonio
-%global packver   0.11.2
+%global packver   0.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          0.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Data from and to 'GeoJSON' or 'TopoJSON'
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-geojson >= 0.2.0
 BuildRequires:    R-CRAN-crul 
 BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-jqr 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sp 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-geojson >= 0.2.0
 Requires:         R-CRAN-crul 
 Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-jqr 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-sp 

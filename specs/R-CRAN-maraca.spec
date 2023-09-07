@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  monochromeR
-%global packver   0.2.0
+%global packname  maraca
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create, View and Use Monochrome Colour Palettes
+Summary:          The Maraca Plot: Visualization of Hierarchical Composite Endpoints in Clinical Trials
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3
+BuildRequires:    R-CRAN-checkmate >= 2.1
+BuildRequires:    R-CRAN-tidyr >= 1.2
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-hce >= 0.0.2
+Requires:         R-CRAN-ggplot2 >= 3.3
+Requires:         R-CRAN-checkmate >= 2.1
+Requires:         R-CRAN-tidyr >= 1.2
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-hce >= 0.0.2
 
 %description
-Generate a monochrome palette from a starting colour for a specified
-number of colours. The package can also be used to display colour palettes
-in the plot window, with or without hex codes and colour labels.
+Library that supports visual interpretation of hierarchical composite
+endpoints (HCEs). HCEs are complex constructs used as primary endpoints in
+clinical trials, combining outcomes of different types into ordinal
+endpoints, in which each patient contributes the most clinically important
+event (one and only one) to the analysis. See Karpefors M et al. (2022)
+<doi:10.1177/17407745221134949>.
 
 %prep
 %setup -q -c -n %{packname}

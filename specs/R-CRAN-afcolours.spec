@@ -1,31 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  monochromeR
-%global packver   0.2.0
+%global packname  afcolours
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create, View and Use Monochrome Colour Palettes
+Summary:          Government Analysis Function Recommended Accessible Colour Palette
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-dplyr 
+Requires:         R-grDevices 
 
 %description
-Generate a monochrome palette from a starting colour for a specified
-number of colours. The package can also be used to display colour palettes
-in the plot window, with or without hex codes and colour labels.
+Government Analysis Function recommended colours for use in charts on
+gov.uk to help meet accessibility guidance.
 
 %prep
 %setup -q -c -n %{packname}

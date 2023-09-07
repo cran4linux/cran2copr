@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WaverideR
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracting Signals from Wavelet Spectra
 
@@ -40,6 +40,8 @@ BuildRequires:    R-CRAN-WaveletComp
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-colorRamps 
 BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-rlist 
 Requires:         R-CRAN-DecomposeR 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-Hmisc 
@@ -63,6 +65,8 @@ Requires:         R-CRAN-WaveletComp
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-colorRamps 
 Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-rlist 
 
 %description
 The continuous wavelet transform enables the observation of
