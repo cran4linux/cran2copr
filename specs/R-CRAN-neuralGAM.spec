@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HOasso
-%global packver   1.0.1
+%global packname  neuralGAM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Higher Order Assortativity for Complex Networks
+Summary:          Interpretable Neural Network Based on Generalized Additive Models
 
-License:          GPL (>= 2)
+License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-tensorflow 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-tensorflow 
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Allows to evaluate Higher Order Assortativity of complex networks defined
-through objects of class 'igraph' from the package of the same name. The
-package returns a result also for directed and weighted graphs.
-References, Arcagni, A., Grassi, R., Stefani, S., & Torriero, A. (2017)
-<doi:10.1016/j.ejor.2017.04.028> Arcagni, A., Grassi, R., Stefani, S., &
-Torriero, A. (2021) <doi:10.1016/j.jbusres.2019.10.008> Arcagni, A.,
-Cerqueti, R., & Grassi, R. (2023) <doi:10.48550/arXiv.2304.01737>.
+Neural network framework based on Generalized Additive Models from Hastie
+& Tibshirani (1990, ISBN:9780412343902), which trains a different neural
+network to estimate the contribution of each feature to the response
+variable. The networks are trained independently leveraging the local
+scoring and backfitting algorithms to ensure that the Generalized Additive
+Model converges and it is additive. The resultant Neural Network is a
+highly accurate and interpretable deep learning model, which can be used
+for high-risk AI practices where decision-making should be based on
+accountable and interpretable algorithms.
 
 %prep
 %setup -q -c -n %{packname}

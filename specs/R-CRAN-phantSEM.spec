@@ -1,29 +1,39 @@
-%global debug_package %{nil}
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  x13binary
-%global packver   1.1.57-3
+%global packname  phantSEM
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.57.3
+Version:          1.0.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Provide the 'x13ashtml' Seasonal Adjustment Binary
+Summary:          Create Phantom Variables in Structural Equation Models for Sensitivity Analyses
 
-License:          file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.1
+Requires:         R-core >= 3.5.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-corpcor >= 1.6.10
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-lavaan >= 0.6.11
+Requires:         R-CRAN-corpcor >= 1.6.10
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-lavaan >= 0.6.11
 
 %description
-The US Census Bureau provides a seasonal adjustment program now called
-'X-13ARIMA-SEATS' building on both earlier programs called X-11 and X-12
-as well as the SEATS program by the Bank of Spain. The US Census Bureau
-offers both source and binary versions -- which this package integrates
-for use by other R packages.
+Create phantom variables, which are variables that were not observed, for
+the purpose of sensitivity analyses for structural equation models. The
+package makes it easier for a user to test different combinations of
+covariances between the phantom variable(s) and observed variables. The
+package may be used to assess a model's or effect's sensitivity to
+temporal bias (e.g., if cross-sectional data were collected) or
+confounding bias.
 
 %prep
 %setup -q -c -n %{packname}

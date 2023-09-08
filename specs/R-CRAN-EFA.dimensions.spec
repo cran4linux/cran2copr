@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EFA.dimensions
-%global packver   0.1.7.7
+%global packver   0.1.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7.7
+Version:          0.1.7.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Factor Analysis Functions for Assessing Dimensionality
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-polycor
 BuildRequires:    R-CRAN-EFAtools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-GPArotation 
 Requires:         R-stats 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-polycor 
 Requires:         R-CRAN-EFAtools 
 Requires:         R-utils 
 Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-GPArotation 
 
 %description
 Functions for eleven procedures for determining the number of factors,
@@ -44,8 +46,8 @@ can be performed. Additional functions focus on the factorability of a
 correlation matrix, the congruences between factors from different
 datasets, the assessment of local independence, the assessment of factor
 solution complexity, and internal consistency. Auerswald & Moshagen (2019,
-ISSN:1939-1463); Fabrigar & Wegener (2012, ISBN:978-0-19-973417-7); Field,
-Miles, & Field (2012, ISBN:978-1-4462-0045-2); O'Connor (2000,
+ISSN:1939-1463); Field, Miles, & Field (2012, ISBN:978-1-4462-0045-2);
+Mulaik (2010, ISBN:978-1-4200-9981-2); O'Connor (2000,
 <doi:10.3758/bf03200807>); O'Connor (2001, ISSN:0146-6216).
 
 %prep

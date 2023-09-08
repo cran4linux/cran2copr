@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  disaggregation
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disaggregation Modelling
 
@@ -16,15 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-splancs 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-TMB 
@@ -34,15 +32,13 @@ BuildRequires:    R-CRAN-cowplot
 BuildRequires:    R-CRAN-sparseMVN 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-splancs 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
 Requires:         R-CRAN-TMB 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sasLM
-%global packver   0.9.12
+%global packname  jointCalib
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Linear Model
+Summary:          A Joint Calibration of Totals and Quantiles
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-laeken 
+BuildRequires:    R-CRAN-sampling 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ebal 
+Requires:         R-CRAN-laeken 
+Requires:         R-CRAN-sampling 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ebal 
 
 %description
-This is a core implementation of 'SAS' procedures for linear models - GLM,
-REG, ANOVA, TTEST, FREQ, and UNIVARIATE. Some R packages provide type II
-and type III SS. However, the results of nested and complex designs are
-often different from those of 'SAS.' Different results does not
-necessarily mean incorrectness. However, many wants the same results to
-SAS. This package aims to achieve that. Reference: Littell RC, Stroup WW,
-Freund RJ (2002, ISBN:0-471-22174-0).
+A small package containing functions to perform a joint calibration of
+totals and quantiles. The calibration for totals is based on Deville and
+Särndal (1992) <doi:10.1080/01621459.1992.10475217>, the calibration for
+quantiles is based on Harms and Duchesne (2006)
+<https://www150.statcan.gc.ca/n1/en/catalogue/12-001-X20060019255>. The
+package uses standard calibration via the 'survey', 'sampling' or 'laeken'
+packages. In addition, entropy balancing via the 'ebal' package and
+empirical likelihood based on codes from Wu (2005)
+<https://www150.statcan.gc.ca/n1/pub/12-001-x/2005002/article/9051-eng.pdf>
+can be used. See the paper by Beręsewicz and Szymkowiak (2023) for details
+<arXiv:2308.13281>.
 
 %prep
 %setup -q -c -n %{packname}

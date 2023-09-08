@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  obfuscatoR
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Obfuscation Game Designs
 
@@ -38,7 +39,8 @@ games to test the obfuscation hypothesis. It provides an easy to use
 interface and multiple options designed to vary the difficulty of the game
 and tailor it to the user's needs. For more detail: Chorus et al., 2021,
 Obfuscation maximization-based decision-making: Theory, methodology and
-first empirical evidence, Mathematical Social Sciences, 109, 28-44.
+first empirical evidence, Mathematical Social Sciences, 109, 28-44,
+<doi:10.1016/j.mathsocsci.2020.10.002>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdi
-%global packver   1.4.1
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Volumetric Analysis using Graphic Double Integration
 
@@ -24,18 +24,20 @@ Requires:         R-CRAN-png
 
 %description
 Tools implementing an automated version of the graphic double integration
-technique first employed by Jerison (1973) <ISBN:9780323141086> and
-Hurlburt (1999) <doi:10.1080/02724634.1999.10011145>. Graphic double
-integration is primarily used for volume or mass estimation of (extinct)
-animals, and the package 'gdi' aims to make this technique as convenient
-and versatile as possible. The main functions of 'gdi' provide utilities
-for automatically measuring diameters from digital silhouettes provided as
-image files, and for calculating volume via graphic double integration
-with a simple elliptical, superelliptical (following Motani 2001
-<doi:10.1666/0094-8373(2001)027%%3C0735:EBMFST%%3E2.0.CO;2>) or complex
-cross-sectional model. Additionally, the package contains functions to
-help with estimating the position of the center of mass (COM), and for
-visualizing results.
+technique (GDI) for volume implementation, and some other related
+utilities for paleontological image-analysis. GDI was first employed by
+Jerison (1973) <ISBN:9780323141086> and Hurlburt (1999)
+<doi:10.1080/02724634.1999.10011145> and is primarily used for volume or
+mass estimation of (extinct) animals. The package 'gdi' aims to make this
+technique as convenient and versatile as possible. The core functions of
+'gdi' provide utilities for automatically measuring diameters from digital
+silhouettes provided as image files and calculating volume via graphic
+double integration with simple elliptical, superelliptical (following
+Motani 2001 <doi:10.1666/0094-8373(2001)027%%3C0735:EBMFST%%3E2.0.CO;2>) or
+complex cross-sectional models. Additionally, the package provides
+functions for estimating the center of mass position (COM), the moment of
+inertia (I) for 3D shapes and the second moment of area (Ix) of 2D
+cross-sections, as well as for visualization of results.
 
 %prep
 %setup -q -c -n %{packname}

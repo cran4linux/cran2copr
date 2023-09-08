@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qgg
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Quantitative Genetic Analyses
 
@@ -23,6 +23,8 @@ BuildRequires:    R-CRAN-statmod
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-data.table 
@@ -31,6 +33,8 @@ Requires:         R-CRAN-statmod
 Requires:         R-stats 
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-corpcor 
 
 %description
 Provides an infrastructure for efficient processing of large-scale genetic

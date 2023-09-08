@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IAPWS95
-%global packver   1.2.3
+%global packname  aphylo
+%global packver   0.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thermophysical Properties of Water and Steam
+Summary:          Statistical Inference and Prediction of Annotations in Phylogenetic Trees
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,19 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pander 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ape >= 5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.1
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-fmcmc 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-ape >= 5.0
+Requires:         R-CRAN-Rcpp >= 0.12.1
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-fmcmc 
+Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-xml2 
 
 %description
-Functions for Water and Steam Properties based on the International
-Association for the Properties of Water (IAPWS) Formulation 1995 for the
-Thermodynamic Properties of Ordinary Water Substance for General and
-Scientific Use and on the releases for viscosity, conductivity, surface
-tension and melting pressure.
+Implements a parsimonious evolutionary model to analyze and predict
+gene-functional annotations in phylogenetic trees as described in Vega Yon
+et al. (2021) <doi:10.1371/journal.pcbi.1007948>. Focusing on
+computational efficiency, 'aphylo' makes it possible to estimate pooled
+phylogenetic models, including thousands (hundreds) of annotations (trees)
+in the same run. The package also provides the tools for visualization of
+annotated phylogenies, calculation of posterior probabilities (prediction)
+and goodness-of-fit assessment featured in Vega Yon et al. (2021).
 
 %prep
 %setup -q -c -n %{packname}

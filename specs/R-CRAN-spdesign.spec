@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spdesign
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Designing Stated Preference Experiments
 
@@ -36,7 +36,9 @@ preference experimental designs using state-of-the-art methods. For an
 overview of stated choice experimental design theory, see e.g., Rose, J.
 M. & Bliemer, M. C. J. (2014) in Hess S. & Daly. A.
 <doi:10.4337/9781781003152>. The package website can be accessed at
-<https://spdesign.edsandorf.me>.
+<https://spdesign.edsandorf.me>. We acknowledge funding from the European
+Union’s Horizon 2020 research and innovation program under the Marie
+Sklodowska-Curie grant INSPiRE (Grant agreement ID: 793163).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ineptR
-%global packver   0.2.1
+%global packname  maldipickr
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for Statistics Portugal API
+Summary:          Dereplicate and Cherry-Pick Mass Spectrometry Spectra
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,32 +18,39 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-MALDIquant 
+BuildRequires:    R-CRAN-readBrukerFlexData 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-MALDIquant 
+Requires:         R-CRAN-readBrukerFlexData 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Set of wrapper and helper functions to facilitate interaction with the
-Statistics Portugal (Instituto Nacional de Estatistica - INE) API
-(<https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_api&INST=322751522&xlang=en>).
+Convenient wrapper functions for the analysis of matrix-assisted laser
+desorption/ionization-time-of-flight (MALDI-TOF) spectra data in order to
+select only representative spectra (also called cherry-pick). The package
+covers the preprocessing and dereplication steps (based on Strejcek,
+Smrhova, Junkova and Uhlik (2018) <doi:10.3389/fmicb.2018.01294>) needed
+to cluster MALDI-TOF spectra before the final cherry-picking step. It
+enables the easy exclusion of spectra and/or clusters to accommodate
+complex cherry-picking strategies. Alternatively, cherry-picking using
+taxonomic identification MALDI-TOF data is made easy with functions to
+import inconsistently formatted reports.
 
 %prep
 %setup -q -c -n %{packname}

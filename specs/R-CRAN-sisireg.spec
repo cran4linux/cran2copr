@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sisireg
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sign-Simplicity-Regression-Solver
 
@@ -17,8 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-reticulate 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-reticulate 
 
 %description
 Implementation of the SSR-Algorithm. The Sign-Simplicity-Regression model

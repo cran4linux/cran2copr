@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sassy
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Makes 'R' Easier for Everyone
 
@@ -22,11 +22,19 @@ BuildRequires:    R-CRAN-logr
 BuildRequires:    R-CRAN-fmtr 
 BuildRequires:    R-CRAN-libr 
 BuildRequires:    R-CRAN-reporter 
+BuildRequires:    R-CRAN-procs 
+BuildRequires:    R-datasets 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-common 
 Requires:         R-CRAN-logr 
 Requires:         R-CRAN-fmtr 
 Requires:         R-CRAN-libr 
 Requires:         R-CRAN-reporter 
+Requires:         R-CRAN-procs 
+Requires:         R-datasets 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 A meta-package that aims to make 'R' easier for everyone, especially

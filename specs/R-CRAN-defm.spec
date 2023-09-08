@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  retrodesign
-%global packver   0.2.0
+%global packname  defm
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Type S (Sign) and Type M (Magnitude) Errors
+Summary:          Estimation and Simulation of Multi-Binary Response Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+Requires:         R-stats4 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Provides tools for working with Type S (Sign) and Type M (Magnitude)
-errors, as proposed in Gelman and Tuerlinckx (2000)
-<doi:10.1007/s001800000040> and Gelman & Carlin (2014)
-<doi:10.1177/1745691614551642>. In addition to simply calculating the
-probability of Type S/M error, the package includes functions for
-calculating these errors across a variety of effect sizes for comparison,
-and recommended sample size given "tolerances" for Type S/M errors. To
-improve the speed of these calculations, closed forms solutions for the
-probability of a Type S/M error from Lu, Qiu, and Deng (2018)
-<doi:10.1111/bmsp.12132> are implemented. As of 1.0.0, this includes
-support only for simple research designs. See the package vignette for a
-fuller exposition on how Type S/M errors arise in research, and how to
-analyze them using the type of design analysis proposed in the above
-papers.
+Multi-binary response models are a class of models that allow for the
+estimation of multiple binary outcomes simultaneously. This package
+provides functions to estimate and simulate these models using the
+Discrete Exponential-Family Models [DEFM] framework. In it, we implement
+the models described in Vega Yon, Valente, and Pugh (2023)
+<doi:10.48550/arXiv.2211.00627>. DEFMs include Exponential-Family Random
+Graph Models [ERGMs], which characterize graphs using sufficient
+statistics, which is also the core of DEFMs. Using sufficient statistics,
+we can describe the data through meaningful motifs, for example,
+transitions between different states, joint distribution of the outcomes,
+etc.
 
 %prep
 %setup -q -c -n %{packname}

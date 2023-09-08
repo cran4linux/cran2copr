@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DPQ
-%global packver   0.5-5
+%global packver   0.5-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density, Probability, Quantile ('DPQ') Computations
 
@@ -31,10 +31,13 @@ Requires:         R-utils
 Computations for approximations and alternatives for the 'DPQ' (Density
 (pdf), Probability (cdf) and Quantile) functions for probability
 distributions in R. Primary focus is on (central and non-central) beta,
-gamma and related distributions such as the chi-squared, F, and t. -- This
-is for the use of researchers in these numerical approximation
-implementations, notably for my own use in order to improve standard R
-pbeta(), qgamma(), ..., etc: {'"dpq"'-functions}.
+gamma and related distributions such as the chi-squared, F, and t. -- For
+several distribution functions, provide functions implementing formulas
+from Johnson, Kotz, and Kemp (1992) <doi:10.1002/bimj.4710360207> and
+Johnson, Kotz, and Balakrishnan (1995) for discrete or continuous
+distributions respectively. This is for the use of researchers in these
+numerical approximation implementations, notably for my own use in order
+to improve standard R pbeta(), qgamma(), ..., etc: {'"dpq"'-functions}.
 
 %prep
 %setup -q -c -n %{packname}
