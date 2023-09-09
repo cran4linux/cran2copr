@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  treespace
-%global packver   1.1.4.2
+%global packver   1.1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4.2
+Version:          1.1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Exploration of Landscapes of Phylogenetic Trees
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-ape
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-adegenet 
 BuildRequires:    R-CRAN-adegraphics 
-BuildRequires:    R-CRAN-adephylo 
 BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-distory 
 BuildRequires:    R-CRAN-fields 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-ape
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-adegenet 
 Requires:         R-CRAN-adegraphics 
-Requires:         R-CRAN-adephylo 
 Requires:         R-CRAN-combinat 
 Requires:         R-CRAN-distory 
 Requires:         R-CRAN-fields 

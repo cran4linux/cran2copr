@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epiworldR
-%global packver   0.0-3
+%global packname  mousetRajectory
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Agent-Based Epi Models
+Summary:          Mouse Trajectory Analyses for Behavioural Scientists
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-signal >= 0.7
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-signal >= 0.7
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
 Requires:         R-utils 
 
 %description
-A flexible framework for Agent-Based Models (ABM), the 'epiworldR' package
-provides methods for prototyping disease outbreaks and transmission models
-using a 'C++' backend, making it very fast. It supports multiple
-epidemiological models, including the Susceptible-Infected-Susceptible
-(SIS), Susceptible-Infected-Removed (SIR),
-Susceptible-Exposed-Infected-Removed (SEIR), and others, involving
-arbitrary mitigation policies and multiple-disease models. Users can
-specify infectiousness/susceptibility rates as a function of agents'
-features, providing great complexity for the model dynamics. Furthermore,
-'epiworldR' is ideal for simulation studies featuring large populations.
+Helping psychologists and other behavioural scientists to analyze mouse
+movement (and other 2-D trajectory) data. Bundles together several
+functions that compute spatial measures (e.g., maximum absolute deviation,
+area under the curve, sample entropy) or provide a shorthand for
+procedures that are frequently used (e.g., time normalization, linear
+interpolation, extracting initiation and movement times). For more
+information on these dependent measures, see Wirth et al. (2020)
+<doi:10.3758/s13428-020-01409-0>.
 
 %prep
 %setup -q -c -n %{packname}

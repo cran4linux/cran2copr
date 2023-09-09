@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rivnet
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract and Analyze Rivers from Elevation Data
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-traudem
 BuildRequires:    R-CRAN-elevatr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-fields 
 Requires:         R-CRAN-OCNet >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-spam 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-traudem
 Requires:         R-CRAN-elevatr 
 Requires:         R-methods 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-fields 
 
 %description
 Seamless extraction of river networks from digital elevation models data.

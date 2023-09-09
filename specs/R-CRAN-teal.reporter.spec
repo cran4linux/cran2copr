@@ -1,36 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epiworldR
-%global packver   0.0-3
+%global packname  teal.reporter
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Agent-Based Epi Models
+Summary:          Reporting Tools for 'shiny' Modules
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown >= 2.19
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-shiny >= 1.6.0
+BuildRequires:    R-CRAN-knitr >= 1.34
+BuildRequires:    R-CRAN-yaml >= 1.1.0
+BuildRequires:    R-CRAN-zip >= 1.1.0
+BuildRequires:    R-CRAN-htmltools >= 0.5.4
+BuildRequires:    R-CRAN-shinyWidgets >= 0.5.1
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-rmarkdown >= 2.19
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-shiny >= 1.6.0
+Requires:         R-CRAN-knitr >= 1.34
+Requires:         R-CRAN-yaml >= 1.1.0
+Requires:         R-CRAN-zip >= 1.1.0
+Requires:         R-CRAN-htmltools >= 0.5.4
+Requires:         R-CRAN-shinyWidgets >= 0.5.1
+Requires:         R-CRAN-lifecycle >= 0.2.0
+Requires:         R-CRAN-bslib 
+Requires:         R-grid 
+Requires:         R-CRAN-R6 
 
 %description
-A flexible framework for Agent-Based Models (ABM), the 'epiworldR' package
-provides methods for prototyping disease outbreaks and transmission models
-using a 'C++' backend, making it very fast. It supports multiple
-epidemiological models, including the Susceptible-Infected-Susceptible
-(SIS), Susceptible-Infected-Removed (SIR),
-Susceptible-Exposed-Infected-Removed (SEIR), and others, involving
-arbitrary mitigation policies and multiple-disease models. Users can
-specify infectiousness/susceptibility rates as a function of agents'
-features, providing great complexity for the model dynamics. Furthermore,
-'epiworldR' is ideal for simulation studies featuring large populations.
+Prebuilt 'shiny' modules containing tools for the generation of
+'rmarkdown' reports, supporting reproducible research and analysis.
 
 %prep
 %setup -q -c -n %{packname}

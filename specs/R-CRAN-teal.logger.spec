@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epiworldR
-%global packver   0.0-3
+%global packname  teal.logger
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Agent-Based Epi Models
+Summary:          Logging Setup for the 'teal' Family of Packages
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-logger >= 0.2.0
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-logger >= 0.2.0
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-withr 
 
 %description
-A flexible framework for Agent-Based Models (ABM), the 'epiworldR' package
-provides methods for prototyping disease outbreaks and transmission models
-using a 'C++' backend, making it very fast. It supports multiple
-epidemiological models, including the Susceptible-Infected-Susceptible
-(SIS), Susceptible-Infected-Removed (SIR),
-Susceptible-Exposed-Infected-Removed (SEIR), and others, involving
-arbitrary mitigation policies and multiple-disease models. Users can
-specify infectiousness/susceptibility rates as a function of agents'
-features, providing great complexity for the model dynamics. Furthermore,
-'epiworldR' is ideal for simulation studies featuring large populations.
+Utilizing the 'logger' framework to record events within a package,
+specific to 'teal' family of packages. Supports logging namespaces,
+hierarchical logging, various log destinations, vectorization, and more.
 
 %prep
 %setup -q -c -n %{packname}

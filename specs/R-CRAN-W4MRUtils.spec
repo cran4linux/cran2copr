@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  W4MRUtils
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utils List for W4M - Workflow for Metabolomics
 
@@ -18,12 +18,14 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
 Provides a set of utility function to prevent the spread of utilities
-script in W4M (Workflow For Metabolomics) scripts, and centralize them in
-a single package. Some are meant to be replaced by real packages in a near
+script in W4M (Workflow4Metabolomics) scripts, and centralize them in a
+single package. Some are meant to be replaced by real packages in a near
 future, like the parse_args() function: it is here only to prepare the
 ground for more global changes in W4M scripts and tools.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stranslate
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Translation Between Different Languages
 
@@ -28,7 +28,7 @@ Requires:         R-CRAN-stringr
 Message translation is often managed with 'po' files and the 'gettext'
 programme, but sometimes another solution is needed. In contrast to 'po'
 files, a more flexible approach is used as in the Fluent
-<https://projectfluent.org/> project with RMarkdown snippets. The
+<https://projectfluent.org/> project with R Markdown snippets. The
 key-value approach allows easier handling of the translated messages.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stRoke
-%global packver   23.6.3
+%global packver   23.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          23.6.3
+Version:          23.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Stroke Research
 

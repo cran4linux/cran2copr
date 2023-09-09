@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  washi
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Washington Soil Health Initiative Branding
 
@@ -18,21 +18,21 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-extrafont 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-systemfonts 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-extrafont 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-systemfonts 
 
 %description
 Create plots and tables in a consistent style with WaSHI (Washington Soil

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rebib
-%global packver   0.2.2
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert and Aggregate Bibliographies
 
@@ -21,10 +21,14 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-whisker 
 Requires:         R-tools 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-logger 
 Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-whisker 
 
 %description
 Authors working with 'LaTeX' articles use the built-in bibliography

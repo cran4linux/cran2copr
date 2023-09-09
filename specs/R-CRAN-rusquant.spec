@@ -1,36 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epiworldR
-%global packver   0.0-3
+%global packname  rusquant
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Agent-Based Epi Models
+Summary:          Quantitative Trading Framework
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quantmod 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rvest 
+Requires:         R-CRAN-quantmod 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jose 
+Requires:         R-stats 
+Requires:         R-CRAN-rvest 
 
 %description
-A flexible framework for Agent-Based Models (ABM), the 'epiworldR' package
-provides methods for prototyping disease outbreaks and transmission models
-using a 'C++' backend, making it very fast. It supports multiple
-epidemiological models, including the Susceptible-Infected-Susceptible
-(SIS), Susceptible-Infected-Removed (SIR),
-Susceptible-Exposed-Infected-Removed (SEIR), and others, involving
-arbitrary mitigation policies and multiple-disease models. Users can
-specify infectiousness/susceptibility rates as a function of agents'
-features, providing great complexity for the model dynamics. Furthermore,
-'epiworldR' is ideal for simulation studies featuring large populations.
+Collection of functions to retrieve financial data from various sources,
+including brokerage and exchange platforms, financial websites, and data
+providers. Includes functions to retrieve account information, portfolio
+information, and place/cancel orders from different brokers. Additionally,
+allows users to download historical data such as earnings, dividends,
+stock splits.
 
 %prep
 %setup -q -c -n %{packname}

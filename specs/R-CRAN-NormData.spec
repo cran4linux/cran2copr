@@ -1,36 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epiworldR
-%global packver   0.0-3
+%global packname  NormData
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Agent-Based Epi Models
+Summary:          Derivation of Regression-Based Normative Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-doBy 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-doBy 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-methods 
 
 %description
-A flexible framework for Agent-Based Models (ABM), the 'epiworldR' package
-provides methods for prototyping disease outbreaks and transmission models
-using a 'C++' backend, making it very fast. It supports multiple
-epidemiological models, including the Susceptible-Infected-Susceptible
-(SIS), Susceptible-Infected-Removed (SIR),
-Susceptible-Exposed-Infected-Removed (SEIR), and others, involving
-arbitrary mitigation policies and multiple-disease models. Users can
-specify infectiousness/susceptibility rates as a function of agents'
-features, providing great complexity for the model dynamics. Furthermore,
-'epiworldR' is ideal for simulation studies featuring large populations.
+Normative data are often used to estimate the relative position of a raw
+test score in the population. This package allows for deriving
+regression-based normative data. It includes functions that enable the
+fitting of regression models for the mean and residual (or variance)
+structures, test the model assumptions, derive the normative data in the
+form of normative tables or automatic scoring sheets, and estimate
+confidence intervals for the norms.
 
 %prep
 %setup -q -c -n %{packname}

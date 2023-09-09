@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rstan
-%global packver   2.21.8
+%global packver   2.26.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.21.8
+Version:          2.26.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Stan
 
@@ -14,31 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
+Recommends:       pandoc
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-loo >= 2.3.0
-BuildRequires:    R-CRAN-StanHeaders >= 2.21.0
-BuildRequires:    R-CRAN-gridExtra >= 2.0
-BuildRequires:    R-CRAN-BH >= 1.72.0.2
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.4
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-loo >= 2.4.1
+BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.22
+BuildRequires:    R-CRAN-BH >= 1.75.0.0
+BuildRequires:    R-CRAN-pkgbuild >= 1.2.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.1
+BuildRequires:    R-CRAN-inline >= 0.3.19
 BuildRequires:    R-methods 
 BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-inline 
-BuildRequires:    R-CRAN-pkgbuild 
-Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-loo >= 2.3.0
-Requires:         R-CRAN-StanHeaders >= 2.21.0
-Requires:         R-CRAN-gridExtra >= 2.0
-Requires:         R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-QuickJSR 
+Requires:         R-CRAN-RcppParallel >= 5.1.4
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-loo >= 2.4.1
+Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-StanHeaders >= 2.26.22
+Requires:         R-CRAN-pkgbuild >= 1.2.0
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-inline >= 0.3.19
 Requires:         R-methods 
 Requires:         R-stats4 
-Requires:         R-CRAN-inline 
-Requires:         R-CRAN-pkgbuild 
+Requires:         R-CRAN-QuickJSR 
 
 %description
 User-facing R functions are provided to parse, compile, test, estimate,

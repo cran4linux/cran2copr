@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QUALYPSO
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partitioning Uncertainty Components of an Incomplete Ensemble of Climate Projections
 
@@ -20,18 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
