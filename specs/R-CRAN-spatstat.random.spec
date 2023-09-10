@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.random
-%global packver   3.1-5
+%global packver   3.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.5
+Version:          3.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Generation Functionality for the 'spatstat' Family
 

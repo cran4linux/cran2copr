@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  disbayes
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Multi-State Modelling of Chronic Disease Burden Data
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-loo
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -55,7 +55,7 @@ partial information, using a multi-state model. Given data on age-specific
 mortality and either incidence or prevalence, Bayesian inference is used
 to estimate the posterior distributions of incidence, case fatality, and
 functions of these such as prevalence.  The methods are described in
-Jackson et al. (2021) <arXiv:2111.14100>.
+Jackson et al. (2023) <doi:10.1093/jrsssa/qnac015>.
 
 %prep
 %setup -q -c -n %{packname}

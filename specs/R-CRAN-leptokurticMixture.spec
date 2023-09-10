@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  leptokurticMixture
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implements Parsimonious Finite Mixtures of Multivariate Elliptical Leptokurtic-Normals
 
@@ -21,11 +21,7 @@ Requires:         R-stats
 
 %description
 A way to fit Parsimonious Finite Mixtures of Multivariate Elliptical
-Leptokurtic-Normals (MLN) based on the component covariance matrix
-eigen-decomposition. Two methods of estimation are implemented. The MLN is
-useful for fitting to data with excess kurtosis. Based on work in Bagnato,
-L., Punzo, A. and Zoia, M.G. (2017) <doi:10.1002/cjs.11308> and Browne
-(2023) <doi:10.1016/j.spl.2022.109640>.
+Leptokurtic-Normals. Two methods of estimation are implemented.
 
 %prep
 %setup -q -c -n %{packname}
