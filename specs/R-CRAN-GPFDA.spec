@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GPFDA
-%global packver   3.1.2
+%global packver   3.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Process for Functional Data Analysis
 
@@ -15,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-fields 
@@ -26,7 +27,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-fda.usc 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-Rcpp 
 Requires:         R-splines 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-fields 

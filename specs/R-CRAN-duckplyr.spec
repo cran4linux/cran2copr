@@ -1,26 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  duckplyr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Alternative Implementations of the Grammar of Data Manipulations
+Summary:          A 'DuckDB'-Backed Version of 'dplyr'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.3
+BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-duckdb >= 0.8.1.3
+BuildRequires:    R-CRAN-vctrs >= 0.6.3
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-collections 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr >= 1.1.3
+Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-duckdb >= 0.8.1.3
+Requires:         R-CRAN-vctrs >= 0.6.3
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-collections 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Defines a set of generics that provide a low-level implementer's interface
-for the high-level user interface of 'dplyr'.
+A drop-in replacement for 'dplyr', powered by 'DuckDB' for performance.
+Also defines a set of generics that provide a low-level implementer's
+interface for the high-level user interface of 'dplyr'.
 
 %prep
 %setup -q -c -n %{packname}

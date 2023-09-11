@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nimbleSMC
-%global packver   0.10.1
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Monte Carlo Methods for 'nimble'
 
@@ -16,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble >= 0.10.0
+BuildRequires:    R-CRAN-nimble >= 1.0.0
 BuildRequires:    R-methods 
-Requires:         R-CRAN-nimble >= 0.10.0
+Requires:         R-CRAN-nimble >= 1.0.0
 Requires:         R-methods 
 
 %description

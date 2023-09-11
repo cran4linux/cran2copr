@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tdsa
-%global packver   1.0-1
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time-Dependent Sensitivity Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-numDeriv >= 2006.4.1
 BuildRequires:    R-CRAN-deSolve >= 1.10
@@ -27,8 +27,8 @@ Requires:         R-CRAN-mathjaxr >= 0.8.3
 %description
 Functions that can be used to calculate time-dependent state and parameter
 sensitivities for both continuous- and discrete-time deterministic models.
-See Ng et al. (in review) <doi:10.1101/2023.04.13.536769> for more
-information about time-dependent sensitivity analysis.
+See Ng et al. (in press) <doi:10.1086/726143> for more information about
+time-dependent sensitivity analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rbcb
-%global packver   0.1.10
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Brazilian Central Bank Web Services
 
@@ -24,6 +25,8 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
@@ -32,6 +35,8 @@ Requires:         R-CRAN-xml2
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-digest 
 
 %description
 The Brazilian Central Bank API delivers many datasets which regard

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pbdMPI
-%global packver   0.4-6
+%global packver   0.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Programming with Big Data -- Interface to MPI
+Summary:          R Interface to MPI for HPC Clusters (Programming with Big Data Project)
 
 License:          Mozilla Public License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,20 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    openmpi-devel
-Requires:         openmpi%{_isa}
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+Recommends:       openmpi%{_isa}
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlecuyer 
 BuildRequires:    R-CRAN-float 
+BuildRequires:    R-parallel 
 Requires:         R-methods 
-Requires:         R-CRAN-rlecuyer 
 Requires:         R-CRAN-float 
+Requires:         R-parallel 
 
 %description
-An efficient interface to MPI by utilizing S4 classes and methods with a
-focus on Single Program/Multiple Data ('SPMD') parallel programming style,
-which is intended for batch parallel execution.
+A simplified, efficient, interface to MPI for HPC clusters. It is a
+derivation and rethinking of the Rmpi package. pbdMPI embraces the
+prevalent parallel programming style on HPC clusters. Beyond the
+interface, a collection of functions for global work with distributed data
+and resource-independent RNG reproducibility is included. It is based on
+S4 classes and methods.
 
 %prep
 %setup -q -c -n %{packname}

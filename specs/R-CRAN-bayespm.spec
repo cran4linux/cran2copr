@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayespm
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Statistical Process Monitoring
 
@@ -35,18 +35,31 @@ Requires:         R-CRAN-rmutil
 Requires:         R-CRAN-invgamma 
 
 %description
-The methods utilize available prior information and/or historical data,
-providing efficient online quality monitoring of a process, in terms of
-identifying moderate/large transient shifts (i.e., outliers) in the
+The R-package bayespm implements Bayesian Statistical Process Control and
+Monitoring (SPC/M) methodology. These methods utilize available prior
+information and/or historical data, providing efficient online quality
+monitoring of a process, in terms of identifying moderate/large transient
+shifts (i.e., outliers) or persistent shifts of medium/small size in the
 process. These self-starting, sequentially updated tools can also run
 under complete absence of any prior information. The Predictive Control
-Chart (PCC) mechanism is introduced for the quality monitoring of data
-from any discrete or continuous distribution that is a member of the
-regular exponential family. Apart from monitoring, PCC allows also to
-derive sequentially updated posterior inference for the monitored
-parameter. Bourazas K., Kiagias D. and Tsiamyrtzis P. (2022) "Predictive
-Control Charts (PCC): A Bayesian approach in online monitoring of short
-runs" <doi:10.1080/00224065.2021.1916413>.
+Charts (PCC) are introduced for the quality monitoring of data from any
+discrete or continuous distribution that is a member of the regular
+exponential family. The Predictive Ratio CUSUMs (PRC) are introduced for
+the Binomial, Poisson and Normal data (a later version of the library will
+cover all the remaining distributions from the regular exponential
+family). The PCC targets transient process shifts of typically large size
+(a.k.a. outliers), while PRC is focused in detecting persistent
+(structural) shifts that might be of medium or even small size. Apart from
+monitoring, both PCC and PRC provide the sequentially updated posterior
+inference for the monitored parameter. Bourazas K., Kiagias D. and
+Tsiamyrtzis P. (2022) "Predictive Control Charts (PCC): A Bayesian
+approach in online monitoring of short runs"
+<doi:10.1080/00224065.2021.1916413>, Bourazas K., Sobas F. and
+Tsiamyrtzis, P. 2023. "Predictive ratio CUSUM (PRC): A Bayesian approach
+in online change point detection of short runs"
+<doi:10.1080/00224065.2022.2161434>, Bourazas K., Sobas F. and
+Tsiamyrtzis, P. 2023. "Design and properties of the predictive ratio cusum
+(PRC) control charts" <doi:10.1080/00224065.2022.2161435>.
 
 %prep
 %setup -q -c -n %{packname}

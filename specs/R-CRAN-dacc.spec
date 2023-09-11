@@ -1,46 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CoastlineFD
-%global packver   0.1.4
+%global packname  dacc
+%global packver   0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate the Coastline Fractal Dimension
+Summary:          Detection and Attribution Analysis of Climate Change
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-writexl 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Iso 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-Iso 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-magrittr 
 
 %description
-A system is used to calculate the fractal dimension of coastline by boxes
-method and Dividers method.
+Conduct detection and attribution of climate change using methods
+including optimal fingerprinting via generalized total least squares or
+estimating equation. Provide shrinkage estimators for covariance matrix
+from Ledoit and Wolf (2004) <doi:10.1016/S0047-259X(03)00096-4>, and
+Ledoit and Wolf (2017) <doi:10.2139/ssrn.2383361>.
 
 %prep
 %setup -q -c -n %{packname}

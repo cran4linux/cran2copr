@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  checkdown
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Check-Fields and Check-Boxes for 'rmarkdown'
 
@@ -25,10 +25,11 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-glue 
 
 %description
-Creates auto checking check-fields and check-boxes for 'rmarkdown' html.
-It could be used in class, when teacher share materials and tasks, so
-student can solve some problems and check themselves. In contrast with the
-'learnr' package the 'checkdown' package works without 'shiny'.
+Creates auto-grading check-fields and check-boxes for 'rmarkdown' or
+'quarto' html. It could be used in class, when teacher share materials and
+tasks, so student can solve some problems and check themselves. In
+contrast to the 'learnr' package the 'checkdown' package works
+serverlessly without 'shiny'.
 
 %prep
 %setup -q -c -n %{packname}
