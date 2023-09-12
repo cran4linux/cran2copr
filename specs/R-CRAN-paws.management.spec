@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  paws.management
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Amazon Web Services' Management & Governance Services
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.5.4
-Requires:         R-CRAN-paws.common >= 0.5.4
+BuildRequires:    R-CRAN-paws.common >= 0.6.0
+Requires:         R-CRAN-paws.common >= 0.6.0
 
 %description
 Interface to 'Amazon Web Services' management and governance services,

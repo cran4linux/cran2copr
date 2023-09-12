@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgbif
-%global packver   3.7.7
+%global packver   3.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.7
+Version:          3.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the Global Biodiversity Information Facility API
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-crul >= 0.7
+BuildRequires:    R-CRAN-crul >= 0.7.4
 BuildRequires:    R-CRAN-oai >= 0.2.2
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-ggplot2 
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-wk 
 Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-crul >= 0.7
+Requires:         R-CRAN-crul >= 0.7.4
 Requires:         R-CRAN-oai >= 0.2.2
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-ggplot2 

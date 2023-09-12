@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  historicalborrowlong
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Longitudinal Bayesian Historical Borrowing Models
 
@@ -16,6 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-clustermq 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,7 +28,6 @@ BuildRequires:    R-CRAN-posterior
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-CRAN-rstantools 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
@@ -38,8 +39,8 @@ BuildRequires:    R-CRAN-withr
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-StanHeaders 
 BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-clustermq 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -50,7 +51,6 @@ Requires:         R-CRAN-posterior
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-rstantools 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OptimalGoldstandardDesigns
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design Parameter Optimization for Gold-Standard Non-Inferiority Trials
 
@@ -22,14 +22,12 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-Rdpack 
 
 %description

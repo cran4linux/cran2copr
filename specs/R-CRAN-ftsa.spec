@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ftsa
-%global packver   6.2
+%global packver   6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2
+Version:          6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Time Series Analysis
 
@@ -64,8 +64,7 @@ Requires:         R-methods
 
 %description
 Functions for visualizing, modeling, forecasting and hypothesis testing of
-functional time series. n Jim'{e}nez-Var'{o}n, C., Sun, Y. and Shang,
-H. L. (2023) <arXiv: 2305.19749>.
+functional time series.
 
 %prep
 %setup -q -c -n %{packname}

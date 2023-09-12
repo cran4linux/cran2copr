@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RNOmni
-%global packver   1.0.1
+%global packver   1.0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rank Normal Transformation Omnibus Test
 
@@ -30,7 +30,7 @@ These tests are recommend for continuous traits with non-normally
 distributed residuals. INT-based tests robustly control the type I error
 in settings where standard linear regression does not, as when the
 residual distribution exhibits excess skew or kurtosis. Moreover,
-INT-based tests dominate standard linear regression in terms of power.
+INT-based tests outperform standard linear regression in terms of power.
 These tests may be classified into two types. In direct INT (D-INT), the
 phenotype is itself transformed. In indirect INT (I-INT), phenotypic
 residuals are transformed. The omnibus test (O-INT) adaptively combines

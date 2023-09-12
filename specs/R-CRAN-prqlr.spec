@@ -1,43 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tseriesTARMA
-%global packver   0.3-2
+%global packname  prqlr
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Nonlinear Time Series Through TARMA Models
+Summary:          R Bindings for the 'prql-compiler' Rust Library
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-lbfgsb3c 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-CRAN-rugarch 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-lbfgsb3c 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-mathjaxr 
-Requires:         R-CRAN-rugarch 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-Routines for nonlinear time series analysis based on Threshold
-Autoregressive Moving Average models. It provides functions and methods
-for: TARMA model fitting and forecasting, tests for threshold effects,
-unit-root tests based on TARMA models.
+Provides a function to convert 'PRQL' strings to 'SQL' strings. Combined
+with other R functions that take 'SQL' as an argument, 'PRQL' can be used
+on R.
 
 %prep
 %setup -q -c -n %{packname}

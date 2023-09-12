@@ -1,24 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BsMD
-%global packver   2023.915
+%global packname  SBCK
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.915
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayes Screening and Model Discrimination
+Summary:          Statistical Bias Correction Kit
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
+BuildRequires:    R-CRAN-ROOPSD >= 0.3.5
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-transport 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-ROOPSD >= 0.3.5
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-transport 
 
 %description
-Bayes screening and model discrimination follow-up designs.
+Implementation of several recent multivariate bias correction methods with
+a unified interface to facilitate their use. A description and comparison
+between methods can be found in <doi:10.5194/esd-11-537-2020>.
 
 %prep
 %setup -q -c -n %{packname}

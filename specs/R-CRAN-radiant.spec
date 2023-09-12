@@ -1,37 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mand
-%global packver   1.1
+%global __requires_exclude ^libmpi
+%global packname  radiant
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Analysis for Neuroimaging Data
+Summary:          Business Analytics using R and Shiny
 
-License:          GPL (>= 2)
+License:          AGPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-msma 
-BuildRequires:    R-CRAN-oro.nifti 
-BuildRequires:    R-CRAN-oro.dicom 
-BuildRequires:    R-CRAN-imager 
-BuildRequires:    R-CRAN-caret 
-Requires:         R-CRAN-msma 
-Requires:         R-CRAN-oro.nifti 
-Requires:         R-CRAN-oro.dicom 
-Requires:         R-CRAN-imager 
-Requires:         R-CRAN-caret 
+BuildRequires:    R-CRAN-shiny >= 1.7.1
+BuildRequires:    R-CRAN-radiant.data >= 1.5.1
+BuildRequires:    R-CRAN-radiant.design >= 1.5.0
+BuildRequires:    R-CRAN-radiant.basics >= 1.5.0
+BuildRequires:    R-CRAN-radiant.model >= 1.5.0
+BuildRequires:    R-CRAN-radiant.multivariate >= 1.5.0
+BuildRequires:    R-CRAN-import >= 1.1.0
+Requires:         R-CRAN-shiny >= 1.7.1
+Requires:         R-CRAN-radiant.data >= 1.5.1
+Requires:         R-CRAN-radiant.design >= 1.5.0
+Requires:         R-CRAN-radiant.basics >= 1.5.0
+Requires:         R-CRAN-radiant.model >= 1.5.0
+Requires:         R-CRAN-radiant.multivariate >= 1.5.0
+Requires:         R-CRAN-import >= 1.1.0
 
 %description
-Several functions can be used to analyze neuroimaging data using
-multivariate methods based on the 'msma' package. The functions used in
-the book entitled "Multivariate Analysis for Neuroimaging Data" (2021,
-ISBN-13: 978-0367255329) are contained.
+A platform-independent browser-based interface for business analytics in
+R, based on the shiny package. The application combines the functionality
+of 'radiant.data', 'radiant.design', 'radiant.basics', 'radiant.model',
+and 'radiant.multivariate'.
 
 %prep
 %setup -q -c -n %{packname}

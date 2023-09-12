@@ -1,46 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sfhotspot
-%global packver   0.7.1
+%global packname  raqs
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hot-Spot Analysis with Simple Features
+Summary:          Interface to the US EPA Air Quality System (AQS) API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-SpatialKDE 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-SpatialKDE 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
 
 %description
-Identify and understand clusters of points (typically representing the
-locations of places or events) stored in simple-features (SF) objects.
-This is useful for analysing, for example, hot-spots of crime events. The
-package emphasises producing results from point SF data in a single step
-using reasonable default values for all other arguments, to aid rapid data
-analysis by users who are starting out. Functions available include kernel
-density estimation (for details, see Yip (2020)
-<doi:10.22224/gistbok/2020.1.12>), analysis of spatial association (Getis
-and Ord (1992) <doi:10.1111/j.1538-4632.1992.tb00261.x>) and hot-spot
-classification (Chainey (2020) ISBN:158948584X).
+Offers functions for fetching JSON data from the US EPA Air Quality System
+(AQS) API with options to comply with the API rate limits. See
+<https://aqs.epa.gov/aqsweb/documents/data_api.html> for details of the
+AQS API.
 
 %prep
 %setup -q -c -n %{packname}

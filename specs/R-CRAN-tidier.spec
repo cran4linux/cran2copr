@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidier
-%global packver   0.0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhanced 'mutate'
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dbplyr >= 2.3.1
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-furrr >= 0.3.0
 BuildRequires:    R-CRAN-slider >= 0.2.2
+Requires:         R-CRAN-dbplyr >= 2.3.1
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-tidyr >= 1.3.0
@@ -33,8 +35,8 @@ Requires:         R-CRAN-furrr >= 0.3.0
 Requires:         R-CRAN-slider >= 0.2.2
 
 %description
-Provides 'Apache Spark' style window aggregation for R dataframes via
-'mutate' in 'dplyr' flavour.
+Provides 'Apache Spark' style window aggregation for R dataframes and
+remote 'dbplyr' tables via 'mutate' in 'dplyr' flavour.
 
 %prep
 %setup -q -c -n %{packname}

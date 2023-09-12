@@ -1,29 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyDisasters
-%global packver   0.1.1
+%global packname  novelqualcodes
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Disaster Data Set Including FEMA, EMDAT and GTD Information
+Summary:          Visualise the Path to a Stopping Point in Qualitative Interviews Based on Novel Codes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-naturalsort 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpattern 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-naturalsort 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpattern 
+Requires:         R-utils 
 
 %description
-Pre-processed data that contains a queryable data set with Federal
-Emergency Management Agency (FEMA), Emergency Events Database (EMDAT) and
-the Global Terrorism Database (GTD) merged. The data set contains the
-reported natural and human made disasters that report 3 or more people
-killed in the United States of America.
+In semi-structured interviews that use the 'framework' method, it is not
+always clear how refinements to interview questions affect the decision of
+when to stop interviews. The trend of 'novel' and 'duplicate' interview
+codes (novel codes are information that other interviewees have not
+previously mentioned) provides insight into the richness of qualitative
+information. This package provides tools to visualise when refinements
+occur and how that affects the trends of novel and duplicate codes. These
+visualisations, when used progressively as new interviews are finished,
+can help the researcher to decide on a stopping point for their
+interviews.
 
 %prep
 %setup -q -c -n %{packname}

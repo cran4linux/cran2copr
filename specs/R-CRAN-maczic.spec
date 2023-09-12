@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  maczic
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediation Analysis for Count and Zero-Inflated Count Data
 
@@ -48,7 +49,7 @@ Z., Gregorich, S., Ismail, A.I., Gansky, S.A. (2018)
 method to estimate the controlled (natural) direct and mediation effects,
 and compute the bootstrap Confidence Intervals as described by Guo, Z.,
 Small, D.S., Gansky, S.A., Cheng, J. (2018) <doi:10.1111/rssc.12233>. This
-software was made possible by Grant R03DE028410 from the The National
+software was made possible by Grant R03DE028410 from the National
 Institute of Dental and Craniofacial Research, a component of the National
 Institutes of Health.
 
@@ -60,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,44 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  popsom
-%global packver   6.0
+%global __requires_exclude ^libmpi
+%global packname  IAPWS95
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Efficient Implementation of Kohonen's Self-Organizing Maps (SOMs) with Starburst Visualizations
+Summary:          Thermophysical Properties of Water and Steam
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hash 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-fields 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-pander 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hash 
-Requires:         R-stats 
-Requires:         R-grDevices 
+Requires:         R-CRAN-pander 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Kohonen's self-organizing maps with a number of distinguishing features:
-(1) An efficient, single threaded, stochastic training algorithm inspired
-by ideas from tensor algebra.  Provides significant speedups over
-traditional single-threaded training algorithms. No special accelerator
-hardware required (see <doi:10.1007/978-3-030-01057-7_60>). (2) Automatic
-centroid detection and visualization using starbursts. (3) Two models of
-the data: (a) a self organizing map model, (b) a centroid based clustering
-model. (4) A number of easily accessible quality metrics for the self
-organizing map and the centroid based cluster model (see
-<doi:10.1007/978-3-319-28518-4_4>).
+An implementation of the International Association for the Properties of
+Water (IAPWS) Formulation 1995 for the Thermodynamic Properties of
+Ordinary Water Substance for General and Scientific Use and on the
+releases for viscosity, conductivity, surface tension and melting
+pressure.
 
 %prep
 %setup -q -c -n %{packname}

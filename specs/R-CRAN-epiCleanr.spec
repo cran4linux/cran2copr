@@ -1,49 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  parcats
-%global packver   0.0.4
+%global __requires_exclude ^libmpi
+%global packname  epiCleanr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Parallel Categories Diagrams for 'easyalluvial'
+Summary:          A Tidy Solution for Epidemiological Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-easyalluvial >= 0.2.1.0
+BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-easyalluvial >= 0.2.1.0
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-janitor 
+Requires:         R-CRAN-rio 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-janitor 
 
 %description
-Complex graphical representations of data are best explored using
-interactive elements. 'parcats' adds interactive graphing capabilities to
-the 'easyalluvial' package. The 'plotly.js' parallel categories diagrams
-offer a good framework for creating interactive flow graphs that allow
-manual drag and drop sorting of dimensions and categories, highlighting
-single flows and displaying mouse over information. The 'plotly.js'
-dependency is quite heavy and therefore is outsourced into a separate
-package.
+Offers a tidy solution for epidemiological data. It houses a range of
+functions for epidemiologists and public health data wizards for data
+management and cleaning.
 
 %prep
 %setup -q -c -n %{packname}

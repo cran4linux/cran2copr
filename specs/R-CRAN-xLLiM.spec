@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  xLLiM
-%global packver   2.2
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Locally-Linear Mapping
 
@@ -45,11 +46,11 @@ mixture of regression model and an inverse regression strategy. The
 methods include the GLLiM model (see Deleforge et al (2015)
 <DOI:10.1007/s11222-014-9461-5>) based on Gaussian mixtures and a robust
 version of GLLiM, named SLLiM (see Perthame et al (2016)
-<https://hal.archives-ouvertes.fr/hal-01347455>) based on a mixture of
-Generalized Student distributions. The methods also include BLLiM (see
-Devijver et al (2017) <arXiv:1701.07899>) which is an extension of GLLiM
-with a sparse block diagonal structure for large covariance matrices
-(particularly interesting for transcriptomic data).
+<DOI:10.1016/j.jmva.2017.09.009>) based on a mixture of Generalized
+Student distributions. The methods also include BLLiM (see Devijver et al
+(2017) <arXiv:1701.07899>) which is an extension of GLLiM with a sparse
+block diagonal structure for large covariance matrices (particularly
+interesting for transcriptomic data).
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
