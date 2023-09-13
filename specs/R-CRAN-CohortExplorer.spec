@@ -1,36 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  safetensors
-%global packver   0.1.2
+%global packname  CohortExplorer
+%global packver   0.0.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.0.17
 Release:          1%{?dist}%{?buildtag}
-Summary:          Safetensors File Format
+Summary:          Explorer of Profiles of Patients in a Cohort
 
-License:          MIT + file LICENSE
+License:          Apache License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-DatabaseConnector >= 5.0.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-clock 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ParallelLogger 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-DatabaseConnector >= 5.0.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-clock 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ParallelLogger 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-A file format for storing tensors that is secure (doesn't allow for code
-execution), fast and simple to implement. 'safetensors' also enables cross
-language and cross frameworks compatibility making it an ideal format for
-storing machine learning model weights.
+This software tool is designed to extract data from a randomized subset of
+individuals within a cohort and make it available for exploration in a
+shiny application environment. It retrieves date-stamped, event-level
+records from one or more data sources that represent patient data in the
+Observational Medical Outcomes Partnership (OMOP) data model format. This
+tool features a user-friendly interface that enables users to efficiently
+explore the extracted profiles, thereby facilitating applications, such as
+reviewing structured profiles.
 
 %prep
 %setup -q -c -n %{packname}

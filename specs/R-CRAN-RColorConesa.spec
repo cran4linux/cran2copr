@@ -1,38 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nimbleHMC
-%global packver   0.2.0
+%global packname  RColorConesa
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hamiltonian Monte Carlo and Other Gradient-Based MCMC Sampling Algorithms for 'nimble'
+Summary:          Conesa Colors Palette
 
-License:          BSD_3_clause + file LICENSE | GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble >= 1.0.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nimble >= 1.0.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides gradient-based MCMC sampling algorithms for use with the MCMC
-engine provided by the 'nimble' package.  This includes two versions of
-Hamiltonian Monte Carlo (HMC) No-U-Turn (NUTS) sampling, and (under
-development) Langevin samplers.  The `NUTS_classic` sampler implements the
-original HMC-NUTS algorithm as described in Hoffman and Gelman (2014)
-<arXiv:1111.4246>.  The `NUTS` sampler is a modern version of HMC-NUTS
-sampling matching the HMC sampler available in version 2.32.2 of Stan
-(Stan Development Team, 2023). In addition, convenience functions are
-provided for generating and modifying MCMC configuration objects which
-employ HMC sampling.
+Provides a collection of palettes designed to integrate with 'ggplot',
+reflecting the color schemes associated with 'ConesaLab'.
 
 %prep
 %setup -q -c -n %{packname}

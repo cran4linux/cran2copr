@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nimbleHMC
-%global packver   0.2.0
+%global packname  JNplots
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hamiltonian Monte Carlo and Other Gradient-Based MCMC Sampling Algorithms for 'nimble'
+Summary:          Visualize Outputs from the 'Johnson-Neyman' Technique
 
-License:          BSD_3_clause + file LICENSE | GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble >= 1.0.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nimble >= 1.0.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-scales 
 
 %description
-Provides gradient-based MCMC sampling algorithms for use with the MCMC
-engine provided by the 'nimble' package.  This includes two versions of
-Hamiltonian Monte Carlo (HMC) No-U-Turn (NUTS) sampling, and (under
-development) Langevin samplers.  The `NUTS_classic` sampler implements the
-original HMC-NUTS algorithm as described in Hoffman and Gelman (2014)
-<arXiv:1111.4246>.  The `NUTS` sampler is a modern version of HMC-NUTS
-sampling matching the HMC sampler available in version 2.32.2 of Stan
-(Stan Development Team, 2023). In addition, convenience functions are
-provided for generating and modifying MCMC configuration objects which
-employ HMC sampling.
+Aids in the calculation and visualization of regions of non-significance
+using the 'Johnson-Neyman' technique and its extensions as described by
+Bauer and Curran (2005) <doi:10.1207/s15327906mbr4003_5> to assess the
+influence of categorical and continuous moderators. Allows correcting for
+phylogenetic relatedness.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  elevatr
-%global packver   0.4.5
+%global packver   0.99.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.99.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Elevation Data from Various APIs
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-slippymath 
 BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-purrr 
-Requires:         R-methods 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-slippymath 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-raster 
+Requires:         R-methods 
 
 %description
 Several web services are available that provide access to elevation data.
-This package provides access to several of those services and returns
-elevation data either as a SpatialPointsDataFrame from point elevation
-services or as a raster object from raster elevation services.  Currently,
-the package supports access to the Amazon Web Services Terrain Tiles
+This package provides access to many of those services and returns
+elevation data either as an 'sf' simple features object from point
+elevation services or as a 'raster' object from raster elevation services.
+In future versions, 'elevatr' will drop support for 'raster' and will
+instead return 'terra' objects. Currently, the package supports access to
+the Amazon Web Services Terrain Tiles
 <https://registry.opendata.aws/terrain-tiles/>, the Open Topography Global
 Datasets API <https://opentopography.org/developers/>, and the USGS
 Elevation Point Query Service <https://apps.nationalmap.gov/epqs/>.

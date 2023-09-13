@@ -1,38 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nimbleHMC
-%global packver   0.2.0
+%global packname  cauphy
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hamiltonian Monte Carlo and Other Gradient-Based MCMC Sampling Algorithms for 'nimble'
+Summary:          Trait Evolution on Phylogenies Using the Cauchy Process
 
-License:          BSD_3_clause + file LICENSE | GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble >= 1.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-ape >= 5.5
 BuildRequires:    R-methods 
-Requires:         R-CRAN-nimble >= 1.0.0
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-phylolm 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-HDInterval 
+Requires:         R-CRAN-ape >= 5.5
 Requires:         R-methods 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-phylolm 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-HDInterval 
 
 %description
-Provides gradient-based MCMC sampling algorithms for use with the MCMC
-engine provided by the 'nimble' package.  This includes two versions of
-Hamiltonian Monte Carlo (HMC) No-U-Turn (NUTS) sampling, and (under
-development) Langevin samplers.  The `NUTS_classic` sampler implements the
-original HMC-NUTS algorithm as described in Hoffman and Gelman (2014)
-<arXiv:1111.4246>.  The `NUTS` sampler is a modern version of HMC-NUTS
-sampling matching the HMC sampler available in version 2.32.2 of Stan
-(Stan Development Team, 2023). In addition, convenience functions are
-provided for generating and modifying MCMC configuration objects which
-employ HMC sampling.
+The Cauchy Process can model pulsed continuous trait evolution on
+phylogenies. The likelihood is tractable, and is used for parameter
+inference and ancestral trait reconstruction. See Bastide and Didier
+(2023) <doi:10.1093/sysbio/syad053>.
 
 %prep
 %setup -q -c -n %{packname}

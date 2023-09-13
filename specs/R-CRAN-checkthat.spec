@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nimbleHMC
-%global packver   0.2.0
+%global packname  checkthat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hamiltonian Monte Carlo and Other Gradient-Based MCMC Sampling Algorithms for 'nimble'
+Summary:          Intuitive Unit Testing Tools for Data Manipulation
 
-License:          BSD_3_clause + file LICENSE | GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble >= 1.0.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nimble >= 1.0.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
+BuildRequires:    R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-lifecycle >= 1.0.3
+Requires:         R-CRAN-purrr >= 1.0.2
 
 %description
-Provides gradient-based MCMC sampling algorithms for use with the MCMC
-engine provided by the 'nimble' package.  This includes two versions of
-Hamiltonian Monte Carlo (HMC) No-U-Turn (NUTS) sampling, and (under
-development) Langevin samplers.  The `NUTS_classic` sampler implements the
-original HMC-NUTS algorithm as described in Hoffman and Gelman (2014)
-<arXiv:1111.4246>.  The `NUTS` sampler is a modern version of HMC-NUTS
-sampling matching the HMC sampler available in version 2.32.2 of Stan
-(Stan Development Team, 2023). In addition, convenience functions are
-provided for generating and modifying MCMC configuration objects which
-employ HMC sampling.
+Provides a lightweight data validation and testing toolkit for R. Its
+guiding philosophy is that adding code-based data checks to users'
+existing workflow should be both quick and intuitive. The suite of
+functions included therefore mirror the common data checks many users
+already perform by hand or by eye. Additionally, the 'checkthat' package
+is optimized to work within 'tidyverse' data manipulation pipelines.
 
 %prep
 %setup -q -c -n %{packname}

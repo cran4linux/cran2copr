@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qreport
-%global packver   1.0-0
+%global packname  eufmdis.adapt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Reporting with 'Quarto'
+Summary:          Analyse 'EuFMDiS' Output Files via a Shiny App
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc >= 5.1.1
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-Hmisc >= 5.1.1
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-DT 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-rlang 
+Requires:         R-grDevices 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-DT 
 
 %description
-Provides statistical components, tables, and graphs that are useful in
-'Quarto' and 'RMarkdown' reports and that produce 'Quarto' elements for
-special formatting such as tabs and marginal notes and graphs. Some of the
-functions produce entire report sections with tabs, e.g., the missing data
-report created by missChk().  Functions for inserting variables and tables
-inside 'graphviz' and 'mermaid' diagrams are included, and so are special
-clinical trial graphics for adverse event reporting.
+Analyses 'EuFMDiS' output files in a Shiny App. The distributions of
+relevant output parameters are described in form of tables (quantiles) and
+plots. The App is called using eufmdis.adapt::run_adapt().
 
 %prep
 %setup -q -c -n %{packname}

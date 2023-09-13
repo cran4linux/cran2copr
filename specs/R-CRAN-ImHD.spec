@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nimbleHMC
-%global packver   0.2.0
+%global packname  ImHD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hamiltonian Monte Carlo and Other Gradient-Based MCMC Sampling Algorithms for 'nimble'
+Summary:          Artificial Intelligence Based Machine Learning Algorithms for Height Diameter Relationships of Conifer Trees
 
-License:          BSD_3_clause + file LICENSE | GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble >= 1.0.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nimble >= 1.0.0
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rpart 
+Requires:         R-stats 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rpart 
 
 %description
-Provides gradient-based MCMC sampling algorithms for use with the MCMC
-engine provided by the 'nimble' package.  This includes two versions of
-Hamiltonian Monte Carlo (HMC) No-U-Turn (NUTS) sampling, and (under
-development) Langevin samplers.  The `NUTS_classic` sampler implements the
-original HMC-NUTS algorithm as described in Hoffman and Gelman (2014)
-<arXiv:1111.4246>.  The `NUTS` sampler is a modern version of HMC-NUTS
-sampling matching the HMC sampler available in version 2.32.2 of Stan
-(Stan Development Team, 2023). In addition, convenience functions are
-provided for generating and modifying MCMC configuration objects which
-employ HMC sampling.
+Estimating height of forest plant is one of the key challenges of recent
+times. This package will help to fit and validate AI (Artificial
+Intelligence) based machine learning algorithms for estimation of height
+of conifer trees based on diameter at breast height as explanatory
+variable using algorithm of Paul et al. (2022)
+<doi:10.1371/journal.pone.0270553>..
 
 %prep
 %setup -q -c -n %{packname}
