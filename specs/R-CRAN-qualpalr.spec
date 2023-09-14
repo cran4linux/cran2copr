@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gcplyr
-%global packver   1.6.0
+%global packname  qualpalr
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate and Analyze Growth Curve Data
+Summary:          Automatic Generation of Qualitative Color Palettes
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-randtoolbox >= 1.17
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.9
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-assertthat 
+Requires:         R-CRAN-randtoolbox >= 1.17
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
+Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-Rcpp >= 0.12.9
 
 %description
-Easy import, manipulation, and model-free analysis of microbial growth
-curve data, as commonly output by plate readers. Tools for reshaping
-common plate reader outputs into 'tidy' formats and merging them with
-design information, making data easy to work with using 'gcplyr' and other
-packages. Also streamlines common growth curve processing steps, like
-smoothing and calculating derivatives, and facilitates model-free
-characterization and analysis of growth data. See methods at
-<https://mikeblazanin.github.io/gcplyr/>.
+Automatic generation of maximally distinct qualitative color palettes,
+optionally tailored to color deficiency. A list of colors or a subspace of
+a color space is used as input and then projected to the DIN99d color
+space, where colors that are maximally distinct are chosen
+algorithmically.
 
 %prep
 %setup -q -c -n %{packname}

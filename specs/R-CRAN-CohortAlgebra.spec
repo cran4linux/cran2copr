@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gcplyr
-%global packver   1.6.0
+%global packname  CohortAlgebra
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate and Analyze Growth Curve Data
+Summary:          Use of Interval Algebra to Create New Cohort(s) from Existing Cohorts
 
-License:          MIT + file LICENSE
+License:          Apache License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DatabaseConnector >= 5.0.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-SqlRender 
+Requires:         R-CRAN-DatabaseConnector >= 5.0.0
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-SqlRender 
 
 %description
-Easy import, manipulation, and model-free analysis of microbial growth
-curve data, as commonly output by plate readers. Tools for reshaping
-common plate reader outputs into 'tidy' formats and merging them with
-design information, making data easy to work with using 'gcplyr' and other
-packages. Also streamlines common growth curve processing steps, like
-smoothing and calculating derivatives, and facilitates model-free
-characterization and analysis of growth data. See methods at
-<https://mikeblazanin.github.io/gcplyr/>.
+This software tool is designed to generate new cohorts utilizing data from
+previously instantiated cohorts. It employs interval algebra operators
+such as UNION, INTERSECT, and MINUS to manipulate the data within the
+instantiated cohorts and create new cohorts.
 
 %prep
 %setup -q -c -n %{packname}

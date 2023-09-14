@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gcplyr
-%global packver   1.6.0
+%global packname  mapmisc
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate and Analyze Growth Curve Data
+Summary:          Utilities for Producing Maps
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-geosphere 
+Requires:         R-CRAN-terra 
+Requires:         R-methods 
+Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-geosphere 
 
 %description
-Easy import, manipulation, and model-free analysis of microbial growth
-curve data, as commonly output by plate readers. Tools for reshaping
-common plate reader outputs into 'tidy' formats and merging them with
-design information, making data easy to work with using 'gcplyr' and other
-packages. Also streamlines common growth curve processing steps, like
-smoothing and calculating derivatives, and facilitates model-free
-characterization and analysis of growth data. See methods at
-<https://mikeblazanin.github.io/gcplyr/>.
+Provides a minimal, light-weight set of tools for producing nice looking
+maps in R, with support for map projections.  See Brown (2016)
+<doi:10.32614/RJ-2016-005>.
 
 %prep
 %setup -q -c -n %{packname}

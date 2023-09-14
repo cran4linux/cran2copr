@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gcplyr
-%global packver   1.6.0
+%global packname  ura
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate and Analyze Growth Curve Data
+Summary:          Monitoring Rater Reliability
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-irr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
+Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
+Requires:         R-CRAN-irr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-utils 
 
 %description
-Easy import, manipulation, and model-free analysis of microbial growth
-curve data, as commonly output by plate readers. Tools for reshaping
-common plate reader outputs into 'tidy' formats and merging them with
-design information, making data easy to work with using 'gcplyr' and other
-packages. Also streamlines common growth curve processing steps, like
-smoothing and calculating derivatives, and facilitates model-free
-characterization and analysis of growth data. See methods at
-<https://mikeblazanin.github.io/gcplyr/>.
+Provides researchers with a simple set of diagnostic tools for monitoring
+the progress and reliability of raters conducting content coding tasks.
+Goehring (2023)
+<https://bengoehring.github.io/files/ps-paper-anon-word-ca.docx> argues
+that supervisors---especially supervisors of small teams---should utilize
+computational tools to monitor reliability in real time. As such, this
+package provides easy-to-use functions for calculating inter-rater
+reliability statistics and measuring the reliability of one coder compared
+to the rest of the team.
 
 %prep
 %setup -q -c -n %{packname}

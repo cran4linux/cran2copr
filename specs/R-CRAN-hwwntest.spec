@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gcplyr
-%global packver   1.6.0
+%global packname  hwwntest
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate and Analyze Growth Curve Data
+Summary:          Tests of White Noise using Wavelets
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-polynom 
+BuildRequires:    R-CRAN-wavethresh 
+Requires:         R-parallel 
+Requires:         R-CRAN-polynom 
+Requires:         R-CRAN-wavethresh 
 
 %description
-Easy import, manipulation, and model-free analysis of microbial growth
-curve data, as commonly output by plate readers. Tools for reshaping
-common plate reader outputs into 'tidy' formats and merging them with
-design information, making data easy to work with using 'gcplyr' and other
-packages. Also streamlines common growth curve processing steps, like
-smoothing and calculating derivatives, and facilitates model-free
-characterization and analysis of growth data. See methods at
-<https://mikeblazanin.github.io/gcplyr/>.
+Provides methods to test whether time series is consistent with white
+noise. Two new tests based on Haar wavelets and general wavelets described
+by Nason and Savchev (2014) <doi:10.1002/sta4.69> are provided and, for
+comparison purposes this package also implements the B test of Bartlett
+(1967) <doi:10.2307/2333850>. Functionality is provided to compute an
+approximation to the theoretical power of the general wavelet test in the
+case of general ARMA alternatives.
 
 %prep
 %setup -q -c -n %{packname}

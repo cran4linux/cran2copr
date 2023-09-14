@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AID
-%global packver   2.8
+%global packver   2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
+Version:          2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Box-Cox Power Transformation
 
@@ -37,13 +37,7 @@ Requires:         R-CRAN-meta
 Requires:         R-CRAN-stringr 
 
 %description
-Performs Box-Cox power transformation for a single non-normal variable,
-ANOVA (Dag and Ilk, 2017) <doi:10.1080/03610918.2016.1204458> and Linear
-Models via different estimation techniques: maximum likelihood estimation,
-least square estimation, goodness-of-fit tests (Asar et al., 2017)
-<doi:10.1080/03610918.2014.957839>, artificial covariate (Dag et al.,
-2014) <doi:10.1080/03610918.2012.744042>, meta analysis (Yilmaz and Dag,
-2022) <doi:10.28979/jarnas.1037343>. It also performs graphical
+Performs Box-Cox power transformation for different purposes, graphical
 approaches, assesses the success of the transformation via tests and
 plots, computes mean and confidence interval for back transformed data.
 

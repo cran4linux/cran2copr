@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IFC
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Imaging Flow Cytometry
 
@@ -18,9 +18,6 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.10.0
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-tiff 
-BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-utils 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
@@ -32,9 +29,6 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-visNetwork 
 Requires:         R-CRAN-Rcpp >= 0.10.0
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-tiff 
-Requires:         R-CRAN-jpeg 
 Requires:         R-utils 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
@@ -47,17 +41,17 @@ Requires:         R-CRAN-visNetwork
 
 %description
 Contains several tools to treat imaging flow cytometry data from
-'ImageStream®' and 'FlowSight®' cytometers ('Amnis®', part of 'Luminex®').
-Provides an easy and simple way to read and write .fcs, .rif, .cif and
-.daf files. Information such as masks, features, regions and populations
-set within these files can be retrieved for each single cell. In addition,
-raw data such as images stored can also be accessed. Users, may hopefully
-increase their productivity thanks to dedicated functions to extract,
-visualize, manipulate and export 'IFC' data. Toy data example can be
-installed through the 'IFCdata' package of approximately 32 MB, which is
-available in a 'drat' repository <https://gitdemont.github.io/IFCdata/>.
-See file 'COPYRIGHTS' and file 'AUTHORS' for a list of copyright holders
-and authors.
+'ImageStream®' and 'FlowSight®' cytometers ('Amnis®' 'Cytek®'). Provides
+an easy and simple way to read and write .fcs, .rif, .cif and .daf files.
+Information such as masks, features, regions and populations set within
+these files can be retrieved for each single cell. In addition, raw data
+such as images stored can also be accessed. Users, may hopefully increase
+their productivity thanks to dedicated functions to extract, visualize,
+manipulate and export 'IFC' data. Toy data example can be installed
+through the 'IFCdata' package of approximately 32 MB, which is available
+in a 'drat' repository <https://gitdemont.github.io/IFCdata/>. See file
+'COPYRIGHTS' and file 'AUTHORS' for a list of copyright holders and
+authors.
 
 %prep
 %setup -q -c -n %{packname}

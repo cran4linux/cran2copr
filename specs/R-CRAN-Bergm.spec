@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Bergm
-%global packver   5.0.5
+%global packver   5.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.5
+Version:          5.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Exponential Random Graph Models
 
@@ -14,27 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ergm 
-BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-statnet.common 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-statnet.common 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ergm 
-Requires:         R-CRAN-network 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-MCMCpack 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-statnet.common 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-network 
 Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-statnet.common 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Bayesian analysis for exponential random graph models using advanced

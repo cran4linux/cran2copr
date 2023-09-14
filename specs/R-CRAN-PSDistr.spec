@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gcplyr
-%global packver   1.6.0
+%global packname  PSDistr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate and Analyze Growth Curve Data
+Summary:          Distributions Derived from Normal Distribution
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-pracma 
 
 %description
-Easy import, manipulation, and model-free analysis of microbial growth
-curve data, as commonly output by plate readers. Tools for reshaping
-common plate reader outputs into 'tidy' formats and merging them with
-design information, making data easy to work with using 'gcplyr' and other
-packages. Also streamlines common growth curve processing steps, like
-smoothing and calculating derivatives, and facilitates model-free
-characterization and analysis of growth data. See methods at
-<https://mikeblazanin.github.io/gcplyr/>.
+Presentation of distributions such as: two-piece power normal (TPPN),
+plasticizing component (PC), DS normal (DSN), expnormal (EN), Sulewski
+plasticizing component (SPC), easily changeable kurtosis (ECK)
+distributions. Density, distribution function, quantile function and
+random generation are presented. For details on this method see: Sulewski
+(2019) <doi:10.1080/03610926.2019.1674871>, Sulewski (2021)
+<doi:10.1080/03610926.2020.1837881>, Sulewski (2021)
+<doi:10.1134/S1995080221120337>, Sulewski (2022) <"New members of the
+Johnson family of probability dis-tributions: properties and
+application">, Sulewski, Volodin (2022) <doi:10.1134/S1995080222110270>,
+Sulewski (2023) <doi:10.17713/ajs.v52i3.1434>.
 
 %prep
 %setup -q -c -n %{packname}

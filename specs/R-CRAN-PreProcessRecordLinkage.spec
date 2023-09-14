@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PreProcessRecordLinkage
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preprocessing Record Linkage
 
@@ -20,13 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-CRAN-syn 
 BuildRequires:    R-CRAN-RecordLinkage 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-tm 
 Requires:         R-CRAN-syn 
 Requires:         R-CRAN-RecordLinkage 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
 
 %description
 In this record linkage package, data preprocessing has been meticulously

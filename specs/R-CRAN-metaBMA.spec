@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  metaBMA
-%global packver   0.6.7
+%global packver   0.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.6.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Model Averaging for Random and Fixed Effects Meta-Analysis
 
@@ -13,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.1.1
-BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-rstantools >= 2.3.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
+BuildRequires:    R-CRAN-BH >= 1.78.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-CRAN-coda 
@@ -30,8 +31,8 @@ BuildRequires:    R-CRAN-logspline
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 2.1.1
+Requires:         R-CRAN-rstantools >= 2.3.0
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-methods 
 Requires:         R-CRAN-bridgesampling 
@@ -56,7 +57,7 @@ Jeffreys-Zellner-Siow (JZS) priors can be fitted and tested. This allows
 to compute Bayes factors and perform Bayesian model averaging across
 random- and fixed-effects meta-analysis with and without moderators. For a
 primer on Bayesian model-averaged meta-analysis, see Gronau, Heck,
-Berkhout, Haaf, & Wagenmakers (2020, <doi:10.31234/osf.io/97qup>).
+Berkhout, Haaf, & Wagenmakers (2021, <doi:10.1177/25152459211031256>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -66,6 +67,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

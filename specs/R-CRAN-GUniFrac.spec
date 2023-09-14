@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GUniFrac
-%global packver   1.7
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized UniFrac Distances, Distance-Based Multivariate Methods and Feature-Based Univariate Methods for Microbiome Data Analysis
 
@@ -32,6 +32,8 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-modeest 
+BuildRequires:    R-CRAN-inline 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-ggplot2 
@@ -48,6 +50,8 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-modeest 
+Requires:         R-CRAN-inline 
+Requires:         R-methods 
 
 %description
 A suite of methods for powerful and robust microbiome data analysis
