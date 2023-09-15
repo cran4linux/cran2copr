@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  memoiR
-%global packver   1.2-4
+%global packname  DebiasInfer
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown and Bookdown Templates to Publish Documents
+Summary:          Efficient Inference on High-Dimensional Linear Model with Missing Outcomes
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-distill 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rmdformats 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-distill 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rmdformats 
-Requires:         R-CRAN-usethis 
+BuildRequires:    R-CRAN-scalreg 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-scalreg 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-caret 
+Requires:         R-stats 
 
 %description
-Producing high-quality documents suitable for publication directly from R
-is made possible by the R Markdown ecosystem. 'memoiR' makes it easy. It
-provides templates to knit memoirs, articles and slideshows with helpers
-to publish the documents on GitHub Pages and activate continuous
-integration.
+A statistically and computationally efficient debiasing method for
+conducting valid inference on the high-dimensional linear regression
+function with missing outcomes. The reference paper is Zhang, Giessing,
+and Chen (2023) <arXiv:2309.06429>.
 
 %prep
 %setup -q -c -n %{packname}

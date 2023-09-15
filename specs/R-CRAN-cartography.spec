@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cartography
-%global packver   3.1.3
+%global packver   3.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          3.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Thematic Cartography
 
@@ -20,8 +20,6 @@ BuildRequires:    proj-devel
 BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sp >= 1.2.4
-BuildRequires:    R-CRAN-sf >= 0.6.4
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-graphics 
@@ -29,11 +27,11 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-sp >= 1.2.4
-Requires:         R-CRAN-sf >= 0.6.4
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-curl 
 Requires:         R-graphics 
@@ -41,6 +39,8 @@ Requires:         R-methods
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-grDevices 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PWEXP
-%global packver   0.3.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Piecewise Exponential Distribution Prediction Model
 
@@ -17,22 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-fastmatch 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-parallel 
 
 %description
 Build piecewise exponential survival model for study design (planning) and

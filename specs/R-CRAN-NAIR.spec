@@ -1,41 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cauchypca
-%global packver   1.1
+%global packname  NAIR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Principal Component Analysis Using the Cauchy Distribution
+Summary:          Network Analysis of Immune Repertoire
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.8.0.0
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rfast 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-A new robust principal component analysis algorithm is implemented that
-relies upon the Cauchy Distribution. The algorithm is suitable for high
-dimensional data even if the sample size is less than the number of
-variables. The methodology is described in this paper: Fayomi A., Pantazis
-Y., Tsagris M. and Wood A.T.A. (2022). "Cauchy robust principal component
-analysis with applications to high-dimensional data sets".
-<arXiv:2211.03181>.
+Pipelines for studying the adaptive immune repertoire of T cells and B
+cells via network analysis based on receptor sequence similarity. Relate
+clinical outcomes to immune repertoires based on their network properties,
+or to particular clusters and clones within a repertoire. Yang et al.
+(2023) <doi:10.3389/fimmu.2023.1181825>.
 
 %prep
 %setup -q -c -n %{packname}

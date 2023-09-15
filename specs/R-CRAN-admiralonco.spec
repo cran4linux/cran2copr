@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admiralonco
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Oncology Extension Package for ADaM in 'R' Asset Library
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.4
 BuildRequires:    R-CRAN-rlang >= 0.4.4
 BuildRequires:    R-CRAN-admiraldev >= 0.4.0
-BuildRequires:    R-CRAN-admiral >= 0.11.0
+BuildRequires:    R-CRAN-admiral >= 0.12.0
 BuildRequires:    R-CRAN-lifecycle >= 0.1.0
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
@@ -31,7 +31,7 @@ Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.4
 Requires:         R-CRAN-rlang >= 0.4.4
 Requires:         R-CRAN-admiraldev >= 0.4.0
-Requires:         R-CRAN-admiral >= 0.11.0
+Requires:         R-CRAN-admiral >= 0.12.0
 Requires:         R-CRAN-lifecycle >= 0.1.0
 
 %description

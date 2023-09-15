@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  memoiR
-%global packver   1.2-4
+%global packname  clustlearn
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown and Bookdown Templates to Publish Documents
+Summary:          Learn Clustering Techniques Through Examples and Code
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-distill 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rmdformats 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-distill 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rmdformats 
-Requires:         R-CRAN-usethis 
+BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-proxy >= 0.4.27
+Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-proxy >= 0.4.27
 
 %description
-Producing high-quality documents suitable for publication directly from R
-is made possible by the R Markdown ecosystem. 'memoiR' makes it easy. It
-provides templates to knit memoirs, articles and slideshows with helpers
-to publish the documents on GitHub Pages and activate continuous
-integration.
+Clustering methods, which (if asked) can provide step-by-step explanations
+of the algorithms used, as described in Ezugwu et. al., (2022)
+<doi:10.1016/j.engappai.2022.104743>; and datasets to test them on, which
+highlight the strengths and weaknesses of each technique, as presented in
+the clustering section of 'scikit-learn' (Pedregosa et al., 2011)
+<https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html>.
 
 %prep
 %setup -q -c -n %{packname}

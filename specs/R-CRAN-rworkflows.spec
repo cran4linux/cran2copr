@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rworkflows
-%global packver   0.99.5
+%global packver   0.99.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.5
+Version:          0.99.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test, Document, Containerise, and Deploy R Packages
 
@@ -23,16 +23,33 @@ BuildRequires:    R-CRAN-yaml
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-badger 
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-tools 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-BiocManager 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-stats 
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-yaml 
 Requires:         R-utils 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-badger 
+Requires:         R-CRAN-renv 
+Requires:         R-tools 
+Requires:         R-methods 
+Requires:         R-CRAN-BiocManager 
+Requires:         R-CRAN-data.table 
 
 %description
-Continuous integration for R packages. Automates testing, documentation
-website building, and containerised deployment.
+Reproducibility is essential to the progress of research, yet achieving it
+remains elusive even in computational fields. Continuous Integration (CI)
+platforms offer a powerful way to launch automated workflows to check and
+document code, but often require considerable time, effort, and technical
+expertise to setup. We therefore developed the rworkflows suite to make
+robust CI workflows easy and freely accessible to all R package
+developers. rworkflows consists of 1) a CRAN/Bioconductor-compatible R
+package template, 2) an R package to quickly implement a standardised
+workflow, and 3) a centrally maintained GitHub Action.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  memoiR
-%global packver   1.2-4
+%global packname  ocf
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown and Bookdown Templates to Publish Documents
+Summary:          Ordered Correlation Forest
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-distill 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rmdformats 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-distill 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rmdformats 
-Requires:         R-CRAN-usethis 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-orf 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-orf 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ranger 
 
 %description
-Producing high-quality documents suitable for publication directly from R
-is made possible by the R Markdown ecosystem. 'memoiR' makes it easy. It
-provides templates to knit memoirs, articles and slideshows with helpers
-to publish the documents on GitHub Pages and activate continuous
-integration.
+Nonparametric estimator for ordered non-numeric outcomes. The estimator
+modifies a standard random forest splitting criterion to build a
+collection of forests, each estimating the conditional probability of a
+single class. The package also implements a nonparametric estimator of the
+covariates’ marginal effects.
 
 %prep
 %setup -q -c -n %{packname}

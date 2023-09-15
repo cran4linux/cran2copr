@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  memoiR
-%global packver   1.2-4
+%global packname  PSIndependenceTest
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown and Bookdown Templates to Publish Documents
+Summary:          Independence Tests for Two-Way, Three-Way and Four-Way Contingency Tables
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-distill 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rmdformats 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-distill 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rmdformats 
-Requires:         R-CRAN-usethis 
 
 %description
-Producing high-quality documents suitable for publication directly from R
-is made possible by the R Markdown ecosystem. 'memoiR' makes it easy. It
-provides templates to knit memoirs, articles and slideshows with helpers
-to publish the documents on GitHub Pages and activate continuous
-integration.
+Presentation two independence tests for two-way, three-way and four-way
+contingency tables. These tests are: the modular test and the logarithmic
+minimum test. For details on this method see: Sulewski (2017)
+<doi:10.18778/0208-6018.330.04>, Sulewski (2018)
+<doi:10.1080/02664763.2018.1424122>, Sulewski (2019)
+<doi:10.2478/bile-2019-0003>, Sulewski (2021)
+<doi:10.1080/00949655.2021.1908286>.
 
 %prep
 %setup -q -c -n %{packname}

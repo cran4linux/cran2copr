@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tauProcess
-%global packver   1.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tau Measure with Right-Censored Data
 
@@ -27,8 +27,8 @@ A clinically meaningful measure of treatment effect based on Kendall's tau
 with right-censored data along with corresponding inference procedure. The
 plot of tau process is provided as a graphical tool for monitoring the
 progression. It complements another summary measures under nonproportional
-hazards. For details, please refer to Tai, Wang and Wells (2022)
-<doi:10.48550/arXiv.2207.14445>.
+hazards. For details, please refer to Tai, Wang and Wells (2023)
+<doi:10.1002/pst.2324>.
 
 %prep
 %setup -q -c -n %{packname}

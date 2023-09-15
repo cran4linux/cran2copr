@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  memoiR
-%global packver   1.2-4
+%global packname  NMsim
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown and Bookdown Templates to Publish Documents
+Summary:          Seamless 'Nonmem' Simulation Platform
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-distill 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rmdformats 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-distill 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rmdformats 
-Requires:         R-CRAN-usethis 
+BuildRequires:    R-CRAN-NMdata >= 0.1.1
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-NMdata >= 0.1.1
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-MASS 
 
 %description
-Producing high-quality documents suitable for publication directly from R
-is made possible by the R Markdown ecosystem. 'memoiR' makes it easy. It
-provides templates to knit memoirs, articles and slideshows with helpers
-to publish the documents on GitHub Pages and activate continuous
-integration.
+A complete and seamless 'Nonmem' simulation interface from within R. Turns
+'Nonmem' control streams into simulation control streams, executes them
+with specified simulation input data and returns the results. The
+simulation is performed by 'Nonmem', eliminating time spent and risks of
+re-implementation of models in other tools.
 
 %prep
 %setup -q -c -n %{packname}

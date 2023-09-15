@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  memoiR
-%global packver   1.2-4
+%global packname  ordgam
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown and Bookdown Templates to Publish Documents
+Summary:          Additive Model for Ordinal Data using Laplace P-Splines
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-distill 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rmdformats 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-distill 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rmdformats 
-Requires:         R-CRAN-usethis 
+BuildRequires:    R-CRAN-cubicBsplines 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-marqLevAlg 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-ucminf 
+Requires:         R-CRAN-cubicBsplines 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-marqLevAlg 
+Requires:         R-CRAN-sn 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-ucminf 
 
 %description
-Producing high-quality documents suitable for publication directly from R
-is made possible by the R Markdown ecosystem. 'memoiR' makes it easy. It
-provides templates to knit memoirs, articles and slideshows with helpers
-to publish the documents on GitHub Pages and activate continuous
-integration.
+Additive proportional odds model for ordinal data using Laplace P-splines.
+The combination of Laplace approximations and P-splines enable fast and
+flexible inference in a Bayesian framework. Specific approximations are
+proposed to account for the asymmetry in the marginal posterior
+distributions of non-penalized parameters. For more details, see Lambert
+and Gressani (2023) <doi:10.1177/1471082X231181173> ; Preprint:
+<arXiv:2210.01668>).
 
 %prep
 %setup -q -c -n %{packname}

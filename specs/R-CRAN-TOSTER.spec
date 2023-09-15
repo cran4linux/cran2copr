@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TOSTER
-%global packver   0.7.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two One-Sided Tests (TOST) Equivalence Testing
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-cowplot
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-jmvcore >= 0.9.6.4
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-cowplot
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Two one-sided tests (TOST) procedure to test equivalence for t-tests,

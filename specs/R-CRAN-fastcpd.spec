@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  likelihoodR
-%global packver   1.1.4
+%global packname  fastcpd
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Likelihood Analyses for Common Statistical Tests
+Summary:          Fast Change Point Detection via Sequential Gradient Descent
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-fastglm 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-fastglm 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-lme4 
 
 %description
-A collection of functions that calculate the log likelihood (support) for
-a range of statistical tests. Where possible the likelihood function and
-likelihood interval for the observed data are displayed. The evidential
-approach used here is based on the book "Likelihood" by A.W.F. Edwards
-(1992, ISBN-13 : 978-0801844430), "Statistical Evidence" by R. Royall
-(1997, ISBN-13 : 978-0412044113), S.N. Goodman & R. Royall (2011)
-<doi:10.2105/AJPH.78.12.1568>, "Understanding Psychology as a Science" by
-Z. Dienes (2008, ISBN-13 : 978-0230542310), S. Glover & P. Dixon
-<doi:10.3758/BF03196706> and others. This package accompanies
-"Evidence-Based Statistics" by P. Cahusac (2020, ISBN-13 : 978-1119549802)
-<doi:10.1002/9781119549833>.
+Implements fast change point detection algorithm based on the paper
+"Sequential Gradient Descent and Quasi-Newton's Method for Change-Point
+Analysis" by Xianyang Zhang, Trisha Dawn
+<https://proceedings.mlr.press/v206/zhang23b.html>. The algorithm is based
+on dynamic programming with pruning and sequential gradient descent. It is
+able to detect change points a magnitude faster than the vanilla Pruned
+Exact Linear Time(PELT). The package includes examples of linear
+regression, logistic regression, Poisson regression, penalized linear
+regression data, and whole lot more examples with custom cost function in
+case the user wants to use their own cost function.
 
 %prep
 %setup -q -c -n %{packname}

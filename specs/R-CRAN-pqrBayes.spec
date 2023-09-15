@@ -1,45 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmmrBase
-%global packver   0.4.6
+%global packname  pqrBayes
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalised Linear Mixed Models in R
+Summary:          Bayesian Penalized Quantile Regression
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-Matrix >= 1.3.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-rminqa >= 0.2.2
-BuildRequires:    R-CRAN-SparseChol >= 0.2.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Matrix >= 1.3.1
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-methods 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-glmnet 
 
 %description
-Specification, analysis, simulation, and fitting of generalised linear
-mixed models. Includes Markov Chain Monte Carlo Maximum likelihood and
-Laplace approximation model fitting for a range of models, non-linear
-fixed effect specifications, a wide range of flexible covariance functions
-that can be combined arbitrarily, robust and bias-corrected standard error
-estimation, power calculation, data simulation, and more. See
-<https://samuel-watson.github.io/glmmr-web/> for a detailed manual.
+The quantile varying coefficient model is robust to data heterogeneity,
+outliers and heavy-tailed distributions in the response variable due to
+the check loss function in quantile regression. In addition, it can
+flexibly model the dynamic pattern of regression coefficients through
+nonparametric varying coefficient functions. Although high dimensional
+quantile varying coefficient model has been examined extensively in the
+frequentist framework, the corresponding Bayesian variable selection
+methods have rarely been developed. In this package, we have implemented
+the Gibbs samplers of the penalized Bayesian quantile varying coefficient
+model with the spike-and-slab priors [Zhou et
+al.(2023)]<doi:10.1016/j.csda.2023.107808>. The Markov Chain Monte Carlo
+(MCMC) algorithms of the proposed and alternative models can be
+efficiently performed by using the package.
 
 %prep
 %setup -q -c -n %{packname}

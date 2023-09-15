@@ -1,35 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fflr
-%global packver   2.2.0
+%global packname  avidaR
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve ESPN Fantasy Football Data
+Summary:          A Computational Biologist’s Toolkit To Get Data From 'avidaDB'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.3
-BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-CRAN-curl >= 5.0.2
+BuildRequires:    R-CRAN-tibble >= 3.0.6
 BuildRequires:    R-CRAN-httr >= 1.4.2
-BuildRequires:    R-stats 
-Requires:         R-CRAN-tibble >= 3.1.3
-Requires:         R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-CRAN-readr >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.3.2
+BuildRequires:    R-CRAN-tidyr >= 1.1.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.6
+BuildRequires:    R-CRAN-circlize >= 0.4.11
+BuildRequires:    R-CRAN-base64enc >= 0.1.3
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-curl >= 5.0.2
+Requires:         R-CRAN-tibble >= 3.0.6
 Requires:         R-CRAN-httr >= 1.4.2
-Requires:         R-stats 
+Requires:         R-CRAN-readr >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.3.2
+Requires:         R-CRAN-tidyr >= 1.1.2
+Requires:         R-CRAN-dplyr >= 1.0.6
+Requires:         R-CRAN-circlize >= 0.4.11
+Requires:         R-CRAN-base64enc >= 0.1.3
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-R6 
 
 %description
-Format the raw data from the ESPN fantasy football API
-<https://fantasy.espn.com/apis/v3/games/ffl/> as data frames. Retrieve
-data on public leagues, rosters, athletes, and matches.
+Easy-to-use tools for performing complex queries on 'avidaDB', a semantic
+database that stores genomic and transcriptomic data of self-replicating
+computer programs (known as digital organisms) that mutate and evolve
+within a user-defined computational environment.
 
 %prep
 %setup -q -c -n %{packname}

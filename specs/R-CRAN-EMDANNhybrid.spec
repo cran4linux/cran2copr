@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EMDANNhybrid
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ensemble Machine Learning Hybrid Model
+Summary:          Empirical Mode Decomposition Based Artificial Neural Network Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-EMD 
-BuildRequires:    R-CRAN-nnfor 
 BuildRequires:    R-CRAN-forecast 
 Requires:         R-CRAN-EMD 
-Requires:         R-CRAN-nnfor 
 Requires:         R-CRAN-forecast 
 
 %description
-The researchers can use this package to fit Empirical Mode Decomposition
-and Artificial Neural Network based hybrid model for nonlinear and non
-stationary time series data.
+Application of empirical mode decomposition based artificial neural
+network model for nonlinear and non stationary univariate time series
+forecasting. For method details see (i) Choudhury (2019)
+<https://www.indianjournals.com/ijor.aspx?target=ijor:ijee3&volume=55&issue=1&article=013>;
+(ii) Das (2020)
+<https://www.indianjournals.com/ijor.aspx?target=ijor:ijee3&volume=56&issue=2&article=002>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
