@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  engression
-%global packver   0.1.3
+%global packname  indelmiss
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Engression Modelling
+Summary:          Insertion Deletion Analysis While Accounting for Possible Missing Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-torch 
-Requires:         R-CRAN-torch 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-ape >= 3.2
+BuildRequires:    R-CRAN-numDeriv >= 2012.9.1
+BuildRequires:    R-CRAN-phangorn >= 1.99.13
+BuildRequires:    R-CRAN-Rcpp >= 0.11.2
+Requires:         R-CRAN-ape >= 3.2
+Requires:         R-CRAN-numDeriv >= 2012.9.1
+Requires:         R-CRAN-phangorn >= 1.99.13
+Requires:         R-CRAN-Rcpp >= 0.11.2
 
 %description
-Fits engression models for nonlinear distributional regression. Predictors
-and targets can be univariate or multivariate. Functionality includes
-estimation of conditional mean, estimation of conditional quantiles, or
-sampling from the fitted distribution. Training is done full-batch on CPU
-(the python version offers GPU-accelerated stochastic gradient descent).
-Based on "Engression: Extrapolation for nonlinear regression?" by Xinwei
-Shen and Nicolai Meinshausen (2023) <arxiv:2307.00835>.
+Genome-wide gene insertion and deletion rates can be modelled in a maximum
+likelihood framework with the additional flexibility of modelling
+potential missing data using the models included within. These models
+simultaneously estimate insertion and deletion (indel) rates of gene
+families and proportions of "missing" data for (multiple) taxa of
+interest. The likelihood framework is utilized for parameter estimation. A
+phylogenetic tree of the taxa and gene presence/absence patterns (with
+data ordered by the tips of the tree) are required. See Dang et al. (2016)
+<doi:10.1534/genetics.116.191973> for more details.
 
 %prep
 %setup -q -c -n %{packname}

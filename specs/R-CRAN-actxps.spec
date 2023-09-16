@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actxps
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Actuarial Experience Studies: Prepare Data, Summarize Results, and Create Reports
 
@@ -51,10 +51,10 @@ Requires:         R-CRAN-vctrs
 %description
 Experience studies are used by actuaries to explore historical experience
 across blocks of business and to inform assumption setting activities.
-This package provides functions for preparing data, creating studies, and
-beginning assumption development. Experience study methods, including
-exposure calculations, are described in: Atkinson & McGarry (2016)
-"Experience Study Calculations"
+This package provides functions for preparing data, creating studies,
+visualizing results, and beginning assumption development. Experience
+study methods, including exposure calculations, are described in: Atkinson
+& McGarry (2016) "Experience Study Calculations"
 <https://www.soa.org/49378a/globalassets/assets/files/research/experience-study-calculations.pdf>.
 The limited fluctuation credibility method used by the 'exp_stats()'
 function is described in: Herzog (1999, ISBN:1-56698-374-6) "Introduction

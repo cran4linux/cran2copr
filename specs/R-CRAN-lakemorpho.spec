@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lakemorpho
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lake Morphometry Metrics
 
@@ -19,19 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-cluster 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-grDevices 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-cluster 
 

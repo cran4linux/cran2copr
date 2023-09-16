@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  engression
-%global packver   0.1.3
+%global packname  ggRtsy
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Engression Modelling
+Summary:          Add Some Van Gogh Colors and Overlay Colors on Your 'ggplot()'
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch 
-Requires:         R-CRAN-torch 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-dplyr 
 
 %description
-Fits engression models for nonlinear distributional regression. Predictors
-and targets can be univariate or multivariate. Functionality includes
-estimation of conditional mean, estimation of conditional quantiles, or
-sampling from the fitted distribution. Training is done full-batch on CPU
-(the python version offers GPU-accelerated stochastic gradient descent).
-Based on "Engression: Extrapolation for nonlinear regression?" by Xinwei
-Shen and Nicolai Meinshausen (2023) <arxiv:2307.00835>.
+Works with 'ggplot2' to add a Van Gogh color palette to the user’s
+repertoire. It also has a function that work alongside 'ggplot2' to create
+more interesting data visualizations and add contextual information to the
+user’s plots.
 
 %prep
 %setup -q -c -n %{packname}

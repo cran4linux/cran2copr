@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bulkreadr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Ultimate Tool for Reading Data in Bulk
 
@@ -17,32 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-googlesheets4 
+BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-inspectdf 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-sjlabelled 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-googlesheets4 
+Requires:         R-CRAN-haven 
 Requires:         R-CRAN-inspectdf 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-sjlabelled 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 

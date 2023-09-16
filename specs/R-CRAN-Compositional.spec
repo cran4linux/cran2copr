@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   6.3
+%global packver   6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.3
+Version:          6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -79,7 +79,7 @@ Proceedings of the 28th Panhellenic Statistics Conference, 15-18 April
 with compositional data containing zero values. Chilean Journal of
 Statistics, 6(2):47--57. e) Tsagris M., Preston S. and Wood A.T.A. (2016).
 Improved supervised classification for compositional data using the
-alpha-transformation. Journal of Classification, 33(2):243--261.
+alpha-transformation. Journal of Classification, 33(2): 243--261.
 <doi:10.1007/s00357-016-9207-5>. f) Tsagris M., Preston S. and Wood A.T.A.
 (2017). Nonparametric hypothesis testing for equality of means on the
 simplex. Journal of Statistical Computation and Simulation, 87(2):
@@ -91,18 +91,19 @@ compositional data with compositional data as predictor variables with or
 without zero values. Journal of Data Science, 17(1): 219--238.
 <doi:10.6339/JDS.201901_17(1).0010>. i) Tsagris M. and Stewart C. (2020).
 A folded model for compositional data analysis. Australian and New Zealand
-Journal of Statistics, 62(2):249--277. <doi:10.1111/anzs.12289>. j)
-Alenazi A. (2021). Alenazi, A. (2021). A review of compositional data
+Journal of Statistics, 62(2): 249--277. <doi:10.1111/anzs.12289>. j)
+Alenazi A. (2021). Alenazi, A. (2023). A review of compositional data
 analysis and recent advances. Communications in Statistics--Theory and
-Methods (Accepted for publication). <doi:10.1080/03610926.2021.2014890>.
-k) Alenazi, A. A. (2022). f-divergence regression models for compositional
-data. Pakistan Journal of Statistics and Operation Research, 867--882.
-<doi:10.18187/pjsor.v18i4.3969>. l) Tsagris M. and Stewart C. (2022). A
-Review of Flexible Transformations for Modeling Compositional Data. In
-Advances and Innovations in Statistics and Data Science, pp. 225--234.
-<doi:10.1007/978-3-031-08329-7_10>. m) Tsagris M., Alenazi A. and Stewart
-C. (2022). Flexible non-parametric regression models for compositional
-response data with zeros. <arXiv:2002.05137>.
+Methods, 52(16): 5535--5567. <doi:10.1080/03610926.2021.2014890>. k)
+Alenazi, A. A. (2022). f-divergence regression models for compositional
+data. Pakistan Journal of Statistics and Operation Research, 18(4):
+867--882. <doi:10.18187/pjsor.v18i4.3969>. l) Tsagris M. and Stewart C.
+(2022). A Review of Flexible Transformations for Modeling Compositional
+Data. In Advances and Innovations in Statistics and Data Science, pp.
+225--234. <doi:10.1007/978-3-031-08329-7_10>. m) Tsagris M., Alenazi A.
+and Stewart C. (2023). Flexible non-parametric regression models for
+compositional response data with zeros. Statistics and Computing, 33(5):
+1--17. <doi:10.1007/s11222-023-10277-5>.
 
 %prep
 %setup -q -c -n %{packname}

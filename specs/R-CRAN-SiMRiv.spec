@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SiMRiv
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulating Multistate Movements in River/Heterogeneous Landscapes
 
@@ -19,17 +19,13 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-mco 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-rgdal 
 Requires:         R-CRAN-raster 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-mco 
 Requires:         R-parallel 
-Requires:         R-CRAN-rgdal 
 
 %description
 Provides functions to generate and analyze spatially-explicit

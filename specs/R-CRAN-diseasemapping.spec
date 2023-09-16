@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  engression
-%global packver   0.1.3
+%global packname  diseasemapping
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Engression Modelling
+Summary:          Modelling Spatial Variation in Disease Risk for Areal Data
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch 
-Requires:         R-CRAN-torch 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-terra 
+Requires:         R-methods 
 
 %description
-Fits engression models for nonlinear distributional regression. Predictors
-and targets can be univariate or multivariate. Functionality includes
-estimation of conditional mean, estimation of conditional quantiles, or
-sampling from the fitted distribution. Training is done full-batch on CPU
-(the python version offers GPU-accelerated stochastic gradient descent).
-Based on "Engression: Extrapolation for nonlinear regression?" by Xinwei
-Shen and Nicolai Meinshausen (2023) <arxiv:2307.00835>.
+Formatting of population and case data, calculation of Standardized
+Incidence Ratios, and fitting the BYM model using 'INLA'. For details see
+Brown (2015) <doi:10.18637/jss.v063.i12>.
 
 %prep
 %setup -q -c -n %{packname}

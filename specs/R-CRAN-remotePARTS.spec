@@ -1,51 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PNAR
-%global packver   1.5
+%global packname  remotePARTS
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Poisson Network Autoregressive Models
+Summary:          Spatiotemporal Autoregression Analyses for Large Data Sets
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-Rfast2 
+BuildRequires:    R-CRAN-geosphere >= 1.5.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-stats 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-nloptr 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-Rfast2 
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-geosphere >= 1.5.10
+Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-stats 
+Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-doParallel 
 
 %description
-Quasi likelihood-based methods for estimating linear and log-linear
-Poisson Network Autoregression models with p lags and covariates. Tools
-for testing the linearity versus several non-linear alternatives. Tools
-for simulation of multivariate count distributions, from linear and
-non-linear PNAR models, by using a specific copula construction.
-References include: Armillotta, M. and K. Fokianos (2022a). Poisson
-network autoregression. <arXiv:2104.06296>. Armillotta, M. and K. Fokianos
-(2022b). Testing linearity for network autoregressive models.
-<arXiv:2202.03852>. Armillotta, M., Tsagris, M. and Fokianos, K. (2022c).
-The R-package PNAR for modelling count network time series.
-<arXiv:2211.02582>.
+These tools were created to test map-scale hypotheses about trends in
+large remotely sensed data sets but any data with spatial and temporal
+variation can be analyzed. Tests are conducted using the PARTS method for
+analyzing spatially autocorrelated time series (Ives et al., 2021:
+<doi:10.1016/j.rse.2021.112678>). The method's unique approach can handle
+extremely large data sets that other spatiotemporal models cannot, while
+still appropriately accounting for spatial and temporal autocorrelation.
+This is done by partitioning the data into smaller chunks, analyzing
+chunks separately and then combining the separate analyses into a single,
+correlated test of the map-scale hypotheses.
 
 %prep
 %setup -q -c -n %{packname}

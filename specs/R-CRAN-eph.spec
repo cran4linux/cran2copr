@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eph
-%global packver   0.6.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Argentina's Permanent Household Survey Data and Manipulation Utilities
 
@@ -19,17 +19,12 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-expss 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-attempt 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-leaflet 
@@ -38,19 +33,16 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-expss 
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-attempt 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-leaflet 
@@ -59,6 +51,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-stats 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Tools to download and manipulate the Permanent Household Survey from

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cmsafvis
-%global packver   1.1.12
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Visualize CM SAF NetCDF Data
 
@@ -19,42 +20,38 @@ BuildArch:        noarch
 BuildRequires:    R-methods >= 3.6
 BuildRequires:    R-CRAN-maps >= 3.3.0
 BuildRequires:    R-CRAN-raster >= 3.0
-BuildRequires:    R-CRAN-animation >= 2.6
-BuildRequires:    R-CRAN-yaml >= 2.2
 BuildRequires:    R-CRAN-fields >= 10.3
+BuildRequires:    R-CRAN-terra >= 1.7
 BuildRequires:    R-CRAN-colorspace >= 1.4
-BuildRequires:    R-CRAN-sp >= 1.4
 BuildRequires:    R-CRAN-mapproj >= 1.2.7
 BuildRequires:    R-CRAN-progress >= 1.2.2
 BuildRequires:    R-CRAN-cmsafops >= 1.2.1
 BuildRequires:    R-CRAN-ncdf4 >= 1.17
 BuildRequires:    R-CRAN-countrycode >= 1.1
+BuildRequires:    R-CRAN-sf >= 1.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-CRAN-png >= 0.1
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rasterVis 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-SearchTrees 
 BuildRequires:    R-utils 
 Requires:         R-methods >= 3.6
 Requires:         R-CRAN-maps >= 3.3.0
 Requires:         R-CRAN-raster >= 3.0
-Requires:         R-CRAN-animation >= 2.6
-Requires:         R-CRAN-yaml >= 2.2
 Requires:         R-CRAN-fields >= 10.3
+Requires:         R-CRAN-terra >= 1.7
 Requires:         R-CRAN-colorspace >= 1.4
-Requires:         R-CRAN-sp >= 1.4
 Requires:         R-CRAN-mapproj >= 1.2.7
 Requires:         R-CRAN-progress >= 1.2.2
 Requires:         R-CRAN-cmsafops >= 1.2.1
 Requires:         R-CRAN-ncdf4 >= 1.17
 Requires:         R-CRAN-countrycode >= 1.1
+Requires:         R-CRAN-sf >= 1.0
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-png >= 0.1
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rasterVis 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-SearchTrees 
 Requires:         R-utils 
 
 %description

@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  engression
+%global packname  AutoTransQF
 %global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Engression Modelling
+Summary:          A Novel Automatic Shifted Log Transformation
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch 
-Requires:         R-CRAN-torch 
+BuildRequires:    R-stats >= 4.2.2
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-matlab2r 
+BuildRequires:    R-CRAN-moments 
+Requires:         R-stats >= 4.2.2
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-matlab2r 
+Requires:         R-CRAN-moments 
 
 %description
-Fits engression models for nonlinear distributional regression. Predictors
-and targets can be univariate or multivariate. Functionality includes
-estimation of conditional mean, estimation of conditional quantiles, or
-sampling from the fitted distribution. Training is done full-batch on CPU
-(the python version offers GPU-accelerated stochastic gradient descent).
-Based on "Engression: Extrapolation for nonlinear regression?" by Xinwei
-Shen and Nicolai Meinshausen (2023) <arxiv:2307.00835>.
+A novel parametrization of log transformation and a shift parameter to
+automate the transformation process are proposed in R package
+'AutoTransQF' based on Feng et al. (2016). Please read Feng et al. (2016)
+<doi:10.1002/sta4.104> for more details of the method.
 
 %prep
 %setup -q -c -n %{packname}

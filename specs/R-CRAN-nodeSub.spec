@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nodeSub
-%global packver   1.2.5
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate DNA Alignments Using Node Substitutions
 
@@ -18,12 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-apTreeshape 
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-DDD 
 BuildRequires:    R-CRAN-Rmpfr 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-phylobase 
 BuildRequires:    R-CRAN-geiger 
@@ -35,14 +33,13 @@ BuildRequires:    R-CRAN-tracerer
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-testit 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-apTreeshape 
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-DDD 
 Requires:         R-CRAN-Rmpfr 
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-phylobase 
 Requires:         R-CRAN-geiger 
@@ -54,6 +51,7 @@ Requires:         R-CRAN-tracerer
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-testit 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Simulate DNA sequences for the node substitution model. In the node

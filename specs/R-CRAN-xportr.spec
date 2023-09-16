@@ -1,33 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  engression
-%global packver   0.1.3
+%global packname  xportr
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Engression Modelling
+Summary:          Utilities to Output CDISC SDTM/ADaM XPT Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch 
-Requires:         R-CRAN-torch 
+BuildRequires:    R-CRAN-haven >= 2.5.0
+BuildRequires:    R-CRAN-glue >= 1.4.2
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-haven >= 2.5.0
+Requires:         R-CRAN-glue >= 1.4.2
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Fits engression models for nonlinear distributional regression. Predictors
-and targets can be univariate or multivariate. Functionality includes
-estimation of conditional mean, estimation of conditional quantiles, or
-sampling from the fitted distribution. Training is done full-batch on CPU
-(the python version offers GPU-accelerated stochastic gradient descent).
-Based on "Engression: Extrapolation for nonlinear regression?" by Xinwei
-Shen and Nicolai Meinshausen (2023) <arxiv:2307.00835>.
+Tools to build CDISC compliant data sets and check for CDISC compliance.
 
 %prep
 %setup -q -c -n %{packname}

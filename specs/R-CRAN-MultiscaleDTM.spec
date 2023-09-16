@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultiscaleDTM
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Scale Geomorphometric Terrain Attributes
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-terra >= 1.7.46
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-dplyr 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-rgl
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-terra 
+Requires:         R-CRAN-terra >= 1.7.46
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-dplyr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brms
-%global packver   2.20.1
+%global packver   2.20.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.20.1
+Version:          2.20.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Regression Models using 'Stan'
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shinystan >= 2.4.0
 BuildRequires:    R-CRAN-loo >= 2.3.1
-BuildRequires:    R-CRAN-rstan >= 2.19.2
+BuildRequires:    R-CRAN-rstan >= 2.26.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-CRAN-mgcv >= 1.8.13
@@ -45,7 +45,7 @@ BuildRequires:    R-CRAN-backports
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-shinystan >= 2.4.0
 Requires:         R-CRAN-loo >= 2.3.1
-Requires:         R-CRAN-rstan >= 2.19.2
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-mgcv >= 1.8.13

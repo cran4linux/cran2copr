@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtExtras
-%global packver   0.4.5
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extending 'gt' for Beautiful HTML Tables
 
@@ -17,23 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-glue >= 1.6.1
 BuildRequires:    R-CRAN-paletteer >= 1.4.0
+BuildRequires:    R-CRAN-knitr >= 1.35
 BuildRequires:    R-CRAN-scales >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-rlang >= 1.0.4
-BuildRequires:    R-CRAN-gt >= 0.8.0
+BuildRequires:    R-CRAN-gt >= 0.9.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.3
 BuildRequires:    R-CRAN-fontawesome >= 0.4.0
 BuildRequires:    R-CRAN-commonmark 
+Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-glue >= 1.6.1
 Requires:         R-CRAN-paletteer >= 1.4.0
+Requires:         R-CRAN-knitr >= 1.35
 Requires:         R-CRAN-scales >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-rlang >= 1.0.4
-Requires:         R-CRAN-gt >= 0.8.0
+Requires:         R-CRAN-gt >= 0.9.0
 Requires:         R-CRAN-htmltools >= 0.5.3
 Requires:         R-CRAN-fontawesome >= 0.4.0
 Requires:         R-CRAN-commonmark 
