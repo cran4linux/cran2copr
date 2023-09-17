@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BFpack
-%global packver   1.0.0
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Bayes Factor Testing of Scientific Expectations
 
@@ -23,6 +24,9 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-ergm 
+BuildRequires:    R-CRAN-Bergm 
+BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-bain 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
@@ -31,6 +35,9 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-ergm 
+Requires:         R-CRAN-Bergm 
+Requires:         R-CRAN-sandwich 
 
 %description
 Implementation of various default Bayes factors for testing statistical
@@ -42,9 +49,10 @@ models, special cases of linear mixed models, survival models, relational
 event models. Parameters that can be tested are location parameters (e.g.,
 group means, regression coefficients), variances (e.g., group variances),
 and measures of association (e.g,. bivariate correlations), among others.
-The statistical underpinnings are described in Mulder, Hoijtink, and Xin
-(2019) <arXiv:1904.00679>, Mulder and Gelissen (2019) <arXiv:1807.05819>,
-Mulder (2016) <DOI:10.1016/j.jmp.2014.09.004>, Mulder and Fox (2019)
+The statistical underpinnings are described in Mulder and Xin (2019)
+<DOI:10.1080/00273171.2021.1904809>, Mulder and Gelissen (2019)
+<DOI:10.1080/02664763.2021.1992360>, Mulder (2016)
+<DOI:10.1016/j.jmp.2014.09.004>, Mulder and Fox (2019)
 <DOI:10.1214/18-BA1115>, Mulder and Fox (2013)
 <DOI:10.1007/s11222-011-9295-3>, Boeing-Messing, van Assen, Hofman,
 Hoijtink, and Mulder (2017) <DOI:10.1037/met0000116>, Hoijtink, Mulder,

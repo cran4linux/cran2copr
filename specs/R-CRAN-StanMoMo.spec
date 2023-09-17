@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  StanMoMo
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Mortality Modelling with 'Stan'
 
@@ -15,43 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.0.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-rstantools 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggfan 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 2.0.0
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-loo 
 Requires:         R-methods 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-rstantools 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-bridgesampling 
 Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggfan 

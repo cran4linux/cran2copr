@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  greybox
-%global packver   1.0.8
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolbox for Model Building and Forecasting
 
-License:          GPL (>= 2)
+License:          LGPL-2.1
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

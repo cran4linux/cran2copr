@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  recmap
-%global packver   1.0.15
+%global packver   1.0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
+Version:          1.0.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute the Rectangular Statistical Cartogram
 
@@ -24,15 +24,15 @@ Requires:         R-CRAN-sp >= 1.3
 Requires:         R-CRAN-Rcpp >= 1.0
 
 %description
-Provides an interface and a C++ implementation of the RecMap MP2
-construction heuristic (Panse C. (2018) <doi:10.18637/jss.v086.c01>). This
-algorithm draws maps according to a given statistical value (e.g.,
-election results, population or epidemiological data). The basic idea of
-the RecMap algorithm is that each map region (e.g., different countries)
-is represented by a rectangle. The area of each rectangle represents the
-statistical value given as input (maintain zero cartographic error).
-Documentation about the usage of the recmap algorithm is provided by a
-vignette included in this package.
+Implements the RecMap MP2 construction heuristic
+<doi:10.1109/INFVIS.2004.57>. This algorithm draws maps according to a
+given statistical value, e.g., election results, population, or
+epidemiological data. The basic idea of the RecMap algorithm is that each
+map region, e.g., different countries, is represented by a rectangle. The
+area of each rectangle represents the statistical value given as input
+(maintain zero cartographic error). C++ is used to implement the
+computationally intensive tasks. The vignette included in this package
+provides documentation about the usage of the recmap algorithm.
 
 %prep
 %setup -q -c -n %{packname}
