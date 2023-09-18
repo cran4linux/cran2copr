@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ivDiag
-%global packver   1.0.4
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Diagnostic Tools for Instrumental Variables Designs
 
@@ -45,8 +45,8 @@ Requires:         R-CRAN-testthat
 %description
 Estimation and diagnostic tools for instrumental variables designs, which
 implements the guidelines proposed in Lal et al. (2023)
-<arXiv:2303.11399>, including bootstrapped standard errors, effective
-F-statistics, Anderson-Rubin test, valid-t ratio test, and local-to-zero
+<arXiv:2303.11399>, including bootstrapped confidence intervals, effective
+F-statistic, Anderson-Rubin test, valid-t ratio test, and local-to-zero
 tests.
 
 %prep

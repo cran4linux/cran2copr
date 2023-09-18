@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kutils
-%global packver   1.72
+%global packver   1.73
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.72
+Version:          1.73
 Release:          1%{?dist}%{?buildtag}
 Summary:          Project Management Tools
 

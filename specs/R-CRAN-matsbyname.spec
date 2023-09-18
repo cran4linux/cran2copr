@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matsbyname
-%global packver   0.6.4
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Implementation of Matrix Mathematics
+Summary:          An Implementation of Matrix Mathematics that Respects Row and Column Names
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
