@@ -1,44 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GD
-%global packver   10.3
+%global packname  CICI
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.3
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographical Detectors for Assessing Spatial Factors
+Summary:          Causal Inference with Continuous (Multiple Time Point) Interventions
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-BAMMtools 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-BAMMtools 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-rngtools 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-rngtools 
 
 %description
-Geographical detectors for measuring spatial stratified heterogeneity, as
-described in Jinfeng Wang (2010) <doi:10.1080/13658810802443457> and
-Jinfeng Wang (2016) <doi:10.1016/j.ecolind.2016.02.052>. Includes the
-optimal discretization of continuous data, four primary functions of
-geographical detectors, comparison of size effects of spatial unit and the
-visualizations of results. To use the package and to refer the
-descriptions of the package, methods and case datasets, please cite Yongze
-Song (2020) <doi:10.1080/15481603.2020.1760434>. The model has been
-applied in factor exploration of road performance and multi-scale spatial
-segmentation for network data, as described in Yongze Song (2018)
-<doi:10.3390/rs10111696> and Yongze Song (2020)
-<doi:10.1109/TITS.2020.3001193>, respectively.
+Estimation of counterfactual outcomes for multiple values of continuous
+interventions at different time points, and plotting of causal
+dose-response curves. Details are given in Schomaker, McIlleron, Denti,
+Diaz (2023) <arXiv:2305.06645>.
 
 %prep
 %setup -q -c -n %{packname}

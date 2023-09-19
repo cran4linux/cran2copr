@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reslife
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Residual Life Values for Different Distributions
+Summary:          Calculate Mean Residual Life (MRL) and Related Values for Different Distributions
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,14 +25,14 @@ Requires:         R-CRAN-flexsurv
 Requires:         R-CRAN-gsl 
 
 %description
-A pair of functions for calculating mean, median, and/or percentile
-residual life using the outputs of either the 'flexsurv' package or
-parameters provided by the user. Input information about the distribution,
-the given 'life' value, the percentile, and the type of residual life, and
-the function will return your desired values. For the 'flexsurv' option,
-the function allows the user to input their own data for making
-predictions. This function is based on Jackson (2016)
-<doi:10.18637/jss.v070.i08>.
+A pair of functions for calculating mean residual life (MRL), median
+residual life, and percentile residual life using the outputs of either
+the 'flexsurv' package or parameters provided by the user. Input
+information about the distribution, the given 'life' value, the
+percentile, and the type of residual life, and the function will return
+your desired values. For the 'flexsurv' option, the function allows the
+user to input their own data for making predictions. This function is
+based on Jackson (2016) <doi:10.18637/jss.v070.i08>.
 
 %prep
 %setup -q -c -n %{packname}

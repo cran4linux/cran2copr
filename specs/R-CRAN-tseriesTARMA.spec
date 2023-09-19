@@ -1,44 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GD
-%global packver   10.3
+%global packname  tseriesTARMA
+%global packver   0.3-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographical Detectors for Assessing Spatial Factors
+Summary:          Analysis of Nonlinear Time Series Through TARMA Models
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-BAMMtools 
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-lbfgsb3c 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-rugarch 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-BAMMtools 
+Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-lbfgsb3c 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-rugarch 
+Requires:         R-CRAN-zoo 
 
 %description
-Geographical detectors for measuring spatial stratified heterogeneity, as
-described in Jinfeng Wang (2010) <doi:10.1080/13658810802443457> and
-Jinfeng Wang (2016) <doi:10.1016/j.ecolind.2016.02.052>. Includes the
-optimal discretization of continuous data, four primary functions of
-geographical detectors, comparison of size effects of spatial unit and the
-visualizations of results. To use the package and to refer the
-descriptions of the package, methods and case datasets, please cite Yongze
-Song (2020) <doi:10.1080/15481603.2020.1760434>. The model has been
-applied in factor exploration of road performance and multi-scale spatial
-segmentation for network data, as described in Yongze Song (2018)
-<doi:10.3390/rs10111696> and Yongze Song (2020)
-<doi:10.1109/TITS.2020.3001193>, respectively.
+Routines for nonlinear time series analysis based on Threshold
+Autoregressive Moving Average models. It provides functions and methods
+for: TARMA model fitting and forecasting, tests for threshold effects,
+unit-root tests based on TARMA models.
 
 %prep
 %setup -q -c -n %{packname}

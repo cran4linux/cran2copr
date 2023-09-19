@@ -1,32 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rollRegres
-%global packver   0.1.4
+%global __requires_exclude ^libmpi
+%global packname  kmBlock
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Rolling and Expanding Window Linear Regression
+Summary:          k-Means Like Blockmodeling of One-Mode and Linked Networks
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-blockmodeling 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-blockmodeling 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-foreach 
 
 %description
-Methods for fast rolling and expanding linear regression models. That is,
-series of linear regression models estimated on either an expanding window
-of data or a moving window of data. The methods use rank-one updates and
-downdates of the upper triangular matrix from a QR decomposition (see
-Dongarra, Moler, Bunch, and Stewart (1979) <doi:10.1137/1.9781611971811>).
+Implements k-means like blockmodeling of one-mode and linked networks as
+presented in Žiberna (2020) <doi:10.1016/j.socnet.2019.10.006>. The
+development of this package is financially supported by the Slovenian
+Research Agency (<https://www.arrs.si/>) within the research programs
+P5-0168 and the research projects J7-8279 (Blockmodeling multilevel and
+temporal networks) and J5-2557 (Comparison and evaluation of different
+approaches to blockmodeling dynamic networks by simulations with
+application to Slovenian co-authorship networks).
 
 %prep
 %setup -q -c -n %{packname}

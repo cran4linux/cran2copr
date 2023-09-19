@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  randomizeR
-%global packver   3.0.1
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Randomization for Clinical Trials
 
@@ -22,8 +22,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-mstate 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -31,13 +29,14 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-coin 
 BuildRequires:    R-CRAN-PwrGSD 
+BuildRequires:    R-CRAN-gsDesign 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-mstate 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
@@ -45,6 +44,9 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-coin 
 Requires:         R-CRAN-PwrGSD 
+Requires:         R-CRAN-gsDesign 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-reshape2 
 
 %description
 This tool enables the user to choose a randomization procedure based on

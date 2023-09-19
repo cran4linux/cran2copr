@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  webSDM
-%global packver   1.1-3
+%global packver   1.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Including Known Interactions in Species Distribution Models
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-brms 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-rstanarm
 BuildRequires:    R-CRAN-rstantools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-brms 

@@ -1,43 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dataversionr
-%global packver   0.9.0
+%global packname  BiodiversityR
+%global packver   2.15-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          2.15.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Versioned Storage of Data Frames
+Summary:          Package for Community Ecology and Suitability Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow >= 8.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.2
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-diffdfs 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-arrow >= 8.0.0
-Requires:         R-CRAN-rlang >= 1.0.2
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-diffdfs 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
+BuildRequires:    R-CRAN-Rcmdr >= 2.8.0
+BuildRequires:    R-CRAN-vegan >= 2.6.4
+BuildRequires:    R-tcltk 
+Requires:         R-CRAN-ggplot2 >= 3.3.3
+Requires:         R-CRAN-Rcmdr >= 2.8.0
+Requires:         R-CRAN-vegan >= 2.6.4
+Requires:         R-tcltk 
 
 %description
-Create, update, read and delete data frames in time versioned,
-parquet-backed datasets. Inspect how your data frame has changed over
-time. Run your analysis against multiple versions of your data frame.
+Graphical User Interface (via the R-Commander) and utility functions
+(often based on the vegan package) for statistical analysis of
+biodiversity and ecological communities, including species accumulation
+curves, diversity indices, Renyi profiles, GLMs for analysis of species
+abundance and presence-absence, distance matrices, Mantel tests, and
+cluster, constrained and unconstrained ordination analysis. A book on
+biodiversity and community ecology analysis is available for free download
+from the website. In 2012, methods for (ensemble) suitability modelling
+and mapping were expanded in the package.
 
 %prep
 %setup -q -c -n %{packname}

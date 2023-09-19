@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baldur
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Hierarchical Modeling for Label-Free Proteomics
 
@@ -20,9 +20,9 @@ BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
 BuildRequires:    R-CRAN-tibble >= 3.1.7
 BuildRequires:    R-CRAN-Rdpack >= 2.4
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-rstantools >= 2.2.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
@@ -42,8 +42,8 @@ Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-ggplot2 >= 3.3.6
 Requires:         R-CRAN-tibble >= 3.1.7
 Requires:         R-CRAN-Rdpack >= 2.4
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-rstantools >= 2.2.0
-Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.0.9
@@ -70,7 +70,7 @@ distribution (by Hamiltonian Monte Carlo) for the differences in means for
 each peptide in the data. Once the posterior is inferred, it integrates
 the tails to estimate the probability of error from which a statistical
 decision can be made. See Berg and Popescu for details
-(<https://www.biorxiv.org/content/10.1101/2023.05.11.540411v1>).
+(<doi:10.1101/2023.05.11.540411>).
 
 %prep
 %setup -q -c -n %{packname}

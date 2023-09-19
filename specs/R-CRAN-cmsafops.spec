@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cmsafops
-%global packver   1.2.6
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for CM SAF NetCDF Data
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster >= 3.0
 BuildRequires:    R-CRAN-fields >= 10.3
-BuildRequires:    R-CRAN-sp >= 1.4
 BuildRequires:    R-CRAN-ncdf4 >= 1.17
 BuildRequires:    R-CRAN-FNN >= 1.1
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-SearchTrees
 BuildRequires:    R-utils 
 Requires:         R-CRAN-raster >= 3.0
 Requires:         R-CRAN-fields >= 10.3
-Requires:         R-CRAN-sp >= 1.4
 Requires:         R-CRAN-ncdf4 >= 1.17
 Requires:         R-CRAN-FNN >= 1.1
 Requires:         R-CRAN-assertthat >= 0.2.1

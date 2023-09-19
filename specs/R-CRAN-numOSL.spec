@@ -1,44 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GD
-%global packver   10.3
+%global packname  numOSL
+%global packver   2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.3
+Version:          2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographical Detectors for Assessing Spatial Factors
+Summary:          Numeric Routines for Optically Stimulated Luminescence Dating
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
-BuildArch:        noarch
+BuildRequires:    R-devel >= 2.15.3
+Requires:         R-core >= 2.15.3
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-BAMMtools 
+BuildRequires:    R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-BAMMtools 
+Requires:         R-grDevices 
 
 %description
-Geographical detectors for measuring spatial stratified heterogeneity, as
-described in Jinfeng Wang (2010) <doi:10.1080/13658810802443457> and
-Jinfeng Wang (2016) <doi:10.1016/j.ecolind.2016.02.052>. Includes the
-optimal discretization of continuous data, four primary functions of
-geographical detectors, comparison of size effects of spatial unit and the
-visualizations of results. To use the package and to refer the
-descriptions of the package, methods and case datasets, please cite Yongze
-Song (2020) <doi:10.1080/15481603.2020.1760434>. The model has been
-applied in factor exploration of road performance and multi-scale spatial
-segmentation for network data, as described in Yongze Song (2018)
-<doi:10.3390/rs10111696> and Yongze Song (2020)
-<doi:10.1109/TITS.2020.3001193>, respectively.
+Optimizing regular numeric problems in optically stimulated luminescence
+dating, such as: equivalent dose calculation, dose rate determination,
+growth curve fitting, decay curve decomposition, statistical age model
+optimization, and statistical plot visualization.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  factorstochvol
-%global packver   1.0.2
+%global packname  WH
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation of (Sparse) Latent Factor Stochastic Volatility Models
+Summary:          Enhanced Implementation of Whittaker-Henderson Smoothing
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-stochvol >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.900
-BuildRequires:    R-CRAN-GIGrvg >= 0.4
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-stochvol >= 3.0.2
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-GIGrvg >= 0.4
-Requires:         R-CRAN-corrplot 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Markov chain Monte Carlo (MCMC) sampler for fully Bayesian estimation of
-latent factor stochastic volatility models with interweaving
-<doi:10.1080/10618600.2017.1322091>. Sparsity can be achieved through the
-usage of Normal-Gamma priors on the factor loading matrix
-<doi:10.1016/j.jeconom.2018.11.007>.
+An enhanced implementation of Whittaker-Henderson smoothing for the
+gradation of one-dimensional and two-dimensional actuarial tables used to
+quantify Life Insurance risks. 'WH' is based on the methods described in
+Biessy (2023) <doi:10.48550/arXiv.2306.06932>. Among other features, it
+generalizes the original smoothing algorithm to maximum likelihood
+estimation, automatically selects the smoothing parameter(s) and
+extrapolates beyond the range of data.
 
 %prep
 %setup -q -c -n %{packname}

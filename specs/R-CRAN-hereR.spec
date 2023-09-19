@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hereR
-%global packver   0.9.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'sf'-Based Interface to the 'HERE' REST APIs
 
@@ -21,14 +21,14 @@ BuildRequires:    R-CRAN-curl >= 4.3
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-crul >= 1.1
+BuildRequires:    R-CRAN-crul >= 1.1.0
 BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-flexpolyline >= 0.2.0
 Requires:         R-CRAN-curl >= 4.3
 Requires:         R-CRAN-jsonlite >= 1.7.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-crul >= 1.1
+Requires:         R-CRAN-crul >= 1.1.0
 Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-flexpolyline >= 0.2.0
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GPSeqClus
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Clustering Algorithm for Location Data
 
@@ -21,12 +21,10 @@ BuildRequires:    R-CRAN-geosphere
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-plotKML 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spacetime 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-suncalc 
 BuildRequires:    R-tcltk 
@@ -35,12 +33,10 @@ Requires:         R-CRAN-geosphere
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-plotKML 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spacetime 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-CRAN-suncalc 
 Requires:         R-tcltk 

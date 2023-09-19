@@ -1,41 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Matrix
-%global packver   1.6-1.1
+%global packname  drape
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse and Dense Matrix Classes and Methods
+Summary:          Doubly Robust Average Partial Effects
 
-License:          GPL (>= 2) | file LICENCE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-grid 
-Requires:         R-CRAN-lattice 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-A rich hierarchy of sparse and dense matrix classes, including general,
-symmetric, triangular, and diagonal matrices with numeric, logical, or
-pattern entries.  Efficient methods for operating on such matrices, often
-wrapping the 'BLAS', 'LAPACK', and 'SuiteSparse' libraries.
+Doubly robust average partial effect estimation. This implementation
+contains methods for adding additional smoothness to plug-in regression
+procedures and for estimating score functions using smoothing splines.
+Details of the method can be found in Harvey Klyne and Rajen D. Shah
+(2023) <arXiv:2308.09207>.
 
 %prep
 %setup -q -c -n %{packname}

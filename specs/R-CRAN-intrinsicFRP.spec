@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  intrinsicFRP
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Estimation of Intrinsic Factor Risk Premia
+Summary:          Oracle Estimation and Inference for Tradable Factor Risk Premia
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,14 +25,18 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-stats 
 
 %description
-Efficient computation of intrinsic and adaptive intrinsic factor risk
-premia and their standard errors. Intrinsic factor risk premia are defined
-as the negative factor covariance with the SDF projection on test asset
-returns. As opposed to benchmark notions of factor risk premia, they are
-well-defined even in presence of useless and weak factors, they do not
-depend on the degree of misspecification of the factor model, and are
-one-to-one linked to two-pass mimicking factor risk premia coefficients,
-whenever the latter are also well-defined.
+Tradable factor risk premia are given by the negative factor covariance
+with the Stochastic Discount Factor projection on returns. This package
+provides efficient computation of tradable and Oracle tradable factor risk
+premia estimators and their standard errors; see A. Quaini, F. Trojani and
+M. Yuan (2023)
+<https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4574683>. Tradable
+factor risk premia are robust to misspecification or weak identification
+in asset pricing models, and they are zero for any factor weakly
+correlated with returns. Their Oracle estimator performs as well as if the
+weak or useless factors were known in advance. This means it not only
+consistently removes useless factors and factors weakly correlated with
+returns but also gives rise to reliable tests of asset pricing models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamlss.ggplots
-%global packver   2.1-2
+%global packname  staplr
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plotting Generalised Additive Model for Location, Scale and Shape
+Summary:          A Toolkit for PDF Files
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gamlss >= 4.3.3
-BuildRequires:    R-CRAN-gamlss.dist 
-BuildRequires:    R-CRAN-gamlss.foreach 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-CRAN-gamlss.inf 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-gamlss >= 4.3.3
-Requires:         R-CRAN-gamlss.dist 
-Requires:         R-CRAN-gamlss.foreach 
-Requires:         R-methods 
-Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-ellipse 
-Requires:         R-CRAN-gamlss.inf 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-pdftools 
+Requires:         R-tcltk 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-pdftools 
 
 %description
-Plotting functions for Generalised Additive Models for Location Scale and
-Shape.
+Provides functions to manipulate PDF files: fill out PDF forms; merge
+multiple PDF files into one; remove selected pages from a file; rename
+multiple files in a directory; rotate entire pdf document; rotate selected
+pages of a pdf file; Select pages from a file; splits single input PDF
+document into individual pages; splits single input PDF document into
+parts from given points.
 
 %prep
 %setup -q -c -n %{packname}

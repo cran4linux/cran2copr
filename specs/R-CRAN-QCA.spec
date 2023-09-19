@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QCA
-%global packver   3.20
+%global packver   3.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.20
+Version:          3.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Qualitative Comparative Analysis
 
@@ -20,10 +20,12 @@ BuildRequires:    R-CRAN-admisc > 0.32
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-venn 
+BuildRequires:    R-CRAN-lpSolve 
 Requires:         R-CRAN-admisc > 0.32
 Requires:         R-methods 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-venn 
+Requires:         R-CRAN-lpSolve 
 
 %description
 An extensive set of functions to perform Qualitative Comparative Analysis:
