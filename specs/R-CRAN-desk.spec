@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mcr
-%global packver   1.3.2
+%global packname  desk
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method Comparison Regression
+Summary:          Didactic Econometrics Starter Kit
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-robslopes 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-robslopes 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Regression methods to quantify the relation between two measurement
-methods are provided by this package. In particular it addresses
-regression problems with errors in both variables and without repeated
-measurements. It implements the CLSI recommendations (see J. A. Budd et
-al. (2018,
-<https://clsi.org/standards/products/method-evaluation/documents/ep09/>)
-for analytical method comparison and bias estimation using patient
-samples. Furthermore, algorithms for Theil-Sen and equivariant
-Passing-Bablok estimators are implemented, see F. Dufey (2020,
-<doi:10.1515/ijb-2019-0157>) and J. Raymaekers and F. Dufey (2022,
-<arXiv:2202:08060>). A comprehensive overview over the implemented methods
-and references can be found in the manual pages "mcr-package" and "mcreg".
+Written to help undergraduate as well as graduate students to get started
+with R for basic econometrics without the need to import specific
+functions and datasets from many different sources. Primarily, the package
+is meant to accompany the German textbook Auer, L.v., Hoffmann, S., Kranz,
+T. (2023, ISBN: 978-3-662-68263-0) from which the exercises cover all the
+topics from the textbook Auer, L.v. (2023, ISBN: 978-3-658-42699-6).
 
 %prep
 %setup -q -c -n %{packname}

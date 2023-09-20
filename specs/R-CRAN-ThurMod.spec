@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rfmtool
-%global packver   4.1.10
+%global packname  ThurMod
+%global packver   1.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.10
+Version:          1.1.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Measure Tools
+Summary:          Thurstonian CFA and Thurstonian IRT Modeling
 
-License:          LGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.2
-Requires:         R-core >= 2.9.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-lavaan 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-lavaan 
 
 %description
-Various tools for handling fuzzy measures, calculating Shapley value and
-interaction index, Choquet and Sugeno integrals, as well as fitting fuzzy
-measures to empirical data are provided. Construction of fuzzy measures
-from empirical data is done by solving a linear programming problem by
-using 'lpsolve' package, whose source in C adapted to the R environment is
-included. The description of the basic theory of fuzzy measures is in the
-manual in the Doc folder in this package. Please refer to the following:
-[1] <https://personal-sites.deakin.edu.au/~gleb/fmtools.html> [2] G.
-Beliakov, H. Bustince, T. Calvo, 'A Practical Guide to Averaging',
-Springer, (2016, ISBN: 978-3-319-24753-3). [3] G. Beliakov, S. James, J-Z.
-Wu, 'Discrete Fuzzy Measures', Springer, (2020, ISBN: 978-3-030-15305-2).
+Fit Thurstonian forced-choice models (CFA (simple and factor) and IRT) in
+R. This package allows for the analysis of item response modeling (IRT) as
+well as confirmatory factor analysis (CFA) in the Thurstonian framework.
+Currently, estimation can be performed by 'Mplus' and 'lavaan'.
+References: Brown & Maydeu-Olivares (2011) <doi:10.1177/0013164410375112>;
+Jansen, M. T., & Schulze, R. (in review). The Thurstonian linked block
+design: Improving Thurstonian modeling for paired comparison and ranking
+data.; Maydeu-Olivares & Böckenholt (2005)
+<doi:10.1037/1082-989X.10.3.285>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MBHdesign
-%global packver   2.2.2
+%global packver   2.3.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Designs for Ecological and Environmental Surveys
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-geometry 
@@ -23,7 +24,9 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-randtoolbox 
@@ -31,17 +34,20 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-stats 
 Requires:         R-CRAN-class 
 Requires:         R-parallel 
-Requires:         R-CRAN-raster 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-terra 
 
 %description
 Provides spatially survey balanced designs using the quasi-random number
-method described Robinson et al. (2013) <doi:10.1111/biom.12059>. These
-designs can accommodate, without substantial detrimental effects on
-spatial balance, legacy sites (Foster et al., 2017
-<doi:10.1111/2041-210X.12782>), and for both point samples and transect
-samples (Foster et al. 2020, <doi:10.1111/2041-210X.13321>).  Additional
-information about the package use itself is given in Foster (2021)
-<doi:10.1111/2041-210X.13535>.
+method described Robinson et al. (2013) <doi:10.1111/biom.12059> and
+adjusted in Robinson et al. (2017) <doi:10.1016/j.spl.2017.05.004>.
+Designs using MBHdesign can: 1) accommodate, without substantial
+detrimental effects on spatial balance, legacy sites (Foster et al., 2017
+<doi:10.1111/2041-210X.12782>); 2) be based on points or transects (foster
+et al. 2020 <doi:10.1111/2041-210X.13321> and produce clustered samples
+(Foster et al. (in press). Additional information about the package use
+itself is given in Foster (2021) <doi:10.1111/2041-210X.13535>.
 
 %prep
 %setup -q -c -n %{packname}

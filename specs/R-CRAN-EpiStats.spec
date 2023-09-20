@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  greenclust
-%global packver   1.1.1
+%global packname  EpiStats
+%global packver   1.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combine Categories Using Greenacre's Method
+Summary:          Tools for Epidemiologists
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,16 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-epiR 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-epiR 
+Requires:         R-CRAN-dplyr 
 
 %description
-Implements a method of iteratively collapsing the rows of a contingency
-table, two at a time, by selecting the pair of categories whose
-combination yields a new table with the smallest loss of chi-squared, as
-described by Greenacre, M.J. (1988) <doi:10.1007/BF01901670>. The result
-is compatible with the class of object returned by the 'stats' package's
-hclust() function and can be used similarly (plotted as a dendrogram, cut,
-etc.). Additional functions are provided for automatic cutting and
-diagnostic plotting.
+Provides set of functions aimed at epidemiologists. The package includes
+commands for measures of association and impact for case control studies
+and cohort studies. It may be particularly useful for outbreak
+investigations including univariable analysis and stratified analysis. The
+functions for cohort studies include the CS(), CSTable() and CSInter()
+commands. The functions for case control studies include the CC(),
+CCTable() and CCInter() commands.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,57 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  htsr
-%global packver   2.1.1
+%global packname  epidatr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hydro-Meteorology Time-Series
+Summary:          Client for Delphi's 'Epidata' API
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MMWRweek 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyFiles 
-BuildRequires:    R-CRAN-waiter 
-BuildRequires:    R-CRAN-WriteXLS 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MMWRweek 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyFiles 
-Requires:         R-CRAN-waiter 
-Requires:         R-CRAN-WriteXLS 
+Requires:         R-CRAN-xml2 
 
 %description
-Functions for the management and treatment of hydrology and meteorology
-time-series stored in a 'Sqlite' data base.
+The Delphi 'Epidata' API provides real-time access to epidemiological
+surveillance data for influenza, 'COVID-19', and other diseases for the
+USA at various geographical resolutions, both from official government
+sources such as the Center for Disease Control (CDC) and Google Trends and
+private partners such as Facebook and Change 'Healthcare'. It is built and
+maintained by the Carnegie Mellon University Delphi research group. To
+cite this API: David C. Farrow, Logan C. Brooks, Aaron 'Rumack', Ryan J.
+'Tibshirani', 'Roni' 'Rosenfeld' (2015). Delphi 'Epidata' API.
+<https://github.com/cmu-delphi/delphi-epidata>.
 
 %prep
 %setup -q -c -n %{packname}

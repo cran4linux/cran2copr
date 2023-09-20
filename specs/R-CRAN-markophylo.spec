@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IRTest
-%global packver   1.11.0
+%global packname  markophylo
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.0
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parameter Estimation of Item Response Theory with Estimation of Latent Distribution
+Summary:          Markov Chain Models for Phylogenetic Trees
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-betafunctions 
-BuildRequires:    R-CRAN-dcurver 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-betafunctions 
-Requires:         R-CRAN-dcurver 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ape >= 3.2
+BuildRequires:    R-CRAN-numDeriv >= 2012.9.1
+BuildRequires:    R-CRAN-phangorn >= 1.99.13
+BuildRequires:    R-CRAN-Rcpp >= 0.11.4
+BuildRequires:    R-CRAN-geiger 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ape >= 3.2
+Requires:         R-CRAN-numDeriv >= 2012.9.1
+Requires:         R-CRAN-phangorn >= 1.99.13
+Requires:         R-CRAN-Rcpp >= 0.11.4
+Requires:         R-CRAN-geiger 
 
 %description
-Item response theory (IRT) parameter estimation using marginal maximum
-likelihood and expectation-maximization algorithm (Bock & Aitkin, 1981
-<doi:10.1007/BF02293801>). Within parameter estimation algorithm, several
-methods for latent distribution estimation are available (Li, 2022
-<http://www.riss.kr/link?id=T16374105>). Reflecting some features of the
-true latent distribution, these latent distribution estimation methods can
-possibly enhance the estimation accuracy and free the normality assumption
-on the latent distribution.
+Allows for fitting of maximum likelihood models using Markov chains on
+phylogenetic trees for analysis of discrete character data. Examples of
+such discrete character data include restriction sites, gene family
+presence/absence, intron presence/absence, and gene family size data.
+Hypothesis-driven user- specified substitution rate matrices can be
+estimated. Allows for biologically realistic models combining constrained
+substitution rate matrices, site rate variation, site partitioning,
+branch-specific rates, allowing for non-stationary prior root
+probabilities, correcting for sampling bias, etc. See Dang and Golding
+(2016) <doi:10.1093/bioinformatics/btv541> for more details.
 
 %prep
 %setup -q -c -n %{packname}

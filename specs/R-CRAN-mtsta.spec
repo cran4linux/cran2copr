@@ -1,32 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  greenclust
-%global packver   1.1.1
+%global packname  mtsta
+%global packver   0.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combine Categories Using Greenacre's Method
+Summary:          Accessing the Red List of Montane Tree Species of the Tropical Andes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Implements a method of iteratively collapsing the rows of a contingency
-table, two at a time, by selecting the pair of categories whose
-combination yields a new table with the smallest loss of chi-squared, as
-described by Greenacre, M.J. (1988) <doi:10.1007/BF01901670>. The result
-is compatible with the class of object returned by the 'stats' package's
-hclust() function and can be used similarly (plotted as a dendrogram, cut,
-etc.). Additional functions are provided for automatic cutting and
-diagnostic plotting.
+Access the 'Red List of Montane Tree Species of the Tropical Andes'
+Tejedor Garavito et al.(2014, ISBN:978-1-905164-60-8). This package allows
+users to search for globally threatened tree species within the andean
+montane forests, including cloud forests and seasonal (wet) forests above
+1500 m a.s.l.
 
 %prep
 %setup -q -c -n %{packname}

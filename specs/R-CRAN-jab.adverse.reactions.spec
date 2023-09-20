@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jab.adverse.reactions
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Possible Adverse Events/Reactions from the Vaccinations/Experimental Gene Therapies
 
-License:          GPL (>= 3) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  alone
-%global packver   0.3
+%global packname  SimSurvey
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets from the Survival TV Series Alone
+Summary:          Test Surveys by Simulating Spatially-Correlated Populations
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,11 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
 
 %description
-A collection of datasets on the Alone survival TV series in tidy format.
-Included in the package are 4 datasets detailing the survivors, their
-loadouts, episode details and season information.
+Simulate age-structured populations that vary in space and time and
+explore the efficacy of a range of built-in or user-defined sampling
+protocols to reproduce the population parameters of the known population.
+(See Regular et al. (2020) <doi:10.1371/journal.pone.0232822> for more
+details).
 
 %prep
 %setup -q -c -n %{packname}

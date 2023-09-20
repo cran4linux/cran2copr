@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppInt64
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp'-Based Helper Functions to Pass 'Int64' Values Between 'R' and 'C++'
+Summary:          'Rcpp'-Based Helper Functions to Pass 'Int64' and 'nanotime' Values Between 'R' and 'C++'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,9 +22,10 @@ Requires:         R-CRAN-Rcpp >= 1.0.8
 %description
 'Int64' values can be created and accessed via the 'bit64' package and its
 'integer64' class which package the 'int64' representation cleverly into a
-'double'. This packages helps conversions between 'R' and 'C++' via
-several helper functions provided via a single header file. A complete
-example client package is included as an illustration.
+'double'. The 'nanotime' packages builds on this to support
+nanosecond-resolution timestamps. This packages helps conversions between
+'R' and 'C++' via several helper functions provided via a single header
+file.  A complete example client package is included as an illustration.
 
 %prep
 %setup -q -c -n %{packname}

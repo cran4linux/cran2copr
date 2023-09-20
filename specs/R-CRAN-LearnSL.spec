@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  earthtide
-%global packver   0.1.0
+%global packname  LearnSL
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Implementation of 'ETERNA 3.40' for Prediction and Analysis of Earth Tides
+Summary:          Learn Supervised Classification Methods Through Examples and Code
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-R6 >= 2.3.0
-BuildRequires:    R-CRAN-BH >= 1.69.0.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppThread 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-R6 >= 2.3.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-cli >= 3.6.1
 
 %description
-This is a port of 'Fortran ETERNA 3.4'
-<http://igets.u-strasbg.fr/soft_and_tool.php> by H.G. Wenzel for
-calculating synthetic Earth tides using the Hartmann and Wenzel (1994)
-<doi:10.1029/95GL03324> or Kudryavtsev (2004)
-<doi:10.1007/s00190-003-0361-2> tidal catalogs.
+Supervised classification methods, which (if asked) can provide
+step-by-step explanations of the algorithms used, as described in PK
+Josephine et. al., (2021) <doi:10.59176/kjcs.v1i1.1259>; and datasets to
+test them on, which highlight the strengths and weaknesses of each
+technique.
 
 %prep
 %setup -q -c -n %{packname}

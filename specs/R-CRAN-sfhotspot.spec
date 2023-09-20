@@ -1,50 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MSTest
-%global packver   0.1.1
+%global packname  sfhotspot
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hypothesis Testing for Markov Switching Models
+Summary:          Hot-Spot Analysis with Simple Features
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-lmf 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-GenSA 
-BuildRequires:    R-CRAN-pso 
-BuildRequires:    R-CRAN-GA 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-stats 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-SpatialKDE 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-lmf 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-GenSA 
-Requires:         R-CRAN-pso 
-Requires:         R-CRAN-GA 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-SpatialKDE 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-tibble 
 
 %description
-Implementation of hypothesis testing procedures described in Hansen (1992)
-<doi:10.1002/jae.3950070506>, Carrasco, Hu, & Ploberger (2014)
-<doi:10.3982/ECTA8609>, Dufour & Luger (2017)
-<doi:10.1080/07474938.2017.1307548>, and Rodriguez Rondon & Dufour (2022)
-<https://grodriguezrondon.com/research/> that can be used to identify the
-number of regimes in Markov switching models.
+Identify and understand clusters of points (typically representing the
+locations of places or events) stored in simple-features (SF) objects.
+This is useful for analysing, for example, hot-spots of crime events. The
+package emphasises producing results from point SF data in a single step
+using reasonable default values for all other arguments, to aid rapid data
+analysis by users who are starting out. Functions available include kernel
+density estimation (for details, see Yip (2020)
+<doi:10.22224/gistbok/2020.1.12>), analysis of spatial association (Getis
+and Ord (1992) <doi:10.1111/j.1538-4632.1992.tb00261.x>) and hot-spot
+classification (Chainey (2020) ISBN:158948584X).
 
 %prep
 %setup -q -c -n %{packname}

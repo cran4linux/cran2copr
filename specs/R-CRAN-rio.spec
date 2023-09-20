@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rio
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Swiss-Army Knife for Data I/O
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.11.2
 BuildRequires:    R-CRAN-haven >= 1.1.2
 BuildRequires:    R-CRAN-curl >= 0.6
-BuildRequires:    R-CRAN-arrow >= 0.17.0
 BuildRequires:    R-CRAN-readxl >= 0.1.1
 BuildRequires:    R-tools 
 BuildRequires:    R-stats 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-R.utils
 Requires:         R-CRAN-data.table >= 1.11.2
 Requires:         R-CRAN-haven >= 1.1.2
 Requires:         R-CRAN-curl >= 0.6
-Requires:         R-CRAN-arrow >= 0.17.0
 Requires:         R-CRAN-readxl >= 0.1.1
 Requires:         R-tools 
 Requires:         R-stats 

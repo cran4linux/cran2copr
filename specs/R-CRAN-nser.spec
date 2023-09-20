@@ -1,46 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fairadapt
-%global packver   0.2.6
+%global packname  nser
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fair Data Adaptation with Quantile Preservation
+Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ranger >= 0.13.1
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-qrnn 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ranger >= 0.13.1
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-qrnn 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-googleVis 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-googleVis 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-xml2 
 
 %description
-An implementation of the fair data adaptation with quantile preservation
-described in Plecko & Meinshausen (2019) <arXiv:1911.06685>. The
-adaptation procedure uses the specified causal graph to pre-process the
-given training and testing data in such a way to remove the bias caused by
-the protected attribute. The procedure uses tree ensembles for quantile
-regression.
+Download Current & Historical Bhavcopy. Get Live Market data from NSE
+India of Equities and Derivatives (F&O) segment. Data source
+<https://www.nseindia.com/>.
 
 %prep
 %setup -q -c -n %{packname}
