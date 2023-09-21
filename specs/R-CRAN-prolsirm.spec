@@ -1,48 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  recommenderlab
-%global packver   1.0.6
+%global packname  prolsirm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lab for Developing and Testing Recommender Algorithms
+Summary:          Procrustes Matching for Latent Space Item Response Model
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-proxy >= 0.4.26
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-arules 
-BuildRequires:    R-CRAN-registry 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-recosystem 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-proxy >= 0.4.26
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-arules 
-Requires:         R-CRAN-registry 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-recosystem 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-MCMCpack 
+Requires:         R-CRAN-MCMCpack 
 
 %description
-Provides a research infrastructure to develop and evaluate collaborative
-filtering recommender algorithms. This includes a sparse representation
-for user-item matrices, many popular algorithms, top-N recommendations,
-and cross-validation. Hahsler (2022) <doi:10.48550/arXiv.2205.12371>.
+Procrustes matching of the posterior samples of person and item latent
+positions from latent space item response models. The methods implemented
+in this package are based on work by Borg, I., Groenen, P. (1997,
+ISBN:978-0-387-94845-4), Jeon, M., Jin, I. H., Schweinberger, M., Baugh,
+S. (2021) <doi:10.1007/s11336-021-09762-5>, and Andrew, D. M., Kevin M.
+Q., Jong Hee Park. (2011) <doi:10.18637/jss.v042.i09>.
 
 %prep
 %setup -q -c -n %{packname}

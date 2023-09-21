@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rugarch
-%global packver   1.4-9
+%global packver   1.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.9
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Univariate GARCH Models
 
@@ -32,6 +32,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-nloptr 
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-Rsolnp 
@@ -47,6 +48,7 @@ Requires:         R-graphics
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-CRAN-nloptr 
 
 %description
 ARFIMA, in-mean, external regressors and various GARCH flavors, with

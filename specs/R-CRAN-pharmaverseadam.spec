@@ -1,48 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  recommenderlab
-%global packver   1.0.6
+%global packname  pharmaverseadam
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lab for Developing and Testing Recommender Algorithms
+Summary:          ADaM Test Data for the 'Pharmaverse' Family of Packages
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-proxy >= 0.4.26
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-arules 
-BuildRequires:    R-CRAN-registry 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-recosystem 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-proxy >= 0.4.26
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-arules 
-Requires:         R-CRAN-registry 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-recosystem 
-Requires:         R-CRAN-matrixStats 
 
 %description
-Provides a research infrastructure to develop and evaluate collaborative
-filtering recommender algorithms. This includes a sparse representation
-for user-item matrices, many popular algorithms, top-N recommendations,
-and cross-validation. Hahsler (2022) <doi:10.48550/arXiv.2205.12371>.
+A set of Analysis Data Model (ADaM) datasets constructed using the Study
+Data Tabulation Model (SDTM) datasets contained in the 'pharmaversesdtm'
+package and the template scripts from the 'admiral' family of packages.
+ADaM dataset specifications are described in: CDISC Analysis Data Model
+Team (2021)
+<https://www.cdisc.org/system/files/members/standard/foundational/ADaMIG_v1.3.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbmi
-%global packver   1.2.3
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference Based Multiple Imputation
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-mmrm 
@@ -43,8 +43,15 @@ Requires:         R-CRAN-assertthat
 Requires:         R-CRAN-rstantools
 
 %description
-Implements reference based multiple imputation allowing for the imputation
-of longitudinal datasets using predefined strategies.
+Implements standard and reference based multiple imputation methods for
+continuous longitudinal endpoints (Gower-Page et al. (2022)
+<doi:10.21105/joss.04251>). In particular, this package supports
+deterministic conditional mean imputation and jackknifing as described in
+Wolbers et al.  (2022) <doi:10.1002/pst.2234>, Bayesian multiple
+imputation as described in Carpenter et al. (2013)
+<doi:10.1080/10543406.2013.834911>, and bootstrapped maximum likelihood
+imputation as described in von Hippel and Bartlett (2021) <doi:
+10.1214/20-STS793>.
 
 %prep
 %setup -q -c -n %{packname}

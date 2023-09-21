@@ -1,48 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  recommenderlab
-%global packver   1.0.6
+%global packname  DBModelSelect
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lab for Developing and Testing Recommender Algorithms
+Summary:          Distribution-Based Model Selection
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-proxy >= 0.4.26
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-arules 
-BuildRequires:    R-CRAN-registry 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-recosystem 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-proxy >= 0.4.26
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-arules 
-Requires:         R-CRAN-registry 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-recosystem 
-Requires:         R-CRAN-matrixStats 
 
 %description
-Provides a research infrastructure to develop and evaluate collaborative
-filtering recommender algorithms. This includes a sparse representation
-for user-item matrices, many popular algorithms, top-N recommendations,
-and cross-validation. Hahsler (2022) <doi:10.48550/arXiv.2205.12371>.
+Perform model selection using distribution and probability-based methods,
+including standardized AIC, BIC, and AICc. These standardized information
+criteria allow one to perform model selection in a way similar to the
+prevalent "Rule of 2" method, but formalize the method to rely on
+probability theory. A novel goodness-of-fit procedure for assessing linear
+regression models is also available. This test relies on theoretical
+properties of the estimated error variance for a normal linear regression
+model, and employs a bootstrap procedure to assess the null hypothesis
+that the fitted model shows no lack of fit. For more information, see
+Koeneman and Cavanaugh (2023) <arXiv:2309.10614>. Functionality to perform
+all subsets linear or generalized linear regression is also available.
 
 %prep
 %setup -q -c -n %{packname}

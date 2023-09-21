@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFS
-%global packver   0.5.4
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Data from the Swiss Federal Statistical Office
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pxweb 
 BuildRequires:    R-CRAN-httr2 
@@ -30,8 +30,9 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-rstac 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-pxweb 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-xml2 
@@ -45,8 +46,9 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-rstac 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-zip 
+Requires:         R-CRAN-fs 
+Requires:         R-tools 
 
 %description
 Search and download data from the Swiss Federal Statistical Office (BFS)

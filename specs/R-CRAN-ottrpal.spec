@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ottrpal
-%global packver   1.1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Companion Tools for Open-Source Tools for Training Resources (OTTR)
 
@@ -19,38 +19,42 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 2.10
 BuildRequires:    R-CRAN-knitr >= 1.33
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-rmarkdown >= 2.10
 Requires:         R-CRAN-knitr >= 1.33
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-yaml 
 
 %description
 Tools for converting Open-Source Tools for Training Resources (OTTR)

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SqlRender
-%global packver   1.16.0
+%global packname  neuralGAM
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Parameterized SQL and Translation to Dialects
+Summary:          Interpretable Neural Network Based on Generalized Additive Models
 
-License:          Apache License 2.0
+License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-tensorflow 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-tensorflow 
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-gridExtra 
 
 %description
-A rendering tool for parameterized SQL that also translates into different
-SQL dialects.  These dialects include 'Microsoft SQL Server', 'Oracle',
-'PostgreSql', 'Amazon RedShift', 'Apache Impala', 'IBM Netezza', 'Google
-BigQuery', 'Microsoft PDW', 'Snowflake', 'Azure Synapse Analytics
-Dedicated', 'Apache Spark', and 'SQLite'.
+Neural network framework based on Generalized Additive Models from Hastie
+& Tibshirani (1990, ISBN:9780412343902), which trains a different neural
+network to estimate the contribution of each feature to the response
+variable. The networks are trained independently leveraging the local
+scoring and backfitting algorithms to ensure that the Generalized Additive
+Model converges and it is additive. The resultant Neural Network is a
+highly accurate and interpretable deep learning model, which can be used
+for high-risk AI practices where decision-making should be based on
+accountable and interpretable algorithms.
 
 %prep
 %setup -q -c -n %{packname}

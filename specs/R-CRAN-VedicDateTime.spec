@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VedicDateTime
-%global packver   0.1.7
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vedic Calendar System
 
@@ -23,9 +23,7 @@ Requires:         R-CRAN-swephR
 %description
 Provides platform for Vedic calendar system having several functionalities
 to facilitate conversion between Gregorian and Vedic calendar systems, and
-helpful in examining its impact in the time series analysis domain. The
-background is described in Neeraj Dhanraj Bokde et al. (2021)
-<doi:10.48550/arXiv.2111.03441>.
+helpful in examining its impact in the time series analysis domain.
 
 %prep
 %setup -q -c -n %{packname}

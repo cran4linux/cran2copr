@@ -1,48 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  recommenderlab
-%global packver   1.0.6
+%global packname  avesperu
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lab for Developing and Testing Recommender Algorithms
+Summary:          Access to the List of Birds Species of Peru
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-proxy >= 0.4.26
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-arules 
-BuildRequires:    R-CRAN-registry 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-recosystem 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-proxy >= 0.4.26
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-arules 
-Requires:         R-CRAN-registry 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-recosystem 
-Requires:         R-CRAN-matrixStats 
 
 %description
-Provides a research infrastructure to develop and evaluate collaborative
-filtering recommender algorithms. This includes a sparse representation
-for user-item matrices, many popular algorithms, top-N recommendations,
-and cross-validation. Hahsler (2022) <doi:10.48550/arXiv.2205.12371>.
+Allows access to the data found in the species list featured in the
+renowned 'List of the Birds of Peru' Plenge, M. A. (2023)
+<https://sites.google.com/site/boletinunop/checklist>. This publication
+stands as one of Peru's most comprehensive reviews of bird diversity. The
+dataset incorporates detailed species accounts and has been meticulously
+structured for effortless utilization within the R environment.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CalibrationCurves
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calibration Performance
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,6 +26,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-bookdown 
 Requires:         R-CRAN-rms 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
@@ -35,11 +36,12 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-bookdown 
 
 %description
 Plots calibration curves and computes statistics for assessing calibration
-performance. See Van Calster et al. (2016)
-<doi:10.1016/j.jclinepi.2015.12.005>.
+performance. See De Cock Campo (2023) <arXiv:2309.08559> and Van Calster
+et al. (2016) <doi:10.1016/j.jclinepi.2015.12.005>.
 
 %prep
 %setup -q -c -n %{packname}

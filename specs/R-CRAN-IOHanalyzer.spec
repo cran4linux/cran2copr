@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IOHanalyzer
-%global packver   0.1.6.3
+%global packver   0.1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6.3
+Version:          0.1.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis Part of 'IOHprofiler'
 
@@ -29,6 +30,9 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-eaf 
+BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -44,6 +48,9 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-knitr 
 Requires:         R-methods 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-eaf 
+Requires:         R-CRAN-viridis 
 
 %description
 The data analysis module for the Iterative Optimization Heuristics

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rsm
-%global packver   2.10.3
+%global packver   2.10.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.3
+Version:          2.10.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Response-Surface Analysis
 

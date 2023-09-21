@@ -1,48 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  recommenderlab
-%global packver   1.0.6
+%global packname  gdldata
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lab for Developing and Testing Recommender Algorithms
+Summary:          'Global Data Lab' R API
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-proxy >= 0.4.26
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-arules 
-BuildRequires:    R-CRAN-registry 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-recosystem 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-proxy >= 0.4.26
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-arules 
-Requires:         R-CRAN-registry 
+Requires:         R-CRAN-httr2 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-recosystem 
-Requires:         R-CRAN-matrixStats 
 
 %description
-Provides a research infrastructure to develop and evaluate collaborative
-filtering recommender algorithms. This includes a sparse representation
-for user-item matrices, many popular algorithms, top-N recommendations,
-and cross-validation. Hahsler (2022) <doi:10.48550/arXiv.2205.12371>.
+Retrieve datasets from the 'Global Data Lab' website
+<https://globaldatalab.org> directly into R data frames. Functions are
+provided to reference available options (indicators, levels, countries,
+regions) as well.
 
 %prep
 %setup -q -c -n %{packname}

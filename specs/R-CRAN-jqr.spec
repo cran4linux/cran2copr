@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jqr
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for 'jq', a 'JSON' Processor
 
@@ -22,7 +23,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-lazyeval 
 
 %description
-Client for 'jq', a 'JSON' processor (<https://stedolan.github.io/jq/>),
+Client for 'jq', a 'JSON' processor (<https://jqlang.github.io/jq/>),
 written in C. 'jq' allows the following with 'JSON' data: index into,
 parse, do calculations, cut up and filter, change key names and values,
 perform conditionals and comparisons, and more.

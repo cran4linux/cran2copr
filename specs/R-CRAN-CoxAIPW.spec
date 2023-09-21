@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CoxAIPW
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Doubly Robust Inference for Cox Marginal Structural Model with Informative Censoring
 
@@ -43,7 +43,12 @@ score model only depends on Z. With the help of cross-fitting techniques,
 achieves the rate-doubly robust property that allows the use of most
 machine learning or non-parametric methods for all 3 working models, which
 are not permitted in classic inverse probability weighting or doubly
-robust estimators. Reference: Luo & Xu (2022)
+robust estimators. When the proportional hazard assumption is violated,
+CoxAIPW estimates a causal estimated that is a weighted average of the
+time-varying log hazard ratio. Reference: Luo, J. (2023). Statistical
+Robustness - Distributed Linear Regression, Informative Censoring, Causal
+Inference, and Non-Proportional Hazards [Unpublished doctoral
+dissertation]. University of California San Diego.; Luo & Xu (2022)
 <doi:10.48550/arXiv.2206.02296>; Rava (2021)
 <https://escholarship.org/uc/item/8h1846gs>.
 
