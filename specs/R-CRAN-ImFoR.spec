@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapmisc
-%global packver   2.0.1
+%global packname  ImFoR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Producing Maps
+Summary:          Non-Linear Height Diameter Models for Forestry
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-geosphere 
-Requires:         R-CRAN-terra 
-Requires:         R-methods 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides a minimal, light-weight set of tools for producing nice looking
-maps in R, with support for map projections.  See Brown (2016)
-<doi:10.32614/RJ-2016-005>.
+Tree height is an important dendrometric variable and forms the basis of
+vertical structure of a forest stand. This package will help to fit and
+validate various non-linear height diameter models for assessing the
+underlying relationship that exists between tree height and diameter at
+breast height in case of conifer trees. This package has been implemented
+on Naslund, Curtis, Michailoff, Meyer, Power, Michaelis-Menten and Wykoff
+non linear models using algorithm of Huang et al.  (1992)
+<doi:10.1139/x92-172> and Zeide et al. (1993)
+<doi:10.1093/forestscience/39.3.594>.
 
 %prep
 %setup -q -c -n %{packname}

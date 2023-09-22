@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chromer
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to Chromosome Counts Database API
 
@@ -28,7 +28,7 @@ Requires:         R-CRAN-httr
 
 %description
 A programmatic interface to the Chromosome Counts Database
-(<http://ccdb.tau.ac.il/>), Rice et al. (2014) <doi:10.1111/nph.13191>.
+(<https://ccdb.tau.ac.il/>), Rice et al. (2014) <doi:10.1111/nph.13191>.
 This package is part of the 'ROpenSci' suite (<https://ropensci.org>).
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survstan
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Survival Regression Models via 'Stan'
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-actuar >= 3.0.0
 BuildRequires:    R-CRAN-rstantools >= 2.3.1
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
@@ -40,7 +40,7 @@ BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-actuar >= 3.0.0
 Requires:         R-CRAN-rstantools >= 2.3.1
-Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-dplyr 
@@ -62,10 +62,11 @@ approach via 'Stan'. Implemented regression models include accelerated
 failure time models, proportional hazards models, proportional odds
 models, accelerated hazard models, and Yang and Prentice models. Available
 baseline survival distributions include exponential, Weibull, log-normal,
-and log-logistic distributions. References: Lawless (2002)
-<ISBN:9780471372158>; Bennett (1982) <doi:10.1002/sim.4780020223>; Chen
-and Wang(2000) <doi:10.1080/01621459.2000.10474236>; Demarqui and Mayrink
-(2021) <doi:10.1214/20-BJPS471>.
+log-logistic, and fatigue (Birnbaum-Saunders) distributions. References:
+Lawless (2002) <ISBN:9780471372158>; Bennett (1982)
+<doi:10.1002/sim.4780020223>; Chen and Wang(2000)
+<doi:10.1080/01621459.2000.10474236>; Demarqui and Mayrink (2021)
+<doi:10.1214/20-BJPS471>.
 
 %prep
 %setup -q -c -n %{packname}

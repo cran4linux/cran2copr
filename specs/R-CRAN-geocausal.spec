@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geocausal
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference with Spatio-Temporal Data
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.model 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-data.table 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.model 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 

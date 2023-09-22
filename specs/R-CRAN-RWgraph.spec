@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neighbours
-%global packver   0.1-3
+%global packname  RWgraph
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neighbourhood Functions for Local-Search Algorithms
+Summary:          Random Walks on Graphs Representing a Transactional Network
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-igraph 
 
 %description
-Neighbourhood functions are key components of local-search algorithms such
-as Simulated Annealing or Threshold Accepting.  These functions take a
-solution and return a slightly-modified copy of it, i.e. a neighbour. The
-package provides a function neighbourfun() that constructs such
-neighbourhood functions, based on parameters such as admissible ranges for
-elements in a solution.  Supported are numeric and logical solutions. The
-algorithms were originally created for portfolio-optimisation
-applications, but can be used for other models as well.  Several recipes
-for neighbour computations are taken from "Numerical Methods and
-Optimization in Finance" by M. Gilli, D. Maringer and E. Schumann (2019,
-ISBN:978-0128150658).
+Random walk functions to extract new variables based on clients
+transactional behaviour. For more details, see Eddin et al. (2021)
+<arXiv:2112.07508v3> and Oliveira et al. (2021) <arXiv:2102.05373v2>.
 
 %prep
 %setup -q -c -n %{packname}
