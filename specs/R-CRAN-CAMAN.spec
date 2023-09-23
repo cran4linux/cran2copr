@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  climetrics
-%global packver   1.0-11
+%global packname  CAMAN
+%global packver   0.78
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          0.78
 Release:          1%{?dist}%{?buildtag}
-Summary:          Climate Change Metrics
+Summary:          Finite Mixture Models and Meta-Analysis Tools - Based on C.A.MAN
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sp >= 1.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rts 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-yaImpute 
-BuildRequires:    R-CRAN-xts 
-Requires:         R-CRAN-sp >= 1.2.0
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-methods 
-Requires:         R-CRAN-rts 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-yaImpute 
-Requires:         R-CRAN-xts 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-A framework that facilitates spatio-temporal analysis of climate dynamics
-through exploring and measuring different dimensions of climate change in
-space and time.
+Tools for the analysis of finite semiparametric mixtures. These are useful
+when data is heterogeneous, e.g. in pharmacokinetics or meta-analysis. The
+NPMLE and VEM algorithms (flexible support size) and EM algorithms (fixed
+support size) are provided for univariate (Bohning et al., 1992;
+<doi:10.2307/2532756>) and bivariate data (Schlattmann et al., 2015;
+<doi:10.1016/j.jclinepi.2014.08.013>).
 
 %prep
 %setup -q -c -n %{packname}
