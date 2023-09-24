@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ExactMed
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exact Mediation Analysis for Binary Outcomes
 
@@ -23,18 +23,24 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-pkgcond 
+BuildRequires:    R-CRAN-mlogit 
+BuildRequires:    R-CRAN-dfidx 
+BuildRequires:    R-CRAN-nnet 
 Requires:         R-CRAN-brglm2 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-pkgcond 
+Requires:         R-CRAN-mlogit 
+Requires:         R-CRAN-dfidx 
+Requires:         R-CRAN-nnet 
 
 %description
 A tool for conducting exact parametric regression-based causal mediation
 analysis of binary outcomes as described in Samoilenko, Blais and Lefebvre
 (2018) <doi:10.1353/obs.2018.0013>; Samoilenko, Lefebvre (2021)
-<doi:10.1093/aje/kwab055>; and Samoilenko, Lefebvre (2022)
+<doi:10.1093/aje/kwab055>; and Samoilenko, Lefebvre (2023)
 <doi:10.1002/sim.9621>.
 
 %prep

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  multifear
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiverse Analyses for Conditioning Data
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.6.3
+Requires:         R-core >= 3.6.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ez >= 4.4.0
 BuildRequires:    R-stats >= 3.6.2
@@ -58,7 +59,8 @@ the functions are able to perform t-tests, analyses of variance, and mixed
 models for the provided data and return summary statistics and plots. The
 function is also able to return for all those tests p-values, confidence
 intervals, and Bayes factors. The methods are described in Lonsdorf,
-Gerlicher, Klingelhofer-Jens, & Krypotos <doi:10.31234/osf.io/2z6pd>.
+Gerlicher, Klingelhofer-Jens, & Krypotos (2022)
+<doi:10.1016/j.brat.2022.104072>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -68,6 +70,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

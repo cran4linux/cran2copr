@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggseqplot
-%global packver   0.8.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Render Sequence Plots using 'ggplot2'
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-TraMineR >= 2.2.5
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-forcats >= 1.0.0
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggh4x 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-glue 
@@ -32,12 +32,12 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-TraMineR >= 2.2.5
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-forcats >= 1.0.0
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggh4x 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-glue 

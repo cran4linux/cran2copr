@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesm
-%global packver   3.1-5
+%global packver   3.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.5
+Version:          3.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference for Marketing/Micro-Econometrics
 
@@ -46,8 +46,9 @@ of Multivariate Ordinal survey data with scale usage heterogeneity (as in
 Rossi et al, JASA (01)), Bayesian Analysis of Aggregate Random Coefficient
 Logit Models as in BLP (see Jiang, Manchanda, Rossi 2009) For further
 reference, consult our book, Bayesian Statistics and Marketing by Rossi,
-Allenby and McCulloch (Wiley 2005) and Bayesian Non- and Semi-Parametric
-Methods and Applications (Princeton U Press 2014).
+Allenby and McCulloch (Wiley first edition 2005 and second forthcoming)
+and Bayesian Non- and Semi-Parametric Methods and Applications (Princeton
+U Press 2014).
 
 %prep
 %setup -q -c -n %{packname}

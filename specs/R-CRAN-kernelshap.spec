@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kernelshap
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel SHAP
 
@@ -25,14 +25,13 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Efficient implementation of Kernel SHAP, see Lundberg and Lee (2017)
-<https://dl.acm.org/doi/10.5555/3295222.3295230>, and Covert and Lee
-(2021) <http://proceedings.mlr.press/v130/covert21a>.  For models with up
-to eight features, the results are exact regarding the selected background
-data.  Otherwise, an almost exact hybrid algorithm involving iterative
-sampling is used.  The package plays well together with meta-learning
-packages like 'tidymodels', 'caret' or 'mlr3'. Visualizations can be done
-using the R package 'shapviz'.
+Efficient implementation of Kernel SHAP, see Lundberg and Lee (2017), and
+Covert and Lee (2021) <http://proceedings.mlr.press/v130/covert21a>. For
+models with up to eight features, the results are exact regarding the
+selected background data.  Otherwise, an almost exact hybrid algorithm
+involving iterative sampling is used.  The package plays well together
+with meta-learning packages like 'tidymodels', 'caret' or 'mlr3'.
+Visualizations can be done using the R package 'shapviz'.
 
 %prep
 %setup -q -c -n %{packname}

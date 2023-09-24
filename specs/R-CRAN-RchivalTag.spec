@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RchivalTag
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing and Interactive Visualization of Archival Tagging Data
 
@@ -18,14 +18,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-mapdata 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-cleangeo 
+BuildRequires:    R-CRAN-suntools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-dygraphs 
@@ -38,7 +37,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-oceanmap 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-PBSmapping 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggedit 
 BuildRequires:    R-CRAN-plotly 
@@ -46,14 +44,13 @@ BuildRequires:    R-CRAN-leaflet
 BuildRequires:    R-CRAN-leaflet.extras2 
 BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-maps 
-Requires:         R-CRAN-mapdata 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-cleangeo 
+Requires:         R-CRAN-suntools 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-dygraphs 
@@ -66,7 +63,6 @@ Requires:         R-grDevices
 Requires:         R-CRAN-oceanmap 
 Requires:         R-CRAN-sp 
 Requires:         R-methods 
-Requires:         R-CRAN-PBSmapping 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggedit 
 Requires:         R-CRAN-plotly 

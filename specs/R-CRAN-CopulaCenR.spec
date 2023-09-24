@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CopulaCenR
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Copula-Based Regression Models for Multivariate Censored Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-copBasic
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-icenReg 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-copBasic
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-icenReg 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 
@@ -45,15 +47,16 @@ Requires:         R-CRAN-VineCopula
 %description
 Copula-based regression models for multivariate censored data, including
 bivariate right-censored data, bivariate interval-censored data, and
-interval-censored semi-competing risks data. Currently supports Clayton,
-Gumbel, Frank, Joe, AMH and Copula2 copula models. For marginal models, it
-supports parametric (Weibull, Loglogistic, Gompertz) and semiparametric
-(Cox and transformation) models. Includes methods for convenient
-prediction and plotting. Also provides a bivariate time-to-event
-simulation function and an information ratio-based goodness-of-fit test
-for copula. Method details can be found in Sun et.al (2019) Lifetime Data
-Analysis, Sun et.al (2021) Biostatistics, Sun et.al (2022) Statistical
-Methods in Medical Research, and Sun et.al (2022) Biometrics.
+right/interval-censored semi-competing risks data. Currently supports
+Clayton, Gumbel, Frank, Joe, AMH and Copula2 copula models. For marginal
+models, it supports parametric (Weibull, Loglogistic, Gompertz) and
+semiparametric (Cox and transformation) models. Includes methods for
+convenient prediction and plotting. Also provides a bivariate
+time-to-event simulation function and an information ratio-based
+goodness-of-fit test for copula. Method details can be found in Sun et.al
+(2019) Lifetime Data Analysis, Sun et.al (2021) Biostatistics, Sun et.al
+(2022) Statistical Methods in Medical Research, Sun et.al (2022)
+Biometrics, and Sun et al. (2023+) JRSSC.
 
 %prep
 %setup -q -c -n %{packname}

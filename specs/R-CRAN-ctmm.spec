@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctmm
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous-Time Movement Modeling
 
@@ -30,14 +30,16 @@ BuildRequires:    R-CRAN-manipulate
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-parsedate 
 BuildRequires:    R-CRAN-pbivnorm 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-shape 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Bessel 
 Requires:         R-CRAN-data.table 
@@ -52,14 +54,16 @@ Requires:         R-CRAN-manipulate
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-parsedate 
 Requires:         R-CRAN-pbivnorm 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-shape 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-statmod 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
 Requires:         R-utils 
 
 %description
@@ -81,8 +85,9 @@ Fleming et al (2017) <doi:10.1016/j.ecoinf.2017.04.008>, Fleming et al
 <doi:10.1186/s40462-019-0177-1>, Fleming et al (2020)
 <doi:10.1101/2020.06.12.130195>, Noonan et al (2021)
 <doi:10.1111/2041-210X.13597>, Fleming et al (2022)
-<doi:10.1111/2041-210X.13815>, and Silva et al (2022)
-<doi:10.1111/2041-210X.13786>.
+<doi:10.1111/2041-210X.13815>, Silva et al (2022)
+<doi:10.1111/2041-210X.13786>, Alston & Fleming et al (2023)
+<doi:10.1111/2041-210X.14025>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ohun
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimizing Acoustic Signal Detection
 
@@ -18,45 +18,37 @@ BuildRequires:    R-devel >= 3.2.1
 Requires:         R-core >= 3.2.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-seewave >= 2.0.1
-BuildRequires:    R-CRAN-warbleR >= 1.1.28
+BuildRequires:    R-CRAN-warbleR >= 1.1.29
 BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-fftw 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Sim.DiffProc 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-seewave >= 2.0.1
-Requires:         R-CRAN-warbleR >= 1.1.28
+Requires:         R-CRAN-warbleR >= 1.1.29
 Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-fftw 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Sim.DiffProc 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Facilitates the automatic detection of acoustic signals, providing
 functions to diagnose and optimize the performance of detection routines.
 Detections from other software can also be explored and optimized.
-Reference: Hossin & Sulaiman (2015) <doi:10.5121/ijdkp.2015.5201>.
+Araya-Salas et al. (2022) <doi:10.1101/2022.12.13.520253>.
 
 %prep
 %setup -q -c -n %{packname}

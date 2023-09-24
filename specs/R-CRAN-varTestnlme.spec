@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  varTestnlme
-%global packver   1.3.4
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variance Components Testing for Linear and Nonlinear Mixed Effects Models
 
@@ -57,8 +57,8 @@ effects are equal to zero. There is no restriction on the subset of
 variances that can be tested: for example, it is possible to test that all
 the variances are equal to zero. Note that the implemented test is
 asymptotic. This package should be used on model fits from packages
-'nlme', 'lmer', and 'saemix'. Charlotte Baey, Paul-Henry Cournède and
-Estelle Kuhn (2019) <doi:10.1016/j.csda.2019.01.014>.
+'nlme', 'lmer', and 'saemix'. Charlotte Baey and Estelle Kuhn (2019)
+<doi:10.18637/jss.v107.i06>.
 
 %prep
 %setup -q -c -n %{packname}
