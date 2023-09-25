@@ -1,33 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  waver
-%global packver   0.3.0
+%global packname  CoastlineFD
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Fetch and Wave Energy
+Summary:          Calculate the Coastline Fractal Dimension
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geosphere >= 1.5
-BuildRequires:    R-CRAN-sf >= 1.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-geosphere >= 1.5
-Requires:         R-CRAN-sf >= 1.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-writexl 
 
 %description
-Functions for calculating the fetch (length of open water distance along
-given directions) and estimating wave energy from wind and wave monitoring
-data.
+A system is used to calculate the fractal dimension of coastline by boxes
+method and Dividers method.
 
 %prep
 %setup -q -c -n %{packname}

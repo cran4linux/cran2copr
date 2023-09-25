@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSP
-%global packver   0.1
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' Applications for Statistical and Psychometric Analysis
 
@@ -30,11 +30,15 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-mirt 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-polycor 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-CRAN-semPlot 
 BuildRequires:    R-CRAN-shinyBS 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ltm 
 BuildRequires:    R-CRAN-shinycustomloader 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinythemes 
@@ -55,11 +59,15 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-mirt 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-polycor 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-rJava 
 Requires:         R-CRAN-semPlot 
 Requires:         R-CRAN-shinyBS 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ltm 
 Requires:         R-CRAN-shinycustomloader 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinythemes 

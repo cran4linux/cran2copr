@@ -1,48 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pavo
-%global packver   2.9.0
+%global packname  NTS
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perceptual Analysis, Visualization and Organization of Spectral Colour Data
+Summary:          Nonlinear Time Series Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lightr >= 1.0
-BuildRequires:    R-CRAN-geometry >= 0.4.0
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-farver 
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-lightr >= 1.0
-Requires:         R-CRAN-geometry >= 0.4.0
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-farver 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-base 
+BuildRequires:    R-CRAN-dlm 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MSwM 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-parallel 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tensor 
+Requires:         R-base 
+Requires:         R-CRAN-dlm 
+Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MSwM 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-parallel 
+Requires:         R-splines 
+Requires:         R-stats 
+Requires:         R-CRAN-tensor 
 
 %description
-A cohesive framework for the spectral and spatial analysis of colour
-described in Maia, Eliason, Bitton, Doucet & Shawkey (2013)
-<doi:10.1111/2041-210X.12069> and Maia, Gruson, Endler & White (2019)
-<doi:10.1111/2041-210X.13174>.
+Simulation, estimation, prediction procedure, and model identification
+methods for nonlinear time series analysis, including threshold
+autoregressive models, Markov-switching models, convolutional functional
+autoregressive models, nonlinearity tests, Kalman filters and various
+sequential Monte Carlo methods. More examples and details about this
+package can be found in the book "Nonlinear Time Series Analysis" by Ruey
+S. Tsay and Rong Chen, John Wiley & Sons, 2018 (ISBN: 978-1-119-26407-1).
 
 %prep
 %setup -q -c -n %{packname}

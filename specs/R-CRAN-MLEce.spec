@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MLEce
-%global packver   1.0.1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference for Asymptotic Efficient Closed-Form Estimators
+Summary:          Asymptotic Efficient Closed-Form Estimators for Multivariate Distributions
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,9 +31,15 @@ Requires:         R-CRAN-reshape
 Requires:         R-CRAN-mvtnorm 
 
 %description
-Estimate asymptotic efficient closed-form estimators and provide goodness
-of fit, estimates, plot and etc. Yue, S. (2001) <doi:10.1002/hyp.259>.
-Mosimann, James E. (1962) <doi:10.1093/biomet/49.1-2.65>.
+Asymptotic efficient closed-form estimators (MLEces) are provided in this
+package for three multivariate distributions(gamma, Weibull and Dirichlet)
+whose maximum likelihood estimators (MLEs) are not in closed forms.
+Closed-form estimators are strong consistent, and have the similar
+asymptotic normal distribution like MLEs. But the calculation of MLEces
+are much faster than the corresponding MLEs. Further details and
+explanations of MLEces can be found in. Jang, et al. (2023)
+<doi:10.1111/stan.12299>. Kim, et al. (2023)
+<doi:10.1080/03610926.2023.2179880>.
 
 %prep
 %setup -q -c -n %{packname}
