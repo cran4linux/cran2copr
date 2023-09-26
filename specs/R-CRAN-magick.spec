@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  magick
-%global packver   2.7.5
+%global packver   2.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.5
+Version:          2.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced Graphics and Image-Processing in R
 

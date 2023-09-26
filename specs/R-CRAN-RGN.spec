@@ -1,36 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FastImputation
-%global packver   2.2.1
+%global packname  RGN
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Learn from Training Data then Quickly Fill in Missing Data
+Summary:          Robust-Gauss Newton (RGN) Optimization of Sum-of-Squares Objective Function
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-TrainFastImputation() uses training data to describe a multivariate normal
-distribution that the data approximates or can be transformed into
-approximating and stores this information as an object of class
-'FastImputationPatterns'. FastImputation() function uses this
-'FastImputationPatterns' object to impute (make a good guess at) missing
-data in a single line or a whole data frame of data.  This approximates
-the process used by 'Amelia' <https://gking.harvard.edu/amelia> but is
-much faster when filling in values for a single line of data.
+Implementation of the Robust Gauss-Newton (RGN) algorithm, designed for
+solving optimization problems with a sum of least squares objective
+function. For algorithm details please refer to Qin et. al. (2018)
+<doi:10.1029/2017WR022488>.
 
 %prep
 %setup -q -c -n %{packname}

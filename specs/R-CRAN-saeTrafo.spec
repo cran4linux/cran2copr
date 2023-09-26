@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  saeTrafo
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformations for Unit-Level Small Area Models
 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-HLMdiag
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-readODS 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-emdi 
 Requires:         R-stats 
@@ -44,6 +46,7 @@ Requires:         R-CRAN-HLMdiag
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readODS 
+Requires:         R-CRAN-rlang 
 
 %description
 The aim of this package is to offer new methodology for unit-level small
@@ -64,7 +67,7 @@ with log transformation" by Molina and Martín (2018)
 "Estimating regional income indicators under transformations and access to
 limited population auxiliary information" by Würz, Schmid and Tzavidis
 <unpublished>) can be entered. Especially under limited data access, new
-methodologies are provided in 'saeTrafo'. Several options are available to
+methodologies are provided in saeTrafo. Several options are available to
 assess the used model and to judge, present and export its results. For a
 detailed description of the package and the methods used see the
 corresponding vignette.

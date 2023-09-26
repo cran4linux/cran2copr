@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pdftools
-%global packver   3.3.3
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Extraction, Rendering and Converting of PDF Documents
 
@@ -14,8 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    poppler-cpp-devel
-BuildRequires:    poppler-data
+BuildRequires:    poppler-cpp-devel poppler-data poppler-glib-devel
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12

@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FastImputation
-%global packver   2.2.1
+%global packname  OTclust
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Learn from Training Data then Quickly Fill in Missing Data
+Summary:          Mean Partition, Uncertainty Assessment, Cluster Validation and Visualization Selection for Cluster Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-class 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-class 
 
 %description
-TrainFastImputation() uses training data to describe a multivariate normal
-distribution that the data approximates or can be transformed into
-approximating and stores this information as an object of class
-'FastImputationPatterns'. FastImputation() function uses this
-'FastImputationPatterns' object to impute (make a good guess at) missing
-data in a single line or a whole data frame of data.  This approximates
-the process used by 'Amelia' <https://gking.harvard.edu/amelia> but is
-much faster when filling in values for a single line of data.
+Providing mean partition for ensemble clustering by optimal transport
+alignment(OTA), uncertainty measures for both partition-wise and
+cluster-wise assessment and multiple visualization functions to show
+uncertainty, for instance, membership heat map and plot of covering point
+set. A partition refers to an overall clustering result.
 
 %prep
 %setup -q -c -n %{packname}

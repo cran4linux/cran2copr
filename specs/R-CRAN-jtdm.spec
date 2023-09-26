@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jtdm
-%global packver   0.1-0
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Modelling of Functional Traits
 
@@ -42,7 +42,9 @@ Distribution Model is implemented in the Bayesian framework using
 conjugate priors and posteriors, thus guaranteeing fast inference. In
 particular the package computes joint probabilities and multivariate
 confidence intervals, and enables the investigation of how they depend on
-the environment through partial response curves.
+the environment through partial response curves. The method implemented by
+the package is described in Poggiato et al. (2023)
+<doi:10.1111/geb.13706>.
 
 %prep
 %setup -q -c -n %{packname}

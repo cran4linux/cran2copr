@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rtsdata
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Time Series Intelligent Data Storage
 
@@ -41,10 +42,9 @@ future use offline. The intelligent updating functionality will only
 download the new available information; thus, saving you time and Internet
 bandwidth. It will only re-download the full data-set if any
 inconsistencies are detected. This package supports following data
-provides: 'Yahoo' (<https://finance.yahoo.com>), 'FRED'
-(<https://fred.stlouisfed.org>), 'Quandl' (<https://data.nasdaq.com>),
-'AlphaVantage' (<https://www.alphavantage.co>), 'Tiingo'
-(<https://www.tiingo.com>).
+provides: 'Yahoo' (finance.yahoo.com), 'FRED' (fred.stlouisfed.org),
+'Quandl' (data.nasdaq.com), 'AlphaVantage' (www.alphavantage.co), 'Tiingo'
+(www.tiingo.com).
 
 %prep
 %setup -q -c -n %{packname}

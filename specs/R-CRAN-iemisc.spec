@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iemisc
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Irucka Embry's Miscellaneous Functions
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CHNOSZ >= 1.3.3
 BuildRequires:    R-CRAN-rivr >= 1.2.2
 BuildRequires:    R-CRAN-data.table >= 1.10.2
 BuildRequires:    R-CRAN-USA.state.boundaries >= 1.0.1
@@ -30,6 +29,8 @@ BuildRequires:    R-CRAN-fpCompare
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-chem.databases 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ramify 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-stats 
@@ -50,8 +51,6 @@ BuildRequires:    R-CRAN-geosphere
 BuildRequires:    R-CRAN-matlab2r 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-CHNOSZ >= 1.3.3
 Requires:         R-CRAN-rivr >= 1.2.2
 Requires:         R-CRAN-data.table >= 1.10.2
 Requires:         R-CRAN-USA.state.boundaries >= 1.0.1
@@ -64,6 +63,8 @@ Requires:         R-CRAN-fpCompare
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-chem.databases 
+Requires:         R-methods 
 Requires:         R-CRAN-ramify 
 Requires:         R-CRAN-foreach 
 Requires:         R-stats 
@@ -84,7 +85,6 @@ Requires:         R-CRAN-geosphere
 Requires:         R-CRAN-matlab2r 
 Requires:         R-CRAN-signal 
 Requires:         R-utils 
-Requires:         R-methods 
 
 %description
 A collection of Irucka Embry's miscellaneous functions (Engineering

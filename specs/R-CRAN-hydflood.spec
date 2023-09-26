@@ -1,37 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CASMI
-%global packver   1.1.0
+%global packname  hydflood
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          'CASMI'-Based Functions
+Summary:          Flood Extents and Durations along the Rivers Elbe and Rhine
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-EntropyEstimation 
-BuildRequires:    R-CRAN-entropy 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-hyd1d 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-EntropyEstimation 
-Requires:         R-CRAN-entropy 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-hyd1d 
 Requires:         R-stats 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-grDevices 
 
 %description
-Contains Coverage Adjusted Standardized Mutual Information ('CASMI')-based
-functions. 'CASMI' is a fundamental concept of a series of methods. For
-more information about 'CASMI' and 'CASMI'-related methods, please refer
-to the corresponding publications (for example, a feature selection
-method, Shi, J., Zhang, J., & Ge, Y. (2019) <doi:10.3390/e21121179>, and a
-dataset quality measurement method, Shi, J., Zhang, J., & Ge, Y. (2019)
-<doi:10.1109/ICHI.2019.8904553>) or contact the package author.
+Raster based flood modelling internally using 'hyd1d', an R package to
+interpolate 1d water level and gauging data. The package computes flood
+extent and durations through strategies originally developed for 'INFORM',
+an 'ArcGIS'-based hydro-ecological modelling framework. It does not
+provide a full, physical hydraulic modelling algorithm, but a simplified,
+near real time 'GIS' approach for flood extent and duration modelling.
+Computationally demanding annual flood durations have been computed
+already and data products were published by Weber (2022)
+<doi:10.1594/PANGAEA.948042>.
 
 %prep
 %setup -q -c -n %{packname}

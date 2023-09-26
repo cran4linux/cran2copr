@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MBHdesign
-%global packver   2.3.14
+%global packver   2.3.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.14
+Version:          2.3.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Designs for Ecological and Environmental Surveys
 

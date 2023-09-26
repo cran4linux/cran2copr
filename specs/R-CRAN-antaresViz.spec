@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  antaresViz
-%global packver   0.17.1
+%global packver   0.18.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.1
+Version:          0.18.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Antares Visualizations
 
@@ -19,18 +19,17 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.5.6
 BuildRequires:    R-CRAN-antaresRead >= 2.2.9
+BuildRequires:    R-CRAN-sp >= 2.0.0
 BuildRequires:    R-CRAN-dygraphs >= 1.1.1.6
 BuildRequires:    R-CRAN-leaflet >= 1.1.0
 BuildRequires:    R-CRAN-htmlwidgets >= 0.7.0
 BuildRequires:    R-CRAN-leaflet.minicharts >= 0.5.3
-BuildRequires:    R-CRAN-spMaps >= 0.2
+BuildRequires:    R-CRAN-spMaps >= 0.5.0
 BuildRequires:    R-CRAN-antaresProcessing >= 0.13.0
 BuildRequires:    R-CRAN-shiny >= 0.13.0
 BuildRequires:    R-CRAN-manipulateWidget >= 0.10.0
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-webshot 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
@@ -43,18 +42,17 @@ BuildRequires:    R-CRAN-rAmCharts
 BuildRequires:    R-utils 
 Requires:         R-CRAN-plotly >= 4.5.6
 Requires:         R-CRAN-antaresRead >= 2.2.9
+Requires:         R-CRAN-sp >= 2.0.0
 Requires:         R-CRAN-dygraphs >= 1.1.1.6
 Requires:         R-CRAN-leaflet >= 1.1.0
 Requires:         R-CRAN-htmlwidgets >= 0.7.0
 Requires:         R-CRAN-leaflet.minicharts >= 0.5.3
-Requires:         R-CRAN-spMaps >= 0.2
+Requires:         R-CRAN-spMaps >= 0.5.0
 Requires:         R-CRAN-antaresProcessing >= 0.13.0
 Requires:         R-CRAN-shiny >= 0.13.0
 Requires:         R-CRAN-manipulateWidget >= 0.10.0
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-webshot 
 Requires:         R-CRAN-data.table 
 Requires:         R-methods 

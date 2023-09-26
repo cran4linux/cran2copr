@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FastImputation
-%global packver   2.2.1
+%global packname  mcgibbsit
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Learn from Training Data then Quickly Fill in Missing Data
+Summary:          Warnes and Raftery's 'MCGibbsit' MCMC Run Length and Convergence Diagnostic
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-coda 
 
 %description
-TrainFastImputation() uses training data to describe a multivariate normal
-distribution that the data approximates or can be transformed into
-approximating and stores this information as an object of class
-'FastImputationPatterns'. FastImputation() function uses this
-'FastImputationPatterns' object to impute (make a good guess at) missing
-data in a single line or a whole data frame of data.  This approximates
-the process used by 'Amelia' <https://gking.harvard.edu/amelia> but is
-much faster when filling in values for a single line of data.
+Implementation of Warnes & Raftery's MCGibbsit run-length and convergence
+diagnostic for a set of (not-necessarily independent) Markov Chain Monte
+Carlo (MCMC) samplers.  It combines the quantile estimate error-bounding
+approach of the Raftery and Lewis MCMC run length diagnostic `gibbsit`
+with the between verses within chain approach of the Gelman and Rubin MCMC
+convergence diagnostic.
 
 %prep
 %setup -q -c -n %{packname}
