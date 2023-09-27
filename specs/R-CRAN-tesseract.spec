@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tesseract
-%global packver   5.1.0
+%global packver   5.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.0
+Version:          5.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Source OCR Engine
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tesseract-devel >= 3.03
 BuildRequires:    leptonica-devel
+BuildRequires:    tesseract-devel
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-pdftools >= 1.5

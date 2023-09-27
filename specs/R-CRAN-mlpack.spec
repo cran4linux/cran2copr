@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlpack
-%global packver   4.2.0
+%global packver   4.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for the 'mlpack' Library
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-Rcpp >= 0.12.12
 %description
 A fast, flexible machine learning library, written in C++, that aims to
 provide fast, extensible implementations of cutting-edge machine learning
-algorithms.  See also Curtin et al. (2018) <doi:10.21105/joss.00726>.
+algorithms.  See also Curtin et al. (2023) <doi:10.21105/joss.05026>.
 
 %prep
 %setup -q -c -n %{packname}

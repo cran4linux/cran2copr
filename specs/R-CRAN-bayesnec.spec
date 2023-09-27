@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesnec
-%global packver   2.1.0.3
+%global packver   2.1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0.3
+Version:          2.1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Bayesian No-Effect- Concentration (NEC) Algorithm
 
@@ -22,10 +22,10 @@ BuildRequires:    R-CRAN-brms
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-formula.tools 
 BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-evaluate 
 BuildRequires:    R-CRAN-rlang 
@@ -34,10 +34,10 @@ Requires:         R-CRAN-brms
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-formula.tools 
 Requires:         R-CRAN-loo 
-Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-evaluate 
 Requires:         R-CRAN-rlang 
@@ -47,10 +47,13 @@ Implementation of No-Effect-Concentration estimation that uses 'brms' (see
 Burkner (2017)<doi:10.18637/jss.v080.i01>; Burkner
 (2018)<doi:10.32614/RJ-2018-017>; Carpenter 'et al.'
 (2017)<doi:10.18637/jss.v076.i01> to fit concentration(dose)-response data
-using Bayesian methods for the purpose of estimating 'ECX' values, but
-more particularly 'NEC' (see Fox (2010)<doi:10.1016/j.ecoenv.2009.09.012>.
-This package expands and supersedes an original version implemented in
-R2jags, see Fisher, Ricardo and Fox (2020)<doi:10.5281/ZENODO.3966864>.
+using Bayesian methods for the purpose of estimating 'ECx' values, but
+more particularly 'NEC' (see Fox
+(2010)<doi:10.1016/j.ecoenv.2009.09.012>), 'NSEC' (see Fisher and Fox
+(2023)<doi:10.1002/etc.5610>), and 'N(S)EC (see Fisher et al.
+2023<doi:10.1002/ieam.4809>). This package expands and supersedes an
+original version implemented in R2jags, see Fisher, Ricardo and Fox
+(2020)<doi:10.5281/ZENODO.3966864>.
 
 %prep
 %setup -q -c -n %{packname}

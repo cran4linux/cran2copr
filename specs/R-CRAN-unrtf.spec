@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  unrtf
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Text from Rich Text Format (RTF) Documents
 
@@ -20,10 +20,10 @@ BuildRequires:    R-CRAN-sys >= 2.0
 Requires:         R-CRAN-sys >= 2.0
 
 %description
-Wraps the 'unrtf' utility to extract text from RTF files. Supports
-document conversion to HTML, LaTeX or plain text. Output in HTML is
-recommended because 'unrtf' has limited support for converting between
-character encodings.
+Wraps the 'unrtf' utility <https://www.gnu.org/software/unrtf/> to extract
+text from RTF files. Supports document conversion to HTML, LaTeX or plain
+text. Output in HTML is recommended because 'unrtf' has limited support
+for converting between character encodings.
 
 %prep
 %setup -q -c -n %{packname}

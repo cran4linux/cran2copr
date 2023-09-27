@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HDRFA
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Robust Factor Analysis
 
@@ -18,10 +18,8 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-pracma 
 Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-pracma 
 
 %description
@@ -33,12 +31,10 @@ Huber loss. One is based on minimizing the Huber loss of the idiosyncratic
 error's L2 norm, which turns out to do Principal Component Analysis (PCA)
 on the weighted sample covariance matrix and thereby named as Huber PCA.
 The other one is based on minimizing the element-wise Huber loss, which
-can be solved by an iterative Huber regression algorithm, see the details
-in He et al. (2023)<arXiv:2303.02817>. In this package we also provide the
-code for traditional PCA by Bai, J., (2003)<doi:10.1111/1468-0262.00392>,
-the Robust Two Step (RTS) method by He et al.
-(2022)<doi:10.1080/07350015.2020.1811101>, the Quantile Factor Analysis
-(QFA) method by Chen et al. (2021)<doi:10.3982/ECTA15746>.
+can be solved by an iterative Huber regression algorithm. In this package
+we also provide the code for traditional PCA, the Robust Two Step (RTS)
+method by He et al. (2022) and the Quantile Factor Analysis (QFA) method
+by Chen et al. (2021) and He et al. (2023).
 
 %prep
 %setup -q -c -n %{packname}

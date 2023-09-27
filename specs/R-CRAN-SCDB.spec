@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SCDB
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Access and Maintain Time-Based Versioned Data (Slowly-Changing-Dimension)
 
@@ -27,6 +27,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
@@ -43,6 +44,7 @@ Requires:         R-methods
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
@@ -53,9 +55,9 @@ Requires:         R-utils
 %description
 A collection of functions that enable easy access and updating of a
 database of data over time. More specifically, the package facilitates
-type-2 history[1] for data-warehouses and provides a number of Quality of
-life improvements for working on SQL databases with R.cr [1] see Ralph
-Kimball and Margy Ross (2013, ISBN 9781118530801).
+type-2 history for data-warehouses and provides a number of Quality of
+life improvements for working on SQL databases with R. For reference see
+Ralph Kimball and Margy Ross (2013, ISBN 9781118530801).
 
 %prep
 %setup -q -c -n %{packname}

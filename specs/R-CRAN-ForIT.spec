@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ForIT
-%global packver   2.0.1
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Estimate Tree Volume and Phytomass in the Italian Forest Inventory 2005
 
@@ -39,7 +40,7 @@ Requires:         R-CRAN-ggplot2
 Tabacchi et al. (2011) published a very detailed study producing a uniform
 system of functions to estimate tree volume and phytomass components
 (stem, branches, stool). The estimates of the 2005 Italian forest
-inventory (<https://www.inventarioforestale.org/>) are based on these
+inventory (<https://www.inventarioforestale.org/it/>) are based on these
 functions. The study documents the domain of applicability of each
 function and the equations to quantify estimates accuracies for individual
 estimates as well as for aggregated estimates. This package makes the

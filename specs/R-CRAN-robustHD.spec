@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robustHD
-%global packver   0.7.4
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Methods for High-Dimensional Data
 
@@ -39,7 +39,12 @@ Requires:         R-utils
 %description
 Robust methods for high-dimensional data, in particular linear model
 selection techniques based on least angle regression and sparse
-regression.
+regression. Specifically, the package implements robust least angle
+regression (Khan, Van Aelst & Zamar, 2007;
+<doi:10.1198/016214507000000950>), (robust) groupwise least angle
+regression (Alfons, Croux & Gelper, 2016;
+<doi:10.1016/j.csda.2015.02.007>), and sparse least trimmed squares
+regression (Alfons, Croux & Gelper, 2013; <doi:10.1214/12-AOAS575>).
 
 %prep
 %setup -q -c -n %{packname}

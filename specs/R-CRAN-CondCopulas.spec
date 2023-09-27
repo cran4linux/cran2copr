@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CondCopulas
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Inference for Conditional Copula Models
 
@@ -42,7 +43,7 @@ Fermanian (2019a, 2019b, 2020) <doi:10.1515/demo-2019-0016>,
 <doi:10.1016/j.csda.2019.01.013>, <doi:10.1016/j.jmva.2020.104610>), and
 test procedures for the simplifying assumption (proposed in Derumigny and
 Fermanian (2017) <doi:10.1515/demo-2017-0011> and Derumigny, Fermanian and
-Min (2020) <arXiv:2008.09498>).
+Min (2022) <doi:10.1002/cjs.11742>).
 
 %prep
 %setup -q -c -n %{packname}

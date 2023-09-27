@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BAwiR
-%global packver   1.2.7
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Basketball Data
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Anthropometry 
 BuildRequires:    R-CRAN-plyr 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-rworldmap 
@@ -45,6 +47,7 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-rworldmap 
@@ -56,16 +59,21 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-xml2 
 
 %description
-Collection of tools to work with basketball data. Functions available are
-related to friendly web scraping and visualization. Data were obtained
-from <https://www.euroleague.net/>, <https://www.eurocupbasketball.com/>
-and <https://www.acb.com/>, following the instructions of their
-respectives robots.txt files, when available. Tools for visualization
-include a population pyramid, 2D plots, circular plots of players'
-percentiles, plots of players' monthly/yearly stats, team heatmaps, team
-shooting plots, team four factors plots, cross-tables with the results of
-regular season games and maps of nationalities. Please see Vinue (2020)
-<doi:10.1089/big.2018.0124>.
+Collection of tools to work with European basketball data. Functions
+available are related to friendly web scraping, data management and
+visualization. Data were obtained from
+<https://www.euroleaguebasketball.net/euroleague/>,
+<https://www.euroleaguebasketball.net/eurocup/> and
+<https://www.acb.com/>, following the instructions of their respectives
+robots.txt files, when available. Box score data are available for the
+three leagues. Play-by-play data are also available for the Spanish
+league. Methods for analysis include a population pyramid, 2D plots,
+circular plots of players' percentiles, plots of players' monthly/yearly
+stats, team heatmaps, team shooting plots, team four factors plots,
+cross-tables with the results of regular season games, maps of
+nationalities, combinations of lineups, possessions-related variables,
+timeouts, performance by periods, personal fouls and offensive rebounds.
+Please see Vinue (2020) <doi:10.1089/big.2018.0124>.
 
 %prep
 %setup -q -c -n %{packname}
