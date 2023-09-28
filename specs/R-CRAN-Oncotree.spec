@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Oncotree
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Oncogenetic Trees
 
@@ -13,16 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.3.1
+Requires:         R-core >= 2.3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
 Requires:         R-CRAN-boot 
 
 %description
-Contains functions to construct and evaluate directed tree structures that
-model the process of occurrence of genetic alterations during
-carcinogenesis.
+Construct and evaluate directed tree structures that model the process of
+occurrence of genetic alterations during carcinogenesis as described in
+Szabo, A. and Boucher, K (2002) <doi:10.1016/S0025-5564(02)00086-X>.
 
 %prep
 %setup -q -c -n %{packname}

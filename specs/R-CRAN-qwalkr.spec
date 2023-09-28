@@ -1,37 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  starticles
+%global __requires_exclude ^libmpi
+%global packname  qwalkr
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Generic, Publisher-Independent Template for Writing Scientific Documents in 'rmarkdown'
+Summary:          Handle Continuous-Time Quantum Walks with R
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel > 3.5.0
-Requires:         R-core > 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Provides a generic, publisher-independent Rmarkdown template for writing
-scientific papers and reports in Rmarkdown. The template allows for all
-the basic features of a scientific article, including a title page with
-author affiliations and footnotes possibly shown in two common formats,
-multi-language abstracts and keywords, page headers and footers, and the
-ability to place figures and tables at the end of the output PDF. Smart
-cross-referencing of figures, tables, equations and sections is provided
-using the bookdown package. See package README.md for basic package usage.
+Functions and tools for creating, visualizing, and investigating
+properties of continuous-time quantum walks, including efficient
+calculation of matrices such as the mixing matrix, average mixing matrix,
+and spectral decomposition of the Hamiltonian. E. Farhi (1997):
+<arXiv:quant-ph/9706062v2>; C. Godsil (2011) <arXiv:1103.2578v3>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metafor
-%global packver   4.2-0
+%global packver   4.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis Package for R
 

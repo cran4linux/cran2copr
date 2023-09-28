@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dbGaPCheckup
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          dbGaP Checkup
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-labelled
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-naniar 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-labelled
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
+Requires:         R-CRAN-naniar 
 
 %description
 Contains functions that check for formatting of the Subject Phenotype data

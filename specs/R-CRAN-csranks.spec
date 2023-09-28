@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csranks
-%global packver   1.0.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confidence Sets for Ranks
+Summary:          Statistical Tools for Ranks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,11 +29,11 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-cli 
 
 %description
-Construct confidence sets for positions of populations in a ranking based
-on values of a certain feature and their estimation errors. Both
-simultaneous and marginal confidence sets are available, as well as
-confidence sets with populations occupying top-n positions in the ranking.
-Theory based on Mogstad, Romano, Shaikh, and Wilhelm
+Account for uncertainty when working with ranks. Estimate standard errors
+consistently in linear regression with ranked variables. Construct
+confidence sets of various kinds for positions of populations in a ranking
+based on values of a certain feature and their estimation errors. Theory
+based on Mogstad, Romano, Shaikh, and Wilhelm
 (2023)<doi:10.1093/restud/rdad006>.
 
 %prep
