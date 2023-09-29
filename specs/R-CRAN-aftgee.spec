@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  aftgee
-%global packver   1.1.6
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerated Failure Time Model with Generalized Estimating Equations
 
@@ -21,12 +22,15 @@ BuildRequires:    R-CRAN-geepack
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-BB 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rcpp 
 
 %description
 A collection of methods for both the rank-based estimates and least-square
