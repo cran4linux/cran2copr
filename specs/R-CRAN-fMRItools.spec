@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fMRItools
-%global packver   0.3.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Routines for Common fMRI Processing Tasks
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-matrixStats 
 Requires:         R-stats 
+Requires:         R-CRAN-matrixStats 
 
 %description
 Supports fMRI (functional magnetic resonance imaging) analysis tasks

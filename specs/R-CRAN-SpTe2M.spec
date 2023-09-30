@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpTe2M
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Modeling and Monitoring of Spatio-Temporal Data
 
@@ -18,8 +18,18 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-mapproj 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-mapproj 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 
 %description
 Spatio-temporal data have become increasingly popular in many research
@@ -36,7 +46,7 @@ covariance functions suggested by Yang and Qiu (2022)
 <doi:10.1007/s10463-021-00787-2>, the spatio-temporal disease surveillance
 method discussed in Qiu and Yang (2021) <doi:10.1002/sim.9150> that can
 accommodate the covariate effect, the spatial-LASSO-based process
-monitoring method proposed by Qiu and Yang (2022)
+monitoring method proposed by Qiu and Yang (2023)
 <doi:10.1080/00224065.2022.2081104>, and the online spatio-temporal
 disease surveillance method described in Yang and Qiu (2020)
 <doi:10.1080/24725854.2019.1696496>.

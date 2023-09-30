@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaclust
-%global packver   1.0.0
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Family of Beta Mixture Models for Clustering Beta-Valued DNA Methylation Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-pROC 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-stats 
@@ -31,6 +32,7 @@ Requires:         R-utils
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-pROC 
 
 %description
 A family of novel beta mixture models (BMMs) has been developed by

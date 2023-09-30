@@ -1,35 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  diseasemapping
-%global packver   2.0.3
+%global packname  Rpdb
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling Spatial Variation in Disease Risk for Areal Data
+Summary:          Read, Write, Visualize and Manipulate PDB Files
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-terra 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-rgl >= 1.1.3
+Requires:         R-CRAN-rgl >= 1.1.3
 
 %description
-Formatting of population and case data, calculation of Standardized
-Incidence Ratios, and fitting the BYM model using 'INLA'. For details see
-Brown (2015) <doi:10.18637/jss.v063.i12>.
+Provides tools to read, write, visualize Protein Data Bank (PDB) files and
+perform some structural manipulations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SAMprior
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Adapting Mixture (SAM) Priors
 
@@ -31,7 +31,8 @@ Requires:         R-CRAN-ggplot2
 %description
 Implementation of the SAM prior and generation of its operating
 characteristics for dynamically borrowing information from historical
-data. For details, please refer to Yang et al. (2023) <arXiv:2305.12279>.
+data. For details, please refer to Yang et al. (2023)
+<doi:10.1111/biom.13927>.
 
 %prep
 %setup -q -c -n %{packname}

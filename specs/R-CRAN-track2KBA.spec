@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  track2KBA
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identifying Important Areas from Animal Tracking Data
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgdal >= 1.5.0
-BuildRequires:    R-CRAN-sp >= 1.4.1
+BuildRequires:    R-CRAN-raster >= 3.6.3
+BuildRequires:    R-CRAN-sp >= 1.5.0
 BuildRequires:    R-CRAN-sf >= 0.7.4
 BuildRequires:    R-CRAN-adehabitatHR 
 BuildRequires:    R-CRAN-dplyr 
@@ -32,12 +32,10 @@ BuildRequires:    R-CRAN-Matching
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-move 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-rgdal >= 1.5.0
-Requires:         R-CRAN-sp >= 1.4.1
+Requires:         R-CRAN-raster >= 3.6.3
+Requires:         R-CRAN-sp >= 1.5.0
 Requires:         R-CRAN-sf >= 0.7.4
 Requires:         R-CRAN-adehabitatHR 
 Requires:         R-CRAN-dplyr 
@@ -51,8 +49,6 @@ Requires:         R-CRAN-Matching
 Requires:         R-methods 
 Requires:         R-CRAN-move 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 

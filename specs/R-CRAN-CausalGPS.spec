@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CausalGPS
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matching on Generalized Propensity Scores with Continuous Exposures
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-gnm
 BuildRequires:    R-CRAN-locpol 
 BuildRequires:    R-CRAN-Ecume 
 BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-cowplot 
 Requires:         R-parallel 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-SuperLearner 
@@ -50,6 +51,7 @@ Requires:         R-CRAN-gnm
 Requires:         R-CRAN-locpol 
 Requires:         R-CRAN-Ecume 
 Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-cowplot 
 
 %description
 Provides a framework for estimating causal effects of a continuous

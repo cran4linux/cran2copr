@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NetSimR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Actuarial Functions for Non-Life Insurance Modelling
 
@@ -24,6 +24,13 @@ BuildRequires:    R-CRAN-future.apply
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RMySQL 
+BuildRequires:    R-CRAN-RODBC 
+BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-shinyjs 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinybusy 
@@ -31,6 +38,13 @@ Requires:         R-CRAN-future.apply
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-future 
 Requires:         R-methods 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RMySQL 
+Requires:         R-CRAN-RODBC 
+Requires:         R-CRAN-RPostgreSQL 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-shinyjs 
 
 %description
 Assists actuaries and other insurance modellers in pricing, reserving and

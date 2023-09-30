@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sMSROC
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessment of Diagnostic and Prognostic Markers
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-rms 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-plotROC 
 BuildRequires:    R-CRAN-icenReg 
-BuildRequires:    R-CRAN-RISCA 
 BuildRequires:    R-CRAN-thregI 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-rms 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-plotROC 
 Requires:         R-CRAN-icenReg 
-Requires:         R-CRAN-RISCA 
 Requires:         R-CRAN-thregI 
 
 %description

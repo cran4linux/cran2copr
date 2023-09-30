@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fabR
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper Functions Collection Used in Data Pipelines
 
@@ -19,34 +19,40 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-tidytext 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-tidytext 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
+Requires:         R-utils 
+Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-DT 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-lifecycle 
 
 %description
 The goal of this package is to provide wrapper functions in the data

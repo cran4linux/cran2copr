@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmstat4
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to Teaching Materials from a ZIP File or GitHub
 
@@ -18,17 +18,21 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-httr 
 Requires:         R-tcltk 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-shiny 
+Requires:         R-tools 
 
 %description
 Provides access to teaching materials for various statistics courses,

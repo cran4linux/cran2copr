@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayes4psy
-%global packver   1.2.11
+%global packver   1.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.11
+Version:          1.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          User Friendly Bayesian Data Analysis for Psychology
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 4.0.0
 BuildRequires:    R-methods >= 4.0.0
 BuildRequires:    R-stats >= 4.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-rstan >= 2.21.2
-BuildRequires:    R-CRAN-StanHeaders >= 2.21.0.6
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-BH >= 1.72.0.3
 BuildRequires:    R-CRAN-mcmcse >= 1.4.1
@@ -37,7 +37,7 @@ BuildRequires:    R-CRAN-rstantools
 Requires:         R-methods >= 4.0.0
 Requires:         R-stats >= 4.0.0
 Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-rstan >= 2.21.2
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-mcmcse >= 1.4.1
 Requires:         R-CRAN-cowplot >= 1.1.0

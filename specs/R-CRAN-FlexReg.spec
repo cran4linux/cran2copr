@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FlexReg
-%global packver   1.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Models for Bounded and Binomial Responses
+Summary:          Regression Models for Bounded Continuous and Discrete Responses
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-rstantools >= 2.0.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
@@ -29,9 +29,9 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-faraway 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-rstantools >= 2.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
@@ -41,26 +41,28 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-Formula 
 Requires:         R-utils 
 Requires:         R-grDevices 
-Requires:         R-CRAN-faraway 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-rstantools
 
 %description
-Functions to fit regression models for bounded (e.g., proportions and
-rates) and binomial responses. In case of bounded responses, available
-models are the flexible beta (Migliorati, S., Di Brisco, A. M., Ongaro, A.
-(2018) <doi:10.1214/17-BA1079>), the variance-inflated beta (Di Brisco, A.
-M., Migliorati, S., Ongaro, A. (2020) <doi:10.1177/1471082X18821213>), the
-beta (Ferrari, S.L.P., Cribari-Neto, F. (2004)
-<doi:10.1080/0266476042000214501>), and their augmented versions to handle
-the presence of zero/one values (Di Brisco, A. M., Migliorati, S. (2020)
-<doi:10.1002/sim.8406>). In case of binomial responses, available models
-are the flexible beta-binomial (Ascari, R., Migliorati, S. (2021)
-<doi:10.1002/sim.9005>), the beta-binomial, and the binomial. Inference is
-dealt with a Bayesian approach based on the Hamiltonian Monte Carlo (HMC)
-algorithm (Gelman, A., Carlin, J. B., Stern, H. S., Rubin, D. B. (2014)
-<doi:10.1201/b16018>). Besides, functions to compute residuals, posterior
-predictives, goodness-of-fit measures, convergence diagnostics, and
-graphical representations are provided.
+Functions to fit regression models for bounded continuous and discrete
+responses. In case of bounded continuous responses (e.g., proportions and
+rates), available models are the flexible beta (Migliorati, S., Di Brisco,
+A. M., Ongaro, A. (2018) <doi:10.1214/17-BA1079>), the variance-inflated
+beta (Di Brisco, A. M., Migliorati, S., Ongaro, A. (2020)
+<doi:10.1177/1471082X18821213>), the beta (Ferrari, S.L.P., Cribari-Neto,
+F. (2004) <doi:10.1080/0266476042000214501>), and their augmented versions
+to handle the presence of zero/one values (Di Brisco, A. M., Migliorati,
+S. (2020) <doi:10.1002/sim.8406>) are implemented. In case of bounded
+discrete responses (e.g., bounded counts, such as the number of successes
+in n trials), available models are the flexible beta-binomial (Ascari, R.,
+Migliorati, S. (2021) <doi:10.1002/sim.9005>), the beta-binomial, and the
+binomial are implemented. Inference is dealt with a Bayesian approach
+based on the Hamiltonian Monte Carlo (HMC) algorithm (Gelman, A., Carlin,
+J. B., Stern, H. S., Rubin, D. B. (2014) <doi:10.1201/b16018>). Besides,
+functions to compute residuals, posterior predictives, goodness of fit
+measures, convergence diagnostics, and graphical representations are
+provided.
 
 %prep
 %setup -q -c -n %{packname}

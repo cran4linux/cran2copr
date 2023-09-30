@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggstats
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'ggplot2' for Plotting Stats
 
@@ -47,7 +47,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tidyr 
 
 %description
-Provides new statistics, new geometries and new positions for "ggplot2"
+Provides new statistics, new geometries and new positions for 'ggplot2'
 and a suite of functions to facilitate the creation of statistical plots.
 
 %prep

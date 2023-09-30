@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  makePalette
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Palette
 
@@ -16,15 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-prismatic 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-cluster 
 Requires:         R-grDevices 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-prismatic 
 
 %description

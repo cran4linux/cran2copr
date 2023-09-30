@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  slr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Latin Rectangles
 
@@ -24,10 +24,10 @@ Requires:         R-CRAN-ibd
 
 %description
 A facility to generate balanced and partially balanced semi-Latin
-rectangles with cell size two, see Uto, N.P. and Bailey, R.A. (2020).
-"Balanced Semi-Latin rectangles: properties, existence and constructions
-for block size two". Journal of Statistical Theory and Practice, 14(3),
-1-11, <doi:10.1007/s42519-020-00118-3>.
+rectangles with cell size two and three, see Uto, N.P. and Bailey, R.A.
+(2020). "Balanced Semi-Latin rectangles: properties, existence and
+constructions for block size two". Journal of Statistical Theory and
+Practice, 14(3), 1-11, <doi:10.1007/s42519-020-00118-3>.
 
 %prep
 %setup -q -c -n %{packname}

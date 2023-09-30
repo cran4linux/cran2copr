@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pirouette
-%global packver   1.6.6
+%global packver   1.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          1.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create a Bayesian Posterior from a Phylogeny
 

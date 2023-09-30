@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  babette
-%global packver   2.3.2
+%global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          2.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Control 'BEAST2'
 
@@ -17,17 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-beautier >= 2.6.5
-BuildRequires:    R-CRAN-mauricer >= 2.5
-BuildRequires:    R-CRAN-beastier >= 2.4.10
+BuildRequires:    R-CRAN-beautier >= 2.6.9
+BuildRequires:    R-CRAN-mauricer >= 2.5.2
+BuildRequires:    R-CRAN-beastier >= 2.4.11
 BuildRequires:    R-CRAN-tracerer 
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-beautier >= 2.6.5
-Requires:         R-CRAN-mauricer >= 2.5
-Requires:         R-CRAN-beastier >= 2.4.10
+Requires:         R-CRAN-beautier >= 2.6.9
+Requires:         R-CRAN-mauricer >= 2.5.2
+Requires:         R-CRAN-beastier >= 2.4.11
 Requires:         R-CRAN-tracerer 
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-remotes 

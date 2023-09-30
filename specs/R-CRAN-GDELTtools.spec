@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GDELTtools
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download, Slice, and Normalize GDELT V1 Data
+Summary:          Download, Slice, and Normalize GDELT V1 Event and Sentiment API Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,10 +21,12 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-datetimeutils 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-utils 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-datetimeutils 
+Requires:         R-CRAN-stringr 
 
 %description
 The GDELT V1 Event data set is over 41 GB now and growing 250 MB a month.
