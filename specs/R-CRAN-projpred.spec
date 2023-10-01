@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projpred
-%global packver   2.6.0
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Projection Predictive Feature Selection
 
@@ -14,14 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-rstantools >= 2.0.0
 BuildRequires:    R-CRAN-loo >= 2.0.0
 BuildRequires:    R-CRAN-lme4 >= 1.1.28
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-lme4 >= 1.1.28
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-mvtnorm 
@@ -55,8 +57,8 @@ Performs projection predictive feature selection for generalized linear
 models (Piironen, Paasiniemi, and Vehtari, 2020, <doi:10.1214/20-EJS1711>)
 with or without multilevel or additive terms (Catalina, Bürkner, and
 Vehtari, 2022, <https://proceedings.mlr.press/v151/catalina22a.html>), for
-some ordinal and nominal regression models (Weber and Vehtari, 2023,
-<arXiv:2301.01660>), and for many other regression models (using the
+some ordinal and nominal regression models (Weber, Glass, and Vehtari,
+2023, <arXiv:2301.01660>), and for many other regression models (using the
 latent projection by Catalina, Bürkner, and Vehtari, 2021,
 <arXiv:2109.04702>, which can also be applied to most of the former
 models). The package is compatible with the 'rstanarm' and 'brms'

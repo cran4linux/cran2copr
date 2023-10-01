@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DynareR
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Seamless Integration of 'R' and 'Dynare'
+Summary:          Bringing the Power of 'Dynare' to 'R', 'R Markdown', and 'Quarto'
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,19 +19,17 @@ Requires:         R-core >= 3.2.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-knitr >= 1.20
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr >= 1.20
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-kableExtra 
 
 %description
-It allows running 'Dynare' program from base R and R Markdown. 'Dynare' is
-a software platform for handling a wide class of economic models, in
-particular dynamic stochastic general equilibrium ('DSGE') and overlapping
-generations ('OLG') models.  This package does not only integrate R and
-Dynare but also serves as a 'Dynare' Knit-Engine for 'knitr' package. The
-package requires 'Dynare' (<https://www.dynare.org/>) and 'Octave'
-(<https://www.gnu.org/software/octave/download.html>).  Write all your
+It allows running 'Dynare' program from base R, R Markdown and Quarto.
+'Dynare' is a software platform for handling a wide class of economic
+models, in particular dynamic stochastic general equilibrium ('DSGE') and
+overlapping generations ('OLG') models.  This package does not only
+integrate R and Dynare but also serves as a 'Dynare' Knit-Engine for
+'knitr' package. The package requires 'Dynare' (<https://www.dynare.org/>)
+and 'Octave' (<https://www.octave.org/download.html>).  Write all your
 'Dynare' commands in R or R Markdown chunk.
 
 %prep

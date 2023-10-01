@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  levitate
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy String Comparison
 
@@ -16,23 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-stringr 
 
 %description
-Provides string similarity calculations inspired by the Python
-'fuzzywuzzy' package. Compare strings by edit distance, similarity ratio,
-best matching substring, ordered token matching and set-based token
-matching. A range of edit distance measures are available thanks to the
-'stringdist' package.
+Provides string similarity calculations inspired by the Python 'thefuzz'
+package. Compare strings by edit distance, similarity ratio, best matching
+substring, ordered token matching and set-based token matching. A range of
+edit distance measures are available thanks to the 'stringdist' package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

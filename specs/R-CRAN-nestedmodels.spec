@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nestedmodels
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Modelling for Nested Data
 
@@ -21,8 +21,9 @@ BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-tidyr > 0.8.99
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-parsnip 
@@ -37,8 +38,9 @@ Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-tidyr > 0.8.99
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-parsnip 

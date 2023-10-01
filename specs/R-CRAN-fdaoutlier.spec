@@ -1,36 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eha
-%global packver   2.11.1
+%global packname  fdaoutlier
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Event History Analysis
+Summary:          Outlier Detection Tools for Functional Data Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-survival >= 3.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-survival >= 3.0
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Parametric proportional hazards fitting with left truncation and right
-censoring for common families of distributions, piecewise constant
-hazards, and discrete models. Parametric accelerated failure time models
-for left truncated and right censored data. Proportional hazards models
-for tabular and register data. Sampling of risk sets in Cox regression,
-selections in the Lexis diagram, bootstrapping. Broström (2022)
-<doi:10.1201/9780429503764>.
+A collection of functions for outlier detection in functional data
+analysis. Methods implemented include directional outlyingness by Dai and
+Genton (2019) <doi:10.1016/j.csda.2018.03.017>, MS-plot by Dai and Genton
+(2018) <doi:10.1080/10618600.2018.1473781>, total variation depth and
+modified shape similarity index by Huang and Sun (2019)
+<doi:10.1080/00401706.2019.1574241>, and sequential transformations by Dai
+et al. (2020) <doi:10.1016/j.csda.2020.106960 among others. Additional
+outlier detection tools and depths for functional data like functional
+boxplot, (modified) band depth etc., are also available.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,7 +46,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mlr3shiny
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning in 'shiny' with 'mlr3'
 
@@ -23,17 +24,17 @@ BuildRequires:    R-CRAN-mlr3measures >= 0.3.1
 BuildRequires:    R-CRAN-mlr3 >= 0.12.0
 BuildRequires:    R-CRAN-DT >= 0.11
 BuildRequires:    R-CRAN-mlr3learners 
-BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-mlr3pipelines 
+BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-shinyalert 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-shinyjs >= 2.0.0
 Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-data.table >= 1.12.8
@@ -41,17 +42,17 @@ Requires:         R-CRAN-mlr3measures >= 0.3.1
 Requires:         R-CRAN-mlr3 >= 0.12.0
 Requires:         R-CRAN-DT >= 0.11
 Requires:         R-CRAN-mlr3learners 
-Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-mlr3pipelines 
+Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-shinyalert 
-Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-e1071 
 Requires:         R-stats 
+Requires:         R-CRAN-patchwork 
 
 %description
 A web-based graphical user interface to provide the basic steps of a
