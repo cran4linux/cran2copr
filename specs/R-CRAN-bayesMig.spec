@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGMridge
-%global packver   1.3
+%global packname  bayesMig
+%global packver   0.4-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Graphical Models Using Ridge Penalty Followed by Thresholding and Reestimation
+Summary:          Bayesian Projection of Migration
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-bayesTFR 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-wpp2019 
+Requires:         R-CRAN-bayesTFR 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-wpp2019 
 
 %description
-Estimation of partial correlation matrix using ridge penalty followed by
-thresholding and reestimation. Under multivariate Gaussian assumption, the
-matrix constitutes an Gaussian graphical model (GGM).
+Producing probabilistic projections of net migration rate for all
+countries of the world or for subnational units using a Bayesian
+hierarchical model by Azose an Raftery (2015)
+<doi:10.1007/s13524-015-0415-0>.
 
 %prep
 %setup -q -c -n %{packname}

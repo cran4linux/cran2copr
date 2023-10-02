@@ -1,43 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fqar
-%global packver   0.4.2
+%global packname  gofedf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Floristic Quality Assessment Tools for R
+Summary:          Goodness of Fit Tests Based on Empirical Distribution Functions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-glm2 
+BuildRequires:    R-CRAN-statmod 
+Requires:         R-stats 
+Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-glm2 
+Requires:         R-CRAN-statmod 
 
 %description
-Tools for downloading and analyzing floristic quality assessment data. See
-Freyman et al. (2015) <doi:10.1111/2041-210X.12491> for more information
-about floristic quality assessment and the associated database.
+Routines that allow the user to run goodness of fit tests based on
+empirical distribution functions for formal model evaluation in a general
+likelihood model. In addition, functions are provided to test a sample
+against Normal or Gamma distributions, validate the normality assumptions
+in a linear model, and examine the appropriateness of a Gamma distribution
+in generalized linear models with various link functions. Michael Arthur
+Stephens (1976) <http://www.jstor.org/stable/2958206>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGMridge
-%global packver   1.3
+%global packname  treeshap
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Graphical Models Using Ridge Penalty Followed by Thresholding and Reestimation
+Summary:          Compute SHAP Values for Your Tree-Based Models Using the 'TreeSHAP' Algorithm
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Estimation of partial correlation matrix using ridge penalty followed by
-thresholding and reestimation. Under multivariate Gaussian assumption, the
-matrix constitutes an Gaussian graphical model (GGM).
+An efficient implementation of the 'TreeSHAP' algorithm introduced by
+Lundberg et al., (2020) <doi:10.1038/s42256-019-0138-9>. It is capable of
+calculating SHAP (SHapley Additive exPlanations) values for tree-based
+models in polynomial time.  Currently supported models include 'gbm',
+'randomForest', 'ranger', 'xgboost', 'lightgbm'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGMridge
-%global packver   1.3
+%global packname  epilogi
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Graphical Models Using Ridge Penalty Followed by Thresholding and Reestimation
+Summary:          The 'epilogi' Variable Selection Algorithm for Continuous Data
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
-Requires:         R-graphics 
 
 %description
-Estimation of partial correlation matrix using ridge penalty followed by
-thresholding and reestimation. Under multivariate Gaussian assumption, the
-matrix constitutes an Gaussian graphical model (GGM).
+The 'epilogi' variable selection algorithm is implemented for the case of
+continuous response and predictor variables. The relevant paper is:
+Lakiotaki K., Papadovasilakis Z., Lagani V., Fafalios S., Charonyktakis
+P., Tsagris M. and Tsamardinos I. (2023). "Automated machine learning for
+Genome Wide Association Studies". Bioinformatics.
+<doi:10.1002/sim.4780120902>.
 
 %prep
 %setup -q -c -n %{packname}

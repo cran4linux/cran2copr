@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rts
-%global packver   1.1-8
+%global packver   1.1-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          1.1.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raster Time Series Analysis
 
@@ -17,14 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp >= 1.4.1
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-raster 
-Requires:         R-CRAN-sp >= 1.4.1
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-xts 
 Requires:         R-methods 

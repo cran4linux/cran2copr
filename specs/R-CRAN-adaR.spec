@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGMridge
-%global packver   1.3
+%global packname  adaR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Graphical Models Using Ridge Penalty Followed by Thresholding and Reestimation
+Summary:          A Fast 'WHATWG' Compliant URL Parser
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-triebeard 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-triebeard 
 
 %description
-Estimation of partial correlation matrix using ridge penalty followed by
-thresholding and reestimation. Under multivariate Gaussian assumption, the
-matrix constitutes an Gaussian graphical model (GGM).
+A wrapper for 'ada-url', a 'WHATWG' compliant and fast URL parser written
+in modern 'C++'. Also contains auxiliary functions such as a public suffix
+extractor.
 
 %prep
 %setup -q -c -n %{packname}

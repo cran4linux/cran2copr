@@ -1,44 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  seewave
-%global packver   2.2.2
+%global packname  selenider
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sound Analysis and Synthesis
+Summary:          Concise, Lazy and Reliable Wrapper for 'chromote' and 'RSelenium'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-prettyunits 
+BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-coro 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-prettyunits 
+Requires:         R-CRAN-processx 
 Requires:         R-utils 
-Requires:         R-CRAN-tuneR 
-Requires:         R-methods 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-withr 
 
 %description
-Functions for analysing, manipulating, displaying, editing and
-synthesizing time waves (particularly sound).  This package processes time
-analysis (oscillograms and envelopes), spectral content, resonance quality
-factor, entropy, cross correlation and autocorrelation, zero-crossing,
-dominant frequency, analytic signal, frequency coherence, 2D and 3D
-spectrograms and many other analyses. See Sueur et al. (2008)
-<doi:10.1080/09524622.2008.9753600> and Sueur (2018)
-<doi:10.1007/978-3-319-77647-7>.
+A user-friendly wrapper for web automation, using either 'chromote' or
+'RSelenium'. Provides a simple and consistent API to make web scraping and
+testing scripts easy to write and understand. Elements are lazy, and
+automatically wait for the website to be valid, resulting in reliable and
+reproducible code, with no visible impact on the experience of the
+programmer.
 
 %prep
 %setup -q -c -n %{packname}

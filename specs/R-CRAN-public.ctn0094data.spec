@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGMridge
-%global packver   1.3
+%global packname  public.ctn0094data
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Graphical Models Using Ridge Penalty Followed by Thresholding and Reestimation
+Summary:          De-Identified Data from CTN-0094
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-graphics 
 
 %description
-Estimation of partial correlation matrix using ridge penalty followed by
-thresholding and reestimation. Under multivariate Gaussian assumption, the
-matrix constitutes an Gaussian graphical model (GGM).
+These are harmonized datasets produced as part of the Clinical Trials
+Network (CTN) protocol number 0094. This is a US National Institute of
+Drug Abuse (NIDA) funded project; to learn more go to
+<https://ctnlibrary.org/protocol/ctn0094/>. These are datasets which have
+the data harmonized from CTN-0027
+(<https://ctnlibrary.org/protocol/ctn0027/>), CTN-0030
+(<https://ctnlibrary.org/protocol/ctn0030/>), and CTN-0051
+(<https://ctnlibrary.org/protocol/ctn0051/>).
 
 %prep
 %setup -q -c -n %{packname}

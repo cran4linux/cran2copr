@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  od
-%global packver   0.4.0
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate and Map Origin-Destination Data
 
@@ -18,8 +19,10 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-sfheaders 
 Requires:         R-methods 
+Requires:         R-CRAN-vctrs 
 
 %description
 The aim of 'od' is to provide tools and example datasets for working with
