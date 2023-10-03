@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatialEco
-%global packver   2.0-1
+%global packname  psbcSpeedUp
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis and Modelling Utilities
+Summary:          Penalized Semiparametric Bayesian Survival Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.000
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-MASS 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Utilities to support spatial data manipulation, query, sampling and
-modelling in ecological applications. Functions include models for species
-population density, spatial smoothing, multivariate separability, point
-process model for creating pseudo- absences and sub-sampling,
-Quadrant-based sampling and analysis, auto-logistic modeling, sampling
-models, cluster optimization, statistical exploratory tools and
-raster-based metrics.
+Algorithms to speed up the Bayesian Lasso Cox model (Lee et al., Int J
+Biostat, 2011 <doi:10.2202/1557-4679.1301>) and the Bayesian Lasso Cox
+with mandatory variables (Zucknick et al. Biometrical J, 2015
+<doi:10.1002/bimj.201400160>).
 
 %prep
 %setup -q -c -n %{packname}

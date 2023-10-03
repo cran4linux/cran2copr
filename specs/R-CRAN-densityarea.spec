@@ -1,31 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BoolNet
-%global packver   2.1.9
+%global packname  densityarea
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Construction, Simulation and Analysis of Boolean Networks
+Summary:          Polygons of Bivariate Density Distributions
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-igraph >= 0.6
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-igraph >= 0.6
-Requires:         R-CRAN-XML 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggdensity 
+BuildRequires:    R-CRAN-isoband 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sfheaders 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggdensity 
+Requires:         R-CRAN-isoband 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sfheaders 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
 
 %description
-Functions to reconstruct, generate, and simulate synchronous,
-asynchronous, probabilistic, and temporal Boolean networks. Provides also
-functions to analyze and visualize attractors in Boolean networks
-<doi:10.1093/bioinformatics/btq124>.
+With bivariate data, it is possible to calculate 2-dimensional kernel
+density estimates that return polygons at given levels of probability.
+'densityarea' returns these polygons for analysis, including for
+calculating their area.
 
 %prep
 %setup -q -c -n %{packname}

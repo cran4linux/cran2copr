@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Guerry
-%global packver   1.8.1
+%global packname  whatthreewords
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maps, Data and Methods Related to Guerry (1833) "Moral Statistics of France"
+Summary:          Work with the 'what3words' API for Easy Location Referencing
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-dplyr 
 
 %description
-Maps of France in 1830, multivariate datasets from A.-M. Guerry and
-others, and statistical and graphic methods related to Guerry's "Moral
-Statistics of France". The goal is to facilitate the exploration and
-development of statistical and graphic methods for multivariate data in a
-geospatial context of historical interest.
+Use the 'what3words' API <https://developer.what3words.com/public-api> to
+return three words which uniquely identify every 3m x 3m square on Earth.
+It is also possible to return coordinates from any valid three words
+location. Supports multiple languages.
 
 %prep
 %setup -q -c -n %{packname}

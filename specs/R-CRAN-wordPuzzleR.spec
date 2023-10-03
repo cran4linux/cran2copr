@@ -1,31 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BoolNet
-%global packver   2.1.9
+%global packname  wordPuzzleR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Construction, Simulation and Analysis of Boolean Networks
+Summary:          Word Puzzle Game
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-igraph >= 0.6
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-igraph >= 0.6
-Requires:         R-CRAN-XML 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-scales >= 1.1.1
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-scales >= 1.1.1
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Functions to reconstruct, generate, and simulate synchronous,
-asynchronous, probabilistic, and temporal Boolean networks. Provides also
-functions to analyze and visualize attractors in Boolean networks
-<doi:10.1093/bioinformatics/btq124>.
+The word puzzle game requires you to find out the letters in a word within
+a limited number of guesses. In each round, if your guess hit any letters
+in the word, they reveal themselves. If all letters are revealed before
+your guesses run out, you win this game; otherwise you fail. You may run
+multiple games to guess different words.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveil
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Models for Disease Surveillance
 
@@ -20,8 +20,8 @@ BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-tidybayes >= 3.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-ggdist >= 3.0.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-gridExtra >= 2.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
@@ -37,7 +37,7 @@ Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-tidybayes >= 3.0.0
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-ggdist >= 3.0.0
-Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-gridExtra >= 2.0
 Requires:         R-CRAN-tidyr >= 1.1.0

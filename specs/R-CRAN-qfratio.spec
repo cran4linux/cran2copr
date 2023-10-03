@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qfratio
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Moments of Ratios of Quadratic Forms Using Recursion
+Summary:          Moments and Distributions of Ratios of Quadratic Forms Using Recursion
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,12 +26,14 @@ Requires:         R-CRAN-MASS
 Evaluates moments of ratios (and products) of quadratic forms in normal
 variables, specifically using recursive algorithms developed by Bao and
 Kan (2013) <doi:10.1016/j.jmva.2013.03.002> and Hillier et al. (2014)
-<doi:10.1017/S0266466613000364>. Originally developed as a supplement to
-Watanabe (2022) <doi:10.1101/2022.11.02.514929> for evaluating average
-evolvability measures in evolutionary quantitative genetics, but can be
-used for a broader class of moments. Generating functions for these
-moments are also closely related to the top-order zonal and invariant
-polynomials of matrix arguments.
+<doi:10.1017/S0266466613000364>. Also provides distribution and
+probability density functions of simple ratios of quadratic forms in
+normal variables with several algorithms. Originally developed as a
+supplement to Watanabe (2023) <doi:10.1007/s00285-023-01930-8> for
+evaluating average evolvability measures in evolutionary quantitative
+genetics, but can be used for a broader class of statistics. Generating
+functions for these moments are also closely related to the top-order
+zonal and invariant polynomials of matrix arguments.
 
 %prep
 %setup -q -c -n %{packname}

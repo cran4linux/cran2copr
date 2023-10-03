@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  transfR
-%global packver   1.0.7
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transfer of Hydrograph from Gauged to Ungauged Catchments
 

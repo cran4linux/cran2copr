@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatsurv
-%global packver   1.8-2
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.2
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Spatial Survival Analysis with Parametric Proportional Hazards Models
 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-iterators
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lubridate 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-iterators
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-methods 
 Requires:         R-CRAN-lubridate 

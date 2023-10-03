@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mHMMbayes
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Hidden Markov Models Using Bayesian Estimation
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
@@ -38,13 +38,14 @@ e.g., de Haan-Rietdijk et al. <doi:10.1080/00273171.2017.1370364>. Using a
 multilevel framework, we allow for heterogeneity in the model parameters
 (transition probability matrix and conditional distribution), while
 estimating one overall HMM. The model can be fitted on multivariate data
-with a categorical distribution, and include individual level covariates
-(allowing for e.g., group comparisons on model parameters). Parameters are
-estimated using Bayesian estimation utilizing the forward-backward
-recursion within a hybrid Metropolis within Gibbs sampler. The package
-also includes various visualization options, a function to simulate data,
-and a function to obtain the most likely hidden state sequence for each
-individual using the Viterbi algorithm.
+with either a categorical or Normal distribution, and include individual
+level covariates (allowing for e.g., group comparisons on model
+parameters). Parameters are estimated using Bayesian estimation utilizing
+the forward-backward recursion within a hybrid Metropolis within Gibbs
+sampler. Missing data (NA) in the dependent variables is accommodated
+assuming MAR. The package also includes various visualization options, a
+function to simulate data, and a function to obtain the most likely hidden
+state sequence for each individual using the Viterbi algorithm.
 
 %prep
 %setup -q -c -n %{packname}

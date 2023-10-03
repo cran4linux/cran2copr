@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nhdplusTools
-%global packver   0.7.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NHDPlus Tools
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-hydroloom 
+BuildRequires:    R-CRAN-dataRetrieval 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -30,18 +30,17 @@ BuildRequires:    R-CRAN-R.utils
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rosm 
-BuildRequires:    R-CRAN-prettymapr 
+BuildRequires:    R-CRAN-maptiles 
+BuildRequires:    R-CRAN-mapsf 
 BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-dataRetrieval 
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-arrow 
+Requires:         R-CRAN-hydroloom 
+Requires:         R-CRAN-dataRetrieval 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jsonlite 
@@ -51,14 +50,13 @@ Requires:         R-CRAN-R.utils
 Requires:         R-utils 
 Requires:         R-CRAN-tidyr 
 Requires:         R-methods 
-Requires:         R-CRAN-rosm 
-Requires:         R-CRAN-prettymapr 
+Requires:         R-CRAN-maptiles 
+Requires:         R-CRAN-mapsf 
 Requires:         R-CRAN-fst 
-Requires:         R-CRAN-dataRetrieval 
+Requires:         R-CRAN-arrow 
 Requires:         R-tools 
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-arrow 
 
 %description
 Tools for traversing and working with National Hydrography Dataset Plus

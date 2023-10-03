@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  crqa
-%global packver   2.0.3
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recurrence Quantification Analysis for Categorical and Continuous Time-Series
+Summary:          Unidimensional and Multidimensional Methods for Recurrence Quantification Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,24 +21,23 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-tseriesChaos 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-FSA 
 BuildRequires:    R-CRAN-rdist 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-tseriesChaos 
 Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-FSA 
 Requires:         R-CRAN-rdist 
 
 %description
 Auto, Cross and Multi-dimensional recurrence quantification analysis.
 Different methods for computing recurrence, cross vs. multidimensional or
-profile it -only looking at the diagonal recurrent points- as well as
+profile iti.e., only looking at the diagonal recurrent points, as well as
 functions for optimization and plotting are proposed. in-depth measures of
-the whole cross-recurrence plot, Please refer to Coco and Dale (2014)
-<doi:10.3389/fpsyg.2014.00510> and Wallot (2018)
-<doi:10.1080/00273171.2018.1512846> for further details about the method.
+the whole cross-recurrence plot, Please refer to Coco and others (2021)
+<doi:10.32614/RJ-2021-062>, Coco and Dale (2014)
+<doi:10.3389/fpsyg.2014.00510> and Wallot (2018) <doi:
+10.1080/00273171.2018.1512846> for further details about the method.
 
 %prep
 %setup -q -c -n %{packname}

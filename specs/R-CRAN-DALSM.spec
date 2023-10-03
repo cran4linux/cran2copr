@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BoolNet
-%global packver   2.1.9
+%global packname  DALSM
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.9
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Construction, Simulation and Analysis of Boolean Networks
+Summary:          Nonparametric Double Additive Location-Scale Model (DALSM)
 
-License:          Artistic-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-igraph >= 0.6
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-igraph >= 0.6
-Requires:         R-CRAN-XML 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cubicBsplines 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-cubicBsplines 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-plyr 
 
 %description
-Functions to reconstruct, generate, and simulate synchronous,
-asynchronous, probabilistic, and temporal Boolean networks. Provides also
-functions to analyze and visualize attractors in Boolean networks
-<doi:10.1093/bioinformatics/btq124>.
+Fit of a double additive location-scale model with a nonparametric error
+distribution from possibly right- or interval censored data. The additive
+terms in the location and dispersion submodels, as well as the unknown
+error distribution in the location-scale model, are estimated using
+Laplace P-splines. For more details, see Lambert (2021)
+<doi:10.1016/j.csda.2021.107250>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FLightR
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reconstruct Animal Paths from Solar Geolocation Loggers Data
 
@@ -14,42 +14,42 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bit 
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggsn 
 BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-CircStats 
 BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-suntools 
 BuildRequires:    R-CRAN-truncnorm 
 Requires:         R-CRAN-bit 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggsn 
 Requires:         R-CRAN-ggmap 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-CircStats 
 Requires:         R-CRAN-circular 
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-maps 
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-nlme 
 Requires:         R-parallel 
 Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-suntools 
 Requires:         R-CRAN-truncnorm 
 
 %description
