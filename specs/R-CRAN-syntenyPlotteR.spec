@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mgpStreamingSDK
-%global packver   0.2.0
+%global packname  syntenyPlotteR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interact with the Maxar MGP Streaming API
+Summary:          Genome Synteny Visualization
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,16 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-This grants the functionality of the Maxar Geospatial Platform (MGP)
-Streaming API. It can search for images using the WFS method. It can
-Download images using WMS WMTS. It can also Download a full resolution
-image.
+Draw syntenic relationships between genome assemblies. There are 3
+functions which take a tab delimited file containing alignment data for
+syntenic blocks between genomes to produce either a linear alignment plot,
+an evolution highway style plot, or a painted ideogram representing
+syntenic relationships. There is also a function to convert alignment data
+in the DESCHRAMBLER/inferCAR format to the required data structure.
 
 %prep
 %setup -q -c -n %{packname}

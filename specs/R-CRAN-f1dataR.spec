@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  f1dataR
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Formula 1 Data
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-reticulate >= 1.14
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-withr 
 
 %description
 Obtain Formula 1 data via the 'Ergast API' <https://ergast.com/mrd/> and

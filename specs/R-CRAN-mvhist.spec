@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mgpStreamingSDK
-%global packver   0.2.0
+%global packname  mvhist
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interact with the Maxar MGP Streaming API
+Summary:          Multivariate Histograms
 
-License:          Apache License 2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-mvmesh 
+BuildRequires:    R-CRAN-SimplicialCubature 
+BuildRequires:    R-CRAN-rcdd 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-mvmesh 
+Requires:         R-CRAN-SimplicialCubature 
+Requires:         R-CRAN-rcdd 
 
 %description
-This grants the functionality of the Maxar Geospatial Platform (MGP)
-Streaming API. It can search for images using the WFS method. It can
-Download images using WMS WMTS. It can also Download a full resolution
-image.
+Tabulate and plot directional and other multivariate histograms.
 
 %prep
 %setup -q -c -n %{packname}

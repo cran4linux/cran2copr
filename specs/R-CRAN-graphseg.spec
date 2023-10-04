@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  graphseg
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Segmentation of Graph-Based Signals
 
@@ -33,7 +33,7 @@ Requires:         R-CRAN-flsa
 %description
 Perform segmentation of graph-based signals. Assume a noisy observation of
 a signal two values correspond to vertices on a graph. Assume the true
-value of the signal is piece-wise constant (where each italic{piece} is a
+value of the signal is piece-wise constant (where each 'piece' is a
 connected subgraph). The main function, agraph(), computes the
 segmentation of the signal. The package also includes a wrapper around the
 competing method flsa() (from package 'flsa'). More information about this

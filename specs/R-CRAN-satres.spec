@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mgpStreamingSDK
-%global packver   0.2.0
+%global packname  satres
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interact with the Maxar MGP Streaming API
+Summary:          Grouping Satellite Bands by Spectral and Spatial Resolution
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-terra 
+Requires:         R-utils 
 
 %description
-This grants the functionality of the Maxar Geospatial Platform (MGP)
-Streaming API. It can search for images using the WFS method. It can
-Download images using WMS WMTS. It can also Download a full resolution
-image.
+Given raster files directly downloaded from various websites, it generates
+a raster structure where it merges them if they are tiles of the same
+scene and classifies them according to their spectral and spatial
+resolution for easy access by name.
 
 %prep
 %setup -q -c -n %{packname}

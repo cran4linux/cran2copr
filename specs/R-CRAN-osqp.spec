@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  osqp
-%global packver   0.6.0.8
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0.8
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quadratic Programming Solver using the 'OSQP' Library
 
@@ -16,13 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-Matrix >= 1.6.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-Matrix >= 1.6.1
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-R6 
 
 %description

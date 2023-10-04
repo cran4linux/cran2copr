@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CoordinateCleaner
-%global packver   2.0-20
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.20
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Cleaning of Occurrence Records from Biological Collections
 
@@ -13,38 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 2.0.1
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rnaturalearth >= 0.3.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rnaturalearth 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-rnaturalearth >= 0.3.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rnaturalearth 
 Requires:         R-stats 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 

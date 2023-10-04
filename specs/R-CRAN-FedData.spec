@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FedData
-%global packver   3.0.4
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Automate Downloading Geospatial Data Available from Several Federated Data Sources
 
@@ -17,48 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster >= 3.6.3
 BuildRequires:    R-CRAN-terra >= 1.0
 BuildRequires:    R-CRAN-sf >= 1.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-raster >= 3.6.3
 Requires:         R-CRAN-terra >= 1.0
 Requires:         R-CRAN-sf >= 1.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-sp 
 
 %description
 Functions to automate downloading geospatial data available from several

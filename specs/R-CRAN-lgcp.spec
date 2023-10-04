@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lgcp
-%global packver   1.8-2
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.2
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Log-Gaussian Cox Process
 
@@ -22,29 +22,27 @@ BuildRequires:    R-CRAN-spatstat.geom
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-spatstat.utils 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-rgeos 
 Requires:         R-CRAN-rpanel >= 1.1.3
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-spatstat.utils 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 
 Requires:         R-tcltk 
 Requires:         R-CRAN-iterators 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-methods 
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-rgeos 
 
 %description
 Spatial and spatio-temporal modelling of point patterns using the
