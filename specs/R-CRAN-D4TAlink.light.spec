@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  D4TAlink.light
-%global packver   2.1.11
+%global packver   2.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.11
+Version:          2.1.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          FAIR Data - Workflow Management
 

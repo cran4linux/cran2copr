@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesMallows
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Preference Learning with the Mallows Rank Model
 
@@ -43,19 +43,20 @@ Requires:         R-methods
 An implementation of the Bayesian version of the Mallows rank model
 (Vitelli et al., Journal of Machine Learning Research, 2018
 <https://jmlr.org/papers/v18/15-481.html>; Crispino et al., Annals of
-Applied Statistics, 2019 <doi:10.1214/18-AOAS1203>). Both
-Metropolis-Hastings and sequential Monte Carlo algorithms for estimating
-the models are available. Cayley, footrule, Hamming, Kendall, Spearman,
-and Ulam distances are supported in the models. The rank data to be
-analyzed can be in the form of complete rankings, top-k rankings,
-partially missing rankings, as well as consistent and inconsistent
-pairwise preferences. Several functions for plotting and studying the
-posterior distributions of parameters are provided. The package also
-provides functions for estimating the partition function (normalizing
-constant) of the Mallows rank model, both with the importance sampling
-algorithm of Vitelli et al. and asymptotic approximation with the IPFP
-algorithm (Mukherjee, Annals of Statistics, 2016
-<doi:10.1214/15-AOS1389>).
+Applied Statistics, 2019 <doi:10.1214/18-AOAS1203>; Sorensen et al., R
+Journal, 2020 <doi:10.32614/RJ-2020-026>; Stein, PhD Thesis, 2023
+<https://eprints.lancs.ac.uk/id/eprint/195759>). Both Metropolis-Hastings
+and sequential Monte Carlo algorithms for estimating the models are
+available. Cayley, footrule, Hamming, Kendall, Spearman, and Ulam
+distances are supported in the models. The rank data to be analyzed can be
+in the form of complete rankings, top-k rankings, partially missing
+rankings, as well as consistent and inconsistent pairwise preferences.
+Several functions for plotting and studying the posterior distributions of
+parameters are provided. The package also provides functions for
+estimating the partition function (normalizing constant) of the Mallows
+rank model, both with the importance sampling algorithm of Vitelli et al.
+and asymptotic approximation with the IPFP algorithm (Mukherjee, Annals of
+Statistics, 2016 <doi:10.1214/15-AOS1389>).
 
 %prep
 %setup -q -c -n %{packname}
