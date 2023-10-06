@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  decisionSupport
-%global packver   1.111
+%global packver   1.113
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.111
+Version:          1.113
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Support of Decision Making under Uncertainty
 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-mvtnorm >= 1.0.2
 BuildRequires:    R-CRAN-chillR >= 0.62
 BuildRequires:    R-CRAN-fANCOVA >= 0.5
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-grDevices 
@@ -42,6 +44,7 @@ Requires:         R-CRAN-mvtnorm >= 1.0.2
 Requires:         R-CRAN-chillR >= 0.62
 Requires:         R-CRAN-fANCOVA >= 0.5
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-class 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggstance 
 Requires:         R-grDevices 

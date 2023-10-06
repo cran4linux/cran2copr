@@ -1,48 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geodimension
-%global packver   1.0.1
+%global packname  pysparklyr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Definition of Geographic Dimensions
+Summary:          Provides a 'PySpark' Back-End for the 'sparklyr' Package
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sparklyr >= 1.8.3
+BuildRequires:    R-CRAN-reticulate >= 1.31
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-httr2 
+Requires:         R-CRAN-sparklyr >= 1.8.3
+Requires:         R-CRAN-reticulate >= 1.31
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-httr2 
 
 %description
-The geographic dimension plays a fundamental role in multidimensional
-systems. To define a geographic dimension in a star schema, we need a
-table with attributes corresponding to the levels of the dimension.
-Additionally, we will also need one or more geographic layers to represent
-the data using this dimension. The goal of this package is to support the
-definition of geographic dimensions from layers of geographic information
-related to each other. It makes it easy to define relationships between
-layers and obtain the necessary data from them.
+It enables 'sparklyr' to integrate with 'Spark Connect', and 'Databricks
+Connect' by providing a wrapper over the 'PySpark' 'python' library.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidytable
-%global packver   0.10.2
+%global packname  speccurvieR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Easy, Fast, and Pretty Specification Curve Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-pillar >= 1.8.0
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-vctrs >= 0.6.0
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-pillar >= 1.8.0
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-lfe 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-lfe 
+Requires:         R-CRAN-pbapply 
+Requires:         R-parallel 
 
 %description
-A tidy interface to 'data.table', giving users the speed of 'data.table'
-while using tidyverse-like syntax.
+Making specification curve analysis easy, fast, and pretty. It improves
+upon existing offerings with additional features and 'tidyverse'
+integration. Users can easily visualize and evaluate how their models
+behave under different specifications with a high degree of customization.
+For a description and applications of specification curve analysis see
+Simonsohn, Simmons, and Nelson (2020) <doi:10.1038/s41562-020-0912-z>.
 
 %prep
 %setup -q -c -n %{packname}

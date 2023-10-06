@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidytable
-%global packver   0.10.2
+%global packname  arima2
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Likelihood Based Inference for ARIMA Modeling
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-pillar >= 1.8.0
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-vctrs >= 0.6.0
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-pillar >= 1.8.0
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 
 %description
-A tidy interface to 'data.table', giving users the speed of 'data.table'
-while using tidyverse-like syntax.
+Estimating and analyzing auto regressive integrated moving average (ARIMA)
+models. The primary function in this package is arima(), which fits an
+ARIMA model to univariate time series data using a random restart
+algorithm. This approach frequently leads to models that have model
+likelihood greater than or equal to that of the likelihood obtained by
+fitting the same model using the arima() function from the 'stats'
+package. This package enables proper optimization of model likelihoods,
+which is a necessary condition for performing likelihood ratio tests. This
+package relies heavily on the source code of the arima() function of the
+'stats' package. For more information, please see Jesse Wheeler and Edward
+L. Ionides (2023) <arXiv:2310.01198>.
 
 %prep
 %setup -q -c -n %{packname}

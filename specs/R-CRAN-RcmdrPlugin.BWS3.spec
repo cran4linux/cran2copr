@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidytable
-%global packver   0.10.2
+%global packname  RcmdrPlugin.BWS3
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          R Commander Plug-in for Case 3 Best-Worst Scaling
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-pillar >= 1.8.0
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-vctrs >= 0.6.0
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-pillar >= 1.8.0
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-CRAN-support.BWS3 
+BuildRequires:    R-CRAN-support.CEs 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Rcmdr 
+Requires:         R-CRAN-support.BWS3 
+Requires:         R-CRAN-support.CEs 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Rcmdr 
 
 %description
-A tidy interface to 'data.table', giving users the speed of 'data.table'
-while using tidyverse-like syntax.
+Adds menu items for case 3 (multi-profile) best-worst scaling (BWS3) to
+the R Commander. BWS3 is a question-based survey method that designs
+various combinations of attribute levels (profiles), asks respondents to
+select the best and worst profiles in each choice set, and then measures
+preferences for the attribute levels by analyzing the responses. For
+details on BWS3, refer to Louviere et al. (2015)
+<doi:10.1017/CBO9781107337855>.
 
 %prep
 %setup -q -c -n %{packname}

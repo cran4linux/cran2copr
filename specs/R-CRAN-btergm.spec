@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  btergm
-%global packver   1.10.10
+%global packver   1.10.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.10
+Version:          1.10.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Temporal Exponential Random Graph Models by Bootstrapped Pseudolikelihood
 
@@ -52,9 +52,7 @@ pseudolikelihood with bootstrapped confidence intervals or Markov Chain
 Monte Carlo maximum likelihood. Goodness of fit assessment for ERGMs,
 TERGMs, and SAOMs. Micro-level interpretation of ERGMs and TERGMs. The
 methods are described in Leifeld, Cranmer and Desmarais (2018), JStatSoft
-<doi:10.18637/jss.v083.i06>. If the suggested speedglm cannot be found on
-CRAN, you can find an old version in the GitHub mirror of CRAN at
-<https://github.com/cran/speedglm>.
+<doi:10.18637/jss.v083.i06>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidytable
-%global packver   0.10.2
+%global packname  restriktor
+%global packver   0.5-30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.5.30
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Restricted Statistical Estimation and Inference for Linear Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-pillar >= 1.8.0
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-vctrs >= 0.6.0
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-pillar >= 1.8.0
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-CRAN-lavaan >= 0.6.10
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-ic.infer 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-norm 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-lavaan >= 0.6.10
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-ic.infer 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-norm 
+Requires:         R-CRAN-ggplot2 
 
 %description
-A tidy interface to 'data.table', giving users the speed of 'data.table'
-while using tidyverse-like syntax.
+Allow for easy-to-use testing or evaluating of linear equality and
+inequality restrictions about parameters and effects in (generalized)
+linear statistical models.
 
 %prep
 %setup -q -c -n %{packname}

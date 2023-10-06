@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidytable
-%global packver   0.10.2
+%global packname  conformalpvalue
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Computes Conformal p-Values
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-pillar >= 1.8.0
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-vctrs >= 0.6.0
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-pillar >= 1.8.0
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-e1071 
+Requires:         R-stats 
 
 %description
-A tidy interface to 'data.table', giving users the speed of 'data.table'
-while using tidyverse-like syntax.
+Computes marginal conformal p-values using conformal prediction in binary
+classification tasks. Conformal prediction is a framework that augments
+machine learning algorithms with a measure of uncertainty, in the form of
+prediction regions that attain a user-specified level of confidence. This
+package specifically focuses on providing conformal p-values that can be
+used to assess the confidence of the classification predictions. For more
+details, see Tyagi and Guo (2023)
+<https://proceedings.mlr.press/v204/tyagi23a.html>.
 
 %prep
 %setup -q -c -n %{packname}

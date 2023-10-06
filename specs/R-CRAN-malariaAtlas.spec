@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  malariaAtlas
-%global packver   1.2.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Interface to Open-Access Malaria Data, Hosted by the 'Malaria Atlas Project'
 
@@ -18,12 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -33,13 +31,16 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyterra 
+BuildRequires:    R-CRAN-ows4R 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tidyr 
 Requires:         R-methods 
 Requires:         R-stats 
@@ -49,6 +50,11 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyterra 
+Requires:         R-CRAN-ows4R 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringr 
 
 %description
 A suite of tools to allow you to download all publicly available parasite

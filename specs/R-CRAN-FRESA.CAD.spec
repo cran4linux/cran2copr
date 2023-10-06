@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FRESA.CAD
-%global packver   3.4.5
+%global packver   3.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.5
+Version:          3.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Selection Algorithms for Computer Aided Diagnosis
 

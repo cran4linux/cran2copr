@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FossilSim
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Fossil and Taxonomy Data
 
@@ -17,9 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-TreeSim 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-TreeSim 
 
 %description
 Simulating taxonomy and fossil data on phylogenetic trees under

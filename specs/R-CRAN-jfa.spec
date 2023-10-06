@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jfa
-%global packver   0.6.7
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Auditing
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-rstantools >= 2.2.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-extraDistr >= 1.9.1
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-truncdist >= 1.0.2
@@ -32,8 +32,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-ggplot2 >= 3.4.2
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-rstantools >= 2.2.0
-Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-extraDistr >= 1.9.1
 Requires:         R-CRAN-truncdist >= 1.0.2
 Requires:         R-CRAN-bde >= 1.0.1.1
@@ -47,13 +47,15 @@ Provides statistical methods for auditing as implemented in JASP for Audit
 (Derks et al., 2021 <doi:10.21105/joss.02733>). First, the package makes
 it easy for an auditor to plan a statistical sample, select the sample
 from the population, and evaluate the misstatement in the sample compliant
-with international auditing standards. Next to classical audit sampling
-methodology, the package implements Bayesian equivalents of these methods
-whose statistical underpinnings are described in Derks et al. (2021)
-<doi:10.1111/ijau.12240>, Derks et al. (2021) <doi:10.31234/osf.io/kzqp5>,
-and Derks et al. (2022) <doi:10.31234/osf.io/8nf3e>. Second, the package
-provides statistical methods for auditing data, including (Bayesian) tests
-of digit distributions and tests for repeated values.
+with international auditing standards. Second, the package provides
+statistical methods for auditing data, including tests of digit
+distributions and repeated values. Finally, the package includes methods
+for auditing algorithms on the aspect of fairness and bias. Next to
+classical statistical methodology, the package implements Bayesian
+equivalents of these methods whose statistical underpinnings are described
+in Derks et al. (2021) <doi:10.1111/ijau.12240>, Derks et al. (2021)
+<doi:10.31234/osf.io/kzqp5>, and Derks et al. (2022)
+<doi:10.31234/osf.io/8nf3e>.
 
 %prep
 %setup -q -c -n %{packname}

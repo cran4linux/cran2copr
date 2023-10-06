@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  highfrequency
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Highfrequency Data Analysis
 
@@ -52,12 +52,9 @@ Requires:         R-CRAN-Rsolnp
 Provide functionality to manage, clean and match highfrequency trades and
 quotes data, calculate various liquidity measures, estimate and forecast
 volatility, detect price jumps and investigate microstructure noise and
-intraday periodicity. A detailed vignette can be found in the paper
-"Analyzing Intraday Financial Data in R: The highfrequency Package" by
-Boudt, Kleen, and Sjoerup (2022, <doi:10.18637/jss.v104.i08>). The DOI in
-the CITATION is for a new Journal of Statistical Software publication that
-will be registered after publication on CRAN. A working paper version can
-be found on SSRN: <doi:10.2139/ssrn.3917548>.
+intraday periodicity. A detailed vignette can be found in the open-access
+paper "Analyzing Intraday Financial Data in R: The highfrequency Package"
+by Boudt, Kleen, and Sjoerup (2022, <doi:10.18637/jss.v104.i08>).
 
 %prep
 %setup -q -c -n %{packname}
