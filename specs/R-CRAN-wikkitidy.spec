@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  countries
-%global packver   1.0.5
+%global packname  wikkitidy
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deal with Country Data in an Easy Way
+Summary:          Tidy Analysis of Wikipedia
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,42 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-fastmatch 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lubridate 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-viridis 
-Requires:         R-grDevices 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vctrs 
 
 %description
-Wrangle country data more effectively and quickly. This package contains
-functions to easily identify and convert country names, download country
-information, merge country data from different sources, and make quick
-world maps.
+Access 'Wikipedia' through the several 'MediaWiki' APIs
+(<https://www.mediawiki.org/wiki/API>), as well as through the 'XTools'
+API (<https://www.mediawiki.org/wiki/XTools/API>). Ensure your API calls
+are correct, and receive results in tidy tibbles.
 
 %prep
 %setup -q -c -n %{packname}

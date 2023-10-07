@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kgrams
-%global packver   0.2.0
+%global packname  rglobi
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical k-gram Language Models
+Summary:          Interface to Global Biotic Interactions
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-RcppProgress >= 0.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-RcppProgress >= 0.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-readr >= 1.3.1
+BuildRequires:    R-CRAN-RCurl >= 0.3.4
+BuildRequires:    R-CRAN-curl >= 0.3.3
+Requires:         R-CRAN-readr >= 1.3.1
+Requires:         R-CRAN-RCurl >= 0.3.4
+Requires:         R-CRAN-curl >= 0.3.3
 
 %description
-Training and evaluating k-gram language models in R, supporting several
-probability smoothing techniques, perplexity computations, random text
-generation and more.
+A programmatic interface to the web service methods provided by Global
+Biotic Interactions (GloBI) (<https://www.globalbioticinteractions.org/>).
+GloBI provides access to spatial-temporal species interaction records from
+sources all over the world. rglobi provides methods to search species
+interactions by location, interaction type, and taxonomic name.
 
 %prep
 %setup -q -c -n %{packname}

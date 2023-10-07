@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kgrams
-%global packver   0.2.0
+%global packname  combat.enigma
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical k-gram Language Models
+Summary:          Fit and Apply ComBat Harmonization for ENIGMA
 
-License:          GPL (>= 3)
+License:          Artistic License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-RcppProgress >= 0.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-RcppProgress >= 0.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Training and evaluating k-gram language models in R, supporting several
-probability smoothing techniques, perplexity computations, random text
-generation and more.
+Fit and apply ComBat to harmonize magnetic resonance imaging (MRI) data
+from different sites. Briefly, ComBat is a batch adjustment method that
+removes additive and multiplicative differences between sites due to the
+use of different scanning devices. As detailed in the manual, the original
+function was first modified for the harmonization of MRI data (Fortin et
+al. (2017) <doi:10.1016/j.neuroimage.2017.11.024>) and then modified again
+to create separate functions for fitting and applying the harmonization
+and allow missing values and constant rows for its use within the
+Enhancing Neuro Imaging Genetics through Meta-Analysis (ENIGMA) Consortium
+(Radua et al. (2020) <doi:10.1016/j.neuroimage.2017.11.024>). This package
+includes the latter version.
 
 %prep
 %setup -q -c -n %{packname}

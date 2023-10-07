@@ -1,38 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kgrams
-%global packver   0.2.0
+%global packname  clubpro
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical k-gram Language Models
+Summary:          Classification Using Binary Procrustes Rotation
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-RcppProgress >= 0.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-RcppProgress >= 0.1
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-lattice 
 
 %description
-Training and evaluating k-gram language models in R, supporting several
-probability smoothing techniques, perplexity computations, random text
-generation and more.
+Implements a classification method described by Grice (2011,
+ISBN:978-0-12-385194-9) using binary procrustes rotation; a simplified
+version of procrustes rotation.
 
 %prep
 %setup -q -c -n %{packname}

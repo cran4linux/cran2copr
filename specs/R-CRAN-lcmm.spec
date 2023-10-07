@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lcmm
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Mixed Models Using Latent Classes and Latent Processes
 
@@ -18,23 +18,27 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-survival >= 2.37.2
 BuildRequires:    R-CRAN-marqLevAlg > 2.0
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-CRAN-survival >= 2.37.2
 Requires:         R-CRAN-marqLevAlg > 2.0
+Requires:         R-CRAN-nlme 
 Requires:         R-parallel 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-numDeriv 
 
 %description
 Estimation of various extensions of the mixed models including latent
-class mixed models, joint latent latent class mixed models, mixed models
-for curvilinear outcomes, mixed models for multivariate longitudinal
-outcomes using a maximum likelihood estimation method (Proust-Lima,
-Philipps, Liquet (2017) <doi:10.18637/jss.v078.i02>).
+class mixed models, joint latent class mixed models, mixed models for
+curvilinear outcomes, mixed models for multivariate longitudinal outcomes
+using a maximum likelihood estimation method (Proust-Lima, Philipps,
+Liquet (2017) <doi:10.18637/jss.v078.i02>).
 
 %prep
 %setup -q -c -n %{packname}

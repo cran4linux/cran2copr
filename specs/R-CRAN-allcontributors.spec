@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  allcontributors
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Acknowledge all Contributors to a Project
 
@@ -20,20 +20,18 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-ghql 
-BuildRequires:    R-CRAN-git2r 
+BuildRequires:    R-CRAN-gert 
+BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-gitcreds 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-ghql 
-Requires:         R-CRAN-git2r 
+Requires:         R-CRAN-gert 
+Requires:         R-CRAN-gh 
 Requires:         R-CRAN-gitcreds 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-magrittr 
 
 %description

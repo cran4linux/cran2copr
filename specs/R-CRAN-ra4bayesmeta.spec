@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ra4bayesmeta
-%global packver   1.0-7
+%global packver   1.0-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference Analysis for Bayesian Meta-Analysis
 
@@ -22,15 +23,13 @@ Requires:         R-CRAN-bayesmeta
 %description
 Functionality for performing a principled reference analysis in the
 Bayesian normal-normal hierarchical model used for Bayesian meta-analysis,
-as described in Ott, Plummer and Roos (2021, "How vague is vague? How
-informative is informative? Reference analysis for Bayesian
-meta-analysis", under minor revision for Statistics in Medicine). Computes
-a reference posterior, induced by a minimally informative improper
-reference prior for the between-study (heterogeneity) standard deviation.
-Determines additional proper anti-conservative (and conservative) prior
-benchmarks. Includes functions for reference analyses at both the
-posterior and the prior level, which, given the data, quantify the
-informativeness of a heterogeneity prior of interest relative to the
+as described in Ott, Plummer and Roos (2021) <doi:10.1002/sim.9076>.
+Computes a reference posterior, induced by a minimally informative
+improper reference prior for the between-study (heterogeneity) standard
+deviation. Determines additional proper anti-conservative (and
+conservative) prior benchmarks. Includes functions for reference analyses
+at both the posterior and the prior level, which, given the data, quantify
+the informativeness of a heterogeneity prior of interest relative to the
 minimally informative reference prior and the proper prior benchmarks. The
 functions operate on data sets which are compatible with the 'bayesmeta'
 package.
@@ -43,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

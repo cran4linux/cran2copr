@@ -1,38 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kgrams
-%global packver   0.2.0
+%global packname  UniExactFunTest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical k-gram Language Models
+Summary:          Uniform Exact Functional Tests for Contingency Tables
 
-License:          GPL (>= 3)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-RcppProgress >= 0.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-RcppProgress >= 0.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-stats 
 
 %description
-Training and evaluating k-gram language models in R, supporting several
-probability smoothing techniques, perplexity computations, random text
-generation and more.
+Testing whether two discrete variables have a functional relationship
+under null distributions where the two variables are statistically
+independent with fixed marginal counts. The fast enumeration algorithm was
+based on (Nguyen et al. 2020) <doi:10.24963/ijcai.2020/372>.
 
 %prep
 %setup -q -c -n %{packname}

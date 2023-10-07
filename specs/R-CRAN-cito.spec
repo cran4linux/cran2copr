@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cito
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Building and Training Neural Networks
 
@@ -21,10 +21,18 @@ BuildRequires:    R-CRAN-coro
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-torch 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-parabar 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-coro 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-torch 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-parabar 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-cli 
 
 %description
 Building and training custom neural networks in the typical R syntax. The

@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kgrams
-%global packver   0.2.0
+%global packname  tv
+%global packver   1.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.7.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical k-gram Language Models
+Summary:          Tools for Creating Time-Varying Datasets
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-RcppProgress >= 0.1
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.1
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-RcppProgress >= 0.1
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-dplyr >= 1.1.1
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
 
 %description
-Training and evaluating k-gram language models in R, supporting several
-probability smoothing techniques, perplexity computations, random text
-generation and more.
+Create a time-varying dataset using features, exposure, and look back
+specifications.
 
 %prep
 %setup -q -c -n %{packname}

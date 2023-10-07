@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kgrams
-%global packver   0.2.0
+%global packname  tigers
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical k-gram Language Models
+Summary:          Integration of Geography, Environment, and Remote Sensing
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-RcppProgress >= 0.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-RcppProgress >= 0.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Training and evaluating k-gram language models in R, supporting several
-probability smoothing techniques, perplexity computations, random text
-generation and more.
+Handling and manipulation polygons, coordinates, and other geographical
+objects. The tools include: polygon areas (Chamberlain and Duquette, 2007,
+<doi:2014/41271>), barycentric and trilinear coordinates (Hormann and
+Floater, 2006, <doi:10.1145/1183287.1183295>), convex hull for polygons
+(Graham and Yao, 1983, <doi:10.1016/0196-6774(83)90013-5>), polygon
+triangulation (Toussaint, 1991, <doi:10.1007/BF01905693>), great circle
+and geodesic distances, Hausdorff distance, and reduced major axis.
 
 %prep
 %setup -q -c -n %{packname}

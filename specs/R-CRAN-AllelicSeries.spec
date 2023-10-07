@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AllelicSeries
-%global packver   0.0.3.0
+%global packver   0.0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3.0
+Version:          0.0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Allelic Series Test
 
@@ -33,9 +33,9 @@ missense variants (DMVs), and protein truncating variants (PTVs) within a
 gene. COAST uses a set of adjustable weights that tailor the test towards
 rejecting the null hypothesis for genes where the average magnitude of
 effect increases monotonically from BMVs to DMVs to PTVs. See McCaw ZR,
-Somineni H, Bereket M, Klein C, Karaletsos T, Casale FP, Koller D, Soare
-TW. (2022) "An allelic series rare variant association test for candidate
-gene discovery" <doi:10.1101/2022.12.23.521658>.
+O’Dushlaine C, Somineni H, Bereket M, Klein C, Karaletsos T, Casale FP,
+Koller D, Soare TW. (2022) "An allelic series rare variant association
+test for candidate gene discovery" <doi:10.1101/2022.12.23.521658>.
 
 %prep
 %setup -q -c -n %{packname}

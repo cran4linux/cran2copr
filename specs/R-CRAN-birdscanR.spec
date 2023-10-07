@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  birdscanR
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Migration Traffic Rate Calculation Package for 'Birdscan MR1' Radars
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-suntools 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-modi 
 BuildRequires:    R-CRAN-reshape2 
@@ -39,7 +39,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-suntools 
 Requires:         R-methods 
 Requires:         R-CRAN-modi 
 Requires:         R-CRAN-reshape2 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admiral
-%global packver   0.12.1
+%global packver   0.12.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.12.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          ADaM in R Asset Library
 
@@ -47,7 +47,7 @@ are a mandatory part of any New Drug or Biologics License Application
 submitted to the United States Food and Drug Administration (FDA).
 Analysis derivations are implemented in accordance with the "Analysis Data
 Model Implementation Guide" (CDISC Analysis Data Model Team, 2021,
-<https://www.cdisc.org/standards/foundational/adam/adamig-v1-3-release-package>).
+<https://www.cdisc.org/standards/foundational/adam>).
 
 %prep
 %setup -q -c -n %{packname}

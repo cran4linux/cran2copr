@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kgrams
-%global packver   0.2.0
+%global packname  adephylo
+%global packver   1.1-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical k-gram Language Models
+Summary:          Exploratory Analyses for the Phylogenetic Comparative Method
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-RcppProgress >= 0.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-ade4 >= 1.7.10
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-RcppProgress >= 0.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-phylobase 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-adegenet 
+Requires:         R-CRAN-ade4 >= 1.7.10
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-phylobase 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-adegenet 
 
 %description
-Training and evaluating k-gram language models in R, supporting several
-probability smoothing techniques, perplexity computations, random text
-generation and more.
+Multivariate tools to analyze comparative data, i.e. a phylogeny and some
+traits measured for each taxa. The package contains functions to represent
+comparative data, compute phylogenetic proximities, perform multivariate
+analysis with phylogenetic constraints and test for the presence of
+phylogenetic autocorrelation. The package is described in Jombart et al
+(2010) <doi:10.1093/bioinformatics/btq292>.
 
 %prep
 %setup -q -c -n %{packname}

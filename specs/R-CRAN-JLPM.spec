@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  JLPM
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Latent Process Models
 
@@ -17,10 +18,12 @@ BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
 BuildRequires:    R-CRAN-survival >= 2.37.2
 BuildRequires:    R-CRAN-marqLevAlg >= 2.0.6
+BuildRequires:    R-CRAN-lcmm 
 BuildRequires:    R-CRAN-randtoolbox 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-survival >= 2.37.2
 Requires:         R-CRAN-marqLevAlg >= 2.0.6
+Requires:         R-CRAN-lcmm 
 Requires:         R-CRAN-randtoolbox 
 Requires:         R-CRAN-stringr 
 
@@ -29,8 +32,8 @@ Estimation of extended joint models with shared random effects.
 Longitudinal data are handled in latent process models for continuous
 (Gaussian or curvilinear) and ordinal outcomes while proportional hazard
 models are used for the survival part. We propose a frequentist approach
-using maximum likelihood estimation. See Saulnier et al, 2021
-<arXiv:2110.02612>.
+using maximum likelihood estimation. See Saulnier et al, 2022
+<doi:10.1016/j.ymeth.2022.03.003>.
 
 %prep
 %setup -q -c -n %{packname}

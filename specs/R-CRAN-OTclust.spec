@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OTclust
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mean Partition, Uncertainty Assessment, Cluster Validation and Visualization Selection for Cluster Analysis
 
@@ -32,7 +32,9 @@ Providing mean partition for ensemble clustering by optimal transport
 alignment(OTA), uncertainty measures for both partition-wise and
 cluster-wise assessment and multiple visualization functions to show
 uncertainty, for instance, membership heat map and plot of covering point
-set. A partition refers to an overall clustering result.
+set. A partition refers to an overall clustering result. Jia Li, Beomseok
+Seo, and Lin Lin (2019) <doi:10.1002/sam.11418>. Lixiang Zhang, Lin Lin,
+and Jia Li (2020) <doi:10.1093/bioinformatics/btaa165>.
 
 %prep
 %setup -q -c -n %{packname}

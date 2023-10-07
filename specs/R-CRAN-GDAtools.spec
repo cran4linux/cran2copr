@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GDAtools
-%global packver   2.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometric Data Analysis
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-descriptio 
+BuildRequires:    R-CRAN-descriptio >= 1.2
 BuildRequires:    R-CRAN-FactoMineR 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-descriptio 
+Requires:         R-CRAN-descriptio >= 1.2
 Requires:         R-CRAN-FactoMineR 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
