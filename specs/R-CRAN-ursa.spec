@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ursa
-%global packver   3.9.11
+%global packver   3.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.11
+Version:          3.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Interactive Spatial Tools for Raster Processing and Visualization
 
@@ -16,24 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-sf >= 0.6.1
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-jpeg 
+Requires:         R-CRAN-sf >= 0.6.1
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-jpeg 
 
 %description
 S3 classes and methods for manipulation with georeferenced raster data:
-reading/writing, processing, multi-panel visualization. SWU.
+reading/writing, processing, multi-panel visualization.
 
 %prep
 %setup -q -c -n %{packname}

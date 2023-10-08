@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grafify
-%global packver   3.2.0
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Graphs for Data Visualisation and Linear Models for ANOVA
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-Hmisc 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-Hmisc 

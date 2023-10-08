@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsyncrosim
-%global packver   1.4.2
+%global packver   1.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          The R Interface to 'SyncroSim'
 
@@ -20,13 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-lifecycle 
 

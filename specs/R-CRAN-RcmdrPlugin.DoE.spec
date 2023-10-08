@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RcmdrPlugin.DoE
-%global packver   0.12-4
+%global packver   0.12-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.4
+Version:          0.12.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander Plugin for (Industrial) Design of Experiments
 
@@ -19,14 +20,14 @@ Requires:         R-core >= 2.10.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-FrF2 >= 1.2.10
 BuildRequires:    R-CRAN-DoE.wrapper >= 0.8
-BuildRequires:    R-CRAN-DoE.base >= 0.22
+BuildRequires:    R-CRAN-DoE.base >= 0.22.8
 BuildRequires:    R-utils 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-Rcmdr 
 BuildRequires:    R-CRAN-RcmdrMisc 
 Requires:         R-CRAN-FrF2 >= 1.2.10
 Requires:         R-CRAN-DoE.wrapper >= 0.8
-Requires:         R-CRAN-DoE.base >= 0.22
+Requires:         R-CRAN-DoE.base >= 0.22.8
 Requires:         R-utils 
 Requires:         R-tcltk 
 Requires:         R-CRAN-Rcmdr 

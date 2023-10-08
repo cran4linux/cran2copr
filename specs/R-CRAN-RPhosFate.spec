@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPhosFate
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soil and Chemical Substance Emission and Transport Model
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-raster >= 3.6.3
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-hydroGOF 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-spatstat.geom 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-raster >= 3.6.3
 Requires:         R-CRAN-checkmate 
 Requires:         R-graphics 
-Requires:         R-CRAN-hydroGOF 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-spatstat.geom 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  birdring
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods to Analyse Ring Re-Encounter Data
 
@@ -18,33 +18,19 @@ BuildRequires:    R-devel >= 2.10.1
 Requires:         R-core >= 2.10.1
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-basemaps 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-lazyData 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rworldmap 
-BuildRequires:    R-CRAN-rworldxtra 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sp 
 Requires:         R-stats 
-Requires:         R-CRAN-basemaps 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-sfheaders 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-lazyData 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rworldmap 
-Requires:         R-CRAN-rworldxtra 
-Requires:         R-CRAN-sf 
 Requires:         R-methods 
 Requires:         R-graphics 
-Requires:         R-CRAN-sp 
 
 %description
 R functions to read EURING data and analyse re-encounter data of birds

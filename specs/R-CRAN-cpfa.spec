@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpfa
-%global packver   1.0-6
+%global packver   1.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification with Parallel Factor Analysis
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-randomForest
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-rda 
 Requires:         R-CRAN-multiway 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-e1071 
@@ -31,19 +32,21 @@ Requires:         R-CRAN-randomForest
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-rda 
 
 %description
 Classification using Richard A. Harshman's Parallel Factor Analysis-1
 (Parafac) model or Parallel Factor Analysis-2 (Parafac2) model fit to a
-three-way or four-way data array/tensor. See Harshman and Lundy (1994):
+three-way or four-way data tensor/array. See Harshman and Lundy (1994):
 <doi:10.1016/0167-9473(94)90132-5>. Uses component weights from one mode
 of the Parafac or Parafac2 model as features to tune parameters for one or
 more classification methods via a k-fold cross-validation procedure.
-Supports penalized logistic regression, support vector machine, random
-forest, and feed-forward neural network. Supports binary and multiclass
-classification. Predicts class labels or class probabilities and
-calculates multiple classification performance measures. Parallel
-computing is implemented via the 'parallel' and 'doParallel' packages.
+Allows for constraints on different tensor modes. Supports penalized
+logistic regression, support vector machine, random forest, feed-forward
+neural network, and regularized discriminant analysis. Supports binary and
+multiclass classification. Predicts class labels or class probabilities
+and calculates multiple classification performance measures. Implements
+parallel computing via the 'parallel' and 'doParallel' packages.
 
 %prep
 %setup -q -c -n %{packname}

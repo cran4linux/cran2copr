@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gamlss.cens
-%global packver   5.0-5
+%global packver   5.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.5
+Version:          5.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting an Interval Response Variable Using `gamlss.family' Distributions
 
