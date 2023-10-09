@@ -1,39 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  unitizer
-%global packver   1.4.20
+%global packname  CDSS
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.20
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive R Unit Tests
+Summary:          Course-Dependent Skill Structures
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon >= 1.3.2
-BuildRequires:    R-CRAN-diffobj >= 0.1.5.9000
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-crayon >= 1.3.2
-Requires:         R-CRAN-diffobj >= 0.1.5.9000
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-openxlsx >= 4.2.0
+BuildRequires:    R-CRAN-readODS >= 2.0.0
+Requires:         R-CRAN-openxlsx >= 4.2.0
+Requires:         R-CRAN-readODS >= 2.0.0
 
 %description
-Simplifies regression tests by comparing objects produced by test code
-with earlier versions of those same objects.  If objects are unchanged the
-tests pass, otherwise execution stops with error details.  If in
-interactive mode, tests can be reviewed through the provided interactive
-environment.
+Deriving skill structures from skill assignment data for courses (sets of
+learning objects).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  unitizer
-%global packver   1.4.20
+%global packname  daff
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.20
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive R Unit Tests
+Summary:          Diff, Patch and Merge for Data.frames
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon >= 1.3.2
-BuildRequires:    R-CRAN-diffobj >= 0.1.5.9000
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-V8 >= 0.6
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-crayon >= 1.3.2
-Requires:         R-CRAN-diffobj >= 0.1.5.9000
-Requires:         R-methods 
-Requires:         R-stats 
+Requires:         R-CRAN-V8 >= 0.6
+Requires:         R-CRAN-jsonlite 
 Requires:         R-utils 
 
 %description
-Simplifies regression tests by comparing objects produced by test code
-with earlier versions of those same objects.  If objects are unchanged the
-tests pass, otherwise execution stops with error details.  If in
-interactive mode, tests can be reviewed through the provided interactive
-environment.
+Diff, patch and merge for data frames. Document changes in data sets and
+use them to apply patches. Changes to data can be made visible by using
+render_diff(). The 'V8' package is used to wrap the 'daff.js' 'JavaScript'
+library which is included in the package.
 
 %prep
 %setup -q -c -n %{packname}

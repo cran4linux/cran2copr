@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rang
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reconstructing Reproducible R Computational Environments
 
@@ -27,6 +27,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-here 
 Requires:         R-CRAN-parsedate 
 Requires:         R-CRAN-fastmap 
 Requires:         R-CRAN-jsonlite 
@@ -37,6 +38,7 @@ Requires:         R-utils
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-renv 
+Requires:         R-CRAN-here 
 
 %description
 Resolve the dependency graph of R packages at a specific time point based
