@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OneArm2stage
-%global packver   1.1.5
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal One-Arm Two-Stage Phase II Design with Survival Endpoint
+Summary:          Phase II Single-Arm Two-Stage Designs with Time-to-Event Outcomes
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,16 +27,17 @@ Requires:         R-CRAN-flexsurv
 Requires:         R-CRAN-IPDfromKM 
 
 %description
-The proposed two-stage design can be used for single-arm phase II trial
-designs with time-to-event endpoints, which is desirable for clinical
-trials on immunotherapies among cancer patients. There're two advantages
-of the proposed approach: 1) It provides flexible choices of four
-underlying survival distributions and 2) the power of the design is more
-accurately calculated using exact variance in one-sample log-rank test.
-The package can be used for 1) planning the sample size; 2) conducting the
-interim and final analyses for the Go/No-go decisions. More details about
-the design method can be found in the paper: Wu, J, Chen L, Wei J, Weiss
-H, Chauhan A. (2020). <doi:10.1002/pst.1983>.
+Two-stage design for single-arm phase II trials with time-to-event
+endpoints (e.g., clinical trials on immunotherapies among cancer patients)
+can be calculated using this package. Two notable advantages of the
+package: 1) It provides flexible choices from three design methods
+(optimal, minmax, and admissible), and 2) the power of the design is more
+accurately calculated using the exact variance in the one-sample log-rank
+test. The package can be used for 1) planning the sample sizes and other
+design parameters, and 2) conducting the interim and final analyses for
+the Go/No-go decisions. More details about the design method can be found
+in: Wu, J, Chen L, Wei J, Weiss H, Chauhan A. (2020).
+<doi:10.1002/pst.1983>.
 
 %prep
 %setup -q -c -n %{packname}

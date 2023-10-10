@@ -1,29 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNetCDF
-%global packver   2.7-1
+%global packname  geslaR
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'NetCDF' Datasets
+Summary:          Get and Manipulate the GESLA Dataset
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    netcdf-devel
-BuildRequires:    udunits2-devel
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cli 
 
 %description
-An interface to the 'NetCDF' file formats designed by Unidata for
-efficient storage of array-oriented scientific data and descriptions. Most
-capabilities of 'NetCDF' version 4 are supported. Optional conversions of
-time units are enabled by 'UDUNITS' version 2, also from Unidata.
+Promote access to the GESLA <https://gesla787883612.wordpress.com> (Global
+Extreme Sea Level Analysis) dataset, a higher-frequency sea-level record
+data from all over the world. It provides functions to download it
+entirely, or query subsets directly into R, without the need of
+downloading the full dataset. Also, it provides a built-in
+web-application, so that users can apply basic filters to select the data
+of interest, generating informative plots, and showing the selected sites.
 
 %prep
 %setup -q -c -n %{packname}

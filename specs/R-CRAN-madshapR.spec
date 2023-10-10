@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  madshapR
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Support Technical Processes Following 'Maelstrom Research' Standards
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fabR >= 2.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
@@ -29,15 +30,16 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fabR 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-fabR >= 2.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
@@ -50,15 +52,15 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-haven 
 Requires:         R-CRAN-bookdown 
 Requires:         R-stats 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-xfun 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-fs 
 Requires:         R-utils 
-Requires:         R-CRAN-fabR 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Functions to support rigorous processes in data cleaning, evaluation, and

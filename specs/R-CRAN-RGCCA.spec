@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RGCCA
-%global packver   3.0.1
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized and Sparse Generalized Canonical Correlation Analysis for Multiblock Data
 
@@ -50,13 +50,11 @@ variables (blocks) observed on the same group of individuals. The main
 aims of the RGCCA package are: to study the relationships between blocks
 and to identify subsets of variables of each block which are active in
 their relationships with the other blocks. This package allows to (i) run
-R/SGCCA and related methods (link{rgcca}), (ii) help the user to find out
-the optimal parameters for R/SGCCA such as regularization parameters (tau
-or sparsity) (link{rgcca_permutation}, link{rgcca_cv}), (iii) evaluate
-the stability of the RGCCA results and their significance
-(link{rgcca_bootstrap} and link{rgcca_stability}), (iv) build predictive
-models from the R/SGCCA (link{rgcca_predict}), (v) Generic print() and
-plot() functions apply to all these functionalities.
+R/SGCCA and related methods, (ii) help the user to find out the optimal
+parameters for R/SGCCA such as regularization parameters (tau or
+sparsity), (iii) evaluate the stability of the RGCCA results and their
+significance, (iv) build predictive models from the R/SGCCA. (v) Generic
+print() and plot() functions apply to all these functionalities.
 
 %prep
 %setup -q -c -n %{packname}

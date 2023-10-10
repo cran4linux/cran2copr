@@ -1,29 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNetCDF
-%global packver   2.7-1
+%global packname  fairadapt
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'NetCDF' Datasets
+Summary:          Fair Data Adaptation with Quantile Preservation
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    netcdf-devel
-BuildRequires:    udunits2-devel
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ranger >= 0.13.1
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-qrnn 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ranger >= 0.13.1
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-qrnn 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-scales 
 
 %description
-An interface to the 'NetCDF' file formats designed by Unidata for
-efficient storage of array-oriented scientific data and descriptions. Most
-capabilities of 'NetCDF' version 4 are supported. Optional conversions of
-time units are enabled by 'UDUNITS' version 2, also from Unidata.
+An implementation of the fair data adaptation with quantile preservation
+described in Plecko & Meinshausen (2019) <arXiv:1911.06685>. The
+adaptation procedure uses the specified causal graph to pre-process the
+given training and testing data in such a way to remove the bias caused by
+the protected attribute. The procedure uses tree ensembles for quantile
+regression.
 
 %prep
 %setup -q -c -n %{packname}

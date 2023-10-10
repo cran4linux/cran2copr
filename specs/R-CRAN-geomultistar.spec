@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  viraldomain
-%global packver   0.0.2
+%global packname  geomultistar
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Applicability Domain Methods of Viral Load and CD4 Lymphocytes
+Summary:          Multidimensional Queries Enriched with Geographic Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-applicable 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-earth 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-recipes 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-vdiffr 
-BuildRequires:    R-CRAN-workflows 
-Requires:         R-CRAN-applicable 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-starschemar 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-earth 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-recipes 
-Requires:         R-stats 
-Requires:         R-CRAN-vdiffr 
-Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-starschemar 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides methods for assessing the applicability domain of models that
-predict viral load and CD4 (Cluster of Differentiation 4) lymphocyte
-counts. These methods help determine the extent of extrapolation when
-making predictions.
+Multidimensional systems allow complex queries to be carried out in an
+easy way. The geographical dimension, together with the temporal
+dimension, plays a fundamental role in multidimensional systems. Through
+this package, vector layers can be associated to the attributes of
+geographic dimensions, so that the results of multidimensional queries can
+be obtained directly as vector layers. The multidimensional structures on
+which we can define the queries can be created from a flat table or
+imported directly using functions from this package.
 
 %prep
 %setup -q -c -n %{packname}

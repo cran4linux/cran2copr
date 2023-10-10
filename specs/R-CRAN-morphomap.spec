@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  morphomap
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Morphometric Maps, Bone Landmarking and Cross Sectional Geometry
 
@@ -19,11 +19,9 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-grDevices >= 3.5
 BuildRequires:    R-graphics >= 3.5
-BuildRequires:    R-CRAN-raster >= 3.0
 BuildRequires:    R-CRAN-colorRamps >= 2.3
 BuildRequires:    R-CRAN-Morpho >= 2.0
 BuildRequires:    R-CRAN-mgcv >= 1.8
-BuildRequires:    R-CRAN-rgdal >= 1.4
 BuildRequires:    R-CRAN-sp >= 1.3
 BuildRequires:    R-CRAN-oce >= 1.1
 BuildRequires:    R-CRAN-Arothron >= 1.0
@@ -34,11 +32,9 @@ BuildRequires:    R-CRAN-Rvcg >= 0.18
 BuildRequires:    R-CRAN-rgl >= 0.1
 Requires:         R-grDevices >= 3.5
 Requires:         R-graphics >= 3.5
-Requires:         R-CRAN-raster >= 3.0
 Requires:         R-CRAN-colorRamps >= 2.3
 Requires:         R-CRAN-Morpho >= 2.0
 Requires:         R-CRAN-mgcv >= 1.8
-Requires:         R-CRAN-rgdal >= 1.4
 Requires:         R-CRAN-sp >= 1.3
 Requires:         R-CRAN-oce >= 1.1
 Requires:         R-CRAN-Arothron >= 1.0

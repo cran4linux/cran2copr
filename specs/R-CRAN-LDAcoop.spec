@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNetCDF
-%global packver   2.7-1
+%global packname  LDAcoop
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'NetCDF' Datasets
+Summary:          Analysis of Data from Limiting Dilution Assay (LDA) with or without Cellular Cooperation
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    netcdf-devel
-BuildRequires:    udunits2-devel
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Hmisc 
+Requires:         R-CRAN-Hmisc 
 
 %description
-An interface to the 'NetCDF' file formats designed by Unidata for
-efficient storage of array-oriented scientific data and descriptions. Most
-capabilities of 'NetCDF' version 4 are supported. Optional conversions of
-time units are enabled by 'UDUNITS' version 2, also from Unidata.
+Cellular cooperation compromises the established method of calculating
+clonogenic activity from limiting dilution assay (LDA) data. This tool
+provides functions that enable robust analysis in presence or absence of
+cellular cooperation. The implemented method incorporates the same
+cooperativity module to model the non-linearity associated with cellular
+cooperation as known from the colony formation assay (Brix et al. (2021)
+<doi:10.1038/s41596-021-00615-0>: "Analysis of clonogenic growth in
+vitro." Nature protocols).
 
 %prep
 %setup -q -c -n %{packname}

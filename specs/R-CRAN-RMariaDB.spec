@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RMariaDB
-%global packver   1.2.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Database Interface and MariaDB Driver
 
@@ -18,16 +19,15 @@ BuildRequires:    R-devel >= 2.8.0
 Requires:         R-core >= 2.8.0
 BuildRequires:    R-CRAN-DBI >= 1.1.3
 BuildRequires:    R-CRAN-hms >= 0.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-blob 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cpp11 
 BuildRequires:    R-CRAN-plogr 
 Requires:         R-CRAN-DBI >= 1.1.3
 Requires:         R-CRAN-hms >= 0.5.0
-Requires:         R-CRAN-Rcpp >= 0.12.4
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-blob 
 Requires:         R-CRAN-lubridate 

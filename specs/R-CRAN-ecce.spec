@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecce
-%global packver   2.0.5
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Translate English Words into Chinese, or Translate Chinese Words into English
 

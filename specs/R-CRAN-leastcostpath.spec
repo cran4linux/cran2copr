@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  leastcostpath
-%global packver   1.8.7
+%global packver   2.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.7
+Version:          2.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling Pathways and Movement Potential Within a Landscape
 
@@ -16,28 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-parallel >= 3.4.1
-BuildRequires:    R-CRAN-raster >= 2.6.7
-BuildRequires:    R-CRAN-pbapply >= 1.4.2
-BuildRequires:    R-CRAN-rgdal >= 1.3.3
-BuildRequires:    R-CRAN-sp >= 1.3.1
-BuildRequires:    R-CRAN-gdistance >= 1.2.2
-BuildRequires:    R-CRAN-rgeos >= 0.3.28
+BuildRequires:    R-CRAN-gstat >= 2.0.9
+BuildRequires:    R-CRAN-terra >= 1.5.34
+BuildRequires:    R-CRAN-foreach >= 1.5.2
+BuildRequires:    R-CRAN-Matrix >= 1.4.1
+BuildRequires:    R-CRAN-igraph >= 1.3.0
+BuildRequires:    R-CRAN-sf >= 1.0.8
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-gstat 
-Requires:         R-parallel >= 3.4.1
-Requires:         R-CRAN-raster >= 2.6.7
-Requires:         R-CRAN-pbapply >= 1.4.2
-Requires:         R-CRAN-rgdal >= 1.3.3
-Requires:         R-CRAN-sp >= 1.3.1
-Requires:         R-CRAN-gdistance >= 1.2.2
-Requires:         R-CRAN-rgeos >= 0.3.28
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-CRAN-gstat >= 2.0.9
+Requires:         R-CRAN-terra >= 1.5.34
+Requires:         R-CRAN-foreach >= 1.5.2
+Requires:         R-CRAN-Matrix >= 1.4.1
+Requires:         R-CRAN-igraph >= 1.3.0
+Requires:         R-CRAN-sf >= 1.0.8
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-gstat 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 
 %description
 Calculates cost surfaces based on slope to be used when modelling pathways

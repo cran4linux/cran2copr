@@ -1,48 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  viraldomain
-%global packver   0.0.2
+%global packname  easybgm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Applicability Domain Methods of Viral Load and CD4 Lymphocytes
+Summary:          Extracting and Visualizing Bayesian Graphical Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-applicable 
+BuildRequires:    R-CRAN-bgms >= 0.1.1
+BuildRequires:    R-CRAN-BDgraph 
+BuildRequires:    R-CRAN-BGGM 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-earth 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-recipes 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-vdiffr 
-BuildRequires:    R-CRAN-workflows 
-Requires:         R-CRAN-applicable 
+BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-qgraph 
+Requires:         R-CRAN-bgms >= 0.1.1
+Requires:         R-CRAN-BDgraph 
+Requires:         R-CRAN-BGGM 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-earth 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-recipes 
-Requires:         R-stats 
-Requires:         R-CRAN-vdiffr 
-Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-qgraph 
 
 %description
-Provides methods for assessing the applicability domain of models that
-predict viral load and CD4 (Cluster of Differentiation 4) lymphocyte
-counts. These methods help determine the extent of extrapolation when
-making predictions.
+Fit and visualize the results of a Bayesian analysis of networks commonly
+found in psychology. The package supports fitting cross-sectional network
+models fitted using the packages 'BDgraph', 'bgms' and 'BGGM'. The package
+provides the parameter estimates, posterior inclusion probabilities,
+inclusion Bayes factor, and the posterior density of the parameters. In
+addition, for 'BDgraph' and 'bgms' it allows to assess the posterior
+structure space. Furthermore, the package comes with an extensive suite
+for visualizing results.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  echarty
-%global packver   1.6.0
+%global packname  mvngGrAd
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimal R/Shiny Interface to JavaScript Library 'ECharts'
+Summary:          Moving Grid Adjustment in Plant Breeding Field Trials
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.tree >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-htmlwidgets 
-Requires:         R-CRAN-data.tree >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-htmlwidgets 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Deliver the full functionality of 'ECharts' with minimal overhead.
-'echarty' users build R lists for 'ECharts' API. Lean set of powerful
-commands.
+Package for moving grid adjustment in plant breeding field trials.
 
 %prep
 %setup -q -c -n %{packname}

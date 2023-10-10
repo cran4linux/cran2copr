@@ -1,29 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNetCDF
-%global packver   2.7-1
+%global packname  fqar
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'NetCDF' Datasets
+Summary:          Floristic Quality Assessment Tools for R
 
-License:          GPL (>= 2) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    netcdf-devel
-BuildRequires:    udunits2-devel
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-An interface to the 'NetCDF' file formats designed by Unidata for
-efficient storage of array-oriented scientific data and descriptions. Most
-capabilities of 'NetCDF' version 4 are supported. Optional conversions of
-time units are enabled by 'UDUNITS' version 2, also from Unidata.
+Tools for downloading and analyzing floristic quality assessment data. See
+Freyman et al. (2015) <doi:10.1111/2041-210X.12491> for more information
+about floristic quality assessment and the associated database.
 
 %prep
 %setup -q -c -n %{packname}
