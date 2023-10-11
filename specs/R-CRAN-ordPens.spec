@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ordPens
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Selection, Fusion, Smoothing and Principal Components Analysis for Ordinal Variables
 
@@ -21,11 +22,13 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-RLRsim 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-glmpath 
+BuildRequires:    R-CRAN-ordinalNet 
 Requires:         R-CRAN-grplasso 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-RLRsim 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-glmpath 
+Requires:         R-CRAN-ordinalNet 
 
 %description
 Selection, fusion, and/or smoothing of ordinally scaled independent

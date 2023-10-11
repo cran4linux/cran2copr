@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rphylopic
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Silhouettes of Organisms from PhyloPic
 
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rsvg >= 2.6.0
+BuildRequires:    R-CRAN-grImport2 >= 0.3.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-grid 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-grImport2 
-BuildRequires:    R-CRAN-rsvg 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-rsvg >= 2.6.0
+Requires:         R-CRAN-grImport2 >= 0.3.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-grid 
 Requires:         R-graphics 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-grImport2 
-Requires:         R-CRAN-rsvg 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-curl 
 Requires:         R-methods 

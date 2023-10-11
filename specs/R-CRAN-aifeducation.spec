@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aifeducation
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Artificial Intelligence for Education
 
@@ -18,9 +18,8 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-iotarelr >= 0.1.4
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-quanteda 
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-irr 
 BuildRequires:    R-CRAN-irrCAC 
@@ -29,17 +28,12 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-smotefamily 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-text2vec 
-BuildRequires:    R-CRAN-tidytext 
-BuildRequires:    R-CRAN-topicmodels 
-BuildRequires:    R-CRAN-udpipe 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-iotarelr >= 0.1.4
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-quanteda 
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-irr 
 Requires:         R-CRAN-irrCAC 
@@ -48,10 +42,6 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-smotefamily 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-text2vec 
-Requires:         R-CRAN-tidytext 
-Requires:         R-CRAN-topicmodels 
-Requires:         R-CRAN-udpipe 
 Requires:         R-utils 
 
 %description
@@ -62,10 +52,10 @@ often leading to small data sets. Furthermore, data in the educational and
 social sciences is often unbalanced in terms of frequencies. To support
 educators as well as educational and social researchers in using the
 potentials of AI for their work, this package provides a unified interface
-for neural nets in 'keras' and 'tensorflow' to deal with natural language
-problems. The tools integrate existing mathematical and statistical
-methods for dealing with small data sets via pseudo-labeling (e.g. Lee
-(2013)
+for neural nets in 'keras', 'tensorflow', and 'pytorch' to deal with
+natural language problems. The tools integrate existing mathematical and
+statistical methods for dealing with small data sets via pseudo-labeling
+(e.g. Lee (2013)
 <https://www.researchgate.net/publication/280581078_Pseudo-Label_The_Simple_and_Efficient_Semi-Supervised_Learning_Method_for_Deep_Neural_Networks>,
 Cascante-Bonilla et al. (2020) <doi:10.48550/arXiv.2001.06001>) and
 imbalanced data via the creation of synthetic cases (e.g. Bunkhumpornpat

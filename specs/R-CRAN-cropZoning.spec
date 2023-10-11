@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cropZoning
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Climate Crop Zoning Based in Air Temperature for Brazil
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-ncdf4 
-Requires:         R-CRAN-raster 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Climate crop zoning based in minimum and maximum air temperature. The data

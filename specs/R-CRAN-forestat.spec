@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forestat
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Carbon Sequestration and Potential Productivity Calculation
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-CRAN-nlme 
 Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
 Include assessing site classes based on the stand height growth and

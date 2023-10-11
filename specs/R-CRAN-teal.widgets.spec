@@ -1,56 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BAT
-%global packver   2.9.4
+%global packname  teal.widgets
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Biodiversity Assessment Tools
+Summary:          'shiny' Widgets for 'teal' Applications
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-shiny >= 1.6.0
+BuildRequires:    R-CRAN-styler >= 1.2.0
+BuildRequires:    R-CRAN-rtables >= 0.6.0.9004
+BuildRequires:    R-CRAN-htmltools >= 0.5.4
+BuildRequires:    R-CRAN-shinyWidgets >= 0.5.1
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-hypervolume 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nls2 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-geometry 
+BuildRequires:    R-CRAN-shinyjs 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-shiny >= 1.6.0
+Requires:         R-CRAN-styler >= 1.2.0
+Requires:         R-CRAN-rtables >= 0.6.0.9004
+Requires:         R-CRAN-htmltools >= 0.5.4
+Requires:         R-CRAN-shinyWidgets >= 0.5.1
+Requires:         R-CRAN-lifecycle >= 0.2.0
+Requires:         R-CRAN-bslib 
 Requires:         R-graphics 
-Requires:         R-CRAN-hypervolume 
-Requires:         R-CRAN-MASS 
+Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-nls2 
-Requires:         R-parallel 
-Requires:         R-CRAN-phytools 
-Requires:         R-stats 
-Requires:         R-CRAN-terra 
-Requires:         R-utils 
-Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-shinyjs 
 
 %description
-Includes algorithms to assess alpha and beta diversity in all their
-dimensions (taxonomic, phylogenetic and functional). It allows performing
-a number of analyses based on species identities/abundances,
-phylogenetic/functional distances, trees, convex-hulls or kernel density
-n-dimensional hypervolumes depicting species relationships. Cardoso et al.
-(2015) <doi:10.1111/2041-210X.12310>.
+Collection of 'shiny' widgets to support 'teal' applications. Enables the
+manipulation of application layout and plot or table settings.
 
 %prep
 %setup -q -c -n %{packname}

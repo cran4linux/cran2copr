@@ -1,56 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BAT
-%global packver   2.9.4
+%global packname  SIMle
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Biodiversity Assessment Tools
+Summary:          Estimation and Inference for General Time Series Regression
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-geometry 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-hypervolume 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-splines 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nls2 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-geometry 
-Requires:         R-graphics 
-Requires:         R-CRAN-hypervolume 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Sie2nts 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-RCurl 
+Requires:         R-splines 
 Requires:         R-methods 
-Requires:         R-CRAN-nls2 
-Requires:         R-parallel 
-Requires:         R-CRAN-phytools 
-Requires:         R-stats 
-Requires:         R-CRAN-terra 
 Requires:         R-utils 
-Requires:         R-CRAN-vegan 
+Requires:         R-stats 
+Requires:         R-CRAN-Sie2nts 
 
 %description
-Includes algorithms to assess alpha and beta diversity in all their
-dimensions (taxonomic, phylogenetic and functional). It allows performing
-a number of analyses based on species identities/abundances,
-phylogenetic/functional distances, trees, convex-hulls or kernel density
-n-dimensional hypervolumes depicting species relationships. Cardoso et al.
-(2015) <doi:10.1111/2041-210X.12310>.
+We provide functions for estimation and inference of nonlinear and
+non-stationary time series regression using the sieve methods and
+bootstrapping procedure.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidySEM
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Structural Equation Modeling
 
@@ -17,10 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
+BuildRequires:    R-CRAN-nonnest2 >= 0.5.6
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-OpenMx 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-blavaan 
 BuildRequires:    R-CRAN-MplusAutomation 
@@ -35,10 +36,12 @@ BuildRequires:    R-CRAN-bain
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-dagitty 
+Requires:         R-CRAN-ggplot2 >= 3.4.2
+Requires:         R-CRAN-nonnest2 >= 0.5.6
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-OpenMx 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-blavaan 
 Requires:         R-CRAN-MplusAutomation 
@@ -53,12 +56,14 @@ Requires:         R-CRAN-bain
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-dagitty 
 
 %description
 A tidy workflow for generating, estimating, reporting, and plotting
 structural equation models using 'lavaan', 'OpenMx', or 'Mplus'.
 Throughout this workflow, elements of syntax, results, and graphs are
-represented as 'tidy' data, making them easy to customize.
+represented as 'tidy' data, making them easy to customize. Includes
+functionality to estimate latent class analyses.
 
 %prep
 %setup -q -c -n %{packname}

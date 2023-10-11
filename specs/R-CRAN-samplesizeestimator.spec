@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rexpokit
-%global packver   0.26.6.9
+%global packname  samplesizeestimator
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.26.6.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Wrappers for EXPOKIT; Other Matrix Functions
+Summary:          Calculate Sample Size for Various Scenarios
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-stringi 
 Requires:         R-stats 
 
 %description
-Wraps some of the matrix exponentiation utilities from EXPOKIT
-(<http://www.maths.uq.edu.au/expokit/>), a FORTRAN library that is widely
-recommended for matrix exponentiation (Sidje RB, 1998. "Expokit: A
-Software Package for Computing Matrix Exponentials." ACM Trans. Math.
-Softw. 24(1): 130-156).  EXPOKIT includes functions for exponentiating
-both small, dense matrices, and large, sparse matrices (in sparse
-matrices, most of the cells have value 0). Rapid matrix exponentiation is
-useful in phylogenetics when we have a large number of states (as we do
-when we are inferring the history of transitions between the possible
-geographic ranges of a species), but is probably useful in other ways as
-well.
+Calculates sample size for various scenarios, such as sample size to
+estimate population proportion with stated absolute or relative precision,
+testing a single proportion with a reference value, to estimate the
+population mean with stated absolute or relative precision, testing single
+mean with a reference value and sample size for comparing two unpaired or
+independent means, comparing two paired means, the sample size For case
+control studies, estimating the odds ratio with stated precision, testing
+the odds ratio with a reference value, estimating relative risk with
+stated precision, testing relative risk with a reference value, testing a
+correlation coefficient with a specified value, etc.
+<https://www.academia.edu/39511442/Adequacy_of_Sample_Size_in_Health_Studies#:~:text=Determining%%20the%%20sample%%20size%%20for,may%%20yield%%20statistically%%20inconclusive%%20results.>.
 
 %prep
 %setup -q -c -n %{packname}

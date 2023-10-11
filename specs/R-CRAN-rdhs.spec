@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdhs
-%global packver   0.7.6
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          API Client and Dataset Management for the Demographic and Health Survey (DHS) Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-brio 
 BuildRequires:    R-CRAN-R6 
@@ -28,10 +28,12 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-storr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-qdapRegex 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-iotools 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-brio 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-httr 
@@ -43,10 +45,12 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-storr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-qdapRegex 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-getPass 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-iotools 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
 Provides a client for (1) querying the DHS API for survey indicators and

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GGoutlieR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Individuals with Unusual Geo-Genetic Patterns
 
@@ -17,36 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-FastKNN 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-rworldmap 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-mapplots 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-rworldxtra 
-BuildRequires:    R-CRAN-dichromat 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rnaturalearth 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
 Requires:         R-stats4 
 Requires:         R-CRAN-FastKNN 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-iterators 
 Requires:         R-parallel 
-Requires:         R-CRAN-rworldmap 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-mapplots 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-rworldxtra 
-Requires:         R-CRAN-dichromat 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-rnaturalearth 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
 
 %description
 Identify and visualize individuals with unusual association patterns of

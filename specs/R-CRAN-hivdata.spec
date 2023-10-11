@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ragg
-%global packver   1.2.6
+%global packname  hivdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphic Devices Based on AGG
+Summary:          Six-Year Chronological Data of HIV and ART Cases in Pakistan
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    freetype-devel
-BuildRequires:    libjpeg-turbo-devel
-BuildRequires:    libpng-devel
-BuildRequires:    libtiff-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-systemfonts >= 1.0.3
-BuildRequires:    R-CRAN-textshaping >= 0.3.0
-Requires:         R-CRAN-systemfonts >= 1.0.3
-Requires:         R-CRAN-textshaping >= 0.3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Anti-Grain Geometry (AGG) is a high-quality and high-performance 2D
-drawing library. The 'ragg' package provides a set of graphic devices
-based on AGG to use as alternative to the raster devices provided through
-the 'grDevices' package.
+We provide the monthly number of HIV and antiretroviral therapy (ART)
+cases of male, female, children and transgender as well as for the whole
+of Pakistan reported at various treatment centers in Pakistan from January
+2016 to December 2021. Related works include: a) Imran, M., Nasir, J. A.,
+& Riaz, S. (2018). Regional pattern of HIV cases in Pakistan. Journal of
+Postgraduate Medical Institute, 32(1), 9-13.
+<https://jpmi.org.pk/index.php/jpmi/article/view/2108>.
 
 %prep
 %setup -q -c -n %{packname}

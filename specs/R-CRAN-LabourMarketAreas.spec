@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LabourMarketAreas
-%global packver   3.3.1
+%global packver   3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.1
+Version:          3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identification, Tuning, Visualisation and Analysis of Labour Market Areas
 
@@ -17,18 +18,14 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tmap 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-spdep 
 Requires:         R-methods 
 Requires:         R-CRAN-tmap 

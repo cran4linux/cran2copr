@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcmcsae
-%global packver   0.7.4
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Markov Chain Monte Carlo Small Area Estimation
 
@@ -17,17 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-loo >= 2.0.0
-BuildRequires:    R-CRAN-Matrix >= 1.2.0
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-GIGrvg >= 0.7
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-loo >= 2.0.0
-Requires:         R-CRAN-Matrix >= 1.2.0
+Requires:         R-CRAN-Matrix >= 1.5.0
+Requires:         R-CRAN-GIGrvg >= 0.7
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-methods 
-Requires:         R-CRAN-GIGrvg 
 Requires:         R-CRAN-matrixStats 
 
 %description
