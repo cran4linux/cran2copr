@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  HeteroGGM
-%global packver   0.1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Graphical Model-Based Heterogeneity Analysis
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-huge 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-huge 
 
 %description
 The goal of this package is to user-friendly realizing Gaussian graphical
@@ -29,17 +32,16 @@ model-based heterogeneity analysis. Recently, several Gaussian graphical
 model-based heterogeneity analysis techniques have been developed. A
 common methodological limitation is that the number of subgroups is
 assumed to be known a priori, which is not realistic. In a very recent
-study (Ren et al., 2021), a novel approach based on the penalized fusion
+study (Ren et al., 2022), a novel approach based on the penalized fusion
 technique is developed to fully data-dependently determine the number and
 structure of subgroups in Gaussian graphical model-based heterogeneity
 analysis. It opens the door for utilizing the Gaussian graphical model
-technique in more practical settings. Beyond Ren et al. (2021), more
+technique in more practical settings. Beyond Ren et al. (2022), more
 estimations and functions are added, so that the package is self-contained
-and more comprehensive and can provide "more direct" insights to
+and more comprehensive and can provide ``more direct'' insights to
 practitioners (with the visualization function). Reference: Ren, M., Zhang
-S., Zhang Q. and Ma S. (2021). Gaussian Graphical Model-based
-Heterogeneity Analysis via Penalized Fusion. Biometrics,
-<doi:10.1111/biom.13426>.
+S., Zhang Q. and Ma S. (2022). Gaussian Graphical Model-based
+Heterogeneity Analysis via Penalized Fusion. Biometrics, 78 (2), 524-535.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,45 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rMIDAS
-%global packver   1.0.0
+%global packname  shinylive
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Imputation with Denoising Autoencoders
+Summary:          Run 'shiny' Applications in the Browser
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-mltools 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-archive 
+BuildRequires:    R-CRAN-brio 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-mltools 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-archive 
+Requires:         R-CRAN-brio 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
+Requires:         R-tools 
 
 %description
-A tool for multiply imputing missing data using 'MIDAS', a deep learning
-method based on denoising autoencoder neural networks (see Lall and
-Robinson, 2022; <doi:10.1017/pan.2020.49>). This algorithm offers
-significant accuracy and efficiency advantages over other multiple
-imputation strategies, particularly when applied to large datasets with
-complex features. Alongside interfacing with 'Python' to run the core
-algorithm, this package contains functions for processing data before and
-after model training, running imputation model diagnostics, generating
-multiple completed datasets, and estimating regression models on these
-datasets. For more information see Lall and Robinson (2023)
-<doi:10.18637/jss.v107.i09>.
+Exporting 'shiny' applications with 'shinylive' allows you to run them
+entirely in a web browser, without the need for a separate R server. The
+traditional way of deploying 'shiny' applications involves in a separate
+server and client: the server runs R and 'shiny', and clients connect via
+the web browser. When an application is deployed with 'shinylive', R and
+'shiny' run in the web browser (via 'webR'): the browser is effectively
+both the client and server for the application. This allows for your
+'shiny' application exported by 'shinylive' to be hosted by a static web
+server.
 
 %prep
 %setup -q -c -n %{packname}

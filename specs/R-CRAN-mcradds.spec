@@ -1,41 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  windex
-%global packver   2.0.6
+%global packname  mcradds
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysing Convergent Evolution using the Wheatsheaf Index
+Summary:          Processing and Analyzing of Diagnostics Trials
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape >= 4.0
-BuildRequires:    R-CRAN-geiger >= 2.0
-BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-ape >= 4.0
-Requires:         R-CRAN-geiger >= 2.0
-Requires:         R-CRAN-phytools 
-Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-VCA 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-VCA 
 
 %description
-Analysing convergent evolution using the Wheatsheaf index, described in
-Arbuckle et al. (2014) <doi: 10.1111/2041-210X.12195>, and some other
-unrelated but perhaps useful functions.
+Provides methods and functions to analyze the quantitative or qualitative
+performance for diagnostic assays, and outliers detection, reader
+precision and reference range are discussed. Most of the methods and
+algorithms refer to CLSI (Clinical & Laboratory Standards Institute)
+recommendations and NMPA (National Medical Products Administration)
+guidelines. In additional, relevant plots are constructed by 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

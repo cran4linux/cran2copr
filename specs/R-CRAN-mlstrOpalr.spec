@@ -1,53 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  T2Qv
-%global packver   0.2.0
+%global packname  mlstrOpalr
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Control Qualitative Variables
+Summary:          Support Compatibility Between 'Maelstrom' R Packages and 'Opal' Environment
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools >= 0.5.1.1
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboardPlus 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-fabR >= 2.0.0
+BuildRequires:    R-CRAN-madshapR >= 1.0.2
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ca 
-BuildRequires:    R-CRAN-highcharter 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tables 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-htmltools >= 0.5.1.1
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboardPlus 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-opalr 
+Requires:         R-CRAN-fabR >= 2.0.0
+Requires:         R-CRAN-madshapR >= 1.0.2
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ca 
-Requires:         R-CRAN-highcharter 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tables 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-tools 
+Requires:         R-CRAN-opalr 
 
 %description
-Covers k-table control analysis using multivariate control charts for
-qualitative variables using fundamentals of multiple correspondence
-analysis and multiple factor analysis. The graphs can be shown in a flat
-or interactive way, in the same way all the outputs can be shown in an
-interactive shiny panel.
+Functions to support compatibility between 'Maelstrom' R packages and
+'Opal' environment. 'Opal' is the 'OBiBa' core database application for
+biobanks. It is used to build data repositories that integrates data
+collected from multiple sources. 'Opal Maelstrom' is a specific
+implementation of this software. This 'Opal' client is specifically
+designed to interact with 'Opal Maelstrom' distributions to perform
+operations on the R server side. The user must have adequate credentials.
+Please see <https://opaldoc.obiba.org/> for complete documentation.
 
 %prep
 %setup -q -c -n %{packname}

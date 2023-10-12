@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spldv
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Models for Limited Dependent Variables
 
@@ -42,11 +42,13 @@ Requires:         R-CRAN-spatialreg
 
 %description
 The current version of this package estimates spatial autoregressive
-models for binary dependent variables using GMM estimators. It supports
-one-step (Pinkse and Slade, 1998) <doi:10.1016/S0304-4076(97)00097-3> and
-two-step GMM estimator along with the linearized GMM estimator proposed by
-Klier and McMillen (2008) <doi:10.1198/073500107000000188>. It also allows
-for either Probit or Logit model and compute the average marginal effects.
+models for binary dependent variables using GMM estimators
+<doi:10.18637/jss.v107.i08>. It supports one-step (Pinkse and Slade, 1998)
+<doi:10.1016/S0304-4076(97)00097-3> and two-step GMM estimator along with
+the linearized GMM estimator proposed by Klier and McMillen (2008)
+<doi:10.1198/073500107000000188>. It also allows for either Probit or
+Logit model and compute the average marginal effects. All these models are
+presented in Sarrias and Piras (2023) <doi:10.1016/j.jocm.2023.100432>.
 
 %prep
 %setup -q -c -n %{packname}

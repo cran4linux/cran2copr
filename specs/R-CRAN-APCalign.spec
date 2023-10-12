@@ -1,56 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbedrock
-%global packver   0.3.1
+%global packname  APCalign
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and Manipulation of Data from Minecraft Bedrock Edition
+Summary:          Resolving Plant Taxon Names Using the Australian Plant Census
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-fs 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-contentid 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-gh 
 Requires:         R-CRAN-readr 
-Requires:         R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-fs 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-contentid 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-gh 
 
 %description
-Implements an interface to Minecraft (Bedrock Edition) worlds. Supports
-the analysis and management of these worlds and game saves.
+The process of resolving taxon names is necessary when working with
+biodiversity data. 'APCalign' uses the Australian Plant Census (APC) and
+the Australian Plant Name Index (APNI) to align and update plant taxon
+names to current, accepted standards. 'APCalign' also supplies information
+about the established status of plant taxa across different
+states/territories.
 
 %prep
 %setup -q -c -n %{packname}

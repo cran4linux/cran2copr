@@ -1,46 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  precrec
-%global packver   0.14.4
+%global packname  paleopop
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.4
+Version:          2.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Accurate Precision-Recall and ROC (Receiver Operator Characteristics) Curves
+Summary:          Pattern-Oriented Modeling Framework for Coupled Niche-Population Paleo-Climatic Models
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
-BuildRequires:    R-graphics >= 4.0.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-withr >= 2.3.0
-BuildRequires:    R-CRAN-gridExtra >= 2.0
-BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-assertthat >= 0.2
-BuildRequires:    R-grid 
-BuildRequires:    R-methods 
-Requires:         R-graphics >= 4.0.0
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-withr >= 2.3.0
-Requires:         R-CRAN-gridExtra >= 2.0
-Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-assertthat >= 0.2
-Requires:         R-grid 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 >= 2.5.0
+BuildRequires:    R-CRAN-trend >= 1.1.4
+BuildRequires:    R-CRAN-poems >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9
+Requires:         R-CRAN-R6 >= 2.5.0
+Requires:         R-CRAN-trend >= 1.1.4
+Requires:         R-CRAN-poems >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9
 
 %description
-Accurate calculations and visualization of precision-recall and ROC
-(Receiver Operator Characteristics) curves. Saito and Rehmsmeier (2015)
-<doi:10.1371/journal.pone.0118432>.
+This extension of the poems pattern-oriented modeling (POM) framework
+provides a collection of modules and functions customized for
+paleontological time-scales, and optimized for single-generation
+transitions and large populations, across multiple generations.
 
 %prep
 %setup -q -c -n %{packname}

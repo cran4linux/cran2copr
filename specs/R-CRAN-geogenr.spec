@@ -1,53 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  T2Qv
-%global packver   0.2.0
+%global packname  geogenr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Control Qualitative Variables
+Summary:          'geomultistar' Object Generator from American Community Survey Geodatabases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools >= 0.5.1.1
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboardPlus 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ca 
-BuildRequires:    R-CRAN-highcharter 
+BuildRequires:    R-CRAN-geomultistar 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-starschemar 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tables 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-htmltools >= 0.5.1.1
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboardPlus 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ca 
-Requires:         R-CRAN-highcharter 
+Requires:         R-CRAN-geomultistar 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-starschemar 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tables 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tm 
+Requires:         R-utils 
 
 %description
-Covers k-table control analysis using multivariate control charts for
-qualitative variables using fundamentals of multiple correspondence
-analysis and multiple factor analysis. The graphs can be shown in a flat
-or interactive way, in the same way all the outputs can be shown in an
-interactive shiny panel.
+The American Community Survey (ACS)
+<https://www.census.gov/programs-surveys/acs> offers geodatabases with
+geographic information and associated data of interest to researchers in
+the area. The goal of this package is to generate 'geomultistar'
+<https://CRAN.R-project.org/package=geomultistar> objects from those
+geodatabases automatically, once the focus of attention is selected.
+Multidimensional queries with geographic information can be easily defined
+on these objects.
 
 %prep
 %setup -q -c -n %{packname}

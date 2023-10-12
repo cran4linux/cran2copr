@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PopGenReport
-%global packver   3.0.7
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.7
+Version:          3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple Framework to Analyse Population and Landscape Genetic Data
 
@@ -25,13 +26,12 @@ BuildRequires:    R-CRAN-calibrate
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dismo 
-BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-pegas 
 BuildRequires:    R-CRAN-genetics 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-gdistance 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-sp 
@@ -52,13 +52,12 @@ Requires:         R-CRAN-calibrate
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dismo 
-Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-pegas 
 Requires:         R-CRAN-genetics 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-gdistance 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-sp 

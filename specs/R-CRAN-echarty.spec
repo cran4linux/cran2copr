@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  precrec
-%global packver   0.14.4
+%global packname  echarty
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.4
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Accurate Precision-Recall and ROC (Receiver Operator Characteristics) Curves
+Summary:          Minimal R/Shiny Interface to JavaScript Library 'ECharts'
 
-License:          GPL-3
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
-BuildRequires:    R-graphics >= 4.0.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-withr >= 2.3.0
-BuildRequires:    R-CRAN-gridExtra >= 2.0
-BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-assertthat >= 0.2
-BuildRequires:    R-grid 
-BuildRequires:    R-methods 
-Requires:         R-graphics >= 4.0.0
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-withr >= 2.3.0
-Requires:         R-CRAN-gridExtra >= 2.0
-Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-assertthat >= 0.2
-Requires:         R-grid 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.tree >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-data.tree >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.7.0
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Accurate calculations and visualization of precision-recall and ROC
-(Receiver Operator Characteristics) curves. Saito and Rehmsmeier (2015)
-<doi:10.1371/journal.pone.0118432>.
+Deliver the full functionality of 'ECharts' with minimal overhead.
+'echarty' users build R lists for 'ECharts' API. Lean set of powerful
+commands.
 
 %prep
 %setup -q -c -n %{packname}

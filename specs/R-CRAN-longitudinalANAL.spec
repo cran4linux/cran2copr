@@ -1,46 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  precrec
-%global packver   0.14.4
+%global packname  longitudinalANAL
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Accurate Precision-Recall and ROC (Receiver Operator Characteristics) Curves
+Summary:          Longitudinal Data Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
-BuildRequires:    R-graphics >= 4.0.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-withr >= 2.3.0
-BuildRequires:    R-CRAN-gridExtra >= 2.0
-BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-assertthat >= 0.2
-BuildRequires:    R-grid 
-BuildRequires:    R-methods 
-Requires:         R-graphics >= 4.0.0
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-withr >= 2.3.0
-Requires:         R-CRAN-gridExtra >= 2.0
-Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-assertthat >= 0.2
-Requires:         R-grid 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-dlm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-dlm 
 
 %description
-Accurate calculations and visualization of precision-recall and ROC
-(Receiver Operator Characteristics) curves. Saito and Rehmsmeier (2015)
-<doi:10.1371/journal.pone.0118432>.
+Regression analysis of mixed sparse synchronous and asynchronous
+longitudinal covariates. Please cite the manuscripts corresponding to this
+package: Sun, Z. et al. (2023) <arXiv:2305.17715> and Liu, C. et al.
+(2023) <arXiv:2305.17662>.
 
 %prep
 %setup -q -c -n %{packname}

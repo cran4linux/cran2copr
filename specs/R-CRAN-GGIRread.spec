@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GGIRread
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wearable Accelerometer Data File Readers
 
-License:          LGPL (>= 2.0, < 3)
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,13 +21,11 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-matlab 
 BuildRequires:    R-CRAN-bitops 
-BuildRequires:    R-CRAN-tuneR 
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-matlab 
 Requires:         R-CRAN-bitops 
-Requires:         R-CRAN-tuneR 
 
 %description
 Reads data collected from wearable acceleratometers as used in sleep and
