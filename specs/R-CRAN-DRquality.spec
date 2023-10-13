@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DRquality
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quality Measurements for Dimensionality Reduction
 
@@ -24,7 +24,10 @@ Requires:         R-CRAN-DatabionicSwarm
 Several quality measurements for investigating the performance of
 dimensionality reduction methods are provided here. In addition a new
 quality measurement called Gabriel classification error is made
-accessible.
+accessible, which was published in Thrun, M. C., Märte, J., & Stier, Q:
+"Analyzing Quality Measurements for Dimensionality Reduction" (2023),
+Machine Learning and Knowledge Extraction (MAKE),
+<DOI:10.3390/make5030056>.
 
 %prep
 %setup -q -c -n %{packname}

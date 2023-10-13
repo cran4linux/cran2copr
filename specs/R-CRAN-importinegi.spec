@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  importinegi
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Manage Open Data from INEGI
 
@@ -20,13 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rio 
 Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-haven 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rio 
 

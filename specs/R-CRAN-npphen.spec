@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  npphen
-%global packver   1.5.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vegetation Phenological Cycle and Anomaly Detection using Remote Sensing Data
 
@@ -16,22 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra >= 1.5.17
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-snow 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-terra >= 1.5.17
 Requires:         R-CRAN-ks 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-snow 
 
 %description
 Calculates phenological cycle and anomalies using a non-parametric
@@ -40,7 +37,7 @@ sensing data or field measurements. The package implements basic and
 high-level functions for manipulating vector data (numerical series) and
 raster data (satellite derived products). Processing of very large raster
 files is supported. For more information, please check the following
-paper: Estay, S., Chávez, R.O. (2018) <doi:10.1101/301143>.
+paper: Chávez et al. (2023) <doi:10.3390/rs15010073>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kstMatrix
-%global packver   0.1-5
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Functions in Knowledge Space Theory Using Matrix Representation
 
@@ -20,9 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-sets 
+BuildRequires:    R-CRAN-pks 
 Requires:         R-stats 
 Requires:         R-CRAN-igraph 
 Requires:         R-grDevices 
+Requires:         R-CRAN-sets 
+Requires:         R-CRAN-pks 
 
 %description
 Knowledge space theory by Doignon and Falmagne (1999)

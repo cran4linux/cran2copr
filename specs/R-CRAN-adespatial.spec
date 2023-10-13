@@ -1,33 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinfun
-%global packver   1.1.4
+%global packname  adespatial
+%global packver   0.3-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.3.22
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Design and Data Analysis Functions
+Summary:          Multivariate Multiscale Spatial Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-ade4 >= 1.7.13
+BuildRequires:    R-CRAN-adegraphics 
+BuildRequires:    R-CRAN-adephylo 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-ade4 >= 1.7.13
+Requires:         R-CRAN-adegraphics 
+Requires:         R-CRAN-adephylo 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-lattice 
+Requires:         R-methods 
+Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-utils 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-vegan 
 
 %description
-Utilities to make your clinical collaborations easier if not fun. It
-contains functions for designing studies such as Simon 2-stage and group
-sequential designs and for data analysis such as Jonckheere-Terpstra test
-and estimating survival quantiles.
+Tools for the multiscale spatial analysis of multivariate data. Several
+methods are based on the use of a spatial weighting matrix and its
+eigenvector decomposition (Moran's Eigenvectors Maps, MEM). Several
+approaches are described in the review Dray et al (2012)
+<doi:10.1890/11-1183.1>.
 
 %prep
 %setup -q -c -n %{packname}

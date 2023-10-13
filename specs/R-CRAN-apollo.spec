@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  apollo
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Choice Model Estimation and Application
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-bgw >= 0.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-maxLik 
@@ -32,12 +33,12 @@ BuildRequires:    R-CRAN-RSGHB
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-bgw 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-bgw >= 0.1.2
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-maxLik 
@@ -53,7 +54,6 @@ Requires:         R-CRAN-RSGHB
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-bgw 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Rsolnp 
 

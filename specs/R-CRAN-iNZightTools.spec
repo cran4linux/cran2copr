@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iNZightTools
-%global packver   1.13.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for 'iNZight'
 
@@ -17,50 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-readr >= 1.2.0
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-srvyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-readr >= 1.2.0
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-srvyr 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-units 
 Requires:         R-utils 
-Requires:         R-CRAN-zoo 
 
 %description
 Provides a collection of wrapper functions for common variable and dataset

@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinfun
-%global packver   1.1.4
+%global packname  hmsr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Design and Data Analysis Functions
+Summary:          Multipopulation Evolutionary Strategy HMS
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-GA 
+Requires:         R-CRAN-msm 
+Requires:         R-methods 
+Requires:         R-CRAN-uuid 
 Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
 
 %description
-Utilities to make your clinical collaborations easier if not fun. It
-contains functions for designing studies such as Simon 2-stage and group
-sequential designs and for data analysis such as Jonckheere-Terpstra test
-and estimating survival quantiles.
+The HMS (Hierarchic Memetic Strategy) is a composite global optimization
+strategy consisting of a multi-population evolutionary strategy and some
+auxiliary methods. The HMS makes use of a dynamically-evolving data
+structure that provides an organization among the component populations.
+It is a tree with a fixed maximal height and variable internal node
+degree. Each component population is governed by a particular evolutionary
+engine. This package provides a simple R implementation with examples of
+using different genetic algorithms as the population engines. References:
+J. Sawicki, M. Łoś, M. Smołka, J. Alvarez-Aramberri (2022)
+<doi:10.1007/s11047-020-09836-w>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GPUmatrix
-%global packver   0.1.0
+%global packname  FFdownload
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Linear Algebra with GPU
+Summary:          Download Data from Kenneth French's Website
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-timetk 
+Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-methods 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-timetk 
 
 %description
-Motivation: GPU power is a great resource for computational biology
-specifically in statistics and linear algebra. Unfortunately, very few
-packages connect R with the GPU and none of them are transparent enough to
-perform the computations on the GPU without substantial changes to the
-code. Most of them lack proper maintenance: several of the previous
-attempts were removed from the corresponding repositories. It would be
-desirable to have an R package, properly maintained, that exploits the use
-of the GPU with minimal changes in the existing code. Results: We have
-developed the 'GPUMatrix' package. 'GPUMatrix' mimics the behavior of the
-Matrix package and extends R to use the GPU for computations. It is easy
-to learn and very few changes in the code are required to work on the GPU.
-'GPUMatrix' relies on either 'Tensorflow' or 'Torch' R packages to perform
-the GPU operations. Its vignette shows some toy examples on non-negative
-factorization and other factorization used in 'bioinformatics'.
+Downloads all the datasets (you can exclude the daily ones or specify a
+list of those you are targeting specifically) from Kenneth French's
+Website at
+<https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html>,
+process them and convert them to list of 'xts' (time series).
 
 %prep
 %setup -q -c -n %{packname}
