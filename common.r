@@ -462,8 +462,7 @@ get_url_builds <- function(ids, chroots) {
 }
 
 get_chroots <- function() {
-  repo <- paste0(copr_call("whoami"), "/", getOption("copr.repo"))
-  out <- grep(repo, copr_call("list"), value=TRUE)
+  out <- grep("results", copr_call("get", getOption("copr.repo")), value=TRUE)
   trimws(sapply(strsplit(out, ":"), "[", 1))
 }
 
