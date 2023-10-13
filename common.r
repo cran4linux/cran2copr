@@ -404,8 +404,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
 }
 
 create_spec <- function(pkg, cran=available_packages(), write=TRUE) {
-  tarfile <- download.packages(pkg, tempdir(), cran, quiet=TRUE)[,2]
-  untar(tarfile, exdir=tempdir())
+  tfl <- do.call.retry(download.packages, list(pkg, tempdir(), cran, quiet=TRUE))
+  untar(tfl[,2], exdir=tempdir())
   path <- file.path(tempdir(), pkg)
   tpl <- readLines(getOption("copr.tpl"))
   tpl <- pkg_exceptions(tpl, pkg, path)
