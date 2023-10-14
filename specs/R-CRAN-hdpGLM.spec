@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hdpGLM
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Dirichlet Process Generalized Linear Models
 
@@ -35,6 +36,7 @@ BuildRequires:    R-CRAN-MCMCpack
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -60,6 +62,7 @@ Requires:         R-CRAN-MCMCpack
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
@@ -69,7 +72,7 @@ Requires:         R-CRAN-tidyverse
 Implementation of MCMC algorithms to estimate the Hierarchical Dirichlet
 Process Generalized Linear Model (hdpGLM) presented in the paper Ferrari
 (2020) Modeling Context-Dependent Latent Heterogeneity, Political Analysis
-<DOI:10.1017/pan.2019.13>.
+<DOI:10.1017/pan.2019.13> and <doi:10.18637/jss.v107.i10>.
 
 %prep
 %setup -q -c -n %{packname}

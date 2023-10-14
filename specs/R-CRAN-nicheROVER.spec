@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nicheROVER
-%global packver   1.1.0
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Niche Region and Niche Overlap Metrics for Multidimensional Ecological Niches
 
@@ -34,9 +35,10 @@ framework, and the method can be extended to three or more indicator
 dimensions.  It provides directional estimates of niche overlap, accounts
 for species-specific distributions in multivariate niche space, and
 produces unique and consistent bivariate projections of the multivariate
-niche region.  The article by Swanson et al. (Ecology, 2015) provides a
-detailed description of the methodology.  See the package vignette for a
-worked example using fish stable isotope data.
+niche region.  The article by Swanson et al. (2015)
+<doi:10.1890/14-0235.1> provides a detailed description of the
+methodology.  See the package vignette for a worked example using fish
+stable isotope data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

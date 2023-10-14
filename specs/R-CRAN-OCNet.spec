@@ -1,44 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CoastlineFD
-%global packver   1.0.0
+%global packname  OCNet
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate the Coastline Fractal Dimension
+Summary:          Optimal Channel Networks
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-sfheaders 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-adespatial 
+BuildRequires:    R-CRAN-spdep 
+Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-sfheaders 
+Requires:         R-CRAN-spam 
+Requires:         R-CRAN-rgl 
+Requires:         R-methods 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-adespatial 
+Requires:         R-CRAN-spdep 
 
 %description
-A system is used to calculate the fractal dimension of coastline by boxes
-method and Dividers method.
+Generate and analyze Optimal Channel Networks (OCNs): oriented spanning
+trees reproducing all scaling features characteristic of real, natural
+river networks. As such, they can be used in a variety of numerical
+experiments in the fields of hydrology, ecology and epidemiology. See
+Carraro et al. (2020) <doi:10.1002/ece3.6479> for a presentation of the
+package; Rinaldo et al. (2014) <doi:10.1073/pnas.1322700111> for a
+theoretical overview on the OCN concept; Furrer and Sain (2010)
+<doi:10.18637/jss.v036.i10> for the construct used.
 
 %prep
 %setup -q -c -n %{packname}

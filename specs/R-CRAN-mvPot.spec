@@ -1,44 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CoastlineFD
-%global packver   1.0.0
+%global packname  mvPot
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate the Coastline Fractal Dimension
+Summary:          Multivariate Peaks-over-Threshold Modelling for Spatial Extreme Events
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-sfheaders 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-sfheaders 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-CRAN-numbers 
+BuildRequires:    R-CRAN-gmp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-evd 
+Requires:         R-CRAN-numbers 
+Requires:         R-CRAN-gmp 
 
 %description
-A system is used to calculate the fractal dimension of coastline by boxes
-method and Dividers method.
+Tools for high-dimensional peaks-over-threshold inference and simulation
+of spatial extremal processes. Key references include de Fondeville and
+Davison (2018) <doi:10.1093/biomet/asy026>, Thibaud and Opitz (2015)
+<doi:10.1093/biomet/asv045>, Wadsworth and Tawn
+<doi:10.1093/biomet/ast042>.
 
 %prep
 %setup -q -c -n %{packname}

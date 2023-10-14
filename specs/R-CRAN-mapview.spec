@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mapview
-%global packver   2.11.0
+%global packver   2.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.0
+Version:          2.11.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Viewing of Spatial Data in R
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-raster >= 3.6.3
 BuildRequires:    R-CRAN-leaflet >= 2.0.0
 BuildRequires:    R-CRAN-scales >= 0.2.5
 BuildRequires:    R-methods 
@@ -26,12 +28,11 @@ BuildRequires:    R-CRAN-lattice
 BuildRequires:    R-CRAN-leafem 
 BuildRequires:    R-CRAN-leafpop 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-satellite 
 BuildRequires:    R-CRAN-servr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-webshot 
+Requires:         R-CRAN-raster >= 3.6.3
 Requires:         R-CRAN-leaflet >= 2.0.0
 Requires:         R-CRAN-scales >= 0.2.5
 Requires:         R-methods 
@@ -42,12 +43,10 @@ Requires:         R-CRAN-lattice
 Requires:         R-CRAN-leafem 
 Requires:         R-CRAN-leafpop 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-satellite 
 Requires:         R-CRAN-servr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-webshot 
 
 %description
 Quickly and conveniently create interactive visualisations of spatial data

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  handwriter
-%global packver   1.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handwriting Analysis in R
 
@@ -13,34 +14,47 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-futile.logger 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-mc2d 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-futile.logger 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-magick 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-mc2d 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Process handwriting document into letters, words, and lines. Provides
-measurements at all levels. Webpage provided at:
-<https://csafe-isu.github.io/handwriter/index.html>.
+Perform statistical writership analysis of scanned handwritten documents.
+Webpage provided at: <https://csafe-isu.github.io/handwriter/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

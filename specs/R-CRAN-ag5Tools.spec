@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ag5Tools
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolbox for Downloading and Extracting Copernicus AgERA5 Data
 
@@ -19,9 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
 Tools for downloading and extracting data from the Copernicus

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  round
-%global packver   0.20-0
+%global packver   0.21-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.0
+Version:          0.21.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rounding to Decimal Digits
 
@@ -21,7 +22,7 @@ Requires:         R-stats
 %description
 Decimal rounding is non-trivial in binary arithmetic.  ISO standard round
 to even is more rare than typically assumed as most decimal fractions are
-not exactly representable in binary.  Our roundX() versions explore
+not exactly representable in binary.  Our 'roundX()' versions explore
 differences between current and potential future versions of round() in R.
 Further, provides (some partly related) C99 math lib functions not in base
 R.
@@ -34,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

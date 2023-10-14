@@ -1,44 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CoastlineFD
-%global packver   1.0.0
+%global packname  tinycodet
+%global packver   0.1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate the Coastline Fractal Dimension
+Summary:          A Few Functions to Help in your Coding Etiquette
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-sfheaders 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-sfheaders 
+BuildRequires:    R-CRAN-stringi >= 1.7.12
+Requires:         R-CRAN-stringi >= 1.7.12
 
 %description
-A system is used to calculate the fractal dimension of coastline by boxes
-method and Dividers method.
+Adds a few functions to help in your coding etiquette. 'tinycodet'
+primarily focuses on 4 aspects. 1) Safer decimal (in)equality testing,
+safer atomic conversions, and other functions for safer coding. 2) A new
+package import system, that attempts to combine the benefits of using a
+package without attaching, with the benefits of attaching a package. 3)
+Extending the string manipulation capabilities of the 'stringi' R package.
+4) Reducing repetitive code. 'tinycodet' has only one dependency, namely
+'stringi'.
 
 %prep
 %setup -q -c -n %{packname}

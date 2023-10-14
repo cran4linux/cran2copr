@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EcoIndR
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Indicators
 
@@ -16,8 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.1
 Requires:         R-core >= 3.1.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgeos 
-Requires:         R-CRAN-rgeos 
+BuildRequires:    R-CRAN-picante 
+BuildRequires:    R-CRAN-Rarity 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-splancs 
+BuildRequires:    R-CRAN-FD 
+Requires:         R-CRAN-picante 
+Requires:         R-CRAN-Rarity 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-splancs 
+Requires:         R-CRAN-FD 
 
 %description
 Calculates several indices, such as of diversity, fluctuation, etc., and

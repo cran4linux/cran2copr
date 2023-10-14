@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  campsis
-%global packver   1.4.1
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generic PK/PD Simulation Platform CAMPSIS
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-campsismod >= 1.0.0
+BuildRequires:    R-CRAN-campsismod >= 1.1.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-campsismod >= 1.0.0
+Requires:         R-CRAN-campsismod >= 1.1.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 

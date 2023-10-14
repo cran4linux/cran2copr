@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SoilR
-%global packver   1.2.105
+%global packver   1.2.107
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.105
+Version:          1.2.107
 Release:          1%{?dist}%{?buildtag}
 Summary:          Models of Soil Organic Matter Decomposition
 
@@ -35,11 +36,15 @@ Requires:         R-CRAN-purrr
 
 %description
 Functions for modeling Soil Organic Matter decomposition in terrestrial
-ecosystems with linear and nonlinear models.
+ecosystems with linear and nonlinear systems of differential equations.
+The package implements models according to the compartmental system
+representation described in Sierra and others (2012)
+<doi:10.5194/gmd-5-1045-2012> and Sierra and others (2014)
+<doi:10.5194/gmd-7-1919-2014>.
 
 %prep
 %setup -q -c -n %{packname}
-find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
+find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python3@g' {} \;
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

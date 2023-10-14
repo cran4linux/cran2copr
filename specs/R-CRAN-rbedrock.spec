@@ -1,44 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CoastlineFD
-%global packver   1.0.0
+%global packname  rbedrock
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate the Coastline Fractal Dimension
+Summary:          Analysis and Manipulation of Data from Minecraft Bedrock Edition
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    cmake
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-sfheaders 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
 Requires:         R-utils 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-sfheaders 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-fs 
 
 %description
-A system is used to calculate the fractal dimension of coastline by boxes
-method and Dividers method.
+Implements an interface to Minecraft (Bedrock Edition) worlds. Supports
+the analysis and management of these worlds and game saves.
 
 %prep
 %setup -q -c -n %{packname}

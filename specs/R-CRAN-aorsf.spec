@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aorsf
-%global packver   0.0.7
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerated Oblique Random Survival Forests
 
@@ -34,7 +34,7 @@ Oblique decision trees are notoriously slow compared to their axis based
 counterparts, but 'aorsf' runs as fast or faster than axis-based decision
 tree algorithms for right-censored time-to-event outcomes. Methods to
 accelerate and interpret the oblique random survival forest are described
-in Jaeger et al., (2022) <arXiv:2208.01129>.
+in Jaeger et al., (2023) <DOI:10.1080/10618600.2023.2231048>.
 
 %prep
 %setup -q -c -n %{packname}

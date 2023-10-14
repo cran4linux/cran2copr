@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ACEP
-%global packver   0.0.21
+%global packname  ImNN
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.21
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analisis Computacional de Eventos de Protesta
+Summary:          Neural Networks for Predicting Volume of Forest Trees
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-MLmetrics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-neuralnet 
 Requires:         R-stats 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-MLmetrics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-neuralnet 
 
 %description
-La libreria 'ACEP' contiene funciones especificas para desarrollar
-analisis computacional de eventos de protesta. Asimismo, contiene base de
-datos con colecciones de notas sobre protestas y diccionarios de palabras
-conflictivas. Coleccion de diccionarios que reune diccionarios de
-diferentes origenes.  The 'ACEP' library contains specific functions to
-perform computational analysis of protest events. It also contains a
-database with collections of notes on protests and dictionaries of
-conflicting words. Collection of dictionaries that brings together
-dictionaries from different sources.
+Neural network has potential in forestry modelling. This package is
+designed to create and assess Artificial Intelligence based Neural
+Networks with varying architectures for prediction of volume of forest
+trees using two input features: height and diameter at breast height, as
+they are the key factors in predicting volume, therefore development and
+validation of efficient volume prediction neural network model is
+necessary. This package has been developed using the algorithm of Tabassum
+et al. (2022) <doi:10.18805/ag.D-5555>.
 
 %prep
 %setup -q -c -n %{packname}

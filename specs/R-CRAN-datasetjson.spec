@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datasetjson
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write CDISC Dataset JSON Files
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.8.7
-BuildRequires:    R-CRAN-jsonvalidate >= 1.3.2
-Requires:         R-CRAN-jsonlite >= 1.8.7
-Requires:         R-CRAN-jsonvalidate >= 1.3.2
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-jsonvalidate >= 1.3.1
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-jsonvalidate >= 1.3.1
 
 %description
 Read, construct and write CDISC (Clinical Data Interchange Standards

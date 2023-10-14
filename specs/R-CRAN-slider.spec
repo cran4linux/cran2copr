@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  slider
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sliding Window Functions
 
@@ -14,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-cli >= 3.4.1
-BuildRequires:    R-CRAN-rlang >= 1.0.6
-BuildRequires:    R-CRAN-vctrs >= 0.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-vctrs >= 0.6.3
 BuildRequires:    R-CRAN-warp 
-Requires:         R-CRAN-cli >= 3.4.1
-Requires:         R-CRAN-rlang >= 1.0.6
-Requires:         R-CRAN-vctrs >= 0.5.0
+Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-vctrs >= 0.6.3
 Requires:         R-CRAN-warp 
 
 %description

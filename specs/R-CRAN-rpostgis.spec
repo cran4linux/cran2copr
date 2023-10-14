@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpostgis
-%global packver   1.4.4
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to a 'PostGIS' Database
 
@@ -20,17 +20,21 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI >= 0.5
 BuildRequires:    R-CRAN-RPostgreSQL 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-raster 
 Requires:         R-CRAN-DBI >= 0.5
 Requires:         R-CRAN-RPostgreSQL 
 Requires:         R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-raster 
 
 %description
 Provides an interface between R and 'PostGIS'-enabled 'PostgreSQL'

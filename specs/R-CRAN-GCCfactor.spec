@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MakeYourPalette
-%global packver   0.1.3
+%global __requires_exclude ^libmpi
+%global packname  GCCfactor
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make Your Palette
+Summary:          GCC Estimation of the Multilevel Factor Model
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-prismatic 
-Requires:         R-CRAN-raster 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-prismatic 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sandwich 
 
 %description
-Functions that allow you to create your own color palette from an image,
-using the KMeans algorithm.
+Provides methods for model selection, estimation, bootstrap inference, and
+simulation for the multilevel factor model, based on the principal
+component estimation and generalised canonical correlation approach.
+Details can be found in "Generalised Canonical Correlation Estimation of
+the Multilevel Factor Model." Lin and Shin (2023)
+<doi:10.2139/ssrn.4295429>.
 
 %prep
 %setup -q -c -n %{packname}

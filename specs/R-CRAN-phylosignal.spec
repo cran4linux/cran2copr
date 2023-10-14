@@ -1,48 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easybgm
-%global packver   0.1.0
+%global packname  phylosignal
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extracting and Visualizing Bayesian Graphical Models
+Summary:          Exploring the Phylogenetic Signal in Continuous Traits
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-bgms >= 0.1.1
-BuildRequires:    R-CRAN-BDgraph 
-BuildRequires:    R-CRAN-BGGM 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-adephylo 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-qgraph 
-Requires:         R-CRAN-bgms >= 0.1.1
-Requires:         R-CRAN-BDgraph 
-Requires:         R-CRAN-BGGM 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-phylobase 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-adephylo 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-phylobase 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-DBI 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Fit and visualize the results of a Bayesian analysis of networks commonly
-found in psychology. The package supports fitting cross-sectional network
-models fitted using the packages 'BDgraph', 'bgms' and 'BGGM'. The package
-provides the parameter estimates, posterior inclusion probabilities,
-inclusion Bayes factor, and the posterior density of the parameters. In
-addition, for 'BDgraph' and 'bgms' it allows to assess the posterior
-structure space. Furthermore, the package comes with an extensive suite
-for visualizing results.
+A collection of tools to explore the phylogenetic signal in univariate and
+multivariate data. The package provides functions to plot traits data
+against a phylogenetic tree, different measures and tests for the
+phylogenetic signal, methods to describe where the signal is located and a
+phylogenetic clustering method.
 
 %prep
 %setup -q -c -n %{packname}

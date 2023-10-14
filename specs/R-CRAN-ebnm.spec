@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ebnm
-%global packver   1.0-9
+%global packver   1.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solve the Empirical Bayes Normal Means Problem
 
@@ -17,7 +18,6 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ashr 
 BuildRequires:    R-CRAN-mixsqp 
 BuildRequires:    R-CRAN-truncnorm 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-methods 
 Requires:         R-CRAN-ashr 
 Requires:         R-CRAN-mixsqp 
 Requires:         R-CRAN-truncnorm 
@@ -44,7 +43,7 @@ Requires:         R-CRAN-ggplot2
 %description
 Provides simple, fast, and stable functions to fit the normal means model
 using empirical Bayes. For available models and details, see function
-ebnm(). A comprehensive introduction to the package is provided by
+ebnm(). A detailed introduction to the package is provided by
 Willwerscheid and Stephens (2021) <arXiv:2110.00152>.
 
 %prep
