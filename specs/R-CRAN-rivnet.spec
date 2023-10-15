@@ -1,44 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pliman
-%global packver   2.1.0
+%global packname  rivnet
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Plant Image Analysis
+Summary:          Extract and Analyze Rivers from Elevation Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-OCNet >= 1.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-traudem 
+BuildRequires:    R-CRAN-elevatr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-fields 
+Requires:         R-CRAN-OCNet >= 1.1.0
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-spam 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
 Requires:         R-CRAN-terra 
+Requires:         R-CRAN-traudem 
+Requires:         R-CRAN-elevatr 
+Requires:         R-methods 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-fields 
 
 %description
-Tools for single or batch image manipulation and analysis as described by
-Olivoto (2022) <doi:10.1111/2041-210X.13803> that can be used to quantify
-plant leaf area, assess disease severity, count objects, obtain shape
-measures, object landmarks, and compute Elliptical Fourier Analysis of the
-object outline, as described by Claude (2008)
-<doi:10.1007/978-0-387-77789-4>. Additionally, the package includes tools
-for analyzing grids, which enables high throughput field phenotyping using
-RGB imagery captured by unmanned aerial vehicles.
+Seamless extraction of river networks from digital elevation models data.
+The package allows analysis of digital elevation models that can be either
+externally provided or downloaded from open source repositories (thus
+interfacing with the 'elevatr' package). Extraction is performed via the
+'D8' flow direction algorithm of TauDEM (Terrain Analysis Using Digital
+Elevation Models), thus interfacing with the 'traudem' package. Resulting
+river networks are compatible with functions from the 'OCNet' package.
 
 %prep
 %setup -q -c -n %{packname}

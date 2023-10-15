@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shapviz
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          SHAP Visualizations
 
@@ -44,11 +44,12 @@ plots, force plots, various types of importance plots, dependence plots,
 and interaction plots.  These plots act on a 'shapviz' object created from
 a matrix of SHAP values and a corresponding feature dataset. Wrappers for
 the R packages 'xgboost', 'lightgbm', 'fastshap', 'shapr', 'h2o',
-'treeshap', 'DALEX', and 'kernelshap' are added for convenience.  By
-separating visualization and computation, it is possible to display factor
-variables in graphs, even if the SHAP values are calculated by a model
-that requires numerical features. The plots are inspired by those provided
-by the 'shap' package in Python, but there is no dependency on it.
+'treeshap', 'DALEX', 'kernelshap', and 'permshap' are added for
+convenience.  By separating visualization and computation, it is possible
+to display factor variables in graphs, even if the SHAP values are
+calculated by a model that requires numerical features. The plots are
+inspired by those provided by the 'shap' package in Python, but there is
+no dependency on it.
 
 %prep
 %setup -q -c -n %{packname}

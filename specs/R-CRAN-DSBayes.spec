@@ -1,30 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  h3r
-%global packver   0.1.0
+%global packname  DSBayes
+%global packver   2023.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2023.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hexagonal Hierarchical Geospatial Indexing System
+Summary:          Bayesian Subgroup Analysis in Clinical Trials
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-h3lib 
-Requires:         R-CRAN-h3lib 
+BuildRequires:    R-devel >= 2.15.1
+Requires:         R-core >= 2.15.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-BB 
+Requires:         R-CRAN-BB 
 
 %description
-Provides access to Uber's 'H3' geospatial indexing system via 'h3lib'
-<https://CRAN.R-project.org/package=h3lib>. 'h3r' is designed to mimic the
-'H3' Application Programming Interface (API)
-<https://h3geo.org/docs/api/indexing/>, so that any function in the API is
-also available in 'h3r'.
+Calculate posterior modes and credible intervals of parameters of the
+Dixon-Simon model for subgroup analysis (with binary covariates) in
+clinical trials. For details of the methodology, please refer to D.O.
+Dixon and R. Simon (1991), Biometrics, 47: 871-881.
 
 %prep
 %setup -q -c -n %{packname}

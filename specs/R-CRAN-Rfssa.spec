@@ -1,22 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rfssa
-%global packver   2.1.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Singular Spectrum Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-lattice 
@@ -25,13 +24,13 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-Rssa 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rainbow 
+BuildRequires:    R-CRAN-ftsa 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-lattice 
@@ -40,9 +39,10 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-Rssa 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
-Requires:         R-methods 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rainbow 
+Requires:         R-CRAN-ftsa 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-markdown 
 
 %description
