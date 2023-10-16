@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semptools
-%global packver   0.2.9.11
+%global packver   0.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9.11
+Version:          0.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Customizing Structural Equation Modelling Plots
 
@@ -17,11 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-semPlot 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-semPlot 

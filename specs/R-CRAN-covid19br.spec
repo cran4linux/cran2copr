@@ -1,45 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pbixr
-%global packver   0.1.4
+%global __requires_exclude ^libmpi
+%global packname  covid19br
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data and Metadata from 'Microsoft' 'Power BI' Documents
+Summary:          Brazilian COVID-19 Pandemic Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-formatR 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-textclean 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-formatR 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-zip 
-Requires:         R-utils 
-Requires:         R-CRAN-textclean 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tidyr 
 
 %description
-Access data and metadata from 'Microsoft' 'Power BI' ('.pbix',
-<https://powerbi.microsoft.com>) documents with R. The 'pbixr' package
-enables one to extract 'Power Query M' formulas
-(<https://docs.microsoft.com/en-us/power-query/>) 'Data Analysis
-Expressions' queries ('DAX', <https://docs.microsoft.com/en-us/dax/>) and
-their properties, report layout and style, and data and data models.
+Set of functions to import COVID-19 pandemic data into R. The Brazilian
+COVID-19 data, obtained from the official Brazilian repository at
+<https://covid.saude.gov.br/>, is available at country, region, state, and
+city-levels. The package also downloads the world-level COVID-19 data from
+the John Hopkins University's repository.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

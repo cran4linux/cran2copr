@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dvir
-%global packver   3.1.0
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disaster Victim Identification
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-pedtools >= 2.4.0
 BuildRequires:    R-CRAN-forrel >= 1.5.2
 BuildRequires:    R-CRAN-pedprobr >= 0.8.0
+BuildRequires:    R-CRAN-ribd 
 Requires:         R-CRAN-pedtools >= 2.4.0
 Requires:         R-CRAN-forrel >= 1.5.2
 Requires:         R-CRAN-pedprobr >= 0.8.0
+Requires:         R-CRAN-ribd 
 
 %description
 Joint DNA-based disaster victim identification (DVI), as described in

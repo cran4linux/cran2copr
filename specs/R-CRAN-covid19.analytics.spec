@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  covid19.analytics
-%global packver   2.1.3.2
+%global packver   2.1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3.2
+Version:          2.1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load and Analyze Live Data from the COVID-19 Pandemic
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-rentrez 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-deSolve 
@@ -34,6 +35,7 @@ BuildRequires:    R-CRAN-collapsibleTree
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-rentrez 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-deSolve 

@@ -1,30 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dialr
-%global packver   0.4.1
+%global packname  nRegression
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse, Format, and Validate International Phone Numbers
+Summary:          Simulation-Based Calculations of Sample Size for Linear and Logistic Regression
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dialrjars >= 8.10.11.1
-BuildRequires:    R-CRAN-rJava 
-Requires:         R-CRAN-dialrjars >= 8.10.11.1
-Requires:         R-CRAN-rJava 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-covr 
+BuildRequires:    R-CRAN-simitation 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-covr 
+Requires:         R-CRAN-simitation 
+Requires:         R-stats 
 
 %description
-Parse, format, and validate international phone numbers using Google's
-'libphonenumber' java library, <https://github.com/google/libphonenumber>.
+Provides a function designed to estimate the minimal sample size required
+to attain a specific statistical power in the context of linear regression
+and logistic regression models through simulations.
 
 %prep
 %setup -q -c -n %{packname}

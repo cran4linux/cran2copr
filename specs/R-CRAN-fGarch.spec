@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fGarch
-%global packver   4022.89
+%global packver   4031.90
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4022.89
+Version:          4031.90
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rmetrics - Autoregressive Conditional Heteroskedastic Modelling
 

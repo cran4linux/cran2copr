@@ -1,49 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VectorCodeR
+%global packname  timeplyr
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Analyze Your Gait Patterns Using Vector Coding Technique
+Summary:          Fast Tidy Tools for Date and Date-Time Manipulation
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-collapse >= 1.9.3
+BuildRequires:    R-CRAN-lubridate >= 1.9.0
+BuildRequires:    R-CRAN-pillar >= 1.7.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-data.table >= 1.14.8
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-CRAN-timechange >= 0.2.0
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-collapse >= 1.9.3
+Requires:         R-CRAN-lubridate >= 1.9.0
+Requires:         R-CRAN-pillar >= 1.7.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-data.table >= 1.14.8
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-vctrs >= 0.6.0
+Requires:         R-CRAN-timechange >= 0.2.0
+Requires:         R-CRAN-Rcpp 
 
 %description
-Facilitate the analysis of inter-limb and intra-limb coordination in human
-movement. It provides functions for calculating the phase angle between
-two segments, enabling researchers and practitioners to quantify the
-coordination patterns within and between limbs during various motor tasks.
-Needham, R., Naemi, R., & Chockalingam, N. (2014)
-<doi:10.1016/j.jbiomech.2013.12.032>. Needham, R., Naemi, R., &
-Chockalingam, N. (2015) <doi:10.1016/j.jbiomech.2015.07.023>. Tepavac, D.,
-& Field-Fote, E. C. (2001) <doi:10.1123/jab.17.3.259>. Park, J.H., Lee,
-H., Cho, Js. et al. (2021) <doi:10.1038/s41598-020-80237-w>.
+A set of fast tidy functions for wrangling, completing and summarising
+date and date-time data. It combines 'tidyverse' syntax with the
+efficiency of 'data.table' and speed of 'collapse'.
 
 %prep
 %setup -q -c -n %{packname}

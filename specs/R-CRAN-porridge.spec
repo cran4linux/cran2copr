@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  porridge
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ridge-Type Penalized Estimation of a Potpourri of Models
 
@@ -21,6 +22,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
@@ -28,6 +30,7 @@ Requires:         R-stats
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
+Requires:         R-CRAN-pracma 
 
 %description
 The name of the package is derived from the French, 'pour' ridge, and
