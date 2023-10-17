@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AQEval
-%global packver   0.5.2
+%global packname  CRTspat
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Air Quality Evaluation
+Summary:          Workflow for Cluster Randomised Trials with Spillover
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openair 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-loa 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-strucchange 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-openair 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-loa 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-OOR 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
+BuildRequires:    R-CRAN-jagsUI 
+BuildRequires:    R-CRAN-TSP 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-strucchange 
-Requires:         R-CRAN-segmented 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggtext 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-OOR 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
+Requires:         R-CRAN-jagsUI 
+Requires:         R-CRAN-TSP 
 
 %description
-Developed for use by those tasked with the routine detection,
-characterisation and quantification of discrete changes in air quality
-time-series, such as identifying the impacts of air quality policy
-interventions. The main functions use signal isolation then
-break-point/segment (BP/S) methods based on 'strucchange' and 'segmented'
-methods to detect and quantify change events (Ropkins & Tate, 2021,
-<doi:10.1016/j.scitotenv.2020.142374>).
+Design, workflow and statistical analysis of Cluster Randomised Trials of
+(health) interventions where there may be geographical contamination
+between the arms (see
+<https://thomasasmith.github.io/articles/CRTspat.html>).
 
 %prep
 %setup -q -c -n %{packname}

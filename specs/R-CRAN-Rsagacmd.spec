@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rsagacmd
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linking R with the Open-Source 'SAGA-GIS' Software
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         saga
+Recommends:       saga
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.5.21
+BuildRequires:    R-CRAN-terra >= 1.7.0
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-terra >= 1.5.21
+Requires:         R-CRAN-terra >= 1.7.0
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 
@@ -65,7 +65,7 @@ available under a GPLv2 / LGPLv2 licence from
 <https://sourceforge.net/projects/saga-gis/> including Windows x86/x64 and
 macOS binaries. SAGA-GIS is also included in Debian/Ubuntu default
 software repositories. Rsagacmd has currently been tested on 'SAGA-GIS'
-versions from 2.3.1 to 9.0.1 on Windows, Linux and macOS.
+versions from 2.3.1 to 9.2 on Windows, Linux and macOS.
 
 %prep
 %setup -q -c -n %{packname}

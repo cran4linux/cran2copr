@@ -1,44 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SiteAdapt
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  fwlplot
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Site Adaptation of Solar Irradiance Modeled Series
+Summary:          Scatter Plot After Residualizing Using 'fixest' Package
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmulti 
-BuildRequires:    R-CRAN-solaR 
-BuildRequires:    R-CRAN-hyfo 
-BuildRequires:    R-CRAN-hydroGOF 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fixest 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-glmulti 
-Requires:         R-CRAN-solaR 
-Requires:         R-CRAN-hyfo 
-Requires:         R-CRAN-hydroGOF 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fixest 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-stats 
 
 %description
-The SiteAdapt procedure improves the accuracy of modeled solar irradiance
-series through site-adaptation with coincident ground-based measurements
-relying on the use of a regression preprocessing followed by an empirical
-quantile mapping (eQM) correction. Fernandez-Peruchena et al (2020)
-<doi:10.3390/rs12132127>.
+Creates a scatter plot after residualizing using a set of covariates. The
+residuals are calculated using the 'fixest' package which allows very fast
+estimation that scales. Details of the (Yule-)Frisch-Waugh-Lovell theorem
+is given in Basu (2023) <arXiv:2307.00369>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

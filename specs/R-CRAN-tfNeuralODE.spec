@@ -1,46 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  maptools
-%global packver   1.1-8
+%global packname  tfNeuralODE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Handling Spatial Objects
+Summary:          Create Neural Ordinary Differential Equations with 'tensorflow'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-sp >= 1.0.11
-BuildRequires:    R-CRAN-foreign >= 0.8
-BuildRequires:    R-methods 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-sp >= 1.0.11
-Requires:         R-CRAN-foreign >= 0.8
-Requires:         R-methods 
-Requires:         R-grid 
-Requires:         R-CRAN-lattice 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tensorflow 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-deSolve 
+Requires:         R-CRAN-tensorflow 
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-deSolve 
 
 %description
-Please note that 'maptools' will be retired during October 2023, plan
-transition at your earliest convenience (see
-<https://r-spatial.org/r/2023/05/15/evolution4.html> and earlier blogs for
-guidance); some functionality will be moved to 'sp'. Set of tools for
-manipulating geographic data. The package also provides interface wrappers
-for exchanging spatial objects with packages such as 'PBSmapping',
-'spatstat.geom', 'maps', and others.
+Provides a framework for the creation and use of Neural ordinary
+differential equations with the 'tensorflow' and 'keras' packages. The
+idea of Neural ordinary differential equations comes from Chen et al.
+(2018) <doi:10.48550/arXiv.1806.07366>, and presents a novel way of
+learning and solving differential systems.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DrugExposureDiagnostics
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostics for OMOP Common Data Model Drug Records
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-glue >= 1.5.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-CDMConnector >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
@@ -30,6 +31,7 @@ Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-glue >= 1.5.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-CDMConnector >= 1.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0

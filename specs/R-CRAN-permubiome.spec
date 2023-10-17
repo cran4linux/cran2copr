@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  permubiome
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Permutation Based Test for Biomarker Discovery in Microbiome Data
 
@@ -21,11 +22,13 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-dabestr 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dabestr 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-dplyr 
 
 %description
 The permubiome R package was created to perform a permutation-based
@@ -45,7 +48,8 @@ parse COLUMN format; v1.2 and olders incorporates -optimize- function to
 maximize evaluation of features with largest inter-class variation; v1.3
 and olders includes the -size.effect- function to perform estimation
 statistics using the bootstrap-coupled approach implemented in the
-'dabestr' (>=0.3.0) R package.
+'dabestr' (>=0.3.0) R package. Current v1.3.2 fixed bug with "Class"
+recognition and updated 'dabestr' functions.
 
 %prep
 %setup -q -c -n %{packname}

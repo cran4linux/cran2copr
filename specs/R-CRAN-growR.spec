@@ -1,37 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bivariatemaps
-%global packver   1.0
+%global __requires_exclude ^libmpi
+%global packname  growR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates Bivariate Maps
+Summary:          Implementation of the Vegetation Model ModVege
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-R6 
+Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Contains functions to plot bivariate maps and to generate grids from
-shapefiles based on area coverage. For more info, see: Hidasi-Neto, J
-(2015)
-<https://rfunctions.blogspot.com/2015/03/bivariate-maps-bivariatemap-function.html>,
-Hidasi-Neto, J (2014)
-<https://rfunctions.blogspot.com/2014/12/gridfilter-intersect-grid-with-shape.html>.
+Run grass growth simulations using a grass growth model based on ModVege
+(Jouven, M., P. Carrère, and R. Baumont "Model Predicting Dynamics of
+Biomass, Structure and Digestibility of Herbage in Managed Permanent
+Pastures. 1. Model Description." (2006)
+<doi:10.1111/j.1365-2494.2006.00515.x>). The implementation in this
+package contains a few additions to the above cited version of ModVege,
+such as simulations of management decisions, and influences of snow cover.
+As such, the model is fit to simulate grass growth in mountainous regions,
+such as the Swiss Alps. The package also contains routines for calibrating
+the model and helpful tools for analysing model outputs and performance.
 
 %prep
 %setup -q -c -n %{packname}

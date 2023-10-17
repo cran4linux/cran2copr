@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PROscorer
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Score Commonly-Used Patient-Reported Outcome (PRO) Measures and Other Psychometric Instruments
 
@@ -26,16 +27,16 @@ other psychometric and psychological measures. 'PROscorer', together with
 the 'PROscorerTools' package, is a system to facilitate the incorporation
 of PRO measures into research studies and clinical settings in a
 scientifically rigorous and reproducible manner.  These packages and their
-vignettes are intended to help establish and promote "best practices" to
-improve the planning, scoring, and reporting of PRO-like measures in
-research.  The 'PROscorer' "Instrument Descriptions" vignette contains
-descriptions of each instrument scored by 'PROscorer', complete with
-references. These instrument descriptions are suitable for inclusion in
-formal study protocol documents, grant proposals, and manuscript Method
-sections.  Each 'PROscorer' function is composed of helper functions from
-the 'PROscorerTools' package, and users are encouraged to contribute new
-functions to 'PROscorer'.  More scoring functions are currently in
-development and will be added in future updates.
+vignettes are intended to help establish and promote best practices for
+scoring PRO and PRO-like measures in research.  The 'PROscorer' Instrument
+Descriptions vignette contains descriptions of each instrument scored by
+'PROscorer', complete with references.  These instrument descriptions are
+suitable for inclusion in formal study protocol documents, grant
+proposals, and manuscript Method sections.  Each 'PROscorer' function is
+composed of helper functions from the 'PROscorerTools' package, and users
+are encouraged to contribute new functions to 'PROscorer'.  More scoring
+functions are currently in development and will be added in future
+updates.
 
 %prep
 %setup -q -c -n %{packname}

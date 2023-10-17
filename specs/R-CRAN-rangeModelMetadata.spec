@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rangeModelMetadata
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides Templates for Metadata Files Associated with Species Range Models
 
@@ -16,32 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-CRAN-spocc 
-BuildRequires:    R-CRAN-spThin 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
+BuildRequires:    R-CRAN-BIEN 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spatstat 
 Requires:         R-CRAN-spocc 
-Requires:         R-CRAN-spThin 
 Requires:         R-utils 
+Requires:         R-CRAN-BIEN 
+Requires:         R-CRAN-terra 
 
 %description
 Range Modeling Metadata Standards (RMMS) address three challenges: they
@@ -64,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

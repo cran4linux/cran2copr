@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdata
-%global packver   2.19.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.19.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various R Programming Tools for Data Manipulation
 
@@ -14,9 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         perl
-BuildRequires:    R-devel >= 2.3.0
-Requires:         R-core >= 2.3.0
+Recommends:       perl
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-methods 
@@ -30,12 +30,12 @@ Requires:         R-utils
 %description
 Various R programming tools for data manipulation, including medical unit
 conversions, combining objects, character vector operations, factor
-manipulation, obtaining information about R objects, manipulating MS-Excel
-formatted files, generating fixed-width format files, extracting
-components of date & time objects, operations on columns of data frames,
-matrix operations, operations on vectors, operations on data frames, value
-of last evaluated expression, and a resample() wrapper for sample() that
-ensures consistent behavior for both scalar and vector arguments.
+manipulation, obtaining information about R objects, generating
+fixed-width format files, extracting components of date & time objects,
+operations on columns of data frames, matrix operations, operations on
+vectors, operations on data frames, value of last evaluated expression,
+and a resample() wrapper for sample() that ensures consistent behavior for
+both scalar and vector arguments.
 
 %prep
 %setup -q -c -n %{packname}

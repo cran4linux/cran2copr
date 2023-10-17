@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nephro
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Nephrology
 
@@ -19,13 +20,7 @@ BuildArch:        noarch
 
 %description
 Set of functions to estimate kidney function and other phenotypes of
-interest in nephrology based on different biomechimal traits. MDRD,
-CKD-EPI, and Virga equations are compared in Pattaro (2013)
-<doi:10.1159/000351043>, where the respective references are given. In
-addition, the software includes Stevens (2008)
-<doi:10.1053/j.ajkd.2007.11.018> and Cockroft (1976)
-<doi:10.1159/000180580> formulas. The race-free CKD-EPI equations (2021)
-<doi:10.1056/NEJMoa2102953> are also implemented from ver.1.3.
+interest in nephrology based on different biomechimal traits.
 
 %prep
 %setup -q -c -n %{packname}

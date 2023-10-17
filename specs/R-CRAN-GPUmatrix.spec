@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggvoronoi
-%global packver   0.8.5
+%global packname  GPUmatrix
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Voronoi Diagrams and Heatmaps with 'ggplot2'
+Summary:          Basic Linear Algebra with GPU
 
-License:          MIT + file LICENSE
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
-BuildRequires:    R-CRAN-deldir 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 >= 2.2.0
-Requires:         R-CRAN-deldir 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-raster 
+Requires:         R-stats 
 Requires:         R-methods 
 
 %description
-Easy creation and manipulation of Voronoi diagrams using 'deldir' with
-visualization in 'ggplot2'. Convenient functions are provided to create
-nearest neighbor diagrams and heatmaps. Diagrams are computed with
-'deldir' and processed to work with the 'sp' framework. Results are
-provided in a convenient spatial data structure and displayed with
-'ggplot2'. An outline can be provided by the user to specify the spatial
-domain of interest.
+Motivation: GPU power is a great resource for computational biology
+specifically in statistics and linear algebra. Unfortunately, very few
+packages connect R with the GPU and none of them are transparent enough to
+perform the computations on the GPU without substantial changes to the
+code. Most of them lack proper maintenance: several of the previous
+attempts were removed from the corresponding repositories. It would be
+desirable to have an R package, properly maintained, that exploits the use
+of the GPU with minimal changes in the existing code. Results: We have
+developed the 'GPUMatrix' package. 'GPUMatrix' mimics the behavior of the
+Matrix package and extends R to use the GPU for computations. It is easy
+to learn and very few changes in the code are required to work on the GPU.
+'GPUMatrix' relies on either 'Tensorflow' or 'Torch' R packages to perform
+the GPU operations. Its vignette shows some toy examples on non-negative
+factorization and other factorization used in 'bioinformatics'.
 
 %prep
 %setup -q -c -n %{packname}

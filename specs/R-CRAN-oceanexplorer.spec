@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oceanexplorer
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore Our Planet's Oceans with NOAA
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-shinyjs >= 2.1.0
 BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-glue >= 1.6.0
 BuildRequires:    R-CRAN-fs >= 1.5.2
-BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-sf >= 1.0.5
 BuildRequires:    R-CRAN-stars >= 0.5.5
 BuildRequires:    R-CRAN-rlang >= 0.4.11
@@ -37,6 +36,7 @@ BuildRequires:    R-CRAN-waiter >= 0.2.5
 BuildRequires:    R-CRAN-rstudioapi >= 0.13
 BuildRequires:    R-CRAN-thematic >= 0.1.2.1
 BuildRequires:    R-CRAN-miniUI >= 0.1.1.1
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-maps >= 3.4.0
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-RNetCDF >= 2.6.1
@@ -44,7 +44,6 @@ Requires:         R-CRAN-shinyjs >= 2.1.0
 Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-glue >= 1.6.0
 Requires:         R-CRAN-fs >= 1.5.2
-Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-sf >= 1.0.5
 Requires:         R-CRAN-stars >= 0.5.5
 Requires:         R-CRAN-rlang >= 0.4.11
@@ -57,6 +56,7 @@ Requires:         R-CRAN-waiter >= 0.2.5
 Requires:         R-CRAN-rstudioapi >= 0.13
 Requires:         R-CRAN-thematic >= 0.1.2.1
 Requires:         R-CRAN-miniUI >= 0.1.1.1
+Requires:         R-CRAN-dplyr 
 
 %description
 Provides tools for easy exploration of the world ocean atlas of the US

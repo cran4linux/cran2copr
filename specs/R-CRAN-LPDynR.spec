@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LPDynR
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Land Productivity Dynamics Indicator
 
@@ -16,22 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-virtualspecies 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-virtualspecies 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-parallel 
+Requires:         R-CRAN-terra 
 
 %description
 It uses 'phenological' and productivity-related variables derived from
@@ -40,8 +37,10 @@ Vegetation Index, to assess ecosystem dynamics and change, which
 eventually might drive to land degradation. The final result of the Land
 Productivity Dynamics indicator is a categorical map with 5 classes of
 land productivity dynamics, ranging from declining to increasing
-productivity. See <https://eartharxiv.org/repository/view/2294/> for a
-description of the methods used in the package to calculate the indicator.
+productivity. See
+<https://www.sciencedirect.com/science/article/pii/S1470160X21010517/> for
+a description of the methods used in the package to calculate the
+indicator.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gumboot
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  dialr
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Analyses of Sampling Uncertainty in Goodness-of-Fit Statistics
+Summary:          Parse, Format, and Validate International Phone Numbers
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-hydroGOF 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-hydroGOF 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-CRAN-dialrjars >= 8.10.11.1
+BuildRequires:    R-CRAN-rJava 
+Requires:         R-CRAN-dialrjars >= 8.10.11.1
+Requires:         R-CRAN-rJava 
 
 %description
-Uses jackknife and bootstrap methods to quantify the sampling uncertainty
-in goodness-of-fit statistics. Full details are in Clark et al. (2021),
-"The abuse of popular performance metrics in hydrologic modeling", Water
-Resources Research, <doi:10.1029/2020WR029001>.
+Parse, format, and validate international phone numbers using Google's
+'libphonenumber' java library, <https://github.com/google/libphonenumber>.
 
 %prep
 %setup -q -c -n %{packname}

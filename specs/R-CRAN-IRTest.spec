@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IRTest
-%global packver   1.11.0
+%global packver   1.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.0
+Version:          1.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parameter Estimation of Item Response Theory with Estimation of Latent Distribution
 
@@ -20,19 +20,20 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-betafunctions 
 BuildRequires:    R-CRAN-dcurver 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-usethis 
 Requires:         R-CRAN-betafunctions 
 Requires:         R-CRAN-dcurver 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-usethis 
 
 %description
 Item response theory (IRT) parameter estimation using marginal maximum
 likelihood and expectation-maximization algorithm (Bock & Aitkin, 1981
 <doi:10.1007/BF02293801>). Within parameter estimation algorithm, several
-methods for latent distribution estimation are available (Li, 2022
-<http://www.riss.kr/link?id=T16374105>). Reflecting some features of the
-true latent distribution, these latent distribution estimation methods can
-possibly enhance the estimation accuracy and free the normality assumption
-on the latent distribution.
+methods for latent distribution estimation are available. Reflecting some
+features of the true latent distribution, these latent distribution
+estimation methods can possibly enhance the estimation accuracy and free
+the normality assumption on the latent distribution.
 
 %prep
 %setup -q -c -n %{packname}

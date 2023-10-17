@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  UMR
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  mixSPE
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unmatched Monotone Regression
+Summary:          Mixtures of Power Exponential and Skew Power Exponential Distributions for Use in Model-Based Clustering and Classification
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-decon 
-BuildRequires:    R-CRAN-trust 
-BuildRequires:    R-CRAN-distr 
-Requires:         R-CRAN-decon 
-Requires:         R-CRAN-trust 
-Requires:         R-CRAN-distr 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Unmatched regression refers to the regression setting where covariates and
-predictors are collected separately/independently and so are not paired
-together, as in the usual regression setting.  Balabdaoui, Doss, and Durot
-(2021) <arXiv:2007.00830> study the unmatched regression setting where the
-univariate regression function is known to be monotone.  This package
-implements methods for computing the estimator developed in Balabdaoui,
-Doss, and Durot (2021).  The main method is an
-active-set-trust-region-based method.
+Mixtures of skewed and elliptical distributions are implemented using
+mixtures of multivariate skew power exponential and power exponential
+distributions, respectively. A generalized expectation-maximization
+framework is used for parameter estimation. See citation() for how to
+cite.
 
 %prep
 %setup -q -c -n %{packname}
