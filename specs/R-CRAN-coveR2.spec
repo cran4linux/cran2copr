@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClusBoot
-%global packver   1.2.1
+%global packname  coveR2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap a Clustering Solution to Establish the Stability of the Clusters
+Summary:          Process Digital Cover Photography Images of Tree Crowns
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-autothresholdr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-mgc 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-autothresholdr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-mgc 
+Requires:         R-CRAN-terra 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 
 %description
-Providing a cluster allocation for n samples, either with an $n times p$
-data matrix or an $n times n$ distance matrix, a bootstrap procedure is
-performed. The proportion of bootstrap replicates where a pair of samples
-cluster in the same cluster indicates who tightly the samples in a
-particular cluster clusters together.
+Process Digital Cover Photography images of tree canopies to get canopy
+attributes like Foliage Cover and Leaf Area Index. Detailed description of
+the methods in Chianucci et al. (2022) <doi:10.1007/s00468-018-1666-3>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bigDM
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalable Bayesian Disease Mapping Models for High-Dimensional Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-fastDummies
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-geos 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-fastDummies
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-geos 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
