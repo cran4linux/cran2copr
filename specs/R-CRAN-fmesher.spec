@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fmesher
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Triangle Meshes and Related Geometry Tools
 
@@ -14,9 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-sp >= 1.4.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-sp >= 1.6.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-graphics 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-sp >= 1.4.5
+Requires:         R-CRAN-sp >= 1.6.1
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-graphics 

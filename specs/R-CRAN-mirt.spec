@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mirt
-%global packver   1.40
+%global packver   1.41
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.40
+Version:          1.41
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Item Response Theory
 
@@ -47,17 +47,17 @@ Requires:         R-splines
 Requires:         R-CRAN-dcurver 
 
 %description
-Analysis of dichotomous and polytomous response data using unidimensional
-and multidimensional latent trait models under the Item Response Theory
+Analysis of discrete response data using unidimensional and
+multidimensional item analysis models under the Item Response Theory
 paradigm (Chalmers (2012) <doi:10.18637/jss.v048.i06>). Exploratory and
-confirmatory models can be estimated with quadrature (EM) or stochastic
-(MHRM) methods. Confirmatory bi-factor and two-tier analyses are available
-for modeling item testlets. Multiple group analysis and mixed effects
-designs also are available for detecting differential item and test
-functioning as well as modeling item and person covariates. Finally,
-latent class models such as the DINA, DINO, multidimensional latent class,
-and several other discrete latent variable models, including mixture and
-zero-inflated response models, are supported.
+confirmatory item factor analysis models are estimated with quadrature
+(EM) or stochastic (MHRM) methods. Confirmatory bi-factor and two-tier
+models are available for modeling item testlets using dimension reduction
+EM algorithms, while multiple group analyses and mixed effects designs are
+included for detecting differential item, bundle, and test functioning,
+and for modeling item and person covariates. Finally, latent class models
+such as the DINA, DINO, multidimensional latent class, mixture, and
+zero-inflated response models are supported.
 
 %prep
 %setup -q -c -n %{packname}

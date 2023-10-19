@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SGPdata
-%global packver   26.0-0.0
+%global packver   27.0-0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          26.0.0.0
+Version:          27.0.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exemplar Data Sets for Student Growth Percentiles (SGP) Analyses
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  socialmixr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Social Mixing Matrices for Infectious Disease Modelling
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-oai 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-wpp2017 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-countrycode 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-oai 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-wpp2017 
 Requires:         R-CRAN-xml2 
 

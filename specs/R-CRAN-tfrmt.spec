@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tfrmt
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Applies Display Metadata to Analysis Results Datasets
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-gt >= 0.6.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-glue 
 
 %description
 Creates a framework to store and apply display metadata to Analysis

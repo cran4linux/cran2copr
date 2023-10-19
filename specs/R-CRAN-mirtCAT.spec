@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mirtCAT
-%global packver   1.12.2
+%global packver   1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.2
+Version:          1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computerized Adaptive Testing with Multidimensional Item Response Theory
 
@@ -37,16 +37,15 @@ Requires:         R-CRAN-pbapply
 Requires:         R-CRAN-lpSolve 
 
 %description
-Provides tools to generate an HTML interface for creating adaptive and
-non-adaptive educational and psychological tests using the shiny package
-(Chalmers (2016) <doi:10.18637/jss.v071.i05>). Suitable for applying
-unidimensional and multidimensional computerized adaptive tests (CAT)
-using item response theory methodology and for creating simple
-questionnaires forms to collect response data directly in R. Additionally,
-optimal test designs (e.g., "shadow testing") are supported for tests
-which contain a large number of item selection constraints. Finally,
-package contains tools useful for performing Monte Carlo simulations for
-studying the behavior of computerized adaptive test banks.
+Provides tools to generate HTML interfaces for adaptive and non-adaptive
+tests using the shiny package (Chalmers (2016)
+<doi:10.18637/jss.v071.i05>). Suitable for applying unidimensional and
+multidimensional computerized adaptive tests (CAT) using item response
+theory methodology and for creating simple questionnaires forms to collect
+response data directly in R. Additionally, optimal test designs (e.g.,
+"shadow testing") are supported for tests that contain a large number of
+item selection constraints. Finally, package contains tools useful for
+performing Monte Carlo simulations for studying test item banks.
 
 %prep
 %setup -q -c -n %{packname}

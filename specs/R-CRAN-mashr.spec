@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mashr
-%global packver   0.2.69
+%global packver   0.2.79
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.69
+Version:          0.2.79
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Adaptive Shrinkage
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-ashr >= 2.2.22
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-RcppGSL >= 0.3.8
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-CRAN-softImpute 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ashr >= 2.2.22
-Requires:         R-CRAN-Rcpp >= 0.12.11
+Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-assertthat 
 Requires:         R-utils 
 Requires:         R-stats 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpatEntropy
-%global packver   2.2-2
+%global packver   2.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Entropy Measures
 
@@ -38,14 +38,14 @@ Shannon's entropy (Shannon, 1948
 1974 <doi:10.1111/j.1538-4632.1974.tb01014.x>), O'Neill's entropy (O'Neill
 et al., 1998 <doi:10.1007/BF00162741>), Li and Reynolds' contagion index
 (Li and Reynolds, 1993 <doi:10.1007/BF00125347>), Karlstrom and Ceccato's
-entropy (Karlstrom and Ceccato, 2002 <urn:nbn:se:kth:diva-61351>),
-Leibovici's entropy (Leibovici, 2009 <doi:10.1007/978-3-642-03832-7_24>),
-Parresol and Edwards' entropy (Parresol and Edwards, 2014
-<doi:10.3390/e16041842>) and Altieri's entropy (Altieri et al., 2018,
-<doi:10.1007/s10651-017-0383-1>). Full references for all measures can be
-found under the topic 'SpatEntropy'. The package is able to work with
-lattice and point data. The updated version works with the updated
-'spatstat' package (>= 3.0-2).
+entropy (Karlstrom and Ceccato, 2002
+<https://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-61351>), Leibovici's
+entropy (Leibovici, 2009 <doi:10.1007/978-3-642-03832-7_24>), Parresol and
+Edwards' entropy (Parresol and Edwards, 2014 <doi:10.3390/e16041842>) and
+Altieri's entropy (Altieri et al., 2018, <doi:10.1007/s10651-017-0383-1>).
+Full references for all measures can be found under the topic
+'SpatEntropy'. The package is able to work with lattice and point data.
+The updated version works with the updated 'spatstat' package (>= 3.0-2).
 
 %prep
 %setup -q -c -n %{packname}

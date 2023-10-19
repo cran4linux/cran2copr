@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  genieclust
-%global packver   1.1.3
+%global packver   1.1.5-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Robust Hierarchical Clustering with Noise Points Detection
 
@@ -34,15 +34,15 @@ only 1-2 minutes. Allows clustering with respect to mutual reachability
 distances so that it can act as a noise point detector or a robustified
 version of 'HDBSCAN*' (that is able to detect a predefined number of
 clusters and hence it does not dependent on the somewhat fragile 'eps'
-parameter). The package also features an implementation of economic
-inequity indices (the Gini, Bonferroni index), external cluster validity
-measures (e.g., the adjusted asymmetric accuracy and partition similarity
-scores such as the adjusted Rand, Fowlkes-Mallows, adjusted mutual
-information, and pair sets indices), and internal cluster validity indices
-(e.g., the Calinski-Harabasz, Davies-Bouldin, Ball-Hall, Silhouette, and
-generalised Dunn indices). See also the 'Python' version of 'genieclust'
-available on 'PyPI', which supports sparse data, more metrics, and even
-larger datasets.
+parameter). The package also features an implementation of inequality
+indices (the Gini, Bonferroni index), external cluster validity measures
+(e.g., the normalised clustering accuracy and partition similarity scores
+such as the adjusted Rand, Fowlkes-Mallows, adjusted mutual information,
+and the pair sets index), and internal cluster validity indices (e.g., the
+Calinski-Harabasz, Davies-Bouldin, Ball-Hall, Silhouette, and generalised
+Dunn indices). See also the 'Python' version of 'genieclust' available on
+'PyPI', which supports sparse data, more metrics, and even larger
+datasets.
 
 %prep
 %setup -q -c -n %{packname}

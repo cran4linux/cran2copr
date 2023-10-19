@@ -1,56 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  synoptReg
-%global packver   1.2.1
+%global __requires_exclude ^libmpi
+%global packname  gumboot
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Synoptic Climate Classification and Spatial Regionalization of Environmental Data
+Summary:          Bootstrap Analyses of Sampling Uncertainty in Goodness-of-Fit Statistics
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rnaturalearth 
-BuildRequires:    R-CRAN-rnaturalearthdata 
-BuildRequires:    R-CRAN-metR 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-RNCEP 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-kohonen 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rnaturalearth 
-Requires:         R-CRAN-rnaturalearthdata 
-Requires:         R-CRAN-metR 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-RNCEP 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-kohonen 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-reshape2 
 
 %description
-Set of functions to compute different types of synoptic classification
-methods and for analysing their effect on environmental variables. More
-information about the methods used in Lemus-Canovas et al. 2019
-<DOI:10.1016/j.atmosres.2019.01.018>, Martin-Vide et al. 2008
-<DOI:10.5194/asr-2-99-2008>, Jenkinson and Collison 1977.
+Uses jackknife and bootstrap methods to quantify the sampling uncertainty
+in goodness-of-fit statistics. Full details are in Clark et al. (2021),
+"The abuse of popular performance metrics in hydrologic modeling", Water
+Resources Research, <doi:10.1029/2020WR029001>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -60,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

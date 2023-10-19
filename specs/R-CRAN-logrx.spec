@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  logrx
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Logging Utility Focus on Clinical Trial Programming Workflows
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sessioninfo >= 1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
@@ -32,7 +32,8 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-waiter 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-lintr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-sessioninfo >= 1.2
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-magrittr 
@@ -48,7 +49,8 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-waiter 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-lintr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
 
 %description
 A utility to facilitate the logging and review of R programs in clinical

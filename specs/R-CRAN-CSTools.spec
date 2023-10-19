@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CSTools
-%global packver   5.0.1
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.1
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing Skill of Climate Forecasts on Seasonal-to-Decadal Timescales
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-maps
 BuildRequires:    R-CRAN-qmap 
 BuildRequires:    R-CRAN-easyVerification 
 BuildRequires:    R-CRAN-s2dv 
+BuildRequires:    R-CRAN-startR 
 BuildRequires:    R-CRAN-rainfarmr 
 BuildRequires:    R-CRAN-ClimProjDiags 
 BuildRequires:    R-CRAN-ncdf4 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-maps
 Requires:         R-CRAN-qmap 
 Requires:         R-CRAN-easyVerification 
 Requires:         R-CRAN-s2dv 
+Requires:         R-CRAN-startR 
 Requires:         R-CRAN-rainfarmr 
 Requires:         R-CRAN-ClimProjDiags 
 Requires:         R-CRAN-ncdf4 

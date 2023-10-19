@@ -1,49 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gatoRs
-%global packver   1.0.0
+%global packname  dcorVS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographic and Taxonomic Occurrence R-Based Scrubbing
+Summary:          Variable Selection Algorithms Using the Distance Correlation
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ridigbio 
-BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-CoordinateCleaner 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-spThin 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-parsedate 
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ridigbio 
-Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-CoordinateCleaner 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-spThin 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-parsedate 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-dcov 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dcov 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 
 %description
-Streamlines downloading and cleaning biodiversity data from Integrated
-Digitized Biocollections (iDigBio) and the Global Biodiversity Information
-Facility (GBIF).
+The 'FBED' and 'mmpc' variable selection algorithms have been implemented
+using the distance correlation. The references include: Tsamardinos I.,
+Aliferis C. F. and Statnikov A. (2003). "Time and sample efficient
+discovery of Markovblankets and direct causal relations". In Proceedings
+of the ninth ACM SIGKDD international Conference.
+<doi:10.1145/956750.956838>. Borboudakis G. and Tsamardinos I. (2019).
+"Forward-backward selection with early dropping". Journal of Machine
+Learning Research, 20(8): 1--39. <doi:10.48550/arXiv.1705.10770>. Huo X.
+and Szekely G.J. (2016). "Fast computing for distance covariance".
+Technometrics, 58(4): 435--447. <doi:10.1080/00401706.2015.1054435>.
 
 %prep
 %setup -q -c -n %{packname}

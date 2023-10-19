@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Qindex
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous and Dichotomized Index Predictors Based on Distribution Quantiles
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-methods 
@@ -26,7 +25,6 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-boot 
 Requires:         R-grDevices 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-methods 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WeibullR.shiny
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Shiny' App for Weibull Analysis from 'WeibullR'
 
@@ -17,12 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-WeibullR 
 BuildRequires:    R-CRAN-WeibullR.plotly 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
-Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-WeibullR 
 Requires:         R-CRAN-WeibullR.plotly 
 Requires:         R-CRAN-shiny 
