@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baizer
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Functions for Data Processing
 
@@ -27,7 +27,10 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rematch2 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-seriation 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
@@ -44,7 +47,10 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rematch2 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-seriation 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 

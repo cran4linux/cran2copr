@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  marginaleffects
-%global packver   0.15.1
+%global packver   0.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.1
+Version:          0.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictions, Comparisons, Slopes, Marginal Means, and Hypothesis Tests
 
@@ -34,10 +34,10 @@ Requires:         R-CRAN-rlang
 
 %description
 Compute and plot predictions, slopes, marginal means, and comparisons
-(contrasts, risk ratios, odds, etc.) for over 80 classes of statistical
-models in R. Conduct linear and non-linear hypothesis tests, or
-equivalence tests. Calculate uncertainty estimates using the delta method,
-bootstrapping, or simulation-based inference.
+(contrasts, risk ratios, odds, etc.) for over 100 classes of statistical
+and machine learning models in R. Conduct linear and non-linear hypothesis
+tests, or equivalence tests. Calculate uncertainty estimates using the
+delta method, bootstrapping, or simulation-based inference.
 
 %prep
 %setup -q -c -n %{packname}

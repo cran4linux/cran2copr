@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Sieve
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Estimation by the Method of Sieves
 
@@ -35,8 +35,8 @@ moderate high-dimensional features (dimension < 100). The l1-penalized
 sieve estimator, a nonparametric generalization of Lasso, is adaptive to
 the feature dimension with provable theoretical guarantees. We also
 include a nonparametric stochastic gradient descent estimator, Sieve-SGD,
-for online or large scale batch problems. Details of the methods and model
-assumptions can be found in: <arXiv:2206.02994> <arXiv:2104.00846>.
+for online or large scale batch problems. Details of the methods can be
+found in: <arXiv:2206.02994> <arXiv:2104.00846><arXiv:2310.12140>.
 
 %prep
 %setup -q -c -n %{packname}

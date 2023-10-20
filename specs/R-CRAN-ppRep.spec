@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ppRep
-%global packver   0.42.1
+%global packver   0.42.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.42.1
+Version:          0.42.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Replication Studies using Power Priors
 
@@ -22,8 +22,8 @@ Requires:         R-CRAN-hypergeo
 
 %description
 Provides functionality for Bayesian analysis of replication studies using
-power prior approaches (Pawel et al., 2022)
-<doi:10.48550/arXiv.2207.14720>.
+power prior approaches (Pawel et al., 2023)
+<doi:10.1007/s11749-023-00888-5>.
 
 %prep
 %setup -q -c -n %{packname}

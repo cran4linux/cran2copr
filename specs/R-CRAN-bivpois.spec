@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinfun
-%global packver   1.1.5
+%global packname  bivpois
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Design and Data Analysis Functions
+Summary:          Bivariate Poisson Distribution
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-graphics 
+Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
 
 %description
-Utilities to make your clinical collaborations easier if not fun. It
-contains functions for designing studies such as Simon 2-stage and group
-sequential designs and for data analysis such as Jonckheere-Terpstra test
-and estimating survival quantiles.
+Maximum likelihood estimation, random values generation, density
+computation and other functions for the bivariate Poisson distribution.
+References include: Kawamura K. (1984). "Direct calculation of maximum
+likelihood estimator for the bivariate Poisson distribution". Kodai
+Mathematical Journal, 7(2): 211--221. <doi:10.2996/kmj/1138036908>.
+Kocherlakota S. and Kocherlakota K. (1992). "Bivariate discrete
+distributions". CRC Press. <doi:10.1201/9781315138480>. Karlis D. and
+Ntzoufras I. (2003). "Analysis of sports data by using bivariate Poisson
+models". Journal of the Royal Statistical Society: Series D (The
+Statistician), 52(3): 381--393. <doi:10.1111/1467-9884.00366>.
 
 %prep
 %setup -q -c -n %{packname}

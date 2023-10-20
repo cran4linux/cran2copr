@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sharpPen
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Data Sharpening for Local Polynomial Regression
 
@@ -16,20 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-locpol 
 Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-locpol 
 
 %description
-Functions and data sets for penalized data sharpening. Nonparametric
-regressions are computed subject to smoothness and other kinds of
-penalties.
+Functions and data sets for data sharpening. Nonparametric regressions are
+computed subject to smoothness and other kinds of penalties.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FCPS
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fundamental Clustering Problems Suite
 
@@ -14,16 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
+Recommends:       pandoc
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-DataVisualizations 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-DataVisualizations 
+Requires:         R-methods 
 
 %description
 Over sixty clustering algorithms are provided in this package with

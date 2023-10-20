@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quickcode
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Compilation of Some Frequently Used R Functions
 
@@ -20,14 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-Polychrome 
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-tools 
 Requires:         R-CRAN-Polychrome 

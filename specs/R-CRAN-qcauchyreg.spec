@@ -1,33 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinfun
-%global packver   1.1.5
+%global packname  qcauchyreg
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Design and Data Analysis Functions
+Summary:          Quantile Regression Quasi-Cauchy
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-CRAN-quantreg 
 
 %description
-Utilities to make your clinical collaborations easier if not fun. It
-contains functions for designing studies such as Simon 2-stage and group
-sequential designs and for data analysis such as Jonckheere-Terpstra test
-and estimating survival quantiles.
+Quasi-Cauchy quantile regression, proposed by de Oliveira, Ospina, Leiva,
+Figueroa-Zuniga and Castro (2023) <doi:10.3390/fractalfract7090667>. This
+regression model is useful for the case where you want to model data of a
+nature limited to the intervals [0,1], (0,1], [0,1) or (0,1) and you want
+to use a quantile approach.
 
 %prep
 %setup -q -c -n %{packname}

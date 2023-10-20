@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  actel
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Acoustic Telemetry Data Analysis
 
@@ -22,8 +23,8 @@ BuildRequires:    R-CRAN-DiagrammeR
 BuildRequires:    R-CRAN-DiagrammeRsvg 
 BuildRequires:    R-CRAN-fasttime 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-reshape2 
@@ -31,9 +32,9 @@ BuildRequires:    R-CRAN-rmarkdown
 BuildRequires:    R-CRAN-rsvg 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-circular 
 Requires:         R-CRAN-data.table 
@@ -41,8 +42,8 @@ Requires:         R-CRAN-DiagrammeR
 Requires:         R-CRAN-DiagrammeRsvg 
 Requires:         R-CRAN-fasttime 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-svglite 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-reshape2 
@@ -50,9 +51,9 @@ Requires:         R-CRAN-rmarkdown
 Requires:         R-CRAN-rsvg 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
-Requires:         R-grDevices 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-svglite 
 Requires:         R-utils 
 
 %description
@@ -74,6 +75,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

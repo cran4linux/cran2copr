@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinfun
-%global packver   1.1.5
+%global packname  LTRCforests
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Design and Data Analysis Functions
+Summary:          Ensemble Methods for Survival Data with Time-Varying Covariates
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-ipred 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-prodlim 
+BuildRequires:    R-CRAN-partykit 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-utils 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-ipred 
+Requires:         R-parallel 
+Requires:         R-CRAN-prodlim 
+Requires:         R-CRAN-partykit 
 
 %description
-Utilities to make your clinical collaborations easier if not fun. It
-contains functions for designing studies such as Simon 2-stage and group
-sequential designs and for data analysis such as Jonckheere-Terpstra test
-and estimating survival quantiles.
+Implements the conditional inference forest and relative risk forest
+algorithm to modeling left-truncated right-censored data with
+time-invariant covariates, and (left-truncated) right-censored survival
+data with time-varying covariates. It also provides functions to tune the
+parameters and evaluate the model fit. See Yao et al. (2022)
+<doi:10.1177/09622802221111549>.
 
 %prep
 %setup -q -c -n %{packname}

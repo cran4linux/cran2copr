@@ -1,42 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  harmonydata
-%global packver   0.1.1
+%global packname  scaper
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Library for 'Harmony'
+Summary:          Single Cell Transcriptomics-Level Cytokine Activity Prediction and Estimation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Seurat 
+BuildRequires:    R-CRAN-SeuratObject 
+BuildRequires:    R-CRAN-VAM 
 BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Seurat 
+Requires:         R-CRAN-SeuratObject 
+Requires:         R-CRAN-VAM 
 Requires:         R-utils 
-Requires:         R-tools 
 
 %description
-'Harmony' is a tool using AI which allows you to compare items from
-questionnaires and identify similar content. You can try 'Harmony' at
-<https://harmonydata.ac.uk/app/> and you can read our blog at
-<https://harmonydata.ac.uk/blog/> or at
-<https://fastdatascience.com/how-does-harmony-work/>. Documentation at
-<https://harmonydata.ac.uk/harmony-r-released/>.
+Generates cell-level cytokine activity estimates using relevant
+information from gene sets constructed with the 'CytoSig' and the
+'Reactome' databases and scored using the modified 'Variance-adjusted
+Mahalanobis (VAM)' framework for single-cell RNA-sequencing (scRNA-seq)
+data. 'CytoSig' database is described in: Jiang at al., (2021)
+<doi:10.1038/s41592-021-01274-5>. 'Reactome' database is described in:
+Gillespie et al., (2021) <doi:10.1093/nar/gkab1028>. The 'VAM' method is
+outlined in: Frost (2020) <doi:10.1093/nar/gkaa582>.
 
 %prep
 %setup -q -c -n %{packname}

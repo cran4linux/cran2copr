@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinfun
-%global packver   1.1.5
+%global packname  ACEP
+%global packver   0.0.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          0.0.22
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Design and Data Analysis Functions
+Summary:          Analisis Computacional de Eventos de Protesta
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-httr 
 
 %description
-Utilities to make your clinical collaborations easier if not fun. It
-contains functions for designing studies such as Simon 2-stage and group
-sequential designs and for data analysis such as Jonckheere-Terpstra test
-and estimating survival quantiles.
+La libreria 'ACEP' contiene funciones especificas para desarrollar
+analisis computacional de eventos de protesta. Asimismo, contiene base de
+datos con colecciones de notas sobre protestas y diccionarios de palabras
+conflictivas. Coleccion de diccionarios que reune diccionarios de
+diferentes origenes.  The 'ACEP' library contains specific functions to
+perform computational analysis of protest events. It also contains a
+database with collections of notes on protests and dictionaries of
+conflicting words. Collection of dictionaries that brings together
+dictionaries from different sources.
 
 %prep
 %setup -q -c -n %{packname}

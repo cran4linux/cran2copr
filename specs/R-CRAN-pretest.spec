@@ -1,33 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinfun
-%global packver   1.1.5
+%global packname  pretest
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Design and Data Analysis Functions
+Summary:          A Novel Approach to Predictive Accuracy Testing in Nested Environments
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Utilities to make your clinical collaborations easier if not fun. It
-contains functions for designing studies such as Simon 2-stage and group
-sequential designs and for data analysis such as Jonckheere-Terpstra test
-and estimating survival quantiles.
+This repository contains the codes for using the predictive accuracy
+comparison tests developed in Pitarakis, J. (2023)
+<doi:10.1017/S0266466623000154>.
 
 %prep
 %setup -q -c -n %{packname}

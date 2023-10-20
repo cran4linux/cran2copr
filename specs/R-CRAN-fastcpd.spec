@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastcpd
-%global packver   0.7.2
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Change Point Detection via Sequential Gradient Descent
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-glmnet
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-Rcpp >= 0.11.0
@@ -32,6 +33,7 @@ Requires:         R-CRAN-glmnet
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Implements fast change point detection algorithm based on the paper

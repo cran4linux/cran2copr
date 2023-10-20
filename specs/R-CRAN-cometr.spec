@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cometr
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Comet' API for R
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-R6 >= 2.4.0
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-httr 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-R.utils 
 Requires:         R-utils 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-digest 
 
 %description
 A convenient 'R' wrapper to the 'Comet' API, which is a cloud platform

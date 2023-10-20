@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPPASPACE
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reverse-Phase Protein Array Super Position and Concentration Evaluation
 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-jpeg
 BuildRequires:    R-CRAN-tiff 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-imager 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-cobs 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-nlme 
@@ -54,7 +53,6 @@ Requires:         R-CRAN-jpeg
 Requires:         R-CRAN-tiff 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-imager 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-cobs 
 Requires:         R-splines 
 Requires:         R-CRAN-nlme 
@@ -66,7 +64,7 @@ Requires:         R-CRAN-timeDate
 
 %description
 Provides tools for the analysis of reverse-phase protein arrays (RPPAs),
-which are also known as "tissue lysate arrays" or simply "lysate arrays".
+which are also known as 'tissue lysate arrays' or simply 'lysate arrays'.
 The package's primary purpose is to input a set of quantification files
 representing dilution series of samples and control points taken from
 scanned RPPA slides and determine a relative log concentration value for
@@ -79,7 +77,9 @@ calculated values across a set of slides. The package was derived from a
 previous package named SuperCurve. For a detailed description of data
 inputs and outputs, usage information, and a list of related papers
 describing methods used in the package please review the vignette
-"Guide_to_RPPASPACE". Hu (2007) <doi:10.1093/bioinformatics/btm283>.
+'Guide_to_RPPASPACE'. 'RPPA SPACE: an R package for normalization and
+quantitation of Reverse-Phase Protein Array data'. Bioinformatics Nov
+15;38(22):5131-5133. <doi: 10.1093/bioinformatics/btac665>.
 
 %prep
 %setup -q -c -n %{packname}

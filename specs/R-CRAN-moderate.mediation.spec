@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moderate.mediation
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Moderated Mediation Analysis
 
@@ -42,17 +42,17 @@ Requires:         R-CRAN-earth
 
 %description
 Causal moderated mediation analysis using the methods proposed by Qin and
-Wang (2022). Causal moderated mediation analysis is crucial for
-investigating how, for whom, and where a treatment is effective by
-assessing the heterogeneity of mediation mechanism across individuals and
-contexts. This package enables researchers to estimate and test the
-conditional and moderated mediation effects, assess their sensitivity to
-unmeasured pre-treatment confounding, and visualize the results. The
-package is built based on the quasi-Bayesian Monte Carlo method, because
-it has relatively better performance at small sample sizes, and its
-running speed is the fastest. The package is applicable to a treatment of
-any scale, a binary or continuous mediator, a binary or continuous
-outcome, and one or more moderators of any scale.
+Wang (2023) <doi:10.3758/s13428-023-02095-4>. Causal moderated mediation
+analysis is crucial for investigating how, for whom, and where a treatment
+is effective by assessing the heterogeneity of mediation mechanism across
+individuals and contexts. This package enables researchers to estimate and
+test the conditional and moderated mediation effects, assess their
+sensitivity to unmeasured pre-treatment confounding, and visualize the
+results. The package is built based on the quasi-Bayesian Monte Carlo
+method, because it has relatively better performance at small sample
+sizes, and its running speed is the fastest. The package is applicable to
+a treatment of any scale, a binary or continuous mediator, a binary or
+continuous outcome, and one or more moderators of any scale.
 
 %prep
 %setup -q -c -n %{packname}

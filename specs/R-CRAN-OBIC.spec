@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  OBIC
-%global packver   2.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate the Open Bodem Index (OBI) Score
 
@@ -29,8 +30,7 @@ criteria: chemical, physical, biological and management, which consist of
 more than 21 indicators. By providing results of a soil analysis and
 management info the 'OBIC' package can be use to calculate he scores,
 indicators and derivatives that are used by the OBI. More information
-about the Open Bodem Index can be found at
-<https://www.openbodemindex.nl/>.
+about the Open Bodem Index can be found at <https://openbodemindex.nl/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ale
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Machine Learning and Statistical Inference with Accumulated Local Effects (ALE)
 
@@ -18,18 +18,26 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-labeling 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-yaImpute 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ellipsis 
 Requires:         R-grDevices 
+Requires:         R-CRAN-labeling 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
@@ -39,19 +47,19 @@ Requires:         R-CRAN-yaImpute
 %description
 Accumulated Local Effects (ALE) were initially developed as a
 model-agnostic approach for global explanations of the results of
-black-box machine learning algorithms. (Apley, Daniel W., and Jingyu Zhu.
-"Visualizing the effects of predictor variables in black box supervised
-learning models." Journal of the Royal Statistical Society Series B:
-Statistical Methodology 82.4 (2020): 1059-1086 <doi:10.1111/rssb.12377>.)
-ALE has two primary advantages over other approaches like partial
-dependency plots (PDP) and SHapley Additive exPlanations (SHAP): its
-values are not affected by the presence of interactions among variables in
-a model and its computation is relatively rapid. This package rewrites the
-original code from the 'ALEPlot' package for calculating ALE data and it
-completely reimplements the plotting of ALE values. Future versions hope
-to extend the original ALE concept beyond global explanations with
-ALE-based measures that can be used for statistical inference as well as
-an ALE-based approach for local explanations.
+black-box machine learning algorithms. ALE has a key advantage over other
+approaches like partial dependency plots (PDP) and SHapley Additive
+exPlanations (SHAP): its values represent a clean functional decomposition
+of the model. As such, ALE values are not affected by the presence or
+absence of interactions among variables in a mode. Moreover, its
+computation is relatively rapid. This package rewrites the original code
+from the 'ALEPlot' package for calculating ALE data and it completely
+reimplements the plotting of ALE values. It also extends the original ALE
+concept to add bootstrap-based confidence intervals and ALE-based
+statistics that can be used for statistical inference. For more details,
+see Okoli, Chitu. 2023. “Statistical Inference Using Machine Learning and
+Classical Techniques Based on Accumulated Local Effects (ALE).” arXiv.
+<arXiv:2310.09877>. <doi:10.48550/arXiv.2310.09877>.
 
 %prep
 %setup -q -c -n %{packname}
