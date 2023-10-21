@@ -1,51 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geomerge
-%global packver   0.3.4
+%global packname  BKTR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geospatial Data Integration
+Summary:          Bayesian Kernelized Tensor Regression
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.21
-Requires:         R-core >= 3.21
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-R6P 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggmap 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-torch 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-R6P 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ggmap 
+Requires:         R-CRAN-data.table 
 
 %description
-Geospatial data integration framework that merges raster, spatial polygon,
-and (dynamic) spatial points data into a spatial (panel) data frame at any
-geographical resolution.
+Facilitates scalable spatiotemporally varying coefficient modelling with
+Bayesian kernelized tensor regression. The important features of this
+package are: (a) Enabling local temporal and spatial modeling of the
+relationship between the response variable and covariates. (b)
+Implementing the model described by Lei et al. (2023)
+<doi:10.48550/arXiv.2109.00046>. (c) Using a Bayesian Markov Chain Monte
+Carlo (MCMC) algorithm to sample from the posterior distribution of the
+model parameters. (d) Employing a tensor decomposition to reduce the
+number of estimated parameters. (e) Accelerating tensor operations and
+enabling graphics processing unit (GPU) acceleration with the 'torch'
+package.
 
 %prep
 %setup -q -c -n %{packname}

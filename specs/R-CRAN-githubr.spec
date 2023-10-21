@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FactorsR
-%global packver   1.5
+%global __requires_exclude ^libmpi
+%global packname  githubr
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identification of the Factors Affecting Species Richness
+Summary:          Easier to Use API Wrapper for 'GitHub'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gitcreds 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-gitcreds 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gh 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-httr 
 
 %description
-It identifies the factors significantly related to species richness, and
-their relative contribution, using multiple regressions and support vector
-machine models. It uses an output file of 'ModestR' with data of richness
-of the species and environmental variables in a cell size defined by the
-user. The residuals of the support vector machine model are shown on a
-map. Negative residuals may be potential areas with undiscovered and/or
-unregistered species, or areas with decreased species richness due to the
-negative effect of anthropogenic factors.
+This is a 'GitHub' API wrapper for R. <https://docs.github.com/en/rest> It
+uses the 'gh' package but has things wrapped up for convenient use cases.
 
 %prep
 %setup -q -c -n %{packname}

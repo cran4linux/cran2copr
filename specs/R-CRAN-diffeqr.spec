@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diffeqr
-%global packver   1.1.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solving Differential Equations (ODEs, SDEs, DDEs, DAEs)
 
@@ -28,9 +28,11 @@ equations (SDE), delay differential equations (DDE),
 differential-algebraic equations (DAE), and more. Much of the
 functionality, including features like adaptive time stepping in SDEs, are
 unique and allow for multiple orders of magnitude speedup over more common
-methods. 'diffeqr' attaches an R interface onto the package, allowing
-seamless use of this tooling by R users. For more information, see
-Rackauckas and Nie (2017) <doi:10.5334/jors.151>.
+methods. Supports GPUs, with support for CUDA (NVIDIA), AMD GPUs, Intel
+oneAPI GPUs, and Apple's Metal (M-series chip GPUs). 'diffeqr' attaches an
+R interface onto the package, allowing seamless use of this tooling by R
+users. For more information, see Rackauckas and Nie (2017)
+<doi:10.5334/jors.151>.
 
 %prep
 %setup -q -c -n %{packname}

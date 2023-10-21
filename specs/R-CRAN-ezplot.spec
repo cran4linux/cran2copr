@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ezplot
-%global packver   0.7.8
+%global packver   0.7.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.8
+Version:          0.7.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Common Chart Types
 

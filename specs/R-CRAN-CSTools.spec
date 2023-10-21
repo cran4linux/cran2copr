@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CSTools
-%global packver   5.1.0
+%global packver   5.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.0
+Version:          5.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing Skill of Climate Forecasts on Seasonal-to-Decadal Timescales
 
