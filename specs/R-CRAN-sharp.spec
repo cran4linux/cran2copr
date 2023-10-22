@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sharp
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stability-enHanced Approaches using Resampling Procedures
 
@@ -49,11 +49,11 @@ et al (2003) <doi:10.1023/A:1023949509487>), resampling techniques are
 used to enhance the reliability of the results. In this package,
 hyper-parameters are calibrated by maximising model stability, which is
 measured under the null hypothesis that all selection (or co-membership)
-probabilities are identical (B Bodinier et al (2021) <arXiv:2106.02521>).
-Functions are readily implemented for the use of LASSO regression, sparse
-PCA, sparse (group) PLS or graphical LASSO in stability selection, and
-hierarchical clustering, partitioning around medoids, K means or Gaussian
-mixture models in consensus clustering.
+probabilities are identical (B Bodinier et al (2023)
+<doi:10.1093/jrsssc/qlad058>). Functions are readily implemented for the
+use of LASSO regression, sparse PCA, sparse (group) PLS or graphical LASSO
+in stability selection, and hierarchical clustering, partitioning around
+medoids, K means or Gaussian mixture models in consensus clustering.
 
 %prep
 %setup -q -c -n %{packname}

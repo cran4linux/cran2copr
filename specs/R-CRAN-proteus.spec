@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  proteus
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiform Seq2Seq Model for Time-Feature Analysis
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
 BuildRequires:    R-CRAN-actuar >= 3.1.1
 BuildRequires:    R-CRAN-imputeTS >= 3.1
 BuildRequires:    R-CRAN-modeest >= 2.4.0
+BuildRequires:    R-CRAN-sn >= 2.1.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.9.2
 BuildRequires:    R-CRAN-abind >= 1.4.5
 BuildRequires:    R-CRAN-readr >= 1.4.0
@@ -43,6 +44,7 @@ Requires:         R-CRAN-ggplot2 >= 3.3.3
 Requires:         R-CRAN-actuar >= 3.1.1
 Requires:         R-CRAN-imputeTS >= 3.1
 Requires:         R-CRAN-modeest >= 2.4.0
+Requires:         R-CRAN-sn >= 2.1.1
 Requires:         R-CRAN-lubridate >= 1.7.9.2
 Requires:         R-CRAN-abind >= 1.4.5
 Requires:         R-CRAN-readr >= 1.4.0

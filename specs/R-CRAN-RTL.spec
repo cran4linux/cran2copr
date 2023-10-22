@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RTL
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Tool Library - Trading, Risk, 'Analytics' for Commodities
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
@@ -48,7 +47,6 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 

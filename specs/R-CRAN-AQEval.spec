@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  usmap
-%global packver   0.6.3
+%global packname  AQEval
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          US Maps Including Alaska and Hawaii
+Summary:          Air Quality Evaluation
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-usmapdata 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-usmapdata 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-openair 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-loa 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-strucchange 
+BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-openair 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-loa 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-strucchange 
+Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggtext 
+Requires:         R-stats 
 
 %description
-Obtain United States map data frames of varying region types (e.g. county,
-state). The map data frames include Alaska and Hawaii conveniently placed
-to the bottom left, as they appear in most maps of the US. Convenience
-functions for plotting choropleths and working with FIPS codes are also
-provided.
+Developed for use by those tasked with the routine detection,
+characterisation and quantification of discrete changes in air quality
+time-series, such as identifying the impacts of air quality policy
+interventions. The main functions use signal isolation then
+break-point/segment (BP/S) methods based on 'strucchange' and 'segmented'
+methods to detect and quantify change events (Ropkins & Tate, 2021,
+<doi:10.1016/j.scitotenv.2020.142374>).
 
 %prep
 %setup -q -c -n %{packname}

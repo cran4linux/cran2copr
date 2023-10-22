@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sdmTMB
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial and Spatiotemporal SPDE-Based GLMMs with 'TMB'
 
@@ -20,11 +20,12 @@ BuildRequires:    R-CRAN-TMB >= 1.8.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-clisymbols 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fmesher 
 BuildRequires:    R-CRAN-fishMod 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-glmmTMB 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
@@ -37,11 +38,12 @@ Requires:         R-CRAN-TMB >= 1.8.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-clisymbols 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fmesher 
 Requires:         R-CRAN-fishMod 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-glmmTMB 
 Requires:         R-graphics 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
@@ -51,12 +53,11 @@ Requires:         R-CRAN-rlang
 Requires:         R-stats 
 
 %description
-Implements spatial and spatiotemporal predictive-process GLMMs
-(Generalized Linear Mixed Effect Models) using 'TMB', 'INLA', and the SPDE
-(Stochastic Partial Differential Equation) approximation to Gaussian
-random fields. One common application is for spatially explicit (and
-optionally dynamic) species distribution models (SDMs). See Anderson et
-al. (2022) <doi:10.1101/2022.03.24.485545>.
+Implements spatial and spatiotemporal GLMMs (Generalized Linear Mixed
+Effect Models) using 'TMB', 'INLA', and the SPDE (Stochastic Partial
+Differential Equation) approximation to Gaussian random fields. One common
+application is for spatially explicit species distribution models (SDMs).
+See Anderson et al. (2022) <doi:10.1101/2022.03.24.485545>.
 
 %prep
 %setup -q -c -n %{packname}

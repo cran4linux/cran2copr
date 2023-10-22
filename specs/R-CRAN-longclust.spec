@@ -1,43 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hyd1d
-%global packver   0.4.6
+%global packname  longclust
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          1d Water Level Interpolation along the Rivers Elbe and Rhine
+Summary:          Model-Based Clustering and Classification for Longitudinal Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-plotrix >= 3.0.0
-BuildRequires:    R-CRAN-RJSONIO >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-plotrix >= 3.0.0
-Requires:         R-CRAN-RJSONIO >= 1.0.0
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-An S4 class and several functions which utilize internally stored datasets
-and gauging data enable 1d water level interpolation. The S4 class
-(WaterLevelDataFrame) structures the computation and visualisation of 1d
-water level information along the German federal waterways Elbe and Rhine.
-'hyd1d' delivers 1d water level data - extracted from the 'FLYS' database
-- and validated gauging data - extracted from the hydrological database
-'HyDaBa' - package-internally. For computations near real time gauging
-data are queried externally from the 'PEGELONLINE REST API'
-<https://pegelonline.wsv.de/webservice/dokuRestapi>.
+Clustering or classification of longitudinal data based on a mixture of
+multivariate t or Gaussian distributions with a Cholesky-decomposed
+covariance structure. Details in McNicholas and Murphy (2010)
+<doi:10.1002/cjs.10047> and McNicholas and Subedi (2012)
+<doi:10.1016/j.jspi.2011.11.026>.
 
 %prep
 %setup -q -c -n %{packname}

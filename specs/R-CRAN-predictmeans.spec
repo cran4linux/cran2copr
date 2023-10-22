@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  predictmeans
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predicted Means for Linear and Semi Parametric Models
+Summary:          Predicted Means for Linear and Semiparametric Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-glmmTMB 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-lmerTest 
@@ -38,6 +39,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-splines2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-glmmTMB 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-lmerTest 
@@ -63,8 +65,9 @@ Requires:         R-utils
 %description
 Providing functions to diagnose and make inferences from various linear
 models, such as those obtained from 'aov', 'lm', 'glm', 'gls', 'lme',
-'lmer' and 'semireg'. Inferences include predicted means and standard
-errors, contrasts, multiple comparisons, permutation tests and graphs.
+'lmer', 'glmmTMB' and 'semireg'. Inferences include predicted means and
+standard errors, contrasts, multiple comparisons, permutation tests and
+graphs.
 
 %prep
 %setup -q -c -n %{packname}

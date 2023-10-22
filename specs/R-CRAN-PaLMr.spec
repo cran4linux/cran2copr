@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  usmap
-%global packver   0.6.3
+%global packname  PaLMr
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          US Maps Including Alaska and Hawaii
+Summary:          Interface for 'Google Pathways Language Model (PaLM)'
 
-License:          GPL (>= 3)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-usmapdata 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-usmapdata 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Obtain United States map data frames of varying region types (e.g. county,
-state). The map data frames include Alaska and Hawaii conveniently placed
-to the bottom left, as they appear in most maps of the US. Convenience
-functions for plotting choropleths and working with FIPS codes are also
-provided.
+'Google's 'PaLM' <https://developers.generativeai.google/> as a coding and
+writing assistant designed for 'R' and 'RStudio.' With a range of
+functions, including natural language processing and coding optimization,
+to assist R developers in simplifying tedious coding tasks and content
+searching.
 
 %prep
 %setup -q -c -n %{packname}

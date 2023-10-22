@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iglu
-%global packver   3.4.2
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.2
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpreting Glucose Data from Continuous Glucose Monitors
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caTools 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-gridExtra 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-hms
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-pheatmap 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
@@ -35,8 +37,10 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-caTools 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-gridExtra 
@@ -44,6 +48,7 @@ Requires:         R-CRAN-hms
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-pheatmap 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 
 Requires:         R-stats 
@@ -53,6 +58,7 @@ Requires:         R-utils
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-gtable 
 Requires:         R-grid 
+Requires:         R-CRAN-plotly 
 
 %description
 Implements a wide range of metrics for measuring glucose control and

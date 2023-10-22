@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeoModels
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures for Gaussian and Non Gaussian Geostatistical (Large) Data Analysis
 
@@ -83,11 +83,11 @@ Log-Gaussian, Binomial, Negative Binomial and Poisson. See the URL for the
 papers associated with this package, as for instance, Bevilacqua and
 Gaetan (2015) <doi:10.1007/s11222-014-9460-6>, Bevilacqua et al. (2016)
 <doi:10.1007/s13253-016-0256-3>, Vallejos et al. (2020)
-<doi:10.1007/978-3-030-56681-4>, Bevilacqua et al. (2022)
-<doi:10.1016/j.jmva.2022.104949>, Bevilacqua et al. (2022)
-<doi:10.1007/s11749-021-00797-5>, Blasi et al. (2022)
-<doi:10.1016/j.spasta.2022.100596>, Morales-Navarrete et al. (2022)
-<arXiv:2105.03734>, and a large class of examples and tutorials.
+<doi:10.1007/978-3-030-56681-4>, Bevilacqua et. al (2020)
+<doi:10.1002/env.2632>, Bevilacqua et. al (2021) <doi:10.1111/sjos.12447>,
+Bevilacqua et al. (2022) <doi:10.1016/j.jmva.2022.104949>,
+Morales-Navarrete et al. (2023) <doi:10.1080/01621459.2022.2140053>, and a
+large class of examples and tutorials.
 
 %prep
 %setup -q -c -n %{packname}

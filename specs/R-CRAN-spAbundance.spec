@@ -1,58 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DAISIE
-%global packver   4.4.1
+%global packname  spAbundance
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamical Assembly of Islands by Speciation, Immigration and Extinction
+Summary:          Univariate and Multivariate Spatial Modeling of Species Abundance
 
-License:          GPL (>= 3) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-DDD >= 5.0
-BuildRequires:    R-CRAN-BH >= 1.81.0.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-subplex 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-tensor 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-testit 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-DDD >= 5.0
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-deSolve 
-Requires:         R-graphics 
+BuildRequires:    R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-subplex 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-tensor 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-testit 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
+Requires:         R-methods 
 
 %description
-Simulates and computes the (maximum) likelihood of a dynamical model of
-island biota assembly through speciation, immigration and extinction. See
-Valente et al. (2015) <doi:10.1111/ele.12461>.
+Fits single-species (univariate) and multi-species (multivariate)
+non-spatial and spatial abundance models in a Bayesian framework using
+Markov Chain Monte Carlo (MCMC). Spatial models are fit using Nearest
+Neighbor Gaussian Processes (NNGPs). Details on NNGP models are given in
+Datta, Banerjee, Finley, and Gelfand (2016)
+<doi:10.1080/01621459.2015.1044091> and Finley, Datta, and Banerjee (2020)
+<arXiv:2001.09111>. Fits single-species and multi-species spatial and
+non-spatial versions of generalized linear mixed models (Gaussian,
+Poisson, Negative Binomial), N-mixture models (Royle 2004
+<doi:10.1111/j.0006-341X.2004.00142.x>) and hierarchical distance sampling
+models (Royle, Dawson, Bates (2004) <doi:10.1890/03-3127>). Multi-species
+spatial models are fit using a spatial factor modeling approach with NNGPs
+for computational efficiency.
 
 %prep
 %setup -q -c -n %{packname}

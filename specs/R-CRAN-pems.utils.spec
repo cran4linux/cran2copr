@@ -1,53 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BoundaryStats
-%global packver   2.1.1
+%global packname  pems.utils
+%global packver   0.2.29.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.2.29.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Boundary Overlap Statistics
+Summary:          Portable Emissions (and Other Mobile) Measurement System Utilities
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-pdqr 
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.19
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-loa 
 BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-latticeExtra 
+BuildRequires:    R-CRAN-baseline 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-rgeoda 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-pdqr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-Rcpp >= 0.12.19
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-loa 
 Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-grid 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-latticeExtra 
+Requires:         R-CRAN-baseline 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-rgeoda 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
 
 %description
-Analysis workflow for finding geographic boundaries of ecological or
-landscape traits and comparing the placement of geographic boundaries of
-two traits. If data are trait values, trait data are transformed to
-boundary intensities based on approximate first derivatives across
-latitude and longitude. The package includes functions to create custom
-null models based on the input data. The boundary statistics are described
-in: Fortin, Drapeau, and Jacquez (1996) <doi:10.2307/3545584>.
+Utility functions for the handling, analysis and visualisation of data
+from portable emissions measurement systems ('PEMS') and other similar
+mobile activity monitoring devices. The package includes a dedicated
+'pems' data class that manages many of the quality control, unit handling
+and data archiving issues that can hinder efforts to standardise 'PEMS'
+research.
 
 %prep
 %setup -q -c -n %{packname}

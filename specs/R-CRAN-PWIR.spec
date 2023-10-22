@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PWIR
-%global packver   0.0.1
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides a Function to Calculate Prize Winner Indices Based on Bibliometric Data
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bibliometrix 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-progressr 
 Requires:         R-CRAN-bibliometrix 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-progressr 
 
 %description
 A function 'PWI()' that calculates prize winner indices based on

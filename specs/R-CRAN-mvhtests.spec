@@ -1,59 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  disaggregation
-%global packver   0.2.1
+%global packname  mvhtests
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Disaggregation Modelling
+Summary:          Multivariate Hypothesis Tests
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-parallel 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-splancs 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-emplik 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-sparseMVN 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-sf 
-Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-splancs 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-emplik 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
 Requires:         R-stats 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-sparseMVN 
-Requires:         R-utils 
 
 %description
-Fits disaggregation regression models using 'TMB' ('Template Model
-Builder'). When the response data are aggregated to polygon level but the
-predictor variables are at a higher resolution, these models can be
-useful. Regression models with spatial random fields. The package is
-described in detail in Nandi et al. (2023) <doi:10.18637/jss.v106.i11>.
+Hypothesis tests for multivariate data. Tests for one and two mean
+vectors, multivariate analysis of variance, tests for one, two or more
+covariance matrices. References include: Mardia K.V., Kent J.T. and Bibby
+J.M. (1979). Multivariate Analysis. ISBN: 978-0124712522. London: Academic
+Press.
 
 %prep
 %setup -q -c -n %{packname}

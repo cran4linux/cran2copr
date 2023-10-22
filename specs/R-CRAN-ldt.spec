@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ldt
-%global packver   0.3.2.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Uncertainty Analysis
 
@@ -16,11 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-tdata 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-tdata 
+Requires:         R-CRAN-MASS 
 
 %description
 Methods and tools for model selection and multi-model inference (Burnham

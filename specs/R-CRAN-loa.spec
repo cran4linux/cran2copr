@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  usmap
-%global packver   0.6.3
+%global packname  loa
+%global packver   0.2.48.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.2.48.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          US Maps Including Alaska and Hawaii
+Summary:          Lattice Options and Add-Ins
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-usmapdata 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-usmapdata 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-sp >= 2.1.1
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-RgoogleMaps 
+BuildRequires:    R-CRAN-OpenStreetMap 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-sp >= 2.1.1
+Requires:         R-CRAN-lattice 
+Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-grid 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-RgoogleMaps 
+Requires:         R-CRAN-OpenStreetMap 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-plyr 
 
 %description
-Obtain United States map data frames of varying region types (e.g. county,
-state). The map data frames include Alaska and Hawaii conveniently placed
-to the bottom left, as they appear in most maps of the US. Convenience
-functions for plotting choropleths and working with FIPS codes are also
-provided.
+Various plots and functions that make use of the lattice/trellis plotting
+framework. The plots, which include loaPlot(), RgoogleMapsPlot() and
+trianglePlot(), use panelPal(), a function that extends 'lattice' and
+'hexbin' package methods to automate plot subscript and panel-to-panel and
+panel-to-key synchronization/management.
 
 %prep
 %setup -q -c -n %{packname}
