@@ -1,20 +1,21 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rsq
-%global packver   2.5
+%global packver   2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          R-Squared and Related Measures
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-Deriv 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-deming 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
@@ -30,6 +32,7 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-Deriv 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-deming 
 
 %description
 Calculate generalized R-squared, partial R-squared, and partial

@@ -1,51 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  renderthis
-%global packver   0.2.0
+%global packname  rdracor
+%global packver   0.7.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.7.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Render Slides to Different Formats
+Summary:          Access to the 'DraCor' API
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-magick >= 2.7.1
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pagedown 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-quarto 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xaringan 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-magick >= 2.7.1
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pagedown 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-quarto 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xaringan 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-CRAN-tibble >= 3.1.8
+BuildRequires:    R-CRAN-Rdpack >= 2.4
+BuildRequires:    R-CRAN-jsonlite >= 1.6
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-stringr >= 1.4.1
+BuildRequires:    R-CRAN-igraph >= 1.2.4.1
+BuildRequires:    R-CRAN-xml2 >= 1.2.2
+BuildRequires:    R-CRAN-tidyr >= 1.2.1
+BuildRequires:    R-CRAN-data.table >= 1.12.2
+BuildRequires:    R-CRAN-purrr >= 0.3.5
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tibble >= 3.1.8
+Requires:         R-CRAN-Rdpack >= 2.4
+Requires:         R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-stringr >= 1.4.1
+Requires:         R-CRAN-igraph >= 1.2.4.1
+Requires:         R-CRAN-xml2 >= 1.2.2
+Requires:         R-CRAN-tidyr >= 1.2.1
+Requires:         R-CRAN-data.table >= 1.12.2
+Requires:         R-CRAN-purrr >= 0.3.5
+Requires:         R-utils 
 
 %description
-Render slides to different formats, including 'html', 'pdf', 'png', 'gif',
-'pptx', and 'mp4', as well as a 'social' output, a 'png' of the first
-slide re-sized for sharing on social media.
+Provide an interface for 'Drama Corpora Project' ('DraCor') API:
+<https://dracor.org/documentation/api>.
 
 %prep
 %setup -q -c -n %{packname}

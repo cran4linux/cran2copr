@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  agricolae
-%global packver   1.3-6
+%global packver   1.3-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Procedures for Agricultural Research
 
@@ -17,13 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-klaR 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-AlgDesign 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-klaR 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-cluster 

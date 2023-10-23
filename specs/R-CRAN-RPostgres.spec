@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPostgres
-%global packver   1.4.5
+%global packver   1.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          1.4.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rcpp Interface to PostgreSQL
+Summary:          C++ Interface to PostgreSQL
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,16 +19,15 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-blob >= 1.2.0
 BuildRequires:    R-CRAN-DBI >= 1.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-hms >= 1.0.0
 BuildRequires:    R-CRAN-plogr >= 0.2.0
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-blob >= 1.2.0
 Requires:         R-CRAN-DBI >= 1.1.0
-Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-hms >= 1.0.0
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-lubridate 
