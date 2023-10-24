@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortExplorer
-%global packver   0.0.17
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.17
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explorer of Profiles of Patients in a Cohort
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DatabaseConnector >= 5.0.0
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-clock 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-ParallelLogger 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 Requires:         R-CRAN-DatabaseConnector >= 5.0.0
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-clock 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-ParallelLogger 

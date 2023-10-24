@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QTLEMM
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          QTL Mapping and Hotspots Detection
 
@@ -22,11 +22,13 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gtools 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-gtools 
 
 %description
 For QTL mapping, it consists of several functions to perform various

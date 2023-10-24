@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IxPopDyMod
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Framework for Tick Population and Infection Modeling
 
@@ -17,25 +18,11 @@ BuildRequires:    R-devel >= 3.2.4
 Requires:         R-core >= 3.2.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-CRAN-checkmate 
 
 %description
 Code to specify, run, and then visualize and analyze the results of

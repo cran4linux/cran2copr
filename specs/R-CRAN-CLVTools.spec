@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CLVTools
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Customer Lifetime Value Estimation
 
@@ -18,6 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-CRAN-optimx >= 2019.12.02
 BuildRequires:    R-CRAN-lubridate >= 1.7.8
+BuildRequires:    R-CRAN-Formula >= 1.2.4
 BuildRequires:    R-CRAN-Matrix >= 1.2.17
 BuildRequires:    R-CRAN-data.table >= 1.12.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.500.2.0
@@ -27,9 +29,11 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-optimx >= 2019.12.02
 Requires:         R-CRAN-lubridate >= 1.7.8
+Requires:         R-CRAN-Formula >= 1.2.4
 Requires:         R-CRAN-Matrix >= 1.2.17
 Requires:         R-CRAN-data.table >= 1.12.0
 Requires:         R-CRAN-Rcpp >= 0.12.12

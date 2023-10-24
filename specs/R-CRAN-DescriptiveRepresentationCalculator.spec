@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNetCDF
-%global packver   2.8-1
+%global packname  DescriptiveRepresentationCalculator
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'NetCDF' Datasets
+Summary:          Descriptive Representation Calculator: Characterizing Observed and Expected Representation
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    netcdf-devel
-BuildRequires:    udunits2-devel
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.3.3
+Requires:         R-core >= 3.3.3
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-An interface to the 'NetCDF' file formats designed by Unidata for
-efficient storage of array-oriented scientific data and descriptions. Most
-capabilities of 'NetCDF' version 4 are supported. Optional conversions of
-time units are enabled by 'UDUNITS' version 2, also from Unidata.
+A system for analyzing descriptive representation, especially for
+comparing the composition of a political body to the population it
+represents. Users can compute the expected degree of representation for a
+body under a random sampling model, the expected degree of representation
+variability, as well as representation scores from observed political
+bodies. The package is based on Gerring, Jerzak, and Oncel (2023)
+<doi:10.1017/S0003055423000680>.
 
 %prep
 %setup -q -c -n %{packname}

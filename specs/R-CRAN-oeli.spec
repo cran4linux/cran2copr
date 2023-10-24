@@ -1,29 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNetCDF
-%global packver   2.8-1
+%global packname  oeli
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'NetCDF' Datasets
+Summary:          Utilities for Developing Data Science Software
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    netcdf-devel
-BuildRequires:    udunits2-devel
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-hexSticker 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-showtext 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-hexSticker 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-showtext 
+Requires:         R-stats 
+Requires:         R-CRAN-sysfonts 
+Requires:         R-CRAN-usethis 
 
 %description
-An interface to the 'NetCDF' file formats designed by Unidata for
-efficient storage of array-oriented scientific data and descriptions. Most
-capabilities of 'NetCDF' version 4 are supported. Optional conversions of
-time units are enabled by 'UDUNITS' version 2, also from Unidata.
+Some general utilities that I and maybe others find useful when developing
+data science software. Functionality includes argument validation, density
+calculation and sampling, dealing with Cholesky roots, matrix printing and
+indexing, user interaction, and more.
 
 %prep
 %setup -q -c -n %{packname}

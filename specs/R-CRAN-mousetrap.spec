@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mousetrap
-%global packver   3.2.1
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process and Analyze Mouse-Tracking Data
 
@@ -63,8 +64,8 @@ cognitive sciences. The mousetrap package offers functions for importing,
 preprocessing, analyzing, aggregating, and visualizing mouse-tracking
 data. An introduction into mouse-tracking analyses using mousetrap can be
 found in Wulff, Kieslich, Henninger, Haslbeck, & Schulte-Mecklenbeck
-(2021) <doi:10.31234/osf.io/v685r> (preprint:
-<https://psyarxiv.com/v685r>).
+(2023) <doi:10.31234/osf.io/v685r> (preprint:
+<https://osf.io/preprints/psyarxiv/v685r>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,61 +1,65 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  r2dii.match
-%global packver   0.1.4
+%global packname  sdtmval
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Match Corporate Lending Portfolios with Climate Data
+Summary:          Validate SDTM Domains
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-r2dii.data >= 0.4.0
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-r2dii.data >= 0.4.0
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 
 %description
-These tools implement in R a fundamental part of the software 'PACTA'
-(Paris Agreement Capital Transition Assessment), which is a free tool that
-calculates the alignment between financial portfolios and climate
-scenarios (<https://www.transitionmonitor.com/>). Financial institutions
-use 'PACTA' to study how their capital allocation decisions align with
-climate change mitigation goals. This package matches data from corporate
-lending portfolios to asset level data from market-intelligence databases
-(e.g. power plant capacities, emission factors, etc.). This is the first
-step to assess if a financial portfolio aligns with climate goals.
+Provides a set of tools to assist statistical programmers in validating
+Study Data Tabulation Model (SDTM) domain data sets. Statistical
+programmers are required to validate that a SDTM data set domain has been
+programmed correctly, per the SDTM Implementation Guide (SDTMIG) by
+'CDISC' (<https://www.cdisc.org/standards/foundational/sdtmig>), study
+specification, and study protocol using a process called double
+programming. Double programming involves two different programmers
+independently converting the raw electronic data cut (EDC) data into a
+SDTM domain data table and comparing their results to ensure accurate
+standardization of the data. One of these attempts is termed 'production'
+and the other 'validation'. Generally, production runs are the official
+programs for submittals and these are written in 'SAS'. Validation runs
+can be programmed in another language, in this case 'R'.
 
 %prep
 %setup -q -c -n %{packname}

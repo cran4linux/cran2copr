@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spam
-%global packver   2.9-1
+%global packver   2.10-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          2.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          SPArse Matrix
 
@@ -16,9 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
 BuildRequires:    R-CRAN-dotCall64 
 BuildRequires:    R-grid 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 1.0.8.3
 Requires:         R-CRAN-dotCall64 
 Requires:         R-grid 
 Requires:         R-methods 

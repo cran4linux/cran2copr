@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SGP
-%global packver   2.0-0.0
+%global packver   2.1-0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0.0
+Version:          2.1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Student Growth Percentiles & Percentile Growth Trajectories
 
@@ -13,13 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         tex(latex)
-Requires:         tex(pdfpages.sty)
+Recommends:       tex(pdfpages.sty)
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-equate >= 2.0.5
-BuildRequires:    R-CRAN-doRNG >= 1.8.2
 BuildRequires:    R-CRAN-rngtools >= 1.5
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-sn >= 1.0.0
@@ -47,10 +46,10 @@ BuildRequires:    R-CRAN-quantreg
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-splines 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-CRAN-toOrdinal 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-equate >= 2.0.5
-Requires:         R-CRAN-doRNG >= 1.8.2
 Requires:         R-CRAN-rngtools >= 1.5
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-sn >= 1.0.0
@@ -78,6 +77,7 @@ Requires:         R-CRAN-quantreg
 Requires:         R-CRAN-RSQLite 
 Requires:         R-splines 
 Requires:         R-stats 
+Requires:         R-CRAN-svglite 
 Requires:         R-CRAN-toOrdinal 
 Requires:         R-utils 
 
