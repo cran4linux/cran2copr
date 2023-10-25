@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bsvars
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Estimation of Structural Vector Autoregressive Models
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-RcppProgress >= 0.1
 BuildRequires:    R-CRAN-RcppTN 
 BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stochvol 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-RcppProgress >= 0.1
 Requires:         R-CRAN-RcppTN 
 Requires:         R-CRAN-GIGrvg 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stochvol 
 
 %description
 Efficient algorithms for Bayesian estimation of Structural Vector

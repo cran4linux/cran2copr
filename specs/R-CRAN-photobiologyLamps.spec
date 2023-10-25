@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  photobiologyLamps
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spectral Irradiance Data for Lamps
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-photobiology >= 0.10.9
-Requires:         R-CRAN-photobiology >= 0.10.9
+BuildRequires:    R-CRAN-photobiology >= 0.11.0
+Requires:         R-CRAN-photobiology >= 0.11.0
 
 %description
 Spectral emission data for some frequently used lamps including bulbs and

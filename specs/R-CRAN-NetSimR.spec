@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NetSimR
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Actuarial Functions for Non-Life Insurance Modelling
 
@@ -31,6 +31,9 @@ BuildRequires:    R-CRAN-RPostgreSQL
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-shinyWidgets 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinybusy 
@@ -45,6 +48,9 @@ Requires:         R-CRAN-RPostgreSQL
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-shinyWidgets 
 
 %description
 Assists actuaries and other insurance modellers in pricing, reserving and
@@ -57,8 +63,15 @@ distributions. Includes mean, probability density function (pdf),
 cumulative probability function (cdf) and inverse cumulative probability
 function for Sliced LogNormal-Pareto and Sliced Gamma-Pareto
 distributions. Includes calculating pure IBNR exposure with LogNormal and
-Gamma distribution for reporting delay. Includes a shiny tool to simulate
-insurance claims.
+Gamma distribution for reporting delay. Includes three shiny tools, one to
+simulate insurance claims applying reinsurance structures, fit generalised
+linear models and fit claims frequency or severity distributions. Methods
+used in the package refer to Free for All by Yiannis Parizas (2023)
+<https://www.theactuary.com/2023/03/02/free-all>; Escaping the triangle by
+Yiannis Parizas (2019)
+<https://www.theactuary.com/features/2019/06/2019/06/05/escaping-triangle>;
+Take to excess by Yiannis Parizas (2019)
+<https://www.theactuary.com/features/2019/03/2019/03/06/taken-excess>.
 
 %prep
 %setup -q -c -n %{packname}

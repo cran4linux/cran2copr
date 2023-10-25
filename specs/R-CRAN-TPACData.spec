@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vistime
-%global packver   1.2.3
+%global packname  TPACData
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pretty Timelines in R
+Summary:          Human Protein Atlas Data for Tissue-Adjusted Pathway Analysis of Cancer (TPAC)
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly >= 4.0.0
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
-BuildRequires:    R-CRAN-ggrepel >= 0.7.0
-BuildRequires:    R-CRAN-RColorBrewer >= 0.2.2
-BuildRequires:    R-CRAN-assertive.types >= 0.0.3
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-plotly >= 4.0.0
-Requires:         R-CRAN-ggplot2 >= 2.0.0
-Requires:         R-CRAN-ggrepel >= 0.7.0
-Requires:         R-CRAN-RColorBrewer >= 0.2.2
-Requires:         R-CRAN-assertive.types >= 0.0.3
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-A library for creating time based charts, like Gantt or timelines.
-Possible outputs include 'ggplot2' diagrams, 'plotly.js' graphs,
-'Highcharts.js' widgets and data.frames. Results can be used in the
-'RStudio' viewer pane, in 'RMarkdown' documents or in Shiny apps. In the
-interactive outputs created by vistime() and hc_vistime(), you can
-interact with the plot using mouse hover or zoom.
+Contains summary data on gene expression in normal human tissues from the
+Human Protein Atlas for use with the Tissue-Adjusted Pathway Analysis of
+cancer (TPAC) method. Frost, H. Robert (2023) "Tissue-adjusted pathway
+analysis of cancer (TPAC)" <doi:10.1101/2022.03.17.484779>.
 
 %prep
 %setup -q -c -n %{packname}

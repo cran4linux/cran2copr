@@ -1,47 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  babette
-%global packver   2.3.3
+%global packname  collinear
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Control 'BEAST2'
+Summary:          Seamless Multicollinearity Management for Categorical and Numeric Variables
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-beautier >= 2.6.9
-BuildRequires:    R-CRAN-mauricer >= 2.5.2
-BuildRequires:    R-CRAN-beastier >= 2.4.11
-BuildRequires:    R-CRAN-tracerer 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-beautier >= 2.6.9
-Requires:         R-CRAN-mauricer >= 2.5.2
-Requires:         R-CRAN-beastier >= 2.4.11
-Requires:         R-CRAN-tracerer 
-Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
-tool, that uses DNA/RNA/protein data and many model priors to create a
-posterior of jointly estimated phylogenies and parameters. 'BEAST2' is
-commonly accompanied by 'BEAUti 2', 'Tracer' and 'DensiTree'. 'babette'
-provides for an alternative workflow of using all these tools separately.
-This allows doing complex Bayesian phylogenetics easily and reproducibly
-from 'R'.
+System for seamless management of multicollinearity in data frames with
+numeric and/or categorical variables for statistical analysis and machine
+learning modeling. The package combines bivariate correlation (Pearson,
+Spearman, and Cramer's V) with variance inflation factor analysis, target
+encoding to transform categorical variables into numeric (Micci-Barreca,
+D. 2001 <DOI:10.1145/507533.507538>), and a flexible feature
+prioritization method, to deliver a comprehensive multicollinearity
+management tool covering a wide range of use cases.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,64 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bpmnR
-%global packver   0.1.0
+%global packname  databraryr
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for BPMN (Business Process Management Notation) Models
+Summary:          Interact with the 'Databrary.org' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-DiagrammeRsvg 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-huxtable 
-BuildRequires:    R-CRAN-assertive 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-DiagrammeRsvg 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-getPass 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-huxtable 
-Requires:         R-CRAN-assertive 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magick 
+Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-methods 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-getPass 
 
 %description
-Creating, rendering and writing BPMN diagrams <https://www.bpmn.org/>.
-Functionalities can be used to visualize and export BPMN diagrams created
-using the 'pm4py' and 'bupaRminer' packages. Part of the 'bupaR'
-ecosystem.
+'Databrary.org' is a restricted access repository for research data,
+especially video and audio. This package provides commands to interact
+with the data stored on 'Databrary.org'.
 
 %prep
 %setup -q -c -n %{packname}

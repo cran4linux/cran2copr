@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  easylabel
-%global packver   0.2.4
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Scatter Plot and Volcano Plot Labels
 
@@ -17,20 +18,24 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.10.0
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinybusy 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-splus2R 
 Requires:         R-CRAN-plotly >= 4.10.0
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinybusy 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-splus2R 
 
 %description

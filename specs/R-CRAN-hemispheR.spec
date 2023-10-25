@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hemispheR
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing Hemispherical Canopy Images
 
@@ -14,32 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.7.55
 BuildRequires:    R-CRAN-autothresholdr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dismo 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-terra >= 1.7.55
 Requires:         R-CRAN-autothresholdr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dismo 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 
 
 %description

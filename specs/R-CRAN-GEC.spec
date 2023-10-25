@@ -1,43 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  basecamb
-%global packver   1.1.2
+%global packname  GEC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Streamlined Data Import, Imputation and Modelling
+Summary:          Generalized Exponentiated Composite Distributions
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertive.types 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-assertive.types 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-mistr 
 Requires:         R-stats 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-mistr 
 
 %description
-Provides functions streamlining the data analysis workflow: Outsourcing
-data import, renaming and type casting to a *.csv. Manipulating imputed
-datasets and fitting models on them. Summarizing models.
+Contains the framework of the estimation, sampling, and hypotheses testing
+for two special distributions (Exponentiated Exponential-Pareto and
+Exponentiated Inverse Gamma-Pareto) within the family of Generalized
+Exponentiated Composite distributions. The detailed explanation and the
+applications of these two distributions were introduced in Bowen Liu,
+Malwane M.A. Ananda (2022) <doi:10.1080/03610926.2022.2050399>, Bowen Liu,
+Malwane M.A. Ananda (2022) <doi:10.3390/math10111895>, and Bowen Liu,
+Malwane M.A. Ananda (2022) <doi:10.3390/app13010645>.
 
 %prep
 %setup -q -c -n %{packname}

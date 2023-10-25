@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  anomaly
-%global packver   4.3.0
+%global packname  Guerry
+%global packver   1.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.0
+Version:          1.8.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detecting Anomalies in Data
+Summary:          Maps, Data and Methods Related to Guerry (1833) "Moral Statistics of France"
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,35 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-assertive 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.12.18
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-methods 
-Requires:         R-CRAN-assertive 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-Rdpack 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-sp 
 
 %description
-Implements Collective And Point Anomaly (CAPA) Fisch, Eckley, and
-Fearnhead (2022) <doi:10.1002/sam.11586>, Multi-Variate Collective And
-Point Anomaly (MVCAPA) Fisch, Eckley, and Fearnhead (2021)
-<doi:10.1080/10618600.2021.1987257>, Proportion Adaptive Segment Selection
-(PASS) Jeng, Cai, and Li (2012) <doi:10.1093/biomet/ass059>, and Bayesian
-Abnormal Region Detector (BARD) Bardwell and Fearnhead (2015)
-<arXiv:1412.5565>. These methods are for the detection of anomalies in
-time series data.
+Maps of France in 1830, multivariate datasets from A.-M. Guerry and
+others, and statistical and graphic methods related to Guerry's "Moral
+Statistics of France". The goal is to facilitate the exploration and
+development of statistical and graphic methods for multivariate data in a
+geospatial context of historical interest.
 
 %prep
 %setup -q -c -n %{packname}

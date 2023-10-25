@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  photobiologySensors
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spectral Response Data for Light Sensors
+Summary:          Response Data for Light Sensors
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-photobiology >= 0.10.5
-Requires:         R-CRAN-photobiology >= 0.10.5
+BuildRequires:    R-CRAN-photobiology >= 0.11.0
+Requires:         R-CRAN-photobiology >= 0.11.0
 
 %description
 Spectral response data for broadband ultraviolet and visible radiation
-sensors. Different data sources were used: author-supplied data from
-scientific research papers, sensor-manufacturer supplied data, and
-published sensor specifications. Part of the 'r4photobiology' suite Aphalo
-P. J. (2015) <doi:10.19232/uv4pb.2015.1.14>.
+sensors. Angular response data for broadband ultraviolet and visible
+radiation sensors and diffusers used as entrance optics. Data obtained
+from multiple sources were used: author-supplied data from scientific
+research papers, sensor-manufacturer supplied data, and published sensor
+specifications. Part of the 'r4photobiology' suite Aphalo P. J. (2015)
+<doi:10.19232/uv4pb.2015.1.14>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFF
-%global packver   1.0.0
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayes Factor Functions
 
@@ -20,23 +20,38 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-BSDA 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-hypergeo 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-gsl 
 Requires:         R-CRAN-BSDA 
 Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-CRAN-hypergeo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-gsl 
 
 %description
 Bayes factors represent the ratio of probabilities assigned to data by
-competing scientific hypotheses. Drawbacks of Bayes factors are their
-dependence on prior specifications that define null and alternative
-hypotheses and difficulties encountered in their computation. To address
-these problems we define Bayes factor functions (BFF) directly from common
-test statistics. BFFs depend on a single non-centrality parameter that can
-be expressed as a function of standardized effect sizes, and plots of BFFs
-versus effect size provide informative summaries of hypothesis tests that
-can be easily aggregated across studies. Such summaries eliminate the need
-for arbitrary bright-line thresholds to determine “statistical
-significance.” BFFs are available in closed form and can be computed
-easily from z, t, chi^2, and F statistics.
+competing scientific hypotheses. However, one drawback of Bayes factors is
+their dependence on prior specifications that define null and alternative
+hypotheses. Additionally, there are challenges in their computation. To
+address these issues, we define Bayes factor functions (BFFs) directly
+from common test statistics. BFFs express Bayes factors as a function of
+the prior densities used to define the alternative hypotheses. These prior
+densities are centered on standardized effects, which serve as indices for
+the BFF. Therefore, BFFs offer a summary of evidence in favor of
+alternative hypotheses that correspond to a range of scientifically
+interesting effect sizes. Such summaries remove the need for arbitrary
+thresholds to determine "statistical significance." BFFs are available in
+closed form and can be easily computed from z, t, chi-squared, and F
+statistics. They depend on hyperparameters "r" and "tau^2", which
+determine the shape and scale of the prior distributions defining the
+alternative hypotheses. For replicated designs, the "r" parameter in each
+function can be adjusted to be greater than 1. Plots of BFFs versus effect
+size provide informative summaries of hypothesis tests that can be easily
+aggregated across studies.
 
 %prep
 %setup -q -c -n %{packname}

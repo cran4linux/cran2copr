@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cxhull
-%global packver   0.7.3
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convex Hull
 
@@ -18,12 +18,10 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-Morpho 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-Rvcg 
 Requires:         R-CRAN-data.table 
 Requires:         R-grDevices 
-Requires:         R-CRAN-Morpho 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-Rvcg 
 

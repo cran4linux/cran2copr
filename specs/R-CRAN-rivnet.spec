@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rivnet
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract and Analyze Rivers from Elevation Data
 
@@ -46,7 +46,9 @@ externally provided or downloaded from open source repositories (thus
 interfacing with the 'elevatr' package). Extraction is performed via the
 'D8' flow direction algorithm of TauDEM (Terrain Analysis Using Digital
 Elevation Models), thus interfacing with the 'traudem' package. Resulting
-river networks are compatible with functions from the 'OCNet' package.
+river networks are compatible with functions from the 'OCNet' package. See
+Carraro (2023) <doi:10.5194/hess-27-3733-2023> for a presentation of the
+package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcompendium
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create a Package or Research Compendium Structure
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cffr 
 BuildRequires:    R-CRAN-clisymbols 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-devtools 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xfun 
+Requires:         R-CRAN-cffr 
 Requires:         R-CRAN-clisymbols 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-devtools 

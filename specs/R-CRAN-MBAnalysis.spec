@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MBAnalysis
-%global packver   0.1.0
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiblock Exploratory and Predictive Data Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Exploratory and predictive methods for the analysis of several blocks of
-variables measured on the same individuals. The methods included are:
-Multiblock Principal Components Analysis (MB-PCA), Common Dimensions
-analysis (ComDim), Multiblock Partial Least Squares (MB-PLS) regression
-and Multiblock Weighted Covariate analysis (MB-WCov). E. Tchandao
-Mangamana, V. Cariou, E. Vigneau, R. Glèlè Kakaï, E.M. Qannari (2019)
-<doi:10.1016/j.chemolab.2019.103856>; E. Tchandao Mangamana, R. Glèlè
-Kakaï, E.M. Qannari (2021) <doi:10.1016/j.chemolab.2021.104388>.
+variables measured on the same individuals.
 
 %prep
 %setup -q -c -n %{packname}

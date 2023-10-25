@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boxly
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Box Plot
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-metalite 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-brew 
 Requires:         R-CRAN-rlang 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-htmlwidgets
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-metalite 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-uuid 
 
 %description
 Interactive box plot using 'plotly' for clinical trial analysis.

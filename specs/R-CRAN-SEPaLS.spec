@@ -1,51 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mtscr
-%global packver   1.0.0
+%global packname  SEPaLS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multidimensional Top Scoring for Creativity Research
+Summary:          Shrinkage for Extreme Partial Least-Squares (SEPaLS)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-broom.mixed 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-broom.mixed 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 
 %description
-Implementation of Multidimensional Top Scoring method for creativity
-assessment proposed in Boris Forthmann, Maciej Karwowski, Roger E. Beaty
-(2023) <doi:10.1037/aca0000571>.
+Regression context for the Partial Least Squares framework for Extreme
+values. Estimations of the Shrinkage for Extreme Partial Least-Squares
+(SEPaLS) estimators, an adaptation of the original Partial Least Squares
+(PLS) method tailored to the extreme-value framework. The SEPaLS project
+is a joint work by Stephane Girard, Hadrien Lorenzo and Julyan Arbel. R
+code to replicate the results of the paper is available at
+<https://github.com/hlorenzo/SEPaLS_simus>. Extremes within PLS was
+already studied by one of the authors, see M Bousebeta, G Enjolras, S
+Girard (2023) <doi:10.1016/j.jmva.2022.105101>.
 
 %prep
 %setup -q -c -n %{packname}

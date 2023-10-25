@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BoutrosLab.plotting.general
-%global packver   7.0.8
+%global packver   7.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0.8
+Version:          7.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Create Publication-Quality Plots
 
