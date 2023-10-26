@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cellWise
-%global packver   2.5.2
+%global packver   2.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          2.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Data with Cellwise Outliers
 
@@ -52,10 +52,11 @@ Rousseeuw (2021) <doi:10.1080/00401706.2019.1677270> (open access),
 Raymaekers and Rousseeuw (2021) <doi:10.1007/s10994-021-05960-5> (open
 access), Raymaekers and Rousseeuw (2021) <doi:10.52933/jdssv.v1i3.18>
 (open access), Raymaekers and Rousseeuw (2022) <arXiv:2207.13493> (open
-access) Rousseeuw (2022) <arXiv:2209.12697> (open access). Examples can be
-found in the vignettes: "DDC_examples", "MacroPCA_examples",
-"wrap_examples", "transfo_examples", "DI_examples", "cellMCD_examples" ,
-"Correspondence_analysis_examples", and "cellwise_weights_examples".
+access) Rousseeuw (2022) <doi:10.1016/j.ecosta.2023.01.007> (open access).
+Examples can be found in the vignettes: "DDC_examples",
+"MacroPCA_examples", "wrap_examples", "transfo_examples", "DI_examples",
+"cellMCD_examples" , "Correspondence_analysis_examples", and
+"cellwise_weights_examples".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  curtailment
-%global packver   0.2.0
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Finds Binary Outcome Designs Using Stochastic Curtailment
 
@@ -31,13 +32,13 @@ Requires:         R-stats
 
 %description
 Finds single- and two-arm designs using stochastic curtailment, as
-described by Law et al. (2019) <arXiv:1909.03017> and Law et al. (2021)
-<doi:10.1002/pst.2067> respectively. Designs can be single-stage or
-multi-stage. Non-stochastic curtailment is possible as a special case.
-Desired error-rates, maximum sample size and lower and upper anticipated
-response rates are inputted and suitable designs are returned with
-operating characteristics. Stopping boundaries and visualisations are also
-available. The package can find designs using other approaches, for
+described by Law et al. (2022) <doi:10.1080/10543406.2021.2009498> and Law
+et al. (2021) <doi:10.1002/pst.2067> respectively. Designs can be
+single-stage or multi-stage. Non-stochastic curtailment is possible as a
+special case. Desired error-rates, maximum sample size and lower and upper
+anticipated response rates are inputted and suitable designs are returned
+with operating characteristics. Stopping boundaries and visualisations are
+also available. The package can find designs using other approaches, for
 example designs by Simon (1989) <doi:10.1016/0197-2456(89)90015-9> and
 Mander and Thompson (2010) <doi:10.1016/j.cct.2010.07.008>. Other
 features: compare and visualise designs using a weighted sum of expected

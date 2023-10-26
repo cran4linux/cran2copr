@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EpiStats
-%global packver   1.6-1
+%global packver   1.6-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Epidemiologists
 
@@ -29,7 +29,19 @@ and cohort studies. It may be particularly useful for outbreak
 investigations including univariable analysis and stratified analysis. The
 functions for cohort studies include the CS(), CSTable() and CSInter()
 commands. The functions for case control studies include the CC(),
-CCTable() and CCInter() commands.
+CCTable() and CCInter() commands. References - Cornfield, J. 1956. A
+statistical problem arising from retrospective studies. In Vol. 4 of
+Proceedings of the Third Berkeley Symposium, ed. J. Neyman, 135-148.
+Berkeley, CA - University of California Press. Woolf, B. 1955. On
+estimating the relation between blood group disease. Annals of Human
+Genetics 19 251-253. Reprinted in Evolution of Epidemiologic Ideas
+Annotated Readings on Concepts and Methods, ed. S. Greenland, pp. 108-110.
+Newton Lower Falls, MA Epidemiology Resources. Gilles Desve & Peter
+Makary, 2007. 'CSTABLE Stata module to calculate summary table for cohort
+study' Statistical Software Components S456879, Boston College Department
+of Economics. Gilles Desve & Peter Makary, 2007. 'CCTABLE Stata module to
+calculate summary table for case-control study' Statistical Software
+Components S456878, Boston College Department of Economics.
 
 %prep
 %setup -q -c -n %{packname}

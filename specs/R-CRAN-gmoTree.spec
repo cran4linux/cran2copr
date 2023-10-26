@@ -1,44 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hmsr
+%global packname  gmoTree
 %global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multipopulation Evolutionary Strategy HMS
+Summary:          Get and Modify 'oTree' Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GA 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-GA 
-Requires:         R-CRAN-msm 
-Requires:         R-methods 
-Requires:         R-CRAN-uuid 
-Requires:         R-graphics 
+BuildRequires:    R-stats >= 4.3.0
+BuildRequires:    R-CRAN-openxlsx >= 4.2.5.2
+BuildRequires:    R-CRAN-plyr >= 1.8.8
+BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-data.table >= 1.14.8
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-rlist >= 0.4.6.2
+Requires:         R-stats >= 4.3.0
+Requires:         R-CRAN-openxlsx >= 4.2.5.2
+Requires:         R-CRAN-plyr >= 1.8.8
+Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-data.table >= 1.14.8
+Requires:         R-CRAN-dplyr >= 1.1.2
+Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-rlist >= 0.4.6.2
 
 %description
-The HMS (Hierarchic Memetic Strategy) is a composite global optimization
-strategy consisting of a multi-population evolutionary strategy and some
-auxiliary methods. The HMS makes use of a dynamically-evolving data
-structure that provides an organization among the component populations.
-It is a tree with a fixed maximal height and variable internal node
-degree. Each component population is governed by a particular evolutionary
-engine. This package provides a simple R implementation with examples of
-using different genetic algorithms as the population engines. References:
-J. Sawicki, M. Łoś, M. Smołka, J. Alvarez-Aramberri (2022)
-<doi:10.1007/s11047-020-09836-w>.
+Manage data from 'oTree' experiments.  Import 'oTree' data and clean them
+up by using functions to deal with messy data, dropouts, and other
+problematic cases. Create IDs, calculate the time, transfer variables
+between app data frames, and delete sensitive information. You can also
+check your experimental data before running the experiment. Information on
+'oTree' is found in Chen, D. L., Schonger, M., & Wickens, C. (2016) <doi:
+10.1016/j.jbef.2015.12.001>.
 
 %prep
 %setup -q -c -n %{packname}

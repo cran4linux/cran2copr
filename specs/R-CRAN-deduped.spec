@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clustermq
-%global packver   0.9.0
+%global packname  deduped
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evaluate Function Calls on HPC Schedulers (LSF, SGE, SLURM, PBS/Torque)
+Summary:          Making "Deduplicated" Functions
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zeromq-devel
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-narray 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-narray 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-fastmatch 
+Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-fastmatch 
 
 %description
-Evaluate arbitrary function calls using workers on HPC schedulers in
-single line of code. All processing is done on the network without
-accessing the file system. Remote schedulers are supported via SSH.
+Contains one main function deduped() that returns a function that acts on
+the unique values of the first input and expands the results back. This
+can significantly speed up certain slow iterative functions.
 
 %prep
 %setup -q -c -n %{packname}

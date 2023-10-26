@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polyCub
-%global packver   0.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cubature over Polygonal Domains
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-sp >= 1.0.11
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
@@ -32,12 +32,10 @@ Numerical integration of continuously differentiable functions f(x,y) over
 simple closed polygonal domains. The following cubature methods are
 implemented: product Gauss cubature (Sommariva and Vianello, 2007,
 <doi:10.1007/s10543-007-0131-2>), the simple two-dimensional midpoint rule
-(wrapping 'spatstat.geom' functions), adaptive cubature for radially
+(wrapping 'spatstat.geom' functions), and adaptive cubature for radially
 symmetric functions via line integrate() along the polygon boundary (Meyer
-and Held, 2014, <doi:10.1214/14-AOAS743>, Supplement B), and integration
-of the bivariate Gaussian density based on polygon triangulation. For
-simple integration along the axes, the 'cubature' package is more
-appropriate.
+and Held, 2014, <doi:10.1214/14-AOAS743>, Supplement B). For simple
+integration along the axes, the 'cubature' package is more appropriate.
 
 %prep
 %setup -q -c -n %{packname}

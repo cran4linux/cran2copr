@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  worcs
-%global packver   0.1.13
+%global packver   0.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.13
+Version:          0.1.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflow for Open Reproducible Code in Science
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-tinytex
 BuildRequires:    R-CRAN-credentials 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-xfun 
 Requires:         R-CRAN-prereg >= 0.6.0
 Requires:         R-CRAN-rticles >= 0.25
 Requires:         R-methods 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-tinytex
 Requires:         R-CRAN-credentials 
 Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-gh 
+Requires:         R-CRAN-xfun 
 
 %description
 Create reproducible and transparent research projects in 'R'. This package

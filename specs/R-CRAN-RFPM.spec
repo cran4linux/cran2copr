@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RFPM
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Floating Percentile Model
 
@@ -20,14 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-lawstat 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-lawstat 
 
 %description

@@ -1,50 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pmetar
-%global packver   0.5.0
+%global packname  bayesmlogit
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing METAR Weather Reports
+Summary:          A Multistate Life Table (MSLT) Methodology Based on Bayesian Approach
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
 
 %description
-Allows to download current and historical METAR weather reports extract
-and parse basic parameters and present main weather information. Current
-reports are downloaded from Aviation Weather Center
-<https://aviationweather.gov/data/metar/> and historical reports from Iowa
-Environmental Mesonet web page of Iowa State University ASOS-AWOS-METAR
-<http://mesonet.agron.iastate.edu/AWOS/>.
+Create life tables with a Bayesian approach, which can be very useful for
+modelling a complex health process when considering multiple predisposing
+factors and multiple coexisting health conditions. Details for this method
+can be found in: Zang, Emma, et al., (2022) <doi:10.1093/geronb/gbab149>.
 
 %prep
 %setup -q -c -n %{packname}

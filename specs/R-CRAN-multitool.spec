@@ -1,58 +1,67 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bambooHR
-%global packver   0.1.1
+%global packname  multitool
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Wrapper to the 'BambooHR' API
+Summary:          Run Multiverse Style Analyses
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-correlation 
+BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-parameters 
+BuildRequires:    R-CRAN-performance 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-correlation 
+Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-moments 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-parameters 
+Requires:         R-CRAN-performance 
 
 %description
-Enables a user to consume the 'BambooHR' API endpoints using R. The actual
-URL of the API will depend on your company domain, and will be handled by
-the package automatically once you setup the config file. The API
-documentation can be found here <https://documentation.bamboohr.com/docs>.
+Run the same analysis over a range of arbitrary data processing decisions.
+'multitool' provides an interface for creating alternative analysis
+pipelines and turning them into a grid of all possible pipelines. Using
+this grid as a blueprint, you can model your data across all possible
+pipelines and summarize the results.
 
 %prep
 %setup -q -c -n %{packname}
