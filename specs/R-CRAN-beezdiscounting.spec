@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rintrojs
-%global packver   0.3.3
+%global packname  beezdiscounting
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'Intro.js' Library
+Summary:          Behavioral Economic Easy Discounting
 
-License:          AGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-A wrapper for the 'Intro.js' library (For more info:
-<https://introjs.com/>). This package makes it easy to include
-step-by-step introductions, and clickable hints in a 'Shiny' application.
-It supports both static introductions in the UI, and programmatic
-introductions from the server-side.
+Facilitates some of the analyses performed in studies of behavioral
+economic discounting. The package supports scoring of the 27-Item Monetary
+Choice Questionnaire (see Kaplan et al., 2016;
+<doi:10.1007/s40614-016-0070-9>) and scoring of the minute discounting
+task (see Koffarnus & Bickel, 2014; <doi:10.1037/a0035973>) using the
+Qualtrics 5-trial discounting template (see the Qualtrics Minute
+Discounting User Guide; <doi:10.13140/RG.2.2.26495.79527>), which is also
+available as a .qsf file in this package.
 
 %prep
 %setup -q -c -n %{packname}

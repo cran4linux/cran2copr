@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rintrojs
-%global packver   0.3.3
+%global packname  samon
+%global packver   4.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          4.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'Intro.js' Library
+Summary:          Sensitivity Analysis for Missing Data
 
-License:          AGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 
 %description
-A wrapper for the 'Intro.js' library (For more info:
-<https://introjs.com/>). This package makes it easy to include
-step-by-step introductions, and clickable hints in a 'Shiny' application.
-It supports both static introductions in the UI, and programmatic
-introductions from the server-side.
+In a clinical trial with repeated measures designs, outcomes are often
+taken from subjects at fixed time-points.  The focus of the trial may be
+to compare the mean outcome in two or more groups at some pre-specified
+time after enrollment. In the presence of missing data auxiliary
+assumptions are necessary to perform such comparisons.  One commonly
+employed assumption is the missing at random assumption (MAR).  The
+'samon' package allows the user to perform a (parameterized) sensitivity
+analysis of this assumption.  In particular it can be used to examine the
+sensitivity of tests in the difference in outcomes to violations of the
+MAR assumption.  The sensitivity analysis can be performed under two
+scenarios, a) where the data exhibit a monotone missing data pattern (see
+the samon() function), and, b) where in addition to a monotone missing
+data pattern the data exhibit intermittent missing values (see the
+samonIM() function).
 
 %prep
 %setup -q -c -n %{packname}

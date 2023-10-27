@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splot
-%global packver   0.5.3
+%global packname  TPAC
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Split Plot
+Summary:          Tissue-Adjusted Pathway Analysis of Cancer (TPAC)
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-TPACData 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-TPACData 
 
 %description
-Automates common plotting tasks to ease data exploration. Makes density
-plots (potentially overlaid on histograms), scatter plots with prediction
-lines, or bar or line plots with error bars. For each type, y, or x and y
-variables can be plotted at levels of other variables, all with minimal
-specification.
+Contains logic for single sample gene set testing of cancer transcriptomic
+data with adjustment for normal tissue-specificity. Frost, H. Robert
+(2023) "Tissue-adjusted pathway analysis of cancer (TPAC)"
+<doi:10.1101/2022.03.17.484779>.
 
 %prep
 %setup -q -c -n %{packname}

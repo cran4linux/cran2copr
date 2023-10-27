@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MassWateR
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quality Control and Analysis of Massachusetts Water Quality Data
 
@@ -20,12 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggspatial 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-prettymapr 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-readxl 
@@ -37,12 +38,13 @@ BuildRequires:    R-CRAN-writexl
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-ggmap 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggspatial 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-prettymapr 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-readxl 

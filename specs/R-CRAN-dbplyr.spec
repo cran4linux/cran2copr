@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dbplyr
-%global packver   2.3.4
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'dplyr' Back End for Databases
 
@@ -14,45 +14,45 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.4.1
+BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-withr >= 2.5.0
 BuildRequires:    R-CRAN-R6 >= 2.2.2
-BuildRequires:    R-CRAN-pillar >= 1.5.0
-BuildRequires:    R-CRAN-tibble >= 1.4.2
+BuildRequires:    R-CRAN-pillar >= 1.9.0
+BuildRequires:    R-CRAN-glue >= 1.6.2
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-blob >= 1.2.0
-BuildRequires:    R-CRAN-glue >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-DBI >= 1.1.3
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
+BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-purrr >= 1.0.1
-BuildRequires:    R-CRAN-DBI >= 1.0.0
-BuildRequires:    R-CRAN-vctrs >= 0.5.0
+BuildRequires:    R-CRAN-vctrs >= 0.6.3
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli >= 3.4.1
+Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-withr >= 2.5.0
 Requires:         R-CRAN-R6 >= 2.2.2
-Requires:         R-CRAN-pillar >= 1.5.0
-Requires:         R-CRAN-tibble >= 1.4.2
+Requires:         R-CRAN-pillar >= 1.9.0
+Requires:         R-CRAN-glue >= 1.6.2
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-blob >= 1.2.0
-Requires:         R-CRAN-glue >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-DBI >= 1.1.3
+Requires:         R-CRAN-dplyr >= 1.1.2
+Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-purrr >= 1.0.1
-Requires:         R-CRAN-DBI >= 1.0.0
-Requires:         R-CRAN-vctrs >= 0.5.0
+Requires:         R-CRAN-vctrs >= 0.6.3
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
 A 'dplyr' back end for databases that allows you to work with remote

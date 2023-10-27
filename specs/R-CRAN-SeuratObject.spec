@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SeuratObject
-%global packver   4.1.4
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.4
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Structures for Single Cell Data
 
@@ -29,6 +29,9 @@ BuildRequires:    R-CRAN-progressr
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix >= 1.6.1
 Requires:         R-CRAN-sp >= 1.5.0
@@ -43,6 +46,9 @@ Requires:         R-CRAN-progressr
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-spam 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-generics 
 
 %description
 Defines S4 classes for single-cell genomic data and associated
@@ -52,7 +58,9 @@ and R-native hooks to ensure the Seurat object is familiar to other R
 users. See Satija R, Farrell J, Gennert D, et al (2015)
 <doi:10.1038/nbt.3192>, Macosko E, Basu A, Satija R, et al (2015)
 <doi:10.1016/j.cell.2015.05.002>, and Stuart T, Butler A, et al (2019)
-<doi:10.1016/j.cell.2019.05.031> for more details.
+<doi:10.1016/j.cell.2019.05.031>, Hao Y, Hao S, et al (2021)
+<doi:10.1016/j.cell.2021.04.048> and Hao Y, et al (2023)
+<doi:10.1101/2022.02.24.481684> for more details.
 
 %prep
 %setup -q -c -n %{packname}

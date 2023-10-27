@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rintrojs
-%global packver   0.3.3
+%global packname  divvy
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'Intro.js' Library
+Summary:          Spatial Subsampling of Biodiversity Occurrence Data
 
-License:          AGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-iNEXT >= 3.0.0
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-iNEXT >= 3.0.0
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-vegan 
 
 %description
-A wrapper for the 'Intro.js' library (For more info:
-<https://introjs.com/>). This package makes it easy to include
-step-by-step introductions, and clickable hints in a 'Shiny' application.
-It supports both static introductions in the UI, and programmatic
-introductions from the server-side.
+Divide taxonomic occurrence data into geographic regions of fair
+comparison, with three customisable methods to standardise area and
+extent. Calculate common biodiversity and range-size metrics on subsampled
+data. Background theory and practical considerations for the methods are
+described in Antell and others (2023) <doi:10.31223/X5997Z>.
 
 %prep
 %setup -q -c -n %{packname}

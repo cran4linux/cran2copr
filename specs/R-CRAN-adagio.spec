@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adagio
-%global packver   0.8.5
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete and Global Optimization Routines
 
@@ -25,7 +25,7 @@ Requires:         R-graphics
 Requires:         R-stats 
 
 %description
-The R package 'adagio' will provide methods and algorithms for discrete
+The R package 'adagio' will provide methods and algorithms for (discrete)
 optimization, e.g. knapsack and subset sum procedures, derivative-free
 Nelder-Mead and Hooke-Jeeves minimization, and some (evolutionary) global
 optimization functions.

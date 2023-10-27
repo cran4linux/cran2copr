@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rintrojs
-%global packver   0.3.3
+%global packname  scitb
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'Intro.js' Library
+Summary:          Provides Some Useful Functions for Making Statistical Tables
 
-License:          AGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-jsonlite 
 
 %description
-A wrapper for the 'Intro.js' library (For more info:
-<https://introjs.com/>). This package makes it easy to include
-step-by-step introductions, and clickable hints in a 'Shiny' application.
-It supports both static introductions in the UI, and programmatic
-introductions from the server-side.
+You can use the functions provided by the package to make various
+statistical tables, such as baseline data tables. Creates 'Table 1', i.e.,
+a description of the baseline patient characteristics, which is essential
+in every medical research. Supports both continuous and categorical
+variables, as well as p-values and standardized mean differences. This
+method was described by Mary L McHugh (2013) <doi:10.11613/bm.2013.018>.
 
 %prep
 %setup -q -c -n %{packname}

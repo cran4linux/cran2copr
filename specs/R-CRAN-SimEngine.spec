@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimEngine
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modular Framework for Statistical Simulations in R
 
@@ -17,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-parallel >= 4.2.2
+BuildRequires:    R-methods >= 4.2.2
+BuildRequires:    R-utils >= 4.2.2
+BuildRequires:    R-stats >= 4.0.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-pbapply >= 1.6.0
+BuildRequires:    R-CRAN-data.table >= 1.14.6
+BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+Requires:         R-parallel >= 4.2.2
+Requires:         R-methods >= 4.2.2
+Requires:         R-utils >= 4.2.2
+Requires:         R-stats >= 4.0.0
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-pbapply >= 1.6.0
+Requires:         R-CRAN-data.table >= 1.14.6
+Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-dplyr >= 1.0.10
 
 %description
 An open-source R package for structuring, maintaining, running, and

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cxr
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for Modelling Species Coexistence in R
 
@@ -16,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-optimx 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
 
 %description
 Recent developments in modern coexistence theory have advanced our
@@ -30,11 +33,13 @@ species at varying abundances. However, applying this mathematical
 framework to empirical data is still challenging, precluding a larger
 adoption of the theoretical tools developed by empiricists. This package
 provides a complete toolbox for modelling interaction effects between
-species, and calculate fitness and niche differences. The functions are
+species, and calculate fitness and niche differences.  The functions are
 flexible, may accept covariates, and different fitting algorithms can be
-used. A full description of the underlying methods is available in
+used.  A full description of the underlying methods is available in
 García-Callejas, D., Godoy, O., and Bartomeus, I. (2020)
-<doi:10.1111/2041-210X.13443>.
+<doi:10.1111/2041-210X.13443>.  Furthermore, the package provides a series
+of functions to calculate dynamics for stage-structured populations across
+sites.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rintrojs
-%global packver   0.3.3
+%global packname  polyhedralCubature
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'Intro.js' Library
+Summary:          Multiple Integration over Convex Polyhedra
 
-License:          AGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-CRAN-qspray 
+BuildRequires:    R-CRAN-rcdd 
+BuildRequires:    R-CRAN-SimplicialCubature 
+BuildRequires:    R-CRAN-spray 
+BuildRequires:    R-CRAN-tessellation 
+Requires:         R-CRAN-gmp 
+Requires:         R-CRAN-qspray 
+Requires:         R-CRAN-rcdd 
+Requires:         R-CRAN-SimplicialCubature 
+Requires:         R-CRAN-spray 
+Requires:         R-CRAN-tessellation 
 
 %description
-A wrapper for the 'Intro.js' library (For more info:
-<https://introjs.com/>). This package makes it easy to include
-step-by-step introductions, and clickable hints in a 'Shiny' application.
-It supports both static introductions in the UI, and programmatic
-introductions from the server-side.
+Evaluation of multiple integrals over convex polyhedra. This is useful
+when the bounds of the integrals are some linear combinations of the
+variables.
 
 %prep
 %setup -q -c -n %{packname}
