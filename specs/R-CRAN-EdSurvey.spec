@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EdSurvey
-%global packver   4.0.1
+%global packver   4.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          4.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of NCES Education Survey and Assessment Data
 
@@ -14,51 +14,51 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-WeMix >= 4.0.0
+BuildRequires:    R-CRAN-car >= 3.1.2
+BuildRequires:    R-CRAN-Dire >= 2.2.0
 BuildRequires:    R-CRAN-haven >= 2.2.0
-BuildRequires:    R-CRAN-Dire >= 2.1.0
+BuildRequires:    R-CRAN-wCorr >= 1.9.8
+BuildRequires:    R-CRAN-Matrix >= 1.6.1.1
 BuildRequires:    R-CRAN-data.table >= 1.11.4
 BuildRequires:    R-CRAN-lfactors >= 1.0.3
-BuildRequires:    R-CRAN-LaF >= 0.7
-BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-NAEPprimer >= 1.0.1
+BuildRequires:    R-CRAN-NAEPirtparams >= 1.0.0
+BuildRequires:    R-CRAN-LaF >= 0.8.4
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-glm2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-NAEPprimer 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-wCorr 
-BuildRequires:    R-CRAN-NAEPirtparams 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-WeMix >= 4.0.0
+Requires:         R-CRAN-car >= 3.1.2
+Requires:         R-CRAN-Dire >= 2.2.0
 Requires:         R-CRAN-haven >= 2.2.0
-Requires:         R-CRAN-Dire >= 2.1.0
+Requires:         R-CRAN-wCorr >= 1.9.8
+Requires:         R-CRAN-Matrix >= 1.6.1.1
 Requires:         R-CRAN-data.table >= 1.11.4
 Requires:         R-CRAN-lfactors >= 1.0.3
-Requires:         R-CRAN-LaF >= 0.7
-Requires:         R-CRAN-car 
+Requires:         R-CRAN-NAEPprimer >= 1.0.1
+Requires:         R-CRAN-NAEPirtparams >= 1.0.0
+Requires:         R-CRAN-LaF >= 0.8.4
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-glm2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-NAEPprimer 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-wCorr 
-Requires:         R-CRAN-NAEPirtparams 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-xml2 
 
