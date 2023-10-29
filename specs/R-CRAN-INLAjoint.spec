@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MortalityTables
-%global packver   2.0.5
+%global packname  INLAjoint
+%global packver   23.10.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          23.10.28
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Various Types of Mortality / Life Tables
+Summary:          Multivariate Joint Modeling for Longitudinal and Time-to-Event Outcomes with 'INLA'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-utils 
-Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Classes to implement, analyze and plot cohort life tables for actuarial
-calculations. Birth-year dependent cohort mortality tables using a yearly
-trend to extrapolate from a base year are implemented, as well as period
-life table, cohort life tables using an age shift, and merged life tables.
-Additionally, several data sets from various countries are included to
-provide widely-used tables out of the box.
+Estimation of joint models for multivariate longitudinal markers (with
+various distributions available) and survival outcomes (possibly
+accounting for competing risks) with Integrated Nested Laplace
+Approximations (INLA). The flexible and user friendly function joint()
+facilitates the use of the fast and reliable inference technique
+implemented in the 'INLA' package for joint modeling. More details are
+given in the help page of the joint() function (accessible via ?joint in
+the R console) and the vignette associated to the joint() function
+(accessible via vignette("INLAjoint") in the R console).
 
 %prep
 %setup -q -c -n %{packname}

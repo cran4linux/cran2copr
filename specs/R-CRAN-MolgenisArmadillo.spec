@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MolgenisArmadillo
-%global packver   2.0.0
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Armadillo Client for the Armadillo Service
 
@@ -21,11 +21,21 @@ BuildRequires:    R-CRAN-MolgenisAuth >= 0.0.25
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-arrow 
 Requires:         R-CRAN-MolgenisAuth >= 0.0.25
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-arrow 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdalraster
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to the 'Geospatial Data Abstraction Library' Raster API
 
@@ -23,6 +23,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -30,6 +31,7 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
 Interface to the Raster API of the 'Geospatial Data Abstraction Library'

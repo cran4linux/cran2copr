@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MortalityTables
-%global packver   2.0.5
+%global packname  smartsheetr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Various Types of Mortality / Life Tables
+Summary:          Access and Write 'Smartsheet' Data using the 'Smartsheet' API 2.0
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-utils 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Classes to implement, analyze and plot cohort life tables for actuarial
-calculations. Birth-year dependent cohort mortality tables using a yearly
-trend to extrapolate from a base year are implemented, as well as period
-life table, cohort life tables using an age shift, and merged life tables.
-Additionally, several data sets from various countries are included to
-provide widely-used tables out of the box.
+Interact with the 'Smartsheet' platform through the 'Smartsheet' API 2.0.
+<https://smartsheet.redoc.ly/>. API is an acronym for application
+programming interface; the 'Smartsheet' API allows users to interact with
+'Smartsheet' sheets directly within R.
 
 %prep
 %setup -q -c -n %{packname}

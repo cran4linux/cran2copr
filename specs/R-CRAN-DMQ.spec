@@ -1,40 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MortalityTables
-%global packver   2.0.5
+%global packname  DMQ
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Various Types of Mortality / Life Tables
+Summary:          Dynamic Multiple Quantile (DMQ) Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-utils 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.17
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-DEoptim 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.17
+Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-DEoptim 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
 
 %description
-Classes to implement, analyze and plot cohort life tables for actuarial
-calculations. Birth-year dependent cohort mortality tables using a yearly
-trend to extrapolate from a base year are implemented, as well as period
-life table, cohort life tables using an age shift, and merged life tables.
-Additionally, several data sets from various countries are included to
-provide widely-used tables out of the box.
+Perform estimation, prediction, and simulations using the Dynamic Multiple
+Quantile model of Catania and Luati (2023)
+<doi:10.1016/j.jeconom.2022.11.002>. Can be used to estimate a set of
+conditional time-varying quantiles of a time series that do not cross.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,59 +1,70 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fmesher
-%global packver   0.1.4
+%global packname  plutor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Triangle Meshes and Related Geometry Tools
+Summary:          Useful Functions for Visualization
 
-License:          MPL-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-sp >= 1.6.1
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-baizer 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggh4x 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggsci 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-repr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-sp >= 1.6.1
-Requires:         R-methods 
+Requires:         R-CRAN-baizer 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-graphics 
+Requires:         R-CRAN-ggh4x 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggsci 
 Requires:         R-grDevices 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-Matrix 
+Requires:         R-grid 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-repr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-Rcpp 
 
 %description
-Generate planar and spherical triangle meshes, compute finite element
-calculations for 1- and 2-dimensional flat and curved manifolds with
-associated basis function spaces, methods for lines and polygons, and
-transparent handling of coordinate reference systems and coordinate
-transformation, including 'sf' and 'sp' geometries. The core 'fmesher'
-library code was originally part of the 'INLA' package, and implements
-parts of "Triangulations and Applications" by Hjelle and Daehlen (2006)
-<doi:10.1007/3-540-33261-8>.
+In ancient Roman mythology, 'Pluto' was the ruler of the underworld and
+presides over the afterlife. 'Pluto' was frequently conflated with
+'Plutus', the god of wealth, because mineral wealth was found underground.
+When plotting with R, you try once, twice, practice again and again, and
+finally you get a pretty figure you want. It's a 'plot tour', a tour about
+repetition and reward. Hope 'plutor' helps you on the tour!
 
 %prep
 %setup -q -c -n %{packname}

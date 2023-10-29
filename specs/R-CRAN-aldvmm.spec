@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aldvmm
-%global packver   0.8.7
+%global packver   0.8.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.7
+Version:          0.8.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adjusted Limited Dependent Variable Mixture Models
 
@@ -20,14 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-optimr 
+BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-lmtest 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-stats 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-optimr 
+Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-lmtest 

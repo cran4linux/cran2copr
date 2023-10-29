@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  makeit
-%global packver   1.0.1
+%global packname  AlleleShift
+%global packver   1.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Run R Scripts if Needed
+Summary:          Predict and Visualize Population-Level Changes in Allele Frequencies in Response to Climate Change
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-vegan >= 2.6.4
+BuildRequires:    R-CRAN-BiodiversityR >= 2.15.4
+BuildRequires:    R-CRAN-adegenet 
+Requires:         R-CRAN-vegan >= 2.6.4
+Requires:         R-CRAN-BiodiversityR >= 2.15.4
+Requires:         R-CRAN-adegenet 
 
 %description
-Automation tool to run R scripts if needed, based on last modified time.
-Implemented in base R with no additional software requirements,
-organizational overhead, or structural requirements. In short: run an R
-script if underlying files have changed, otherwise do nothing.
+Methods (<doi:10.7717/peerj.11534>) are provided of calibrating and
+predicting shifts in allele frequencies through redundancy analysis
+('vegan::rda()') and generalized additive models ('mgcv::gam()').
+Visualization functions for predicted changes in allele frequencies
+include 'shift.dot.ggplot()', 'shift.pie.ggplot()', 'shift.moon.ggplot()',
+'shift.waffle.ggplot()' and 'shift.surf.ggplot()' that are made with input
+data sets that are prepared by helper functions for each visualization
+method. Examples in the documentation show how to prepare animated climate
+change graphics through a time series with the 'gganimate' package.
+Function 'amova.rda()' shows how Analysis of Molecular Variance can be
+directly conducted with the results from redundancy analysis.
 
 %prep
 %setup -q -c -n %{packname}

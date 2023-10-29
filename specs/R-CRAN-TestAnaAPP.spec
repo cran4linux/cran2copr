@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TestAnaAPP
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          The 'shiny' App for Test Analysis and Visualization
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx >= 4.2.5.2
 BuildRequires:    R-CRAN-plotrix >= 3.8.2
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.3
-BuildRequires:    R-CRAN-bruceR >= 2023.8.23
+BuildRequires:    R-CRAN-bruceR >= 2023.8
 BuildRequires:    R-CRAN-rmarkdown >= 2.24
 BuildRequires:    R-CRAN-shiny >= 1.7.5
 BuildRequires:    R-CRAN-EstCRM >= 1.6
@@ -40,7 +40,7 @@ BuildRequires:    R-CRAN-tidySEM >= 0.2.4
 Requires:         R-CRAN-openxlsx >= 4.2.5.2
 Requires:         R-CRAN-plotrix >= 3.8.2
 Requires:         R-CRAN-ggplot2 >= 3.4.3
-Requires:         R-CRAN-bruceR >= 2023.8.23
+Requires:         R-CRAN-bruceR >= 2023.8
 Requires:         R-CRAN-rmarkdown >= 2.24
 Requires:         R-CRAN-shiny >= 1.7.5
 Requires:         R-CRAN-EstCRM >= 1.6

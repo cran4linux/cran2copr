@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MortalityTables
-%global packver   2.0.5
+%global packname  RFlocalfdr.data
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Various Types of Mortality / Life Tables
+Summary:          Data for the Vignette and Examples in 'RFlocalfdr'
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-utils 
-Requires:         R-CRAN-pracma 
 
 %description
-Classes to implement, analyze and plot cohort life tables for actuarial
-calculations. Birth-year dependent cohort mortality tables using a yearly
-trend to extrapolate from a base year are implemented, as well as period
-life table, cohort life tables using an age shift, and merged life tables.
-Additionally, several data sets from various countries are included to
-provide widely-used tables out of the box.
+Data for the vignette and examples in 'RFlocalfdr'. Contains a dataset of
+1103547 importance values, and the table of variables used in the random
+forest splits. The data is Chromosome 22 taken from Auton et al. (2015)
+<doi:10.1038/nature15393>. It also contains a 51 samples by 22283 genes
+data set taken from Spira et al. (2004) <doi:10.1165/rcmb.2004-0273OC>.
 
 %prep
 %setup -q -c -n %{packname}

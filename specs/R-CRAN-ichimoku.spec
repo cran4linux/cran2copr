@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ichimoku
-%global packver   1.4.9
+%global packver   1.4.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.9
+Version:          1.4.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Tools for Ichimoku Kinko Hyo Strategies
 

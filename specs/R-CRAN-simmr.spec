@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simmr
-%global packver   0.5.1.215
+%global packver   0.5.1.216
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1.215
+Version:          0.5.1.216
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Stable Isotope Mixing Model
 

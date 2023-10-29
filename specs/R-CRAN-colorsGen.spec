@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MortalityTables
-%global packver   2.0.5
+%global packname  colorsGen
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Various Types of Mortality / Life Tables
+Summary:          Generation of Random Colors
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-colorspace 
+Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-utils 
-Requires:         R-CRAN-pracma 
+Requires:         R-stats 
 
 %description
-Classes to implement, analyze and plot cohort life tables for actuarial
-calculations. Birth-year dependent cohort mortality tables using a yearly
-trend to extrapolate from a base year are implemented, as well as period
-life table, cohort life tables using an age shift, and merged life tables.
-Additionally, several data sets from various countries are included to
-provide widely-used tables out of the box.
+Generation of random colors, possibly with a given hue or a given
+luminosity. This is a port of the JavaScript library 'randomColor'
+<https://randomcolor.lllllllllllllllll.com/>.
 
 %prep
 %setup -q -c -n %{packname}

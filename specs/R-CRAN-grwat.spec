@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  grwat
-%global packver   0.0.2
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          River Hydrograph Separation and Analysis
 
@@ -15,8 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,14 +26,11 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-trend 
 BuildRequires:    R-CRAN-mblm 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-CRAN-R.utils 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -43,25 +40,15 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-rlang 
 Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-trend 
 Requires:         R-CRAN-mblm 
+Requires:         R-CRAN-R.utils 
 
 %description
 River hydrograph separation and daily runoff time series analysis.
-Provides various filters to separate baseflow and quickflow using methods
-by Lyne and Hollick (1979)
-<https://www.researchgate.net/publication/272491803_Stochastic_Time-Variable_Rainfall-Runoff_Modeling>,
-Chapman (1991) <doi:10.1029/91WR01007>, Boughton (1993)
-<https://cir.nii.ac.jp/crid/1572543026556977024>, Jakeman and Hornberger
-(1993) <doi:10.1029/93WR00877>, Chapman and Maxwell (1996)
-<https://search.informit.org/doi/10.3316/informit.360361071346753>, and
-Kudelin (1960)
-<https://www.worldcat.org/title/printsipy-regionalnoi-otsenki-estestvennykh-resursov-podzemnykh-vod/>.
-Implements advanced separation technique by Rets et al. (2022)
+Provides various filters to separate baseflow and quickflow. Implements
+advanced separation technique by Rets et al. (2022)
 <doi:10.1134/S0097807822010146> which involves meteorological data to
 reveal genetic components of the runoff: ground, rain, thaw and spring
 (seasonal thaw). High-performance C++17 computation, annually aggregated

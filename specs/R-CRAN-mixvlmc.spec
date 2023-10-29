@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mixvlmc
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Length Markov Chains with Covariates
 
@@ -19,6 +19,8 @@ Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-butcher 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-rlang 
@@ -29,6 +31,8 @@ BuildRequires:    R-CRAN-withr
 Requires:         R-CRAN-Rcpp >= 1.0.8.3
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-butcher 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-rlang 

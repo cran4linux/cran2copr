@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MortalityTables
-%global packver   2.0.5
+%global packname  NonlinearRDD
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Various Types of Mortality / Life Tables
+Summary:          Nonlinear Regression Discontinuity Design
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-utils 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-rdrobust 
+BuildRequires:    R-CRAN-rddensity 
+BuildRequires:    R-CRAN-lpdensity 
+BuildRequires:    R-CRAN-lpcde 
+BuildRequires:    R-CRAN-copula 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-rdrobust 
+Requires:         R-CRAN-rddensity 
+Requires:         R-CRAN-lpdensity 
+Requires:         R-CRAN-lpcde 
+Requires:         R-CRAN-copula 
 
 %description
-Classes to implement, analyze and plot cohort life tables for actuarial
-calculations. Birth-year dependent cohort mortality tables using a yearly
-trend to extrapolate from a base year are implemented, as well as period
-life table, cohort life tables using an age shift, and merged life tables.
-Additionally, several data sets from various countries are included to
-provide widely-used tables out of the box.
+Estimation of the possibly nonlinear and non separable structural function
+in regression discontinuity designs with a continuous treatment variable.
+The method is based on Xie (2022) <arXiv:2204.08168>.
 
 %prep
 %setup -q -c -n %{packname}

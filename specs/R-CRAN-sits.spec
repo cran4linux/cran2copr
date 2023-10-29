@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sits
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Satellite Image Time Series Analysis for Earth Observation Data Cubes
 
@@ -20,18 +20,20 @@ BuildRequires:    R-parallel >= 4.0.5
 BuildRequires:    R-CRAN-tibble >= 3.1
 BuildRequires:    R-CRAN-terra >= 1.5.17
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-sf >= 1.0.12
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rstac >= 0.9.2.3
-BuildRequires:    R-CRAN-torch >= 0.9.0
-BuildRequires:    R-CRAN-purrr >= 0.3.0
+BuildRequires:    R-CRAN-rstac >= 0.9.2.5
 BuildRequires:    R-CRAN-slider >= 0.2.0
+BuildRequires:    R-CRAN-torch >= 0.11.0
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-gdalUtilities 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-showtext 
+BuildRequires:    R-CRAN-sysfonts 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -39,18 +41,20 @@ Requires:         R-parallel >= 4.0.5
 Requires:         R-CRAN-tibble >= 3.1
 Requires:         R-CRAN-terra >= 1.5.17
 Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-sf >= 1.0.12
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rstac >= 0.9.2.3
-Requires:         R-CRAN-torch >= 0.9.0
-Requires:         R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-rstac >= 0.9.2.5
 Requires:         R-CRAN-slider >= 0.2.0
+Requires:         R-CRAN-torch >= 0.11.0
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-gdalUtilities 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-showtext 
+Requires:         R-CRAN-sysfonts 
 Requires:         R-stats 
 Requires:         R-utils 
 

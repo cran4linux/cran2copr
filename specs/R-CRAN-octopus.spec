@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  octopus
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Database Management Tool
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-shinyAce
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thames
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Truncated Harmonic Mean Estimator of the Marginal Likelihood
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-uniformly 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-uniformly 
+Requires:         R-stats 
 
 %description
 Implements the truncated harmonic mean estimator (THAMES) of the

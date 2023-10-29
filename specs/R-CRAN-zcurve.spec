@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zcurve
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Z-Curves
 
@@ -21,13 +21,17 @@ BuildRequires:    R-CRAN-nleqslv
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-evmix 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-CRAN-nleqslv 
 Requires:         R-stats 
 Requires:         R-CRAN-evmix 
 Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
 
 %description
 An implementation of z-curves - a method for estimating expected discovery
