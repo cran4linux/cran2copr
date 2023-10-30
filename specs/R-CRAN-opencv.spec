@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opencv
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to 'OpenCV' Computer Vision Library
 
@@ -24,9 +24,9 @@ Requires:         R-CRAN-magrittr
 
 %description
 Exposes some of the available 'OpenCV' <https://opencv.org/> algorithms,
-such as edge, body or face detection. These can either be applied to
-analyze static images, or to filter live video footage from a camera
-device.
+such as a QR code scanner, and edge, body or face detection. These can
+either be applied to analyze static images, or to filter live video
+footage from a camera device.
 
 %prep
 %setup -q -c -n %{packname}

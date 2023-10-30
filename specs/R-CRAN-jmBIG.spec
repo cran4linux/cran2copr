@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jmBIG
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Longitudinal and Survival Model for Big Data
 
@@ -45,8 +45,8 @@ patient's health status may change over time. Overall, this package
 provides a comprehensive set of tools for joint modeling of BIG data
 obtained as survival and longitudinal outcomes with both Bayesian and
 non-Bayesian approaches. Its versatility and flexibility make it a
-valuable resource for researchers in many different fields,particularly in
-the medical and health sciences.
+valuable resource for researchers in many different fields, particularly
+in the medical and health sciences.
 
 %prep
 %setup -q -c -n %{packname}

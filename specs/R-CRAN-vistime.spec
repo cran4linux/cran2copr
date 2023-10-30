@@ -1,48 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbokeh
-%global packver   0.5.2
+%global __requires_exclude ^libmpi
+%global packname  vistime
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface for Bokeh
+Summary:          Pretty Timelines in R
 
-License:          MIT + file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 0.5
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-hexbin 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-pryr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-gistr 
-Requires:         R-CRAN-htmlwidgets >= 0.5
-Requires:         R-CRAN-maps 
-Requires:         R-methods 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-hexbin 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-pryr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-gistr 
+BuildRequires:    R-CRAN-plotly >= 4.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggrepel >= 0.7.0
+BuildRequires:    R-CRAN-RColorBrewer >= 0.2.2
+BuildRequires:    R-CRAN-assertthat >= 0.1
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-plotly >= 4.0.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggrepel >= 0.7.0
+Requires:         R-CRAN-RColorBrewer >= 0.2.2
+Requires:         R-CRAN-assertthat >= 0.1
+Requires:         R-CRAN-rlang 
 
 %description
-A native R plotting library that provides a flexible declarative interface
-for creating interactive web-based graphics, backed by the Bokeh
-visualization library <https://bokeh.pydata.org/>.
+A library for creating time based charts, like Gantt or timelines.
+Possible outputs include 'ggplot2' diagrams, 'plotly.js' graphs,
+'Highcharts.js' widgets and data.frames. Results can be used in the
+'RStudio' viewer pane, in 'RMarkdown' documents or in Shiny apps. In the
+interactive outputs created by vistime() and hc_vistime(), you can
+interact with the plot using mouse hover or zoom.
 
 %prep
 %setup -q -c -n %{packname}

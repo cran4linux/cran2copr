@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ubiquity
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          PKPD, PBPK, and Systems Pharmacology Modeling Tools
 
@@ -13,11 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Recommends:       perl
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-onbrand >= 1.0.1
+BuildRequires:    R-CRAN-onbrand >= 1.0.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-doParallel 
@@ -37,8 +40,9 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-onbrand >= 1.0.1
+Requires:         R-CRAN-onbrand >= 1.0.2
 Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-doParallel 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polmineR
-%global packver   0.8.8
+%global packver   0.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.8.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Verbs and Nouns for Corpus Analysis
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.12.2
-BuildRequires:    R-CRAN-RcppCWB >= 0.5.3
+BuildRequires:    R-CRAN-RcppCWB >= 0.6.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-slam 
@@ -37,7 +37,7 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-RcppCWB >= 0.5.3
+Requires:         R-CRAN-RcppCWB >= 0.6.2
 Requires:         R-methods 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-slam 

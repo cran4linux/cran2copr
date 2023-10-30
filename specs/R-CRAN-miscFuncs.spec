@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  miscFuncs
-%global packver   1.5-6
+%global packver   1.5-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.6
+Version:          1.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Useful Functions Including LaTeX Tables, Kalman Filtering, QQplots with Simulation-Based Confidence Intervals and Development Tools
 

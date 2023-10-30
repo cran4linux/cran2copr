@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meconetcomp
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compare Microbial Networks of 'trans_network' Class of 'microeco' Package
 
@@ -17,20 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-microeco >= 0.20.0
+BuildRequires:    R-CRAN-microeco >= 1.1.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggpubr 
-Requires:         R-CRAN-microeco >= 0.20.0
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-microeco >= 1.1.0
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Compare microbial co-occurrence networks created from 'trans_network'
