@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecodist
-%global packver   2.1.3
+%global packname  owidR
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dissimilarity-Based Functions for Ecological Analysis
+Summary:          Import Data from Our World in Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-magrittr 
 
 %description
-Dissimilarity-based analysis functions including ordination and Mantel
-test functions, intended for use with spatial and community ecological
-data. The original package description is in Goslee and Urban (2007)
-<doi:10.18637/jss.v022.i07>, with further statistical detail in Goslee
-(2010) <doi:10.1007/s11258-009-9641-0>.
+Import data from 'Our World in Data', an organisation which publishes
+research and data on global economic and social issues.
 
 %prep
 %setup -q -c -n %{packname}

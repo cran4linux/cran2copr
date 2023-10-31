@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecodist
-%global packver   2.1.3
+%global packname  lmhelprs
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dissimilarity-Based Functions for Ecological Analysis
+Summary:          Helper Functions for Linear Model Analysis
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
 
 %description
-Dissimilarity-based analysis functions including ordination and Mantel
-test functions, intended for use with spatial and community ecological
-data. The original package description is in Goslee and Urban (2007)
-<doi:10.18637/jss.v022.i07>, with further statistical detail in Goslee
-(2010) <doi:10.1007/s11258-009-9641-0>.
+A collection of helper functions for multiple regression models fitted by
+lm(). Most of them are simple functions for simple tasks which can be done
+with coding, but may not be easy for occasional users of R. Most of the
+tasks addressed are those sometimes needed when using the 'manymome'
+package (Cheung and Cheung, 2023, <doi:10.3758/s13428-023-02224-z>) and
+'stdmod' package (Cheung, Cheung, Lau, Hui, and Vong, 2022,
+<doi:10.1037/hea0001188>). However, they can also be used in other
+scenarios.
 
 %prep
 %setup -q -c -n %{packname}

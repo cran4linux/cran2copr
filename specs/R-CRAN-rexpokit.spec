@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BiplotML
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  rexpokit
+%global packver   0.26.6.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.26.6.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Biplots Estimation with Algorithms ML
+Summary:          R Wrappers for EXPOKIT; Other Matrix Functions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-optimr 
-BuildRequires:    R-CRAN-optimx 
-BuildRequires:    R-CRAN-shapes 
-Requires:         R-CRAN-optimr 
-Requires:         R-CRAN-optimx 
-Requires:         R-CRAN-shapes 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-stats 
 
 %description
-Logistic Biplot is a method that allows representing multivariate binary
-data on a subspace of low dimension, where each individual is represented
-by a point and each variable as vectors directed through the origin. The
-orthogonal projection of individuals onto these vectors predicts the
-expected probability that the characteristic occurs. The package contains
-new techniques to estimate the model parameters and constructs in each
-case the 'Logistic-Biplot'. References can be found in the help of each
-procedure.
+Wraps some of the matrix exponentiation utilities from EXPOKIT
+(<http://www.maths.uq.edu.au/expokit/>), a FORTRAN library that is widely
+recommended for matrix exponentiation (Sidje RB, 1998. "Expokit: A
+Software Package for Computing Matrix Exponentials." ACM Trans. Math.
+Softw. 24(1): 130-156).  EXPOKIT includes functions for exponentiating
+both small, dense matrices, and large, sparse matrices (in sparse
+matrices, most of the cells have value 0). Rapid matrix exponentiation is
+useful in phylogenetics when we have a large number of states (as we do
+when we are inferring the history of transitions between the possible
+geographic ranges of a species), but is probably useful in other ways as
+well.
 
 %prep
 %setup -q -c -n %{packname}

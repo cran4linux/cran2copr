@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GRSxE
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testing Gene-Environment Interactions Through Genetic Risk Scores
 
@@ -30,9 +30,10 @@ Requires:         R-utils
 Statistical testing procedures for detecting GxE (gene-environment)
 interactions. The main focus lies on GRSxE interaction tests that aim at
 detecting GxE interactions through GRS (genetic risk scores). Moreover, a
-novel testing procedure based on bagging and OOB predictions is
-implemented for incorporating all available observations at both GRS
-construction and GxE testing.
+novel testing procedure based on bagging and OOB (out-of-bag) predictions
+is implemented for incorporating all available observations at both GRS
+construction and GxE testing (Lau et al., 2023,
+<doi:10.1038/s41598-023-28172-4>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyxl
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Untidy Excel Files
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-Rcpp
 Imports non-tabular from Excel files into R.  Exposes cell content,
 position and formatting in a tidy structure for further manipulation.
 Tokenizes Excel formulas.  Supports '.xlsx' and '.xlsm' via the embedded
-'RapidXML' C++ library <http://rapidxml.sourceforge.net>.  Does not
+'RapidXML' C++ library <https://rapidxml.sourceforge.net>.  Does not
 support '.xlsb' or '.xls'.
 
 %prep

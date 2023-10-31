@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecodist
-%global packver   2.1.3
+%global packname  cols
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dissimilarity-Based Functions for Ecological Analysis
+Summary:          Constrained Ordinary Least Squares
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-Rfast2 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-Rfast2 
 
 %description
-Dissimilarity-based analysis functions including ordination and Mantel
-test functions, intended for use with spatial and community ecological
-data. The original package description is in Goslee and Urban (2007)
-<doi:10.18637/jss.v022.i07>, with further statistical detail in Goslee
-(2010) <doi:10.1007/s11258-009-9641-0>.
+Constrained ordinary least squares is performed. One constraint is that
+all beta coefficients (including the constant) cannot be negative. They
+can be either 0 or strictly positive. Another constraint is that the sum
+ob the beta coefficients sum to a constant. References: Hansen, B. E.
+(2022). Econometrics, Princeton University Press. <ISBN:9780691235899>.
 
 %prep
 %setup -q -c -n %{packname}

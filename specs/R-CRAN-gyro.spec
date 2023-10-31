@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gyro
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hyperbolic Geometry
 
@@ -18,30 +18,32 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-cxhull >= 0.3.0
 BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-colorsGen 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Morpho 
 BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-Polychrome 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-Rvcg 
 BuildRequires:    R-CRAN-RCDT 
-BuildRequires:    R-CRAN-randomcoloR 
 Requires:         R-CRAN-cxhull >= 0.3.0
 Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-colorsGen 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-Morpho 
 Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-Polychrome 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-Rvcg 
 Requires:         R-CRAN-RCDT 
-Requires:         R-CRAN-randomcoloR 
 
 %description
 Hyperbolic geometry in the Minkowski model and the Poincaré model. The

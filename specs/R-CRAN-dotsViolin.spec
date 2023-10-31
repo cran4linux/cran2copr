@@ -1,43 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Inflect
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  dotsViolin
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Melt Curve Fitting and Melt Shift Analysis
+Summary:          Dot Plots Mimicking Violin Plots
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-optimr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-UpSetR 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-optimr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-UpSetR 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyselect 
 
 %description
-This program analyzes raw abundance data from a cellular thermal shift
-experiment and calculates melt temperatures and melt shifts for each
-protein in the experiment. Reference to software development can be found
-at <doi:10.1021/acs.jproteome.0c00872>.
+Modifies dot plots to have different sizes of dots mimicking violin plots
+and identifies modes or peaks for them based on frequency and kernel
+density estimates (Rosenblatt, 1956) <doi:10.1214/aoms/1177728190>
+(Parzen, 1962) <doi:10.1214/aoms/1177704472>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

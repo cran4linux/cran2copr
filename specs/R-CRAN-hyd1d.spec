@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecodist
-%global packver   2.1.3
+%global packname  hyd1d
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dissimilarity-Based Functions for Ecological Analysis
+Summary:          1d Water Level Interpolation along the Rivers Elbe and Rhine
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-plotrix >= 3.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-plotrix >= 3.0.0
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-curl 
 
 %description
-Dissimilarity-based analysis functions including ordination and Mantel
-test functions, intended for use with spatial and community ecological
-data. The original package description is in Goslee and Urban (2007)
-<doi:10.18637/jss.v022.i07>, with further statistical detail in Goslee
-(2010) <doi:10.1007/s11258-009-9641-0>.
+An S4 class and several functions which utilize internally stored datasets
+and gauging data enable 1d water level interpolation. The S4 class
+(WaterLevelDataFrame) structures the computation and visualisation of 1d
+water level information along the German federal waterways Elbe and Rhine.
+'hyd1d' delivers 1d water level data - extracted from the 'FLYS' database
+- and validated gauging data - extracted from the hydrological database
+'HyDaBa' - package-internally. For computations near real time gauging
+data are queried externally from the 'PEGELONLINE REST API'
+<https://pegelonline.wsv.de/webservice/dokuRestapi>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  WRS2
-%global packver   1.1-4
+%global packver   1.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Robust Statistical Methods
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-reshape 
@@ -23,7 +24,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mc2d 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-plyr 
@@ -31,7 +31,6 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-CRAN-mc2d 
 
 %description
 A collection of robust statistical methods based on Wilcox' WRS functions.

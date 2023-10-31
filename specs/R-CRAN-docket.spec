@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rvmmin
-%global packver   2018-4.17.1
+%global __requires_exclude ^libmpi
+%global packname  docket
+%global packver   1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2018.4.17.1
+Version:          1.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Metric Nonlinear Function Minimization
+Summary:          Automated Document Template Processing
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,11 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optextras 
-Requires:         R-CRAN-optextras 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-zip 
 
 %description
-Variable metric nonlinear function minimization with bounds constraints.
+Populate data from an R environment into '.doc' and '.docx' templates.
+Create a template document in a program such as 'Word', and add strings
+encased in guillemet characters to create flags («example»). Use
+getDictionary() to create a dictionary of flags and replacement values,
+then call docket() to generate a populated document.
 
 %prep
 %setup -q -c -n %{packname}
@@ -30,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

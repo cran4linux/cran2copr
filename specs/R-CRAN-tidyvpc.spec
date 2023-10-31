@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyvpc
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          VPC Percentiles and Prediction Intervals
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-egg 
 Requires:         R-CRAN-quantreg >= 5.51
 Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-rlang >= 0.3.0
@@ -39,6 +40,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-stats 
 Requires:         R-CRAN-fastDummies 
 Requires:         R-utils 
+Requires:         R-CRAN-egg 
 
 %description
 Perform a Visual Predictive Check (VPC), while accounting for

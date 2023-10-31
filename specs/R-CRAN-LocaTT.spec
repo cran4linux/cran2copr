@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rcgmin
-%global packver   2022-4.30
+%global __requires_exclude ^libmpi
+%global packname  LocaTT
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.4.30
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conjugate Gradient Minimization of Nonlinear Functions with Box Constraints
+Summary:          Geographically-Conscious Taxonomic Assignment for Metabarcoding
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,12 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optextras 
-Requires:         R-CRAN-optextras 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-taxize 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-taxize 
 
 %description
-Conjugate gradient minimization of nonlinear functions with box
-constraints using Dai/Yuan update.
+A bioinformatics pipeline for performing taxonomic assignment of DNA
+metabarcoding sequence data while considering geographic location. A
+detailed tutorial is available at
+<https://urodelan.github.io/Local_Taxa_Tool_Tutorial/>. A manuscript
+describing these methods is in preparation.
 
 %prep
 %setup -q -c -n %{packname}

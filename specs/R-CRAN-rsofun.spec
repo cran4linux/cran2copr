@@ -1,34 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecodist
-%global packver   2.1.3
+%global packname  rsofun
+%global packver   4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dissimilarity-Based Functions for Ecological Analysis
+Summary:          The P-Model and BiomeE Modelling Framework
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-CRAN-BayesianTools 
+BuildRequires:    R-CRAN-multidplyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-BayesianTools 
+Requires:         R-CRAN-multidplyr 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
+Requires:         R-utils 
 
 %description
-Dissimilarity-based analysis functions including ordination and Mantel
-test functions, intended for use with spatial and community ecological
-data. The original package description is in Goslee and Urban (2007)
-<doi:10.18637/jss.v022.i07>, with further statistical detail in Goslee
-(2010) <doi:10.1007/s11258-009-9641-0>.
+Implements the Simulating Optimal FUNctioning framework for site-scale
+simulations of ecosystem processes, including model calibration. It
+contains 'Fortran 90' modules for the P-model (Stocker et al. (2020)
+<doi:10.5194/gmd-13-1545-2020>), SPLASH (Davis et al. (2017)
+<doi:10.5194/gmd-10-689-2017>) and BiomeE (Weng et al. (2015)
+<doi:10.5194/bg-12-2655-2015>).
 
 %prep
 %setup -q -c -n %{packname}

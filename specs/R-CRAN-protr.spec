@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  protr
-%global packver   1.6-3
+%global packver   1.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generating Various Numerical Representation Schemes for Protein Sequences
 
@@ -23,8 +23,8 @@ Comprehensive toolkit for generating various numerical features of protein
 sequences described in Xiao et al. (2015)
 <DOI:10.1093/bioinformatics/btv042>. For full functionality, the software
 'ncbi-blast+' is needed, see
-<https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download>
-for more information.
+<https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html> for
+more information.
 
 %prep
 %setup -q -c -n %{packname}

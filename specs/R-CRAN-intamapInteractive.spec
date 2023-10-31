@@ -1,37 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ZIPG
-%global packver   1.0
+%global packname  intamapInteractive
+%global packver   1.2-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Zero-Inflated Poisson-Gamma Regression
+Summary:          Interactive Add-on Functionality for 'intamap'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimr 
-BuildRequires:    R-CRAN-pscl 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-optimr 
-Requires:         R-CRAN-pscl 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-intamap 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-automap 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spcosa 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-intamap 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-automap 
+Requires:         R-CRAN-gstat 
+Requires:         R-methods 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spcosa 
+Requires:         R-CRAN-sf 
 
 %description
-We provide a flexible Zero-inflated Poisson-Gamma Model (ZIPG) by
-connecting both the mean abundance and the variability to different
-covariates, and build valid statistical inference procedures for both
-parameter estimation and hypothesis testing. These functions can be used
-to analyze microbiome count data with zero-inflation and overdispersion.
-The model is discussed in Jiang et al (2023)
-<doi:10.1080/01621459.2022.2151447>.
+The methods in this package adds to the functionality of the 'intamap'
+package, such as bias correction and network optimization. Pebesma et al
+(2010) gives an overview of the methods behind and possible usage
+<doi:10.1016/j.cageo.2010.03.019>.
 
 %prep
 %setup -q -c -n %{packname}

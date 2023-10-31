@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidycmprsk
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Competing Risks Estimation
 
@@ -21,27 +21,27 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-tibble >= 3.1.6
 BuildRequires:    R-CRAN-cli >= 3.1.0
 BuildRequires:    R-CRAN-cmprsk >= 2.2.10
-BuildRequires:    R-CRAN-gtsummary >= 1.6.2
+BuildRequires:    R-CRAN-gtsummary >= 1.7.2
 BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-hardhat >= 1.3.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.4
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-broom >= 1.0.1
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-hardhat >= 0.2.0
 BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-tibble >= 3.1.6
 Requires:         R-CRAN-cli >= 3.1.0
 Requires:         R-CRAN-cmprsk >= 2.2.10
-Requires:         R-CRAN-gtsummary >= 1.6.2
+Requires:         R-CRAN-gtsummary >= 1.7.2
 Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-hardhat >= 1.3.0
 Requires:         R-CRAN-tidyr >= 1.1.4
 Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-broom >= 1.0.1
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-hardhat >= 0.2.0
 Requires:         R-CRAN-survival 
 
 %description

@@ -1,44 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyglotr
-%global packver   1.2.2
+%global packname  anomaly
+%global packver   4.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          4.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate Text
+Summary:          Detecting Anomalies in Data
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-tidyr 
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-cowplot 
 
 %description
-The goal of the this package is to provide easy methods to translate
-pieces of text. Functions send requests to translation services online.
+Implements Collective And Point Anomaly (CAPA) Fisch, Eckley, and
+Fearnhead (2022) <doi:10.1002/sam.11586>, Multi-Variate Collective And
+Point Anomaly (MVCAPA) Fisch, Eckley, and Fearnhead (2021)
+<doi:10.1080/10618600.2021.1987257>, Proportion Adaptive Segment Selection
+(PASS) Jeng, Cai, and Li (2012) <doi:10.1093/biomet/ass059>, and Bayesian
+Abnormal Region Detector (BARD) Bardwell and Fearnhead (2015)
+<arXiv:1412.5565>. These methods are for the detection of anomalies in
+time series data.
 
 %prep
 %setup -q -c -n %{packname}
