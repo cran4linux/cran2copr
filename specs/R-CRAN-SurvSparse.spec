@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtwSat
-%global packver   1.0.0
+%global packname  SurvSparse
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time-Weighted Dynamic Time Warping for Satellite Image Time Series Analysis
+Summary:          Survival Analysis with Sparse Longitudinal Covariates
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,36 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-twdtw 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-splines 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-gaussquad 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-proxy 
-Requires:         R-CRAN-twdtw 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-splines 
 Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-gaussquad 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-proxy 
+Requires:         R-CRAN-purrr 
 
 %description
-Provides a robust approach to land use mapping using multi-dimensional
-(multi-band) satellite image time series. By leveraging the Time-Weighted
-Dynamic Time Warping (TWDTW) distance metric in tandem with a 1
-Nearest-Neighbor (1-NN) Classifier, this package offers functions to
-produce land use maps based on distinct seasonality patterns, commonly
-observed in the phenological cycles of vegetation. The approach is
-described in Maus et al. (2016) <doi:10.1109/JSTARS.2016.2517118> and Maus
-et al. (2019) <doi:10.18637/jss.v088.i05>. A primary advantage of TWDTW is
-its capability to handle irregularly sampled and noisy time series, while
-also requiring minimal training sets. The package includes tools for
-training the 1-NN-TWDTW model, visualizing temporal patterns, producing
-land use maps, and visualizing the results.
+Survival analysis with sparse longitudinal covariates under right
+censoring scheme. Different hazards models are involved. Please cite the
+manuscripts corresponding to this package: Sun, Z. et al. (2022)
+<doi:10.1007/s10985-022-09548-6>, Sun, Z. and Cao, H. (2023)
+<arXiv:2310.15877> and Sun, D. et al. (2023) <arXiv:2308.15549>.
 
 %prep
 %setup -q -c -n %{packname}

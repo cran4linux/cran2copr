@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ROpenCVLite
-%global packver   4.80.0
+%global packver   4.80.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.80.0
+Version:          4.80.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Package for Installing OpenCV with R
 
@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         cmake
+Recommends:       cmake
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch

@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simdd
-%global packver   1.1-2
+%global packname  colors3d
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Fisher Bingham and Related Directional Distributions
+Summary:          Generate 2D and 3D Color Palettes
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-FNN 
+Requires:         R-grDevices 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
 
 %description
-Simulation methods for the Fisher Bingham distribution on the unit sphere,
-the matrix Bingham distribution on a Grassmann manifold, the matrix Fisher
-distribution on SO(3), and the bivariate von Mises sine model on the
-torus. The methods use an acceptance/rejection simulation algorithm for
-the Bingham distribution and are described fully by Kent, Ganeiber and
-Mardia (2018) <doi:10.1080/10618600.2017.1390468>. These methods supersede
-earlier MCMC simulation methods and are more general than earlier
-simulation methods. The methods can be slower in specific situations where
-there are existing non-MCMC simulation methods (see Section 8 of Kent,
-Ganeiber and Mardia (2018) <doi:10.1080/10618600.2017.1390468> for further
-details).
+Generate multivariate color palettes to represent two-dimensional or
+three-dimensional data in graphics (in contrast to standard color palettes
+that represent just one variable). You tell 'colors3d' how to map color
+space onto your data, and it gives you a color for each data point. You
+can then use these colors to make plots in base 'R', 'ggplot2', or other
+graphics frameworks.
 
 %prep
 %setup -q -c -n %{packname}

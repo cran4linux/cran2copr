@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPresto
-%global packver   1.4.5
+%global packver   1.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          1.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          DBI Connector to Presto
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.0.0
+BuildRequires:    R-CRAN-dbplyr >= 2.3.3
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-httr >= 0.6
 BuildRequires:    R-CRAN-DBI >= 0.3.0
@@ -34,7 +34,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-dbplyr >= 2.0.0
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-dbplyr >= 2.3.3
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-httr >= 0.6
 Requires:         R-CRAN-DBI >= 0.3.0
@@ -51,6 +52,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-vctrs 
 
 %description
 Implements a 'DBI' compliant interface to Presto. Presto is an open source

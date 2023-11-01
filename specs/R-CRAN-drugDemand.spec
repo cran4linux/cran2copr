@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drugDemand
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Drug Demand Forecasting
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-MASS >= 7.3.54
 BuildRequires:    R-CRAN-plotly >= 4.10.1
 BuildRequires:    R-parallel >= 4.1.2
 BuildRequires:    R-stats >= 3.5.0
@@ -34,6 +35,7 @@ BuildRequires:    R-CRAN-doParallel >= 1.0.17
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-erify >= 0.4.0
 BuildRequires:    R-CRAN-eventPred >= 0.2.0
+Requires:         R-CRAN-MASS >= 7.3.54
 Requires:         R-CRAN-plotly >= 4.10.1
 Requires:         R-parallel >= 4.1.2
 Requires:         R-stats >= 3.5.0
@@ -56,11 +58,16 @@ Requires:         R-CRAN-eventPred >= 0.2.0
 %description
 Performs drug demand forecasting by modeling drug dispensing data while
 taking into account predicted enrollment and treatment discontinuation
-dates. The number of skipped visits and the number of dispensed doses are
-modeled using zero-inflated Poisson or zero-inflated negative binomial
-distributions (Zeileis, Kleiber & Jackman (2008)
-<doi:10.18637/jss.v027.i08>) and a linear mixed-effects model (McCulloch &
-Searle (2001, ISBN:0-471-19364-X)), respectively.
+dates. The gap time between randomization and the first drug dispensing
+visit is modeled using interval-censored exponential, Weibull,
+log-logistic, or log-normal distributions (Anderson-Bergman (2017)
+<doi:10.18637/jss.v081.i12>). The number of skipped visits is modeled
+using Poisson, zero-inflated Poisson, or negative binomial distributions
+(Zeileis, Kleiber & Jackman (2008) <doi:10.18637/jss.v027.i08>). The gap
+time between two consecutive drug dispensing visits is modeled using
+linear regression given the number of skipped visits. The number of
+dispensed doses is modeled using linear or linear mixed-effects models
+(McCulloch & Searle (2001, ISBN:0-471-19364-X)).
 
 %prep
 %setup -q -c -n %{packname}

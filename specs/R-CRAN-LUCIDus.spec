@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LUCIDus
-%global packver   2.2.1
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Unknown Clustering Integrating Multi-View Data
+Summary:          LUCID with Multiple Omics Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-networkD3 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-glasso 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-mix 
-BuildRequires:    R-CRAN-networkD3 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-boot 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-networkD3 
+Requires:         R-CRAN-progress 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-glasso 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-mix 
-Requires:         R-CRAN-networkD3 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-progress 
 
 %description
-An implementation of the LUCID model (Peng (2019)
+An implementation of estimating the Latent Unknown Clusters By Integrating
+Multi-omics Data (LUCID) model (Peng (2019)
 <doi:10.1093/bioinformatics/btz667>). LUCID conducts integrated clustering
-using exposures, omics data (and outcome as an option). An EM algorithm is
-implemented to estimate MLE of the LUCID model. LUCIDus features
-integrated variable selection, incorporation of missing omics data,
-bootstrap inference, prediction and visualization of the model.
+using exposures, omics data (and outcome as an option). This is a major
+update from the last version while conserving all the previous features.
+This package implements three different integration strategies for
+multiple omics data analysis within the LUCID framework: LUCID early
+integration (the original LUCID model), LUCID in parallel (intermediate),
+and LUCID in serial (late). Automated model selection for each LUCID model
+is available to obtain the optimal number of latent clusters, and an
+integrated imputation approach is implemented to handle sporadic and
+list-wise missing multiple omics data.
 
 %prep
 %setup -q -c -n %{packname}

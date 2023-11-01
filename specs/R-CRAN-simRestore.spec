@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simdd
-%global packver   1.1-2
+%global packname  simRestore
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Fisher Bingham and Related Directional Distributions
+Summary:          Simulate the Effect of Management Policies on Restoration Efforts
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-subplex 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-subplex 
+Requires:         R-CRAN-tibble 
 
 %description
-Simulation methods for the Fisher Bingham distribution on the unit sphere,
-the matrix Bingham distribution on a Grassmann manifold, the matrix Fisher
-distribution on SO(3), and the bivariate von Mises sine model on the
-torus. The methods use an acceptance/rejection simulation algorithm for
-the Bingham distribution and are described fully by Kent, Ganeiber and
-Mardia (2018) <doi:10.1080/10618600.2017.1390468>. These methods supersede
-earlier MCMC simulation methods and are more general than earlier
-simulation methods. The methods can be slower in specific situations where
-there are existing non-MCMC simulation methods (see Section 8 of Kent,
-Ganeiber and Mardia (2018) <doi:10.1080/10618600.2017.1390468> for further
-details).
+Simulation methods to study the effect of management policies on efforts
+to restore populations back to their original genetic composition. Allows
+for single-scenario simulation and for optimization of specific chosen
+scenarios. Further information can be found in Hernandez, Janzen and
+Lavretsky (2023) <doi:10.1111/1755-0998.13892>.
 
 %prep
 %setup -q -c -n %{packname}

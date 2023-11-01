@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simdd
-%global packver   1.1-2
+%global packname  portion
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Fisher Bingham and Related Directional Distributions
+Summary:          Extracting a Data Portion
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Simulation methods for the Fisher Bingham distribution on the unit sphere,
-the matrix Bingham distribution on a Grassmann manifold, the matrix Fisher
-distribution on SO(3), and the bivariate von Mises sine model on the
-torus. The methods use an acceptance/rejection simulation algorithm for
-the Bingham distribution and are described fully by Kent, Ganeiber and
-Mardia (2018) <doi:10.1080/10618600.2017.1390468>. These methods supersede
-earlier MCMC simulation methods and are more general than earlier
-simulation methods. The methods can be slower in specific situations where
-there are existing non-MCMC simulation methods (see Section 8 of Kent,
-Ganeiber and Mardia (2018) <doi:10.1080/10618600.2017.1390468> for further
-details).
+Provides a simple method to extract portions of a vector, matrix, or
+data.frame. The relative portion size and the way the portion is selected
+can be chosen.
 
 %prep
 %setup -q -c -n %{packname}

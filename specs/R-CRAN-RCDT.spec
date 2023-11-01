@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RCDT
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast 2D Constrained Delaunay Triangulation
 
@@ -17,17 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-colorsGen 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-randomcoloR 
+BuildRequires:    R-CRAN-Polychrome 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-Rvcg 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-colorsGen 
 Requires:         R-CRAN-gplots 
 Requires:         R-graphics 
-Requires:         R-CRAN-randomcoloR 
+Requires:         R-CRAN-Polychrome 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-Rvcg 
 

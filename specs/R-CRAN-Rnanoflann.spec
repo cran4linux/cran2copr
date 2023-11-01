@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simdd
-%global packver   1.1-2
+%global packname  Rnanoflann
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Fisher Bingham and Related Directional Distributions
+Summary:          Extremely Fast Nearest Neighbor Search
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.11
 
 %description
-Simulation methods for the Fisher Bingham distribution on the unit sphere,
-the matrix Bingham distribution on a Grassmann manifold, the matrix Fisher
-distribution on SO(3), and the bivariate von Mises sine model on the
-torus. The methods use an acceptance/rejection simulation algorithm for
-the Bingham distribution and are described fully by Kent, Ganeiber and
-Mardia (2018) <doi:10.1080/10618600.2017.1390468>. These methods supersede
-earlier MCMC simulation methods and are more general than earlier
-simulation methods. The methods can be slower in specific situations where
-there are existing non-MCMC simulation methods (see Section 8 of Kent,
-Ganeiber and Mardia (2018) <doi:10.1080/10618600.2017.1390468> for further
-details).
+Finds the k nearest neighbours for every point in a given dataset using
+Jose Luis' 'nanoflann' library. There is support for exact searches, fixed
+radius searches with 'kd' trees and two distances, the 'Euclidean' and
+'Manhattan'. For more information see
+<https://github.com/jlblancoc/nanoflann>. Also, the 'nanoflann' library is
+exported and ready to be used via the linking to mechanism.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sivs
-%global packver   0.2.10
+%global packname  probe
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stable Iterative Variable Selection
+Summary:          Sparse High-Dimensional Linear Regression with PROBE
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-devel >= 4.00
+Requires:         R-core >= 4.00
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-varhandle 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-varhandle 
-Requires:         R-utils 
 
 %description
-An iterative feature selection method (manuscript submitted) that
-internally utilizes various Machine Learning methods that have embedded
-feature reduction in order to shrink down the feature space into a small
-and yet robust set.
+Implements an efficient and powerful Bayesian approach for sparse
+high-dimensional linear regression. It uses minimal prior assumptions on
+the parameters through plug-in empirical Bayes estimates of
+hyperparameters. An efficient Parameter-Expanded
+Expectation-Conditional-Maximization (PX-ECM) algorithm estimates maximum
+a posteriori (MAP) values of regression parameters and variable selection
+probabilities. The PX-ECM results in a robust computationally efficient
+coordinate-wise optimization, which adjusts for the impact of other
+predictor variables. The E-step is motivated by the popular two-group
+approach to multiple testing. The result is a PaRtitiOned empirical Bayes
+Ecm (PROBE) algorithm applied to sparse high-dimensional linear
+regression, implemented using one-at-a-time or all-at-once type
+optimization. More information can be found in McLain, Zgodic, and Bondell
+(2022) <arXiv:2209.08139>.
 
 %prep
 %setup -q -c -n %{packname}

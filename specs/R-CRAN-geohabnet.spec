@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geohabnet
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Cropland Connectivity
 
@@ -17,8 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats >= 4.2.3
-BuildRequires:    R-graphics >= 4.2.3
 BuildRequires:    R-CRAN-yaml >= 2.3.7
 BuildRequires:    R-CRAN-memoise >= 2.0.1
 BuildRequires:    R-CRAN-terra >= 1.7.29
@@ -32,8 +30,9 @@ BuildRequires:    R-CRAN-geodata >= 0.5.8
 BuildRequires:    R-CRAN-viridisLite >= 0.4.2
 BuildRequires:    R-CRAN-rnaturalearth >= 0.3.3
 BuildRequires:    R-CRAN-config >= 0.3.1
-Requires:         R-stats >= 4.2.3
-Requires:         R-graphics >= 4.2.3
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-yaml >= 2.3.7
 Requires:         R-CRAN-memoise >= 2.0.1
 Requires:         R-CRAN-terra >= 1.7.29
@@ -47,23 +46,26 @@ Requires:         R-CRAN-geodata >= 0.5.8
 Requires:         R-CRAN-viridisLite >= 0.4.2
 Requires:         R-CRAN-rnaturalearth >= 0.3.3
 Requires:         R-CRAN-config >= 0.3.1
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-tools 
 
 %description
 Geographical spatial analysis of cropland connectivity. Allows users to
 visualize risk index plots for a given set of crops. The functions are
 developed as an extension to analysis from Xing et al (2021)
 <doi:10.1093/biosci/biaa067>. The primary function is sean() and is
-indicative of how sensitive analysis is to parameters using kernel models.
-The Package currently supports crops sourced from Monfreda, C., N.
-Ramankutty, and J. A. Foley (2008) <doi:10.1029/2007gb002947> "Farming the
-planet: 2. Geographic distribution of crop areas, yields, physiological
-types, and net primary production in the year 2000, Global Biogeochem.
-Cycles, 22, GB1022" and International Food Policy Research Institute
-(2019) <doi:10.7910/DVN/PRFF8V> "Global Spatially-Disaggregated Crop
-Production Statistics Data for 2010 Version 2.0, Harvard Dataverse, V4".
-This analysis produces 3 maps - mean, variance, and difference for the
-crop risk index. It applies distance functions and graph operations on a
-network to calculate risk index. There are multiple ways in which
+indicative of how sensitive the risk analysis is to parameters using
+kernel models. The Package currently supports crops sourced from Monfreda,
+C., N. Ramankutty, and J. A. Foley (2008) <doi:10.1029/2007gb002947>
+"Farming the planet: 2. Geographic distribution of crop areas, yields,
+physiological types, and net primary production in the year 2000, Global
+Biogeochem. Cycles, 22, GB1022" and International Food Policy Research
+Institute (2019) <doi:10.7910/DVN/PRFF8V> "Global Spatially-Disaggregated
+Crop Production Statistics Data for 2010 Version 2.0, Harvard Dataverse,
+V4". This analysis produces 3 maps - mean, variance, and difference for
+the crop risk index. It applies distance functions and graph operations on
+a network to calculate risk index. There are multiple ways in which
 functions can be used - generate final outcome and then the intermediate
 outcomes for more sophisticated use cases. Refer to vignettes. sean() will
 set some global variables which can be accessed using $ prefix. These

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simdd
-%global packver   1.1-2
+%global packname  matRiks
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Fisher Bingham and Related Directional Distributions
+Summary:          Generates Raven-Like Matrices According to Rules
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DescTools 
+Requires:         R-CRAN-DescTools 
 
 %description
-Simulation methods for the Fisher Bingham distribution on the unit sphere,
-the matrix Bingham distribution on a Grassmann manifold, the matrix Fisher
-distribution on SO(3), and the bivariate von Mises sine model on the
-torus. The methods use an acceptance/rejection simulation algorithm for
-the Bingham distribution and are described fully by Kent, Ganeiber and
-Mardia (2018) <doi:10.1080/10618600.2017.1390468>. These methods supersede
-earlier MCMC simulation methods and are more general than earlier
-simulation methods. The methods can be slower in specific situations where
-there are existing non-MCMC simulation methods (see Section 8 of Kent,
-Ganeiber and Mardia (2018) <doi:10.1080/10618600.2017.1390468> for further
-details).
+Generates Raven like matrices according to different rules and the
+response list associated to the matrix. The package can generate matrices
+composed of 4 or 9 cells, along with a response list of 11 elements (the
+correct response + 10 incorrect responses). The matrices can be generated
+according to both logical rules (i.e., the relationships between the
+elements in the matrix are manipulated to create the matrix) and
+visual-spatial rules (i.e., the visual or spatial characteristics of the
+elements are manipulated to generate the matrix). The graphical elements
+of this package are based on the 'DescTools' package.
 
 %prep
 %setup -q -c -n %{packname}
