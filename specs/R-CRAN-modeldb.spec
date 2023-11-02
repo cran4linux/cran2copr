@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modeldb
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fits Models Inside the Database
 
@@ -14,21 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 0.7
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidypredict 
+Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-dplyr >= 0.7
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidypredict 
 

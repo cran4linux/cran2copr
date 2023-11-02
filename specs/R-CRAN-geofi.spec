@@ -1,38 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesmlogit
-%global packver   1.0.1
+%global packname  geofi
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Multistate Life Table (MSLT) Methodology Based on Bayesian Approach
+Summary:          Access Finnish Geospatial Data
 
-License:          GPL (>= 3)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-xml2 >= 1.2.0
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-httpcache 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-xml2 >= 1.2.0
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-httpcache 
+Requires:         R-CRAN-httr 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-yaml 
 
 %description
-Create life tables with a Bayesian approach, which can be very useful for
-modelling a complex health process when considering multiple predisposing
-factors and multiple coexisting health conditions. Details for this method
-can be found in: Lynch, Scott, et al., (2022)
-<doi:10.1177/00811750221112398>; Zang, Emma, et al., (2022)
-<doi:10.1093/geronb/gbab149>.
+Designed to simplify geospatial data access from the Statistics Finland
+Web Feature Service API <http://geo.stat.fi/geoserver/wfs>, the geofi
+package offers researchers and analysts a set of tools to obtain and
+harmonize administrative spatial data for a wide range of applications,
+from urban planning to environmental research. The package contains
+annually updated time series of municipality key datasets that can be used
+for data aggregation and language translations.
 
 %prep
 %setup -q -c -n %{packname}

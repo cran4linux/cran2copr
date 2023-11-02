@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psycModel
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrated Toolkit for Psychological Analysis and Modeling in R
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-tidyselect 
 
 %description
 A beginner-friendly R package for modeling in psychology or related field.

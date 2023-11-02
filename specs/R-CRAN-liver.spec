@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  liver
-%global packver   1.14
+%global packver   1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14
+Version:          1.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          "Eating the Liver of Data Science"
 
@@ -23,17 +23,17 @@ Requires:         R-CRAN-class
 Requires:         R-CRAN-ggplot2 
 
 %description
-Provides a collection of helper functions that make various techniques
-from data science more user-friendly for non-experts. In this way, our aim
-is to allow non-experts to become familiar with the techniques with only a
-minimal level of coding knowledge. Indeed, following an ancient Persian
-idiom, we refer to this as "eating the liver of data science" which could
-be interpreted as "getting intimately close with data science". Examples
-of procedures we include are: data partitioning for out-of-sample testing,
-computing Mean Squared Error (MSE) for quantifying prediction accuracy,
-and data transformation (z-score and min-max). Besides such helper
-functions, the package also includes several interesting datasets that are
-useful for multivariate analysis.
+Offers a suite of helper functions to simplify various data science
+techniques for non-experts. This package aims to enable individuals with
+only a minimal level of coding knowledge to become acquainted with these
+techniques in an accessible manner. Inspired by an ancient Persian idiom,
+we liken this process to "eating the liver of data science," suggesting a
+deep and intimate engagement with the field of data science. This package
+includes functions for tasks such as data partitioning for out-of-sample
+testing, calculating Mean Squared Error (MSE) to assess prediction
+accuracy, and data transformations (z-score and min-max). In addition to
+these helper functions, the 'liver' package also features several
+intriguing datasets valuable for multivariate analysis.
 
 %prep
 %setup -q -c -n %{packname}

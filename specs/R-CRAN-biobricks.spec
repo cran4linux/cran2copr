@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesmlogit
-%global packver   1.0.1
+%global packname  biobricks
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Multistate Life Table (MSLT) Methodology Based on Bayesian Approach
+Summary:          Access Data Dependencies Installed Through 'Biobricks.ai'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
 
 %description
-Create life tables with a Bayesian approach, which can be very useful for
-modelling a complex health process when considering multiple predisposing
-factors and multiple coexisting health conditions. Details for this method
-can be found in: Lynch, Scott, et al., (2022)
-<doi:10.1177/00811750221112398>; Zang, Emma, et al., (2022)
-<doi:10.1093/geronb/gbab149>.
+Provides an integrated data management solution for assets installed via
+the 'Biobricks.ai' platform. Streamlines the process of loading and
+interacting with diverse datasets in a consistent manner. A list of bricks
+is available at <https://status.biobricks.ai>. Documentation for
+'Biobricks.ai' is available at <https://docs.biobricks.ai>.
 
 %prep
 %setup -q -c -n %{packname}

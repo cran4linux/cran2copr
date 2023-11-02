@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rasterVis
-%global packver   0.51.5
+%global packver   0.51.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.51.5
+Version:          0.51.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization Methods for Raster Data
 
@@ -14,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster >= 3.4.13
-BuildRequires:    R-CRAN-terra >= 1.4.9
+BuildRequires:    R-CRAN-terra >= 1.7.17
 BuildRequires:    R-CRAN-sp >= 1.0.6
-BuildRequires:    R-CRAN-lattice >= 0.20.41
+BuildRequires:    R-CRAN-lattice >= 0.22.5
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-stats 
@@ -33,9 +33,9 @@ BuildRequires:    R-CRAN-hexbin
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-raster >= 3.4.13
-Requires:         R-CRAN-terra >= 1.4.9
+Requires:         R-CRAN-terra >= 1.7.17
 Requires:         R-CRAN-sp >= 1.0.6
-Requires:         R-CRAN-lattice >= 0.20.41
+Requires:         R-CRAN-lattice >= 0.22.5
 Requires:         R-methods 
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-stats 

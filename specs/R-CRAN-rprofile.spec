@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rprofile
-%global packver   0.2.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load Both User-Global and Project-Specific R Profile Configurations
 
@@ -14,12 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Use rprofile::init() inside a project '.Rprofile' file to ensure that the
+Use rprofile::load() inside a project '.Rprofile' file to ensure that the
 user-global '.Rprofile' is loaded correctly regardless of its location,
 and other common resources (in particular 'renv') are also set up
 correctly.

@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jgcricolors
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  normalize
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manage 'JGCRI' Color Palettes
+Summary:          Centering and Scaling of Numeric Data
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-markdown 
-Requires:         R-CRAN-knitr 
-Requires:         R-graphics 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-markdown 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Color palettes used by the Pacific Northwest National Laboratory - Joint
-Global Change Research Institute for maps and charts.
+Provides a simple method for centering and scaling of numeric data.
+Certain columns or rows can be ignored when normalizing or be normalized
+jointly.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinycodet
-%global packver   0.1.0.6
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.6
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Few Functions to Help in your Coding Etiquette
+Summary:          Functions to Help in your Coding Etiquette
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-stringi >= 1.7.12
 Requires:         R-CRAN-stringi >= 1.7.12
 
 %description
-Adds a few functions to help in your coding etiquette. 'tinycodet'
+Adds some functions to help in your coding etiquette. 'tinycodet'
 primarily focuses on 4 aspects. 1) Safer decimal (in)equality testing,
 safer atomic conversions, and other functions for safer coding. 2) A new
 package import system, that attempts to combine the benefits of using a
