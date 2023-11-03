@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  beezdiscounting
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Behavioral Economic Easy Discounting
 
@@ -20,11 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-psych 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 

@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AHPtools
-%global packver   0.2.1
+%global packname  bipl5
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Consistency in the Analytic Hierarchy Process
+Summary:          Construct Reactive Calibrated Axes Biplots
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-plotly >= 4.10.2
+BuildRequires:    R-CRAN-htmlwidgets >= 1.6.2
+BuildRequires:    R-CRAN-crayon >= 1.5.2
+BuildRequires:    R-CRAN-knitr >= 1.43
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-plotly >= 4.10.2
+Requires:         R-CRAN-htmlwidgets >= 1.6.2
+Requires:         R-CRAN-crayon >= 1.5.2
+Requires:         R-CRAN-knitr >= 1.43
+Requires:         R-CRAN-cluster 
+Requires:         R-methods 
 
 %description
-A Swiss Army knife of utility functions for users of the Analytic
-Hierarchy Process (AHP) which will help you to assess the consistency of a
-PCM as well as to improve its consistency ratio, to compute the
-sensitivity of a PCM, create a logical, not a random PCM, from the
-preferences you provide for the alternatives, and a function that helps
-evaluate the actual consistency of a PCM based on objective, fair bench
-marking. The various functions in the toolkit additionally provide the
-flexibility to users to specify only the upper triangular comparison
-ratios of the PCM in order to performs its assigned task.
+A modern view on the principal component analysis biplot with calibrated
+axes. Create principal component analysis biplots rendered in HTML with
+significant reactivity embedded within the plot. Furthermore, the
+traditional biplot view is enhanced by translated axes with inter-class
+kernel densities superimposed. For more information on biplots, see Gower,
+J.C., Lubbe, S. and le Roux, N.J. (2011, ISBN: 978-0-470-01255-0).
 
 %prep
 %setup -q -c -n %{packname}
