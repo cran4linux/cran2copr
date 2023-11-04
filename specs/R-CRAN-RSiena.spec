@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSiena
-%global packver   1.3.14.4
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.14.4
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Siena - Simulation Investigation for Empirical Network Analysis
 
@@ -15,8 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    xorg-x11-server-Xvfb
-Requires:         tcl
-Requires:         tk
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Matrix 
@@ -38,12 +36,8 @@ of stochastic actor-oriented models for longitudinal network data
 collected as panel data. Dependent variables can be single or multivariate
 networks, which can be directed, non-directed, or two-mode; and associated
 actor variables. There are also functions for testing parameters and
-checking goodness of fit. An overview of these models is given in Tom A.B.
-Snijders (2017), Stochastic Actor-Oriented Models for Network Dynamics,
-Annual Review of Statistics and Its Application, 4, 343-363 <doi:
-10.1146/annurev-statistics-060116-054035>. An extensive manual, scripts,
-and much further information is at the Siena website
-<http://www.stats.ox.ac.uk/~snijders/siena/>.
+checking goodness of fit. An overview of these models is given in Snijders
+(2017), <doi:10.1146/annurev-statistics-060116-054035>.
 
 %prep
 %setup -q -c -n %{packname}

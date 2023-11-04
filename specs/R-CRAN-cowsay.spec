@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cowsay
-%global packver   0.8.2
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Messages, Warnings, Strings with Ascii Animals
 

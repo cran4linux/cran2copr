@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RCTrep
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Validation of Estimates of Treatment Effects in Observational Data
 
@@ -69,7 +69,7 @@ treatment effect validation based on four simple steps, namely,
 set-selection, estimation, diagnosis, and validation. 'RCTrep' provides a
 simple dashboard to review the obtained results. The validation approach
 is introduced by Shen, L., Geleijnse, G. and Kaptein, M. (2023)
-<doi:10.21203/rs.3.rs-2559287/v1>.
+<doi:10.21203/rs.3.rs-2559287/v2>.
 
 %prep
 %setup -q -c -n %{packname}

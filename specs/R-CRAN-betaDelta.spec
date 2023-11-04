@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaDelta
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Confidence Intervals for Standardized Regression Coefficients
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-numDeriv 
 
 %description
 Generates confidence intervals for standardized regression coefficients

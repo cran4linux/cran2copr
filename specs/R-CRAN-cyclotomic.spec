@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cyclotomic
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Field of Cyclotomic Numbers
 
@@ -22,14 +22,14 @@ BuildRequires:    R-CRAN-gmp
 BuildRequires:    R-CRAN-maybe 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-primes 
+BuildRequires:    R-CRAN-numbers 
 BuildRequires:    R-CRAN-VeryLargeIntegers 
 Requires:         R-CRAN-intmap 
 Requires:         R-CRAN-gmp 
 Requires:         R-CRAN-maybe 
 Requires:         R-CRAN-memoise 
 Requires:         R-methods 
-Requires:         R-CRAN-primes 
+Requires:         R-CRAN-numbers 
 Requires:         R-CRAN-VeryLargeIntegers 
 
 %description

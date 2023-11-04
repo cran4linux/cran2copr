@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppEigen
-%global packver   0.3.3.9.3
+%global packver   0.3.3.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3.9.3
+Version:          0.3.3.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for the 'Eigen' Templated Linear Algebra Library
 
@@ -16,11 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Matrix >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-stats 
 Requires:         R-utils 
@@ -33,12 +31,12 @@ point and complex numbers, decompositions of such matrices, and solutions
 of linear systems. Its performance on many algorithms is comparable with
 some of the best implementations based on 'Lapack' and level-3 'BLAS'. The
 'RcppEigen' package includes the header files from the 'Eigen' C++
-template library (currently version 3.3.4). Thus users do not need to
-install 'Eigen' itself in order to use 'RcppEigen'. Since version 3.1.1,
-'Eigen' is licensed under the Mozilla Public License (version 2); earlier
-version were licensed under the GNU LGPL version 3 or later. 'RcppEigen'
-(the 'Rcpp' bindings/bridge to 'Eigen') is licensed under the GNU GPL
-version 2 or later, as is the rest of 'Rcpp'.
+template library. Thus users do not need to install 'Eigen' itself in
+order to use 'RcppEigen'. Since version 3.1.1, 'Eigen' is licensed under
+the Mozilla Public License (version 2); earlier version were licensed
+under the GNU LGPL version 3 or later. 'RcppEigen' (the 'Rcpp'
+bindings/bridge to 'Eigen') is licensed under the GNU GPL version 2 or
+later, as is the rest of 'Rcpp'.
 
 %prep
 %setup -q -c -n %{packname}

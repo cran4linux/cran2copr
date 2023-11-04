@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sdmTMB
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial and Spatiotemporal SPDE-Based GLMMs with 'TMB'
 
@@ -54,10 +54,11 @@ Requires:         R-stats
 
 %description
 Implements spatial and spatiotemporal GLMMs (Generalized Linear Mixed
-Effect Models) using 'TMB', 'INLA', and the SPDE (Stochastic Partial
-Differential Equation) approximation to Gaussian random fields. One common
-application is for spatially explicit species distribution models (SDMs).
-See Anderson et al. (2022) <doi:10.1101/2022.03.24.485545>.
+Effect Models) using 'TMB', 'fmesher', and the SPDE (Stochastic Partial
+Differential Equation) Gaussian Markov random field approximation to
+Gaussian random fields. One common application is for spatially explicit
+species distribution models (SDMs). See Anderson et al. (2022)
+<doi:10.1101/2022.03.24.485545>.
 
 %prep
 %setup -q -c -n %{packname}

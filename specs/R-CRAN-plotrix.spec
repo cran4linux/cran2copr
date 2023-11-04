@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  plotrix
-%global packver   3.8-2
+%global packver   3.8-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.2
+Version:          3.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Plotting Functions
 
@@ -26,7 +27,8 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Lots of plots, various labeling, axis and color scaling functions.
+Lots of plots, various labeling, axis and color scaling functions. The
+author/maintainer died in September 2023.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WALS
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted-Average Least Squares Model Averaging
 
@@ -29,9 +29,9 @@ Requires:         R-methods
 Requires:         R-stats 
 
 %description
-Implements the Weighted-Average Least Squares method for model averaging
-of negative binomial regression models of Huynh (2023) (mimeo),
-generalized linear models of De Luca, Magnus, Peracchi (2018)
+Implements Weighted-Average Least Squares model averaging for negative
+binomial regression models of Huynh (2023) (mimeo), generalized linear
+models of De Luca, Magnus, Peracchi (2018)
 <doi:10.1016/j.jeconom.2017.12.007> and linear regression models of
 Magnus, Powell, Pruefer (2010) <doi:10.1016/j.jeconom.2009.07.004>, see
 also Magnus, De Luca (2016) <doi:10.1111/joes.12094>. Weighted-Average

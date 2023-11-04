@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qgraph
-%global packver   1.9.5
+%global packver   1.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.5
+Version:          1.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph Plotting Methods, Psychometric Data Visualization and Graphical Model Estimation
 

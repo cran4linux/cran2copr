@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DTRKernSmooth
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate and Make Inference About Optimal Treatment Regimes via Smoothed Methods
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.9
 

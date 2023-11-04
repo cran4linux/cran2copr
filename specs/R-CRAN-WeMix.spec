@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WeMix
-%global packver   4.0.0
+%global packver   4.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Mixed-Effects Models Using Multilevel Pseudo Maximum Likelihood Estimation
 
@@ -17,21 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix >= 1.5.4.1
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-Rmpfr 
-BuildRequires:    R-CRAN-NPflow 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-minqa 
 BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-Matrix >= 1.5.4.1
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-Rmpfr 
-Requires:         R-CRAN-NPflow 
-Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-minqa 
 Requires:         R-CRAN-matrixStats 

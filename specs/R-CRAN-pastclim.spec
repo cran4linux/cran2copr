@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pastclim
-%global packver   1.2.4
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate Time Series of Palaeoclimate Reconstructions
 
@@ -18,13 +18,15 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-terra >= 1.7.18
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-terra >= 1.7.18
-Requires:         R-methods 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-lubridate 
+Requires:         R-methods 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-utils 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oeli
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Developing Data Science Software
 
@@ -38,9 +38,9 @@ Requires:         R-CRAN-sysfonts
 Requires:         R-CRAN-usethis 
 
 %description
-Some general utilities that I and maybe others find useful when developing
-data science software. Functionality includes argument validation, density
-calculation and sampling, dealing with Cholesky roots, matrix printing and
+Some general utilities (helper functions) that I and maybe others find
+useful when developing data science software. Functionality includes
+argument validation, density calculation and sampling, matrix printing and
 indexing, user interaction, and more.
 
 %prep

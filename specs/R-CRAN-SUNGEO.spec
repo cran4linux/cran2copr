@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SUNGEO
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sub-National Geospatial Data Archive: Geoprocessing Toolkit
 
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-RANN
 BuildRequires:    R-CRAN-cartogram 
 BuildRequires:    R-CRAN-packcircles 
 BuildRequires:    R-CRAN-rmapshaper 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-httr 
@@ -55,7 +54,6 @@ Requires:         R-CRAN-RANN
 Requires:         R-CRAN-cartogram 
 Requires:         R-CRAN-packcircles 
 Requires:         R-CRAN-rmapshaper 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-httr 

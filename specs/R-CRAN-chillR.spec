@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chillR
-%global packver   0.73.1
+%global packver   0.74
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.73.1
+Version:          0.74
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Phenology Analysis in Temperate Fruit Trees
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ecmwfr 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-GenSA 
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,11 +27,14 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-metR 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-Rcpp 
@@ -48,6 +52,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ecmwfr 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-GenSA 
 Requires:         R-CRAN-ggplot2 
@@ -56,11 +61,14 @@ Requires:         R-grDevices
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-metR 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-Rcpp 
