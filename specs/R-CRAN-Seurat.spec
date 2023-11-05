@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Seurat
-%global packver   4.4.0
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.0
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
@@ -16,19 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-SeuratObject >= 5.0.0
 BuildRequires:    R-CRAN-plotly >= 4.9.0
-BuildRequires:    R-CRAN-SeuratObject >= 4.1.4
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-CRAN-scattermore >= 1.2
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-sctransform >= 0.4.0
+BuildRequires:    R-CRAN-sctransform >= 0.4.1
 BuildRequires:    R-CRAN-leiden >= 0.3.1
-BuildRequires:    R-CRAN-uwot >= 0.1.14
+BuildRequires:    R-CRAN-generics >= 0.1.3
+BuildRequires:    R-CRAN-uwot >= 0.1.10
 BuildRequires:    R-CRAN-RcppAnnoy >= 0.0.18
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
@@ -43,6 +45,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-matrixStats 
@@ -54,9 +57,11 @@ BuildRequires:    R-CRAN-progressr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-RcppHNSW 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
@@ -68,19 +73,21 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-SeuratObject >= 5.0.0
 Requires:         R-CRAN-plotly >= 4.9.0
-Requires:         R-CRAN-SeuratObject >= 4.1.4
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-scattermore >= 1.2
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-sctransform >= 0.4.0
+Requires:         R-CRAN-sctransform >= 0.4.1
 Requires:         R-CRAN-leiden >= 0.3.1
-Requires:         R-CRAN-uwot >= 0.1.14
+Requires:         R-CRAN-generics >= 0.1.3
+Requires:         R-CRAN-uwot >= 0.1.10
 Requires:         R-CRAN-RcppAnnoy >= 0.0.18
 Requires:         R-methods 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-fastDummies 
 Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
@@ -95,6 +102,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-irlba 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-matrixStats 
@@ -106,9 +114,11 @@ Requires:         R-CRAN-progressr
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-RcppHNSW 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 

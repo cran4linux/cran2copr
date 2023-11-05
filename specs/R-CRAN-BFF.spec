@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFF
-%global packver   2.7.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayes Factor Functions
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-hypergeo
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-BSDA 
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-hypergeo
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-gsl 
+Requires:         R-stats 
 
 %description
 Bayes factors represent the ratio of probabilities assigned to data by

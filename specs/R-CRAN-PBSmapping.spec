@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PBSmapping
-%global packver   2.73.2
+%global packver   2.73.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.73.2
+Version:          2.73.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mapping Fisheries Data and Spatial Analysis Tools
 

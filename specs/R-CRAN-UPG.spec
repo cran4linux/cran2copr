@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  UPG
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Bayesian Algorithms for Binary and Categorical Data Regression Models
 
@@ -40,8 +40,10 @@ binomial logit models. Functions for plotting and tabulating the
 estimation output are available as well. Estimation is based on Gibbs
 sampling where the Markov chain Monte Carlo algorithms are based on the
 latent variable representations and marginal data augmentation algorithms
-outlined in Zens G., Fr<fc>hwirth-Schnatter S., Wagner H. (2020)
-<arXiv:2011.06898>.
+described in "Gregor Zens, Sylvia Frühwirth-Schnatter & Helga Wagner
+(2023). Ultimate Pólya Gamma Samplers – Efficient MCMC for possibly
+imbalanced binary and categorical data, Journal of the American
+Statistical Association <doi:10.1080/01621459.2023.2259030>".
 
 %prep
 %setup -q -c -n %{packname}

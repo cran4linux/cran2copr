@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thematic
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unified and Automatic 'Theming' of 'ggplot2', 'lattice', and 'base' R Graphics
 
@@ -19,24 +19,24 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-rstudioapi >= 0.8
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-farver 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-farver 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-rstudioapi >= 0.8
-Requires:         R-utils 
+Requires:         R-CRAN-farver 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-farver 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rappdirs 
+Requires:         R-utils 
 
 %description
 Theme 'ggplot2', 'lattice', and 'base' graphics based on a few choices,
