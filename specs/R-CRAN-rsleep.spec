@@ -1,34 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fdth
-%global packver   1.2-6
+%global __requires_exclude ^libmpi
+%global packname  rsleep
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequency Distribution Tables, Histograms and Polygons
+Summary:          Analysis of Sleep Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-edfReader 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-psd 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-edfReader 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-psd 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-xml2 
 
 %description
-Perform frequency distribution tables, associated histograms and polygons
-from vector, data.frame and matrix objects for numerical and categorical
-variables.
+A toolbox for sleep data processing, visualization and analysis. Tools for
+state of the art automatic sleep stages scoring.
 
 %prep
 %setup -q -c -n %{packname}

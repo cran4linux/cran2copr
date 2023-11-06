@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asremlPlus
-%global packver   4.4.15
+%global packver   4.4.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.15
+Version:          4.4.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Augments 'ASReml-R' in Fitting Mixed Models and Packages Generally in Exploring Prediction Differences
 
@@ -60,21 +60,24 @@ when 'asreml' is used to fit the models. Also used to display, in tables
 and graphs, predictions obtained using any model fitting function and to
 explore differences between predictions. The content falls into the
 following natural groupings: (i) Data, (ii) Object manipulation functions,
-(iii) Model modification functions, (iv) Model testing functions, (v)
-Model diagnostics functions, (vi) Prediction production and presentation
-functions, (vii) Response transformation functions, and (viii)
-Miscellaneous functions (for further details see 'asremlPlus-package' in
-help). A history of the fitting of a sequence of models is kept in a data
-frame. Procedures are available for choosing models that conform to the
-hierarchy or marginality principle and for displaying predictions for
-significant terms in tables and graphs. The 'asreml' package provides a
-computationally efficient algorithm for fitting a wide range of linear
-mixed models using Residual Maximum Likelihood. It is a commercial package
-that can be purchased from 'VSNi' <https://vsni.co.uk/> as 'asreml-R', who
-will supply a zip file for local installation/updating (see
-<https://asreml.kb.vsni.co.uk/>). It is not needed for functions that are
-methods for 'alldiffs' and 'data.frame' objects. The package 'asremPlus'
-can also be installed from <http://chris.brien.name/rpackages/>.
+(iii) Model modification functions, (iv) Model selection functions, (v)
+Model diagnostics and simulation functions, (vi) Prediction production and
+presentation functions, (vii) Response transformation functions, and
+(viii) Miscellaneous functions (for further details see
+'asremlPlus-package' in help). A history of the fitting of a sequence of
+models is kept in a data frame. Procedures are available for choosing
+models that conform to the hierarchy or marginality principle, for fitting
+and choosing between two-dimensional spatial models using correlation,
+natural cubic smoothing spline and P-spline models, for displaying
+predictions for significant terms in tables and graphs. The 'asreml'
+package provides a computationally efficient algorithm for fitting a wide
+range of linear mixed models using Residual Maximum Likelihood. It is a
+commercial package that can be purchased from 'VSNi' <https://vsni.co.uk/>
+as 'asreml-R', who will supply a zip file for local installation/updating
+(see <https://asreml.kb.vsni.co.uk/>). It is not needed for functions that
+are methods for 'alldiffs' and 'data.frame' objects. The package
+'asremPlus' can also be installed from
+<http://chris.brien.name/rpackages/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pedtools
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating and Working with Pedigrees and Marker Data
 
@@ -30,8 +30,8 @@ utilities enable modifications like adding or removing individuals,
 breaking loops, and merging pedigrees. An online tool for creating
 pedigrees interactively, based on 'pedtools', is available at
 <https://magnusdv.shinyapps.io/quickped>. 'pedtools' is the hub of the
-'ped suite', a collection of packages for pedigree analysis. A detailed
-presentation of the 'ped suite' is given in the book 'Pedigree Analysis in
+'pedsuite', a collection of packages for pedigree analysis. A detailed
+presentation of the 'pedsuite' is given in the book 'Pedigree Analysis in
 R' (Vigeland, 2021, ISBN:9780128244302).
 
 %prep

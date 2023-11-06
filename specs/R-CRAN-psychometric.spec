@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  psychometric
-%global packver   2.3
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Applied Psychometric Theory
 
@@ -26,11 +27,9 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-nlme 
 
 %description
-Provides tools useful for measurement theory (Allen & Yen 2001)<ISBN:
-157766230X>, meta-analysis (validity-generalization) (Schmidt &
-Hunter)<doi:10.4135/9781483398105>, reliability, item analysis,
-inter-rater reliability, classical utility, and correlation analysis
-(Cohen et. al. 2003)<doi:10.4324/9780203774441>.
+Contains functions useful for correlation theory, meta-analysis
+(validity-generalization), reliability, item analysis, inter-rater
+reliability, and classical utility.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggrcs
-%global packver   0.3.0
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Histograms and Restricted Cubic Splines (RCS)
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-cowplot 
 Requires:         R-CRAN-rms 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-cowplot 
 
 %description
 You can use this function to easily draw a combined histogram and

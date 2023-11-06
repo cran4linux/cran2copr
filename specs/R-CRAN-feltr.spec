@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  feltr
-%global packver   0.0.2
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the Felt API
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-fs 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
 Upload, download, and edit internet maps with the Felt API

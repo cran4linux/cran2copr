@@ -1,51 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clustree
-%global packver   0.5.1
+%global packname  diyar
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualise Clusterings at Different Resolutions
+Summary:          Record Linkage and Epidemiological Case Definitions in 'R'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-ggrepel 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-dplyr 
-Requires:         R-grid 
-Requires:         R-CRAN-viridis 
 Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-ggrepel 
 
 %description
-Deciding what resolution to use can be a difficult question when
-approaching a clustering analysis. One way to approach this problem is to
-look at how samples move as the number of clusters increases. This package
-allows you to produce clustering trees, a visualisation for interrogating
-clusterings as resolution increases.
+An R package for iterative and batched record linkage, and applying
+epidemiological case definitions. 'diyar' can be used for deterministic
+and probabilistic record linkage, or multistage record linkage combining
+both approaches. It features the implementation of nested match criteria,
+and mechanisms to address missing data and conflicting matches during
+stepwise record linkage. Case definitions are implemented by assigning
+records to groups based on match criteria such as person or place, and
+overlapping time or duration of events e.g. sample collection dates or
+periods of hospital stays. Matching records are assigned a unique group
+ID. Index and duplicate records are removed or further analyses as
+required.
 
 %prep
 %setup -q -c -n %{packname}

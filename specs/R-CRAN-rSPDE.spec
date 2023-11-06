@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rSPDE
-%global packver   2.3.2
+%global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          2.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rational Approximations of Fractional Stochastic Partial Differential Equations
 
@@ -20,9 +20,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-fmesher 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-broom 
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
 Requires:         R-methods 
+Requires:         R-CRAN-fmesher 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-broom 
 
 %description
 Functions that compute rational approximations of fractional elliptic

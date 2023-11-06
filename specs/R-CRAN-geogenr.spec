@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geogenr
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'geomultistar' Object Generator from American Community Survey Geodatabases
+Summary:          Generator from American Community Survey Geodatabases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,42 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geomultistar 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rolap 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-starschemar 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geomultistar 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rolap 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-starschemar 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-tm 
 Requires:         R-utils 
 
 %description
 The American Community Survey (ACS)
 <https://www.census.gov/programs-surveys/acs> offers geodatabases with
 geographic information and associated data of interest to researchers in
-the area. The goal of this package is to generate 'geomultistar'
-<https://CRAN.R-project.org/package=geomultistar> objects from those
-geodatabases automatically, once the focus of attention is selected.
-Multidimensional queries with geographic information can be easily defined
-on these objects.
+the area. The goal of this package is to generate objects that allow us to
+access and consult the information available in various formats, such as
+in GeoPackage format or in multidimensional ROLAP star format.
 
 %prep
 %setup -q -c -n %{packname}

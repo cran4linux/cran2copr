@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fasterize
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Polygon to Raster Conversion
 
@@ -16,23 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster >= 2.8.3
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-wk 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-methods 
+Requires:         R-CRAN-raster >= 2.8.3
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-wk 
 
 %description
 Provides a drop-in replacement for rasterize() from the 'raster' package
-that takes 'sf'-type objects, and is much faster. There is support for the
-main options provided by the rasterize() function, including setting the
-field used and background value, and options for aggregating multi-layer
-rasters. Uses the scan line algorithm attributed to Wylie et al. (1967)
-<doi:10.1145/1465611.1465619>.
+that takes polygon vector or data frame objects, and is much faster. There
+is support for the main options provided by the rasterize() function,
+including setting the field used and background value, and options for
+aggregating multi-layer rasters. Uses the scan line algorithm attributed
+to Wylie et al. (1967) <doi:10.1145/1465611.1465619>.
 
 %prep
 %setup -q -c -n %{packname}
