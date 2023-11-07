@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drake
-%global packver   7.13.6
+%global packver   7.13.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.13.6
+Version:          7.13.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Pipeline Toolkit for Reproducible Computation at Scale
 

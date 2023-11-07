@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  primes
-%global packver   1.5.0
+%global packname  groupTesting
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Functions for Prime Numbers
+Summary:          Simulating and Modeling Group (Pooled) Testing Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-pracma 
 
 %description
-Fast functions for dealing with prime numbers, such as testing whether a
-number is prime and generating a sequence prime numbers. Additional
-functions include finding prime factors and Ruth-Aaron pairs, finding next
-and previous prime numbers in the series, finding or estimating the nth
-prime, estimating the number of primes less than or equal to an arbitrary
-number, computing primorials, prime k-tuples (e.g., twin primes), finding
-the greatest common divisor and smallest (least) common multiple, testing
-whether two numbers are coprime, and computing Euler's totient function.
-Most functions are vectorized for speed and convenience.
+Provides an expectation-maximization (EM) algorithm using the approach
+introduced in Warasi (2021) <doi:10.1080/03610918.2021.2009867>. The EM
+algorithm can be used to estimate the prevalence (overall proportion) of a
+disease and to estimate a binary regression model from among the class of
+generalized linear models based on group testing data. The estimation
+framework we consider offers a flexible and general approach; i.e., its
+application is not limited to any specific group testing protocol.
+Consequently, the EM algorithm can model data arising from simple pooling
+as well as advanced pooling such as hierarchical testing, array testing,
+and quality control pooling. Also, provided are functions that can be used
+to conduct the Wald tests described in Buse (1982)
+<doi:10.1080/00031305.1982.10482817> and to simulate the group testing
+data described in Kim et al. (2007)
+<doi:10.1111/j.1541-0420.2007.00817.x>.
 
 %prep
 %setup -q -c -n %{packname}

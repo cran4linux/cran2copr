@@ -1,51 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ensemblQueryR
-%global packver   0.1.0
+%global packname  mathpix
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple, Fast and Efficient Querying of the 'Ensembl' API
+Summary:          Support for the 'Mathpix' API (Image to 'LaTeX')
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vroom 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-magick 
 Requires:         R-utils 
-Requires:         R-CRAN-vroom 
-Requires:         R-CRAN-xml2 
 
 %description
-Suite of tools to enable fast, efficient, high-throughput, R workflow
-integrable querying of 'Ensembl' REST API endpoints
-(<https://rest.ensembl.org/>).
+Given an image of a formula (typeset or handwritten) this package provides
+calls to the 'Mathpix' service to produce the 'LaTeX' code which should
+generate that image, and pastes it into a (e.g. an 'rmarkdown') document.
+See <https://docs.mathpix.com/> for full details. 'Mathpix' is an external
+service and use of the API is subject to their terms and conditions.
 
 %prep
 %setup -q -c -n %{packname}

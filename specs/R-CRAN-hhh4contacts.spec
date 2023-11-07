@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hhh4contacts
-%global packver   0.13.2
+%global packver   0.13.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.2
+Version:          0.13.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Age-Structured Spatio-Temporal Models for Infectious Disease Counts
 
@@ -23,12 +23,14 @@ BuildRequires:    R-graphics
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-surveillance >= 1.14.0
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-sp 
 
 %description
 Meyer and Held (2017) <doi:10.1093/biostatistics/kxw051> present an
