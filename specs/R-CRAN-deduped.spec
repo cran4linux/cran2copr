@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deduped
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Making "Deduplicated" Functions
 
@@ -23,9 +23,9 @@ Requires:         R-CRAN-collapse
 Requires:         R-CRAN-fastmatch 
 
 %description
-Contains one main function deduped() that returns a function that acts on
-the unique values of the first input and expands the results back. This
-can significantly speed up certain slow iterative functions.
+Contains one main function deduped() which speeds up slow, vectorized
+functions by only performing computations on the unique values of the
+input and expanding the results at the end.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  deeplr
-%global packver   2.0.1
+%global packname  interpolators
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'DeepL' Translation API
+Summary:          Some Interpolation Methods
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-utf8 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tokenizers 
-Requires:         R-CRAN-utf8 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tokenizers 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A wrapper for the 'DeepL' Pro API <https://www.deepl.com/docs-api>, a web
-service for translating texts between different languages. A DeepL API
-developer account is required to use the service (see
-<https://www.deepl.com/pro#developer>).
+Some interpolation methods taken from 'Boost': barycentric rational
+interpolation, modified Akima interpolation, PCHIP (piecewise cubic
+Hermite interpolating polynomial) interpolation, and Catmull-Rom splines.
 
 %prep
 %setup -q -c -n %{packname}

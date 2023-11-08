@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  deeplr
-%global packver   2.0.1
+%global packname  adproclus
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'DeepL' Translation API
+Summary:          Additive Profile Clustering Algorithms
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-utf8 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tokenizers 
-Requires:         R-CRAN-utf8 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tokenizers 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-NMFN 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-NMFN 
+Requires:         R-CRAN-qgraph 
+Requires:         R-stats 
+Requires:         R-CRAN-withr 
 
 %description
-A wrapper for the 'DeepL' Pro API <https://www.deepl.com/docs-api>, a web
-service for translating texts between different languages. A DeepL API
-developer account is required to use the service (see
-<https://www.deepl.com/pro#developer>).
+Obtain overlapping clustering models for object-by-variable data matrices
+using the Additive Profile Clustering (ADPROCLUS) method. Also contains
+the low dimensional ADPROCLUS method for simultaneous dimension reduction
+and overlapping clustering. For reference see Depril, Van Mechelen, Mirkin
+(2008) <doi:10.1016/j.csda.2008.04.014> and Depril, Van Mechelen,
+Wilderjans (2012) <doi:10.1007/s00357-012-9112-5>.
 
 %prep
 %setup -q -c -n %{packname}

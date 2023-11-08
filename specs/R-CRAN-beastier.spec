@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  deeplr
-%global packver   2.0.1
+%global packname  beastier
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'DeepL' Translation API
+Summary:          Call 'BEAST2'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-utf8 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-beautier >= 2.6.11
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-sessioninfo 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tokenizers 
-Requires:         R-CRAN-utf8 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-beautier >= 2.6.11
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-sessioninfo 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tokenizers 
+Requires:         R-CRAN-xml2 
 
 %description
-A wrapper for the 'DeepL' Pro API <https://www.deepl.com/docs-api>, a web
-service for translating texts between different languages. A DeepL API
-developer account is required to use the service (see
-<https://www.deepl.com/pro#developer>).
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+tool, that uses DNA/RNA/protein data and many model priors to create a
+posterior of jointly estimated phylogenies and parameters. 'BEAST2' is a
+command-line tool. This package provides a way to call 'BEAST2' from an
+'R' function call.
 
 %prep
 %setup -q -c -n %{packname}

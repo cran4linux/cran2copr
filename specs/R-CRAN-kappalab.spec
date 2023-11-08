@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kappalab
-%global packver   0.4-10
+%global packver   0.4-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.4.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Additive Measure and Integral Manipulation Functions
 
@@ -34,7 +34,7 @@ integral, the Sugeno integral, and the symmetric and asymmetric Choquet
 integrals. An analysis of capacities in terms of decision behavior can be
 performed through the computation of various indices such as the Shapley
 value, the interaction index, the orness degree, etc. The well-known
-M<f6>bius transform, as well as other equivalent representations of set
+Möbius transform, as well as other equivalent representations of set
 functions can also be computed. Kappalab further contains seven capacity
 identification routines: three least squares based approaches, a method
 based on linear programming, a maximum entropy like method based on

@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  deeplr
-%global packver   2.0.1
+%global packname  ImCluster
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'DeepL' Translation API
+Summary:          Efficiency of Cluster Sampling for Crop Surveys
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-utf8 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tokenizers 
-Requires:         R-CRAN-utf8 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tokenizers 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
 
 %description
-A wrapper for the 'DeepL' Pro API <https://www.deepl.com/docs-api>, a web
-service for translating texts between different languages. A DeepL API
-developer account is required to use the service (see
-<https://www.deepl.com/pro#developer>).
+Cluster sampling is a valuable approach when constructing a comprehensive
+list of individual units is challenging. It provides operational and cost
+advantages. This package is designed to test the efficiency of cluster
+sampling in terms cluster variance and design effect in context to crop
+surveys. This package has been developed using the algorithm of Iqbal et
+al. (2018) <doi:10.19080/BBOAJ.2018.05.555673>.
 
 %prep
 %setup -q -c -n %{packname}

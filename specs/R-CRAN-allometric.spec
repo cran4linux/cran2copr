@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  allometric
-%global packver   1.4.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structured Allometric Models for Trees
 
@@ -31,8 +31,8 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
@@ -47,8 +47,8 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-gh 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Access allometric models used in forest resource analysis, such as volume

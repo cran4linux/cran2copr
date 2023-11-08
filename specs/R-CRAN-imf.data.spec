@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MetAlyzer
+%global __requires_exclude ^libmpi
+%global packname  imf.data
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Analyze 'MetIDQ&trade;' Software Output Files
+Summary:          An Interface to IMF (International Monetary Fund) Data JSON API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-agricolae 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-agricolae 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
 
 %description
-The 'MetAlyzer' S4 object provides methods to read and reformat
-metabolomics data for convenient data handling, statistics and downstream
-analysis. The resulting format corresponds to input data of the Shiny app
-'MetaboExtract'
-(<https://www.metaboextract.shiny.dkfz.de/MetaboExtract/>).
+A straightforward interface for accessing the IMF (International Monetary
+Fund) data JSON API, available at <https://data.imf.org/>. This package
+offers direct access to the primary API endpoints: Dataflow,
+DataStructure, and CompactData. And, it provides an intuitive interface
+for exploring available dimensions and attributes, as well as querying
+individual time-series datasets. Additionally, the package implements a
+rate limit on API calls to reduce the chances of exceeding service limits
+(limited to 10 calls every 5 seconds) and encountering response errors.
 
 %prep
 %setup -q -c -n %{packname}
