@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  optimizeR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unified Framework for Numerical Optimizers
 
@@ -33,8 +33,10 @@ Requires:         R-CRAN-TestFunctions
 Requires:         R-utils 
 
 %description
-Provides a unified framework for numerical optimizers in R, particularly
-for their inputs and outputs.
+Provides a unified object-oriented framework for numerical optimizers in
+R. Allows for both minimization and maximization with any optimizer,
+optimization over more than one function argument, measuring of
+computation time, setting a time limit for long optimization tasks.
 
 %prep
 %setup -q -c -n %{packname}

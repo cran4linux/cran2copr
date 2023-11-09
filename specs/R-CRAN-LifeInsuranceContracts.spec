@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LifeInsuranceContracts
-%global packver   0.0.4
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Framework for Traditional Life Insurance Contracts
 
@@ -17,50 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-MortalityTables 
-BuildRequires:    R-CRAN-objectProperties 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-MortalityTables 
-Requires:         R-CRAN-objectProperties 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-pander 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-LifeInsureR 
+Requires:         R-CRAN-LifeInsureR 
 
 %description
-R6 classes to model traditional life insurance contracts like annuities,
-whole life insurances or endowments. Such life insurance contracts provide
-a guaranteed interest and are not directly linked to the performance of a
-particular investment vehicle. However, they typically provide
-(discretionary) profit participation. This package provides a framework to
-model such contracts in a very generic (cash-flow-based) way and includes
-modelling profit participation schemes, dynamic increases or more general
-contract layers, as well as contract changes (like sum increases or
-premium waivers). All relevant quantities like premium decomposition,
-reserves and benefits over the whole contract period are calculated and
-potentially exported to excel. Mortalities are given using the
-'MortalityTables' package.
+Use of this package is deprecated.  It has been renamed to 'LifeInsureR'.
 
 %prep
 %setup -q -c -n %{packname}

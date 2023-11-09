@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcmdrPlugin.DCE
-%global packver   0.1-3
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander Plug-in for Discrete Choice Experiments
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-support.CEs 
+BuildRequires:    R-CRAN-support.CEs >= 0.7.0
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-Rcmdr 
-Requires:         R-CRAN-support.CEs 
+Requires:         R-CRAN-support.CEs >= 0.7.0
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-Rcmdr 
 

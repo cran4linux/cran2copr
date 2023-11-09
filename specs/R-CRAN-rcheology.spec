@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcheology
-%global packver   4.3.1.0
+%global packver   4.3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.1.0
+Version:          4.3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data on Base Packages for Current and Previous Versions of R
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Provides a dataset of functions in all base packages of R versions 1.0.1
+Provides a dataset of functions in all base packages of R versions 0.62.3
 onwards.
 
 %prep

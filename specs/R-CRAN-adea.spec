@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  adea
-%global packver   1.3.1
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternate DEA Package
 
@@ -16,18 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Benchmarking 
-BuildRequires:    R-CRAN-combinat 
-BuildRequires:    R-CRAN-lpSolveAPI 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-ROI.plugin.glpk 
+BuildRequires:    R-CRAN-ROI.plugin.lpsolve 
+BuildRequires:    R-CRAN-ROI.plugin.symphony 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-Benchmarking 
-Requires:         R-CRAN-combinat 
-Requires:         R-CRAN-lpSolveAPI 
+BuildRequires:    R-CRAN-lpSolveAPI 
+BuildRequires:    R-CRAN-ROI 
+BuildRequires:    R-CRAN-slam 
 Requires:         R-methods 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-ROI.plugin.glpk 
+Requires:         R-CRAN-ROI.plugin.lpsolve 
+Requires:         R-CRAN-ROI.plugin.symphony 
+Requires:         R-CRAN-combinat 
+Requires:         R-graphics 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lpSolveAPI 
+Requires:         R-CRAN-ROI 
+Requires:         R-CRAN-slam 
 
 %description
 The meaning of adea is "alternate DEA". This package is devoted to provide

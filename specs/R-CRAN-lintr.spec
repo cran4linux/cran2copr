@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lintr
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Linter' for R Code
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-backports >= 1.1.7
 BuildRequires:    R-CRAN-xmlparsedata >= 1.0.5
 BuildRequires:    R-CRAN-xml2 >= 1.0.0
-BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-codetools 
 BuildRequires:    R-CRAN-cyclocomp 
 BuildRequires:    R-CRAN-digest 
@@ -28,9 +28,9 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-rex 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-backports >= 1.1.7
 Requires:         R-CRAN-xmlparsedata >= 1.0.5
 Requires:         R-CRAN-xml2 >= 1.0.0
-Requires:         R-CRAN-backports 
 Requires:         R-CRAN-codetools 
 Requires:         R-CRAN-cyclocomp 
 Requires:         R-CRAN-digest 

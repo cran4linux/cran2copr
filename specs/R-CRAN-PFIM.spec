@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PFIM
-%global packver   5.0
+%global packver   6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0
+Version:          6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Population Fisher Information Matrix
 
@@ -16,40 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-inline 
+BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-Deriv 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-markdown 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggbreak 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-filesstrings 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-kableExtra 
+Requires:         R-CRAN-inline 
+Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-stats 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-Deriv 
-Requires:         R-grid 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-markdown 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggbreak 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-filesstrings 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-kableExtra 
 
 %description
 Evaluate or optimize designs for nonlinear mixed effects models using the

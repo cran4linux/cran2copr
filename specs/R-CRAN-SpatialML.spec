@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpatialML
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Machine Learning
 
@@ -14,13 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ranger >= 0.13.1
-BuildRequires:    R-CRAN-caret 
-Requires:         R-CRAN-ranger >= 0.13.1
-Requires:         R-CRAN-caret 
+BuildRequires:    R-CRAN-caret >= 6.0
+BuildRequires:    R-CRAN-randomForest >= 4.7
+BuildRequires:    R-CRAN-ranger >= 0.15.1
+Requires:         R-CRAN-caret >= 6.0
+Requires:         R-CRAN-randomForest >= 4.7
+Requires:         R-CRAN-ranger >= 0.15.1
 
 %description
 Implements a spatial extension of the random forest algorithm (Georganos

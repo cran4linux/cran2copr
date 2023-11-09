@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lemon
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Freshing Up your 'ggplot2' Plots
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
 BuildRequires:    R-CRAN-knitr >= 1.12
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-grid 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.4.2
 Requires:         R-CRAN-knitr >= 1.12
 Requires:         R-CRAN-plyr 
 Requires:         R-grid 

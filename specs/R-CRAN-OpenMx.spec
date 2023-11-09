@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OpenMx
-%global packver   2.21.8
+%global packver   2.21.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.21.8
+Version:          2.21.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Structural Equation Modelling
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-StanHeaders >= 2.10.0.2
 BuildRequires:    R-CRAN-BH >= 1.69.0.1
 BuildRequires:    R-CRAN-Matrix >= 1.2.16
 BuildRequires:    R-CRAN-rpf >= 0.45
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.4
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
@@ -27,7 +28,6 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix >= 1.2.16
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-MASS 

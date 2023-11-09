@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cheem
-%global packver   0.3.0
+%global packver   0.4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactively Explore Local Explanations with the Radial Tour
 
@@ -37,14 +37,12 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-conflicted 
 
 %description
-Given a tree-based machine learning model, calculate the tree SHAP
-<arXiv:1802.03888>; <https://github.com/ModelOriented/treeshap> local
-explanation of every observation. View the data space, explanation space,
-and model residuals as ensemble graphic interactive on a shiny
-application. After an observation of interest is identified, the
-normalized variable importance of the local explanation is used as a 1D
-projection basis. The support of the local explanation is then explored by
-changing the basis with the use of the radial tour
+Given a non-linear model, calculate the local explanation. We purpose view
+the data space, explanation space, and model residuals as ensemble graphic
+interactive on a shiny application. After an observation of interest is
+identified, the normalized variable importance of the local explanation is
+used as a 1D projection basis. The support of the local explanation is
+then explored by changing the basis with the use of the radial tour
 <doi:10.32614/RJ-2020-027>; <doi:10.1080/10618600.1997.10474754>.
 
 %prep

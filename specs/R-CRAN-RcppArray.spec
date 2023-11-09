@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppArray
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Meets 'C++' Arrays
 
@@ -20,9 +20,11 @@ BuildRequires:    R-CRAN-Rcpp
 Requires:         R-CRAN-Rcpp 
 
 %description
-Interoperability between 'Rcpp' and the 'C++11' array type. Linking to
-this package allows fixed-length 'std::array' objects to be converted to
-and from equivalent R vectors via the as() and wrap() functions.
+Interoperability between 'Rcpp' and the 'C++11' array and tuple types.
+Linking to this package allows fixed-length 'std::array' objects to be
+converted to and from equivalent R vectors, and 'std::tuple' objects
+converted to lists, via the as() and wrap() functions. There is also
+experimental support for 'std::span' from 'C++20'.
 
 %prep
 %setup -q -c -n %{packname}

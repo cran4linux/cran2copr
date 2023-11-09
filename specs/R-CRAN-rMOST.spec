@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rMOST
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimates Pareto-Optimal Solution for Hiring with 3 Objectives
 
@@ -36,8 +36,7 @@ between 3 and 10 selection predictors. Maximum 2 objectives could be
 adverse impact objectives. Partially modeled after De Corte (2006) TROFSS
 Fortran program <https://users.ugent.be/~wdecorte/trofss.pdf> and updated
 from 'ParetoR' package described in Song et al. (2017)
-<doi:10.1037/apl0000240>. For details, see Study 3 of Zhang et al. (in
-press).
+<doi:10.1037/apl0000240>. For details, see Study 3 of Zhang et al. (2023).
 
 %prep
 %setup -q -c -n %{packname}

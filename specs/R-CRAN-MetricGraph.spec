@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MetricGraph
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Fields on Metric Graphs
 
@@ -16,29 +16,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rSPDE >= 2.3.1
+BuildRequires:    R-CRAN-rSPDE >= 2.3.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-rSPDE >= 2.3.1
+Requires:         R-CRAN-rSPDE >= 2.3.3
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-zoo 
 
 %description
 Facilitates creation and manipulation of metric graphs, such as street or
