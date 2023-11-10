@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phytools
-%global packver   1.9-16
+%global packver   2.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.16
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Tools for Comparative Biology (and Other Things)
 
@@ -35,7 +35,6 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-optimParallel 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -57,7 +56,6 @@ Requires:         R-CRAN-nlme
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-optimParallel 
 Requires:         R-parallel 
-Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-stats 
 Requires:         R-utils 

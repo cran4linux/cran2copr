@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dialrjars
-%global packver   8.13.2
+%global packver   8.13.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.13.2
+Version:          8.13.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          Required 'libphonenumber' jars for the 'dialr' Package
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rfast
-%global packver   2.0.9
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Efficient and Extremely Fast R Functions
 
@@ -35,7 +35,7 @@ to its limits: 70+ tips. PeerJ Preprints 6:e26605v1
 fast. Journal of Data Science, 16(4): 771--780.
 <doi:10.6339/JDS.201810_16(4).00006>. c) Chatzipantsiou C., Dimitriadis
 M., Papadakis M. and Tsagris M. (2020). Extremely Efficient Permutation
-and Bootstrap Hypothesis Tests Using RHypothesis Tests Using R. Journal of
+and Bootstrap Hypothesis Tests Using Hypothesis Tests Using R. Journal of
 Modern Applied Statistical Methods, 18(2), eP2898.
 <doi:10.48550/arXiv.1806.10947>.
 

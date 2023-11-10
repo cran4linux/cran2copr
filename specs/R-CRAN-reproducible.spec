@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reproducible
-%global packver   2.0.8
+%global packver   2.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.8
+Version:          2.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhance Reproducibility of R Code
 
@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         /usr/bin/unrar
+Recommends:       /usr/bin/unrar
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-fpCompare 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-lobstr 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-fpCompare 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-lobstr 
 Requires:         R-methods 
 Requires:         R-stats 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  funmediation
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Mediation for a Distal Outcome
 
@@ -28,10 +29,11 @@ Fits a functional mediation model with a scalar distal outcome. The method
 is described in detail by Coffman, Dziak, Litson, Chakraborti, Piper & Li
 (2021) <arXiv:2112.03960>. The model is similar to that of Lindquist
 (2012) <doi:10.1080/01621459.2012.695640> although allowing a binary
-outcome as an alternative to a numerical outcome.  The development of this
-package was part of a research project supported by National Institutes of
-Health grants P50 DA039838 from the National Institute of Drug Abuse and
-1R01 CA229542-01 from the National Cancer Institute and the NIH Office of
+outcome as an alternative to a numerical outcome.  The current version is
+a minor bug fix in the vignette. The development of this package was part
+of a research project supported by National Institutes of Health grants
+P50 DA039838 from the National Institute of Drug Abuse and 1R01
+CA229542-01 from the National Cancer Institute and the NIH Office of
 Behavioral and Social Science Research. Content is solely the
 responsibility of the authors and does not necessarily represent the
 official views of the funding institutions mentioned above. This software

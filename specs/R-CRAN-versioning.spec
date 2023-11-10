@@ -1,43 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggformula
-%global packver   0.12.0
+%global packname  versioning
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Formula Interface to the Grammar of Graphics
+Summary:          Settings and File I/O using a Configuration YAML File
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3
-BuildRequires:    R-CRAN-mosaicCore >= 0.7.0
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-labelled 
-Requires:         R-CRAN-ggplot2 >= 3.3
-Requires:         R-CRAN-mosaicCore >= 0.7.0
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
-Requires:         R-grid 
-Requires:         R-CRAN-labelled 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-yaml 
 
 %description
-Provides a formula interface to 'ggplot2' graphics.
+R data pipelines commonly require reading and writing data to versioned
+directories. Each directory might correspond to one step of a multi-step
+process, where that version corresponds to particular settings for that
+step and a chain of previous steps that each have their own versions. This
+package creates a configuration object that makes it easy to read and
+write versioned data, based on YAML configuration files loaded and saved
+to each versioned folder.
 
 %prep
 %setup -q -c -n %{packname}

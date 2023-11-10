@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClimMobTools
-%global packver   1.0
+%global packname  dualScale
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          API Client for the 'ClimMob' Platform
+Summary:          Dual Scaling Analysis of Data
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-eba 
+BuildRequires:    R-CRAN-ff 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-eba 
+Requires:         R-CRAN-ff 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-grid 
 Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-matrixcalc 
 Requires:         R-stats 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-glue 
 Requires:         R-utils 
 
 %description
-API client for 'ClimMob', an open source software for decentralized
-large-N trials with the 'tricot' approach <https://climmob.net/>.
-Developed by van Etten et al. (2016) <doi:10.1017/S0014479716000739>, it
-turns the research paradigm on its head; instead of a few researchers
-designing complicated trials to compare several technologies in search of
-the best solutions for the target environment, it enables many
-participants to carry out reasonably simple experiments that taken
-together can offer even more information. 'ClimMobTools' enables project
-managers to deep explore and analyse their 'ClimMob' data in R.
+Dual Scaling, developed by Professor Shizuhiko Nishisato (1994, ISBN:
+0-9691785-3-6), is a fundamental technique in multivariate analysis used
+for data scaling and correspondence analysis. Its utility lies in its
+ability to represent multidimensional data in a lower-dimensional space,
+making it easier to visualize and understand underlying patterns in
+complex data. This technique has been implemented to handle various types
+of data, including Contingency and Frequency data (CF), Multiple-Choice
+data (MC), Sorting data (SO), Paired-Comparison data (PC), and Rank-Order
+data (RO), providing users with a powerful tool to explore relationships
+between variables and observations in various fields, from sociology to
+ecology, enabling deeper and more efficient analysis of multivariate
+datasets.
 
 %prep
 %setup -q -c -n %{packname}

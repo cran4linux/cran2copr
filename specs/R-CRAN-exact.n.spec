@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  exact.n
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exact Samples Sizes and Inference for Clinical Trials with Binary Endpoint
 
@@ -18,8 +19,10 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-httr 
 
 %description
 Allows the user to determine minimum sample sizes that achieve target size

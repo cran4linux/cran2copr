@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isoorbi
-%global packver   1.1.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Orbitrap Isotopocule Data
 
@@ -19,24 +19,34 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-utils >= 4.1.0
 BuildRequires:    R-stats >= 4.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-readr >= 2.1.0
+BuildRequires:    R-CRAN-scales >= 1.2.1
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-methods 
 Requires:         R-utils >= 4.1.0
 Requires:         R-stats >= 4.1.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-readr >= 2.1.0
+Requires:         R-CRAN-scales >= 1.2.1
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-lifecycle >= 1.0.0
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-purrr 
+Requires:         R-methods 
 
 %description
 Read and process isotopocule data from an Orbitrap Isotope Solutions mass
-spectrometer. Hilkert et al. (2021) <doi:10.1021/acs.analchem.1c00944>.
+spectrometer. Citation: Kantnerova et al. (in review).
 
 %prep
 %setup -q -c -n %{packname}

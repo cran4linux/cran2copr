@@ -1,43 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PracTools
-%global packver   1.4.1
+%global packname  IDMIR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Designing and Weighting Survey Samples
+Summary:          Identification of Dysregulated MiRNAs Based on MiRNA-MiRNA Interaction Network
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-egg 
+BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-CRAN-forestplot 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-usmap 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survminer 
+Requires:         R-CRAN-egg 
+Requires:         R-CRAN-fastmatch 
+Requires:         R-CRAN-forestplot 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-usmap 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survminer 
 
 %description
-Functions and datasets to support Valliant, Dever, and Kreuter, Practical
-Tools for Designing and Weighting Survey Samples (2nd edition, 2018).
-Contains functions for sample size calculation for survey samples using
-stratified or clustered one-, two-, and three-stage sample designs, and
-single-stage audit sample designs. Functions are included that will group
-geographic units accounting for distances apart and measures of size.
-Other functions compute variance components for multistage designs and
-sample sizes in two-phase designs. A number of example data sets are
-included.
+A systematic biology tool was developed to identify dysregulated miRNAs
+via a miRNA-miRNA interaction network. 'IDMIR' first constructed a
+weighted miRNA interaction network through integrating miRNA-target
+interaction information, molecular function data from Gene Ontology (GO)
+database and gene transcriptomic data in specific-disease context, and
+then, it used a network propagation algorithm on the network to identify
+significantly dysregulated miRNAs.
 
 %prep
 %setup -q -c -n %{packname}

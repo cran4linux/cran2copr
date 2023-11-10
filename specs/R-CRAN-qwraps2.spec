@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qwraps2
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quick Wraps 2
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.11
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.11
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-xfun 
 
@@ -51,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

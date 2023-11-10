@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  packageRank
-%global packver   0.8.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation and Visualization of Package Download Counts and Percentiles
 
@@ -21,36 +21,30 @@ BuildRequires:    R-CRAN-data.table >= 1.12.2
 BuildRequires:    R-CRAN-cranlogs 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ISOcodes 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-pkgsearch 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-rversions 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sugrrants 
 BuildRequires:    R-tools 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-cranlogs 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
 Requires:         R-CRAN-ISOcodes 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-pkgsearch 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-rversions 
-Requires:         R-stats 
 Requires:         R-CRAN-sugrrants 
 Requires:         R-tools 
-Requires:         R-utils 
 
 %description
 Compute and visualize the cross-sectional and longitudinal number and rank
-percentile of package downloads from RStudio's CRAN mirror.
+percentile of package downloads from Posit/RStudio's CRAN mirror.
 
 %prep
 %setup -q -c -n %{packname}

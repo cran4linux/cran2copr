@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blindreview
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Blind Review Using Forward Search Procedures
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Hmisc >= 4.7.2
-BuildRequires:    R-CRAN-forsearch >= 4.1.0
+BuildRequires:    R-CRAN-forsearch >= 4.2.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-tibble >= 3.1.8
 BuildRequires:    R-CRAN-Cairo >= 1.6.0
 Requires:         R-CRAN-Hmisc >= 4.7.2
-Requires:         R-CRAN-forsearch >= 4.1.0
+Requires:         R-CRAN-forsearch >= 4.2.0
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-tibble >= 3.1.8
 Requires:         R-CRAN-Cairo >= 1.6.0
@@ -31,14 +31,14 @@ Requires:         R-CRAN-Cairo >= 1.6.0
 %description
 Randomly assigns identification to one of the variables of the dataset,
 say Treatment, and assigns random numbers to all the observations of the
-dataset. Centers each treatment at the grand mean to further mask the
-treatment. Reorders the database according to the random numbers, and then
-runs the appropriate forward search function on the blinded dataset. A
-file is created from which the user can identify any outliers using the
-graphics function in this package. An unmasking function is provided so
-that the user can identify the potential outliers in terms of their
-original values when blinding is no longer needed. Details of the forward
-search functions may be found in
+dataset. Reorders the observations according to the random numbers, and
+then runs the appropriate forward search function on the blinded dataset.
+A file is created from which the user can identify any outliers using the
+graphics function in this package. Centers each fixed coefficient at the
+grand mean prior to graphing in order to further mask the treatment. An
+unmasking function is provided so that the user can identify the potential
+outliers in terms of their original values when blinding is no longer
+needed. Details of the forward search functions may be found in
 <https://CRAN.R-project.org/package=forsearch>.
 
 %prep

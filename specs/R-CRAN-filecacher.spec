@@ -1,44 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  image.textlinedetector
+%global packname  filecacher
 %global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Segment Images in Text Lines and Words
+Summary:          File Cacher
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    opencv-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.9
-BuildRequires:    R-CRAN-magick 
-Requires:         R-CRAN-Rcpp >= 0.12.9
-Requires:         R-CRAN-magick 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
 
 %description
-Find text lines in scanned images and segment the lines into words.
-Includes implementations of the paper 'Novel A* Path Planning Algorithm
-for Line Segmentation of Handwritten Documents' by Surinta O. et al (2014)
-<doi:10.1109/ICFHR.2014.37> available at
-<https://github.com/smeucci/LineSegm>, an implementation of 'A Statistical
-approach to line segmentation in handwritten documents' by Arivazhagan M.
-et al (2007) <doi:10.1117/12.704538>, and a wrapper for an image
-segmentation technique to detect words in text lines as described in the
-paper 'Scale Space Technique for Word Segmentation in Handwritten
-Documents' by Manmatha R. and Srimal N. (1999) paper at
-<doi:10.1007/3-540-48236-9_3>, wrapper for code available at
-<https://github.com/arthurflor23/text-segmentation>. Provides as well
-functionality to put cursive text in images upright using the approach
-defined in the paper 'A new normalization technique for cursive
-handwritten words' by Vinciarelli A. and Luettin J. (2001)
-<doi:10.1016/S0167-8655(01)00042-3>.
+The main functions in this package are with_cache() and cached_read(). The
+former is a simple way to cache an R object into a file on disk, using
+'cachem'. The latter is a wrapper around any standard read function, but
+caches both the output and the file list info. If the input file list info
+hasn't changed, the cache is used; otherwise, the original files are
+re-read. This can save time if the original operation requires reading
+from many files, and/or involves lots of processing.
 
 %prep
 %setup -q -c -n %{packname}

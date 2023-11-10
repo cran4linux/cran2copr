@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PracTools
-%global packver   1.4.1
+%global packname  qeML
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Designing and Weighting Survey Samples
+Summary:          Quick and Easy Machine Learning Tools
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-usmap 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-usmap 
+BuildRequires:    R-CRAN-regtools >= 0.8.0
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-tufte 
+BuildRequires:    R-CRAN-grf 
+BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-CRAN-toweranNA 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-rpart.plot 
+BuildRequires:    R-CRAN-partools 
+BuildRequires:    R-CRAN-FOCI 
+Requires:         R-CRAN-regtools >= 0.8.0
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-tufte 
+Requires:         R-CRAN-grf 
+Requires:         R-CRAN-gbm 
+Requires:         R-CRAN-toweranNA 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-rpart.plot 
+Requires:         R-CRAN-partools 
+Requires:         R-CRAN-FOCI 
 
 %description
-Functions and datasets to support Valliant, Dever, and Kreuter, Practical
-Tools for Designing and Weighting Survey Samples (2nd edition, 2018).
-Contains functions for sample size calculation for survey samples using
-stratified or clustered one-, two-, and three-stage sample designs, and
-single-stage audit sample designs. Functions are included that will group
-geographic units accounting for distances apart and measures of size.
-Other functions compute variance components for multistage designs and
-sample sizes in two-phase designs. A number of example data sets are
-included.
+The letters 'qe' in the package title stand for "quick and easy," alluding
+to the convenience goal of the package. We bring together a variety of
+machine learning (ML) tools from standard R packages, providing wrappers
+with a simple, convenient, and uniform interface.
 
 %prep
 %setup -q -c -n %{packname}

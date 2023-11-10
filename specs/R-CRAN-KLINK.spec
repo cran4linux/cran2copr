@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KLINK
-%global packver   0.6.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kinship Analysis with Linked Markers
 
@@ -17,28 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 2.3.1
+BuildRequires:    R-CRAN-pedtools >= 2.5.0
 BuildRequires:    R-CRAN-shiny >= 1.7.4
-BuildRequires:    R-CRAN-forrel >= 1.5.3
+BuildRequires:    R-CRAN-forrel >= 1.6.0
 BuildRequires:    R-CRAN-gt >= 0.9.0
 BuildRequires:    R-CRAN-pedprobr >= 0.8.0
-BuildRequires:    R-CRAN-pedmut >= 0.6.0
+BuildRequires:    R-CRAN-pedmut >= 0.7.1
 BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-pedFamilias 
 BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-verbalisr 
-Requires:         R-CRAN-pedtools >= 2.3.1
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-pedtools >= 2.5.0
 Requires:         R-CRAN-shiny >= 1.7.4
-Requires:         R-CRAN-forrel >= 1.5.3
+Requires:         R-CRAN-forrel >= 1.6.0
 Requires:         R-CRAN-gt >= 0.9.0
 Requires:         R-CRAN-pedprobr >= 0.8.0
-Requires:         R-CRAN-pedmut >= 0.6.0
+Requires:         R-CRAN-pedmut >= 0.7.1
 Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-pedFamilias 
 Requires:         R-CRAN-shinydashboard 
-Requires:         R-utils 
 Requires:         R-CRAN-verbalisr 
+Requires:         R-CRAN-zip 
 
 %description
 A 'shiny' application for forensic kinship testing, based on the

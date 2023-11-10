@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mosaic
-%global packver   1.8.4.2
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.4.2
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Project MOSAIC Statistics and Mathematics Teaching Utilities
 
@@ -14,13 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mosaicCore >= 0.7.0
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-lattice >= 0.20.21
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggformula 
 BuildRequires:    R-CRAN-mosaicData 
 BuildRequires:    R-CRAN-Matrix 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-mosaicCore >= 0.7.0
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-lattice >= 0.20.21
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggformula 
 Requires:         R-CRAN-mosaicData 
 Requires:         R-CRAN-Matrix 
