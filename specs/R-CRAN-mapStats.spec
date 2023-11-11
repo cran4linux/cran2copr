@@ -1,28 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brnn
-%global packver   0.9.3
+%global packname  mapStats
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Regularization for Feed-Forward Neural Networks
+Summary:          Geographic Display of Survey Data Statistics
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ttutils 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ttutils 
 
 %description
-Bayesian regularization for feed-forward neural networks.
+Automated calculation and visualization of survey data statistics on a
+color-coded (choropleth) map.
 
 %prep
 %setup -q -c -n %{packname}

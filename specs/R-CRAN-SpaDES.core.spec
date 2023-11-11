@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpaDES.core
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Utilities for Developing and Running Spatially Explicit Discrete Event Models
 
@@ -17,30 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reproducible >= 2.0.5
+BuildRequires:    R-CRAN-reproducible >= 2.0.9
+BuildRequires:    R-CRAN-terra >= 1.7.46
 BuildRequires:    R-CRAN-data.table >= 1.11.0
 BuildRequires:    R-CRAN-quickPlot >= 1.0.2
 BuildRequires:    R-CRAN-igraph >= 1.0.1
 BuildRequires:    R-CRAN-Require >= 0.3.1
 BuildRequires:    R-CRAN-qs >= 0.21.1
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-lobstr 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-reproducible >= 2.0.5
+Requires:         R-CRAN-reproducible >= 2.0.9
+Requires:         R-CRAN-terra >= 1.7.46
 Requires:         R-CRAN-data.table >= 1.11.0
 Requires:         R-CRAN-quickPlot >= 1.0.2
 Requires:         R-CRAN-igraph >= 1.0.1
 Requires:         R-CRAN-Require >= 0.3.1
 Requires:         R-CRAN-qs >= 0.21.1
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-lobstr 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-terra 
 Requires:         R-utils 
 Requires:         R-CRAN-whisker 
 

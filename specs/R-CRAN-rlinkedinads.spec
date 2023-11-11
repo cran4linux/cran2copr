@@ -1,44 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  albatross
-%global packver   0.3-7
+%global packname  rlinkedinads
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          PARAFAC Analysis of Fluorescence Excitation-Emission Matrices
+Summary:          Load Data from 'Linkedin Advertising API'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiway >= 1.0.4
-BuildRequires:    R-CRAN-CMLS 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-multiway >= 1.0.4
-Requires:         R-CRAN-CMLS 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-lattice 
-Requires:         R-parallel 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-urltools 
+Requires:         R-utils 
 
 %description
-Perform parallel factor analysis (PARAFAC: Hitchcock, 1927)
-<doi:10.1002/sapm192761164> on fluorescence excitation-emission matrices:
-handle scattering signal and inner filter effect, scale the dataset, fit
-the model; perform split-half validation or jack-knifing. Modified
-approaches such as Whittaker interpolation, randomised split-half, and
-fluorescence and scattering model estimation are also available. The
-package has a low dependency footprint and has been tested on a wide range
-of R versions.
+Get data from 'Linkedin Advertising API'
+<https://learn.microsoft.com/en-us/linkedin/marketing/overview?view=li-lms-2023-10>.
+You can load ad account hierarchy (accounts, users, campaign groups,
+campaigns and creatives) and also you can load ad analytics data from your
+'Linkedin' Ad account.
 
 %prep
 %setup -q -c -n %{packname}

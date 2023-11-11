@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  transformer
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of Transformer Deep Neural Network with Vignettes
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-attention 
-Requires:         R-CRAN-attention 
+BuildRequires:    R-CRAN-attention >= 0.4.0
+Requires:         R-CRAN-attention >= 0.4.0
 
 %description
 Transformer is a Deep Neural Network Architecture based i.a. on the

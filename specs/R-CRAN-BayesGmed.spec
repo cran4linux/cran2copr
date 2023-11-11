@@ -1,28 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brnn
-%global packver   0.9.3
+%global packname  BayesGmed
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Regularization for Feed-Forward Neural Networks
+Summary:          Bayesian Causal Mediation Analysis using 'Stan'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstantools >= 2.1.1
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstantools >= 2.1.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-methods 
+Requires:         R-CRAN-rstantools
 
 %description
-Bayesian regularization for feed-forward neural networks.
+Performs parametric mediation analysis using the Bayesian g-formula
+approach for binary and continuous outcomes. The methodology is based on
+Comment (2018) <doi:10.5281/zenodo.1285275> and a demonstration of its
+application can be found at Yimer et al. (2022)
+<doi:10.48550/arXiv.2210.08499>.
 
 %prep
 %setup -q -c -n %{packname}

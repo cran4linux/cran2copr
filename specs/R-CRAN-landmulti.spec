@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BBcor
-%global packver   1.0.3
+%global __requires_exclude ^libmpi
+%global packname  landmulti
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Bootstrapping Correlations
+Summary:          Landmark Prediction with Multiple Short-Term Events
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,33 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
-BuildRequires:    R-CRAN-psych >= 1.9.12.31
-BuildRequires:    R-CRAN-pbapply >= 1.4.2
-BuildRequires:    R-CRAN-bayeslincom >= 1.2.0
-BuildRequires:    R-CRAN-wdm >= 0.2.1
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-ggplot2 >= 3.3.4
-Requires:         R-CRAN-psych >= 1.9.12.31
-Requires:         R-CRAN-pbapply >= 1.4.2
-Requires:         R-CRAN-bayeslincom >= 1.2.0
-Requires:         R-CRAN-wdm >= 0.2.1
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-landpred 
+BuildRequires:    R-CRAN-NMOF 
+BuildRequires:    R-CRAN-emdbook 
+BuildRequires:    R-CRAN-snow 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-landpred 
+Requires:         R-CRAN-NMOF 
+Requires:         R-CRAN-emdbook 
+Requires:         R-CRAN-snow 
 
 %description
-Efficiently draw samples from the posterior distribution of various
-correlation coefficients with the Bayesian bootstrap described in Rubin
-(1981) <doi:10.1214/aos/1176345338>. There are six correlation
-coefficients, including Pearson, Kendall, Spearman, Gaussian Rank,
-Blomqvist, and polychoric.
+Contains functions for a flexible varying-coefficient landmark model by
+incorporating multiple short-term events into the prediction of long-term
+survival probability. For more information about landmark prediction
+please see Li, W., Ning, J., Zhang, J., Li, Z., Savitz, S.I., Tahanan, A.,
+Rahbar.M.H., (2023+). "Enhancing Long-term Survival Prediction with
+Multiple Short-term Events: Landmarking with A Flexible Varying
+Coefficient Model".
 
 %prep
 %setup -q -c -n %{packname}

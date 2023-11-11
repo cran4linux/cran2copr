@@ -1,28 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brnn
-%global packver   0.9.3
+%global packname  rosv
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Regularization for Feed-Forward Neural Networks
+Summary:          Client to Access and Operate on the 'Open Source Vulnerability' API
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-purrr 
 
 %description
-Bayesian regularization for feed-forward neural networks.
+Connect, query, and operate on information available from the 'Open Source
+Vulnerability' database <https://osv.dev/>. Although 'CRAN' has
+vulnerabilities listed, these are few compared to projects such as 'PyPI'.
+With tighter integration between 'R' and 'Python', having an 'R' specific
+package to access details about vulnerabilities from various sources is a
+worthwhile enterprise.
 
 %prep
 %setup -q -c -n %{packname}

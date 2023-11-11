@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bayeslincom
-%global packver   1.3.0
+%global __requires_exclude ^libmpi
+%global packname  MonotoneHazardRatio
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Combinations of Bayesian Posterior Samples
+Summary:          Nonparametric Estimation and Inference of a Monotone Hazard Ratio Function
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-fdrtool 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-twostageTE 
+Requires:         R-CRAN-fdrtool 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-twostageTE 
 
 %description
-Computes point estimates, standard deviations, and credible intervals for
-linear combinations of posterior samples. Optionally performs region
-practical equivalence (ROPE) tests as described in Kruschke and Liddell
-(2018) <doi:10.3758/s13423-016-1221-4>.
+A tool for nonparametric estimation and inference of a non-decreasing
+monotone hazard ratio from a right censored survival dataset.  The
+estimator is based on a generalized Grenander typed estimator, and the
+inference procedure relies on direct plugin estimation of a first order
+derivative.  More details please refer to the paper "Nonparametric
+inference under a monotone hazard ratio order" by Y. Wu and T. Westling
+(2022) <arXiv:2205.01745>.
 
 %prep
 %setup -q -c -n %{packname}

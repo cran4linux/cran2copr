@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSDA
-%global packver   3.1.0
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R to Symbolic Data Analysis
 
@@ -46,6 +46,9 @@ BuildRequires:    R-CRAN-randomForest
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-neuralnet 
 BuildRequires:    R-CRAN-umap 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang >= 0.4.5
@@ -75,6 +78,9 @@ Requires:         R-CRAN-randomForest
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-neuralnet 
 Requires:         R-CRAN-umap 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-ggrepel 
 
 %description
 Symbolic Data Analysis (SDA) was proposed by professor Edwin Diday in

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpaDES.tools
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Additional Tools for Developing Spatially Explicit Discrete Event Simulation (SpaDES) Models
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-reproducible >= 2.0.5
+BuildRequires:    R-CRAN-reproducible >= 2.0.9
 BuildRequires:    R-CRAN-checkmate >= 1.8.2
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-fpCompare >= 0.2.1
@@ -27,7 +27,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-reproducible >= 2.0.5
+Requires:         R-CRAN-reproducible >= 2.0.9
 Requires:         R-CRAN-checkmate >= 1.8.2
 Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-fpCompare >= 0.2.1
