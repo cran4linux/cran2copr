@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HomomorphicEncryption
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          BFV, BGV, CKKS Schema for Fully Homomorphic Encryption
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-HEtools 
 Requires:         R-CRAN-polynom 
 Requires:         R-stats 
+Requires:         R-CRAN-HEtools 
 
 %description
 Implements the Brakerski-Fan-Vercauteren (BFV, 2012)

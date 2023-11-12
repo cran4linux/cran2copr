@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lessR
-%global packver   4.2.9
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.9
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Less Code, More Results
 
@@ -58,7 +58,7 @@ box plot, density curves, calibrated power curve, reading multiple data
 formats with the same function call, variable labels, color themes, and
 Trellis graphics. Also includes a confirmatory factor analysis of multiple
 indicator measurement models, pedagogical routines for data simulation
-such as for the Central Limit Theorem, generation and rendering o
+such as for the Central Limit Theorem, generation and rendering of
 regression instructions for interpretative output, and interactive
 visualizations.
 

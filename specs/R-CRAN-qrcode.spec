@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qrcode
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate QRcodes with R
 
@@ -25,7 +25,10 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Create QRcode in R.
+Create static QR codes in R. The content of the QR code is exactly what
+the user defines. We don't add a redirect URL, making it impossible for us
+to track the usage of the QR code. This allows to generate fast, free to
+use and privacy friendly QR codes.
 
 %prep
 %setup -q -c -n %{packname}

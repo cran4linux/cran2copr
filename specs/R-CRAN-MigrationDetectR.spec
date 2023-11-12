@@ -1,49 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.common
-%global packver   0.6.4
+%global packname  MigrationDetectR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Paws Low-Level Amazon Web Services API
+Summary:          Segment-Based Migration Detection Algorithm
 
-License:          Apache License (>= 2.0)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Functions for making low-level API requests to Amazon Web Services
-<https://aws.amazon.com>. The functions handle building, signing, and
-sending requests, and receiving responses. They are designed to help build
-higher-level interfaces to individual services, such as Simple Storage
-Service (S3).
+Detection of migration events and segments of continuous residence based
+on irregular time series of location data as published in Chi et al.
+(2020) <doi:10.1371/journal.pone.0239408>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  normfluodbf
-%global packver   1.4.3
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cleans and Normalizes 'FLUOstar' 'DBF' Files
+Summary:          Cleans and Normalizes FLUOstar DBF and DAT Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,14 +21,31 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-emojifont 
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-badger 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-emojifont 
+Requires:         R-CRAN-rio 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-badger 
+Requires:         R-CRAN-stringr 
 
 %description
-Converts a 'FLUOstar' 'DBF' File into a Normalized Data Frame, Ready for
-Analysis.
+Cleans and Normalizes FLUOstar DBF and DAT Files obtained from liposome
+flux assays. Users should verify extended usage of the package on files
+from other assay types.
 
 %prep
 %setup -q -c -n %{packname}

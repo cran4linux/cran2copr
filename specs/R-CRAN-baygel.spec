@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baygel
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimators for Gaussian Graphical Models
+Summary:          Bayesian Shrinkage Estimators for Precision Matrices in Gaussian Graphical Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,25 +18,18 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.11.1.1.0
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-RcppArmadillo >= 0.11.1.1.0
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-statmod 
-Requires:         R-stats 
 
 %description
-This R package offers a Bayesian graphical ridge and a naïve Bayesian
-adaptive graphical elastic net data-augmented block Gibbs sampler. These
-samplers facilitate the simulation of the posterior distribution of
-precision matrices for Gaussian distributed data. These samplers were
-originally proposed in two separate studies, both detailing their
-methodologies and applications: Smith, Arashi, and Bekker (2022)
-<doi:10.48550/arXiv.2210.16290> and Smith, Bekker, and Arashi (2023)
-<doi:10.48550/arXiv.2306.14199>.
+This R package offers block Gibbs samplers for the Bayesian (adaptive)
+graphical lasso, ridge, and naive elastic net priors. These samplers
+facilitate the simulation of the posterior distribution of precision
+matrices for Gaussian distributed data and were originally proposed by:
+Wang (2012) <doi:10.1214/12-BA729>; Smith et al. (2022)
+<doi:10.48550/arXiv.2210.16290> and Smith et al. (2023)
+<doi:10.48550/arXiv.2306.14199>, respectively.
 
 %prep
 %setup -q -c -n %{packname}

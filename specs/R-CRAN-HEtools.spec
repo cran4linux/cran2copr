@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HEtools
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Homomorphic Encryption Polynomials
 
@@ -26,7 +26,7 @@ Homomorphic encryption (Brakerski and Vaikuntanathan (2014)
 al. (2012) <https://eprint.iacr.org/2012/230>) is a form of Learning with
 Errors (Regev (2005) <doi:10.1145/1060590.1060603>) using polynomial rings
 over finite fields. Functions to generate the required polynomials (using
-"polynom"), with various distributions of coefficients are provided.
+'polynom'), with various distributions of coefficients are provided.
 Additionally, functions to generate and take coefficient modulo are
 provided.
 

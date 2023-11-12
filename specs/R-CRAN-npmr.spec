@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  npmr
-%global packver   1.3
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nuclear Penalized Multinomial Regression
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix 
 
 %description
 Fit multinomial logistic regression with a penalty on the nuclear norm of

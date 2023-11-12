@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ergMargins
-%global packver   0.1.3.1
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Analysis for Exponential Random Graph Models
 
@@ -21,14 +21,22 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ergm 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-btergm 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sna 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-sampling 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-stats 
 Requires:         R-CRAN-ergm 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-network 
 Requires:         R-CRAN-btergm 
+Requires:         R-parallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sna 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-sampling 
 
 %description
 Calculates marginal effects and conducts process analysis in exponential
@@ -41,7 +49,8 @@ and moderation analyses and to diagnose multicollinearity. URL:
 <doi:10.15195/v6.a4>. Karlson, Kristian Bernt, Anders Holm, and Richard
 Breen (2012) <doi:10.1177/0081175012444861>. Duxbury, Scott W (2018)
 <doi:10.1177/0049124118782543>. Duxbury, Scott W, Jenna Wertsching (2023)
-<doi:10.1016/j.socnet.2023.02.003>.
+<doi:10.1016/j.socnet.2023.02.003>. Huang, Peng, Carter Butts (2023)
+<doi:10.1016/j.socnet.2023.07.001>.
 
 %prep
 %setup -q -c -n %{packname}

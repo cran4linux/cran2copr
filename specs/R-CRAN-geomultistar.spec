@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geomultistar
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Queries Enriched with Geographic Data
 
@@ -18,18 +18,20 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-starschemar 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-starschemar 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
@@ -38,11 +40,12 @@ Requires:         R-CRAN-tidyselect
 Multidimensional systems allow complex queries to be carried out in an
 easy way. The geographical dimension, together with the temporal
 dimension, plays a fundamental role in multidimensional systems. Through
-this package, vector layers can be associated to the attributes of
-geographic dimensions, so that the results of multidimensional queries can
-be obtained directly as vector layers. The multidimensional structures on
-which we can define the queries can be created from a flat table or
-imported directly using functions from this package.
+this package, vector geographic data layers can be associated to the
+attributes of geographic dimensions, so that the results of
+multidimensional queries can be obtained directly as vector layers.  The
+multidimensional structures on which we can define the queries can be
+created from a flat table or imported directly using functions from this
+package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.common
-%global packver   0.6.4
+%global packname  RI2by2
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Paws Low-Level Amazon Web Services API
+Summary:          Randomization Inference for Treatment Effects on a Binary Outcome
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
+Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 
 
 %description
-Functions for making low-level API requests to Amazon Web Services
-<https://aws.amazon.com>. The functions handle building, signing, and
-sending requests, and receiving responses. They are designed to help build
-higher-level interfaces to individual services, such as Simple Storage
-Service (S3).
+Computes attributable effects based confidence interval, permutation test
+confidence interval, or asymptotic confidence interval for the average
+treatment effect on a binary outcome. Methods outlined in further detail
+in Rigdon and Hudgens (2015) <doi:10.1002/sim.6384>.
 
 %prep
 %setup -q -c -n %{packname}

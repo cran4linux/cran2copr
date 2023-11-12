@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  negligible
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Functions for Negligible Effect/Equivalence Testing
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-rockchalk
 BuildRequires:    R-CRAN-MBESS 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-e1071 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-WRS2 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-rockchalk
 Requires:         R-CRAN-MBESS 
 Requires:         R-CRAN-tidyr 
 Requires:         R-stats 
+Requires:         R-CRAN-e1071 
 
 %description
 Researchers often want to evaluate whether there is a negligible
@@ -46,7 +48,7 @@ relationship among variables. The 'negligible' package provides functions
 that are useful for conducting negligible effect testing (also called
 equivalence testing). For example, there are functions for evaluating the
 equivalence of means or the presence of a negligible association
-(correlation/ regression). Beribisky, N., Mara, C., & Cribbie, R. A.
+(correlation or regression). Beribisky, N., Mara, C., & Cribbie, R. A.
 (2020) <doi:10.20982/tqmp.16.4.p424>. Beribisky, N., Davidson, H.,
 Cribbie, R. A. (2019) <doi:10.7717/peerj.6853>. Shiskina, T., Farmus, L.,
 & Cribbie, R. A. (2018) <doi:10.20982/tqmp.14.3.p167>. Mara, C. & Cribbie,
