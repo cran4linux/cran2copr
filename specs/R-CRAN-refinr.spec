@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  refinr
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster and Merge Similar Values Within a Character Vector
 
@@ -29,7 +30,7 @@ identical. The functions are an implementation of the key collision and
 ngram fingerprint algorithms from the open source tool Open Refine
 <https://openrefine.org/>. More info on key collision and ngram
 fingerprint can be found here
-<https://docs.openrefine.org/next/technical-reference/clustering-in-depth/>.
+<https://openrefine.org/docs/technical-reference/clustering-in-depth>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semfindr
-%global packver   0.1.6
+%global packname  longevity
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Influential Cases in Structural Equation Modeling
+Summary:          Statistical Methods for the Analysis of Excess Lifetimes
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rsolnp 
 
 %description
-Sensitivity analysis in structural equation modeling using influence
-measures and diagnostic plots. Support leave-one-out casewise sensitivity
-analysis presented by Pek and MacCallum (2011)
-<doi:10.1080/00273171.2011.561068> and approximate casewise influence
-using scores and casewise likelihood.
+A collection of parametric and nonparametric methods for the analysis of
+survival data. Parametric families implemented include Gompertz-Makeham,
+exponential and generalized Pareto models and extended models. The package
+includes an implementation of the nonparametric maximum likelihood
+estimator for arbitrary truncation and censoring pattern based on Turnbull
+(1976) <doi:10.1111/j.2517-6161.1976.tb01597.x>, along with graphical
+goodness-of-fit diagnostics. Parametric models for positive random
+variables and peaks over threshold models based on extreme value theory
+are described in Rootzén and Zholud (2017)
+<doi:10.1007/s10687-017-0305-5>; Belzile et al. (2021)
+<doi:10.1098/rsos.202097> and Belzile et al. (2022)
+<doi:10.1146/annurev-statistics-040120-025426>.
 
 %prep
 %setup -q -c -n %{packname}

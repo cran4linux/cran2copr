@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nextGenShinyApps
-%global packver   2.0
+%global packname  FjordLight
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Craft Exceptional 'R Shiny' Applications and Dashboards with Novel Responsive Tools
+Summary:          Available Light Within the Water Column and Seafloor of Arctic Fjords
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-quickcode 
-Requires:         R-utils 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-quickcode 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-curl 
 
 %description
-Nove responsive tools for designing and developing 'Shiny' dashboards and
-applications. The scripts and style sheets are based on 'jQuery'
-<https://jquery.com/> and 'Bootstrap' <https://getbootstrap.com/>.
+Satellite data collected between 2003 and 2022, in conjunction with
+gridded bathymetric data (50-150 m resolution), are used to estimate the
+irradiance reaching the bottom of a series of representative EU Arctic
+fjords. An Earth System Science Data (ESSD) manuscript, Schlegel et al.
+(2023, in review), that provides a detailed explanation of the methodology
+is currently in review.
 
 %prep
 %setup -q -c -n %{packname}

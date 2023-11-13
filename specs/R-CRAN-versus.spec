@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nextGenShinyApps
-%global packver   2.0
+%global packname  versus
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Craft Exceptional 'R Shiny' Applications and Dashboards with Novel Responsive Tools
+Summary:          Compare Data Frames
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-quickcode 
-Requires:         R-utils 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-quickcode 
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.1.2
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-vctrs >= 0.6.4
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.1.2
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-vctrs >= 0.6.4
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-tibble 
 
 %description
-Nove responsive tools for designing and developing 'Shiny' dashboards and
-applications. The scripts and style sheets are based on 'jQuery'
-<https://jquery.com/> and 'Bootstrap' <https://getbootstrap.com/>.
+An interactive toolset for interactively exploring the differences between
+two data frames.
 
 %prep
 %setup -q -c -n %{packname}

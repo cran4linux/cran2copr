@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gsDesign
-%global packver   3.5.0
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Sequential Design
 
@@ -22,6 +22,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-r2rtf 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
@@ -34,6 +35,7 @@ Requires:         R-graphics
 Requires:         R-CRAN-gt 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-r2rtf 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
