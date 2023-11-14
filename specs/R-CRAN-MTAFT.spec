@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NPCox
-%global packver   1.2
+%global packname  MTAFT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric and Semiparametric Proportional Hazards Model
+Summary:          Data-Driven Estimation for Multi-Threshold Accelerate Failure Time Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-grpreg 
 Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-grpreg 
 
 %description
-An estimation procedure for the analysis of nonparametric proportional
-hazards model (e.g. h(t) = h0(t)exp(b(t)'Z)), providing estimation of b(t)
-and its pointwise standard errors, and semiparametric proportional hazards
-model (e.g. h(t) = h0(t)exp(b(t)'Z1 + c*Z2)), providing estimation of
-b(t), c and their standard errors. More details can be found in Lu Tian et
-al. (2005) <doi:10.1198/016214504000000845>.
+Developed a data-driven estimation framework for the multi-threshold
+accelerate failure time (MTAFT) model. The MTAFT model features different
+linear forms in different subdomains, and one of the major challenges is
+determining the number of threshold effects. The package introduces a
+data-driven approach that utilizes a Schwarz' information criterion, which
+demonstrates consistency under mild conditions. Additionally, a
+cross-validation (CV) criterion with an order-preserved sample-splitting
+scheme is proposed to achieve consistent estimation, without the need for
+additional parameters. The package establishes the asymptotic properties
+of the parameter estimates and includes an efficient score-type test to
+examine the existence of threshold effects. The methodologies are
+supported by numerical experiments and theoretical results, showcasing
+their reliable performance in finite-sample cases.
 
 %prep
 %setup -q -c -n %{packname}

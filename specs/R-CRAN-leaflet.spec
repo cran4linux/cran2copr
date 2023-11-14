@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  leaflet
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Interactive Web Maps with the JavaScript 'Leaflet' Library
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster >= 3.6.3
-BuildRequires:    R-CRAN-leaflet.providers >= 1.8.0
+BuildRequires:    R-CRAN-leaflet.providers >= 2.0.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.5.4
 BuildRequires:    R-CRAN-scales >= 1.0.0
 BuildRequires:    R-CRAN-viridis >= 0.5.1
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-xfun 
 Requires:         R-CRAN-raster >= 3.6.3
-Requires:         R-CRAN-leaflet.providers >= 1.8.0
+Requires:         R-CRAN-leaflet.providers >= 2.0.0
 Requires:         R-CRAN-htmlwidgets >= 1.5.4
 Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-viridis >= 0.5.1

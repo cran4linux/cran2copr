@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  constructive
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Display Idiomatic Code to Construct Most R Objects
 
@@ -20,18 +20,16 @@ BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-diffobj 
 BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-roxygen2 
-BuildRequires:    R-CRAN-styler 
-BuildRequires:    R-CRAN-waldo 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-CRAN-waldo 
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-diffobj 
 Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-roxygen2 
-Requires:         R-CRAN-styler 
-Requires:         R-CRAN-waldo 
 Requires:         R-methods 
+Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-waldo 
 
 %description
 Prints code that can be used to recreate R objects. In a sense it is

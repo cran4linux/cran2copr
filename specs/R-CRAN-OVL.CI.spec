@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  r2dii.data
-%global packver   0.4.1
+%global packname  OVL.CI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets to Measure the Alignment of Corporate Loan Books with Climate Goals
+Summary:          Inference on the Overlap Coefficient: The Binormal Approach and Alternatives
 
-License:          CC0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ks 
+Requires:         R-CRAN-ks 
 
 %description
-These datasets support the implementation in R of the software 'PACTA'
-(Paris Agreement Capital Transition Assessment), which is a free tool that
-calculates the alignment between corporate lending portfolios and climate
-scenarios (<https://www.transitionmonitor.com/>). Financial institutions
-use 'PACTA' to study how their capital allocation decisions align with
-climate change mitigation goals. Because both financial institutions and
-market data providers keep their data private, this package provides fake,
-public data to enable the development and use of 'PACTA' in R.
+Provides functions to construct confidence intervals for the Overlap
+Coefficient (OVL). OVL measures the similarity between two distributions
+through the overlapping area of their distribution functions. Given its
+intuitive description and ease of visual representation by the
+straightforward depiction of the amount of overlap between the two
+corresponding histograms based on samples of measurements from each one of
+the two distributions, the development of accurate methods for confidence
+interval construction can be useful for applied researchers. Implements
+methods based on the work of Franco-Pereira, A.M., Nakas, C.T., Reiser,
+B., and Pardo, M.C. (2021) <doi:10.1177/09622802211046386>.
 
 %prep
 %setup -q -c -n %{packname}

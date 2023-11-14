@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MSigSeg
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common Change Points Detection for Multiple Signals
+Summary:          Multiple SIGnal SEGmentation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,22 +19,24 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Traditional change points detection methods do not have ability in
-detecting optimal common change points for multi-signal. This package
-implements common change points detection for multiple signals, can be
-used in bioinformatics, economics and many other fields. Unlike detecting
-single signals independently, this package can detect optimal common
-change points with more sensitivity and specificity. After receiving the
-collected signal, this method selects the number of change points and the
-original matrix according to the actual situation, solves the minimization
-optimization problem based on different input parameters, obtains the
-position of change points and processed signal. The
-fun_segmentation_PELT(), fun_lambda_estimator() functions are the main
-functions of this package.
+Traditional methods typically detect breakpoints from individual signals,
+which means that when applied separately to multiple signals, the
+breakpoints are not aligned. However, this package implements a common
+breakpoint detection approach for multiple piecewise constant signals,
+resulting in increased detection sensitivity and specificity. By employing
+various techniques, optimal performance is ensured, and computation is
+accelerated. We hope that this package will be beneficial for researchers
+in signal processing, bioinformatics, economy, and other related fields.
+The segmentation(), lambda_estimator() functions are the main functions of
+this package.
 
 %prep
 %setup -q -c -n %{packname}

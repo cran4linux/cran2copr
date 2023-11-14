@@ -1,47 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rsofun
-%global packver   4.4
+%global packname  SpatPCA
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          The P-Model and BiomeE Modelling Framework
+Summary:          Regularized Principal Component Analysis for Spatial Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-GenSA 
-BuildRequires:    R-CRAN-BayesianTools 
-BuildRequires:    R-CRAN-multidplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-GenSA 
-Requires:         R-CRAN-BayesianTools 
-Requires:         R-CRAN-multidplyr 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.7
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-RcppParallel >= 5.1.7
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-ggplot2 
 
 %description
-Implements the Simulating Optimal FUNctioning framework for site-scale
-simulations of ecosystem processes, including model calibration. It
-contains 'Fortran 90' modules for the P-model (Stocker et al. (2020)
-<doi:10.5194/gmd-13-1545-2020>), SPLASH (Davis et al. (2017)
-<doi:10.5194/gmd-10-689-2017>) and BiomeE (Weng et al. (2015)
-<doi:10.5194/bg-12-2655-2015>).
+Provide regularized principal component analysis incorporating smoothness,
+sparseness and orthogonality of eigen-functions by using the alternating
+direction method of multipliers algorithm (Wang and Huang, 2017,
+<DOI:10.1080/10618600.2016.1157483>). The method can be applied to either
+regularly or irregularly spaced data, including 1D, 2D, and 3D.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  r2dii.data
-%global packver   0.4.1
+%global packname  nsRFA
+%global packver   0.7-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.7.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets to Measure the Alignment of Corporate Loan Books with Climate Goals
+Summary:          Non-Supervised Regional Frequency Analysis
 
-License:          CC0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-methods 
 
 %description
-These datasets support the implementation in R of the software 'PACTA'
-(Paris Agreement Capital Transition Assessment), which is a free tool that
-calculates the alignment between corporate lending portfolios and climate
-scenarios (<https://www.transitionmonitor.com/>). Financial institutions
-use 'PACTA' to study how their capital allocation decisions align with
-climate change mitigation goals. Because both financial institutions and
-market data providers keep their data private, this package provides fake,
-public data to enable the development and use of 'PACTA' in R.
+A collection of statistical tools for objective (non-supervised)
+applications of the Regional Frequency Analysis methods in hydrology. The
+package refers to the index-value method and, more precisely, helps the
+hydrologist to: (1) regionalize the index-value; (2) form homogeneous
+regions with similar growth curves; (3) fit distribution functions to the
+empirical regional growth curves. Most of the methods are those described
+in the Flood Estimation Handbook (Centre for Ecology & Hydrology, 1999,
+ISBN:9781906698003). Homogeneity tests from Hosking and Wallis (1993)
+<doi:10.1029/92WR01980> and Viglione et al. (2007)
+<doi:10.1029/2006WR005095> are available.
 
 %prep
 %setup -q -c -n %{packname}

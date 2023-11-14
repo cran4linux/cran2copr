@@ -1,38 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rexpokit
-%global packver   0.26.6.12
+%global packname  PAICE
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.26.6.12
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Wrappers for EXPOKIT; Other Matrix Functions
+Summary:          Phylogeographic Analysis of Island Colonization Events
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
 
 %description
-Wraps some of the matrix exponentiation utilities from EXPOKIT
-(<http://www.maths.uq.edu.au/expokit/>), a FORTRAN library that is widely
-recommended for matrix exponentiation (Sidje RB, 1998. "Expokit: A
-Software Package for Computing Matrix Exponentials." ACM Trans. Math.
-Softw. 24(1): 130-156).  EXPOKIT includes functions for exponentiating
-both small, dense matrices, and large, sparse matrices (in sparse
-matrices, most of the cells have value 0). Rapid matrix exponentiation is
-useful in phylogenetics when we have a large number of states (as we do
-when we are inferring the history of transitions between the possible
-geographic ranges of a species), but is probably useful in other ways as
-well.
+Estimation of the number of colonization events between islands of the
+same archipelago for a species. It uses rarefaction curves to control for
+both field and genetic sample sizes as it was described in Coello et al.
+(2022) <doi:10.1111/jbi.14341>.
 
 %prep
 %setup -q -c -n %{packname}

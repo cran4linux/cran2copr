@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreatmentPatterns
-%global packver   2.5.2
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzes Real-World Treatment Patterns of a Study Population of Interest
 
@@ -17,38 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DatabaseConnector >= 6.0.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-SqlRender 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-googleVis 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Andromeda 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-DatabaseConnector >= 6.0.0
+BuildRequires:    R-CRAN-sunburstR 
+BuildRequires:    R-CRAN-networkD3 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-SqlRender 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
 Requires:         R-utils 
 Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-googleVis 
 Requires:         R-stats 
 Requires:         R-CRAN-Andromeda 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-sunburstR 
+Requires:         R-CRAN-networkD3 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 Computes treatment patterns within a given cohort using the Observational
