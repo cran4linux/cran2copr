@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  utilities
-%global packver   0.6.1
+%global __requires_exclude ^libmpi
+%global packname  AIUQ
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Utility Functions
+Summary:          Ab Initio Uncertainty Quantification
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-SuperGauss >= 2.0.3
+BuildRequires:    R-CRAN-plot3D >= 1.4
+BuildRequires:    R-CRAN-fftwtools >= 0.9.11
+BuildRequires:    R-methods 
+Requires:         R-CRAN-SuperGauss >= 2.0.3
+Requires:         R-CRAN-plot3D >= 1.4
+Requires:         R-CRAN-fftwtools >= 0.9.11
+Requires:         R-methods 
 
 %description
-Data utility functions for use in probability and statistics.  Includes
-functions for computing higher-moments for samples and their
-decompositions. Also includes utilities to examine functional mappings
-between factor variables and other variables in a data set.
+Uncertainty quantification and inverse estimation by probabilistic
+generative models from the beginning of the data analysis. An example is a
+Fourier basis method for inverse estimation in scattering analysis of
+microscopy videos. It does not require specifying a certain range of
+Fourier bases and it substantially reduces computational cost via the
+generalized Schur algorithm. See the reference: Mengyang Gu, Yue He, Xubo
+Liu and Yimin Luo (2023), <arXiv:2309.02468>.
 
 %prep
 %setup -q -c -n %{packname}

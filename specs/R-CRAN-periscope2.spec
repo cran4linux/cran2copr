@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  periscope2
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enterprise Streamlined 'shiny' Application Framework Using 'bs4Dash'
 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-fresh
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-shinyFeedback 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-writexl 
@@ -35,6 +37,8 @@ Requires:         R-CRAN-fresh
 Requires:         R-grDevices 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-shinyFeedback 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-utils 
 Requires:         R-CRAN-writexl 

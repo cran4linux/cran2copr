@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RivRetrieve
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Global River Gauge Data
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-BBmisc 
 BuildRequires:    R-CRAN-dataRetrieval 
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyhydat 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-BBmisc 
 Requires:         R-CRAN-dataRetrieval 
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 

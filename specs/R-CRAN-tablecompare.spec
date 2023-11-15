@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tablecompare
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compare Data Frames
 
@@ -30,10 +31,8 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-purrr 
 
 %description
-A toolbox for comparing two data frames with the aim of quick and simple
-functionality. Using a key-column common to both tables, see which rows
-are common and highlight differing values by column. Also included are
-functions validating keys and uniqueness of in-group values.
+A toolbox for comparing two data frames. This package is defunct. I
+recommend you use the "versus" package instead.
 
 %prep
 %setup -q -c -n %{packname}

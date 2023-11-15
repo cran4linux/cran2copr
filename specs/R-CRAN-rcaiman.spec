@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcaiman
-%global packver   1.1.2
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          CAnopy IMage ANalysis
 
@@ -29,6 +29,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-spatial 
 BuildRequires:    R-CRAN-lidR 
+BuildRequires:    R-tcltk 
 Requires:         R-CRAN-filenamer 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-colorspace 
@@ -41,6 +42,7 @@ Requires:         R-utils
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-spatial 
 Requires:         R-CRAN-lidR 
+Requires:         R-tcltk 
 
 %description
 Classify hemispherical photographs of the plant canopy with algorithms

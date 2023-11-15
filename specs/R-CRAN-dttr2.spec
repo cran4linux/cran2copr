@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dttr2
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate Date, POSIXct and hms Vectors
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-chk >= 0.9.1
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-chk 
+Requires:         R-CRAN-chk >= 0.9.1
 Requires:         R-CRAN-hms 
 Requires:         R-CRAN-lifecycle 
 

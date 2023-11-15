@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rankICC
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rank Intraclass Correlation for Clustered Data
 
@@ -20,8 +20,8 @@ BuildArch:        noarch
 
 %description
 Estimates the rank intraclass correlation coefficient (ICC) for clustered
-continuous, ordinal, binary, and count data
-<https://github.com/shengxintu/rankICC>.
+continuous and ordinal data. See Tu et al. (2023) <DOI:10.1002/sim.9864>
+for details.
 
 %prep
 %setup -q -c -n %{packname}

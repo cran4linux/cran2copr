@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggstats
-%global packver   0.5.0
+%global packname  fastFMM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension to 'ggplot2' for Plotting Stats
+Summary:          Fast Functional Mixed Models using Fast Univariate Inference
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,38 +17,49 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-broom.helpers >= 1.14.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-cAIC4 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-lsei 
+BuildRequires:    R-CRAN-refund 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-broom.helpers >= 1.14.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-lmeresampler 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-lme4 
+Requires:         R-parallel 
+Requires:         R-CRAN-cAIC4 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-lsei 
+Requires:         R-CRAN-refund 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-lmeresampler 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Provides new statistics, new geometries and new positions for 'ggplot2'
-and a suite of functions to facilitate the creation of statistical plots.
+Implementation of the fast univariate inference approach (Cui et al.
+(2022) <doi:10.1080/10618600.2021.1950006>, Loewinger et al. (2023)
+<doi:10.1101/2023.11.06.565896>) for fitting functional mixed models.
 
 %prep
 %setup -q -c -n %{packname}

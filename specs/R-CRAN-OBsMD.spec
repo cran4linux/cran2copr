@@ -1,44 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  beezdiscounting
-%global packver   0.3.0
+%global packname  OBsMD
+%global packver   11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          11.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Behavioral Economic Easy Discounting
+Summary:          Objective Bayesian Model Discrimination in Follow-Up Designs
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Facilitates some of the analyses performed in studies of behavioral
-economic discounting. The package supports scoring of the 27-Item Monetary
-Choice Questionnaire (see Kaplan et al., 2016;
-<doi:10.1007/s40614-016-0070-9>) and scoring of the minute discounting
-task (see Koffarnus & Bickel, 2014; <doi:10.1037/a0035973>) using the
-Qualtrics 5-trial discounting template (see the Qualtrics Minute
-Discounting User Guide; <doi:10.13140/RG.2.2.26495.79527>), which is also
-available as a .qsf file in this package.
+Implements the objective Bayesian methodology proposed in Consonni and
+Deldossi in order to choose the optimal experiment that better
+discriminate between competing models, see Deldossi and Nai Ruscone (2020)
+<doi:10.18637/jss.v094.i02>.
 
 %prep
 %setup -q -c -n %{packname}

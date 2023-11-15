@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesianFactorZoo
-%global packver   0.0.0.1
+%global packver   0.0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.1
+Version:          0.0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Solutions for the Factor Zoo: We Just Ran Two Quadrillion Models
 
@@ -55,8 +55,8 @@ for both tradable and nontradable factors. For competing factors and
 possibly nonnested models, we provide functions including
 continuous_ss_sdf(), continuous_ss_sdf_v2(), and dirac_ss_sdf_pvalue() to
 analyze high-dimensional models. If you use this package, please cite the
-paper. We are thankful to Jingtong Zhang for his research assistance. Any
-errors or omissions are the responsibility of the authors.
+paper. We are thankful to Yunan Ding and Jingtong Zhang for their research
+assistance. Any errors or omissions are the responsibility of the authors.
 
 %prep
 %setup -q -c -n %{packname}

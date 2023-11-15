@@ -1,44 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  beezdiscounting
-%global packver   0.3.0
+%global packname  geoGAM
+%global packver   0.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Behavioral Economic Easy Discounting
+Summary:          Select Sparse Geoadditive Models for Spatial Prediction
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-mboost 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-grpreg 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-mboost 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-grpreg 
+Requires:         R-CRAN-MASS 
 
 %description
-Facilitates some of the analyses performed in studies of behavioral
-economic discounting. The package supports scoring of the 27-Item Monetary
-Choice Questionnaire (see Kaplan et al., 2016;
-<doi:10.1007/s40614-016-0070-9>) and scoring of the minute discounting
-task (see Koffarnus & Bickel, 2014; <doi:10.1037/a0035973>) using the
-Qualtrics 5-trial discounting template (see the Qualtrics Minute
-Discounting User Guide; <doi:10.13140/RG.2.2.26495.79527>), which is also
-available as a .qsf file in this package.
+A model building procedure to build parsimonious geoadditive model from a
+large number of covariates. Continuous, binary and ordered categorical
+responses are supported. The model building is based on component wise
+gradient boosting with linear effects, smoothing splines and a smooth
+spatial surface to model spatial autocorrelation. The resulting covariate
+set after gradient boosting is further reduced through backward
+elimination and aggregation of factor levels. The package provides a model
+based bootstrap method to simulate prediction intervals for point
+predictions. A test data set of a soil mapping case study in Berne
+(Switzerland) is provided. Nussbaum, M., Walthert, L., Fraefel, M.,
+Greiner, L., and Papritz, A. (2017) <doi:10.5194/soil-3-191-2017>.
 
 %prep
 %setup -q -c -n %{packname}

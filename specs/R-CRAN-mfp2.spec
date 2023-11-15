@@ -1,51 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RFishBC
-%global packver   0.2.6
+%global packname  mfp2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Back-Calculation of Fish Length
+Summary:          Multivariable Fractional Polynomial Models with Extensions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-readbitmap 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-settings 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-readbitmap 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-settings 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-utils 
 
 %description
-Helps fisheries scientists collect measurements from calcified structures
-and back-calculate estimated lengths at previous ages using standard
-procedures and models. This is intended to replace much of the
-functionality provided by the now out-dated 'fishBC' software
-(<https://fisheries.org/bookstore/all-titles/software/70317/>).
+Multivariable fractional polynomial algorithm simultaneously selects
+variables and functional forms in both generalized linear models and Cox
+proportional hazard models. Key references for this algorithm are Royston
+and Altman (1994)<doi:10.2307/2986270> and Sauerbrei and Royston (2008,
+ISBN:978-0-470-02842-1). In addition, it can model a 'sigmoid'
+relationship between variable x and an outcome variable y using the
+approximate cumulative distribution transformation proposed by Royston
+(2014) <doi:10.1177/1536867X1401400206>. This feature distinguishes it
+from a standard fractional polynomial function, which lacks the ability to
+achieve such modeling.
 
 %prep
 %setup -q -c -n %{packname}

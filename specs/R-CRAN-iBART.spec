@@ -1,43 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ruta
-%global packver   1.2.0
+%global packname  iBART
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Unsupervised Neural Architectures
+Summary:          Iterative Bayesian Additive Regression Trees Descriptor Selection Method
 
-License:          GPL (>= 3) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-graphics >= 4.0.0
-BuildRequires:    R-stats >= 4.0.0
-BuildRequires:    R-CRAN-R.utils >= 2.12.2
-BuildRequires:    R-CRAN-keras >= 2.11.0
-BuildRequires:    R-CRAN-tensorflow >= 2.11.0
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-utils 
-Requires:         R-graphics >= 4.0.0
-Requires:         R-stats >= 4.0.0
-Requires:         R-CRAN-R.utils >= 2.12.2
-Requires:         R-CRAN-keras >= 2.11.0
-Requires:         R-CRAN-tensorflow >= 2.11.0
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-utils 
+BuildRequires:    R-CRAN-glmnet >= 4.1.1
+BuildRequires:    R-CRAN-bartMachine >= 1.2.6
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-glmnet >= 4.1.1
+Requires:         R-CRAN-bartMachine >= 1.2.6
+Requires:         R-CRAN-foreach 
+Requires:         R-stats 
 
 %description
-Implementation of several unsupervised neural networks, from building
-their architecture to their training and evaluation. Available networks
-are auto-encoders including their main variants: sparse, contractive,
-denoising, robust and variational, as described in Charte et al. (2018)
-<doi:10.1016/j.inffus.2017.12.007>.
+A statistical method based on Bayesian Additive Regression Trees with
+Global Standard Error Permutation Test (BART-G.SE) for descriptor
+selection and symbolic regression. It finds the symbolic formula of the
+regression function y=f(x) as described in Ye, Senftle, and Li (2023)
+<arXiv:2110.10195>.
 
 %prep
 %setup -q -c -n %{packname}

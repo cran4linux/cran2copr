@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  igcop
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computational Tools for the IG and IGL Copula Families
 
@@ -28,7 +29,10 @@ Requires:         R-CRAN-rlang
 Compute distributional quantities for an Integrated Gamma (IG) or
 Integrated Gamma Limit (IGL) copula, such as a cdf and density. Compute
 corresponding conditional quantities such as the cdf and quantiles.
-Generate data from an IG or IGL copula.
+Generate data from an IG or IGL copula. See the vignette for formulas, or
+for a derivation, see Coia, V (2017) "Forecasting of Nonlinear Extreme
+Quantiles Using Copula Models." PhD Dissertation, The University of
+British Columbia.
 
 %prep
 %setup -q -c -n %{packname}

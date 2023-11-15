@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TITAN2
-%global packver   2.4.2
+%global packver   2.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          2.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Threshold Indicator Taxa Analysis
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-cowplot
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-parallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -33,19 +34,15 @@ Requires:         R-CRAN-cowplot
 Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 
 %description
 Uses indicator species scores across binary partitions of a sample set to
 detect congruence in taxon-specific changes of abundance and occurrence
 frequency along an environmental gradient as evidence of an ecological
-community threshold.  Relevant references include: Baker, ME and RS King.
-2010. A new method for detecting and interpreting biodiversity and
-ecological community thresholds.  Methods in Ecology and Evolution 1(1):
-25:37. King, RS and ME Baker. 2010. Considerations for identifying and
-interpreting ecological community thresholds.  Journal of the North
-American Benthological Association 29(3):998-1008. Baker ME and RS King.
-2013. Of TITAN and straw men: an appeal for greater understanding of
-community data. Freshwater Science 32(2):489-506.
+community threshold.  Relevant references include Baker and King (2010)
+<doi:10.1111/j.2041-210X.2009.00007.x>, King and Baker (2010)
+<doi:10.1899/09-144.1>, and Baker and King (2013) <doi:10.1899/12-142.1>.
 
 %prep
 %setup -q -c -n %{packname}

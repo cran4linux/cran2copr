@@ -1,44 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RTSA
-%global packver   0.2.1
+%global packname  easybgm
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Trial Sequential Analysis' for Error Control and Inference in Sequential Meta-Analyses
+Summary:          Extracting and Visualizing Bayesian Graphical Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bgms >= 0.1.1
+BuildRequires:    R-CRAN-BDgraph 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-stats 
-Requires:         R-CRAN-metafor 
+BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-qgraph 
+Requires:         R-CRAN-bgms >= 0.1.1
+Requires:         R-CRAN-BDgraph 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-qgraph 
 
 %description
-Frequentist sequential meta-analysis based on 'Trial Sequential Analysis'
-(TSA) in programmed in Java by the Copenhagen Trial Unit (CTU). The
-primary function is the calculation of group sequential designs for
-meta-analysis to be used for planning and analysis of both prospective and
-retrospective sequential meta-analyses to preserve type-I-error control
-under sequential testing. 'RTSA' includes tools for sample size and trial
-size calculation for meta-analysis and core meta-analyses methods such as
-fixed-effect and random-effects models and forest plots. TSA is described
-in Wetterslev et. al (2008) <doi:10.1016/j.jclinepi.2007.03.013>. The
-methods for deriving the group sequential designs are based on Jennison
-and Turnbull (1999, ISBN:9780849303166).
+Fit and visualize the results of a Bayesian analysis of networks commonly
+found in psychology. The package supports fitting cross-sectional network
+models fitted using the packages 'BDgraph', 'bgms' and 'BGGM'. The package
+provides the parameter estimates, posterior inclusion probabilities,
+inclusion Bayes factor, and the posterior density of the parameters. In
+addition, for 'BDgraph' and 'bgms' it allows to assess the posterior
+structure space. Furthermore, the package comes with an extensive suite
+for visualizing results.
 
 %prep
 %setup -q -c -n %{packname}

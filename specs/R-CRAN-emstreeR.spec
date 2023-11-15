@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  emstreeR
-%global packver   3.0.0
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Fast Computing and Plotting Euclidean Minimum Spanning Trees
+Summary:          Tools for Fast Computing and Visualizing Euclidean Minimum Spanning Trees
 
 License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,15 +20,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-mlpack 
 BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-BBmisc 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-mlpack 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-BBmisc 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-sf 
 
 %description
 Fast and easily computes an Euclidean Minimum Spanning Tree (EMST) from
@@ -35,9 +36,10 @@ data, relying on the R API for 'mlpack' - the C++ Machine Learning Library
 (Curtin et. al., 2013). 'emstreeR' uses the Dual-Tree Boruvka (March, Ram,
 Gray, 2010, <doi:10.1145/1835804.1835882>), which is theoretically and
 empirically the fastest algorithm for computing an EMST. This package also
-provides functions and an S3 method for readily plotting Minimum Spanning
-Trees (MST) using either the style of the 'base', 'scatterplot3d', or
-'ggplot2' libraries.
+provides functions and an S3 method for readily visualizing Minimum
+Spanning Trees (MST) using either the style of the 'base',
+'scatterplot3d', or 'ggplot2' libraries; and functions to export the MST
+output to shapefiles.
 
 %prep
 %setup -q -c -n %{packname}

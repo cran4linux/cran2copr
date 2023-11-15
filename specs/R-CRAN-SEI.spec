@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SIRmcmc
-%global packver   1.1
+%global __requires_exclude ^libmpi
+%global packname  SEI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compartmental Susceptible-Infectious-Recovered (SIR) Model of Community and Household Infection
+Summary:          Calculating Standardised Indices
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,17 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.15
-Requires:         R-CRAN-Rcpp >= 0.12.15
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-fitdistrplus 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-fitdistrplus 
 
 %description
-We build an Susceptible-Infectious-Recovered (SIR) model where the rate of
-infection is the sum of the household rate and the community rate. We
-estimate the posterior distribution of the parameters using the Metropolis
-algorithm. Further details may be found in: F Scott Dahlgren, Ivo M Foppa,
-Melissa S Stockwell, Celibell Y Vargas, Philip LaRussa, Carrie Reed (2021)
-"Household transmission of influenza A and B within a prospective cohort
-during the 2013-2014 and 2014-2015 seasons" <doi:10.1002/sim.9181>.
+Convert a time series of observations to a time series of standardised
+indices that can be used to monitor variables on a common and
+probabilistically interpretable scale. The indices can be aggregated and
+rescaled to different time scales, visualised using plot capabilities, and
+calculated using a range of distributions. This includes flexible non- and
+semi-parametric methods, as suggested by Allen and Otero (2023)
+<doi:10.1016/j.renene.2023.119206>.
 
 %prep
 %setup -q -c -n %{packname}

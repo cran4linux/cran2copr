@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  plotRCS
-%global packver   0.1.4
+%global packname  npsm
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Restricted Cubic Splines Curves
+Summary:          Nonparametric Statistical Methods
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rms 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-CRAN-Rfit 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-class 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-Rfit 
+Requires:         R-methods 
+Requires:         R-CRAN-class 
+Requires:         R-CRAN-plyr 
 
 %description
-Simple drawing of restricted cubic spline (RCS) curves through 'ggplot2'
-package from a linear regression model, a logistic regression model or a
-Cox proportional hazards regression model. This method was described by
-Harrell FE (2015) <doi:10.1007/978-3-319-19425-7>.
+Accompanies the book "Nonparametric Statistical Methods Using R" by Kloke
+and McKean (2014, ISBN:9781439873434).  Includes methods, datasets, and
+random number generation useful for the study of robust and/or
+nonparametric statistics.  Emphasizes classical nonparametric methods for
+a variety of designs --- especially one-sample and two-sample problems.
+Includes methods for general scores, including estimation and testing for
+the two-sample location problem as well as Hogg's adaptive method.
 
 %prep
 %setup -q -c -n %{packname}
