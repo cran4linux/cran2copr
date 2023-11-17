@@ -1,50 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbenvo
-%global packver   1.0.5
+%global __requires_exclude ^libmpi
+%global packname  textrecipes
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Built Environment Objects
+Summary:          Extra 'Recipes' for Text Processing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-recipes >= 1.0.7
+BuildRequires:    R-CRAN-generics >= 0.1.0
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-SnowballC 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tokenizers 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-recipes >= 1.0.7
+Requires:         R-CRAN-generics >= 0.1.0
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-SnowballC 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tokenizers 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-glue 
 
 %description
-Provides S3 class objects and methods for built environment data to ease
-the use of working with these data and facilitate other packages that make
-use of this data structure.
+Converting text to numerical features requires specifically created
+procedures, which are implemented as steps according to the 'recipes'
+package. These steps allows for tokenization, filtering, counting (tf and
+tfidf) and feature hashing.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mase
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Assisted Survey Estimators
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-dplyr 
@@ -25,6 +24,9 @@ BuildRequires:    R-CRAN-rpms
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-dplyr 
@@ -33,6 +35,8 @@ Requires:         R-CRAN-rpms
 Requires:         R-CRAN-boot 
 Requires:         R-stats 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-Rcpp 
 
 %description
 A set of model-assisted survey estimators and corresponding variance

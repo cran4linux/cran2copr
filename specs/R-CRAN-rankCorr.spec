@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FjordLight
-%global packver   0.6.1
+%global packname  rankCorr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Available Light Within the Water Column and Seafloor of Arctic Fjords
+Summary:          Total, Between-, and Within-Cluster Spearman Rank Correlations for Clustered Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-rms >= 6.3.0
+BuildRequires:    R-CRAN-rankICC >= 1.0.1
+Requires:         R-CRAN-rms >= 6.3.0
+Requires:         R-CRAN-rankICC >= 1.0.1
 
 %description
-Satellite data collected between 2003 and 2022, in conjunction with
-gridded bathymetric data (50-150 m resolution), are used to estimate the
-irradiance reaching the bottom of a series of representative EU Arctic
-fjords. An Earth System Science Data (ESSD) manuscript, Schlegel et al.
-(2023, in review), that provides a detailed explanation of the methodology
-is currently in review.
+Estimates the total, between-, and within-cluster Spearman rank
+correlations for continuous and ordinal clustered data.
+<https://github.com/shengxintu/rankCorr>.
 
 %prep
 %setup -q -c -n %{packname}

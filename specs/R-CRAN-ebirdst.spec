@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ebirdst
-%global packver   2.2021.3
+%global packver   3.2022.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2021.3
+Version:          3.2022.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access and Analyze eBird Status and Trends Data
+Summary:          Access and Analyze eBird Status and Trends Data Products
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,15 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-terra >= 1.6.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-tools 
@@ -37,15 +34,12 @@ BuildRequires:    R-CRAN-viridisLite
 Requires:         R-CRAN-terra >= 1.6.3
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-arrow 
 Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RSQLite 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-tools 
@@ -53,12 +47,12 @@ Requires:         R-utils
 Requires:         R-CRAN-viridisLite 
 
 %description
-Tools to download, load, plot, and analyze eBird Status and Trends Data
-Products (<https://science.ebird.org/en/status-and-trends>). eBird
+Tools for accessing and analyzing eBird Status and Trends Data Products
+(<https://science.ebird.org/en/status-and-trends>). eBird
 (<https://ebird.org/home>) is a global database of bird observations
 collected by member of the public. eBird Status and Trends uses these data
-to model global bird abundances, range boundaries, and habitat
-associations at a high spatial and temporal resolution.
+to model global bird distributions, abundances, and population trends at a
+high spatial and temporal resolution.
 
 %prep
 %setup -q -c -n %{packname}

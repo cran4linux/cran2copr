@@ -1,37 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatialprobit
-%global packver   1.0.1
+%global packname  actLifer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Probit Models
+Summary:          Creating Actuarial Life Tables
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.9.0
-Requires:         R-core >= 1.9.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spdep >= 1.1.1
-BuildRequires:    R-CRAN-spatialreg >= 1.1.1
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-tmvtnorm 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-spdep >= 1.1.1
-Requires:         R-CRAN-spatialreg >= 1.1.1
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-tmvtnorm 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-dplyr >= 1.0.10
 
 %description
-Bayesian Estimation of Spatial Probit and Tobit Models.
+Contains data and functions that can be used to make actuarial life
+tables. Each function adds a column to the inputted dataset for each
+intermediate calculation between mortality rate and life expectancy. Users
+can run any of our functions to complete the life table until that step,
+or run lifetable() to output a full life table that can be customized to
+remove optional columns. Methods for creating lifetables are as described
+in Zedstatistics (2021) <https://www.youtube.com/watch?v=Dfe59glNXAQ>.
 
 %prep
 %setup -q -c -n %{packname}

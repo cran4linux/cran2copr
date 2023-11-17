@@ -1,30 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adaR
-%global packver   0.3.1
+%global packname  epiphy
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Fast 'WHATWG' Compliant URL Parser
+Summary:          Analysis of Plant Disease Epidemics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-transport 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-triebeard 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-transport 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-triebeard 
 
 %description
-A wrapper for 'ada-url', a 'WHATWG' compliant and fast URL parser written
-in modern 'C++'. Also contains auxiliary functions such as a public suffix
-extractor.
+A toolbox to make it easy to analyze plant disease epidemics. It provides
+a common framework for plant disease intensity data recorded over time
+and/or space. Implemented statistical methods are currently mainly focused
+on spatial pattern analysis (e.g., aggregation indices, Taylor and binary
+power laws, distribution fitting, SADIE and 'mapcomp' methods). See
+Laurence V. Madden, Gareth Hughes, Franck van den Bosch (2007)
+<doi:10.1094/9780890545058> for further information on these methods.
+Several data sets that were mainly published in plant disease epidemiology
+literature are also included in this package.
 
 %prep
 %setup -q -c -n %{packname}

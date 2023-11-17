@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GPArotation
-%global packver   2023.11-1
+%global packname  RMSDp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.11.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gradient Projection Factor Rotation
+Summary:          Refined Modified Stahel-Donoho (MSD) Estimators for Outlier Detection (Parallel Version)
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.0
-Requires:         R-core >= 2.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
-Gradient Projection Algorithms for Factor Rotation. For details see
-?GPArotation. When using this package, please cite: Bernaards and Jennrich
-(2005) <doi:10.1177/0013164404272507>. "Gradient Projection Algorithms and
-Software for Arbitrary Rotation Criteria in Factor Analysis".
+A parallel function for multivariate outlier detection named modified
+Stahel-Donoho estimators is contained in this package.  The function
+RMSDp() is for elliptically distributed datasets and recognizes outliers
+based on Mahalanobis distance. This function is for higher dimensional
+datasets that cannot be handled by a single core function RMSD() included
+in 'RMSD' package.  See Wada and Tsubaki (2013)
+<doi:10.1109/CLOUDCOM-ASIA.2013.86> for the detail of the algorithm.
 
 %prep
 %setup -q -c -n %{packname}

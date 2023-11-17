@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rclipboard
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny/R Wrapper for 'clipboard.js'
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bslib >= 0.5.1
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-bslib 
+Requires:         R-CRAN-bslib >= 0.5.1
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-bslib 
 
 %description
 Leverages the functionality of 'clipboard.js', a JavaScript library for

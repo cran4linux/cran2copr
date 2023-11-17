@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vetiver
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Version, Share, Deploy, and Monitor Models
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-readr >= 1.4.0
-BuildRequires:    R-CRAN-pins >= 1.2.0
+BuildRequires:    R-CRAN-pins >= 1.3.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-butcher >= 0.3.1
 BuildRequires:    R-CRAN-bundle 
@@ -38,7 +38,7 @@ BuildRequires:    R-CRAN-vctrs
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-readr >= 1.4.0
-Requires:         R-CRAN-pins >= 1.2.0
+Requires:         R-CRAN-pins >= 1.3.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-butcher >= 0.3.1
 Requires:         R-CRAN-bundle 

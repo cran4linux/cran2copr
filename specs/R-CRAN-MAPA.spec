@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MAPA
-%global packver   2.0.5
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Aggregation Prediction Algorithm
 
@@ -17,11 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast >= 5.3
-BuildRequires:    R-CRAN-smooth >= 1.4.7
+BuildRequires:    R-CRAN-smooth >= 4.0.0
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RColorBrewer 
 Requires:         R-CRAN-forecast >= 5.3
-Requires:         R-CRAN-smooth >= 1.4.7
+Requires:         R-CRAN-smooth >= 4.0.0
 Requires:         R-parallel 
 Requires:         R-CRAN-RColorBrewer 
 

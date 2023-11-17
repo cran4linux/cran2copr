@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aedseo
-%global packver   0.1.1
+%global packname  earthdatalogin
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated and Early Detection of Seasonal Epidemic Onset
+Summary:          NASA 'EarthData' Login Utilities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,34 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-base 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-base 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-A powerful tool for automating the early detection of seasonal epidemic
-onsets in time series data. It offers the ability to estimate growth rates
-for consecutive time intervals and calculate the sum of cases (SoC) within
-those intervals. It is particularly useful for epidemiologists, public
-health professionals, and researchers seeking to identify and respond to
-seasonal epidemics in a timely fashion. For reference on growth rate
-estimation, see Walling and Lipstich (2007) <doi:10.1098/rspb.2006.3754>
-and Obadia et al. (2012) <doi:10.1186/1472-6947-12-147>.
+Providing easy, portable access to NASA 'EarthData' products through the
+use of bearer tokens. Much of NASA's public data catalogs hosted and
+maintained by its 12 Distributed Active Archive Centers ('DAACs') are now
+made available on the Amazon Web Services 'S3' storage.  However,
+accessing this data through the standard 'S3' API is restricted to only to
+compute resources running inside 'us-west-2' Data Center in Portland,
+Oregon, which allows NASA to avoid being charged data egress rates. This
+package provides public access to the data from any networked device by
+using the 'EarthData' login application programming interface (API),
+<https://www.earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/earthdata-login>,
+providing convenient authentication and access to cloud-hosted NASA
+'EarthData' products. This makes access to a wide range of earth
+observation data from any location straight forward and compatible with R
+packages that are widely used with cloud native earth observation data
+(such as 'terra', 'sf', etc.)
 
 %prep
 %setup -q -c -n %{packname}

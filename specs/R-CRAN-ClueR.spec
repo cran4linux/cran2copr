@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GPArotation
-%global packver   2023.11-1
+%global packname  ClueR
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.11.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gradient Projection Factor Rotation
+Summary:          Cluster Evaluation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.0
-Requires:         R-core >= 2.0.0
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-e1071 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Gradient Projection Algorithms for Factor Rotation. For details see
-?GPArotation. When using this package, please cite: Bernaards and Jennrich
-(2005) <doi:10.1177/0013164404272507>. "Gradient Projection Algorithms and
-Software for Arbitrary Rotation Criteria in Factor Analysis".
+CLUster Evaluation (CLUE) is a computational method for identifying
+optimal number of clusters in a given time-course dataset clustered by
+cmeans or kmeans algorithms and subsequently identify key kinases or
+pathways from each cluster. Its implementation in R is called ClueR. See
+README on <https://github.com/PYangLab/ClueR> for more details. P Yang et
+al. (2015) <doi:10.1371/journal.pcbi.1004403>.
 
 %prep
 %setup -q -c -n %{packname}

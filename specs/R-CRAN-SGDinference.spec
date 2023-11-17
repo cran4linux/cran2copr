@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GPArotation
-%global packver   2023.11-1
+%global packname  SGDinference
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.11.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gradient Projection Factor Rotation
+Summary:          Inference with Stochastic Gradient Descent
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.0
-Requires:         R-core >= 2.0.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-stats 
 
 %description
-Gradient Projection Algorithms for Factor Rotation. For details see
-?GPArotation. When using this package, please cite: Bernaards and Jennrich
-(2005) <doi:10.1177/0013164404272507>. "Gradient Projection Algorithms and
-Software for Arbitrary Rotation Criteria in Factor Analysis".
+Estimation and inference methods for large-scale mean and quantile
+regression models via stochastic (sub-)gradient descent (S-subGD)
+algorithms. The inference procedure handles cross-sectional data
+sequentially: (i) updating the parameter estimate with each incoming "new
+observation", (ii) aggregating it as a Polyak-Ruppert average, and (iii)
+computing an asymptotically pivotal statistic for inference through random
+scaling. The methodology used in the 'SGDinference' package is described
+in detail in the following papers: (i) Lee, S., Liao, Y., Seo, M.H. and
+Shin, Y. (2022) <doi:10.1609/aaai.v36i7.20701> "Fast and robust online
+inference with stochastic gradient descent via random scaling". (ii) Lee,
+S., Liao, Y., Seo, M.H. and Shin, Y. (2023) <arXiv:2209.14502> "Fast
+Inference for Quantile Regression with Tens of Millions of Observations".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GPArotation
-%global packver   2023.11-1
+%global packname  pmvalsampsize
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.11.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gradient Projection Factor Rotation
+Summary:          Sample Size for External Validation of a Prediction Model
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.0
-Requires:         R-core >= 2.0.0
+BuildRequires:    R-devel >= 2.1
+Requires:         R-core >= 2.1
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-pROC 
+Requires:         R-utils 
 
 %description
-Gradient Projection Algorithms for Factor Rotation. For details see
-?GPArotation. When using this package, please cite: Bernaards and Jennrich
-(2005) <doi:10.1177/0013164404272507>. "Gradient Projection Algorithms and
-Software for Arbitrary Rotation Criteria in Factor Analysis".
+Computes the minimum sample size required for the external validation of
+an existing multivariable prediction model using the criteria proposed by
+Archer (2020) <doi:10.1002/sim.8766> and Riley (2021)
+<doi:10.1002/sim.9025>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,54 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ohun
-%global packver   1.0.0
+%global packname  tidyindex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimizing Acoustic Signal Detection
+Summary:          A Tidy Data Pipeline to Construct, Compare, and Analyse Indexes
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-seewave >= 2.0.1
-BuildRequires:    R-CRAN-warbleR >= 1.1.29
-BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fftw 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-seewave >= 2.0.1
-Requires:         R-CRAN-warbleR >= 1.1.29
-Requires:         R-CRAN-tuneR 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tsibble 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-fftw 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tsibble 
+Requires:         R-CRAN-vctrs 
 
 %description
-Facilitates the automatic detection of acoustic signals, providing
-functions to diagnose and optimize the performance of detection routines.
-Detections from other software can also be explored and optimized.
-Araya-Salas et al. (2022) <doi:10.1101/2022.12.13.520253>.
+Construct and analyse indexes in a pipeline tidy workflow. 'tidyindex'
+contains modules for transforming variables, aggregating variables across
+time, reducing data dimension through weighting, and fitting
+distributions. A manuscript describing the methodology can be found at
+<https://github.com/huizezhang-sherry/paper-tidyindex>.
 
 %prep
 %setup -q -c -n %{packname}

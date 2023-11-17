@@ -1,36 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simRestore
-%global packver   1.1.1
+%global packname  profiplots
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate the Effect of Management Policies on Restoration Efforts
+Summary:          Profinit Plotting Theme
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-subplex 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-subplex 
-Requires:         R-CRAN-tibble 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
+Requires:         R-CRAN-ggplot2 >= 3.2.0
 
 %description
-Simulation methods to study the effect of management policies on efforts
-to restore populations back to their original genetic composition. Allows
-for single-scenario simulation and for optimization of specific chosen
-scenarios. Further information can be found in Hernandez, Janzen and
-Lavretsky (2023) <doi:10.1111/1755-0998.13892>.
+Help unify visual output of R analyses in the Profinit EU company. So far,
+there are color and fill scales for 'ggplot2', plotting theme for
+'ggplot2', color palettes and utils to make the tools default choices.
 
 %prep
 %setup -q -c -n %{packname}

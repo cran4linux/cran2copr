@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpmisc
-%global packver   0.5.4-1
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4.1
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Extensions to 'ggplot2'
 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-splus2R >= 1.3.3
 BuildRequires:    R-CRAN-scales >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.6
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-ggpp >= 0.5.4
+BuildRequires:    R-CRAN-ggpp >= 0.5.5
 BuildRequires:    R-CRAN-multcompView >= 0.1.9
 BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-CRAN-confintr >= 0.1.2
@@ -49,7 +49,7 @@ Requires:         R-CRAN-splus2R >= 1.3.3
 Requires:         R-CRAN-scales >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.0.6
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-ggpp >= 0.5.4
+Requires:         R-CRAN-ggpp >= 0.5.5
 Requires:         R-CRAN-multcompView >= 0.1.9
 Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-CRAN-confintr >= 0.1.2

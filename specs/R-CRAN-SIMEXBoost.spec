@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SIMEXBoost
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Boosting Method for High-Dimensional Error-Prone Data
 
@@ -22,10 +23,12 @@ Requires:         R-CRAN-MASS
 %description
 Implementation of the boosting procedure with the simulation and
 extrapolation approach to address variable selection and estimation for
-(ultra)high-dimensional data subject to measurement error in predictors.
-Some relevant references include Chen, L.-P. and Yi, G. Y. (2021)
-<doi:10.1111/biom.13331>, Hastie, T., Tibshirani, R. and Friedman, J.
-(2008, ISBN:978-0387848570), and Yi, G. Y. (2017, ISBN:978-1493966387).
+high-dimensional data subject to measurement error in predictors. It can
+be used to address generalized linear models (GLM) in Chen (2023) <doi:
+10.1007/s11222-023-10209-3> and the accelerated failure time (AFT) model
+in Chen and Qiu (2023) <doi: 10.1111/biom.13898>. Some relevant references
+include Chen and Yi (2021) <doi:10.1111/biom.13331> and Hastie,
+Tibshirani, and Friedman (2008, ISBN:978-0387848570).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lactater
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Analyzing Lactate Thresholds
 
@@ -56,9 +56,9 @@ swimming. Beaver WL, Wasserman K, Whipp BJ (1985)
 Müller R, Hollmann W (1985) <doi:10.1055/s-2008-1025824>. Kindermann W,
 Simon G, Keul J (1979) <doi:10.1007/BF00421101>. Skinner JS, Mclellan TH
 (1980) <doi:10.1080/02701367.1980.10609285>. Berg A, Jakob E, Lehmann M,
-Dickhuth HH, Huber G, Keul J (1990) <PMID:2408033>. Zoladz JA, Rademaker
-AC, Sargeant AJ (1995) <doi:10.1113/jphysiol.1995.sp020959>. Cheng B,
-Kuipers H, Snyder A, Keizer H, Jeukendrup A, Hesselink M (1992)
+Dickhuth HH, Huber G, Keul J (1990) PMID 2408033. Zoladz JA, Rademaker AC,
+Sargeant AJ (1995) <doi:10.1113/jphysiol.1995.sp020959>. Cheng B, Kuipers
+H, Snyder A, Keizer H, Jeukendrup A, Hesselink M (1992)
 <doi:10.1055/s-2007-1021309>. Bishop D, Jenkins DG, Mackinnon LT (1998)
 <doi:10.1097/00005768-199808000-00014>. Hughson RL, Weisiger KH, Swanson
 GD (1987) <doi:10.1152/jappl.1987.62.5.1975>. Jamnick NA, Botella J, Pyne

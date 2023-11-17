@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shiny.telemetry
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Shiny' App Usage Telemetry
 
@@ -50,7 +50,7 @@ Requires:         R-CRAN-tidyr
 
 %description
 Enables instrumentation of 'Shiny' apps for tracking user session events
-such as input changes, browser type, and session duration. These events
+such as input changes, browser type, and session duration.  These events
 can be sent to any of the available storage backends and analyzed using
 the included 'Shiny' app to gain insights about app usage and adoption.
 

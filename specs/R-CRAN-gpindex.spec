@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gpindex
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Price and Quantity Indexes
 
@@ -14,21 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 Requires:         R-stats 
 
 %description
-A small package for calculating lots of different price indexes, and by
-extension quantity indexes. Provides tools to build and work with any type
-of bilateral generalized-mean index (of which most price indexes are),
-along with a few important indexes that don't belong to the
-generalized-mean family (e.g., superlative quadratic-mean indexes, GEKS).
-Implements and extends many of the methods in Balk (2008,
-ISBN:978-1-107-40496-0), von der Lippe (2001, ISBN:3-8246-0638-0), and the
-CPI manual (2020, ISBN:978-1-51354-298-0) for bilateral price indexes.
+Tools to build and work with bilateral generalized-mean price indexes (and
+by extension quantity indexes), and indexes composed of generalized-mean
+indexes (e.g., superlative quadratic-mean indexes, GEKS). Covers the core
+mathematical machinery for making bilateral price indexes, computing price
+relatives, detecting outliers, and decomposing indexes, with wrapper for
+all common (and many uncommon) index-number formulas. Implements and
+extends many of the methods in Balk (2008, ISBN:978-1-107-40496-0), von
+der Lippe (2001, ISBN:3-8246-0638-0), and the CPI manual (2020,
+ISBN:978-1-51354-298-0).
 
 %prep
 %setup -q -c -n %{packname}
