@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scCustomize
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom Visualizations & Functions for Streamlined Analyses of Single Cell Sequencing
 
@@ -92,7 +92,7 @@ aesthetic and functional visuals. 2) Improve speed/reproducibility of
 common tasks/pieces of code in scRNA-seq analysis with a single or group
 of functions.  For citation please use: Marsh SE (2021) "Custom
 Visualizations & Functions for Streamlined Analyses of Single Cell
-Sequencing" <doi:10.5281/zenodo.5706430>.
+Sequencing" <doi:10.5281/zenodo.5706430> RRID:SCR_024675.
 
 %prep
 %setup -q -c -n %{packname}

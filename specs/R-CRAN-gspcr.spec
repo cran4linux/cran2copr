@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LSAfun
-%global packver   0.7.1
+%global packname  gspcr
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Applied Latent Semantic Analysis (LSA) Functions
+Summary:          Generalized Supervised Principal Component Regression
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lsa 
-BuildRequires:    R-CRAN-rgl 
-Requires:         R-CRAN-lsa 
-Requires:         R-CRAN-rgl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MLmetrics 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-PCAmixdata 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MLmetrics 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-PCAmixdata 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides functions that allow for convenient working with vector space
-models of semantics/distributional semantic models/word embeddings.
-Originally built for LSA models (hence the name), but can be used for all
-such vector-based models. For actually building a vector semantic space,
-use the package 'lsa' or other specialized software. Downloadable semantic
-spaces can be found at
-<https://sites.google.com/site/fritzgntr/software-resources>.
+Generalization of supervised principal component regression (SPCR; Bair et
+al., 2006, <doi:10.1198/016214505000000628>) to support continuous,
+binary, and discrete variables as outcomes and predictors (inspired by the
+'superpc' R package <https://cran.r-project.org/package=superpc>).
 
 %prep
 %setup -q -c -n %{packname}

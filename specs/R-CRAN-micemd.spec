@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  micemd
-%global packver   1.9.0
+%global packver   1.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Imputation by Chained Equations with Multilevel Data
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-jomo >= 2.6.3
 BuildRequires:    R-CRAN-mice >= 2.42
 BuildRequires:    R-CRAN-mvmeta >= 0.4.7
+BuildRequires:    R-CRAN-GJRM >= 0.2.6.4
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
@@ -31,14 +32,13 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-GJRM 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-mixmeta 
 BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-jomo >= 2.6.3
 Requires:         R-CRAN-mice >= 2.42
 Requires:         R-CRAN-mvmeta >= 0.4.7
+Requires:         R-CRAN-GJRM >= 0.2.6.4
 Requires:         R-CRAN-Matrix 
 Requires:         R-graphics 
 Requires:         R-utils 
@@ -50,11 +50,9 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-GJRM 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-mixmeta 
 Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-ggplot2 
 
 %description
 Addons for the 'mice' package to perform multiple imputation using chained

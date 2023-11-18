@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ausplotsR
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          TERN AusPlots Australian Ecosystem Monitoring Data
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-betapart
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-r2r 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-mapdata 
 Requires:         R-CRAN-vegan 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-betapart
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-r2r 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-progress 
 
 %description
 Extraction, preparation, visualisation and analysis of TERN AusPlots

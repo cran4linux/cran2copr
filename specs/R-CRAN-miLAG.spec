@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LSAfun
-%global packver   0.7.1
+%global packname  miLAG
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Applied Latent Semantic Analysis (LSA) Functions
+Summary:          Calculates Microbial Lag Duration (on the Population Level) from Provided Growth Curve Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lsa 
-BuildRequires:    R-CRAN-rgl 
-Requires:         R-CRAN-lsa 
-Requires:         R-CRAN-rgl 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.1
+BuildRequires:    R-CRAN-testthat >= 3.1.8
+BuildRequires:    R-CRAN-minpack.lm >= 1.2.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.8
+BuildRequires:    R-CRAN-nlsMicrobio >= 0.0.3
+Requires:         R-CRAN-ggplot2 >= 3.4.1
+Requires:         R-CRAN-testthat >= 3.1.8
+Requires:         R-CRAN-minpack.lm >= 1.2.2
+Requires:         R-CRAN-dplyr >= 1.0.8
+Requires:         R-CRAN-nlsMicrobio >= 0.0.3
 
 %description
-Provides functions that allow for convenient working with vector space
-models of semantics/distributional semantic models/word embeddings.
-Originally built for LSA models (hence the name), but can be used for all
-such vector-based models. For actually building a vector semantic space,
-use the package 'lsa' or other specialized software. Downloadable semantic
-spaces can be found at
-<https://sites.google.com/site/fritzgntr/software-resources>.
+Microbial growth is often measured by growth curves i.e. a table of
+population sizes and times of measurements. This package allows to use
+such growth curve data to determine the duration of "microbial lag phase"
+i.e. the time needed for microbes to restart divisions. It implements the
+most commonly used methods to calculate the lag duration, these methods
+are discussed and described in Opalek et.al. 2022. Citation: "How to
+determine microbial lag phase duration?", M. Opalek, B. Smug, D.
+Wloch-Salamon (2022) <doi:10.1101/2022.11.16.516631>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CARBayes
-%global packver   6.0
+%global packver   6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0
+Version:          6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Generalised Linear Mixed Models for Areal Unit Data
 
@@ -22,6 +22,8 @@ BuildRequires:    R-CRAN-CARBayesdata
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-parallel 
@@ -38,6 +40,8 @@ Requires:         R-CRAN-CARBayesdata
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-mapview 
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-parallel 

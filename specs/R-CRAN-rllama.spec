@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  docket
-%global packver   1.20
+%global packname  rllama
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Document Template Processing
+Summary:          Access and Analyze Data from 'DeFiLlama'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
 
 %description
-Populate data from an R environment into '.doc' and '.docx' templates.
-Create a template document in a program such as 'Word', and add strings
-encased in guillemet characters to create flags («example»). Use
-getDictionary() to create a dictionary of flags and replacement values,
-then call docket() to generate a populated document.
+Provides an interface to access and analyze data from
+'DeFiLlama'<https://defillama.com>. This package simplifies the process of
+fetching and manipulating 'DeFiLlama' data for further analysis and
+visualization.
 
 %prep
 %setup -q -c -n %{packname}

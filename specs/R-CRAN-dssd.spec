@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LSAfun
-%global packver   0.7.1
+%global packname  dssd
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Applied Latent Semantic Analysis (LSA) Functions
+Summary:          Distance Sampling Survey Design
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lsa 
-BuildRequires:    R-CRAN-rgl 
-Requires:         R-CRAN-lsa 
-Requires:         R-CRAN-rgl 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 
 %description
-Provides functions that allow for convenient working with vector space
-models of semantics/distributional semantic models/word embeddings.
-Originally built for LSA models (hence the name), but can be used for all
-such vector-based models. For actually building a vector semantic space,
-use the package 'lsa' or other specialized software. Downloadable semantic
-spaces can be found at
-<https://sites.google.com/site/fritzgntr/software-resources>.
+Creates survey designs for distance sampling surveys. These designs can be
+assessed for various effort and coverage statistics. Once the user is
+satisfied with the design characteristics they can generate a set of
+transects to use in their distance sampling survey. Many of the designs
+implemented in this R package were first made available in our 'Distance'
+for Windows software and are detailed in Chapter 7 of Advanced Distance
+Sampling, Buckland et. al. (2008, ISBN-13: 978-0199225873). Find out more
+about estimating animal/plant abundance with distance sampling at
+<http://distancesampling.org/>.
 
 %prep
 %setup -q -c -n %{packname}

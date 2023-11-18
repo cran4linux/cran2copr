@@ -1,45 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ppgmmga
-%global packver   1.3
+%global packname  ohun
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Projection Pursuit Based on Gaussian Mixtures and Evolutionary Algorithms
+Summary:          Optimizing Acoustic Signal Detection
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-mclust >= 5.4
-BuildRequires:    R-CRAN-GA >= 3.1
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.7
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-seewave >= 2.0.1
+BuildRequires:    R-CRAN-warbleR >= 1.1.29
+BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-mclust >= 5.4
-Requires:         R-CRAN-GA >= 3.1
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-fftw 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-seewave >= 2.0.1
+Requires:         R-CRAN-warbleR >= 1.1.29
+Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
+Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-fftw 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Projection Pursuit (PP) algorithm for dimension reduction based on
-Gaussian Mixture Models (GMMs) for density estimation using Genetic
-Algorithms (GAs) to maximise an approximated negentropy index. For more
-details see Scrucca and Serafini (2019)
-<doi:10.1080/10618600.2019.1598871>.
+Facilitates the automatic detection of acoustic signals, providing
+functions to diagnose and optimize the performance of detection routines.
+Detections from other software can also be explored and optimized.
+Araya-Salas et al. (2022) <doi:10.1101/2022.12.13.520253>.
 
 %prep
 %setup -q -c -n %{packname}

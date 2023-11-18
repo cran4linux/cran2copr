@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SPECK
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Receptor Abundance Estimation using Reduced Rank Reconstruction and Clustered Thresholding
 
@@ -17,10 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix >= 1.6.1.1
 BuildRequires:    R-CRAN-Ckmeans.1d.dp 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rsvd 
 BuildRequires:    R-CRAN-Seurat 
+Requires:         R-CRAN-Matrix >= 1.6.1.1
 Requires:         R-CRAN-Ckmeans.1d.dp 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rsvd 

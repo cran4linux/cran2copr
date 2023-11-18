@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3batchmark
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Batch Experiments for 'mlr3'
 
@@ -18,14 +18,14 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-batchtools >= 0.9.17
-BuildRequires:    R-CRAN-mlr3 >= 0.15.0
+BuildRequires:    R-CRAN-mlr3 >= 0.17.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-CRAN-mlr3misc 
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-batchtools >= 0.9.17
-Requires:         R-CRAN-mlr3 >= 0.15.0
+Requires:         R-CRAN-mlr3 >= 0.17.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 

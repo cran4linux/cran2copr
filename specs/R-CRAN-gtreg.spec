@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtreg
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regulatory Tables for Clinical Research
 
@@ -17,28 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.6
-BuildRequires:    R-CRAN-cli >= 3.1.0
-BuildRequires:    R-CRAN-gtsummary >= 1.6.1
-BuildRequires:    R-CRAN-glue >= 1.6.0
-BuildRequires:    R-CRAN-broom.helpers >= 1.5.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-tidyr >= 1.1.4
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-forcats >= 0.5.1
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-tibble >= 3.1.6
-Requires:         R-CRAN-cli >= 3.1.0
-Requires:         R-CRAN-gtsummary >= 1.6.1
-Requires:         R-CRAN-glue >= 1.6.0
-Requires:         R-CRAN-broom.helpers >= 1.5.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-tidyr >= 1.1.4
-Requires:         R-CRAN-dplyr >= 1.0.7
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-forcats >= 0.5.1
-Requires:         R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-gtsummary >= 1.7.1
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-tidyr >= 1.2.1
+BuildRequires:    R-CRAN-broom.helpers >= 1.13.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.1
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-purrr >= 1.0.1
+BuildRequires:    R-CRAN-forcats >= 1.0.0
+Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-gtsummary >= 1.7.1
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-tidyr >= 1.2.1
+Requires:         R-CRAN-broom.helpers >= 1.13.0
+Requires:         R-CRAN-dplyr >= 1.1.1
+Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-purrr >= 1.0.1
+Requires:         R-CRAN-forcats >= 1.0.0
 
 %description
 Creates tables suitable for regulatory agency submission by leveraging the

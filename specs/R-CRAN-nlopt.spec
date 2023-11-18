@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LSAfun
-%global packver   0.7.1
+%global packname  nlopt
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Applied Latent Semantic Analysis (LSA) Functions
+Summary:          Call Optimization Solvers with .nl Files
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lsa 
-BuildRequires:    R-CRAN-rgl 
-Requires:         R-CRAN-lsa 
-Requires:         R-CRAN-rgl 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides functions that allow for convenient working with vector space
-models of semantics/distributional semantic models/word embeddings.
-Originally built for LSA models (hence the name), but can be used for all
-such vector-based models. For actually building a vector semantic space,
-use the package 'lsa' or other specialized software. Downloadable semantic
-spaces can be found at
-<https://sites.google.com/site/fritzgntr/software-resources>.
+The purpose of this library is to to call different optimization solvers
+(such as Gonzalez Rodriguez et al. (2022)
+<doi:10.1007/s10898-022-01229-w>, Tawarmalani and Sahinidis (2005)
+<doi:10.1007/s10107-005-0581-8>, and Byrd et al. (2006)
+<doi:10.1007/0-387-30065-1_4>) to solve problems given by a standard nl
+file.
 
 %prep
 %setup -q -c -n %{packname}

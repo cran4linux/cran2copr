@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LSAfun
-%global packver   0.7.1
+%global packname  simStateSpace
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Applied Latent Semantic Analysis (LSA) Functions
+Summary:          Simulate Data from State Space Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lsa 
-BuildRequires:    R-CRAN-rgl 
-Requires:         R-CRAN-lsa 
-Requires:         R-CRAN-rgl 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides functions that allow for convenient working with vector space
-models of semantics/distributional semantic models/word embeddings.
-Originally built for LSA models (hence the name), but can be used for all
-such vector-based models. For actually building a vector semantic space,
-use the package 'lsa' or other specialized software. Downloadable semantic
-spaces can be found at
-<https://sites.google.com/site/fritzgntr/software-resources>.
+Provides a streamlined and user-friendly framework for simulating data in
+state space models, particularly when the number of subjects/units (n)
+exceeds one, a scenario commonly encountered in social and behavioral
+sciences. For an introduction to state space models in social and
+behavioral sciences, refer to Chow, Ho, Hamaker, and Dolan (2010)
+<doi:10.1080/10705511003661553>.
 
 %prep
 %setup -q -c -n %{packname}

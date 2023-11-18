@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  updog
-%global packver   2.1.3
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Genotyping for Polyploids
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-future 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-future 

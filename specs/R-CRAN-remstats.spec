@@ -1,45 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ppgmmga
-%global packver   1.3
+%global packname  remstats
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Projection Pursuit Based on Gaussian Mixtures and Evolutionary Algorithms
+Summary:          Computes Statistics for Relational Event History Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-mclust >= 5.4
-BuildRequires:    R-CRAN-GA >= 3.1
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.7
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
 BuildRequires:    R-stats 
-Requires:         R-CRAN-mclust >= 5.4
-Requires:         R-CRAN-GA >= 3.1
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-Rcpp >= 1.0.8.3
 Requires:         R-stats 
 
 %description
-Projection Pursuit (PP) algorithm for dimension reduction based on
-Gaussian Mixture Models (GMMs) for density estimation using Genetic
-Algorithms (GAs) to maximise an approximated negentropy index. For more
-details see Scrucca and Serafini (2019)
-<doi:10.1080/10618600.2019.1598871>.
+Computes a variety of statistics for relational event models. Relational
+event models enable researchers to investigate both exogenous and
+endogenous factors influencing the evolution of a time-ordered sequence of
+events. These models are categorized into tie-oriented models (Butts, C.,
+2008, <doi:10.1111/j.1467-9531.2008.00203.x>), where the probability of a
+dyad interacting next is modeled in a single step, and actor-oriented
+models (Stadtfeld, C., & Block, P., 2017, <doi:10.15195/v4.a14>), which
+first model the probability of a sender initiating an interaction and
+subsequently the probability of the sender's choice of receiver. The
+package is designed to compute a variety of statistics that summarize
+exogenous and endogenous influences on the event stream for both types of
+models.
 
 %prep
 %setup -q -c -n %{packname}

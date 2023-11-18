@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LSAfun
-%global packver   0.7.1
+%global packname  simRestore
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Applied Latent Semantic Analysis (LSA) Functions
+Summary:          Simulate the Effect of Management Policies on Restoration Efforts
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lsa 
-BuildRequires:    R-CRAN-rgl 
-Requires:         R-CRAN-lsa 
-Requires:         R-CRAN-rgl 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-subplex 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-subplex 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides functions that allow for convenient working with vector space
-models of semantics/distributional semantic models/word embeddings.
-Originally built for LSA models (hence the name), but can be used for all
-such vector-based models. For actually building a vector semantic space,
-use the package 'lsa' or other specialized software. Downloadable semantic
-spaces can be found at
-<https://sites.google.com/site/fritzgntr/software-resources>.
+Simulation methods to study the effect of management policies on efforts
+to restore populations back to their original genetic composition. Allows
+for single-scenario simulation and for optimization of specific chosen
+scenarios. Further information can be found in Hernandez, Janzen and
+Lavretsky (2023) <doi:10.1111/1755-0998.13892>.
 
 %prep
 %setup -q -c -n %{packname}

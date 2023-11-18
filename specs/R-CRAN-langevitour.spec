@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  langevitour
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Langevin Tour
 
@@ -17,9 +18,11 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-crosstalk 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-assertthat 
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-crosstalk 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-assertthat 
 
@@ -28,11 +31,12 @@ An HTML widget that randomly tours 2D projections of numerical data. A
 random walk through projections of the data is shown. The user can
 manipulate the plot to use specified axes, or turn on Guided Tour mode to
 find an informative projection of the data. Groups within the data can be
-hidden or shown, as can particular axes. Known projections of interest can
-be added as "extra axes" and also manipulated. The underlying method to
-produce the random walk and projection pursuit uses Langevin dynamics. The
-widget can be used from within R, or included in a self-contained
-Rmarkdown document, or used in a Shiny app.
+hidden or shown, as can particular axes. Points can be brushed, and the
+selection can be linked to other widgets using crosstalk. The underlying
+method to produce the random walk and projection pursuit uses Langevin
+dynamics. The widget can be used from within R, or included in a
+self-contained R Markdown or Quarto document or presentation, or used in a
+Shiny app.
 
 %prep
 %setup -q -c -n %{packname}

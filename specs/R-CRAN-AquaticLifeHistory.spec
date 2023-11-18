@@ -1,47 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MolgenisArmadillo
-%global packver   2.3.0
+%global packname  AquaticLifeHistory
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Armadillo Client for the Armadillo Service
+Summary:          Life History Analysis Tools
 
-License:          LGPL (>= 2.1)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MolgenisAuth >= 0.0.25
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-MuMIn 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlist 
-Requires:         R-CRAN-MolgenisAuth >= 0.0.25
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-arrow 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-MuMIn 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-A set of functions to manage data shared on a 'MOLGENIS Armadillo' server.
+Estimate aquatic species life history using robust techniques. This
+package supports users undertaking two types of analysis: 1) Growth from
+length-at-age data, and 2) maturity analyses for length and/or age data.
+Maturity analyses are performed using generalised linear model approaches
+incorporating either a binomial or quasibinomial distribution. Growth
+modelling is performed using the multimodel approach presented by Smart et
+al. (2016) "Multimodel approaches in shark and ray growth studies:
+strengths, weaknesses and the future" <doi:10.1111/faf.12154>.
 
 %prep
 %setup -q -c -n %{packname}

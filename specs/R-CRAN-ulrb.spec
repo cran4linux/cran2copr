@@ -1,50 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  missMDA
-%global packver   1.19
+%global packname  ulrb
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.19
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling Missing Values with Multivariate Data Analysis
+Summary:          Unsupervised Learning Based Definition of Microbial Rare Biosphere
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FactoMineR >= 2.3
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-FactoMineR >= 2.3
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-clusterSim 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-clusterSim 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Imputation of incomplete continuous or categorical datasets; Missing
-values are imputed with a principal component analysis (PCA), a multiple
-correspondence analysis (MCA) model or a multiple factor analysis (MFA)
-model; Perform multiple imputation with and in PCA or MCA.
+A tool to define rare biosphere. 'ulrb' solves the problem of the
+definition of rarity by replacing human decision with an unsupervised
+machine learning algorithm (partitioning around medoids, or k-medoids).
+This algorithm works for any type of microbiome data, provided there is an
+abundance score for each phylogenetic unit. For validation of this method
+to several kinds of molecular data and environments, please see Pascoal et
+al, 2023 (in preparation). Preliminary data suggest this method also works
+well for non-microbiome data, if there is a species abundance table.
 
 %prep
 %setup -q -c -n %{packname}
