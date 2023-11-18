@@ -1,4 +1,4 @@
 [submodule "sysreqs"]
 	path = sysreqs
-	url = git@github.com:cran4linux/sysreqs.git
+	url = ../sysreqs.git
 	branch = main
