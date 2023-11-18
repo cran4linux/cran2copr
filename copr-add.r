@@ -23,15 +23,15 @@ ids <- NULL
 for (pkgs in blist) {
   message("Building ", length(pkgs), " packages of ", n, " remaining...")
 
-  specs <- sapply(pkgs, function(pkg) {
+  specs <- lapply(pkgs, function(pkg) {
     spec <- create_spec(pkg, cran)
-    if (!spec$pkg %in% copr) tryCatch(
+    if (isFALSE(spec$pkg %in% copr)) tryCatch(
       add_pkg_scm(spec$pkg),
       error = function(e) if (!grepl("already exists", e)) stop(e)
     )
     spec$dest
   })
-  ids <- build_spec(specs, ids)
+  ids <- build_spec(unlist(specs), ids)
 
   n <- n - length(pkgs)
 }
