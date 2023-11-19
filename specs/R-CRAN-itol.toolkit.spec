@@ -1,42 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  usdoj
-%global packver   1.1.0
+%global packname  itol.toolkit
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          For Accessing U.S. Department of Justice (DOJ) Open Data
+Summary:          Helper Functions for 'Interactive Tree Of Life'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.4
-Requires:         R-core >= 3.4.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-anytime 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-anytime 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-seqinr 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-wesanderson 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-colourpicker 
+BuildRequires:    R-CRAN-ggsci 
+BuildRequires:    R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-CRAN-seqinr 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-wesanderson 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-colourpicker 
+Requires:         R-CRAN-ggsci 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Fetch data from the
-<https://www.justice.gov/developer/api-documentation/api_v1> API such as
-press releases, blog entries, and speeches. Optional parameters allow
-users to specify the number of results starting from the earliest or
-latest entries, and whether these results contain keywords. Data is
-cleaned for analysis and returned in a dataframe.
+The 'Interactive Tree Of Life' <https://itol.embl.de/> online server can
+edit and annotate trees interactively. The 'itol.toolkit' package can
+support all types of annotation templates.
 
 %prep
 %setup -q -c -n %{packname}

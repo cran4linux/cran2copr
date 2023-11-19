@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  proverbs
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Print a Daily Bible Proverb to Console
 
@@ -17,19 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
 
 %description

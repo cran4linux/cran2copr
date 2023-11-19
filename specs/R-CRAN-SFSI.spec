@@ -1,55 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  migest
-%global packver   2.0.4
+%global packname  SFSI
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for the Indirect Estimation of Bilateral Migration
+Summary:          Sparse Family and Selection Index
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-migration.indices 
-BuildRequires:    R-CRAN-circlize 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-mipfp 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tensorEVD 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-forcats 
-Requires:         R-utils 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-migration.indices 
-Requires:         R-CRAN-circlize 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-mipfp 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tensorEVD 
+Requires:         R-parallel 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-igraph 
 
 %description
-Tools for estimating, measuring and working with migration data.
+Here we provide tools for the estimation of coefficients in penalized
+regressions when the (co)variance matrix of predictors and the covariance
+vector between predictors and response, are provided. These methods are
+extended to the context of a Selection Index (commonly used for breeding
+value prediction). The approaches offer opportunities such as the
+integration of high-throughput traits in genetic evaluations ('Lopez-Cruz
+et al., 2020') <doi:10.1038/s41598-020-65011-2> and solutions for training
+set optimization in Genomic Prediction ('Lopez-Cruz & de los Campos,
+2021') <doi:10.1093/genetics/iyab030>.
 
 %prep
 %setup -q -c -n %{packname}

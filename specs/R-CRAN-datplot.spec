@@ -1,48 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  happign
-%global packver   0.2.1
+%global packname  datplot
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'IGN' Web Services
+Summary:          Preparation of Object Dating Ranges for Density Plots (Aoristic Analysis)
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 1.0.7
-BuildRequires:    R-CRAN-archive 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-sf >= 1.0.7
-Requires:         R-CRAN-archive 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
-Requires:         R-methods 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-xml2 
 
 %description
-Automatic open data acquisition from resources of IGN ('Institut National
-de Information Geographique et forestiere') (<https://www.ign.fr/>).
-Available datasets include various types of raster and vector data, such
-as digital elevation models, state borders, spatial databases, cadastral
-parcels, and more. There also access to point clouds data ('LIDAR') and
-specifics API (<https://apicarto.ign.fr/api/doc/>).
+Converting date ranges into dating 'steps' eases the visualization of
+changes in e.g. pottery consumption, style and other variables over time.
+This package provides tools to process and prepare data for visualization
+and employs the concept of aoristic analysis.
 
 %prep
 %setup -q -c -n %{packname}
