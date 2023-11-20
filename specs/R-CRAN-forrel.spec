@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forrel
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forensic Pedigree Analysis and Relatedness Inference
 
@@ -20,32 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-pedtools >= 2.2.0
 BuildRequires:    R-CRAN-ribd >= 1.5.0
 BuildRequires:    R-CRAN-pedprobr >= 0.8
-BuildRequires:    R-CRAN-pedmut >= 0.6
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-pedFamilias 
 Requires:         R-CRAN-pedtools >= 2.2.0
 Requires:         R-CRAN-ribd >= 1.5.0
 Requires:         R-CRAN-pedprobr >= 0.8
-Requires:         R-CRAN-pedmut >= 0.6
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-pedFamilias 
 
 %description
 Forensic applications of pedigree analysis, including likelihood ratios
 for relationship testing, general relatedness inference, marker
-simulation, and power analysis. General computation of exclusion powers is
-based on Egeland et al. (2014) <doi:10.1016/j.fsigen.2013.05.001>. Several
-functions deal specifically with family reunion cases, implementing and
-developing ideas from Kling et al. (2017)
-<doi:10.1016/j.fsigen.2017.08.006>. A novelty of 'forrel' is the ability
-to model background inbreeding in forensic pedigree computations.  This
-can have significant impact in applications, as exemplified in Vigeland
-and Egeland (2019) <doi:10.1016/j.fsigss.2019.10.175>. 'forrel' is part of
-the ped suite, a collection of packages for pedigree analysis. In
-particular, 'forrel' imports 'pedtools' for creating and manipulating
-pedigrees and markers, 'pedprobr' for likelihood computations, and
-'pedmut' for mutation modelling.  Pedigree data may be created from
-scratch, or loaded from text files. Data import from the 'Familias'
+simulation, and power analysis. 'forrel' is part of the 'pedsuite', a
+collection of packages for pedigree analysis, further described in the
+book 'Pedigree Analysis in R' (Vigeland, 2021, ISBN:9780128244302).
+Several functions deal specifically with power analysis in missing person
+cases, implementing methods described in Vigeland et al. (2020)
+<doi:10.1016/j.fsigen.2020.102376>. Data import from the 'Familias'
 software (Egeland et al. (2000) <doi:10.1016/S0379-0738(00)00147-X>) is
-supported.
+supported through the 'pedFamilias' package.
 
 %prep
 %setup -q -c -n %{packname}

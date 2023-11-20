@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsmatrix
-%global packver   0.2.6
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matrices for Repeat-Sales Price Indexes
 
@@ -18,14 +18,10 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix >= 1.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
 Requires:         R-CRAN-Matrix >= 1.5.0
-Requires:         R-methods 
-Requires:         R-stats 
 
 %description
-A small package for calculating the matrices in Shiller (1991,
+Calculate the matrices in Shiller (1991,
 <doi:10.1016/S1051-1377(05)80028-2>) that serve as the foundation for many
 repeat-sales price indexes.
 

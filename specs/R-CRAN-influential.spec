@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  influential
-%global packver   2.2.7
+%global packver   2.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.7
+Version:          2.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identification and Classification of the Most Influential Nodes
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-BiocManager 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-ranger 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-BiocManager 
 
 %description
 Contains functions for the classification and ranking of top candidate

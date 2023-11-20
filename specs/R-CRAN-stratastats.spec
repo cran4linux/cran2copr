@@ -1,44 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  missRanger
-%global packver   2.4.0
+%global packname  stratastats
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Imputation of Missing Values
+Summary:          Stratified Analysis of 2x2 Contingency Tables
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-FNN 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-stats >= 4.0.0
+BuildRequires:    R-CRAN-abind >= 1.4.0
+BuildRequires:    R-CRAN-gt >= 0.8.0
+Requires:         R-stats >= 4.0.0
+Requires:         R-CRAN-abind >= 1.4.0
+Requires:         R-CRAN-gt >= 0.8.0
 
 %description
-Alternative implementation of the beautiful 'MissForest' algorithm used to
-impute mixed-type data sets by chaining random forests, introduced by
-Stekhoven, D.J. and Buehlmann, P. (2012)
-<doi:10.1093/bioinformatics/btr597>. Under the hood, it uses the lightning
-fast random jungle package 'ranger'. Between the iterative model fitting,
-we offer the option of using predictive mean matching. This firstly avoids
-imputation with values not already present in the original data (like a
-value 0.3334 in 0-1 coded variable).  Secondly, predictive mean matching
-tries to raise the variance in the resulting conditional distributions to
-a realistic level. This would allow e.g. to do multiple imputation when
-repeating the call to missRanger().  A formula interface allows to control
-which variables should be imputed by which.
+Offers a comprehensive approach for analysing stratified 2x2 contingency
+tables. It facilitates the calculation of odds ratios, 95%% confidence
+intervals, and conducts chi-squared tests, Cochran-Mantel-Haenszel tests,
+and Breslow-Day-Tarone tests. The package is particularly useful in fields
+like epidemiology and social sciences where stratified analysis is
+essential. The package also provides interpretative insights into the
+results, aiding in the understanding of complex statistical outcomes.
 
 %prep
 %setup -q -c -n %{packname}

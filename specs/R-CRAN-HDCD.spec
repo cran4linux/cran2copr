@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SparseChol
-%global packver   0.2.2
+%global packname  HDCD
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Matrix C++ Classes Including Sparse Cholesky LDL Decomposition of Symmetric Matrices
+Summary:          High-Dimensional Changepoint Detection
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Matrix >= 1.3.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Matrix >= 1.3.4
-Requires:         R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-Rdpack 
 
 %description
-'C++' classes for sparse matrix methods including implementation of sparse
-LDL decomposition of symmetric matrices and solvers described by Timothy
-A. Davis (2016)
-<https://fossies.org/linux/SuiteSparse/LDL/Doc/ldl_userguide.pdf>.
-Provides a set of C++ classes for basic sparse matrix specification and
-linear algebra, and a class to implement sparse LDL decomposition and
-solvers. See <https://github.com/samuel-watson/SparseChol> for details.
+Efficient implementations of the following multiple changepoint detection
+algorithms: Efficient Sparsity Adaptive Change-point estimator by Moen,
+Glad and Tveten (2023) <arXiv:2306.04702> , Informative Sparse Projection
+for Estimating Changepoints by Wang and Samworth (2017)
+<doi:10.1111/rssb.12243>, and the method of Pilliat et al (2023)
+<doi:10.1214/23-EJS2126>.
 
 %prep
 %setup -q -c -n %{packname}

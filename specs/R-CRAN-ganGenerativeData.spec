@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ganGenerativeData
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Generative Data for a Data Source
 
@@ -25,7 +25,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.3
 Generative Adversarial Networks are applied to generate generative data
 for a data source. A generative model consisting of a generator and a
 discriminator network is trained. In iterative training steps the
-distribution of generated data converges to that of the data source.
+distribution of generated data is converging to that of the data source.
 Direct applications of generative data are the created functions for data
 classifying and missing data completion. Reference: Goodfellow et al.
 (2014) <arXiv:1406.2661v1>.

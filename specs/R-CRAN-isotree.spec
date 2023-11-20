@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isotree
-%global packver   0.5.22
+%global packver   0.5.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.22
+Version:          0.5.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Isolation-Based Outlier Detection
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-methods 
 
 %description
 Fast and multi-threaded implementation of isolation forest (Liu, Ting,
