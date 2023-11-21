@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  exceldata
-%global packver   0.1.1.2
+%global packver   0.1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.2
+Version:          0.1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Streamline Data Import, Cleaning and Recoding from 'Excel'
 
@@ -22,12 +23,14 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-scales 
+Requires:         R-stats 
 
 %description
 A small group of functions to read in a data dictionary and the

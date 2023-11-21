@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidydann
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add the 'dann' Model and the 'sub_dann' Model to the Tidymodels Ecosystem
 
@@ -19,14 +19,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-parsnip 
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-parsnip 
 
 %description
 Provides model specifications, tuning parameters for models in 'dann'

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3tuning
-%global packver   0.19.0
+%global packver   0.19.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.0
+Version:          0.19.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hyperparameter Optimization for 'mlr3'
 
@@ -18,17 +18,17 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-bbotk >= 0.7.2
-BuildRequires:    R-CRAN-mlr3 >= 0.14.1
-BuildRequires:    R-CRAN-mlr3misc >= 0.11.0
+BuildRequires:    R-CRAN-bbotk >= 0.7.3
+BuildRequires:    R-CRAN-mlr3 >= 0.17.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.13.0
 BuildRequires:    R-CRAN-paradox >= 0.10.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-bbotk >= 0.7.2
-Requires:         R-CRAN-mlr3 >= 0.14.1
-Requires:         R-CRAN-mlr3misc >= 0.11.0
+Requires:         R-CRAN-bbotk >= 0.7.3
+Requires:         R-CRAN-mlr3 >= 0.17.0
+Requires:         R-CRAN-mlr3misc >= 0.13.0
 Requires:         R-CRAN-paradox >= 0.10.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 

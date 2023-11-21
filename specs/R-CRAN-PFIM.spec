@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PFIM
-%global packver   6.0
+%global packver   6.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0
+Version:          6.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Population Fisher Information Matrix
 
@@ -22,8 +22,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-Deriv 
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-pracma 
@@ -37,8 +37,8 @@ Requires:         R-utils
 Requires:         R-methods 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-Deriv 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-pracma 

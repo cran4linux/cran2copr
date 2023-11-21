@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpostgis
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to a 'PostGIS' Database
 
@@ -17,21 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.6.7
 BuildRequires:    R-CRAN-DBI >= 0.5
 BuildRequires:    R-CRAN-RPostgreSQL 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-raster 
+Requires:         R-CRAN-terra >= 1.6.7
 Requires:         R-CRAN-DBI >= 0.5
 Requires:         R-CRAN-RPostgreSQL 
 Requires:         R-methods 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
-Requires:         R-CRAN-terra 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 

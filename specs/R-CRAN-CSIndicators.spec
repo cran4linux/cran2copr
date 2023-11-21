@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CSIndicators
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Climate Services' Indicators Based on Sub-Seasonal to Decadal Predictions
 
@@ -19,8 +19,20 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-multiApply >= 2.1.1
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ClimProjDiags 
+BuildRequires:    R-CRAN-CSTools 
+BuildRequires:    R-CRAN-SPEI 
+BuildRequires:    R-CRAN-lmom 
+BuildRequires:    R-CRAN-lmomco 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-multiApply >= 2.1.1
 Requires:         R-stats 
+Requires:         R-CRAN-ClimProjDiags 
+Requires:         R-CRAN-CSTools 
+Requires:         R-CRAN-SPEI 
+Requires:         R-CRAN-lmom 
+Requires:         R-CRAN-lmomco 
+Requires:         R-CRAN-zoo 
 
 %description
 Set of generalised tools for the flexible computation of climate related
@@ -29,13 +41,15 @@ mathematical approach which is combined with the possibility to select an
 arbitrary time period to define the indicator. This enables a wide range
 of possibilities to tailor the most suitable indicator for each particular
 climate service application (agriculture, food security, energy, water
-management…). This package is intended for sub-seasonal, seasonal and
+management, ...). This package is intended for sub-seasonal, seasonal and
 decadal climate predictions, but its methods are also applicable to other
 time-scales, provided the dimensional structure of the input is
 maintained. Additionally, the outputs of the functions in this package are
-compatible with 'CSTools'. This package was developed in the context of
-H2020 MED-GOLD (776467) and S2S4E (776787) projects. Lledó et al. (2019)
-<doi:10.1016/j.renene.2019.04.135>.
+compatible with 'CSTools'. This package is described in 'Pérez-Zanón et
+al. (2023) <doi:10.1016/j.cliser.2023.100393>' and it was developed in the
+context of 'H2020 MED-GOLD' (776467) and 'S2S4E' (776787) projects. See
+'Lledó et al. (2019) <doi:10.1016/j.renene.2019.04.135>' and 'Chou et al.,
+2023 <doi:10.1016/j.cliser.2023.100345>' for details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hyd1d
-%global packver   0.5.1
+%global packname  hydflood
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          1d Water Level Interpolation along the Rivers Elbe and Rhine
+Summary:          Flood Extents and Durations along the Rivers Elbe and Rhine
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-hyd1d 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-hyd1d 
+Requires:         R-stats 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-curl 
+Requires:         R-grDevices 
 
 %description
-An S4 class and several functions which utilize internally stored datasets
-and gauging data enable 1d water level interpolation. The S4 class
-(WaterLevelDataFrame) structures the computation and visualisation of 1d
-water level information along the German federal waterways Elbe and Rhine.
-'hyd1d' delivers 1d water level data - extracted from the 'FLYS' database
-- and validated gauging data - extracted from the hydrological database
-'HyDaBa' - package-internally. For computations near real time gauging
-data are queried externally from the 'PEGELONLINE REST API'
-<https://pegelonline.wsv.de/webservice/dokuRestapi>.
+Raster based flood modelling internally using 'hyd1d', an R package to
+interpolate 1d water level and gauging data. The package computes flood
+extent and durations through strategies originally developed for 'INFORM',
+an 'ArcGIS'-based hydro-ecological modelling framework. It does not
+provide a full, physical hydraulic modelling algorithm, but a simplified,
+near real time 'GIS' approach for flood extent and duration modelling.
+Computationally demanding annual flood durations have been computed
+already and data products were published by Weber (2022)
+<doi:10.1594/PANGAEA.948042>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nomnoml
-%global packver   0.2.7
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sassy 'UML' Diagrams
 
@@ -19,19 +19,20 @@ Requires:         R-core >= 3.1.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-webshot 
+BuildRequires:    R-CRAN-webshot2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-webshot 
+Requires:         R-CRAN-webshot2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 
 %description
 A tool for drawing sassy 'UML' (Unified Modeling Language) diagrams based
 on a simple syntax, see <https://www.nomnoml.com>. Supports styling, R
-Markdown and exporting diagrams in the PNG format.
+Markdown and exporting diagrams in the PNG format. Note: you need a
+chromium based browser installed on your system.
 
 %prep
 %setup -q -c -n %{packname}

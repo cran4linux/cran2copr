@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  visR
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Graphs and Tables Adhering to Graphical Principles
 
@@ -22,21 +22,45 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-broom >= 0.7.11
+BuildRequires:    R-CRAN-gt >= 0.3.0
+BuildRequires:    R-CRAN-tidycmprsk >= 0.1.1
 BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-survival >= 3.4.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-broom >= 0.7.11
+Requires:         R-CRAN-gt >= 0.3.0
+Requires:         R-CRAN-tidycmprsk >= 0.1.1
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
 To enable fit-for-purpose, reusable clinical and medical research focused
