@@ -1,46 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsf
-%global packver   0.8.0
+%global packname  mapmisc
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thematic Cartography
+Summary:          Utilities for Producing Maps
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-maplegend 
-BuildRequires:    R-CRAN-s2 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-classInt 
-Requires:         R-graphics 
-Requires:         R-CRAN-maplegend 
-Requires:         R-CRAN-s2 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-geosphere 
+Requires:         R-CRAN-terra 
+Requires:         R-methods 
+Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-geosphere 
 
 %description
-Create and integrate thematic maps in your workflow. This package helps to
-design various cartographic representations such as proportional symbols,
-choropleth or typology maps. It also offers several functions to display
-layout elements that improve the graphic presentation of maps (e.g. scale
-bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base'
-graphics.
+Provides a minimal, light-weight set of tools for producing nice looking
+maps in R, with support for map projections.  See Brown (2016)
+<doi:10.32614/RJ-2016-005>.
 
 %prep
 %setup -q -c -n %{packname}

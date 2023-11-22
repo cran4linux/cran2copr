@@ -1,46 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsf
-%global packver   0.8.0
+%global packname  SpatMCA
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thematic Cartography
+Summary:          Regularized Spatial Maximum Covariance Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-maplegend 
-BuildRequires:    R-CRAN-s2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-classInt 
-Requires:         R-graphics 
-Requires:         R-CRAN-maplegend 
-Requires:         R-CRAN-s2 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 0.11.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-RcppParallel >= 0.11.2
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 
 %description
-Create and integrate thematic maps in your workflow. This package helps to
-design various cartographic representations such as proportional symbols,
-choropleth or typology maps. It also offers several functions to display
-layout elements that improve the graphic presentation of maps (e.g. scale
-bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base'
-graphics.
+Provide regularized maximum covariance analysis incorporating smoothness,
+sparseness and orthogonality of couple patterns by using the alternating
+direction method of multipliers algorithm. The method can be applied to
+either regularly or irregularly spaced data, including 1D, 2D, and 3D
+(Wang and Huang, 2017 <doi:10.1002/env.2481>).
 
 %prep
 %setup -q -c -n %{packname}

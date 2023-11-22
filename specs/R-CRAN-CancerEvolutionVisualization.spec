@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CancerEvolutionVisualization
-%global packver   1.0.1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Publication Quality Phylogenetic Tree Plots
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-BoutrosLab.plotting.general 
 Requires:         R-graphics 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-plyr
 Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-BoutrosLab.plotting.general 
 
 %description
 Generates tree plots with precise branch lengths, gene annotations, and

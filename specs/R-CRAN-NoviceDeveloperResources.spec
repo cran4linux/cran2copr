@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsf
-%global packver   0.8.0
+%global packname  NoviceDeveloperResources
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thematic Cartography
+Summary:          Resources to Assist Novice Developers
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-maplegend 
-BuildRequires:    R-CRAN-s2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-classInt 
-Requires:         R-graphics 
-Requires:         R-CRAN-maplegend 
-Requires:         R-CRAN-s2 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-devtools 
 Requires:         R-utils 
-Requires:         R-grDevices 
+Requires:         R-CRAN-devtools 
 
 %description
-Create and integrate thematic maps in your workflow. This package helps to
-design various cartographic representations such as proportional symbols,
-choropleth or typology maps. It also offers several functions to display
-layout elements that improve the graphic presentation of maps (e.g. scale
-bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base'
-graphics.
+Assist novice developers when preparing a single package or a set of
+integrated packages to submit to CRAN. Automate the following individual
+or batch processing: check local source packages; build local .tar.gz
+source files; install packages from local .tar.gz files; detect conflicts
+between function names in the environment.
 
 %prep
 %setup -q -c -n %{packname}

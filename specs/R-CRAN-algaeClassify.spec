@@ -1,25 +1,36 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  algaeClassify
-%global packver   1.3.2
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Determine Phytoplankton Functional Groups Based on Functional Traits
 
-License:          GPL-2 | GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-taxize 
+BuildRequires:    R-CRAN-ritis 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-lubridate 
 Requires:         R-stats 
+Requires:         R-CRAN-taxize 
+Requires:         R-CRAN-ritis 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
 
 %description
 Functions that facilitate the use of accepted taxonomic nomenclature,
@@ -29,26 +40,32 @@ Morpho-functional group (MFG; Salmaso et al. 2015 <doi:10.1111/fwb.12520>)
 and CSR (Reynolds 1988; Functional morphology and the adaptive strategies
 of phytoplankton. In C.D. Sandgren (ed). Growth and reproductive
 strategies of freshwater phytoplankton, 388-433. Cambridge University
-Press, New York). Versions 1.3.0 and later no longer include the
-algae_search() function for querying the algaebase online taxonomic
-database (www.algaebase.org). Users are advised to verify taxonomic names
-directly using algaebase and cite the database in resulting publications.
-Note that none of the algaeClassify authors are affiliated with algaebase
-in any way. The algaeClassify package is a product of the GEISHA (Global
-Evaluation of the Impacts of Storms on freshwater Habitat and Structure of
-phytoplankton Assemblages), funded by CESAB (Centre for Synthesis and
-Analysis of Biodiversity) and the USGS John Wesley Powell Center for
-Synthesis and Analysis, with data and other support provided by members of
-GLEON (Global Lake Ecology Observation Network). This software is
-preliminary or provisional and is subject to revision. It is being
-provided to meet the need for timely best science. The software has not
-received final approval by the U.S. Geological Survey (USGS). No warranty,
-expressed or implied, is made by the USGS or the U.S. Government as to the
+Press, New York). Versions 2.0.0 and later includes new functions for
+querying the algaebase online taxonomic database (www.algaebase.org),
+however these functions require a valid API key that must be acquired from
+the algaebase admin. Note that none of the algaeClassify authors are
+affiliated with algaebase in any way. Taxonomic names can also be checked
+against a variety of taxonomic databases using the geographic name
+resolution service (GNRS) via wrapper functions for the taxize package,
+with convenient output format and unlikely names for phytoplankton taxa
+removed. In addition, currently accepted and outdated synonyms, and higher
+taxonomy, can be extracted for lists of species from the ITIS database
+using wrapper functions for the ritis package. The algaeClassify package
+is a product of the GEISHA (Global Evaluation of the Impacts of Storms on
+freshwater Habitat and Structure of phytoplankton Assemblages), funded by
+CESAB (Centre for Synthesis and Analysis of Biodiversity) and the USGS
+John Wesley Powell Center for Synthesis and Analysis, with data and other
+support provided by members of GLEON (Global Lake Ecology Observation
+Network). DISCLAIMER: This software has been approved for release by the
+U.S. Geological Survey (USGS). Although the software has been subjected to
+rigorous review, the USGS reserves the right to update the software as
+needed pursuant to further analysis and review. No warranty, expressed or
+implied, is made by the USGS or the U.S. Government as to the
 functionality of the software and related material nor shall the fact of
-release constitute any such warranty. The software is provided on the
-condition that neither the USGS nor the U.S. Government shall be held
-liable for any damages resulting from the authorized or unauthorized use
-of the software.
+release constitute any such warranty. Furthermore, the software is
+released on condition that neither the USGS nor the U.S. Government shall
+be held liable for any damages resulting from its authorized or
+unauthorized use.
 
 %prep
 %setup -q -c -n %{packname}

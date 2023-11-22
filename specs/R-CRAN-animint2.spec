@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  animint2
-%global packver   2023.6.11
+%global packver   2023.11.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.6.11
+Version:          2023.11.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Animated Interactive Grammar of Graphics
 

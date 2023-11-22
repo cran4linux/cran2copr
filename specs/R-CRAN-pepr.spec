@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsf
-%global packver   0.8.0
+%global packname  pepr
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thematic Cartography
+Summary:          Reading Portable Encapsulated Projects
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-maplegend 
-BuildRequires:    R-CRAN-s2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-classInt 
-Requires:         R-graphics 
-Requires:         R-CRAN-maplegend 
-Requires:         R-CRAN-s2 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RCurl 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-CRAN-RCurl 
 
 %description
-Create and integrate thematic maps in your workflow. This package helps to
-design various cartographic representations such as proportional symbols,
-choropleth or typology maps. It also offers several functions to display
-layout elements that improve the graphic presentation of maps (e.g. scale
-bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base'
-graphics.
+A PEP, or Portable Encapsulated Project, is a dataset that subscribes to
+the PEP structure for organizing metadata. It is written using a simple
+YAML + CSV format, it is your one-stop solution to metadata management
+across data analysis environments. This package reads this standardized
+project configuration structure into R. Described in Sheffield et al.
+(2021) <doi:10.1093/gigascience/giab077>.
 
 %prep
 %setup -q -c -n %{packname}

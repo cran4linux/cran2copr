@@ -1,58 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  funspotr
-%global packver   0.0.4
+%global packname  SharkDemography
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spot R Functions & Packages
+Summary:          Shark Demographic Analyses Using Leslie Matrix Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-import >= 1.3.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-formatR 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-import >= 1.3.0
-Requires:         R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-popbio 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-interp 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-callr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-formatR 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-popbio 
+Requires:         R-CRAN-iterators 
+Requires:         R-parallel 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-magrittr 
 
 %description
-Helpers for parsing out the R functions and packages used in R scripts and
-notebooks.
+Run Leslie Matrix models using Monte Carlo simulations for any specified
+shark species. This package was developed during the publication of Smart,
+JJ, White, WT, Baje, L, et al. (2020) "Can multi-species shark longline
+fisheries be managed sustainably using size limits? Theoretically, yes.
+Realistically, no".J Appl Ecol. 2020; 57; 1847–1860.
+<doi:10.1111/1365-2664.13659>.
 
 %prep
 %setup -q -c -n %{packname}

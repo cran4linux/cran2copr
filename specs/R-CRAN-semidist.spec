@@ -1,46 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsf
-%global packver   0.8.0
+%global packname  semidist
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thematic Cartography
+Summary:          Measure Dependence Between Categorical and Continuous Variables
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-maplegend 
-BuildRequires:    R-CRAN-s2 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-energy 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-classInt 
-Requires:         R-graphics 
-Requires:         R-CRAN-maplegend 
-Requires:         R-CRAN-s2 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-energy 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
 
 %description
-Create and integrate thematic maps in your workflow. This package helps to
-design various cartographic representations such as proportional symbols,
-choropleth or typology maps. It also offers several functions to display
-layout elements that improve the graphic presentation of maps (e.g. scale
-bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base'
-graphics.
+Semi-distance and mean-variance (MV) index are proposed to measure the
+dependence between a categorical random variable and a continuous
+variable. Test of independence and feature screening for classification
+problems can be implemented via the two dependence measures. For the
+details of the methods, see Zhong et al. (2023)
+<doi:10.1080/01621459.2023.2284988>; Cui and Zhong (2019)
+<doi:10.1016/j.csda.2019.05.004>; Cui, Li and Zhong (2015)
+<doi:10.1080/01621459.2014.920256>.
 
 %prep
 %setup -q -c -n %{packname}

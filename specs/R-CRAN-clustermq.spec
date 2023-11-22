@@ -1,46 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsf
-%global packver   0.8.0
+%global packname  clustermq
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thematic Cartography
+Summary:          Evaluate Function Calls on HPC Schedulers (LSF, SGE, SLURM, PBS/Torque)
 
-License:          GPL-3
+License:          Apache License (== 2.0) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-maplegend 
-BuildRequires:    R-CRAN-s2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
+BuildRequires:    zeromq-devel
+BuildRequires:    R-devel >= 3.6.2
+Requires:         R-core >= 3.6.2
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-narray 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-classInt 
-Requires:         R-graphics 
-Requires:         R-CRAN-maplegend 
-Requires:         R-CRAN-s2 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-narray 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-utils 
-Requires:         R-grDevices 
 
 %description
-Create and integrate thematic maps in your workflow. This package helps to
-design various cartographic representations such as proportional symbols,
-choropleth or typology maps. It also offers several functions to display
-layout elements that improve the graphic presentation of maps (e.g. scale
-bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base'
-graphics.
+Evaluate arbitrary function calls using workers on HPC schedulers in
+single line of code. All processing is done on the network without
+accessing the file system. Remote schedulers are supported via SSH.
 
 %prep
 %setup -q -c -n %{packname}

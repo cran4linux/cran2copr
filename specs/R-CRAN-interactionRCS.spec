@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  interactionRCS
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Estimates in Models with Interaction
 
@@ -17,31 +18,25 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-pspline 
 BuildRequires:    R-CRAN-pryr 
-BuildRequires:    R-CRAN-mlbench 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-parallel 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-rms 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-pspline 
 Requires:         R-CRAN-pryr 
-Requires:         R-CRAN-mlbench 
+Requires:         R-CRAN-stringr 
 
 %description
 A tool to calculate and plot estimates from models in which an interaction

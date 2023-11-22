@@ -1,46 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsf
-%global packver   0.8.0
+%global packname  bivariatemaps
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thematic Cartography
+Summary:          Creates Bivariate Maps
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-base 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-maplegend 
-BuildRequires:    R-CRAN-s2 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
 Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-terra 
+Requires:         R-base 
 Requires:         R-graphics 
-Requires:         R-CRAN-maplegend 
-Requires:         R-CRAN-s2 
-Requires:         R-CRAN-sf 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
 
 %description
-Create and integrate thematic maps in your workflow. This package helps to
-design various cartographic representations such as proportional symbols,
-choropleth or typology maps. It also offers several functions to display
-layout elements that improve the graphic presentation of maps (e.g. scale
-bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base'
-graphics.
+Contains functions to plot bivariate maps and to generate grids from
+shapefiles based on area coverage. For more info, see: Hidasi-Neto, J
+(2015)
+<https://rfunctions.blogspot.com/2015/03/bivariate-maps-bivariatemap-function.html>,
+Hidasi-Neto, J (2014)
+<https://rfunctions.blogspot.com/2014/12/gridfilter-intersect-grid-with-shape.html>.
 
 %prep
 %setup -q -c -n %{packname}

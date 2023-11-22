@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nrba
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Conducting Nonresponse Bias Analysis (NRBA)
 
@@ -21,14 +21,20 @@ BuildRequires:    R-CRAN-survey >= 4.1.1
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-srvyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-svrep 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-survey >= 4.1.1
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-srvyr 
 Requires:         R-stats 
 Requires:         R-CRAN-svrep 
+Requires:         R-CRAN-tidyr 
 
 %description
 Facilitates nonresponse bias analysis (NRBA) for survey data.  Such data

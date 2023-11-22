@@ -1,46 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsf
-%global packver   0.8.0
+%global packname  gpkg
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thematic Cartography
+Summary:          Utilities for the Open Geospatial Consortium 'GeoPackage' Format
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-maplegend 
-BuildRequires:    R-CRAN-s2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-classInt 
-Requires:         R-graphics 
-Requires:         R-CRAN-maplegend 
-Requires:         R-CRAN-s2 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-DBI 
 Requires:         R-utils 
-Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-CRAN-DBI 
 
 %description
-Create and integrate thematic maps in your workflow. This package helps to
-design various cartographic representations such as proportional symbols,
-choropleth or typology maps. It also offers several functions to display
-layout elements that improve the graphic presentation of maps (e.g. scale
-bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base'
-graphics.
+Build Open Geospatial Consortium 'GeoPackage' files
+(<https://www.geopackage.org/>). 'GDAL' utilities for reading and writing
+spatial data are provided by the 'terra' package. Additional 'GeoPackage'
+and 'SQLite' features for attributes and tabular data are implemented with
+the 'RSQLite' package.
 
 %prep
 %setup -q -c -n %{packname}

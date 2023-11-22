@@ -1,46 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsf
-%global packver   0.8.0
+%global packname  PNDSIBGE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thematic Cartography
+Summary:          Downloading, Reading and Analyzing PNDS Microdata - Package in Development
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-maplegend 
-BuildRequires:    R-CRAN-s2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-projmgr 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-classInt 
-Requires:         R-graphics 
-Requires:         R-CRAN-maplegend 
-Requires:         R-CRAN-s2 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-projmgr 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-timeDate 
 Requires:         R-utils 
-Requires:         R-grDevices 
 
 %description
-Create and integrate thematic maps in your workflow. This package helps to
-design various cartographic representations such as proportional symbols,
-choropleth or typology maps. It also offers several functions to display
-layout elements that improve the graphic presentation of maps (e.g. scale
-bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base'
-graphics.
+Provides tools for downloading, reading and analyzing the PNDS, a
+household survey from Brazilian Institute of Geography and Statistics -
+IBGE. The data must be downloaded from the official website
+<https://www.ibge.gov.br/>. Further analysis must be made using package
+'survey'.
 
 %prep
 %setup -q -c -n %{packname}

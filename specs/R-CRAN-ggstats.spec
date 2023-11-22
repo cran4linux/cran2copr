@@ -1,46 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsf
-%global packver   0.8.0
+%global packname  ggstats
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thematic Cartography
+Summary:          Extension to 'ggplot2' for Plotting Stats
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-maplegend 
-BuildRequires:    R-CRAN-s2 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-broom.helpers >= 1.14.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-classInt 
-Requires:         R-graphics 
-Requires:         R-CRAN-maplegend 
-Requires:         R-CRAN-s2 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-broom.helpers >= 1.14.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Create and integrate thematic maps in your workflow. This package helps to
-design various cartographic representations such as proportional symbols,
-choropleth or typology maps. It also offers several functions to display
-layout elements that improve the graphic presentation of maps (e.g. scale
-bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base'
-graphics.
+Provides new statistics, new geometries and new positions for 'ggplot2'
+and a suite of functions to facilitate the creation of statistical plots.
 
 %prep
 %setup -q -c -n %{packname}
