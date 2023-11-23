@@ -1,42 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  growR
-%global packver   1.1.0
+%global packname  fr
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of the Vegetation Model ModVege
+Summary:          Frictionless Standards
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-S7 >= 0.1.1
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-vroom 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-S7 >= 0.1.1
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-vroom 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
 
 %description
-Run grass growth simulations using a grass growth model based on ModVege
-(Jouven, M., P. Carrère, and R. Baumont "Model Predicting Dynamics of
-Biomass, Structure and Digestibility of Herbage in Managed Permanent
-Pastures. 1. Model Description." (2006)
-<doi:10.1111/j.1365-2494.2006.00515.x>). The implementation in this
-package contains a few additions to the above cited version of ModVege,
-such as simulations of management decisions, and influences of snow cover.
-As such, the model is fit to simulate grass growth in mountainous regions,
-such as the Swiss Alps. The package also contains routines for calibrating
-the model and helpful tools for analysing model outputs and performance.
+A "tabular-data-resource"
+(<https://specs.frictionlessdata.io/tabular-data-resource/>) is a simple
+format to describe a singular tabular data resource such as a CSV file. It
+includes support both for metadata such as author and title and a schema
+to describe the data, for example the types of the fields/columns in the
+data. Create a tabular-data-resource by providing a data.frame and
+specifying metadata. Write and read tabular-data-resources to and from
+disk.
 
 %prep
 %setup -q -c -n %{packname}

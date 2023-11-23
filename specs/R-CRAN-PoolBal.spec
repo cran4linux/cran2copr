@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  growR
-%global packver   1.1.0
+%global packname  PoolBal
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of the Vegetation Model ModVege
+Summary:          Balancing Central and Marginal Rejection of Pooled p-Values
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Run grass growth simulations using a grass growth model based on ModVege
-(Jouven, M., P. Carrère, and R. Baumont "Model Predicting Dynamics of
-Biomass, Structure and Digestibility of Herbage in Managed Permanent
-Pastures. 1. Model Description." (2006)
-<doi:10.1111/j.1365-2494.2006.00515.x>). The implementation in this
-package contains a few additions to the above cited version of ModVege,
-such as simulations of management decisions, and influences of snow cover.
-As such, the model is fit to simulate grass growth in mountainous regions,
-such as the Swiss Alps. The package also contains routines for calibrating
-the model and helpful tools for analysing model outputs and performance.
+When using pooled p-values to adjust for multiple testing, there is an
+inherent balance that must be struck between rejection based on weak
+evidence spread among many tests and strong evidence in a few, explored in
+Salahub and Olford (2023) <arXiv:2310.16600>. This package provides
+functionality to compute marginal and central rejection levels and the
+centrality quotient for p-value pooling functions and provides
+implementations of the chi-squared quantile pooled p-value (described in
+Salahub and Oldford (2023)) and a proposal from Heard and Rubin-Delanchy
+(2018) <doi:10.1093/biomet/asx076> to control the quotient's value.
 
 %prep
 %setup -q -c -n %{packname}

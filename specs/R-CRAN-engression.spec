@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  engression
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Engression Modelling
 
@@ -27,7 +27,8 @@ estimation of conditional mean, estimation of conditional quantiles, or
 sampling from the fitted distribution. Training is done full-batch on CPU
 (the python version offers GPU-accelerated stochastic gradient descent).
 Based on "Engression: Extrapolation for nonlinear regression?" by Xinwei
-Shen and Nicolai Meinshausen (2023) <arxiv:2307.00835>.
+Shen and Nicolai Meinshausen (2023). Also supports classification
+(experimental). <arxiv:2307.00835>.
 
 %prep
 %setup -q -c -n %{packname}

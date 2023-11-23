@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simstudy
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Study Data
 
@@ -23,12 +23,14 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-fastglm 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-backports 
+Requires:         R-CRAN-fastglm 
 
 %description
 Simulates data sets in order to explore modeling techniques or better

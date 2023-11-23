@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  conTree
-%global packver   0.3-1
+%global packname  rexpokit
+%global packver   0.26.6.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.26.6.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Contrast Trees and Boosting
+Summary:          R Wrappers for EXPOKIT; Other Matrix Functions
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-stats 
-Requires:         R-graphics 
 
 %description
-Contrast trees represent a new approach for assessing the accuracy of many
-types of machine learning estimates that are not amenable to standard
-(cross) validation methods; see "Contrast trees and distribution
-boosting", Jerome H. Friedman (2020) <doi:10.1073/pnas.1921562117>. In
-situations where inaccuracies are detected, boosted contrast trees can
-often improve performance. Functions are provided to to build such trees
-in addition to a special case, distribution boosting, an assumption free
-method for estimating the full probability distribution of an outcome
-variable given any set of joint input predictor variable values.
+Wraps some of the matrix exponentiation utilities from EXPOKIT
+(<http://www.maths.uq.edu.au/expokit/>), a FORTRAN library that is widely
+recommended for matrix exponentiation (Sidje RB, 1998. "Expokit: A
+Software Package for Computing Matrix Exponentials." ACM Trans. Math.
+Softw. 24(1): 130-156).  EXPOKIT includes functions for exponentiating
+both small, dense matrices, and large, sparse matrices (in sparse
+matrices, most of the cells have value 0). Rapid matrix exponentiation is
+useful in phylogenetics when we have a large number of states (as we do
+when we are inferring the history of transitions between the possible
+geographic ranges of a species), but is probably useful in other ways as
+well. NOTE: In case FORTRAN checks temporarily get rexpokit archived on
+CRAN, see archived binaries at GitHub in: nmatzke/Matzke_R_binaries
+(binaries install without compilation of source code).
 
 %prep
 %setup -q -c -n %{packname}

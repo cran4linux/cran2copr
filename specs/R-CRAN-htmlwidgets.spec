@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  htmlwidgets
-%global packver   1.6.2
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          HTML Widgets for R
 
@@ -19,16 +19,16 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-knitr >= 1.8
 BuildRequires:    R-CRAN-jsonlite >= 0.9.16
-BuildRequires:    R-CRAN-htmltools >= 0.5.4
+BuildRequires:    R-CRAN-htmltools >= 0.5.7
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-knitr >= 1.8
 Requires:         R-CRAN-jsonlite >= 0.9.16
-Requires:         R-CRAN-htmltools >= 0.5.4
+Requires:         R-CRAN-htmltools >= 0.5.7
 Requires:         R-grDevices 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-yaml 
 
 %description
 A framework for creating HTML widgets that render in various contexts

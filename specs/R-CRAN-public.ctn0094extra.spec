@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  growR
-%global packver   1.1.0
+%global packname  public.ctn0094extra
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of the Vegetation Model ModVege
+Summary:          Helper Files for the CTN-0094 Relational Database
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-public.ctn0094data 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-public.ctn0094data 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
 
 %description
-Run grass growth simulations using a grass growth model based on ModVege
-(Jouven, M., P. Carrère, and R. Baumont "Model Predicting Dynamics of
-Biomass, Structure and Digestibility of Herbage in Managed Permanent
-Pastures. 1. Model Description." (2006)
-<doi:10.1111/j.1365-2494.2006.00515.x>). The implementation in this
-package contains a few additions to the above cited version of ModVege,
-such as simulations of management decisions, and influences of snow cover.
-As such, the model is fit to simulate grass growth in mountainous regions,
-such as the Swiss Alps. The package also contains routines for calibrating
-the model and helpful tools for analysing model outputs and performance.
+Engineered features and "helper" functions ancillary to the
+'public.ctn0094data' package, extending this package for ease of use (see
+<https://CRAN.R-project.org/package=public.ctn0094data>). This
+'public.ctn0094data' package contains harmonized datasets from some of the
+National Institute of Drug Abuse's Clinical Trials Network (NIDA's CTN)
+projects. Specifically, the CTN-0094 project is to harmonize and
+de-identify clinical trials data from the CTN-0027, CTN-0030, and CTN-51
+studies for opioid use disorder. This current version is built from
+'public.ctn0094data' v. 1.0.6.
 
 %prep
 %setup -q -c -n %{packname}

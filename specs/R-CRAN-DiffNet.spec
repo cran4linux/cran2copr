@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geostatsp
-%global packver   2.0.1
+%global packname  DiffNet
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geostatistical Modelling with Likelihood and Bayes
+Summary:          Identifying Significant Node Scores using Network Diffusion Algorithm
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
 
 %description
-Geostatistical modelling facilities using 'SpatRaster' and 'SpatVector'
-objects are provided. Non-Gaussian models are fit using 'INLA', and
-Gaussian geostatistical models use Maximum Likelihood Estimation.  For
-details see Brown (2015) <doi:10.18637/jss.v063.i12>. The 'RandomFields'
-package is available at
-<https://www.wim.uni-mannheim.de/schlather/publications/software>.
+Designed for network analysis, leveraging the personalized PageRank
+algorithm to calculate node scores in a given graph. This innovative
+approach allows users to uncover the importance of nodes based on a
+customized perspective, making it particularly useful in fields like
+bioinformatics, social network analysis, and more.
 
 %prep
 %setup -q -c -n %{packname}

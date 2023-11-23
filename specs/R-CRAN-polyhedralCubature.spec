@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polyhedralCubature
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Integration over Convex Polyhedra
 
@@ -18,12 +18,18 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ompr 
 BuildRequires:    R-CRAN-qspray 
 BuildRequires:    R-CRAN-rcdd 
 BuildRequires:    R-CRAN-SimplicialCubature 
 BuildRequires:    R-CRAN-spray 
 BuildRequires:    R-CRAN-tessellation 
 Requires:         R-CRAN-gmp 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ompr 
 Requires:         R-CRAN-qspray 
 Requires:         R-CRAN-rcdd 
 Requires:         R-CRAN-SimplicialCubature 

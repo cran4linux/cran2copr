@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GGally
-%global packver   2.1.2
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'ggplot2'
 
@@ -13,40 +14,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    openssl-devel
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
 BuildRequires:    R-CRAN-plyr >= 1.8.3
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-reshape >= 0.8.5
 BuildRequires:    R-CRAN-gtable >= 0.2.0
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggstats 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.4
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 >= 3.4.4
 Requires:         R-CRAN-plyr >= 1.8.3
+Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-reshape >= 0.8.5
 Requires:         R-CRAN-gtable >= 0.2.0
-Requires:         R-CRAN-forcats 
 Requires:         R-grDevices 
 Requires:         R-grid 
+Requires:         R-CRAN-ggstats 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
 
 %description
 The R package 'ggplot2' is a plotting system based on the grammar of
@@ -64,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
