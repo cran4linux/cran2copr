@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crosstalk
-%global packver   1.2.1
+%global packname  scrapeR
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inter-Widget Interactivity for HTML Widgets
+Summary:          These Functions Fetch and Extract Text Content from Specified Web Pages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools >= 0.3.6
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-htmltools >= 0.3.6
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rvest 
+Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
 
 %description
-Provides building blocks for allowing HTML widgets to communicate with
-each other, with Shiny or without (i.e. static .html files). Currently
-supports linked brushing and filtering.
+The 'scrapeR' package utilizes functions that fetch and extract text
+content from specified web pages. It handles HTTP errors and parses HTML
+efficiently. The package can handle hundreds of websites at a time using
+the scrapeR_in_batches() command.
 
 %prep
 %setup -q -c -n %{packname}

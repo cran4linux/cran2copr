@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rosv
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client to Access and Operate on the 'Open Source Vulnerability' API
 
@@ -17,18 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-R6 >= 2.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite >= 0.9.16
+BuildRequires:    R-CRAN-digest >= 0.6.0
+BuildRequires:    R-CRAN-furrr >= 0.3.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-memoise >= 2.0.0
+Requires:         R-CRAN-R6 >= 2.0.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-jsonlite >= 0.9.16
+Requires:         R-CRAN-digest >= 0.6.0
+Requires:         R-CRAN-furrr >= 0.3.0
+Requires:         R-utils 
 
 %description
 Connect, query, and operate on information available from the 'Open Source

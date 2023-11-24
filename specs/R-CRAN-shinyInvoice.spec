@@ -1,53 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ino
-%global packver   1.0.2
+%global packname  shinyInvoice
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Initialization of Numerical Optimization
+Summary:          Shiny App - Generate a Pdf Invoice with 'Rmarkdown'
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimizeR >= 0.3.3
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-quantmod 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-optimizeR >= 0.3.3
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-quantmod 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-shiny 
 
 %description
-Analysis of the initialization for numerical optimization of real-valued
-functions, including likelihood functions of statistical models. See
-<https://loelschlaeger.de/ino/> for more details.
+Generate an invoice containing a header with invoice number and businesses
+details. The invoice table contains any of: salary, one-liner costs,
+grouped costs. Under the table signature and bank account details appear.
+Pages are numbered when more than one. Source .json and .Rmd files are
+editable in the app. This package includes functions for getting exchange
+rates between currencies based on 'quantmod' (Ryan and Ulrich, 2023
+<https://CRAN.R-project.org/package=quantmod>).
 
 %prep
 %setup -q -c -n %{packname}

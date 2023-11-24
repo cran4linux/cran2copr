@@ -1,35 +1,25 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crosstalk
-%global packver   1.2.1
+%global packname  clusterCrit
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inter-Widget Interactivity for HTML Widgets
+Summary:          Clustering Indices
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools >= 0.3.6
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-htmltools >= 0.3.6
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-R6 
 
 %description
-Provides building blocks for allowing HTML widgets to communicate with
-each other, with Shiny or without (i.e. static .html files). Currently
-supports linked brushing and filtering.
+Package providing functions for computing a collection of clustering
+validation or quality criteria and partition comparison indices.
 
 %prep
 %setup -q -c -n %{packname}

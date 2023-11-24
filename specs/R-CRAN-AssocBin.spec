@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PracTools
-%global packver   1.4.1
+%global packname  AssocBin
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Designing and Weighting Survey Samples
+Summary:          Measuring Association with Recursive Binning
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-usmap 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-usmap 
 
 %description
-Functions and datasets to support Valliant, Dever, and Kreuter, Practical
-Tools for Designing and Weighting Survey Samples (2nd edition, 2018).
-Contains functions for sample size calculation for survey samples using
-stratified or clustered one-, two-, and three-stage sample designs, and
-single-stage audit sample designs. Functions are included that will group
-geographic units accounting for distances apart and measures of size.
-Other functions compute variance components for multistage designs and
-sample sizes in two-phase designs. A number of example data sets are
-included.
+An iterative implementation of a recursive binary partitioning algorithm
+to measure pairwise dependence with a modular design that allows user
+specification of the splitting logic and stop criteria. Helper functions
+provide suggested versions of both and support visualization and the
+computation of summary statistics on final binnings. For a complete
+description of the functionality and algorithm, see Salahub and Oldford
+(2023) <arxiv:2311.08561>.
 
 %prep
 %setup -q -c -n %{packname}

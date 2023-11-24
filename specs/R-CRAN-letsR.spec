@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crosstalk
-%global packver   1.2.1
+%global packname  letsR
+%global packver   5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inter-Widget Interactivity for HTML Widgets
+Summary:          Data Handling and Analysis in Macroecology
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools >= 0.3.6
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-htmltools >= 0.3.6
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-sf 
 
 %description
-Provides building blocks for allowing HTML widgets to communicate with
-each other, with Shiny or without (i.e. static .html files). Currently
-supports linked brushing and filtering.
+Handling, processing, and analyzing geographic data on species'
+distributions and environmental variables. Read Vilela & Villalobos (2015)
+<doi:10.1111/2041-210X.12401> for details.
 
 %prep
 %setup -q -c -n %{packname}

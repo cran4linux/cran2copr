@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  imf.data
-%global packver   0.1.2
+%global packname  PubChemR
+%global packver   0.99-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.99.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to IMF (International Monetary Fund) Data JSON API
+Summary:          Interface to the 'PubChem' Database for Chemical Data Retrieval
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-RJSONIO 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-RJSONIO 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
 
 %description
-A straightforward interface for accessing the IMF (International Monetary
-Fund) data JSON API, available at <https://data.imf.org/>. This package
-offers direct access to the primary API endpoints: Dataflow,
-DataStructure, and CompactData. And, it provides an intuitive interface
-for exploring available dimensions and attributes, as well as querying
-individual time-series datasets. Additionally, the package implements a
-rate limit on API calls to reduce the chances of exceeding service limits
-(limited to 10 calls every 5 seconds) and encountering response errors.
+Provides an R interface to the 'PubChem' database, which is a repository
+for chemical information and a resource for finding chemical and
+biological data. The package simplifies the process of retrieving and
+handling chemical compound information from 'PubChem'. Users can search
+for compounds, retrieve standard chemical information, download data in
+various formats, and query the database using the 'PubChem' Power User
+Gateway (PUG) 'RESTful' API
+<https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest>. The package aims to
+facilitate the integration of chemical data in bioinformatics and
+cheminformatics workflows.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiATSM
-%global packver   0.3.5
+%global packname  RTSA
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multicountry Term Structure of Interest Rates Models
+Summary:          'Trial Sequential Analysis' for Error Control and Inference in Sequential Meta-Analyses
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-wrapr 
-BuildRequires:    R-CRAN-hablar 
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-wrapr 
-Requires:         R-CRAN-hablar 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-stats 
+Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 
 %description
-Estimation routines for several classes of affine term structure of
-interest rates models. All the models are based on the single-country
-unspanned macroeconomic risk framework from Joslin, Priebsch, and
-Singleton (2014) <doi:10.1111/jofi.12131>. Multicountry extensions such as
-the ones of Jotikasthira, Le, and Lundblad (2015)
-<doi:10.1016/j.jfineco.2014.09.004>, Candelon and Moura (2021)
-<http://hdl.handle.net/2078.1/249985>, and Candelon and Moura (2023)
-<doi:10.1016/j.econmod.2023.106453> are also available.
+Frequentist sequential meta-analysis based on 'Trial Sequential Analysis'
+(TSA) in programmed in Java by the Copenhagen Trial Unit (CTU). The
+primary function is the calculation of group sequential designs for
+meta-analysis to be used for planning and analysis of both prospective and
+retrospective sequential meta-analyses to preserve type-I-error control
+under sequential testing. 'RTSA' includes tools for sample size and trial
+size calculation for meta-analysis and core meta-analyses methods such as
+fixed-effect and random-effects models and forest plots. TSA is described
+in Wetterslev et. al (2008) <doi:10.1016/j.jclinepi.2007.03.013>. The
+methods for deriving the group sequential designs are based on Jennison
+and Turnbull (1999, ISBN:9780849303166).
 
 %prep
 %setup -q -c -n %{packname}

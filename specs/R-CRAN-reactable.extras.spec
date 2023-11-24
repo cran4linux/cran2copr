@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crosstalk
-%global packver   1.2.1
+%global packname  reactable.extras
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inter-Widget Interactivity for HTML Widgets
+Summary:          Extra Features for 'reactable' Package
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools >= 0.3.6
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-htmltools >= 0.3.6
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-reactable >= 0.4.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-reactable >= 0.4.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
 
 %description
-Provides building blocks for allowing HTML widgets to communicate with
-each other, with Shiny or without (i.e. static .html files). Currently
-supports linked brushing and filtering.
+Enhanced functionality for 'reactable' in 'shiny' applications, offering
+interactive and dynamic data table capabilities with ease. With
+'reactable.extras', easily integrate a range of functions and components
+to enrich your 'shiny' apps and facilitate user-friendly data exploration.
 
 %prep
 %setup -q -c -n %{packname}
