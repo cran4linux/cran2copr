@@ -1,35 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGMridge
-%global packver   1.4
+%global packname  treats
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Graphical Models Using Ridge Penalty Followed by Thresholding and Reestimation
+Summary:          Trees and Traits Simulations
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-dispRity 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rgl 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-dispRity 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-rgl 
 
 %description
-Estimation of partial correlation matrix using ridge penalty followed by
-thresholding and reestimation. Under multivariate Gaussian assumption, the
-matrix constitutes an Gaussian graphical model (GGM).
+A modular package for simulating phylogenetic trees and species traits
+jointly. Trees can be simulated using modular birth-death parameters (e.g.
+changing starting parameters or algorithm rules). Traits can be simulated
+in any way designed by the user. The growth of the tree and the traits can
+influence each other through modifiers objects providing rules for
+affecting each other. Finally, events can be created to modify both the
+tree and the traits under specific conditions.
 
 %prep
 %setup -q -c -n %{packname}

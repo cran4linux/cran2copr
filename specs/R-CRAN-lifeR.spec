@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lifeR
-%global packver   0.9.7
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Sites for Your Bird List
 
@@ -18,23 +18,27 @@ BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 4.3
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
-BuildRequires:    R-CRAN-ggmap >= 3.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
 BuildRequires:    R-CRAN-rmarkdown >= 2.7
+BuildRequires:    R-CRAN-terra >= 1.7.55
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
 BuildRequires:    R-CRAN-readr >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-knitr >= 1.31
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-maptiles >= 0.6.1
+BuildRequires:    R-CRAN-tidyterra >= 0.5.0
 Requires:         R-CRAN-curl >= 4.3
-Requires:         R-CRAN-ggplot2 >= 3.3.3
-Requires:         R-CRAN-ggmap >= 3.0.0
+Requires:         R-CRAN-ggplot2 >= 3.4.4
 Requires:         R-CRAN-rmarkdown >= 2.7
+Requires:         R-CRAN-terra >= 1.7.55
 Requires:         R-CRAN-jsonlite >= 1.7.0
 Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-knitr >= 1.31
 Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-maptiles >= 0.6.1
+Requires:         R-CRAN-tidyterra >= 0.5.0
 
 %description
 A suite of tools to use the 'eBird' database (<https://ebird.org/home/>)

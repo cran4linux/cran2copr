@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlmm
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Laplace Mixed-Effects Models
 
@@ -18,28 +18,30 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-lqmm 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Qtools 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-nlme 
-Requires:         R-utils 
+Requires:         R-CRAN-gsl 
 Requires:         R-CRAN-lqmm 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-statmod 
 Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Qtools 
+Requires:         R-utils 
 
 %description
 Provides functions to fit linear mixed models based on convolutions of the

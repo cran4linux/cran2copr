@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adea
-%global packver   1.4.5
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternate DEA Package
 
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-combinat
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lpSolveAPI 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-ROI 
 BuildRequires:    R-CRAN-slam 
 Requires:         R-methods 
@@ -37,6 +39,8 @@ Requires:         R-CRAN-combinat
 Requires:         R-graphics 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lpSolveAPI 
+Requires:         R-parallel 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-ROI 
 Requires:         R-CRAN-slam 
 

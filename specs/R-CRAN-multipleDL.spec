@@ -1,47 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  factorstochvol
-%global packver   1.1.0
+%global packname  multipleDL
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation of (Sparse) Latent Factor Stochastic Volatility Models
+Summary:          Addressing Detection Limits by Cumulative Probability Models (CPMs)
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-stochvol >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.900
-BuildRequires:    R-CRAN-GIGrvg >= 0.4
-BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstantools >= 2.1.1
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-stochvol >= 3.0.2
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-GIGrvg >= 0.4
-Requires:         R-CRAN-corrplot 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstantools >= 2.1.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-SparseM 
+Requires:         R-CRAN-rstantools
 
 %description
-Markov chain Monte Carlo (MCMC) sampler for fully Bayesian estimation of
-latent factor stochastic volatility models with interweaving
-<doi:10.1080/10618600.2017.1322091>. Sparsity can be achieved through the
-usage of Normal-Gamma priors on the factor loading matrix
-<doi:10.1016/j.jeconom.2018.11.007>.
+Build CPMs (cumulative probability models, also known as cumulative link
+models) to account for detection limits (both single and multiple
+detection limits) in response variables. Conditional quantiles and
+conditional CDFs can be calculated based on fitted models. The package
+implements methods described in Tian, Y., Li, C., Tu, S., James, N. T.,
+Harrell, F. E., & Shepherd, B. E. (2022). "Addressing Detection Limits
+with Semiparametric Cumulative Probability Models". <arXiv:2207.02815>.
 
 %prep
 %setup -q -c -n %{packname}

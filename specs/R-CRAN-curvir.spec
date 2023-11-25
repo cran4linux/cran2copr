@@ -1,35 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGMridge
-%global packver   1.4
+%global packname  curvir
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Graphical Models Using Ridge Penalty Followed by Thresholding and Reestimation
+Summary:          Specify Reserve Demand Curves
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-cvTools 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-pso 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-qgam 
+BuildRequires:    R-CRAN-quantregForest 
+BuildRequires:    R-CRAN-randomForest 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-cvTools 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-pso 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-qgam 
+Requires:         R-CRAN-quantregForest 
+Requires:         R-CRAN-randomForest 
 
 %description
-Estimation of partial correlation matrix using ridge penalty followed by
-thresholding and reestimation. Under multivariate Gaussian assumption, the
-matrix constitutes an Gaussian graphical model (GGM).
+Automatic specification and estimation of reserve demand curves for
+central bank operations. The package can help to choose the best demand
+curve and identify additional explanatory variables. Various plot and
+predict options are included. For more details, see Chen et al. (2023)
+<https://www.imf.org/en/Publications/WP/Issues/2023/09/01/Modeling-the-Reserve-Demand-to-Facilitate-Central-Bank-Operations-538754>.
 
 %prep
 %setup -q -c -n %{packname}

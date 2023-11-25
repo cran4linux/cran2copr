@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fixest
-%global packver   0.11.1
+%global packver   0.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.11.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Fixed-Effects Estimations
 
@@ -46,7 +46,7 @@ models (GLM) and the negative binomial. The core of the package is based
 on optimized parallel C++ code, scaling especially well for large data
 sets. The method to obtain the fixed-effects coefficients is based on
 Berge (2018)
-<https://wwwen.uni.lu/content/download/110162/1299525/file/2018_13>.
+<https://github.com/lrberge/fixest/blob/master/_DOCS/FENmlm_paper.pdf>.
 Further provides tools to export and view the results of several
 estimations with intuitive design to cluster the standard-errors.
 

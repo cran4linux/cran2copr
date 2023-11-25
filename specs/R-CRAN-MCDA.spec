@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGMridge
-%global packver   1.4
+%global packname  MCDA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Graphical Models Using Ridge Penalty Followed by Thresholding and Reestimation
+Summary:          Support for the Multicriteria Decision Aiding Process
 
-License:          GPL-2
+License:          EUPL (>= 1.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-glpkAPI 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-triangle 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-glpkAPI 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-triangle 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Estimation of partial correlation matrix using ridge penalty followed by
-thresholding and reestimation. Under multivariate Gaussian assumption, the
-matrix constitutes an Gaussian graphical model (GGM).
+Support for the analyst in a Multicriteria Decision Aiding (MCDA) process
+with algorithms, preference elicitation and data visualisation functions.
+Sébastien Bigaret, Richard Hodgett, Patrick Meyer, Tatyana Mironova,
+Alexandru Olteanu (2017) Supporting the multi-criteria decision aiding
+process : R and the MCDA package, Euro Journal On Decision Processes,
+Volume 5, Issue 1 - 4, pages 169 - 194 <doi:10.1007/s40070-017-0064-1>.
 
 %prep
 %setup -q -c -n %{packname}

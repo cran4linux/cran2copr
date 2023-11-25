@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pdynmc
-%global packver   0.9.9
+%global packver   0.9.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          0.9.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Moment Condition Based Estimation of Linear Dynamic Panel Data Models
 
@@ -18,18 +18,18 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.51.4
+BuildRequires:    R-methods >= 3.6.2
 BuildRequires:    R-stats >= 3.6.0
 BuildRequires:    R-CRAN-optimx >= 2018.07.10
 BuildRequires:    R-CRAN-Matrix >= 1.2.17
 BuildRequires:    R-CRAN-data.table >= 1.12.2
-BuildRequires:    R-CRAN-qlcMatrix >= 0.9.7
 BuildRequires:    R-CRAN-Rdpack >= 0.11
 Requires:         R-CRAN-MASS >= 7.3.51.4
+Requires:         R-methods >= 3.6.2
 Requires:         R-stats >= 3.6.0
 Requires:         R-CRAN-optimx >= 2018.07.10
 Requires:         R-CRAN-Matrix >= 1.2.17
 Requires:         R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-qlcMatrix >= 0.9.7
 Requires:         R-CRAN-Rdpack >= 0.11
 
 %description
