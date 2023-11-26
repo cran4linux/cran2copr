@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  npboottprm
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Bootstrap Test with Pooled Resampling
 
@@ -17,12 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-fGarch 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lmPerm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MKinfer 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-sn 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-fGarch 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lmPerm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MKinfer 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-sn 
 
 %description
 Addressing crucial research questions often necessitates a small sample

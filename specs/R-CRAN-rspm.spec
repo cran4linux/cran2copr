@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rspm
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Package Manager
 
@@ -21,11 +21,11 @@ BuildArch:        noarch
 %description
 Enables binary package installations on Linux distributions. Provides
 access to 'RStudio' public repositories at
-<https://packagemanager.rstudio.com>, and transparent management of system
+<https://packagemanager.posit.co>, and transparent management of system
 requirements without administrative privileges. Currently supported
 distributions are 'CentOS' / 'RHEL' 7-9, and several 'RHEL' derivatives
 ('Rocky Linux', 'AlmaLinux', 'Oracle Linux', and 'Amazon Linux' 2),
-'openSUSE' / 'SLES' 15.3-4, and 'Ubuntu' 18.04, 20.04 and 22.04.
+'openSUSE' / 'SLES' 15.3-4, 'Debian' 11-12, and 'Ubuntu' LTS 18-22.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SeaVal
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Validation of Seasonal Weather Forecasts
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggplotify 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-patchwork 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-scales
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggplotify 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-patchwork 
