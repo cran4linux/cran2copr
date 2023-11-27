@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stratallo
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimum Sample Allocation in Stratified Sampling Schemes
+Summary:          Optimum Sample Allocation in Stratified Sampling
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,17 +25,17 @@ Requires:         R-CRAN-lifecycle
 %description
 Functions in this package provide solution to classical problem in survey
 methodology - an optimum sample allocation in stratified sampling. In this
-context, the optimal allocation is in the classical Tschuprov-Neyman's
+context, the optimum allocation is in the classical Tschuprow-Neyman's
 sense and it satisfies additional lower or upper bounds restrictions
 imposed on sample sizes in strata. There are few different algorithms
 available to use, and one them is based on popular sample allocation
 method that applies Neyman allocation to recursively reduced set of
 strata. This package also provides the function that computes a solution
 to the minimum cost allocation problem, which is a minor modification of
-the classical optimium sample allocation. This problem lies in the
+the classical optimum sample allocation. This problem lies in the
 determination of a vector of strata sample sizes that minimizes total cost
 of the survey, under assumed fixed level of the stratified estimator's
-variance. As in the case of the classical optimal allocation, the problem
+variance. As in the case of the classical optimum allocation, the problem
 of minimum cost allocation can be complemented by imposing upper-bounds
 constraints on sample sizes in strata.
 
