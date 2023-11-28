@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cfid
-%global packver   0.1.7
+%global packname  FDRsamplesize2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identification of Counterfactual Queries in Causal Models
+Summary:          Computing Power and Sample Size for the False Discovery Rate in Multiple Applications
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,15 +19,12 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Facilitates the identification of counterfactual queries in structural
-causal models via the ID* and IDC* algorithms by Shpitser, I. and Pearl,
-J. (2007, 2008) <arXiv:1206.5294>,
-<https://jmlr.org/papers/v9/shpitser08a.html>. Provides a simple interface
-for defining causal diagrams and counterfactual conjunctions. Construction
-of parallel worlds graphs and counterfactual graphs is carried out
-automatically based on the counterfactual query and the causal diagram.
-See Tikka, S. (2023) <doi:10.32614/RJ-2023-053> for a tutorial of the
-package.
+Defines a collection of functions to compute average power and sample size
+for studies that use the false discovery rate as the final measure of
+statistical significance. A three-rectangle approximation method of a
+p-value histogram is proposed to derive a formula to compute the
+statistical power for analyses that involve the FDR. The methodology paper
+of this package is under review.
 
 %prep
 %setup -q -c -n %{packname}

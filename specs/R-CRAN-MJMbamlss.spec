@@ -1,49 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  voi
-%global packver   1.0.2
+%global packname  MJMbamlss
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expected Value of Information
+Summary:          Multivariate Joint Models with 'bamlss'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-CRAN-bamlss 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-funData 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-dbarts 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-gamm4 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-refund 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-fdapace 
+BuildRequires:    R-CRAN-sparseFLMM 
+BuildRequires:    R-CRAN-MFPCA 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-earth 
+Requires:         R-CRAN-bamlss 
+Requires:         R-stats 
+Requires:         R-CRAN-funData 
+Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-dbarts 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-gamm4 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-refund 
+Requires:         R-utils 
+Requires:         R-CRAN-fdapace 
+Requires:         R-CRAN-sparseFLMM 
+Requires:         R-CRAN-MFPCA 
+Requires:         R-CRAN-foreach 
 
 %description
-Methods to calculate the expected value of information from a
-decision-analytic model.  This includes the expected value of perfect
-information (EVPI), partial perfect information (EVPPI) and sample
-information (EVSI), and the expected net benefit of sampling (ENBS).  A
-range of alternative computational methods are provided under the same
-user interface.  See Jackson et al. (2022)
-<doi:10.1146/annurev-statistics-040120-010730>.
+Multivariate joint models of longitudinal and time-to-event data based on
+functional principal components implemented with 'bamlss'. Implementation
+for Volkmann, Umlauf, Greven (2023) <arXiv:2311.06409>.
 
 %prep
 %setup -q -c -n %{packname}

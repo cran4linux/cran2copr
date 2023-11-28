@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cfid
-%global packver   0.1.7
+%global packname  rnndescent
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identification of Counterfactual Queries in Causal Models
+Summary:          Nearest Neighbor Descent Method for Approximate Nearest Neighbors
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix >= 1.3.0
+BuildRequires:    R-CRAN-dqrng 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-sitmo 
+Requires:         R-CRAN-Matrix >= 1.3.0
+Requires:         R-CRAN-dqrng 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Facilitates the identification of counterfactual queries in structural
-causal models via the ID* and IDC* algorithms by Shpitser, I. and Pearl,
-J. (2007, 2008) <arXiv:1206.5294>,
-<https://jmlr.org/papers/v9/shpitser08a.html>. Provides a simple interface
-for defining causal diagrams and counterfactual conjunctions. Construction
-of parallel worlds graphs and counterfactual graphs is carried out
-automatically based on the counterfactual query and the causal diagram.
-See Tikka, S. (2023) <doi:10.32614/RJ-2023-053> for a tutorial of the
-package.
+The Nearest Neighbor Descent method for finding approximate nearest
+neighbors by Dong and co-workers (2010) <doi:10.1145/1963405.1963487>.
+Based on the 'Python' package 'PyNNDescent'
+<https://github.com/lmcinnes/pynndescent>.
 
 %prep
 %setup -q -c -n %{packname}

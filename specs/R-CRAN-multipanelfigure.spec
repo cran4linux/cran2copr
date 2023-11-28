@@ -1,34 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cluster
+%global packname  multipanelfigure
 %global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          "Finding Groups in Data": Cluster Analysis Extended Rousseeuw et al.
+Summary:          Infrastructure to Assemble Multi-Panel Figures (from Grobs)
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-CRAN-magick >= 1.9
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringi >= 1.2.3
+BuildRequires:    R-CRAN-gridGraphics >= 0.3.0
+BuildRequires:    R-CRAN-gtable >= 0.2.0
+BuildRequires:    R-CRAN-assertive.base >= 0.0.7
+BuildRequires:    R-CRAN-assertive.files >= 0.0.2
+BuildRequires:    R-CRAN-assertive.numbers >= 0.0.2
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 >= 2.2.1
+Requires:         R-CRAN-magick >= 1.9
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringi >= 1.2.3
+Requires:         R-CRAN-gridGraphics >= 0.3.0
+Requires:         R-CRAN-gtable >= 0.2.0
+Requires:         R-CRAN-assertive.base >= 0.0.7
+Requires:         R-CRAN-assertive.files >= 0.0.2
+Requires:         R-CRAN-assertive.numbers >= 0.0.2
+Requires:         R-grid 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Methods for Cluster analysis.  Much extended the original from Peter
-Rousseeuw, Anja Struyf and Mia Hubert, based on Kaufman and Rousseeuw
-(1990) "Finding Groups in Data".
+Tools to create a layout for figures made of multiple panels, and to fill
+the panels with base, 'lattice', 'ggplot2' and 'ComplexHeatmap' plots,
+grobs, as well as content from all image formats supported by
+'ImageMagick' (accessed through 'magick').
 
 %prep
 %setup -q -c -n %{packname}

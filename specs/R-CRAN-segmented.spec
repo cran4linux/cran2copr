@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  segmented
-%global packver   1.6-4
+%global packver   2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Models with Break-Points / Change-Points (with Possibly Random Effects) Estimation
+Summary:          Regression Models with Break-Points / Change-Points Estimation (with Possibly Random Effects)
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,16 +23,19 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-nlme 
 
 %description
-Given a regression model, segmented `updates' it by adding one or more
-segmented (i.e., piece-wise linear) relationships. Several variables with
-multiple breakpoints are allowed. The estimation method is discussed in
+Fitting regression models where, in addition to possible linear terms, one
+or more covariates have segmented (i.e., broken-line or piece-wise linear)
+or stepmented (i.e. piece-wise constant) effects. Multiple breakpoints for
+the same variable are allowed. The estimation method is discussed in
 Muggeo (2003, <doi:10.1002/sim.1545>) and illustrated in Muggeo (2008,
 <https://www.r-project.org/doc/Rnews/Rnews_2008-1.pdf>). An approach for
 hypothesis testing is presented in Muggeo (2016,
 <doi:10.1080/00949655.2016.1149855>), and interval estimation for the
 breakpoint is discussed in Muggeo (2017, <doi:10.1111/anzs.12200>).
 Segmented mixed models, i.e. random effects in the change point, are
-discussed in in Muggeo (2014, <doi:10.1177/1471082X13504721>).
+discussed in Muggeo (2014, <doi:10.1177/1471082X13504721>). Estimation of
+piecewise-constant relationships and changepoints (mean-shift models) is
+discussed in Fasola et al. (2018, <doi:10.1007/s00180-017-0740-4>).
 
 %prep
 %setup -q -c -n %{packname}

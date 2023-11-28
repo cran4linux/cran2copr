@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JointFPM
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Parametric Model for Estimating the Mean Number of Events
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-data.table >= 1.14.2
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rmutil 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-survival >= 3.2.13
 Requires:         R-CRAN-rstpm2 >= 1.5.2
 Requires:         R-CRAN-data.table >= 1.14.2
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rmutil 
+Requires:         R-CRAN-cli 
 
 %description
 Implementation of a parametric joint model for modelling recurrent and

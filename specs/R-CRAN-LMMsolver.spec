@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LMMsolver
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Mixed Model Solver
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-splines 
 Requires:         R-CRAN-Rcpp >= 0.10.4
@@ -31,17 +31,14 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spam 
 Requires:         R-splines 
 
 %description
-An efficient and flexible system to solve sparse mixed model equations,
-for models that are often used in statistical genetics. Important
-applications are the use of splines to model spatial or temporal trends.
-Another application area is mixed model QTL analysis for multiparental
-populations, allowing for heterogeneous residual variance and random
-design matrices with Identity-By-Descent (IBD) probabilities.
+An efficient and flexible system to solve sparse mixed model equations.
+Important applications are the use of splines to model spatial or temporal
+trends as described in Boer (2023). (<doi:10.1177/1471082X231178591>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spamtree
-%global packver   0.2.2
+%global __requires_exclude ^libmpi
+%global packname  rosmium
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Multivariate Trees
+Summary:          Bindings for 'Osmium Tool'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-sf 
+Requires:         R-utils 
 
 %description
-Fits multivariate Bayesian spatial regression models for large datasets
-using Spatial Multivariate Trees (SpamTrees). The methods in this package
-are detailed in Peruzzi and Dunson (2020) <arXiv:2012.00943>. Funded by
-ERC grant 856506 and NIH grant R01ES028804.
+Allows one to use 'Osmium Tool' (<https://osmcode.org/osmium-tool/>) from
+R. 'Osmium' is a multipurpose command line tool that enables one to
+manipulate and analyze OpenStreetMap files through several different
+commands. Currently, this package does not aim to offer functions that
+cover the entire 'Osmium' API, instead making available functions that
+wrap only a very limited set of its features.
 
 %prep
 %setup -q -c -n %{packname}

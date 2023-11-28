@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RUVIIIC
-%global packver   1.0.19
+%global __requires_exclude ^libmpi
+%global packname  spatialising
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.19
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          RUV-III-C
+Summary:          Ising Model for Spatial Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-comat 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-comat 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-terra 
 
 %description
-Variations of Remove Unwanted Variation-III (RUV-III) known as RUV-III-C
-(RUV-III Complete). RUV-III performs normalisation using negative control
-variables and replication. RUV-III-C extends this method to cases where
-the data contains missing values, by applying RUV-III to complete subsets
-of the data. Originally designed for SWATH-MS proteomics datasets. Poulos
-et al. (2020) <doi:10.1038/s41467-020-17641-3>.
+Performs simulations of binary spatial raster data using the Ising model
+(Ising (1925) <doi:10.1007/BF02980577>; Onsager (1944)
+<doi:10.1103/PhysRev.65.117>). It allows to set a few parameters that
+represent internal and external pressures, and the number of simulations
+(Stepinski and Nowosad (2023) <doi:10.1098/rsos.231005>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
