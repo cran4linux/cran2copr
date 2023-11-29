@@ -1,30 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  linemap
-%global packver   0.3.0
+%global packname  ARDECO
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Line Maps
+Summary:          'ARDECO' Dataset
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-graphics 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-ghql 
+BuildRequires:    R-CRAN-rjstat 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-ghql 
+Requires:         R-CRAN-rjstat 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
 
 %description
-Create maps made of lines. The package contains one function: linemap().
-linemap() displays a map made of lines using a raster or gridded data.
+A set of functions to access the 'ARDECO' (Annual Regional Database of the
+European Commission) data directly from the official ARDECO public
+repository through the exploitation of the 'ARDECO' APIs. The APIs are
+completely transparent to the user and the provided functions provide a
+direct access to the 'ARDECO' data. The 'ARDECO' database is a collection
+of variables related to demography, employment, labour market, domestic
+product, capital formation. Each variable can be exposed in one or more
+units of measure as well as refers to total values plus economic sectors.
+The description of the 'ARDECO' database can be found at the following URL
+<https://urban.jrc.ec.europa.eu/ardeco>.
 
 %prep
 %setup -q -c -n %{packname}

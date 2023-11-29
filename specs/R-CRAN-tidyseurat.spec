@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyseurat
-%global packver   0.7.4
+%global packver   0.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.7.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Brings Seurat to the Tidyverse
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Seurat >= 4.3.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-ttservice >= 0.3.8
 BuildRequires:    R-CRAN-SeuratObject 
-BuildRequires:    R-CRAN-Seurat 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
@@ -39,10 +39,10 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-fansi 
 BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Seurat >= 4.3.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-ttservice >= 0.3.8
 Requires:         R-CRAN-SeuratObject 
-Requires:         R-CRAN-Seurat 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 

@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  linemap
-%global packver   0.3.0
+%global packname  picClip
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Line Maps
+Summary:          Paste Box Input for 'Shiny'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-graphics 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-testthat 
 
 %description
-Create maps made of lines. The package contains one function: linemap().
-linemap() displays a map made of lines using a raster or gridded data.
+Provides a 'Shiny' input widget, pasteBoxInput, that allows users to paste
+images directly into a 'Shiny' application. The pasted images are captured
+as Base64 encoded strings and can be used within the application for
+various purposes, such as display or further processing. This package is
+particularly useful for applications that require easy and quick image
+uploads without the need for traditional file selection dialog boxes.
 
 %prep
 %setup -q -c -n %{packname}

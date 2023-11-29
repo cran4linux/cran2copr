@@ -1,51 +1,66 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  normfluodbf
-%global packver   1.5.2
+%global packname  BiostatsUHNplus
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cleans and Normalizes FLUOstar DBF and DAT Files
+Summary:          Nested Data Summary and Adverse Events
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-afex 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-emojifont 
-BuildRequires:    R-CRAN-rio 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-badger 
+BuildRequires:    R-CRAN-ggstance 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-MCMCglmm 
+BuildRequires:    R-CRAN-modeest 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reportRmd 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-afex 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-emojifont 
-Requires:         R-CRAN-rio 
-Requires:         R-stats 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-badger 
+Requires:         R-CRAN-ggstance 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-MCMCglmm 
+Requires:         R-CRAN-modeest 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reportRmd 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstatix 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Cleans and Normalizes FLUOstar DBF and DAT Files obtained from liposome
-flux assays. Users should verify extended usage of the package on files
-from other assay types.
+Miscellaneous code snippets and functions with pipes and multiple package
+dependencies used for summarizing nested data and adverse events.
 
 %prep
 %setup -q -c -n %{packname}

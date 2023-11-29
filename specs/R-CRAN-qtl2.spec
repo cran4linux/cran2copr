@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qtl2
-%global packver   0.32
+%global packver   0.34
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.32
+Version:          0.34
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Trait Locus Mapping in Experimental Crosses
 

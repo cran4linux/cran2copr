@@ -1,47 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  graphx
-%global packver   1.0
+%global __requires_exclude ^libmpi
+%global packname  aloom
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphics Routines for Scientific Research
+Summary:          All Leave-One-Out Models
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magicaxis 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-docore 
-Requires:         R-CRAN-magicaxis 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-docore 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-randomForest 
+Requires:         R-stats 
 
 %description
-Routines to produce and export publication-ready scientific plots and
-movies (e.g., used in Obreschkow et al. (2020)
-<doi:10.1093/mnras/staa445>). These include special color scales,
-projection routines, and bitmap handling routines.
+Creates all leave-one-out models and produces predictions for test
+samples.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClimMobTools
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          API Client for the 'ClimMob' Platform
 
@@ -37,7 +37,7 @@ Requires:         R-utils
 %description
 API client for 'ClimMob', an open source software for decentralized
 large-N trials with the 'tricot' approach <https://climmob.net/>.
-Developed by van Etten et al. (2016) <doi:10.1017/S0014479716000739>, it
+Developed by van Etten et al. (2019) <doi:10.1017/S0014479716000739>, it
 turns the research paradigm on its head; instead of a few researchers
 designing complicated trials to compare several technologies in search of
 the best solutions for the target environment, it enables many

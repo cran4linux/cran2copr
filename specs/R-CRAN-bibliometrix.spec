@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bibliometrix
-%global packver   4.1.3
+%global packver   4.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.3
+Version:          4.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Science Mapping Analysis
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-openalexR 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-pubmedR 
 BuildRequires:    R-CRAN-readr 
@@ -54,6 +55,7 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-openalexR 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-pubmedR 
 Requires:         R-CRAN-readr 

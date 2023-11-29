@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openCR
-%global packver   2.2.5
+%global packver   2.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.5
+Version:          2.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Population Capture-Recapture
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.1
-BuildRequires:    R-CRAN-secr >= 4.5.0
+BuildRequires:    R-CRAN-secr >= 4.6.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-MASS 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-RcppParallel >= 5.1.1
-Requires:         R-CRAN-secr >= 4.5.0
+Requires:         R-CRAN-secr >= 4.6.1
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-MASS 

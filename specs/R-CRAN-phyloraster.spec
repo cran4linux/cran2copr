@@ -1,44 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  magicaxis
-%global packver   2.2.14
+%global __requires_exclude ^libmpi
+%global packname  phyloraster
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.14
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pretty Scientific Plotting with Minor-Tick and Log Minor-Tick Support
+Summary:          Evolutionary Diversity Metrics for Raster Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-celestial >= 1.4.1
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-phylobase 
+BuildRequires:    R-CRAN-SESraster 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-sm 
-BuildRequires:    R-CRAN-mapproj 
-BuildRequires:    R-CRAN-RANN 
-Requires:         R-CRAN-celestial >= 1.4.1
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-ape 
+Requires:         R-methods 
+Requires:         R-CRAN-phylobase 
+Requires:         R-CRAN-SESraster 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-sm 
-Requires:         R-CRAN-mapproj 
-Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-terra 
 
 %description
-Functions to make useful (and pretty) plots for scientific plotting.
-Additional plotting features are added for base plotting, with particular
-emphasis on making attractive log axis plots.
+Phylogenetic Diversity (PD, Faith 1992), Evolutionary Distinctiveness (ED,
+Isaac et al. 2007), Phylogenetic Endemism (PE, Rosauer et al. 2009; Laffan
+et al. 2016), and Weighted Endemism (WE, Laffan et al. 2016) for
+presence-absence raster. Faith, D. P. (1992)
+<doi:10.1016/0006-3207(92)91201-3> Isaac, N. J. et al. (2007)
+<doi:10.1371/journal.pone.0000296> Laffan, S. W. et al. (2016)
+<doi:10.1111/2041-210X.12513> Rosauer, D. et al. (2009)
+<doi:10.1111/j.1365-294X.2009.04311.x>.
 
 %prep
 %setup -q -c -n %{packname}

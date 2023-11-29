@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nbody
-%global packver   1.33
+%global packname  rlibkriging
+%global packver   0.8-0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.33
+Version:          0.8.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gravitational N-Body Simulation
+Summary:          Kriging Models using the 'libKriging' Library
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-magicaxis 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-magicaxis 
+BuildRequires:    cmake
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.11
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.11
+Requires:         R-methods 
+Requires:         R-CRAN-DiceKriging 
 
 %description
-Tools to run simple direct gravitational N-body simulations. It can access
-different external N-body simulators, but also has a simple built-in
-default simulator. This default simulator uses a variable block time step
-and lets the user choose between a range of integrators, including 4th and
-6th order integrators for high-accuracy simulations. Basic top-hat
-smoothing is available as an option. The code also allows the definition
-of background particles that are fixed or in uniform motion, not subject
-to acceleration by other particles.
+Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
+that should provide most standard Kriging / Gaussian process regression
+features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
+'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
+by Conrad Sanderson, 'lbfgsb_cpp' is a 'C++' port around 'lbfgsb' library
+(BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge Nocedal and Jose Luis
+Morales used for hyperparameters optimization, and HDF5 features coming
+from HDF Group (see HDF5_LICENSE file) possibly provided by Rhdf5lib by
+Mike Smith (Artistic-2.0 license).
 
 %prep
 %setup -q -c -n %{packname}
