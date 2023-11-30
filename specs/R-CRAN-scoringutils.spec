@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scoringutils
-%global packver   1.1.0
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Scoring and Assessing Predictions
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-ggdist >= 3.2.0
@@ -49,7 +49,8 @@ quantiles of the predictive distribution) can be evaluated. Scoring
 metrics can be used either through a convenient data.frame format, or can
 be applied as individual functions in a vector / matrix format. All
 functionality has been implemented with a focus on performance and is
-robustly tested.
+robustly tested. Find more information about the package in the
+accompanying paper (<doi:10.48550/arXiv.2205.07090>).
 
 %prep
 %setup -q -c -n %{packname}

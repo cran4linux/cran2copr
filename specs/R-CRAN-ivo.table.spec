@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  arules
-%global packver   1.7-7
+%global packname  ivo.table
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.7
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mining Association Rules and Frequent Itemsets
+Summary:          Pretty Contingency Tables and Frequency Tables
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Matrix >= 1.4.0
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Matrix >= 1.4.0
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-generics 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides the infrastructure for representing, manipulating and analyzing
-transaction data and patterns (frequent itemsets and association rules).
-Also provides C implementations of the association mining algorithms
-Apriori and Eclat. Hahsler, Gruen and Hornik (2005)
-<doi:10.18637/jss.v014.i15>.
+Nicely formatted frequency tables and contingency tables (cross-tables),
+that can easily be exported to HTML or 'Office' documents, including
+'Excel'. Designed to work with pipes.
 
 %prep
 %setup -q -c -n %{packname}

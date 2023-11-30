@@ -1,29 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rankUncertainty
-%global packver   1.0.2.0
+%global __requires_exclude ^libmpi
+%global packname  pexm
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2.0
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Working with Uncertainty in Rankings
+Summary:          Loading a JAGS Module for the Piecewise Exponential Distribution
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    jags-devel
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-msm 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-msm 
 
 %description
-Provides methods for measuring and describing uncertainty in rankings.
-See Rising (2021) <arXiv:2107.03459> for background.
+Load the Just Another Gibbs Sampling (JAGS) module 'pexm'. The module
+provides the tools to work with the Piecewise Exponential (PE)
+distribution in a Bayesian model with the corresponding Markov Chain Monte
+Carlo algorithm (Gibbs Sampling) implemented via JAGS. Details about the
+module implementation can be found in Mayrink et al. (2021)
+<doi:10.18637/jss.v100.i08>.
 
 %prep
 %setup -q -c -n %{packname}

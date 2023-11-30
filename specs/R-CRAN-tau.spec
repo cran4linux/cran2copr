@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tau
-%global packver   0.0-24
+%global packver   0.0-25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.24
+Version:          0.0.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Analysis Utilities
 

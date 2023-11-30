@@ -1,40 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  arules
-%global packver   1.7-7
+%global packname  nexus
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mining Association Rules and Frequent Itemsets
+Summary:          Sourcing Archaeological Materials by Chemical Composition
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Matrix >= 1.4.0
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-arkhe >= 1.4.0
+BuildRequires:    R-CRAN-isopleuros >= 1.0.0
+BuildRequires:    R-CRAN-dimensio >= 0.5.0
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Matrix >= 1.4.0
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-generics 
+Requires:         R-CRAN-arkhe >= 1.4.0
+Requires:         R-CRAN-isopleuros >= 1.0.0
+Requires:         R-CRAN-dimensio >= 0.5.0
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Provides the infrastructure for representing, manipulating and analyzing
-transaction data and patterns (frequent itemsets and association rules).
-Also provides C implementations of the association mining algorithms
-Apriori and Eclat. Hahsler, Gruen and Hornik (2005)
-<doi:10.18637/jss.v014.i15>.
+Exploration and analysis of compositional data in the framework of
+Aitchison (1986, ISBN: 978-94-010-8324-9). This package provides tools for
+chemical fingerprinting and source tracking of ancient materials.
 
 %prep
 %setup -q -c -n %{packname}

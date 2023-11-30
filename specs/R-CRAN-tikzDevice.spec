@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tikzDevice
-%global packver   0.12.5
+%global packver   0.12.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.5
+Version:          0.12.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Graphics Output in LaTeX Format
 
@@ -14,8 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    texlive-pgf
-Requires:         texlive-pgf
+Recommends:       texlive-pgf
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
 BuildRequires:    R-CRAN-filehash >= 2.3

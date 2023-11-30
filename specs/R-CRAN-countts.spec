@@ -1,55 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  seriation
-%global packver   1.5.3
+%global packname  countts
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Infrastructure for Ordering Objects Using Seriation
+Summary:          Thomson Sampling for Zero-Inflated Count Outcomes
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-CRAN-ca 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-gclus 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-qap 
-BuildRequires:    R-CRAN-registry 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TSP 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-ca 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-gclus 
-Requires:         R-grDevices 
-Requires:         R-grid 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-qap 
-Requires:         R-CRAN-registry 
+Requires:         R-parallel 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-CRAN-TSP 
-Requires:         R-CRAN-vegan 
 
 %description
-Infrastructure for ordering objects with an implementation of several
-seriation/sequencing/ordination techniques to reorder matrices,
-dissimilarity matrices, and dendrograms. Also provides (optimally)
-reordered heatmaps, color images and clustering visualizations like
-dissimilarity plots, and visual assessment of cluster tendency plots (VAT
-and iVAT). Hahsler et al (2008) <doi:10.18637/jss.v025.i03>.
+A specialized tool is designed for assessing contextual bandit algorithms,
+particularly those aimed at handling overdispersed and zero-inflated count
+data. It offers a simulated testing environment that includes various
+models like Poisson, Overdispersed Poisson, Zero-inflated Poisson, and
+Zero-inflated Overdispersed Poisson. The package is capable of executing
+five specific algorithms: Linear Thompson sampling with log transformation
+on the outcome, Thompson sampling Poisson, Thompson sampling Negative
+Binomial, Thompson sampling Zero-inflated Poisson, and Thompson sampling
+Zero-inflated Negative Binomial. Additionally, it can generate regret
+plots to evaluate the performance of contextual bandit algorithms. This
+package is based on the algorithms by Liu et al. (2023)
+<arXiv:2311.14359>.
 
 %prep
 %setup -q -c -n %{packname}
