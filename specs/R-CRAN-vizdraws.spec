@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  vizdraws
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize Draws from the Prior and Posterior Distributions
 
@@ -29,10 +30,10 @@ Requires:         R-CRAN-stringr
 
 %description
 Interactive visualization for Bayesian prior and posterior distributions.
-When both distributions are provided the animation shows a transition from
-prior to posterior. Finally, the animation splits the distribution using
-the provided 'breaks' into bars that show the probability for each region.
-If no 'breaks' are providers it will use zero by default.
+This package facilitates an animated transition between prior and
+posterior distributions. Additionally, it splits the distribution into
+bars based on the provided 'breaks,' displaying the probability for each
+region. If no 'breaks' are provided, it defaults to zero.
 
 %prep
 %setup -q -c -n %{packname}

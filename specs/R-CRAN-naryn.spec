@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  naryn
-%global packver   2.6.23
+%global packver   2.6.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.23
+Version:          2.6.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          Native Access Medical Record Retriever for High Yield Analytics
 

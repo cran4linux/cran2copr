@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pbv
-%global packver   0.5-47
+%global packname  ADTSA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.47
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilities for Bivariate Normal Distribution
+Summary:          Time Series Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Computes probabilities of the bivariate normal distribution in a
-vectorized R function (Drezner & Wesolowsky, 1990,
-<doi:10.1080/00949659008811236>).
+Analyzes autocorrelation and partial autocorrelation using surrogate
+methods and bootstrapping, and computes the acceleration constants for the
+vectorized moving block bootstrap provided by this package. It generates
+percentile, bias-corrected, and accelerated intervals and estimates
+partial autocorrelations using Durbin-Levinson. This package calculates
+the autocorrelation power spectrum, computes cross-correlations between
+two time series, computes bandwidth for any time series, and performs
+autocorrelation frequency analysis.
 
 %prep
 %setup -q -c -n %{packname}

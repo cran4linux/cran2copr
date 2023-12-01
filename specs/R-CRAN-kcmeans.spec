@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pbv
-%global packver   0.5-47
+%global packname  kcmeans
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.47
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilities for Bivariate Normal Distribution
+Summary:          Conditional Expectation Function Estimation with K-Conditional-Means
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Ckmeans.1d.dp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-Ckmeans.1d.dp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 
 %description
-Computes probabilities of the bivariate normal distribution in a
-vectorized R function (Drezner & Wesolowsky, 1990,
-<doi:10.1080/00949659008811236>).
+Implementation of the KCMeans regression estimator studied by Wiemann
+(2023) <arXiv:2311.17021> for expectation function estimation conditional
+on categorical variables. Computation leverages the unconditional KMeans
+implementation in one dimension using dynamic programming algorithm of
+Wang and Song (2011) <doi:10.32614/RJ-2011-015>, allowing for global
+solutions in time polynomial in the number of observed categories.
 
 %prep
 %setup -q -c -n %{packname}

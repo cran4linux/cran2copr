@@ -1,35 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  medfate
-%global packver   3.2.0
+%global packname  gatoRs
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mediterranean Forest Simulation
+Summary:          Geographic and Taxonomic Occurrence R-Based Scrubbing
 
-License:          GPL (>= 2) | LGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-meteoland >= 2.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-meteoland >= 2.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-shiny 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-CoordinateCleaner >= 3.0.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-ridigbio 
+BuildRequires:    R-CRAN-rgbif 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-spThin 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-parsedate 
+BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-CRAN-CoordinateCleaner >= 3.0.1
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-ridigbio 
+Requires:         R-CRAN-rgbif 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-spThin 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-parsedate 
+Requires:         R-CRAN-spatstat.geom 
 
 %description
-Simulate Mediterranean forest functioning and dynamics using cohort-based
-description of vegetation [De Caceres et al. (2015)
-<doi:10.1016/j.agrformet.2015.06.012>; De Caceres et al. (2021)
-<doi:10.1016/j.agrformet.2020.108233>].
+Streamlines downloading and cleaning biodiversity data from Integrated
+Digitized Biocollections (iDigBio) and the Global Biodiversity Information
+Facility (GBIF).
 
 %prep
 %setup -q -c -n %{packname}

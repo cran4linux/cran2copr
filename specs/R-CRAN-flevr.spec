@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hipread
-%global packver   0.2.4
+%global packname  flevr
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Hierarchical Fixed Width Files
+Summary:          Flexible, Ensemble-Based Variable Selection with Potentially Missing Data
 
-License:          GPL (>= 2) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ranger 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ranger 
 
 %description
-Read hierarchical fixed width files like those commonly used by many
-census data providers. Also allows for reading of data in chunks, and
-reading 'gzipped' files without storing the full file in memory.
+Perform variable selection in settings with possibly missing data based on
+extrinsic (algorithm-specific) and intrinsic (population-level) variable
+importance. Uses a Super Learner ensemble to estimate the underlying
+prediction functions that give rise to estimates of variable importance.
+For more information about the methods, please see Williamson and Huang
+(2023+) <arXiv:2202.12989>.
 
 %prep
 %setup -q -c -n %{packname}

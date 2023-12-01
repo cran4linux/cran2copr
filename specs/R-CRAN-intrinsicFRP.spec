@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  intrinsicFRP
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Oracle Estimation and Inference for Tradable Factor Risk Premia
+Summary:          An R Package for Factor Model Asset Pricing
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,25 +18,36 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-graphics 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
 
 %description
-Tradable factor risk premia are given by the negative factor covariance
-with the Stochastic Discount Factor projection on returns. This package
-provides efficient computation of tradable and Oracle tradable factor risk
-premia estimators and their standard errors; see A. Quaini, F. Trojani and
-M. Yuan (2023)
-<https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4574683>. Tradable
-factor risk premia are robust to misspecification or weak identification
-in asset pricing models, and they are zero for any factor weakly
-correlated with returns. Their Oracle estimator performs as well as if the
-weak or useless factors were known in advance. This means it not only
-consistently removes useless factors and factors weakly correlated with
-returns but also gives rise to reliable tests of asset pricing models.
+Functions for evaluating and testing asset pricing models, including
+estimation and testing of factor risk premia, selection of "strong" risk
+factors (factors having nonzero population correlation with test asset
+returns), heteroskedasticity and autocorrelation robust covariance matrix
+estimation and testing for model misspecification and identification. The
+functions for estimating and testing factor risk premia implement the
+Fama-MachBeth (1973) <doi:10.1086/260061> two-pass approach, the
+misspecification-robust approaches of Kan-Robotti-Shanken (2013)
+<doi:10.1111/jofi.12035>, and the approaches based on tradable factor risk
+premia of Quaini-Trojani-Yuan (2023) <doi:10.2139/ssrn.4574683>. The
+functions for selecting the "strong" risk factors are based on the Oracle
+estimator of Quaini-Trojani-Yuan (2023) <doi:10.2139/ssrn.4574683> and the
+factor screening procedure of Gospodinov-Kan-Robotti (2014)
+<doi:10.2139/ssrn.2579821>. The functions for evaluating model
+misspecification implement the HJ model misspecification distance of
+Kan-Robotti (2008) <doi:10.1016/j.jempfin.2008.03.003>, which is a
+modification of the prominent Hansen-Jagannathan (1997)
+<doi:10.1111/j.1540-6261.1997.tb04813.x> distance. The functions for
+testing model identification specialize the Kleibergen-Paap (2006)
+<doi:10.1016/j.jeconom.2005.02.011> and the Chen-Fang (2019)
+<doi:10.1111/j.1540-6261.1997.tb04813.x> rank test to the regression
+coefficient matrix of test asset returns on risk factors. Finally, the
+function for heteroskedasticity and autocorrelation robust covariance
+estimation implements the Newey-West (1994) <doi:10.2307/2297912>
+covariance estimator.
 
 %prep
 %setup -q -c -n %{packname}

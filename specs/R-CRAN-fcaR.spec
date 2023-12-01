@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fcaR
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formal Concept Analysis
 
@@ -14,37 +14,45 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-fractional 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-POSetR 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-registry 
 BuildRequires:    R-CRAN-settings 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tikzDevice 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-fractional 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-POSetR 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-registry 
 Requires:         R-CRAN-settings 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tikzDevice 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 

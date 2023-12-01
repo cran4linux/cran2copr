@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppCWB
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings for the 'Corpus Workbench' ('CWB')
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    bison
 BuildRequires:    flex
-BuildRequires:    pcre
 BuildRequires:    glib2-devel
 BuildRequires:    ncurses-devel
 BuildRequires:    R-devel

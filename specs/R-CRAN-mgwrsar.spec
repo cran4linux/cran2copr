@@ -1,57 +1,71 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  APIS
-%global packver   2.0.4
+%global packname  mgwrsar
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Auto-Adaptive Parentage Inference Software Tolerant to Missing Parents
+Summary:          GWR and MGWR with Spatial Autocorrelation
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-spgwr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-nabor 
+BuildRequires:    R-CRAN-mapview 
+BuildRequires:    R-CRAN-microbenchmark 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
-Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-mboost 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-spgwr 
 Requires:         R-methods 
-Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-nabor 
+Requires:         R-CRAN-mapview 
+Requires:         R-CRAN-microbenchmark 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-grid 
+Requires:         R-CRAN-mboost 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-caret 
 
 %description
-Parentage assignment package. Parentage assignment is performed based on
-observed average Mendelian transmission probability distributions or
-Exclusion. The main functions of this package are the function APIS_2n(),
-APIS_3n and launch_APIShiny(), which perform parentage assignment.
+Functions for computing (Mixed) Geographically Weighted Regression with
+spatial autocorrelation, Geniaux and Martinetti (2017)
+<doi:10.1016/j.regsciurbeco.2017.04.001>.
 
 %prep
 %setup -q -c -n %{packname}

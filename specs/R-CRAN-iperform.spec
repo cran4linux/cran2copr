@@ -1,29 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pbv
-%global packver   0.5-47
+%global packname  iperform
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.47
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilities for Bivariate Normal Distribution
+Summary:          Time Series Performance
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Computes probabilities of the bivariate normal distribution in a
-vectorized R function (Drezner & Wesolowsky, 1990,
-<doi:10.1080/00949659008811236>).
+A tool to calculate the performance of a time series in a specific date or
+period. It is more intended for data analysis in the fields of finance,
+banking, telecommunications or operational marketing.
 
 %prep
 %setup -q -c -n %{packname}

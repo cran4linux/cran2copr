@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CRTspat
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflow for Cluster Randomised Trials with Spillover
 
@@ -53,8 +53,7 @@ Requires:         R-CRAN-TSP
 %description
 Design, workflow and statistical analysis of Cluster Randomised Trials of
 (health) interventions where there may be geographical contamination
-between the arms (see
-<https://thomasasmith.github.io/articles/CRTspat.html>).
+between the arms (see <https://thomasasmith.github.io/index.html>).
 
 %prep
 %setup -q -c -n %{packname}
