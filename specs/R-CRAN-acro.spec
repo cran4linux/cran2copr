@@ -1,37 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  etwfe
-%global packver   0.3.5
+%global packname  acro
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Two-Way Fixed Effects
+Summary:          A Tool for Automating the Statistical Disclosure Control of Research Outputs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fixest >= 0.11.2
-BuildRequires:    R-CRAN-marginaleffects >= 0.10.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-Formula 
-Requires:         R-CRAN-fixest >= 0.11.2
-Requires:         R-CRAN-marginaleffects >= 0.10.0
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-Formula 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-admiraldev 
+BuildRequires:    R-CRAN-png 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-admiraldev 
+Requires:         R-CRAN-png 
 
 %description
-Convenience functions for implementing extended two-way fixed effect
-regressions a la Wooldridge (2021, 2022) <doi:10.2139/ssrn.3906345>,
-<doi:10.2139/ssrn.4183726>.
+Assists researchers and output checkers by distinguishing between research
+output that is safe to publish, output that requires further analysis, and
+output that cannot be published because of substantial disclosure risk. A
+paper about the tool was presented at The United Nations Economic
+Commission for Europe Expert Meeting on Statistical Data Confidentiality
+<https://unece.org/statistics/events/SDC2023><https://uwe-repository.worktribe.com/output/11060964>.
 
 %prep
 %setup -q -c -n %{packname}

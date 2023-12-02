@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cthist
-%global packver   2.1.4
+%global packver   2.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Trial Registry History
 
@@ -38,8 +38,9 @@ Requires:         R-CRAN-tibble
 
 %description
 Retrieves historical versions of clinical trial registry entries from
-<https://ClinicalTrials.gov>. Package functionality and implementation is
-documented in Carlisle (2022) <DOI:10.1371/journal.pone.0270909>.
+<https://ClinicalTrials.gov>. Package functionality and implementation for
+v 1.0.0 is documented in Carlisle (2022)
+<DOI:10.1371/journal.pone.0270909>.
 
 %prep
 %setup -q -c -n %{packname}

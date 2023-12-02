@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  practicalSigni
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Practical Significance Ranking of Regressors
+Summary:          Practical Significance Ranking of Regressors and Exact t Density
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-randomForest >= 4.7
-BuildRequires:    R-CRAN-xtable >= 1.8
+BuildRequires:    R-CRAN-xtable >= 1.8.4
+BuildRequires:    R-CRAN-hypergeo >= 1.2.13
 BuildRequires:    R-CRAN-generalCorr >= 1.2
 BuildRequires:    R-CRAN-NNS >= 0.9
 BuildRequires:    R-CRAN-np >= 0.60
+BuildRequires:    R-CRAN-ShapleyValue >= 0.2.0
 Requires:         R-CRAN-randomForest >= 4.7
-Requires:         R-CRAN-xtable >= 1.8
+Requires:         R-CRAN-xtable >= 1.8.4
+Requires:         R-CRAN-hypergeo >= 1.2.13
 Requires:         R-CRAN-generalCorr >= 1.2
 Requires:         R-CRAN-NNS >= 0.9
 Requires:         R-CRAN-np >= 0.60
+Requires:         R-CRAN-ShapleyValue >= 0.2.0
 
 %description
 Consider a possibly nonlinear nonparametric regression with p regressors.
@@ -41,7 +45,8 @@ m8= local linear partial (dy/dxi) using the 'np' package for kernel
 regressions. m9= partial (dy/dxi) using the 'NNS' package. m10= importance
 measure using the 'NNS' boost function. m11= Shapley Value measure of
 importance (cooperative game theory). m12 and m13= two versions of the
-random forest algorithm.
+random forest algorithm. Taraldsen's exact density for sampling
+distribution of correlations added.
 
 %prep
 %setup -q -c -n %{packname}

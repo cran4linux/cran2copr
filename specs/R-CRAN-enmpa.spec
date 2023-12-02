@@ -1,65 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stm
-%global packver   1.3.7
+%global packname  enmpa
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of the Structural Topic Model
+Summary:          Ecological Niche Modeling using Presence-Absence Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.3
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lda 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-CRAN-slam 
-BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-snow 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.3
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-glmnet 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-ellipse 
+Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
-Requires:         R-CRAN-lda 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixStats 
+Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
 Requires:         R-parallel 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-quanteda 
-Requires:         R-CRAN-slam 
-Requires:         R-splines 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-snow 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-terra 
 Requires:         R-utils 
+Requires:         R-CRAN-vegan 
 
 %description
-The Structural Topic Model (STM) allows researchers to estimate topic
-models with document-level covariates. The package also includes tools for
-model selection, visualization, and estimation of topic-covariate
-regressions. Methods developed in Roberts et. al. (2014)
-<doi:10.1111/ajps.12103> and Roberts et. al. (2016)
-<doi:10.1080/01621459.2016.1141684>. Vignette is Roberts et. al. (2019)
-<doi:10.18637/jss.v091.i02>.
+A set of tools to perform Ecological Niche Modeling with presence-absence
+data. It includes algorithms for data partitioning, model fitting,
+calibration, evaluation, selection, and prediction. Other functions help
+to explore signals of ecological niche using univariate and multivariate
+analyses, and model features such as variable response curves and variable
+importance. Unique characteristics of this package are the ability to
+exclude models with concave quadratic responses, and the option to clamp
+model predictions to specific variables. These tools are implemented
+following principles proposed in Cobos et al., (2022)
+<doi:10.17161/bi.v17i.15985>, Cobos et al., (2019)
+<doi:10.7717/peerj.6281>, and Peterson et al., (2008)
+<doi:10.1016/j.ecolmodel.2007.11.008>.
 
 %prep
 %setup -q -c -n %{packname}

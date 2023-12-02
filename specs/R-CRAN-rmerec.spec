@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  etwfe
-%global packver   0.3.5
+%global packname  rmerec
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Two-Way Fixed Effects
+Summary:          MEREC - Method Based on the Removal Effects of Criteria
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fixest >= 0.11.2
-BuildRequires:    R-CRAN-marginaleffects >= 0.10.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-Formula 
-Requires:         R-CRAN-fixest >= 0.11.2
-Requires:         R-CRAN-marginaleffects >= 0.10.0
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-Formula 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Convenience functions for implementing extended two-way fixed effect
-regressions a la Wooldridge (2021, 2022) <doi:10.2139/ssrn.3906345>,
-<doi:10.2139/ssrn.4183726>.
+Implementation of the MEthod based on the Removal Effects of Criteria -
+MEREC- a new objective weighting method for determining criteria weights
+for Multiple Criteria Decision Making problems, created by Mehdi
+Keshavarz-Ghorabaee (2021) <doi:10.3390/sym13040525>. Given a decision
+matrix, the function return the Merec´s weight vector and all intermediate
+matrix/vectors used to calculate it.
 
 %prep
 %setup -q -c -n %{packname}

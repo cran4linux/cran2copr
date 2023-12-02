@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  finnts
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microsoft Finance Time Series Forecasting Framework
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-CRAN-feasts 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-generics 
@@ -52,7 +53,6 @@ BuildRequires:    R-CRAN-timetk
 BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-workflows 
-BuildRequires:    R-CRAN-yardstick 
 Requires:         R-CRAN-modeltime 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Cubist 
@@ -61,6 +61,7 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-earth 
+Requires:         R-CRAN-feasts 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-generics 
@@ -88,7 +89,6 @@ Requires:         R-CRAN-timetk
 Requires:         R-CRAN-tune 
 Requires:         R-CRAN-vroom 
 Requires:         R-CRAN-workflows 
-Requires:         R-CRAN-yardstick 
 
 %description
 Automated time series forecasting developed by Microsoft Finance. The

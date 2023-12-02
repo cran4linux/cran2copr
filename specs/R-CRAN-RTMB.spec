@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RTMB
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'R' Bindings for 'TMB'
 
@@ -16,13 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-TMB >= 1.9.5
+BuildRequires:    R-CRAN-TMB >= 1.9.7
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB >= 1.9.5
+Requires:         R-CRAN-TMB >= 1.9.7
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 

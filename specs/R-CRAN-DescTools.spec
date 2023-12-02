@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DescTools
-%global packver   0.99.51
+%global packver   0.99.52
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.51
+Version:          0.99.52
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Descriptive Statistics
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
 BuildRequires:    R-base 
 BuildRequires:    R-stats 

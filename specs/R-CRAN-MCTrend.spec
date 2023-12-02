@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  etwfe
-%global packver   0.3.5
+%global packname  MCTrend
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Two-Way Fixed Effects
+Summary:          Monte Carlo Trend Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fixest >= 0.11.2
-BuildRequires:    R-CRAN-marginaleffects >= 0.10.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-Formula 
-Requires:         R-CRAN-fixest >= 0.11.2
-Requires:         R-CRAN-marginaleffects >= 0.10.0
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-Formula 
+BuildRequires:    R-CRAN-trend 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lmomco 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-trend 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-lmomco 
+Requires:         R-CRAN-dplyr 
 
 %description
-Convenience functions for implementing extended two-way fixed effect
-regressions a la Wooldridge (2021, 2022) <doi:10.2139/ssrn.3906345>,
-<doi:10.2139/ssrn.4183726>.
+Application of a test to rule out that trends detected in hydrological
+time series are explained exclusively by the randomness of the climate.
+Based on: Ricchetti, (2018)
+<https://repositorio.uchile.cl/handle/2250/168487>.
 
 %prep
 %setup -q -c -n %{packname}

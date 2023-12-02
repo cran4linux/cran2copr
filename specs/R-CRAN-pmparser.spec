@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pmparser
-%global packver   1.0.17
+%global packver   1.0.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.17
+Version:          1.0.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create and Maintain a Relational Database of Data from PubMed/MEDLINE
 
@@ -14,9 +14,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         /usr/bin/head
-Requires:         unzip
-Requires:         sqlite
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch

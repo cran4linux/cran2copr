@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wwntests
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hypothesis Tests for Functional Time Series
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sde 
 BuildRequires:    R-stats 
@@ -23,23 +23,28 @@ BuildRequires:    R-CRAN-ftsa
 BuildRequires:    R-CRAN-rainbow 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-fda 
 Requires:         R-CRAN-sde 
 Requires:         R-stats 
 Requires:         R-CRAN-ftsa 
 Requires:         R-CRAN-rainbow 
 Requires:         R-CRAN-MASS 
 Requires:         R-graphics 
+Requires:         R-CRAN-fda 
 
 %description
-Provides an array of white noise hypothesis tests for functional data and
-related visualizations. These include tests based on the norms of
-autocovariance operators that are built under both strong and weak white
-noise assumptions. Additionally, tests based on the spectral density
+Provides a collection of white noise hypothesis tests for functional time
+series and related visualizations. These include tests based on the norms
+of autocovariance operators that are built under both strong and weak
+white noise assumptions. Additionally, tests based on the spectral density
 operator and on principal component dimensional reduction are included,
-which are built under strong white noise assumptions. These methods are
-described in Kokoszka et al. (2017) <doi:10.1016/j.jmva.2017.08.004>,
-Characiejus and Rice (2019) <doi:10.1016/j.ecosta.2019.01.003>, and Gabrys
-and Kokoszka (2007) <doi:10.1198/016214507000001111>, respectively.
+which are built under strong white noise assumptions. Also, this package
+provides goodness-of-fit tests for functional autoregressive of order 1
+models. These methods are described in Kokoszka et al. (2017)
+<doi:10.1016/j.jmva.2017.08.004>, Characiejus and Rice (2019)
+<doi:10.1016/j.ecosta.2019.01.003>, Gabrys and Kokoszka (2007)
+<doi:10.1198/016214507000001111>, and Kim et al. (2023) <doi:
+10.1214/23-SS143> respectively.
 
 %prep
 %setup -q -c -n %{packname}

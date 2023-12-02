@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matsbyname
-%global packver   0.6.6
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Matrix Mathematics that Respects Row and Column Names
 

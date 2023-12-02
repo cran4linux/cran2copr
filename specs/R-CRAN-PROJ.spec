@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PROJ
-%global packver   0.4.0
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generic Coordinate System Transformations Using 'PROJ'
 
@@ -17,8 +18,12 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 
 %description
-Currently non-operational, a harmless wrapper to allow package 'reproj' to
-install and function while relying on the 'proj4' package.
+A wrapper around the generic coordinate transformation software 'PROJ'
+that transforms coordinates from one coordinate reference system ('CRS')
+to another. This includes cartographic projections as well as geodetic
+transformations.  The intention is for this package to be used by
+user-packages such as 'reproj', and that the older 'PROJ.4' and version 5
+pathways be provided by the 'proj4' package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -28,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
