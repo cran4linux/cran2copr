@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isotree
-%global packver   0.5.24-2
+%global packver   0.5.24-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.24.2
+Version:          0.5.24.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Isolation-Based Outlier Detection
 

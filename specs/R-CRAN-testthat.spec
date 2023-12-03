@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  testthat
-%global packver   3.2.0
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unit Testing for R
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-praise >= 1.0.0
 BuildRequires:    R-CRAN-digest >= 0.6.33
 BuildRequires:    R-CRAN-waldo >= 0.5.1
-BuildRequires:    R-CRAN-ellipsis >= 0.3.2
 BuildRequires:    R-CRAN-evaluate >= 0.21
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
@@ -52,7 +51,6 @@ Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-praise >= 1.0.0
 Requires:         R-CRAN-digest >= 0.6.33
 Requires:         R-CRAN-waldo >= 0.5.1
-Requires:         R-CRAN-ellipsis >= 0.3.2
 Requires:         R-CRAN-evaluate >= 0.21
 Requires:         R-methods 
 Requires:         R-utils 

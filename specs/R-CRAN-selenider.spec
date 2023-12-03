@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  selenider
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Concise, Lazy and Reliable Wrapper for 'chromote' and 'RSelenium'
+Summary:          Concise, Lazy and Reliable Wrapper for 'chromote' and 'selenium'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -40,7 +40,7 @@ Requires:         R-CRAN-withr
 
 %description
 A user-friendly wrapper for web automation, using either 'chromote' or
-'RSelenium'. Provides a simple and consistent API to make web scraping and
+'selenium'. Provides a simple and consistent API to make web scraping and
 testing scripts easy to write and understand. Elements are lazy, and
 automatically wait for the website to be valid, resulting in reliable and
 reproducible code, with no visible impact on the experience of the

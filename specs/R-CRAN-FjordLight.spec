@@ -1,48 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geodimension
-%global packver   1.0.2
+%global packname  FjordLight
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Definition of Geographic Dimensions
+Summary:          Available Light Within the Water Column and Seafloor of Arctic Fjords
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-curl 
 
 %description
-The geographic dimension plays a fundamental role in multidimensional
-systems. To define a geographic dimension in a star schema, we need a
-table with attributes corresponding to the levels of the dimension.
-Additionally, we will also need one or more geographic layers to represent
-the data using this dimension. The goal of this package is to support the
-definition of geographic dimensions from layers of geographic information
-related to each other. It makes it easy to define relationships between
-layers and obtain the necessary data from them.
+Satellite data collected between 2003 and 2022, in conjunction with
+gridded bathymetric data (50-150 m resolution), are used to estimate the
+irradiance reaching the bottom of a series of representative EU Arctic
+fjords. An Earth System Science Data (ESSD) manuscript, Schlegel et al.
+(2023, in review), that provides a detailed explanation of the methodology
+is currently in review.
 
 %prep
 %setup -q -c -n %{packname}

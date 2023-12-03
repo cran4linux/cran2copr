@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oeli
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Developing Data Science Software
+Summary:          My Utilities for Developing Data Science Software
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,7 +20,9 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-hexSticker 
+BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-showtext 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sysfonts 
@@ -31,7 +33,9 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-hexSticker 
+Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-showtext 
 Requires:         R-stats 
 Requires:         R-CRAN-sysfonts 
@@ -40,8 +44,8 @@ Requires:         R-CRAN-usethis
 %description
 Some general utilities (helper functions) that I and maybe others find
 useful when developing data science software. Functionality includes
-argument validation, density calculation and sampling, matrix printing and
-indexing, user interaction, and more.
+argument validation, density calculation, sampling, matrix printing, user
+interaction, storage helpers and more. The vignettes illustrate use cases.
 
 %prep
 %setup -q -c -n %{packname}

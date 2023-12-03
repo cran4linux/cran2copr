@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ruminate
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Pharmacometrics Data Transformation and Analysis Tool
 
@@ -19,11 +19,11 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-onbrand >= 1.0.3
 BuildRequires:    R-CRAN-PKNCA >= 0.10.2
+BuildRequires:    R-CRAN-formods >= 0.1.2
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-formods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-rhandsontable 
@@ -37,11 +37,11 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-onbrand >= 1.0.3
 Requires:         R-CRAN-PKNCA >= 0.10.2
+Requires:         R-CRAN-formods >= 0.1.2
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-formods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-rhandsontable 
