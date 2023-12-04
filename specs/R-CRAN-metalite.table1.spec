@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metalite.table1
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Table of Descriptive Statistics in HTML
 
@@ -20,9 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-metalite 
 BuildRequires:    R-CRAN-reactable 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-r2rtf 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-metalite 
 Requires:         R-CRAN-reactable 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-r2rtf 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Create an interactive table of descriptive statistics in HTML. This table

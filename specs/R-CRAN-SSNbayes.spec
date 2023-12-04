@@ -1,27 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClickClust
-%global packver   1.1.6
+%global packname  SSNbayes
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model-Based Clustering of Categorical Sequences
+Summary:          Bayesian Spatio-Temporal Analysis in Stream Networks
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-SSN2 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-sf 
+Requires:         R-methods 
+Requires:         R-CRAN-SSN2 
+Requires:         R-CRAN-rstantools
 
 %description
-Clustering categorical sequences by means of finite mixtures with Markov
-model components is the main utility of ClickClust. The package also
-allows detecting blocks of equivalent states by forward and backward state
-selection procedures.
+Fits Bayesian spatio-temporal models and makes predictions on stream
+networks using the approach by Santos-Fernandez, Edgar, et al.
+(2022)."Bayesian spatio-temporal models for stream networks".
+<arXiv:2103.03538>. In these models, spatial dependence is captured using
+stream distance and flow connectivity, while temporal autocorrelation is
+modelled using vector autoregression methods.
 
 %prep
 %setup -q -c -n %{packname}

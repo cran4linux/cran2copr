@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cropcircles
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Crops an Image to a Circle
 
@@ -28,7 +28,8 @@ Requires:         R-CRAN-purrr
 Images are cropped to a circle with a transparent background. The function
 takes a vector of images, either local or from a link, and circle crops
 the image. Paths to the cropped image are returned for plotting with
-'ggplot2'.
+'ggplot2'. Also includes cropping to a hexagon, heart, parallelogram, and
+square.
 
 %prep
 %setup -q -c -n %{packname}
