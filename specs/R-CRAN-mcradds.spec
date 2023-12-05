@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcradds
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing and Analyzing of Diagnostics Trials
 
@@ -20,24 +20,36 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-formatters 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mcr 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-VCA 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-formatters 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-mcr 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-VCA 
 
 %description

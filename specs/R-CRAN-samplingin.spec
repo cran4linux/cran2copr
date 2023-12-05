@@ -1,33 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDE
-%global packver   1.4.6
+%global packname  samplingin
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Tables and Sentences from PDFs with User Interface
+Summary:          Dynamic Survey Sampling Solutions
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       xpdf
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tcltk2 >= 1.2.11
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-tcltk2 >= 1.2.11
-Requires:         R-tcltk 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rio 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-The PDE (Pdf Data Extractor) allows the extraction of information and
-tables optionally based on search words from PDF (Portable Document
-Format) files and enables the visualization of the results, both by
-providing a convenient user-interface.
+A robust solution employing both systematic and PPS (Probability
+Proportional to Size) sampling methods, ensuring a methodical and
+representative selection of data. Seamlessly allocate predetermined
+allocations to smaller levels. Kish, L. (1965)
+<https://books.google.co.id/books?id=xiZmAAAAIAAJ>.
 
 %prep
 %setup -q -c -n %{packname}

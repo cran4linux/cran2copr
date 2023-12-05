@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deBif
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bifurcation Analysis of Ordinary Differential Equation Systems
 
@@ -14,9 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-shinyjs >= 2.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-shinyjs >= 2.1
 BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0
 BuildRequires:    R-CRAN-rootSolve >= 1.8
 BuildRequires:    R-CRAN-shiny >= 1.7
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-deSolve >= 1.3
 BuildRequires:    R-CRAN-shinydashboard >= 0.7
 BuildRequires:    R-CRAN-rstudioapi >= 0.13
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-shinyjs >= 2.0
+Requires:         R-CRAN-shinyjs >= 2.1
 Requires:         R-CRAN-shinydashboardPlus >= 2.0
 Requires:         R-CRAN-rootSolve >= 1.8
 Requires:         R-CRAN-shiny >= 1.7

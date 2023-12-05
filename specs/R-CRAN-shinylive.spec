@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinylive
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run 'shiny' Applications in the Browser
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-archive 
 BuildRequires:    R-CRAN-brio 
 BuildRequires:    R-CRAN-fs 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-tools 
+Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-archive 
 Requires:         R-CRAN-brio 
 Requires:         R-CRAN-fs 

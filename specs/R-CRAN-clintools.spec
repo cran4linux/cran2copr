@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clintools
-%global packver   0.9.9
+%global packver   0.9.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          0.9.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Clinical Research
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival >= 3.4.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-nlme >= 3.1.160
 BuildRequires:    R-CRAN-stringi >= 1.7.8
@@ -24,9 +25,12 @@ BuildRequires:    R-CRAN-xml2 >= 1.3.2
 BuildRequires:    R-CRAN-scales >= 1.2.1
 BuildRequires:    R-CRAN-pROC >= 1.18.0
 BuildRequires:    R-CRAN-lme4 >= 1.1.27.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
 BuildRequires:    R-CRAN-irr >= 0.84.1
 BuildRequires:    R-CRAN-signal >= 0.7.6
+BuildRequires:    R-CRAN-pander >= 0.6.5
 BuildRequires:    R-CRAN-parameters >= 0.19.0
+Requires:         R-CRAN-survival >= 3.4.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-nlme >= 3.1.160
 Requires:         R-CRAN-stringi >= 1.7.8
@@ -34,8 +38,10 @@ Requires:         R-CRAN-xml2 >= 1.3.2
 Requires:         R-CRAN-scales >= 1.2.1
 Requires:         R-CRAN-pROC >= 1.18.0
 Requires:         R-CRAN-lme4 >= 1.1.27.1
+Requires:         R-CRAN-dplyr >= 1.1.2
 Requires:         R-CRAN-irr >= 0.84.1
 Requires:         R-CRAN-signal >= 0.7.6
+Requires:         R-CRAN-pander >= 0.6.5
 Requires:         R-CRAN-parameters >= 0.19.0
 
 %description

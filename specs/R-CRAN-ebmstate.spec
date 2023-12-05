@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDE
-%global packver   1.4.6
+%global packname  ebmstate
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Tables and Sentences from PDFs with User Interface
+Summary:          Empirical Bayes Multi-State Cox Model
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       xpdf
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tcltk2 >= 1.2.11
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-tcltk2 >= 1.2.11
-Requires:         R-tcltk 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-survival >= 2.44.1.1
+BuildRequires:    R-CRAN-mstate >= 0.2.11
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-survival >= 2.44.1.1
+Requires:         R-CRAN-mstate >= 0.2.11
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-HDInterval 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-methods 
 
 %description
-The PDE (Pdf Data Extractor) allows the extraction of information and
-tables optionally based on search words from PDF (Portable Document
-Format) files and enables the visualization of the results, both by
-providing a convenient user-interface.
+Implements an empirical Bayes, multi-state Cox model for survival
+analysis. Run "?'ebmstate-package'" for details. See also Schall (1991)
+<doi:10.1093/biomet/78.4.719>.
 
 %prep
 %setup -q -c -n %{packname}

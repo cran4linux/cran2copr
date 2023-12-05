@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rosv
-%global packver   0.5.1
+%global packname  ImVol
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client to Access and Operate on the 'Open Source Vulnerability' API
+Summary:          Volume Prediction of Trees Using Linear and Nonlinear Allometric Equations
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-memoise >= 2.0.0
-BuildRequires:    R-CRAN-R6 >= 2.0.0
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.16
-BuildRequires:    R-CRAN-digest >= 0.6.0
-BuildRequires:    R-CRAN-furrr >= 0.3.0
-BuildRequires:    R-utils 
-Requires:         R-CRAN-memoise >= 2.0.0
-Requires:         R-CRAN-R6 >= 2.0.0
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 0.9.16
-Requires:         R-CRAN-digest >= 0.6.0
-Requires:         R-CRAN-furrr >= 0.3.0
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-nls2 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-nls2 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Connect, query, and operate on information available from the 'Open Source
-Vulnerability' database <https://osv.dev/>. Although 'CRAN' has
-vulnerabilities listed, these are few compared to projects such as 'PyPI'.
-With tighter integration between 'R' and 'Python', having an 'R' specific
-package to access details about vulnerabilities from various sources is a
-worthwhile enterprise.
+Volume prediction is one of challenging task in forestry research. This
+package is a comprehensive toolset designed for the fitting and validation
+of various linear and nonlinear allometric equations (Linear, Log-Linear,
+Inverse, Quadratic, Cubic, Compound, Power and Exponential) used in the
+prediction of conifer tree volume. This package is particularly useful for
+forestry professionals, researchers, and resource managers engaged in
+assessing and estimating the volume of coniferous trees. This package has
+been developed using the algorithm of Sharma et al. (2017)
+<doi:10.13140/RG.2.2.33786.62407>.
 
 %prep
 %setup -q -c -n %{packname}

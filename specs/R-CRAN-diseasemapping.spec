@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDE
-%global packver   1.4.6
+%global packname  diseasemapping
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Tables and Sentences from PDFs with User Interface
+Summary:          Modelling Spatial Variation in Disease Risk for Areal Data
 
-License:          GPL-3 | file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       xpdf
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tcltk2 >= 1.2.11
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-tcltk2 >= 1.2.11
-Requires:         R-tcltk 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-terra 
+Requires:         R-methods 
 
 %description
-The PDE (Pdf Data Extractor) allows the extraction of information and
-tables optionally based on search words from PDF (Portable Document
-Format) files and enables the visualization of the results, both by
-providing a convenient user-interface.
+Formatting of population and case data, calculation of Standardized
+Incidence Ratios, and fitting the BYM model using 'INLA'. For details see
+Brown (2015) <doi:10.18637/jss.v063.i12>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ravetools
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Signal and Image Processing Toolbox for Analyzing Intracranial 'Electroencephalography' Data
 
@@ -18,6 +18,7 @@ BuildRequires:    fftw-devel
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-RNiftyReg >= 2.7.1
+BuildRequires:    R-CRAN-R6 >= 2.5.1
 BuildRequires:    R-CRAN-waveslim >= 1.8.2
 BuildRequires:    R-CRAN-signal >= 0.7.7
 BuildRequires:    R-CRAN-digest >= 0.6.29
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-splines 
 Requires:         R-CRAN-RNiftyReg >= 2.7.1
+Requires:         R-CRAN-R6 >= 2.5.1
 Requires:         R-CRAN-waveslim >= 1.8.2
 Requires:         R-CRAN-signal >= 0.7.7
 Requires:         R-CRAN-digest >= 0.6.29

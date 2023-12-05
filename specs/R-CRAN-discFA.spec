@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDE
-%global packver   1.4.6
+%global packname  discFA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Tables and Sentences from PDFs with User Interface
+Summary:          Discrete Factor Analysis
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       xpdf
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tcltk2 >= 1.2.11
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-tcltk2 >= 1.2.11
-Requires:         R-tcltk 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-VGAM 
+Requires:         R-methods 
 
 %description
-The PDE (Pdf Data Extractor) allows the extraction of information and
-tables optionally based on search words from PDF (Portable Document
-Format) files and enables the visualization of the results, both by
-providing a convenient user-interface.
+Discrete factor analysis for dependent Poisson and negative binomial
+models with truncation, zero inflation, and zero inflated truncation.
 
 %prep
 %setup -q -c -n %{packname}

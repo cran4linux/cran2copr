@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TaylorRussell
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Taylor-Russell Function for Multiple Predictors
 
@@ -26,8 +26,8 @@ Requires:         R-CRAN-shinyWidgets
 
 %description
 The Taylor Russell model is a widely used method for assessing test
-validity in personnel selections tasks. The three functions in this
-package extend this model in a number of notable ways. TR() estimates test
+validity in personnel selection tasks. The three functions in this package
+extend this model in a number of notable ways. TR() estimates test
 validity for a single selection test via the original Taylor Russell
 model. It extends this model by allowing users greater flexibility in
 argument choice. For example, users can specify any three of the four

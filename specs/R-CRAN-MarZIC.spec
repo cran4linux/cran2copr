@@ -1,29 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Statamarkdown
-%global packver   0.9.2
+%global packname  MarZIC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Stata' Markdown
+Summary:          Marginal Mediation Effects with Zero-Inflated Compositional Mediator
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.43
-BuildRequires:    R-CRAN-xfun >= 0.39
-Requires:         R-CRAN-knitr >= 1.43
-Requires:         R-CRAN-xfun >= 0.39
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-NlcOptim 
+BuildRequires:    R-CRAN-betareg 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-dirmult 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-NlcOptim 
+Requires:         R-CRAN-betareg 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-dirmult 
+Requires:         R-stats 
+Requires:         R-parallel 
 
 %description
-Settings and functions to extend the 'knitr' 'Stata' engine.
+A way to estimate and test marginal mediation effects for zero-inflated
+compositional mediators. Estimates of Natural Indirect Effect (NIE),
+Natural Direct Effect (NDE) of each taxon, as well as their standard
+errors and confident intervals, were provided as outputs. Zeros will not
+be imputed during analysis. See Wu et al. (2022)
+<doi:10.3390/genes13061049>.
 
 %prep
 %setup -q -c -n %{packname}

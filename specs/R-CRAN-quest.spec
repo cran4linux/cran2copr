@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  quest
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prepare Questionnaire Data for Analysis
 
@@ -21,19 +22,33 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-str2str 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-psychTools 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-MBESS 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-multilevel 
+BuildRequires:    R-CRAN-lavaan 
 Requires:         R-datasets 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-str2str 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-psychTools 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-MBESS 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-multilevel 
+Requires:         R-CRAN-lavaan 
 
 %description
 Offers a suite of functions to prepare questionnaire data for analysis

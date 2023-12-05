@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eventPred
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Event Prediction
 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-Matrix >= 1.2.14
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-erify >= 0.4.0
-BuildRequires:    R-CRAN-tmvtnsim >= 0.1.3
 Requires:         R-CRAN-plotly >= 4.10.1
 Requires:         R-splines >= 3.5.0
 Requires:         R-stats >= 3.5.0
@@ -41,8 +41,8 @@ Requires:         R-CRAN-Matrix >= 1.2.14
 Requires:         R-CRAN-mvtnorm >= 1.1.3
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-erify >= 0.4.0
-Requires:         R-CRAN-tmvtnsim >= 0.1.3
 
 %description
 Predicts enrollment and events at the design or analysis stage using

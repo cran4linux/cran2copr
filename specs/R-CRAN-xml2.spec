@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xml2
-%global packver   1.3.5
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse XML
 
@@ -15,9 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    libxml2-devel
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
 Requires:         R-methods 
 
 %description

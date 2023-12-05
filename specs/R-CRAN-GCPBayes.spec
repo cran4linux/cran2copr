@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GCPBayes
-%global packver   4.0.0
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Meta-Analysis of Pleiotropic Effects Using Group Structure
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-invgamma 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-gdata
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-postpack 
 BuildRequires:    R-CRAN-wiqid 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-invgamma 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sphunif
-%global packver   1.1.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Uniformity Tests on the Circle, Sphere, and Hypersphere
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-gsl 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-rotasym
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-gsl 

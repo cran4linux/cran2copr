@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BiostatsUHNplus
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Data Summary and Adverse Events
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-afex 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
@@ -38,6 +39,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-afex 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 

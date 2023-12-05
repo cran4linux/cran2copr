@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RMySQL
-%global packver   0.10.26
+%global packver   0.10.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.26
+Version:          0.10.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Database Interface and 'MySQL' Driver for R
 
@@ -24,8 +24,8 @@ Requires:         R-methods
 
 %description
 Legacy 'DBI' interface to 'MySQL' / 'MariaDB' based on old code ported
-from S-PLUS. A modern 'MySQL' client based on 'Rcpp' is available from the
-'RMariaDB' package.
+from S-PLUS. A modern 'MySQL' client written in 'C++' is available from
+the 'RMariaDB' package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RMVL
-%global packver   0.0.4.9
+%global packver   1.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.9
+Version:          1.0.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mappable Vector Library for Handling Large Datasets
 
@@ -30,6 +30,8 @@ is optimized for large datasets. The vectors are stored to guarantee
 alignment for vector intrinsics after memory map. The package is built on
 top of libMVL, which can be used as a standalone C library. libMVL has
 simple C API making it easy to interchange datasets with outside programs.
+Large MVL datasets are distributed via Academic Torrents
+<https://academictorrents.com/collection/mvl-datasets>.
 
 %prep
 %setup -q -c -n %{packname}
