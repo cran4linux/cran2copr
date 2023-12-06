@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mirai.promises
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make 'Mirai' 'Promises'
 
@@ -18,10 +18,8 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-promises >= 1.1.0
-BuildRequires:    R-CRAN-later >= 1.0.0
 BuildRequires:    R-CRAN-nanonext >= 0.10.1
 Requires:         R-CRAN-promises >= 1.1.0
-Requires:         R-CRAN-later >= 1.0.0
 Requires:         R-CRAN-nanonext >= 0.10.1
 
 %description

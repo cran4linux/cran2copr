@@ -1,43 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivo.table
-%global packver   0.2
+%global packname  fcp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nicely Formatted Contingency Tables and Frequency Tables
+Summary:          Function Composition
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 
 %description
-Nicely formatted frequency tables and contingency tables (1-way, 2-way,
-3-way and 4-way tables), that can easily be exported to HTML or 'Office'
-documents, including 'Excel'. Designed to work with pipes.
+A function composition operator to chain a series of calls into a single
+function, mimicking the math notion of (f o g o h)(x) = h(g(f(x))).
+Inspired by 'pipeOp' ('|>') since R4.1 and 'magrittr pipe' ('%%>%%'), the
+operator build a pipe without putting data through, which is best for
+anonymous function accepted by utilities such as apply() and lapply().
 
 %prep
 %setup -q -c -n %{packname}

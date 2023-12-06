@@ -1,43 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivo.table
-%global packver   0.2
+%global packname  PracTools
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nicely Formatted Contingency Tables and Frequency Tables
+Summary:          Designing and Weighting Survey Samples
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-usmap 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-usmap 
 
 %description
-Nicely formatted frequency tables and contingency tables (1-way, 2-way,
-3-way and 4-way tables), that can easily be exported to HTML or 'Office'
-documents, including 'Excel'. Designed to work with pipes.
+Functions and datasets to support Valliant, Dever, and Kreuter (2018),
+<doi:10.1007/978-3-319-93632-1>, "Practical Tools for Designing and
+Weighting Survey Samples". Contains functions for sample size calculation
+for survey samples using stratified or clustered one-, two-, and
+three-stage sample designs, and single-stage audit sample designs.
+Functions are included that will group geographic units accounting for
+distances apart and measures of size. Other functions compute variance
+components for multistage designs and sample sizes in two-phase designs. A
+number of example data sets are included.
 
 %prep
 %setup -q -c -n %{packname}

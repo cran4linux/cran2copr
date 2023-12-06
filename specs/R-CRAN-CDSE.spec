@@ -1,39 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGIRread
-%global packver   0.3.2
+%global packname  CDSE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wearable Accelerometer Data File Readers
+Summary:          'Copernicus Data Space Ecosystem' API Wrapper
 
-License:          Apache License (== 2.0)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-lutz 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-matlab 
-BuildRequires:    R-CRAN-bitops 
-Requires:         R-CRAN-Rcpp >= 0.12.10
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-lutz 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
 Requires:         R-utils 
-Requires:         R-CRAN-matlab 
-Requires:         R-CRAN-bitops 
 
 %description
-Reads data collected from wearable acceleratometers as used in sleep and
-physical activity research. Currently supports file formats: binary data
-from 'GENEActiv' <https://activinsights.com/>, binary data from GENEA
-devices (not for sale), and .cwa-format and .wav-format data from
-'Axivity' <https://axivity.com>. Primarily designed to complement R
-package GGIR <https://CRAN.R-project.org/package=GGIR>.
+Provides interface to the 'Copernicus Data Space Ecosystem' API
+<https://dataspace.copernicus.eu/analyse/apis>, mainly for searching the
+catalog of available data from Copernicus Sentinel missions and obtaining
+the images for just the area of interest based on selected spectral bands.
+The package uses the 'Sentinel Hub' REST API interface
+<https://dataspace.copernicus.eu/analyse/apis/sentinel-hub> that provides
+access to various satellite imagery archives. It allows you to access raw
+satellite data, rendered images, statistical analysis, and other features.
 
 %prep
 %setup -q -c -n %{packname}

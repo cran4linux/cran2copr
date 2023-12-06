@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivo.table
-%global packver   0.2
+%global packname  ZLAvian
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nicely Formatted Contingency Tables and Frequency Tables
+Summary:          Zipf's Law of Abbreviation in Animal Vocalisations
 
-License:          MIT + file LICENSE
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lme4 >= 1.1.34
+BuildRequires:    R-CRAN-doParallel >= 1.0.17
+BuildRequires:    R-CRAN-performance >= 0.10.4
+Requires:         R-CRAN-lme4 >= 1.1.34
+Requires:         R-CRAN-doParallel >= 1.0.17
+Requires:         R-CRAN-performance >= 0.10.4
 
 %description
-Nicely formatted frequency tables and contingency tables (1-way, 2-way,
-3-way and 4-way tables), that can easily be exported to HTML or 'Office'
-documents, including 'Excel'. Designed to work with pipes.
+Assesses evidence for Zipf's Law of Abbreviation in animal vocalisation
+using IDs, note class and note duration. The package also provides a
+webplot function for visualisation. Davis, M. K., and Chen, G. (2007)
+<doi:10.2307/2346786>.
 
 %prep
 %setup -q -c -n %{packname}

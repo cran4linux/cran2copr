@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EVI
-%global packver   0.1.1-4
+%global packver   0.2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.4
+Version:          0.2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Epidemic Volatility Index as an Early-Warning Tool
 
@@ -22,11 +23,12 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-cowplot 
 
 %description
-Implementation of the epidemic volatility index (EVI), as discussed by
-Kostoulas et. al. (2021). EVI is a new, conceptually simple, early warning
-tool for oncoming epidemic waves. EVI is based on the volatility of newly
-reported cases per unit of time, ideally per day, and issues an early
-warning when the volatility change rate exceeds a threshold.
+This is an R package implementing the epidemic volatility index (EVI), as
+discussed by Kostoulas et. al. (2021) and variations by Pateras et. al.
+(2023). EVI is a new, conceptually simple, early warning tool for oncoming
+epidemic waves. EVI is based on the volatility of newly reported cases per
+unit of time, ideally per day, and issues an early warning when the
+volatility change rate exceeds a threshold.
 
 %prep
 %setup -q -c -n %{packname}

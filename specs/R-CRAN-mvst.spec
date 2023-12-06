@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  panstarrs
-%global packver   0.2.0
+%global packname  mvst
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the Pan-STARRS API
+Summary:          Bayesian Inference for the Multivariate Skew-t Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-mnormt 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-mnormt 
 
 %description
-An interface to the API for 'Pan-STARRS1', a data archive of the PS1
-wide-field astronomical survey.  The package allows access to the PS1
-catalog and to the PS1 images.  (see
-<https://outerspace.stsci.edu/display/PANSTARRS/> for more information).
-You can use it to plan astronomical observations, make guidance pictures,
-find magnitudes in five broadband filters (g, r, i, z, y) and more.
+Estimates the multivariate skew-t and nested models, as described in the
+articles Liseo, B., Parisi, A. (2013). Bayesian inference for the
+multivariate skew-normal model: a population Monte Carlo approach. Comput.
+Statist. Data Anal. <doi:10.1016/j.csda.2013.02.007> and in Parisi, A.,
+Liseo, B. (2017). Objective Bayesian analysis for the multivariate skew-t
+model. Statistical Methods & Applications <doi:
+10.1007/s10260-017-0404-0>.
 
 %prep
 %setup -q -c -n %{packname}

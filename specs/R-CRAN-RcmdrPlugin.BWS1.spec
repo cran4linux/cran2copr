@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RcmdrPlugin.BWS1
-%global packver   0.1-5
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Commander Plug-in for Case 1 (Object Case) Best-Worst Scaling
+Summary:          R Commander Plug-in for Case 1 Best-Worst Scaling
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

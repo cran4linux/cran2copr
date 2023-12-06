@@ -1,43 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivo.table
-%global packver   0.2
+%global packname  animbook
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nicely Formatted Contingency Tables and Frequency Tables
+Summary:          Visualizing Changes in Performance Measures and Demographic Affiliations using Animation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-gganimate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-officer 
+Requires:         R-CRAN-gganimate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Nicely formatted frequency tables and contingency tables (1-way, 2-way,
-3-way and 4-way tables), that can easily be exported to HTML or 'Office'
-documents, including 'Excel'. Designed to work with pipes.
+Create an interactive visualization to be used for communication purposes.
+Providing the function for preparing, plotting, and animating the data.
 
 %prep
 %setup -q -c -n %{packname}

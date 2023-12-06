@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tabnet
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit 'TabNet' Models for Classification and Regression
 
@@ -14,35 +14,40 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-hardhat >= 1.3.0
 BuildRequires:    R-CRAN-torch >= 0.4.0
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-zeallot 
 Requires:         R-CRAN-hardhat >= 1.3.0
 Requires:         R-CRAN-torch >= 0.4.0
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rlang 
 Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-coro 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-zeallot 
 
 %description
 Implements the 'TabNet' model by Sercan O. Arik et al. (2019)
-<arXiv:1908.07442> and provides a consistent interface for fitting and
-creating predictions. It's also fully compatible with the 'tidymodels'
-ecosystem.
+<arXiv:1908.07442> with 'Coherent Hierarchical Multi-label Classification
+Networks' by Giunchiglia et al. <arXiv:2010.10151> and provides a
+consistent interface for fitting and creating predictions. It's also fully
+compatible with the 'tidymodels' ecosystem.
 
 %prep
 %setup -q -c -n %{packname}
