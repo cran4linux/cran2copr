@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rvcg
-%global packver   0.22.1
+%global packver   0.22.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22.1
+Version:          0.22.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulations of Triangular Meshes Based on the 'VCGLIB' API
 
@@ -36,8 +36,8 @@ displaying with OpenGL of triangle and tetrahedral meshes. The library,
 composed by more than 100k lines of code, is released under the GPL
 license, and it is the base of most of the software tools of the Visual
 Computing Lab of the Italian National Research Council Institute ISTI
-<http://vcg.isti.cnr.it>, like 'metro' and 'MeshLab'. The 'VCGLIB' source
-is pulled from trunk <https://github.com/cnr-isti-vclab/vcglib> and
+<https://vcg.isti.cnr.it/>, like 'metro' and 'MeshLab'. The 'VCGLIB'
+source is pulled from trunk <https://github.com/cnr-isti-vclab/vcglib> and
 patched to work with options determined by the configure script as well as
 to work with the header files included by 'RcppEigen'.
 

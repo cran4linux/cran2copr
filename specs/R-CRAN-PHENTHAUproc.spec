@@ -1,46 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmmrOptim
-%global packver   0.3.3
+%global packname  PHENTHAUproc
+%global packver   0.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.9.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate Optimal Experimental Designs Using Generalised Linear Mixed Models
+Summary:          Modelling Phenology of Oak Processionary Moth
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-glmmrBase >= 0.4.6
-BuildRequires:    R-CRAN-rminqa >= 0.2.2
-BuildRequires:    R-CRAN-SparseChol >= 0.2.1
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate >= 1.9
+BuildRequires:    R-CRAN-terra >= 1.7
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppProgress 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-glmmrBase >= 0.4.6
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-lubridate >= 1.9
+Requires:         R-CRAN-terra >= 1.7
+Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Optimal design analysis algorithms for any study design that can be
-represented or modelled as a generalised linear mixed model including
-cluster randomised trials, cohort studies, spatial and temporal
-epidemiological studies, and split-plot designs. See
-<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
-detailed manual on model specification. A detailed discussion of the
-methods in this package can be found in Watson and Pan (2022)
-<arXiv:2207.09183>.
+Methods to calculate and present 'PHENTHAUproc', an early warning and
+decision support system for hazard assessment and control of oak
+processionary moth (Thaumetopoea processionea) using local and spatial
+temperature data. It was created by Halbig et al. 2023 (in submission) at
+the FVA (<https://www.fva-bw.de>) a forest research institute in
+Baden-Wuerttemberg, Germany.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AcceptanceSampling
-%global packver   1.0-10
+%global packname  RNAmf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creation and Evaluation of Acceptance Sampling Plans
+Summary:          Recursive Non-Additive Emulator for Multi-Fidelity Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.4.0
-Requires:         R-core >= 2.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plgp 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-plgp 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
-Provides functionality for creating and evaluating acceptance sampling
-plans. Sampling plans can be single, double or multiple.
+Performs RNA emulation and active learning proposed by Heo and Sung
+(2023+) <arXiv:2309.11772> for multi-fidelity computer experiments. The
+RNA emulator is particularly useful when the simulations with different
+fidelity level are nonlinearly correlated. The hyperparameters in the
+model are estimated by maximum likelihood estimation.
 
 %prep
 %setup -q -c -n %{packname}

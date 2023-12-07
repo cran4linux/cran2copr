@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nadiv
-%global packver   2.17.2
+%global packname  covadap
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.17.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          (Non)Additive Genetic Relatedness Matrices
+Summary:          Implement Covariate-Adaptive Randomization
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-graphics 
-Requires:         R-methods 
 Requires:         R-stats 
 
 %description
-Constructs (non)additive genetic relationship matrices, and their
-inverses, from a pedigree to be used in linear mixed effect models (A.K.A.
-the 'animal model'). Also includes other functions to facilitate the use
-of animal models. Some functions have been created to be used in
-conjunction with the R package 'asreml' for the 'ASReml' software, which
-can be obtained upon purchase from 'VSN' international
-(<https://vsni.co.uk/software/asreml>).
+Implementing seven Covariate-Adaptive Randomization to assign patients to
+two treatments. Three of these procedures can also accommodate
+quantitative and mixed covariates. Given a set of covariates, the user can
+generate a single sequence of allocations or replicate the design multiple
+times by simulating the patients' covariate profiles. At the end, an
+extensive assessment of the performance of the randomization procedures is
+provided, calculating several imbalance measures. See Baldi Antognini A,
+Frieri R, Zagoraiou M and Novelli M (2022)
+<doi:10.1007/s00362-022-01381-1> for details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AcceptanceSampling
-%global packver   1.0-10
+%global packname  binpackr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creation and Evaluation of Acceptance Sampling Plans
+Summary:          Fast 1d Bin Packing
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.4.0
-Requires:         R-core >= 2.4.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-cpp11 
 
 %description
-Provides functionality for creating and evaluating acceptance sampling
-plans. Sampling plans can be single, double or multiple.
+Implements the First Fit Decreasing algorithm to achieve one dimensional
+heuristic bin packing. Runtime is of order O(n log(n)) where n is the
+number of items to pack. See "The Art of Computer Programming Vol. 1" by
+Donald E. Knuth (1997, ISBN: 0201896834) for more details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  formatters
-%global packver   0.5.2
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          ASCII Formatting for Values and Tables
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-htmltools >= 0.5.3
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-htmltools >= 0.5.3
 Requires:         R-methods 
-Requires:         R-CRAN-checkmate 
 Requires:         R-grid 
-Requires:         R-CRAN-htmltools 
 
 %description
 We provide a framework for rendering complex tables to ASCII, and a set of
