@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmirestriktor
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Informative Hypothesis Testing Web Applications
 
@@ -17,11 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mmcards 
 BuildRequires:    R-CRAN-restriktor 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mmcards 
 Requires:         R-CRAN-restriktor 

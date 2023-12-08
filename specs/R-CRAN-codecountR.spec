@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  codecountR
-%global packver   0.0.3.1
+%global packver   0.0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3.1
+Version:          0.0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Counting Codes in a Text and Preparing Data for Analysis
 
@@ -27,14 +27,11 @@ Therefore, code counting and data preparation are necessary phases to
 carry out the analysis. Thus, the analysts will wish to count the codes
 inserted in a text (tokenization and counting of a list of pre-established
 codes) and to carry out the preparation of the data (feature scaling
-min-max normalization, Zscore, Box and Cox transformation, Yeo and Johnson
-transformation, median absolute deviation). For Box and Cox (1964)
-<https://www.jstor.org/stable/2984418> transformation, optimal Lambda is
-calculated by log-likelihood. The optimal lambda for Yeo and Johnson
-(2000) <doi:10.1093/biomet/87.4.954> transformation is calculated by
-correlation coefficient test inspired of Lye (1993) <doi:10.1139/l93-101>.
-Median absolute deviation is calculated on the basis of Leys et al (1993)
-<doi:10.1016/j.jesp.2013.03.013>. Package for educational purposes.
+min-max normalization, Zscore, Box and Cox transformation, non parametric
+bootstrap). For Box and Cox (1964) <https://www.jstor.org/stable/2984418>
+transformation, optimal Lambda is calculated by log-likelihood. Non
+parametric bootstrap is based on randomly sampling data with replacement.
+Package for educational purposes.
 
 %prep
 %setup -q -c -n %{packname}

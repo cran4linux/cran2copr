@@ -1,61 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lares
-%global packver   5.2.4
+%global packname  CohortSurvival
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analytics & Machine Learning Sidekick
+Summary:          Estimate Survival from Common Data Model Cohorts
 
-License:          AGPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-CDMConnector 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-h2o 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-rpart.plot 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-PatientProfiles 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-CDMConnector 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-h2o 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-rpart.plot 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-PatientProfiles 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-yaml 
 
 %description
-Auxiliary package for better/faster analytics, visualization, data mining,
-and machine learning tasks. With a wide variety of family functions, like
-Machine Learning, Data Wrangling, Exploratory, API, and Scrapper, it helps
-the analyst or data scientist to get quick and robust results, without the
-need of repetitive coding or extensive R programming skills.
+Estimate survival using data mapped to the Observational Medical Outcomes
+Partnership common data model. Survival can be estimated based on
+user-defined study cohorts.
 
 %prep
 %setup -q -c -n %{packname}

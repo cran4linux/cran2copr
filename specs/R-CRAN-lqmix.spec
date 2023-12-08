@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lqmix
-%global packver   0.1.0
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Quantile Mixture Models
 
@@ -21,14 +21,22 @@ BuildRequires:    R-CRAN-quantreg
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-diagram 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-quantreg 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-diagram 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
 
 %description
-Estimate linear quantile mixtures based on discrete, Time-Constant (TC)
-and/or Time-Varying (TV), random coefficients.
+Estimate linear quantile mixtures based on Time-Constant (TC) and/or
+Time-Varying (TV), discrete, random coefficients.
 
 %prep
 %setup -q -c -n %{packname}

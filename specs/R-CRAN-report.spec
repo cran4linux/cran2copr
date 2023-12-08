@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  report
-%global packver   0.5.7
+%global packver   0.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Reporting of Results and Statistical Models
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-performance >= 0.9.2
-BuildRequires:    R-CRAN-datawizard >= 0.6.5
-BuildRequires:    R-CRAN-parameters >= 0.20.0
-BuildRequires:    R-CRAN-insight >= 0.19.1
-BuildRequires:    R-CRAN-bayestestR >= 0.13.0
-BuildRequires:    R-CRAN-effectsize > 0.8.2
+BuildRequires:    R-CRAN-datawizard >= 0.9.0
+BuildRequires:    R-CRAN-effectsize >= 0.8.6
+BuildRequires:    R-CRAN-parameters >= 0.21.3
+BuildRequires:    R-CRAN-insight >= 0.19.7
+BuildRequires:    R-CRAN-bayestestR >= 0.13.1
+BuildRequires:    R-CRAN-performance >= 0.10.8
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-performance >= 0.9.2
-Requires:         R-CRAN-datawizard >= 0.6.5
-Requires:         R-CRAN-parameters >= 0.20.0
-Requires:         R-CRAN-insight >= 0.19.1
-Requires:         R-CRAN-bayestestR >= 0.13.0
-Requires:         R-CRAN-effectsize > 0.8.2
+Requires:         R-CRAN-datawizard >= 0.9.0
+Requires:         R-CRAN-effectsize >= 0.8.6
+Requires:         R-CRAN-parameters >= 0.21.3
+Requires:         R-CRAN-insight >= 0.19.7
+Requires:         R-CRAN-bayestestR >= 0.13.1
+Requires:         R-CRAN-performance >= 0.10.8
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 

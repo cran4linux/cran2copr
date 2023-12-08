@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gaston
-%global packver   1.5.9
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.9
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Data Handling (QC, GRM, LD, PCA) & Linear Mixed Models
 

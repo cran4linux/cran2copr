@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matRiks
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generates Raven-Like Matrices According to Rules
 
@@ -29,7 +29,11 @@ according to both logical rules (i.e., the relationships between the
 elements in the matrix are manipulated to create the matrix) and
 visual-spatial rules (i.e., the visual or spatial characteristics of the
 elements are manipulated to generate the matrix). The graphical elements
-of this package are based on the 'DescTools' package.
+of this package are based on the 'DescTools' package. This package has
+been developed within the PRIN2020 Project (Prot. 20209WKCLL) titled
+"Computerized, Adaptive and Personalized Assessment of Executive Functions
+and Fluid Intelligence" and founded by the Italian Ministry of Education
+and Research.
 
 %prep
 %setup -q -c -n %{packname}

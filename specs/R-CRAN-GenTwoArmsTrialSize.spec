@@ -1,49 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dagitty
-%global packver   0.3-4
+%global packname  GenTwoArmsTrialSize
+%global packver   0.0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical Analysis of Structural Causal Models
+Summary:          Generalized Two Arms Clinical Trial Sample Size Calculation
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-V8 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-TrialSize 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Hmisc 
+Requires:         R-CRAN-TrialSize 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Hmisc 
 
 %description
-A port of the web-based software 'DAGitty', available at
-<https://dagitty.net>, for analyzing structural causal models (also known
-as directed acyclic graphs or DAGs). This package computes covariate
-adjustment sets for estimating causal effects, enumerates instrumental
-variables, derives testable implications (d-separation and vanishing
-tetrads), generates equivalent models, and includes a simple facility for
-data simulation.
+Two arms clinical trials required sample size is calculated in the
+comprehensive parametric context. The calculation is based on the type of
+endpoints(continuous/binary/time-to-event/ordinal), design
+(parallel/crossover), hypothesis tests
+(equality/noninferiority/superiority/equivalence), trial arms
+noncompliance rates and expected loss of follow-up. Methods are described
+in: Chow SC, Shao J, Wang H, Lokhnygina Y (2017)
+<doi:10.1201/9781315183084>, Wittes, J (2002)
+<doi:10.1093/epirev/24.1.39>, Sato, T (2000)
+<doi:10.1002/1097-0258(20001015)19:19<2689::aid-sim555>3.0.co;2-0>, Lachin
+J M, Foulkes, M A (1986) <doi:10.2307/2531201>, Whitehead J(1993)
+<doi:10.1002/sim.4780122404>, Julious SA (2023)
+<doi:10.1201/9780429503658>.
 
 %prep
 %setup -q -c -n %{packname}

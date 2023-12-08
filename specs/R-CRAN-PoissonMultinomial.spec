@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PoissonMultinomial
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Poisson-Multinomial Distribution
 
@@ -34,7 +34,7 @@ normal approximation method uses a multivariate normal distribution to
 approximate the pmf of the distribution based on central limit theorem.
 The simulation method is based on the law of large numbers. Details about
 the methods are available in Lin, Wang, and Hong (2022)
-<arXiv:2201.04237>.
+<DOI:10.1007/s00180-022-01299-0>.
 
 %prep
 %setup -q -c -n %{packname}

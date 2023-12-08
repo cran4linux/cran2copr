@@ -1,49 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dagitty
-%global packver   0.3-4
+%global packname  g.ridge
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical Analysis of Structural Causal Models
+Summary:          Generalized Ridge Regression for Linear Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-V8 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
-A port of the web-based software 'DAGitty', available at
-<https://dagitty.net>, for analyzing structural causal models (also known
-as directed acyclic graphs or DAGs). This package computes covariate
-adjustment sets for estimating causal effects, enumerates instrumental
-variables, derives testable implications (d-separation and vanishing
-tetrads), generates equivalent models, and includes a simple facility for
-data simulation.
+Ridge regression due to Hoerl and Kennard
+(1970)<DOI:10.1080/00401706.1970.10488634> and generalized ridge
+regression due to Yang and Emura (2017)<DOI:10.1080/03610918.2016.1193195>
+with optimized tuning parameters. These ridge regression estimators (the
+HK estimator and the YE estimator) are computed by minimizing the
+cross-validated mean squared errors. Both the ridge and generalized ridge
+estimators are applicable for high-dimensional regressors (p>n), where p
+is the number of regressors, and n is the sample size.
 
 %prep
 %setup -q -c -n %{packname}

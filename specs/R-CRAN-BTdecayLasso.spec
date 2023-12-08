@@ -1,49 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dagitty
-%global packver   0.3-4
+%global packname  BTdecayLasso
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical Analysis of Structural Causal Models
+Summary:          Bradley-Terry Model with Exponential Time Decayed Log-Likelihood and Adaptive Lasso
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-V8 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-grDevices 
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
-A port of the web-based software 'DAGitty', available at
-<https://dagitty.net>, for analyzing structural causal models (also known
-as directed acyclic graphs or DAGs). This package computes covariate
-adjustment sets for estimating causal effects, enumerates instrumental
-variables, derives testable implications (d-separation and vanishing
-tetrads), generates equivalent models, and includes a simple facility for
-data simulation.
+We utilize the Bradley-Terry Model to estimate the abilities of teams
+using paired comparison data. For dynamic approximation of current
+rankings, we employ the Exponential Decayed Log-likelihood function, and
+we also apply the Lasso penalty for variance reduction and grouping. The
+main algorithm applies the Augmented Lagrangian Method described by
+Masarotto and Varin (2012) <doi:10.1214/12-AOAS581>.
 
 %prep
 %setup -q -c -n %{packname}

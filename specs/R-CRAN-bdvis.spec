@@ -1,49 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dagitty
-%global packver   0.3-4
+%global packname  bdvis
+%global packver   0.2.37
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.2.37
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical Analysis of Structural Causal Models
+Summary:          Biodiversity Data Visualizations
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-V8 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-taxize 
+BuildRequires:    R-CRAN-treemap 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-chron 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-sqldf 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-taxize 
+Requires:         R-CRAN-treemap 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-chron 
+Requires:         R-CRAN-sf 
 
 %description
-A port of the web-based software 'DAGitty', available at
-<https://dagitty.net>, for analyzing structural causal models (also known
-as directed acyclic graphs or DAGs). This package computes covariate
-adjustment sets for estimating causal effects, enumerates instrumental
-variables, derives testable implications (d-separation and vanishing
-tetrads), generates equivalent models, and includes a simple facility for
-data simulation.
+Provides a set of functions to create basic visualizations to quickly
+preview different aspects of biodiversity information such as inventory
+completeness, extent of coverage (taxonomic, temporal and geographic),
+gaps and biases. Barve & Otegui (2016)
+<DOI:10.1093/bioinformatics/btw333>.
 
 %prep
 %setup -q -c -n %{packname}

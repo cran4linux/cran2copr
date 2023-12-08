@@ -1,49 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dagitty
-%global packver   0.3-4
+%global packname  xtsum
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical Analysis of Structural Causal Models
+Summary:          Summary Statistics for Panel Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-V8 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-sampleSelection 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-plm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-sampleSelection 
 
 %description
-A port of the web-based software 'DAGitty', available at
-<https://dagitty.net>, for analyzing structural causal models (also known
-as directed acyclic graphs or DAGs). This package computes covariate
-adjustment sets for estimating causal effects, enumerates instrumental
-variables, derives testable implications (d-separation and vanishing
-tetrads), generates equivalent models, and includes a simple facility for
-data simulation.
+Based on 'STATA' xtsum command, it is used to compute summary statistics
+for a panel data set. It generates overall, between-group, and
+within-group statistics for specified variables in a panel data set, as
+presented in S. Porter (2023)
+<https://stephenporter.org/files/xtsum_handout.pdf>, StataCorp (2023)
+<https://www.stata.com/manuals/xtxtsum.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
