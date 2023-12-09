@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  admisc
-%global packver   0.34
+%global packname  blackmarbler
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.34
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adrian Dusa's Miscellaneous
+Summary:          Black Marble Data and Statistics
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-hdf5r 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-exactextractr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-hdf5r 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-exactextractr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
 
 %description
-Contains functions used across packages 'DDIwR', 'QCA' and 'venn'.
-Interprets and translates, factorizes and negates SOP - Sum of Products
-expressions, for both binary and multi-value crisp sets, and extracts
-information (set names, set values) from those expressions. Other
-functions perform various other checks if possibly numeric (even if all
-numbers reside in a character vector) and coerce to numeric, or check if
-the numbers are whole. It also offers, among many others, a highly
-versatile recoding routine and some more flexible alternatives to the base
-functions 'with()' and 'within()'. SOP simplification functions in this
-package use related minimization from package 'QCA', which is recommended
-to be installed despite not being listed in the Imports field, due to
-circular dependency issues.
+Geographically referenced data and statistics of nighttime lights from
+NASA Black Marble <https://blackmarble.gsfc.nasa.gov/>.
 
 %prep
 %setup -q -c -n %{packname}

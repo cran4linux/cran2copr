@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  admisc
-%global packver   0.34
+%global packname  RcppCGAL
+%global packver   5.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.34
+Version:          5.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adrian Dusa's Miscellaneous
+Summary:          'Rcpp' Integration for 'CGAL'
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+Source1:          https://github.com/CGAL/cgal/releases/download/v5.6.0/CGAL-5.6.0-library.tar.xz
 
-
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Contains functions used across packages 'DDIwR', 'QCA' and 'venn'.
-Interprets and translates, factorizes and negates SOP - Sum of Products
-expressions, for both binary and multi-value crisp sets, and extracts
-information (set names, set values) from those expressions. Other
-functions perform various other checks if possibly numeric (even if all
-numbers reside in a character vector) and coerce to numeric, or check if
-the numbers are whole. It also offers, among many others, a highly
-versatile recoding routine and some more flexible alternatives to the base
-functions 'with()' and 'within()'. SOP simplification functions in this
-package use related minimization from package 'QCA', which is recommended
-to be installed despite not being listed in the Imports field, due to
-circular dependency issues.
+Creates a header only package to link to the 'CGAL' (Computational
+Geometry Algorithms Library) header files in 'Rcpp'. There are a variety
+of potential uses for the software such as Hilbert sorting, K-D Tree
+nearest neighbors, and convex hull algorithms. For more information about
+how to use the header files, see the 'CGAL' documentation at
+<https://www.cgal.org>. Currently downloads the 'CGAL' version 5.6 stable
+release.
 
 %prep
 %setup -q -c -n %{packname}
-
+tar xf %{SOURCE1} -C %{packname}/inst */include --strip-components=1
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

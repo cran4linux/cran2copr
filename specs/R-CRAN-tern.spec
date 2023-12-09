@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tern
-%global packver   0.9.0
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Common TLGs Used in Clinical Trials
 
@@ -19,53 +19,53 @@ Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-survival >= 3.2.13
-BuildRequires:    R-CRAN-emmeans >= 1.4.5
+BuildRequires:    R-CRAN-car >= 3.0.13
+BuildRequires:    R-CRAN-Rdpack >= 2.4
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-gridExtra >= 2.0
+BuildRequires:    R-CRAN-tibble >= 2.0.0
+BuildRequires:    R-CRAN-emmeans >= 1.8.0
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-scales >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-forcats >= 1.0.0
-BuildRequires:    R-CRAN-rtables >= 0.6.3
-BuildRequires:    R-CRAN-formatters >= 0.5.2
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr >= 0.8.3
+BuildRequires:    R-CRAN-cowplot >= 0.7.0
+BuildRequires:    R-CRAN-rtables >= 0.6.6
+BuildRequires:    R-CRAN-formatters >= 0.5.5
+BuildRequires:    R-CRAN-broom >= 0.5.4
+BuildRequires:    R-CRAN-gtable >= 0.3.0
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-labeling 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-survival >= 3.2.13
-Requires:         R-CRAN-emmeans >= 1.4.5
+Requires:         R-CRAN-car >= 3.0.13
+Requires:         R-CRAN-Rdpack >= 2.4
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-gridExtra >= 2.0
+Requires:         R-CRAN-tibble >= 2.0.0
+Requires:         R-CRAN-emmeans >= 1.8.0
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-scales >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-forcats >= 1.0.0
-Requires:         R-CRAN-rtables >= 0.6.3
-Requires:         R-CRAN-formatters >= 0.5.2
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr >= 0.8.3
+Requires:         R-CRAN-cowplot >= 0.7.0
+Requires:         R-CRAN-rtables >= 0.6.6
+Requires:         R-CRAN-formatters >= 0.5.5
+Requires:         R-CRAN-broom >= 0.5.4
+Requires:         R-CRAN-gtable >= 0.3.0
+Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-labeling 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description

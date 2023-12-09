@@ -1,37 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  admisc
-%global packver   0.34
+%global packname  mergen
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.34
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adrian Dusa's Miscellaneous
+Summary:          AI-Driven Code Generation, Explanation and Execution for Data Analysis
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+BuildRequires:    R-CRAN-openai 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-BiocManager 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-assertthat >= 0.2.1
+Requires:         R-CRAN-openai 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-BiocManager 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Contains functions used across packages 'DDIwR', 'QCA' and 'venn'.
-Interprets and translates, factorizes and negates SOP - Sum of Products
-expressions, for both binary and multi-value crisp sets, and extracts
-information (set names, set values) from those expressions. Other
-functions perform various other checks if possibly numeric (even if all
-numbers reside in a character vector) and coerce to numeric, or check if
-the numbers are whole. It also offers, among many others, a highly
-versatile recoding routine and some more flexible alternatives to the base
-functions 'with()' and 'within()'. SOP simplification functions in this
-package use related minimization from package 'QCA', which is recommended
-to be installed despite not being listed in the Imports field, due to
-circular dependency issues.
+Employing artificial intelligence to convert data analysis questions into
+executable code, explanations, and algorithms. The self-correction feature
+ensures the generated code is optimized for performance and accuracy.
+'mergen' features a user-friendly chat interface, enabling users to
+interact with the AI agent and extract valuable insights from their data
+effortlessly.
 
 %prep
 %setup -q -c -n %{packname}

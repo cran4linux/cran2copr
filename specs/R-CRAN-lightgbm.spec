@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lightgbm
-%global packver   3.3.5
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.5
+Version:          4.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Light Gradient Boosting Machine
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-Matrix >= 1.1.0
 BuildRequires:    R-CRAN-jsonlite >= 1.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-R6 >= 2.0
 Requires:         R-CRAN-data.table >= 1.9.6
@@ -29,6 +30,7 @@ Requires:         R-CRAN-Matrix >= 1.1.0
 Requires:         R-CRAN-jsonlite >= 1.0
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-utils 
 
 %description

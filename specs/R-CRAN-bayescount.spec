@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bayescount
-%global packver   0.9.99-8
+%global packver   0.9.99-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.99.8
+Version:          0.9.99.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Calculations and Bayesian Analysis of Count Distributions and FECRT Data using MCMC
 

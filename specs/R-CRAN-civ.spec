@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  admisc
-%global packver   0.34
+%global packname  civ
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.34
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adrian Dusa's Miscellaneous
+Summary:          Categorical Instrumental Variables
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-kcmeans 
+Requires:         R-stats 
+Requires:         R-CRAN-AER 
+Requires:         R-CRAN-kcmeans 
 
 %description
-Contains functions used across packages 'DDIwR', 'QCA' and 'venn'.
-Interprets and translates, factorizes and negates SOP - Sum of Products
-expressions, for both binary and multi-value crisp sets, and extracts
-information (set names, set values) from those expressions. Other
-functions perform various other checks if possibly numeric (even if all
-numbers reside in a character vector) and coerce to numeric, or check if
-the numbers are whole. It also offers, among many others, a highly
-versatile recoding routine and some more flexible alternatives to the base
-functions 'with()' and 'within()'. SOP simplification functions in this
-package use related minimization from package 'QCA', which is recommended
-to be installed despite not being listed in the Imports field, due to
-circular dependency issues.
+Implementation of the categorical instrumental variable (CIV) estimator
+proposed by Wiemann (2023) <arXiv:2311.17021>. CIV allows for optimal
+instrumental variable estimation in settings with relatively few
+observations per category. To obtain valid inference in these challenging
+settings, CIV leverages a regularization assumption that implies existence
+of a latent categorical variable with fixed finite support achieving the
+same first stage fit as the observed instrument.
 
 %prep
 %setup -q -c -n %{packname}

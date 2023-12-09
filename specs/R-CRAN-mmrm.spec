@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmrm
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed Models for Repeated Measures
 
@@ -52,7 +52,7 @@ Mixed models for repeated measures (MMRM) are a popular choice for
 analyzing longitudinal continuous outcomes in randomized clinical trials
 and beyond; see Cnaan, Laird and Slasor (1997)
 <doi:10.1002/(SICI)1097-0258(19971030)16:20%%3C2349::AID-SIM667%%3E3.0.CO;2-E>
-for a tutorial and Mallinckrodt, Lane, Schnell et al. (2008)
+for a tutorial and Mallinckrodt, Lane, Schnell, Peng and Mancuso (2008)
 <doi:10.1177/009286150804200402> for a review. This package implements
 MMRM based on the marginal linear model without random effects using
 Template Model Builder ('TMB') which enables fast and robust model

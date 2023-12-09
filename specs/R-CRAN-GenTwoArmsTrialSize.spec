@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GenTwoArmsTrialSize
-%global packver   0.0.4.3
+%global packver   0.0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.3
+Version:          0.0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Two Arms Clinical Trial Sample Size Calculation
 
@@ -34,8 +34,8 @@ noncompliance rates and expected loss of follow-up. Methods are described
 in: Chow SC, Shao J, Wang H, Lokhnygina Y (2017)
 <doi:10.1201/9781315183084>, Wittes, J (2002)
 <doi:10.1093/epirev/24.1.39>, Sato, T (2000)
-<doi:10.1002/1097-0258(20001015)19:19<2689::aid-sim555>3.0.co;2-0>, Lachin
-J M, Foulkes, M A (1986) <doi:10.2307/2531201>, Whitehead J(1993)
+<doi:10.1002/1097-0258(20001015)19:19%%3C2689::aid-sim555%%3E3.0.co;2-0>,
+Lachin J M, Foulkes, M A (1986) <doi:10.2307/2531201>, Whitehead J(1993)
 <doi:10.1002/sim.4780122404>, Julious SA (2023)
 <doi:10.1201/9780429503658>.
 

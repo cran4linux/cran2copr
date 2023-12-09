@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mrgsim.sa
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Analysis with 'mrgsolve'
 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-mrgsolve 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-purrr 
@@ -40,6 +42,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-methods 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-glue 
 
 %description
 Perform sensitivity analysis on ordinary differential equation based
@@ -55,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

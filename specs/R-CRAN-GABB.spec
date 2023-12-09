@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  onbrand
-%global packver   1.0.4
+%global packname  GABB
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Templated Reporting Workflows in Word and PowerPoint
+Summary:          Facilitation of Data Preparation and Plotting Procedures for RDA and PCA Analyses
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-officer >= 0.3.7
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-egg >= 0.4.5
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-officer >= 0.3.7
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggplotify 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Hotelling 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-egg >= 0.4.5
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggplotify 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-Hotelling 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-stats 
+Requires:         R-CRAN-vegan 
+Requires:         R-utils 
 
 %description
-Automated reporting in Word and PowerPoint can require customization for
-each organizational template. This package works around this by adding
-standard reporting functions and an abstraction layer to facilitate
-automated reporting workflows that can be replicated across different
-organizational templates.
+Help to the occasional R user for synthesis and enhanced graphical
+visualization of redundancy analysis (RDA) and principal component
+analysis (PCA) methods and objects. Inputs are : data frame, RDA (package
+'vegan') and PCA (package 'FactoMineR') objects. Outputs are : synthesized
+results of RDA, displayed in console and saved in tables ; displayed and
+saved objects of PCA graphic visualization of individuals and variables
+projections with multiple graphic parameters.
 
 %prep
 %setup -q -c -n %{packname}

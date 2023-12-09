@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seqinr
-%global packver   4.2-30
+%global packver   4.2-36
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.30
+Version:          4.2.36
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biological Sequences Retrieval and Analysis
 
@@ -14,7 +14,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zlib-devel
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildRequires:    R-CRAN-ade4 

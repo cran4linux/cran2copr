@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blackbox
-%global packver   1.1.43
+%global packver   1.1.46
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.43
+Version:          1.1.46
 Release:          1%{?dist}%{?buildtag}
 Summary:          Black Box Optimization and Exploration of Parameter Space
 
