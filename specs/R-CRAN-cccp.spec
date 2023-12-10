@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cccp
-%global packver   0.2-9
+%global packver   0.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cone Constrained Convex Problems
 
@@ -26,7 +26,7 @@ Requires:         R-methods
 Routines for solving convex optimization problems with cone constraints by
 means of interior-point methods. The implemented algorithms are partially
 ported from CVXOPT, a Python module for convex optimization (see
-<http://cvxopt.org> for more information).
+<https://cvxopt.org> for more information).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rayimage
-%global packver   0.9.1
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Image Processing for Simulated Cameras
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-png
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-Rcpp 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-png
 Requires:         R-CRAN-jpeg 
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
 
 %description
 Uses convolution-based techniques to generate simulated camera bokeh,

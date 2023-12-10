@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Directional
-%global packver   6.3
+%global packver   6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.3
+Version:          6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Functions for Directional Data Analysis
 
@@ -24,9 +24,9 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
+BuildRequires:    R-CRAN-Rnanoflann 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-rnaturalearth 
 BuildRequires:    R-CRAN-sf 
@@ -37,9 +37,9 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
-Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
+Requires:         R-CRAN-Rnanoflann 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-rnaturalearth 
 Requires:         R-CRAN-sf 

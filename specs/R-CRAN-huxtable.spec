@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  huxtable
-%global packver   5.5.2
+%global packver   5.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.2
+Version:          5.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Create and Style Tables for LaTeX, HTML and Other Formats
 
@@ -14,21 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         tex(adjustbox.sty)
-Requires:         tex(array.sty)
-Requires:         tex(calc.sty)
-Requires:         tex(caption.sty)
-Requires:         tex(colortbl.sty)
-Requires:         tex(fontspec.sty)
-Requires:         tex(graphicx.sty)
-Requires:         tex(hhline.sty)
-Requires:         tex(hyperref.sty)
-Requires:         tex(multirow.sty)
-Requires:         tex(siunitx.sty)
-Requires:         tex(tabularx.sty)
-Requires:         tex(threeparttable.sty)
-Requires:         tex(ulem.sty)
-Requires:         tex(wrapfig.sty)
+Recommends:       tex(adjustbox.sty)
+Recommends:       tex(array.sty)
+Recommends:       tex(calc.sty)
+Recommends:       tex(caption.sty)
+Recommends:       tex(colortbl.sty)
+Recommends:       tex(fontspec.sty)
+Recommends:       tex(graphicx.sty)
+Recommends:       tex(hhline.sty)
+Recommends:       tex(hyperref.sty)
+Recommends:       tex(multirow.sty)
+Recommends:       tex(siunitx.sty)
+Recommends:       tex(tabularx.sty)
+Recommends:       tex(threeparttable.sty)
+Recommends:       tex(ulem.sty)
+Recommends:       tex(wrapfig.sty)
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
