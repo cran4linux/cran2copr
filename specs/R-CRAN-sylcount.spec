@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sylcount
-%global packver   0.2-5
+%global packver   0.2-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Syllable Counting and Readability Measurements
 
@@ -24,13 +24,11 @@ Grade Level ('Kincaid' 'et al'. 1975)
 <https://stars.library.ucf.edu/cgi/viewcontent.cgi?article=1055&context=istlibrary>,
 Automated Readability Index ('Senter' and Smith 1967)
 <https://apps.dtic.mil/sti/citations/AD0667273>, Simple Measure of
-Gobbledygook (McLaughlin 1969)
-<https://www.semanticscholar.org/paper/SMOG-Grading-A-New-Readability-Formula.-Laughlin/5fccb74c14769762b3de010c5e8a1a7ce700d17a>,
-and 'Coleman-Liau' (Coleman and 'Liau' 1975) <doi:10.1037/h0076540>. The
-package has been carefully optimized and should be very efficient, both in
-terms of run time performance and memory consumption. The main methods are
-'vectorized' by document, and scores for multiple documents are computed
-in parallel via 'OpenMP'.
+Gobbledygook (McLaughlin 1969), and 'Coleman-Liau' (Coleman and 'Liau'
+1975) <doi:10.1037/h0076540>. The package has been carefully optimized and
+should be very efficient, both in terms of run time performance and memory
+consumption. The main methods are 'vectorized' by document, and scores for
+multiple documents are computed in parallel via 'OpenMP'.
 
 %prep
 %setup -q -c -n %{packname}

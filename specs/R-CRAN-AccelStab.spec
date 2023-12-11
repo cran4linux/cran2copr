@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rrBLUP
-%global packver   4.6.3
+%global packname  AccelStab
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ridge Regression and Other Kernels for Genomic Selection
+Summary:          Accelerated Stability Kinetic Modelling
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-parallel 
 
 %description
-Software for genomic prediction with the RR-BLUP mixed model (Endelman
-2011, <doi:10.3835/plantgenome2011.08.0024>). One application is to
-estimate marker effects by ridge regression; alternatively, BLUPs can be
-calculated based on an additive relationship matrix or a Gaussian kernel.
+Estimate the Šesták–Berggren kinetic model (degradation model) from
+experimental data. A closed-form (analytic) solution to the degradation
+model is implemented as a non-linear fit, allowing for the extrapolation
+of the degradation of a drug product - both in time and temperature (Campa
+C. et al, 2021 <doi:10.3390/vaccines9101114>). Parametric bootstrap, with
+kinetic parameters drawn from the multivariate t-distribution, and
+analytical formulae (the delta method) are available options to calculate
+the confidence and prediction intervals. The results (modelling,
+extrapolations and statistical intervals) can be visualised with multiple
+plots. The examples illustrate the accelerated stability modelling in
+drugs and vaccines development.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkgdepends
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package Dependency Resolution and Downloads
 
@@ -22,17 +22,14 @@ BuildRequires:    R-CRAN-processx >= 3.4.2
 BuildRequires:    R-CRAN-callr >= 3.3.1
 BuildRequires:    R-CRAN-zip >= 2.3.0
 BuildRequires:    R-CRAN-pkgcache >= 2.2.0
-BuildRequires:    R-CRAN-desc >= 1.2.0
-BuildRequires:    R-CRAN-prettyunits >= 1.1.1
+BuildRequires:    R-CRAN-desc >= 1.4.3
 BuildRequires:    R-CRAN-filelock >= 1.0.2
 BuildRequires:    R-CRAN-pkgbuild >= 1.0.2
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.6.0
@@ -40,17 +37,14 @@ Requires:         R-CRAN-processx >= 3.4.2
 Requires:         R-CRAN-callr >= 3.3.1
 Requires:         R-CRAN-zip >= 2.3.0
 Requires:         R-CRAN-pkgcache >= 2.2.0
-Requires:         R-CRAN-desc >= 1.2.0
-Requires:         R-CRAN-prettyunits >= 1.1.1
+Requires:         R-CRAN-desc >= 1.4.3
 Requires:         R-CRAN-filelock >= 1.0.2
 Requires:         R-CRAN-pkgbuild >= 1.0.2
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-ps 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rprojroot 
 Requires:         R-stats 
 Requires:         R-utils 
 

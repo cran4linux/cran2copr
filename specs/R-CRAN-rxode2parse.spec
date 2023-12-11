@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2parse
-%global packver   2.0.16
+%global packver   2.0.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.16
+Version:          2.0.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parsing and Code Generation Functions for 'rxode2'
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-qs
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-rex 
+BuildRequires:    R-CRAN-symengine 
 Requires:         R-CRAN-data.table >= 1.12.4
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-checkmate 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-qs
 Requires:         R-utils 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-rex 
+Requires:         R-CRAN-symengine 
 
 %description
 Provides the parsing needed for 'rxode2' (Wang, Hallow and James (2016)

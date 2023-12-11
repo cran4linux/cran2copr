@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rrBLUP
-%global packver   4.6.3
+%global packname  pubmedtk
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ridge Regression and Other Kernels for Genomic Selection
+Summary:          'Pubmed' Toolkit
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-Software for genomic prediction with the RR-BLUP mixed model (Endelman
-2011, <doi:10.3835/plantgenome2011.08.0024>). One application is to
-estimate marker effects by ridge regression; alternatively, BLUPs can be
-calculated based on an additive relationship matrix or a Gaussian kernel.
+Provides various functions for retrieving and interpreting information
+from 'Pubmed' via the API,
+<https://www.ncbi.nlm.nih.gov/home/develop/api/>.
 
 %prep
 %setup -q -c -n %{packname}

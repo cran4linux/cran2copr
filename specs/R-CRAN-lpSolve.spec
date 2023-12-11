@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lpSolve
-%global packver   5.6.19
+%global packver   5.6.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.6.19
+Version:          5.6.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Lp_solve' v. 5.5 to Solve Linear/Integer Programs
 

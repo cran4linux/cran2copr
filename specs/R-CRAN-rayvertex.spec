@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rayvertex
-%global packver   0.7.9
+%global packver   0.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.9
+Version:          0.10.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Software Rasterizer
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-rayimage >= 0.6.2
+BuildRequires:    R-CRAN-rayimage >= 0.10.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-spacefillr 
 BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-rayimage >= 0.6.2
+Requires:         R-CRAN-rayimage >= 0.10.0
 Requires:         R-grDevices 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-digest 

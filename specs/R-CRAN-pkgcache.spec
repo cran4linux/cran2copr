@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkgcache
-%global packver   2.2.0.1
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0.1
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cache 'CRAN'-Like Metadata and R Packages
 
@@ -22,9 +22,7 @@ BuildRequires:    R-CRAN-curl >= 3.2
 BuildRequires:    R-CRAN-callr >= 2.0.4.9000
 BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-processx >= 3.3.0.9001
@@ -33,9 +31,7 @@ Requires:         R-CRAN-curl >= 3.2
 Requires:         R-CRAN-callr >= 2.0.4.9000
 Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rappdirs 
 Requires:         R-tools 
 Requires:         R-utils 
 

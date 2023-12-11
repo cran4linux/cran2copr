@@ -1,36 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rrBLUP
-%global packver   4.6.3
+%global packname  shinydbauth
+%global packver   1.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.3
+Version:          1.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ridge Regression and Other Kernels for Genomic Selection
+Summary:          Simple Authentification for 'shiny' Applications
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-DT >= 0.5
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-billboarder 
+BuildRequires:    R-CRAN-scrypt 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-DT >= 0.5
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-billboarder 
+Requires:         R-CRAN-scrypt 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-glue 
 
 %description
-Software for genomic prediction with the RR-BLUP mixed model (Endelman
-2011, <doi:10.3835/plantgenome2011.08.0024>). One application is to
-estimate marker effects by ridge regression; alternatively, BLUPs can be
-calculated based on an additive relationship matrix or a Gaussian kernel.
+Provides a simple authentification mechanism for single 'shiny'
+applications. Authentification and password change functionality are
+performed calling user provided functions that typically access some
+database backend. Source code of main applications is protected until
+authentication is successful.
 
 %prep
 %setup -q -c -n %{packname}

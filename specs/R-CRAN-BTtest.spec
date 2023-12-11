@@ -1,36 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rrBLUP
-%global packver   4.6.3
+%global packname  BTtest
+%global packver   0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.3
+Version:          0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ridge Regression and Other Kernels for Genomic Selection
+Summary:          Estimate the Number of Factors in Large Nonstationary Datasets
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Software for genomic prediction with the RR-BLUP mixed model (Endelman
-2011, <doi:10.3835/plantgenome2011.08.0024>). One application is to
-estimate marker effects by ridge regression; alternatively, BLUPs can be
-calculated based on an additive relationship matrix or a Gaussian kernel.
+Implementation of the Barigozzi and Trapani (2022)
+<doi:10.1080/07350015.2021.1901719> test for the number of common factors
+in large nonstationary panel data sets. The routine identifies the
+existence of (i) a factor subject to a linear trend, (ii) the number of
+zero-mean I(1) and (iii) zero-mean I(0) factors. Furthermore, the package
+includes the Integrated Panel Criteria by Bai (2004)
+<doi:10.1016/j.jeconom.2003.10.022> that provide a complementary measure
+for the number of factors in nonstationary panels.
 
 %prep
 %setup -q -c -n %{packname}

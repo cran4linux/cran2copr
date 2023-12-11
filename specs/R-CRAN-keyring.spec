@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  keyring
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the System Credential Store from R
 
@@ -15,35 +15,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    libsecret-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-askpass 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-sodium 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-sodium 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-askpass 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-R6 
-Requires:         R-utils 
-Requires:         R-CRAN-sodium 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-sodium 
 Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
 Platform independent 'API' to access the operating system's credential
 store. Currently supports: 'Keychain' on 'macOS', Credential Store on
-'Windows', the Secret Service 'API' on 'Linux', and a simple, platform
-independent store implemented with environment variables. Additional
-storage back-ends can be added easily.
+'Windows', the Secret Service 'API' on 'Linux', and simple, platform
+independent stores implemented with environment variables or encrypted
+files.  Additional storage back-ends can be added easily.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkgsearch
-%global packver   3.1.2
+%global packver   3.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search and Query CRAN R Packages
 
@@ -17,14 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsedate >= 1.3.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-prettyunits 
-Requires:         R-CRAN-parsedate >= 1.3.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-prettyunits 
 
 %description
 Search CRAN metadata about packages by keyword, popularity, recent

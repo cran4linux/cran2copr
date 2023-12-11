@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  desc
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate DESCRIPTION Files
 
@@ -19,11 +19,9 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rprojroot 
 Requires:         R-utils 
 
 %description

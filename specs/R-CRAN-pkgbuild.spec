@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkgbuild
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Tools Needed to Build R Packages
 
@@ -14,25 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-callr >= 3.2.0
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rprojroot 
 Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-callr >= 3.2.0
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-desc 
-Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rprojroot 
 
 %description
 Provides functions used to build R packages. Locates compilers needed to
