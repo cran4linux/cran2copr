@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDE
-%global packver   1.4.7
+%global packname  adbi
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Tables and Sentences from PDFs with User Interface
+Summary:          'DBI' Compliant Database Access Using 'ADBC'
 
-License:          GPL-3 | file LICENSE
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       xpdf
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tcltk2 >= 1.2.11
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-tcltk2 >= 1.2.11
-Requires:         R-tcltk 
+BuildRequires:    R-CRAN-DBI >= 1.1.3
+BuildRequires:    R-CRAN-adbcdrivermanager >= 0.8.0
+BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-DBI >= 1.1.3
+Requires:         R-CRAN-adbcdrivermanager >= 0.8.0
+Requires:         R-CRAN-nanoarrow >= 0.3.0
+Requires:         R-methods 
 
 %description
-The PDE (Pdf Data Extractor) allows the extraction of information and
-tables optionally based on search words from PDF (Portable Document
-Format) files and enables the visualization of the results, both by
-providing a convenient user-interface.
+In order to make Arrow Database Connectivity ('ADBC'
+<https://arrow.apache.org/adbc/>) accessible from R, an interface
+compliant with the 'DBI' package is provided, using driver back-ends that
+are implemented in the 'adbcdrivermanager' framework. This enables
+interacting with database systems using the Arrow data format, thereby
+offering an efficient alternative to 'ODBC' for analytical applications.
 
 %prep
 %setup -q -c -n %{packname}

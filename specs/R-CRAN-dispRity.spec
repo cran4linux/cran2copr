@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dispRity
-%global packver   1.7.0
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Disparity
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-castor
 BuildRequires:    R-CRAN-Claddis 
 BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-GET 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
@@ -31,9 +32,11 @@ BuildRequires:    R-CRAN-mnormt
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-CRAN-phyclust 
+BuildRequires:    R-CRAN-phylolm 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-ape 
 Requires:         R-stats 
 Requires:         R-CRAN-ade4 
@@ -41,6 +44,7 @@ Requires:         R-CRAN-castor
 Requires:         R-CRAN-Claddis 
 Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-GET 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
@@ -49,9 +53,11 @@ Requires:         R-CRAN-mnormt
 Requires:         R-parallel 
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-phyclust 
+Requires:         R-CRAN-phylolm 
 Requires:         R-utils 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-zoo 
 
 %description
 A modular package for measuring disparity (multidimensional space

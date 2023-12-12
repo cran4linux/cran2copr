@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sox
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structured Learning in Time-Dependent Cox Models
 
@@ -25,9 +25,7 @@ Requires:         R-CRAN-glmnet
 
 %description
 Efficient procedures for fitting and cross-validating the
-structurally-regularized time-dependent Cox models. The penalty term is a
-weighted sum of infinity norms of (overlapping) groups of coefficients,
-which can select variables following a user-specified grouping structure.
+structurally-regularized time-dependent Cox models.
 
 %prep
 %setup -q -c -n %{packname}

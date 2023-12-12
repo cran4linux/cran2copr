@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gslnls
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          GSL Nonlinear Least-Squares Fitting
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -28,10 +28,12 @@ Scientific Library (GSL), see M. Galassi et al. (2009, ISBN:0954612078).
 The available trust region methods include the Levenberg-Marquardt
 algorithm with and without geodesic acceleration, the Steihaug-Toint
 conjugate gradient algorithm for large systems and several variants of
-Powell's dogleg algorithm. Bindings are provided to tune a number of
-parameters affecting the low-level aspects of the trust region algorithms.
-The interface mimics R's nls() function and returns model objects
-inheriting from the same class.
+Powell's dogleg algorithm. The interface includes multi-start optimization
+using quasi-random samples based on a modified version of algorithm in
+Hickernell and Yuan (1997, OR Transactions). Bindings are provided to tune
+a number of parameters affecting the low-level aspects of the trust region
+algorithms. The interface mimics R's nls() function and returns model
+objects inheriting from the same class.
 
 %prep
 %setup -q -c -n %{packname}

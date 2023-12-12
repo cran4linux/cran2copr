@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDE
-%global packver   1.4.7
+%global packname  standardlastprofile
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Tables and Sentences from PDFs with User Interface
+Summary:          Data Package for BDEW Standard Load Profiles in Electricity
 
-License:          GPL-3 | file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       xpdf
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tcltk2 >= 1.2.11
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-tcltk2 >= 1.2.11
-Requires:         R-tcltk 
 
 %description
-The PDE (Pdf Data Extractor) allows the extraction of information and
-tables optionally based on search words from PDF (Portable Document
-Format) files and enables the visualization of the results, both by
-providing a convenient user-interface.
+Data on standard load profiles from the German Association of Energy and
+Water Industries (BDEW Bundesverband der Energie- und Wasserwirtschaft
+e.V.) in a tidy format. The data and methodology are described in VDEW
+(1999), "Repräsentative VDEW-Lastprofile",
+<https://www.bdew.de/media/documents/1999_Repraesentative-VDEW-Lastprofile.pdf>.
+The package also offers an interface for generating a standard load
+profile over a user-defined period. For the algorithm, see VDEW (2000),
+"Anwendung der Repräsentativen VDEW-Lastprofile step-by-step",
+<https://www.bdew.de/media/documents/2000131_Anwendung-repraesentativen_Lastprofile-Step-by-step.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

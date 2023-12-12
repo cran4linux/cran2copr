@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LiblineaR
-%global packver   2.10-22
+%global packver   2.10-23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.22
+Version:          2.10.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Predictive Models Based on the LIBLINEAR C/C++ Library
 

@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PDE
-%global packver   1.4.7
+%global packname  panstarrs
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Tables and Sentences from PDFs with User Interface
+Summary:          Interface to the Pan-STARRS API
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       xpdf
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tcltk2 >= 1.2.11
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-tcltk2 >= 1.2.11
-Requires:         R-tcltk 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-The PDE (Pdf Data Extractor) allows the extraction of information and
-tables optionally based on search words from PDF (Portable Document
-Format) files and enables the visualization of the results, both by
-providing a convenient user-interface.
+An interface to the API for 'Pan-STARRS1', a data archive of the PS1
+wide-field astronomical survey.  The package allows access to the PS1
+catalog and to the PS1 images.  (see
+<https://outerspace.stsci.edu/display/PANSTARRS/> for more information).
+You can use it to plan astronomical observations, make guidance pictures,
+find magnitudes in five broadband filters (g, r, i, z, y) and more.
 
 %prep
 %setup -q -c -n %{packname}

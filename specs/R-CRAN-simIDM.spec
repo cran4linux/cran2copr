@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simIDM
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulating Oncology Trials using an Illness-Death Model
 
@@ -18,9 +18,19 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-mstate 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-mstate 
+Requires:         R-CRAN-parallelly 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
 Based on the illness-death model a large number of clinical trials with
@@ -29,7 +39,8 @@ oncology endpoints progression-free survival (PFS) and overall survival
 <doi:10.1002/sim.8295>.  The simulation set-up allows for random and
 event-driven censoring, an arbitrary number of treatment arms, staggered
 study entry and drop-out.  Exponentially, Weibull and piecewise
-exponentially distributed survival times can be generated.
+exponentially distributed survival times can be generated. The correlation
+between PFS and OS can be calculated.
 
 %prep
 %setup -q -c -n %{packname}

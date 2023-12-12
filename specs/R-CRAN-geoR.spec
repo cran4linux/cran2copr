@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geoR
-%global packver   1.9-2
+%global packver   1.9-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.2
+Version:          1.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Geostatistical Data
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-splancs 
 BuildRequires:    R-graphics 
+BuildRequires:    R-tcltk 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-splancs 
 Requires:         R-graphics 
+Requires:         R-tcltk 
 
 %description
 Geostatistical analysis including variogram-based, likelihood-based and

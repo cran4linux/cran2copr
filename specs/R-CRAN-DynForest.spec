@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DynForest
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Forest with Multivariate Longitudinal Predictors
 
@@ -14,12 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-cmprsk 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lcmm 
@@ -33,6 +34,7 @@ BuildRequires:    R-CRAN-zoo
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-cmprsk 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lcmm 
@@ -49,7 +51,7 @@ Based on random forest principle, 'DynForest' is able to include multiple
 longitudinal predictors to provide individual predictions. Longitudinal
 predictors are modeled through the random forest. The methodology is fully
 described for a survival outcome in: Devaux, Helmer, Genuer & Proust-Lima
-(2022) <doi: 10.48550/arXiv.2208.05801>.
+(2023) <doi: 10.1177/09622802231206477>.
 
 %prep
 %setup -q -c -n %{packname}

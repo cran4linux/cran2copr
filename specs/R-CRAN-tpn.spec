@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tpn
-%global packver   1.7
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Truncated Positive Normal Model and Extensions
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-skewMLRM 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-RBE3 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-skewMLRM 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-RBE3 
 
 %description
 Provide data generation and estimation tools for the truncated positive

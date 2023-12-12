@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multibias
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simultaneous Multi-Bias Adjustment
 
@@ -27,13 +27,14 @@ Requires:         R-CRAN-rlang >= 1.1.1
 %description
 Quantify the causal effect of a binary exposure on a binary outcome with
 adjustment for multiple biases. The functions can simultaneously adjust
-for any combination of uncontrolled confounding, exposure
+for any combination of uncontrolled confounding, exposure/outcome
 misclassification, and selection bias. The underlying method generalizes
 the concept of combining inverse probability of selection weighting with
 predictive value weighting. Simultaneous multi-bias analysis can be used
 to enhance the validity and transparency of real-world evidence obtained
 from observational, longitudinal studies. Based on the work from Paul
-Brendel, Aracelis Torres, Onyebuchi Arah (2023) <doi:10.1093/ije/dyad001>.
+Brendel, Aracelis Torres, and Onyebuchi Arah (2023)
+<doi:10.1093/ije/dyad001>.
 
 %prep
 %setup -q -c -n %{packname}
