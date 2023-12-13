@@ -316,10 +316,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
     h2o = paste0(
       "Source1:          https://s3.amazonaws.com/h2o-release/h2o/",
       readLines(file.path(path, "inst/branch.txt")), "/",
-      readLines(file.path(path, "inst/buildnum.txt")), "/Rjar/h2o.jar"),
-    RcppCGAL = paste0(
-      "Source1:          https://github.com/CGAL/cgal/releases/download/v",
-      v <- read.dcf(file.path(path, "DESCRIPTION"), fields="Version"), "/CGAL-", v, "-library.tar.xz")
+      readLines(file.path(path, "inst/buildnum.txt")), "/Rjar/h2o.jar")
   ))
 
   # setup
