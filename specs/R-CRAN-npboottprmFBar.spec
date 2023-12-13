@@ -1,47 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  predRupdate
-%global packver   0.1.1
+%global packname  npboottprmFBar
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prediction Model Validation and Updating
+Summary:          Informative Nonparametric Bootstrap Test with Pooled Resampling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggpubr 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-fGarch 
+BuildRequires:    R-CRAN-lmPerm 
+BuildRequires:    R-CRAN-npboottprm 
+BuildRequires:    R-CRAN-restriktor 
+Requires:         R-CRAN-fGarch 
+Requires:         R-CRAN-lmPerm 
+Requires:         R-CRAN-npboottprm 
+Requires:         R-CRAN-restriktor 
 
 %description
-Evaluate the predictive performance of an existing (i.e. previously
-developed) prediction/ prognostic model given relevant information about
-the existing prediction model (e.g. coefficients) and a new dataset.
-Provides a range of model updating methods that help tailor the existing
-model to the new dataset; see Su et al. (2018)
-<doi:10.1177/0962280215626466>. Techniques to aggregate multiple existing
-prediction models on the new data are also provided; see Debray et al.
-(2014) <doi:10.1002/sim.6080> and Martin et al. (2018)
-<doi:10.1002/sim.7586>).
+Sample sizes are often small due to hard to reach target populations, rare
+target events, time constraints, limited budgets, or ethical
+considerations. Two statistical methods with promising performance in
+small samples are the nonparametric bootstrap test with pooled resampling
+method, which is the focus of Dwivedi, Mallawaarachchi, and Alvarado
+(2017) <doi:10.1002/sim.7263>, and informative hypothesis testing, which
+is implemented in the 'restriktor' package. The 'npboottprmFBar' package
+uses the nonparametric bootstrap test with pooled resampling method to
+implement informative hypothesis testing. The bootFbar() function can be
+used to analyze data with this method and the persimon() function can be
+used to conduct performance simulations on type-one error and statistical
+power.
 
 %prep
 %setup -q -c -n %{packname}

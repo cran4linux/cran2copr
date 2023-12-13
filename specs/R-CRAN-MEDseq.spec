@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MEDseq
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixtures of Exponential-Distance Models with Covariates
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,14 +19,14 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nnet >= 7.3.0
 BuildRequires:    R-CRAN-TraMineR >= 1.6
-BuildRequires:    R-CRAN-matrixStats >= 0.53.1
+BuildRequires:    R-CRAN-matrixStats >= 1.0.0
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-seriation 
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-WeightedCluster 
 Requires:         R-CRAN-nnet >= 7.3.0
 Requires:         R-CRAN-TraMineR >= 1.6
-Requires:         R-CRAN-matrixStats >= 0.53.1
+Requires:         R-CRAN-matrixStats >= 1.0.0
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-seriation 
 Requires:         R-CRAN-stringdist 

@@ -1,61 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PubChemR
-%global packver   1.0.1
+%global packname  bpmnR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'PubChem' Database for Chemical Data Retrieval
+Summary:          Support for BPMN (Business Process Management Notation) Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-DiagrammeRsvg 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-RJSONIO 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-huxtable 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-rsvg 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-DiagrammeRsvg 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-RJSONIO 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-huxtable 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-rsvg 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-glue 
 
 %description
-Provides an interface to the 'PubChem' database via the PUG REST
-<https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest> and PUG View
-<https://pubchem.ncbi.nlm.nih.gov/docs/pug-view> services. This package
-allows users to automatically access chemical and biological data from
-'PubChem', including compounds, substances, assays, and various other data
-types. Functions are available to retrieve data in different formats,
-perform searches, and access detailed annotations.
+Creating, rendering and writing BPMN diagrams <https://www.bpmn.org/>.
+Functionalities can be used to visualize and export BPMN diagrams created
+using the 'pm4py' and 'bupaRminer' packages. Part of the 'bupaR'
+ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

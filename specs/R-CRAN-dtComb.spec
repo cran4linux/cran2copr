@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geofi
-%global packver   1.0.10
+%global packname  dtComb
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Finnish Geospatial Data
+Summary:          Statistical Combination of Diagnostic Tests
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,35 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httpcache 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httpcache 
-Requires:         R-CRAN-httr 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-pROC >= 1.18.0
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-epiR 
+BuildRequires:    R-CRAN-gam 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-OptimalCutpoints 
+Requires:         R-CRAN-pROC >= 1.18.0
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-epiR 
+Requires:         R-CRAN-gam 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-OptimalCutpoints 
 
 %description
-Designed to simplify geospatial data access from the Statistics Finland
-Web Feature Service API <http://geo.stat.fi/geoserver/wfs>, the geofi
-package offers researchers and analysts a set of tools to obtain and
-harmonize administrative spatial data for a wide range of applications,
-from urban planning to environmental research. The package contains
-annually updated time series of municipality key datasets that can be used
-for data aggregation and language translations.
+A system for combining two diagnostic tests using various approaches that
+include statistical and machine-learning-based methodologies. These
+approaches are divided into four groups: linear combination methods,
+non-linear combination methods, mathematical operators, and machine
+learning algorithms. See the <http://biosoft.erciyes.edu.tr/app/dtComb>
+website for more information, documentation, and examples.
 
 %prep
 %setup -q -c -n %{packname}

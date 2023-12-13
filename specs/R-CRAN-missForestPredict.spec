@@ -1,44 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bdpar
-%global packver   3.1.0
+%global packname  missForestPredict
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Big Data Preprocessing Architecture
+Summary:          Missing Value Imputation using Random Forest for Prediction Settings
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       python3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-parallel 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlist 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ranger 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Provide a tool to easily build customized data flows to pre-process large
-volumes of information from different sources. To this end, 'bdpar' allows
-to (i) easily use and create new functionalities and (ii) develop new data
-source extractors according to the user needs. Additionally, the package
-provides by default a predefined data flow to extract and pre-process the
-most relevant information (tokens, dates, ... ) from some textual sources
-(SMS, Email, YouTube comments).
+Missing data imputation based on the 'missForest' algorithm (Stekhoven,
+Daniel J (2012) <doi:10.1093/bioinformatics/btr597>) with adaptations for
+prediction settings. The function missForest() is used to impute a
+(training) dataset with missing values and to learn imputation models that
+can be later used for imputing new observations. The function
+missForestPredict() is used to impute one or multiple new observations
+(test set) using the models learned on the training data.
 
 %prep
 %setup -q -c -n %{packname}

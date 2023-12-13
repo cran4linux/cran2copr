@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geoAr
-%global packver   0.0.1.4.2
+%global packname  unmconf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Argentina's Spatial Data Toolbox
+Summary:          Modeling with Unmeasured Confounding
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,37 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-attempt 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-leaflet 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-attempt 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-janitor 
+Requires:         R-CRAN-rjags 
+Requires:         R-stats 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-janitor 
 
 %description
-Collection of tools that facilitates data access and workflow for spatial
-analysis of Argentina. Includes historical information from censuses,
-administrative limits at different levels of aggregation, location of
-human settlements, among others. Since it is expected that the majority of
-users will be Spanish-speaking, the documentation of the package
-prioritizes this language, although an effort is made to also offer
-annotations in English.
+Fit and assess Bayesian multi-staged regression models that account for
+unmeasured confounders using JAGS.
 
 %prep
 %setup -q -c -n %{packname}

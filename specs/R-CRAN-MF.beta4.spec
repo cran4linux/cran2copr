@@ -1,58 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datazoom.amazonia
-%global packver   1.1.0
+%global packname  MF.beta4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify Access to Data from the Amazon Region
+Summary:          Measuring Ecosystem Multi-Functionality and Its Decomposition
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-data.table 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sidrar 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-tidyverse 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-grid 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sidrar 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-tidyverse 
 
 %description
-Functions to download and treat data regarding the Brazilian Amazon region
-from a variety of official sources.
+Provide simple functions to (i) compute a class of multi-functionality
+measures for a single ecosystem for given function weights, (ii) decompose
+gamma multi-functionality for multiple ecosystems into a within-ecosystem
+component (alpha multi-functionality) and an among-ecosystem component
+(beta multi-functionality). In each case, the correlation between
+functions can be corrected for. Based on biodiversity and ecosystem
+function data, this software also facilitates graphics for assessing
+biodiversity-ecosystem functioning relationships across scales.
 
 %prep
 %setup -q -c -n %{packname}

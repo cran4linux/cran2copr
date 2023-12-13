@@ -1,44 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bdpar
-%global packver   3.1.0
+%global packname  wconf
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Big Data Preprocessing Architecture
+Summary:          Weighted Confusion Matrix
 
-License:          GPL-3
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       python3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-parallel 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlist 
-Requires:         R-tools 
-Requires:         R-utils 
 
 %description
-Provide a tool to easily build customized data flows to pre-process large
-volumes of information from different sources. To this end, 'bdpar' allows
-to (i) easily use and create new functionalities and (ii) develop new data
-source extractors according to the user needs. Additionally, the package
-provides by default a predefined data flow to extract and pre-process the
-most relevant information (tokens, dates, ... ) from some textual sources
-(SMS, Email, YouTube comments).
+Allows users to create weighted confusion matrices and accuracy metrics
+that help with the model selection process for classification problems,
+where distance from the correct category is important. The package
+includes several weighting schemes which can be parameterized, as well as
+custom configuration options. Furthermore, users can decide whether they
+wish to positively or negatively affect the accuracy score as a result of
+applying weights to the confusion matrix. 'wconf' integrates well with the
+'caret' package, but it can also work standalone when provided data in
+matrix form. References: Kuhn, M. (2008) "Building Perspective Models in R
+Using the caret Package" <doi:10.18637/jss.v028.i05> Monahov, A. (2021)
+"Model Evaluation with Weighted Threshold Optimization (and the mewto R
+package)" <doi:10.2139/ssrn.3805911> Van de Velden, M., Iodice D'Enza, A.,
+Markos, A., Cavicchia, C. (2023) "A general framework for implementing
+distances for categorical variables" <arXiv:2301.02190v1>.
 
 %prep
 %setup -q -c -n %{packname}

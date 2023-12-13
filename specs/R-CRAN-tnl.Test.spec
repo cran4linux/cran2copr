@@ -1,44 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bdpar
-%global packver   3.1.0
+%global packname  tnl.Test
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Big Data Preprocessing Architecture
+Summary:          Non-Parametric Tests for the Two-Sample Problem
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       python3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-parallel 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlist 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-partitions 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-partitions 
+Requires:         R-CRAN-plyr 
 
 %description
-Provide a tool to easily build customized data flows to pre-process large
-volumes of information from different sources. To this end, 'bdpar' allows
-to (i) easily use and create new functionalities and (ii) develop new data
-source extractors according to the user needs. Additionally, the package
-provides by default a predefined data flow to extract and pre-process the
-most relevant information (tokens, dates, ... ) from some textual sources
-(SMS, Email, YouTube comments).
+Performing the hypothesis tests for the two sample problem based on order
+statistics and power comparisons. Calculate the test statistic, density,
+distribution function, quantile function, random number generation and
+others.
 
 %prep
 %setup -q -c -n %{packname}

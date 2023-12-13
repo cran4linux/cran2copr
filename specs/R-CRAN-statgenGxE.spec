@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statgenGxE
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genotype by Environment (GxE) Analysis
 
@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         /usr/bin/pdflatex
+Recommends:       /usr/bin/pdflatex
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-statgenSTA >= 1.0.6
@@ -33,6 +34,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lme4 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-xtable 
 
 %description

@@ -1,44 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bdpar
-%global packver   3.1.0
+%global packname  LBI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Big Data Preprocessing Architecture
+Summary:          Likelihood Based Inference
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       python3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-parallel 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlist 
-Requires:         R-tools 
-Requires:         R-utils 
 
 %description
-Provide a tool to easily build customized data flows to pre-process large
-volumes of information from different sources. To this end, 'bdpar' allows
-to (i) easily use and create new functionalities and (ii) develop new data
-source extractors according to the user needs. Additionally, the package
-provides by default a predefined data flow to extract and pre-process the
-most relevant information (tokens, dates, ... ) from some textual sources
-(SMS, Email, YouTube comments).
+Maximum likelihood estimation and likelihood ratio test are essential for
+modern statistics. This package supports in calculating likelihood based
+inference. Reference: Pawitan Y. (2001, ISBN:0-19-850765-8).
 
 %prep
 %setup -q -c -n %{packname}

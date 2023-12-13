@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IMIFA
-%global packver   2.1.10
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.10
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infinite Mixtures of Infinite Factor Analysers and Related Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,13 +19,13 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mclust >= 5.4
 BuildRequires:    R-CRAN-Rfast >= 1.9.8
-BuildRequires:    R-CRAN-matrixStats >= 0.53.1
+BuildRequires:    R-CRAN-matrixStats >= 1.0.0
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-mclust >= 5.4
 Requires:         R-CRAN-Rfast >= 1.9.8
-Requires:         R-CRAN-matrixStats >= 0.53.1
+Requires:         R-CRAN-matrixStats >= 1.0.0
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-slam 
 Requires:         R-CRAN-viridisLite 

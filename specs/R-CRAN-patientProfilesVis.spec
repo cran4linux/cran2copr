@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  patientProfilesVis
-%global packver   2.0.5
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of Patient Profiles
 
@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         tex(latex)
+Recommends:       tex(latex)
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch

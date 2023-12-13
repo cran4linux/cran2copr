@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgnparser
-%global packver   0.2.6
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse Scientific Names
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-sys
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-sys 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Parse scientific names using 'gnparser'

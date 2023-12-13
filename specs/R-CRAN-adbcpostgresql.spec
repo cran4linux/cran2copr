@@ -1,44 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bdpar
-%global packver   3.1.0
+%global packname  adbcpostgresql
+%global packver   0.8.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.8.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Big Data Preprocessing Architecture
+Summary:          'Arrow' Database Connectivity ('ADBC') 'PostgreSQL' Driver
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       python3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-parallel 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlist 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-adbcdrivermanager 
+Requires:         R-CRAN-adbcdrivermanager 
 
 %description
-Provide a tool to easily build customized data flows to pre-process large
-volumes of information from different sources. To this end, 'bdpar' allows
-to (i) easily use and create new functionalities and (ii) develop new data
-source extractors according to the user needs. Additionally, the package
-provides by default a predefined data flow to extract and pre-process the
-most relevant information (tokens, dates, ... ) from some textual sources
-(SMS, Email, YouTube comments).
+Provides a developer-facing interface to the 'Arrow' Database Connectivity
+('ADBC') 'PostgreSQL' driver for the purposes of building high-level
+database interfaces for users. 'ADBC' <https://arrow.apache.org/adbc/> is
+an API standard for database access libraries that uses 'Arrow' for result
+sets and query parameters.
 
 %prep
 %setup -q -c -n %{packname}

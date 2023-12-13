@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brsim
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Brainerd-Robinson Similarity Coefficient Matrix
 
@@ -31,9 +31,11 @@ Requires:         R-CRAN-corrplot >= 0.92
 %description
 Provides the facility to calculate the Brainerd-Robinson similarity
 coefficient for the rows of an input table, and to calculate the
-significance of each coefficient based on a permutation approach;
-optionally, hierarchical agglomerative clustering can be performed and the
-silhouette method is used to identify an optimal number of clusters.
+significance of each coefficient based on a permutation approach; a
+heatmap is produced to visually represent the similarity matrix.
+Optionally, hierarchical agglomerative clustering can be performed and the
+silhouette method is used to identify an optimal number of clusters; the
+results of the clustering can be optionally used to sort the heatmap.
 
 %prep
 %setup -q -c -n %{packname}
