@@ -1,53 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  move2
-%global packver   0.2.7
+%global packname  crew.aws.batch
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing and Analysing Animal Trajectories
+Summary:          A Crew Launcher Plugin for AWS Batch
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vroom >= 1.6.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-sf >= 1.0.12
-BuildRequires:    R-CRAN-vctrs >= 0.5.2
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-crew >= 0.7.0
+BuildRequires:    R-CRAN-paws.common 
+BuildRequires:    R-CRAN-paws.compute 
+BuildRequires:    R-CRAN-paws.management 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-bit64 
-Requires:         R-CRAN-vroom >= 1.6.1
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-sf >= 1.0.12
-Requires:         R-CRAN-vctrs >= 0.5.2
-Requires:         R-methods 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-crew >= 0.7.0
+Requires:         R-CRAN-paws.common 
+Requires:         R-CRAN-paws.compute 
+Requires:         R-CRAN-paws.management 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-bit64 
+Requires:         R-utils 
 
 %description
-Tools to handle, manipulate and explore trajectory data, with an emphasis
-on data from tracked animals. The package is designed to support large
-studies with several million location records and keep track of units
-where possible. Data import directly from 'movebank'
-<https://www.movebank.org/cms/movebank-main> and files is facilitated.
+In computationally demanding analysis projects, statisticians and data
+scientists asynchronously deploy long-running tasks to distributed
+systems, ranging from traditional clusters to cloud services. The
+'crew.aws.batch' package extends the 'mirai'-powered 'crew' package with a
+worker launcher plugin for AWS Batch. Inspiration also comes from packages
+'mirai' by Gao (2023) <https://github.com/shikokuchuo/mirai>, 'future' by
+Bengtsson (2021) <doi:10.32614/RJ-2021-048>, 'rrq' by FitzJohn and Ashton
+(2023) <https://github.com/mrc-ide/rrq>, 'clustermq' by Schubert (2019)
+<doi:10.1093/bioinformatics/btz284>), and 'batchtools' by Lang, Bischl,
+and Surmann (2017). <doi:10.21105/joss.00135>.
 
 %prep
 %setup -q -c -n %{packname}

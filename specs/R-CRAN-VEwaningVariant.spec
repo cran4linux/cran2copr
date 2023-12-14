@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  VEwaningVariant
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vaccine Efficacy Over Time - Variant Aware
 
@@ -20,13 +21,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-survival 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-methods 
 
 %description

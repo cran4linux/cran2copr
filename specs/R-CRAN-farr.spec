@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  farr
-%global packver   0.2.30
+%global packver   0.2.39
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.30
+Version:          0.2.39
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data and Code for Financial Accounting Research
 
@@ -41,9 +41,9 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-rpart 
 
 %description
-Provides handy functions and data to support a course book for accounting
-research. Gow, Ian and Tongqing Ding (2022) "Accounting Research: An
-Introductory Course" <https://iangow.github.io/far_book/>.
+Handy functions and data to support a course book for accounting research.
+Gow, Ian and Tongqing Ding (2022) 'Accounting Research: An Introductory
+Course' <https://iangow.github.io/far_book/>.
 
 %prep
 %setup -q -c -n %{packname}

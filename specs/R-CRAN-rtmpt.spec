@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtmpt
-%global packver   1.0-1
+%global packver   2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting RT-MPT Models
+Summary:          Fitting (Exponential/Diffusion) RT-MPT Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-loo 
@@ -37,17 +37,16 @@ Requires:         R-CRAN-truncnorm
 Requires:         R-utils 
 
 %description
-Fit response-time extended multinomial processing tree (RT-MPT) models by
-Klauer and Kellen (2018) <doi:10.1016/j.jmp.2017.12.003>. The RT-MPT class
-not only incorporate frequencies like traditional multinomial processing
-tree (MPT) models, but also latencies. This enables it to estimate process
-completion times and encoding plus motor execution times next to the
-process probabilities of traditional MPTs. 'rtmpt' is a Bayesian framework
-and posterior samples are sampled using a Metropolis-Gibbs sampler like
-the one described in the Klauer and Kellen (2018), but with some
-modifications. Other than in the original C++ program we use the free and
-open source GNU Scientific Library (GSL). There is also the possibility to
-suppress single process completion times.
+Fit (exponential or diffusion) response-time extended multinomial
+processing tree (RT-MPT) models by Klauer and Kellen (2018)
+<doi:10.1016/j.jmp.2017.12.003> and Klauer, Hartmann, and Meyer-Grant
+(submitted). The RT-MPT class not only incorporate frequencies like
+traditional multinomial processing tree (MPT) models, but also latencies.
+This enables it to estimate process completion times and encoding plus
+motor execution times next to the process probabilities of traditional
+MPTs. 'rtmpt' is a hierarchical Bayesian framework and posterior samples
+are sampled using a Metropolis-within-Gibbs sampler (for exponential
+RT-MPTs) or Hamiltonian-within-Gibbs sampler (for diffusion RT-MPTs).
 
 %prep
 %setup -q -c -n %{packname}

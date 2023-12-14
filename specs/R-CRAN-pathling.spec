@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tensorA
-%global packver   0.36.2.1
+%global packname  pathling
+%global packver   6.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.36.2.1
+Version:          6.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Tensor Arithmetic with Named Indices
+Summary:          A Library for using 'Pathling'
 
-License:          GPL (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sparklyr >= 1.7.8
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-sparklyr >= 1.7.8
+Requires:         R-CRAN-rlang >= 1.0.0
 
 %description
-Provides convenience functions for advanced linear algebra with tensors
-and computation with data sets of tensors on a higher level abstraction.
-It includes Einstein and Riemann summing conventions, dragging, co- and
-contravariate indices, parallel computations on sequences of tensors.
+R API for 'Pathling', a tool for querying and transforming electronic
+health record data that is represented using the 'Fast Healthcare
+Interoperability Resources' (FHIR) standard - see
+<https://pathling.csiro.au/docs>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autothresholdr
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Port of the 'ImageJ' Plugin 'Auto Threshold'
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-strex >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
 BuildRequires:    R-CRAN-rlang >= 0.3.3
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-strex >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4
-Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-Rcpp >= 1.0.11
 Requires:         R-CRAN-rlang >= 0.3.3
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 

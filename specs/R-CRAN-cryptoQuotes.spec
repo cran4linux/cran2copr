@@ -1,29 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tensorA
-%global packver   0.36.2.1
+%global packname  cryptoQuotes
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.36.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Tensor Arithmetic with Named Indices
+Summary:          Access OHLC Market Data from Major Cryptocurrency Exchanges
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 5.1.0
+BuildRequires:    R-CRAN-plotly >= 4.10.2
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-jsonlite >= 1.8.7
+BuildRequires:    R-CRAN-zoo >= 1.8.12
+BuildRequires:    R-CRAN-httr >= 1.4.7
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-xts >= 0.13.1
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-TTR 
+Requires:         R-CRAN-curl >= 5.1.0
+Requires:         R-CRAN-plotly >= 4.10.2
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-jsonlite >= 1.8.7
+Requires:         R-CRAN-zoo >= 1.8.12
+Requires:         R-CRAN-httr >= 1.4.7
+Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-xts >= 0.13.1
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-TTR 
 
 %description
-Provides convenience functions for advanced linear algebra with tensors
-and computation with data sets of tensors on a higher level abstraction.
-It includes Einstein and Riemann summing conventions, dragging, co- and
-contravariate indices, parallel computations on sequences of tensors.
+A high level library to extract cryptocurrency OHLC market data from major
+centralized exchanges. The library supports all available intervals
+supported by the exchange API for spot and perpetual futures markets.
 
 %prep
 %setup -q -c -n %{packname}

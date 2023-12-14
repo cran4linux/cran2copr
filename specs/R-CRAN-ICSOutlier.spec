@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ICSOutlier
-%global packver   0.3-1
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Outlier Detection Using Invariant Coordinate Selection
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ICS >= 1.3.0
+BuildRequires:    R-CRAN-ICS >= 1.4.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-ICS >= 1.3.0
+Requires:         R-CRAN-ICS >= 1.4.0
 Requires:         R-methods 
 Requires:         R-CRAN-moments 
 Requires:         R-graphics 
@@ -35,7 +35,11 @@ Requires:         R-parallel
 %description
 Multivariate outlier detection is performed using invariant coordinates
 where the package offers different methods to choose the appropriate
-components.
+components. ICS is a general multivariate technique with many applications
+in multivariate analysis. ICSOutlier offers a selection of functions for
+automated detection of outliers in the data based on a fitted ICS object
+or by specifying the dataset and the scatters of interest. The current
+implementation targets data sets with only a small percentage of outliers.
 
 %prep
 %setup -q -c -n %{packname}

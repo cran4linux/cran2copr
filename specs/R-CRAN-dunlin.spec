@@ -1,29 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tensorA
-%global packver   0.36.2.1
+%global packname  dunlin
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.36.2.1
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Tensor Arithmetic with Named Indices
+Summary:          Preprocessing Tools for Clinical Trial Data
 
-License:          GPL (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-yaml >= 2.1.15
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.4.1
+BuildRequires:    R-CRAN-tibble >= 1.2
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-forcats >= 1.0.0
+BuildRequires:    R-CRAN-glue >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-yaml >= 2.1.15
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringr >= 1.4.1
+Requires:         R-CRAN-tibble >= 1.2
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-forcats >= 1.0.0
+Requires:         R-CRAN-glue >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-methods 
 
 %description
-Provides convenience functions for advanced linear algebra with tensors
-and computation with data sets of tensors on a higher level abstraction.
-It includes Einstein and Riemann summing conventions, dragging, co- and
-contravariate indices, parallel computations on sequences of tensors.
+A collection of functions to preprocess data and organize them in a format
+amenable to use by chevron.
 
 %prep
 %setup -q -c -n %{packname}

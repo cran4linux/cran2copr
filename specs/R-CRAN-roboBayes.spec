@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  roboBayes
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Online Bayesian Monitoring
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-RcppArmadillo
 BuildRequires:    R-CRAN-RcppDist 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-methods 
+Requires:         R-CRAN-RcppArmadillo 
 
 %description
 An implementation of Bayesian online changepoint detection (Adams and

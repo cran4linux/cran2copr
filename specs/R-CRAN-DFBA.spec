@@ -1,29 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tensorA
-%global packver   0.36.2.1
+%global packname  DFBA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.36.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Tensor Arithmetic with Named Indices
+Summary:          Distribution-Free Bayesian Analysis
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+Requires:         R-methods 
+Requires:         R-graphics 
 Requires:         R-stats 
 
 %description
-Provides convenience functions for advanced linear algebra with tensors
-and computation with data sets of tensors on a higher level abstraction.
-It includes Einstein and Riemann summing conventions, dragging, co- and
-contravariate indices, parallel computations on sequences of tensors.
+A set of functions to perform distribution-free Bayesian analyses.
+Included are Bayesian analogues to the frequentist Mann-Whitney U test,
+the Wilcoxon Signed-Ranks test, Kendall's Tau Rank Correlation
+Coefficient, Goodman and Kruskal's Gamma, McNemar's Test, the binomial
+test, the sign test, the median test, as well as distribution-free methods
+for testing contrasts among condition and for computing Bayes factors for
+hypotheses. The package also includes procedures to estimate the power of
+distribution-free Bayesian tests based on data simulations using various
+probability models for the data. The set of functions provide data
+analysts with a set of Bayesian procedures that avoids requiring
+parametric assumptions about measurement error and is robust to problem of
+extreme outlier scores.
 
 %prep
 %setup -q -c -n %{packname}

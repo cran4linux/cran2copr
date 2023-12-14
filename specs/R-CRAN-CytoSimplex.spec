@@ -1,29 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tensorA
-%global packver   0.36.2.1
+%global packname  CytoSimplex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.36.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Tensor Arithmetic with Named Indices
+Summary:          Simplex Visualization of Cell Fate Similarity in Single-Cell Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides convenience functions for advanced linear algebra with tensors
-and computation with data sets of tensors on a higher level abstraction.
-It includes Einstein and Riemann summing conventions, dragging, co- and
-contravariate indices, parallel computations on sequences of tensors.
+Create simplex plots to visualize the similarity between single-cells and
+selected clusters in a 1-/2-/3-simplex space. Velocity information can be
+added as an additional layer. See Liu J, Wang Y et al (2023)
+<doi:10.1101/2023.12.07.570655> for more details.
 
 %prep
 %setup -q -c -n %{packname}

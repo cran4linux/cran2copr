@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  goeveg
-%global packver   0.6.5
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Community Data and Ordinations
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-fields 
@@ -29,8 +29,8 @@ Requires:         R-CRAN-Hmisc
 %description
 A collection of functions useful in (vegetation) community analyses and
 ordinations. Includes automatic species selection for ordination diagrams,
-NMDS stress/scree plots, species response curves and rank-abundance curves
-as well as calculation and sorting of synoptic tables.
+NMDS stress/scree plots, species response curves, merging of taxa as well
+as calculation and sorting of synoptic tables.
 
 %prep
 %setup -q -c -n %{packname}

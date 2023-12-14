@@ -1,29 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tensorA
-%global packver   0.36.2.1
+%global packname  dwctaxon
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.36.2.1
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Tensor Arithmetic with Named Indices
+Summary:          Edit and Validate Darwin Core Taxon Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-settings 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-settings 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides convenience functions for advanced linear algebra with tensors
-and computation with data sets of tensors on a higher level abstraction.
-It includes Einstein and Riemann summing conventions, dragging, co- and
-contravariate indices, parallel computations on sequences of tensors.
+Edit and validate taxonomic data in compliance with Darwin Core standards
+(Darwin Core 'Taxon' class <https://dwc.tdwg.org/terms/#taxon>).
 
 %prep
 %setup -q -c -n %{packname}

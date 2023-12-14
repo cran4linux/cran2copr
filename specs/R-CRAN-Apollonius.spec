@@ -1,29 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tensorA
-%global packver   0.36.2.1
+%global packname  Apollonius
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.36.2.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Tensor Arithmetic with Named Indices
+Summary:          2D Apollonius Graphs
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-gyro >= 1.3.0
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-colorsGen 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-Polychrome 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppCGAL 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-gyro >= 1.3.0
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-colorsGen 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-Polychrome 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 
 %description
-Provides convenience functions for advanced linear algebra with tensors
-and computation with data sets of tensors on a higher level abstraction.
-It includes Einstein and Riemann summing conventions, dragging, co- and
-contravariate indices, parallel computations on sequences of tensors.
+Computation of the Apollonius diagram of given 2D points and its dual the
+Apollonius graph, also known as the additively weighted Voronoï diagram,
+and which is a generalization of the classical Voronoï diagram. For
+references, see the bibliography in the CGAL documentation at
+<https://doc.cgal.org/latest/Apollonius_graph_2/citelist.html>.
 
 %prep
 %setup -q -c -n %{packname}

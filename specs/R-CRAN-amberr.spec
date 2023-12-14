@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tensorA
-%global packver   0.36.2.1
+%global packname  amberr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.36.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Tensor Arithmetic with Named Indices
+Summary:          'Amber' Electronic Data Capture Client
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
 
 %description
-Provides convenience functions for advanced linear algebra with tensors
-and computation with data sets of tensors on a higher level abstraction.
-It includes Einstein and Riemann summing conventions, dragging, co- and
-contravariate indices, parallel computations on sequences of tensors.
+'Amber' is a server application for capturing electronic data records.
+Rich forms are used to collect data. This 'Amber' client allows to perform
+data extraction for reporting or data transfer at persistent location
+purposes.
 
 %prep
 %setup -q -c -n %{packname}
