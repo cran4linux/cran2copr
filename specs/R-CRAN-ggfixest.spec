@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ExpImage
-%global packver   0.8.0
+%global packname  ggfixest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool For Analysis of Images in Experiments
+Summary:          Dedicated 'ggplot2' Methods for 'fixest' Objects
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,33 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-schemr 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-schemr 
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
+BuildRequires:    R-CRAN-fixest >= 0.11.2
+BuildRequires:    R-CRAN-marginaleffects >= 0.10.0
+BuildRequires:    R-CRAN-dreamerr 
+BuildRequires:    R-CRAN-ggh4x 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 2.2.0
+Requires:         R-CRAN-fixest >= 0.11.2
+Requires:         R-CRAN-marginaleffects >= 0.10.0
+Requires:         R-CRAN-dreamerr 
+Requires:         R-CRAN-ggh4x 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Tools created for image analysis in researches. There are functions
-associated with image editing, segmentation, and obtaining biometric
-measurements (Este pacote foi idealizado para para a analise de imagens em
-pesquisas. Ha funcoes associadas a edicao de imagens, segmentacao, e
-obtencao de medidas biometricas).
+Provides 'ggplot2' equivalents of fixest::coefplot() and fixest::iplot(),
+for producing nice coefficient plots and interaction plots. Enables some
+additional functionality and convenience features, including grouped
+multi-'fixest' object faceting and programmatic updates to existing plots
+(e.g., themes and aesthetics).
 
 %prep
 %setup -q -c -n %{packname}

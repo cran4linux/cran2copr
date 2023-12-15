@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extraoperators
-%global packver   0.3.0
+%global packname  vcfppR
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Binary Relational and Logical Operators
+Summary:          Rapid Manipulation of the Variant Call Format (VCF)
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
-Speed up common tasks, particularly logical or relational comparisons and
-routine follow up tasks such as finding the indices and subsetting.
-Inspired by mathematics, where something like: 3 < x < 6 is a standard,
-elegant and clear way to assert that x is both greater than 3 and less
-than 6 (see for example
-<https://en.wikipedia.org/wiki/Relational_operator>), a chaining operator
-is implemented. The chaining operator, %%c%%, allows multiple relational
-operations to be used in quotes on the right hand side for the same
-object, on the left hand side. The %%e%% operator allows something like
-set-builder notation (see for example
-<https://en.wikipedia.org/wiki/Set-builder_notation>) to be used on the
-right hand side. All operators have built in prefixes defined for all,
-subset, and which to reduce the amount of code needed for common tasks,
-such as return those values that are true.
+The 'vcfpp.h' (<https://github.com/Zilong-Li/vcfpp>) provides an
+easy-to-use 'C++' 'API' of 'htslib', offering full functionality for
+manipulating Variant Call Format (VCF) files. The 'vcfppR' package serves
+as the R bindings of the 'vcfpp.h' library, enabling rapid processing of
+both compressed and uncompressed VCF/BCF files. Explore a range of
+powerful features for efficient VCF data manipulation.
 
 %prep
 %setup -q -c -n %{packname}

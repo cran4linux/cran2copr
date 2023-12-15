@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  samplingin
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Survey Sampling Solutions
 
@@ -19,29 +19,21 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rio 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
 A robust solution employing both systematic and PPS (Probability
 Proportional to Size) sampling methods, ensuring a methodical and
-representative selection of data. Seamlessly allocate predetermined
+representative selection of data.  Seamlessly allocate predetermined
 allocations to smaller levels. Kish, L. (1965)
 <https://books.google.co.id/books?id=xiZmAAAAIAAJ>.
 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  estmeansd
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating the Sample Mean and Standard Deviation from Commonly Reported Quantiles in Meta-Analysis
 
@@ -32,7 +33,9 @@ Implements the methods of McGrath et al. (2020)
 standard deviation from commonly reported quantiles in meta-analysis.
 These methods can be applied to studies that report the sample median,
 sample size, and one or both of (i) the sample minimum and maximum values
-and (ii) the first and third quartiles.
+and (ii) the first and third quartiles. The corresponding standard error
+estimators described by McGrath et al. (2023)
+<doi:10.1177/09622802221139233> are also included.
 
 %prep
 %setup -q -c -n %{packname}

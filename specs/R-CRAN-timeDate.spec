@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  timeDate
-%global packver   4022.108
+%global packver   4032.109
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4022.108
+Version:          4032.109
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rmetrics - Chronological and Calendar Objects
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
+Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-methods 
 
 %description
 The 'timeDate' class fulfils the conventions of the ISO 8601 standard as

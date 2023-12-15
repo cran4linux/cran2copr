@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.widgets
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' Widgets for 'teal' Applications
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-shiny >= 1.6.0
 BuildRequires:    R-CRAN-styler >= 1.2.0
-BuildRequires:    R-CRAN-rtables >= 0.6.0.9004
+BuildRequires:    R-CRAN-rtables >= 0.6.6
 BuildRequires:    R-CRAN-htmltools >= 0.5.4
 BuildRequires:    R-CRAN-shinyWidgets >= 0.5.1
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
@@ -34,7 +34,7 @@ Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-styler >= 1.2.0
-Requires:         R-CRAN-rtables >= 0.6.0.9004
+Requires:         R-CRAN-rtables >= 0.6.6
 Requires:         R-CRAN-htmltools >= 0.5.4
 Requires:         R-CRAN-shinyWidgets >= 0.5.1
 Requires:         R-CRAN-lifecycle >= 0.2.0

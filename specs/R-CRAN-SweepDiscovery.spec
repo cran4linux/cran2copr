@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extraoperators
-%global packver   0.3.0
+%global packname  SweepDiscovery
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Binary Relational and Logical Operators
+Summary:          Selective Sweep Discovery Tool
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-randomForest 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-randomForest 
 
 %description
-Speed up common tasks, particularly logical or relational comparisons and
-routine follow up tasks such as finding the indices and subsetting.
-Inspired by mathematics, where something like: 3 < x < 6 is a standard,
-elegant and clear way to assert that x is both greater than 3 and less
-than 6 (see for example
-<https://en.wikipedia.org/wiki/Relational_operator>), a chaining operator
-is implemented. The chaining operator, %%c%%, allows multiple relational
-operations to be used in quotes on the right hand side for the same
-object, on the left hand side. The %%e%% operator allows something like
-set-builder notation (see for example
-<https://en.wikipedia.org/wiki/Set-builder_notation>) to be used on the
-right hand side. All operators have built in prefixes defined for all,
-subset, and which to reduce the amount of code needed for common tasks,
-such as return those values that are true.
+Selective sweep is a biological phenomenon in which genetic variation
+between neighboring beneficial mutant alleles is swept away due to the
+effect of genetic hitchhiking. Detection of selective sweep is not well
+acquainted as well as it is a laborious job. This package is a user
+friendly approach for detecting selective sweep in genomic regions. It
+uses a Random Forest based machine learning approach to predict selective
+sweep from VCF files as an input. Input of this function, train data and
+new data, can be computed using the project
+<https://github.com/AbhikSarkar1999/SweepDiscovery> in 'GitHub'. This
+package has been developed by using the concept of Pavlidis and Alachiotis
+(2017) <doi:10.1186/s40709-017-0064-0>.
 
 %prep
 %setup -q -c -n %{packname}

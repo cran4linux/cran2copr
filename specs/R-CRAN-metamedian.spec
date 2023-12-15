@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metamedian
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis of Medians
 
@@ -40,7 +40,8 @@ difference of medians across groups. Additionally, a number of methods
 (2021) <doi:10.1177/09622802211047348>, and McGrath et al. (2023)
 <doi:10.1177/09622802221139233>) are implemented to estimate
 study-specific (difference of) means and their standard errors in order to
-estimate the pooled (difference of) means.
+estimate the pooled (difference of) means. See McGrath et al. (in press)
+<doi:10.1002/jrsm.1686> for a detailed guide on using the package.
 
 %prep
 %setup -q -c -n %{packname}

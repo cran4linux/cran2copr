@@ -1,52 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nuggets
-%global packver   1.0.1
+%global packname  mutationtypes
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extensible Data Pattern Searching Framework
+Summary:          Validate and Convert Mutational Impacts Using Standard Genomic Dictionaries
 
-License:          GPL (>= 3)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-assertions 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-assertions 
 Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-data.table 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Extensible framework for subgroup discovery (Atzmueller (2015)
-<doi:10.1002/widm.1144>), contrast patterns (Chen (2022)
-<doi:10.48550/arXiv.2209.13556>), emerging patterns (Dong (1999)
-<doi:10.1145/312129.312191>) and association rules (Agrawal (1994)
-<https://www.vldb.org/conf/1994/P487.PDF>). Both crisp (binary) and fuzzy
-data are supported. It generates conditions in the form of elementary
-conjunctions, evaluates them on a dataset and checks the induced sub-data
-for interesting statistical properties. Currently, the package searches
-for implicative association rules and conditional correlations (Hájek
-(1978) <doi:10.1007/978-3-642-66943-9>). A user-defined function may be
-defined to evaluate on each generated condition to search for custom
-patterns.
+Check concordance of a vector of mutation impacts with standard
+dictionaries such as Sequence Ontology (SO)
+<http://www.sequenceontology.org/>, Mutation Annotation Format (MAF)
+<https://docs.gdc.cancer.gov/Encyclopedia/pages/Mutation_Annotation_Format_TCGAv2/>
+or Prediction and Annotation of Variant Effects (PAVE)
+<https://github.com/hartwigmedical/hmftools/tree/master/pave>. It enables
+conversion between SO/PAVE and MAF terms and selection of the most severe
+consequence where multiple ampersand (&) delimited impacts are given.
 
 %prep
 %setup -q -c -n %{packname}

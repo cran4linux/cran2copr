@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extraoperators
-%global packver   0.3.0
+%global packname  randomMachines
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Binary Relational and Logical Operators
+Summary:          An Ensemble Modeling using Random Machines
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-kernlab 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Speed up common tasks, particularly logical or relational comparisons and
-routine follow up tasks such as finding the indices and subsetting.
-Inspired by mathematics, where something like: 3 < x < 6 is a standard,
-elegant and clear way to assert that x is both greater than 3 and less
-than 6 (see for example
-<https://en.wikipedia.org/wiki/Relational_operator>), a chaining operator
-is implemented. The chaining operator, %%c%%, allows multiple relational
-operations to be used in quotes on the right hand side for the same
-object, on the left hand side. The %%e%% operator allows something like
-set-builder notation (see for example
-<https://en.wikipedia.org/wiki/Set-builder_notation>) to be used on the
-right hand side. All operators have built in prefixes defined for all,
-subset, and which to reduce the amount of code needed for common tasks,
-such as return those values that are true.
+A novel ensemble method employing Support Vector Machines (SVMs) as base
+learners. This powerful ensemble model is designed for both classification
+(Ara A., et. al, 2021) <doi:10.6339/21-JDS1014>, and regression (Ara A.,
+et. al, 2021) <doi:10.1016/j.eswa.2022.117107> problems, offering
+versatility and robust performance across different datasets and compared
+with other consolidated methods as Random Forests (Maia M, et. al, 2021)
+<doi:10.6339/21-JDS1025>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maldipickr
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dereplicate and Cherry-Pick Mass Spectrometry Spectra
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MALDIquant 
 BuildRequires:    R-CRAN-readBrukerFlexData 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MALDIquant 
 Requires:         R-CRAN-readBrukerFlexData 

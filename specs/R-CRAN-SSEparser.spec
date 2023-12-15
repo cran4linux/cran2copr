@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extraoperators
-%global packver   0.3.0
+%global packname  SSEparser
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Binary Relational and Logical Operators
+Summary:          Parse Server-Sent Events
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 
 %description
-Speed up common tasks, particularly logical or relational comparisons and
-routine follow up tasks such as finding the indices and subsetting.
-Inspired by mathematics, where something like: 3 < x < 6 is a standard,
-elegant and clear way to assert that x is both greater than 3 and less
-than 6 (see for example
-<https://en.wikipedia.org/wiki/Relational_operator>), a chaining operator
-is implemented. The chaining operator, %%c%%, allows multiple relational
-operations to be used in quotes on the right hand side for the same
-object, on the left hand side. The %%e%% operator allows something like
-set-builder notation (see for example
-<https://en.wikipedia.org/wiki/Set-builder_notation>) to be used on the
-right hand side. All operators have built in prefixes defined for all,
-subset, and which to reduce the amount of code needed for common tasks,
-such as return those values that are true.
+Functionality to parse server-sent events with a high-level interface that
+can be extended for custom applications.
 
 %prep
 %setup -q -c -n %{packname}
