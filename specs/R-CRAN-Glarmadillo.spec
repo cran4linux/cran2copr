@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CytoSimplex
-%global packver   0.1.1
+%global packname  Glarmadillo
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplex Visualization of Cell Fate Similarity in Single-Cell Data
+Summary:          Solve the Graphical Lasso Problem with 'Armadillo'
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
+BuildRequires:    R-CRAN-Rcpp >= 0.12
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RcppArmadillo 
 
 %description
-Create simplex plots to visualize the similarity between single-cells and
-selected clusters in a 1-/2-/3-simplex space. Velocity information can be
-added as an additional layer. See Liu J, Wang Y et al (2023)
-<doi:10.1101/2023.12.07.570655> for more details.
+Efficiently implements the Graphical Lasso algorithm, utilizing the
+'Armadillo' 'C++' library for rapid computation. This algorithm introduces
+an L1 penalty to derive sparse inverse covariance matrices from
+observations of multivariate normal distributions. Features include the
+generation of random and structured sparse covariance matrices, beneficial
+for simulations, statistical method testing, and educational purposes in
+graphical modeling. A unique function for regularization parameter
+selection based on predefined sparsity levels is also offered, catering to
+users with specific sparsity requirements in their models. The methodology
+for sparse inverse covariance estimation implemented in this package is
+based on the work of Friedman, Hastie, and Tibshirani (2008)
+<doi:10.1093/biostatistics/kxm045>.
 
 %prep
 %setup -q -c -n %{packname}

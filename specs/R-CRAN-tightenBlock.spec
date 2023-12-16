@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gghighlight
-%global packver   0.4.1
+%global packname  tightenBlock
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highlight Lines and Points in 'ggplot2'
+Summary:          Tightens an Observational Block Design by Balanced Subset Matching
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
-BuildRequires:    R-CRAN-dplyr >= 1.0.4
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 >= 3.3.6
-Requires:         R-CRAN-dplyr >= 1.0.4
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rcbalance 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rcbalance 
 
 %description
-Make it easier to explore data with highlights.
+Tightens an observational block design into a smaller design with either
+smaller or fewer blocks while controlling for covariates. The method uses
+fine balance, optimal subset matching (Rosenbaum, 2012
+<doi:10.1198/jcgs.2011.09219>) and two-criteria matching (Zhang et al 2023
+<doi:10.1080/01621459.2021.1981337>).  The main function is tighten().
+The suggested 'rrelaxiv' package for solving minimum cost flow problems:
+(i) derives from Bertsekas and Tseng (1988) <doi:10.1007/BF02288322>, (ii)
+is not available on CRAN due to its academic license, (iii) may be
+downloaded from GitHub at <https://github.com/josherrickson/rrelaxiv/>,
+(iv) is not essential to use the package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gwasrapidd
-%global packver   0.99.14
+%global packver   0.99.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.14
+Version:          0.99.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          'REST' 'API' Client for the 'NHGRI'-'EBI' 'GWAS' Catalog
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-tidyr > 0.8.99
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-httr 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-testthat 
 Requires:         R-utils 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-writexl 
 
 %description
 'GWAS' R 'API' Data Download. This package provides easy access to the

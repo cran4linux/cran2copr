@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  metarep
-%global packver   1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Replicability-Analysis Tools for Meta-Analysis
 
@@ -16,22 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 4.9.10
-Requires:         R-CRAN-meta >= 4.9.10
+BuildRequires:    R-CRAN-meta >= 6.0.0
+Requires:         R-CRAN-meta >= 6.0.0
 
 %description
 User-friendly package for reporting replicability-analysis methods,
-affixed to meta-analyses summary. This package implements the methods
-introduced in Jaljuli et. al. (2022) <doi:10.1080/19466315.2022.2050291>.
-The replicability-analysis output provides an assessment of the
-investigated intervention, where it offers quantification of effect
-replicability and assessment of the consistency of findings. -
-Replicability-analysis for fixed-effects and random-effect meta analysis:
-- r(u)-value; - lower bounds on the number of studies with replicated
-positive andor negative effect; - Allows detecting inconsistency of
-signals; - forest plots with the summary of replicability analysis
-results; - Allows Replicability-analysis with or without the common-effect
-assumption.
+affixed to meta-analyses summary. The replicability-analysis output
+provides an assessment of the investigated intervention, where it offers
+quantification of effect replicability and assessment of the consistency
+of findings. - Replicability-analysis for fixed-effects and random-effect
+meta analysis: - r(u)-value; - lower bounds on the number of studies with
+replicated positive andor negative effect; - Allows detecting
+inconsistency of signals; - forest plots with the summary of replicability
+analysis results; - Allows Replicability-analysis with or without the
+common-effect assumption.
 
 %prep
 %setup -q -c -n %{packname}

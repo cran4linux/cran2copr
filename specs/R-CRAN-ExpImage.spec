@@ -1,39 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gghighlight
-%global packver   0.4.1
+%global packname  ExpImage
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highlight Lines and Points in 'ggplot2'
+Summary:          Tool For Analysis of Images in Experiments
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
-BuildRequires:    R-CRAN-dplyr >= 1.0.4
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 >= 3.3.6
-Requires:         R-CRAN-dplyr >= 1.0.4
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-schemr 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-schemr 
 
 %description
-Make it easier to explore data with highlights.
+Tools created for image analysis in researches. There are functions
+associated with image editing, segmentation, and obtaining biometric
+measurements (Este pacote foi idealizado para para a analise de imagens em
+pesquisas. Ha funcoes associadas a edicao de imagens, segmentacao, e
+obtencao de medidas biometricas).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  overlap
-%global packver   0.3.4.1
+%global packname  fanyi
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimates of Coefficient of Overlapping for Animal Activity Patterns
+Summary:          Translate Words or Sentences via Online Translators
 
-License:          GPL (>= 3)
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-openssl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-openssl 
 
 %description
-Provides functions to fit kernel density functions to data on temporal
-activity patterns of animals; estimate coefficients of overlapping of
-densities for two species; and calculate bootstrap estimates of confidence
-intervals.
+Useful functions to translate text for multiple languages using online
+translators. For example, by translating error messages and descriptive
+analysis results into a language familiar to the user, it enables a better
+understanding of the information, thereby reducing the barriers caused by
+language.
 
 %prep
 %setup -q -c -n %{packname}

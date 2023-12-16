@@ -1,49 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  camtrapR
-%global packver   2.2.0
+%global __requires_exclude ^libmpi
+%global packname  hdbma
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Camera Trap Data Management and Preparation of Occupancy and Spatial Capture-Recapture Analyses
+Summary:          Bayesian Mediation Analysis with High-Dimensional Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         perl(Image::ExifTool)
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.14.1
+Requires:         R-core >= 2.14.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-overlap 
-BuildRequires:    R-CRAN-secr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-R2jags 
+Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-survival 
+Requires:         R-splines 
+Requires:         R-CRAN-lattice 
 Requires:         R-methods 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-overlap 
-Requires:         R-CRAN-secr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-ggplot2 
 
 %description
-Management of and data extraction from camera trap data in wildlife
-studies. The package provides a workflow for storing and sorting camera
-trap photos (and videos), tabulates records of species and individuals,
-and creates detection/non-detection matrices for occupancy and spatial
-capture-recapture analyses with great flexibility. In addition, it can
-visualise species activity data and provides simple mapping functions with
-GIS export.
+Mediation analysis is used to identify and quantify intermediate effects
+from factors that intervene the observed relationship between an
+exposure/predicting variable and an outcome. We use a Bayesian adaptive
+lasso method to take care of the hierarchical structures and high
+dimensional exposures or mediators.
 
 %prep
 %setup -q -c -n %{packname}
