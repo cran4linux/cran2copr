@@ -30,6 +30,7 @@ jobs:
         TOKEN: ${{ secrets.COPR_TOKEN }}
     - name: Sync with CRAN
       run: |
+        Rscript copr-sync-fix.r || touch failure
         Rscript copr-sync.r || touch failure
         git add specs
         git diff-index --quiet HEAD || git commit -m "sync"

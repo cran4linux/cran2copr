@@ -507,30 +507,36 @@ get_batch <- function(id) {
   XML::readHTMLTable(.read_urls(url)[[1]])[[1]]
 }
 
-subset_failed <- function(x, chroots=seq_len(ncol(x)-1), nobuild=FALSE) {
+subset_nobuild <- function(x, chroots=seq_len(ncol(x)-1)) {
+  x.nobl <- x[, 2:ncol(x), drop=FALSE][, chroots, drop=FALSE]
+  x.nobl <- apply(x.nobl, 2, is.na)
+  subset(x, apply(x.nobl, 1, all))
+}
+
+subset_failed <- function(x, chroots=seq_len(ncol(x)-1)) {
   x.chrt <- x[, 2:ncol(x), drop=FALSE]
   x.fail <- x.chrt[, chroots, drop=FALSE]
   x.succ <- x.chrt[, setdiff(names(x.chrt), names(x.fail)), drop=FALSE]
-  x.fail <- if (nobuild)
-    apply(x.fail, 2, function(x) !grepl("succeeded|forked", x))
-  else apply(x.fail, 2, function(x) grepl("failed", x))
+  x.fail <- apply(x.fail, 2, function(x) grepl("failed", x))
   x.succ <- apply(x.succ, 2, function(x) grepl("succeeded|forked", x))
   subset(x, apply(cbind(x.fail, x.succ), 1, all))
 }
 
-subset_forked <- function(x, chroots=seq_len(ncol(x)-1), nobuild=FALSE) {
+subset_forked <- function(x, chroots=seq_len(ncol(x)-1)) {
   x.fork <- x[, 2:ncol(x), drop=FALSE][, chroots, drop=FALSE]
   x.fork <- apply(x.fork, 2, function(x) grepl("forked", x))
   subset(x, apply(x.fork, 1, all))
 }
 
-subset_vmismatch <- function(x, chroots=seq_len(ncol(x)-1), cran=available_packages()) {
+subset_vmism <- function(x, chroots=seq_len(ncol(x)-1), cran=available_packages()) {
   n <- ncol(x); chroots <- chroots
 
-  cran <- as.data.frame(cran)[, c("Package", "Version")]
-  cran$Package <- paste0("R-CRAN-", cran$Package)
-  cran$Version <- gsub("-", ".", cran$Version)
-  x <- merge(x, cran, all.x=TRUE)
+  pref <- paste0(getOption("copr.subdir"), "/", getOption("copr.prefix"))
+  spec <- Sys.glob(paste0(pref, "*.spec"))
+  repo <- data.frame(
+    Package = sub(".spec", "", basename(spec), fixed=TRUE),
+    Version = gsub("-", ".", sapply(spec, get_spec_version, USE.NAMES=FALSE)))
+  x <- merge(x, repo, all.x=TRUE)
 
   x.mism <- x[, 2:n, drop=FALSE][, chroots, drop=FALSE]
   x.mism <- apply(x.mism, 2, function(x) {
