@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CoTiMA
-%global packver   0.6.2
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Meta-Analysis ('CoTiMA')
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MBESS >= 4.6.0
 BuildRequires:    R-CRAN-openxlsx >= 4.2.2
-BuildRequires:    R-CRAN-ctsem >= 3.3.11
+BuildRequires:    R-CRAN-ctsem >= 3.8.1
 BuildRequires:    R-CRAN-OpenMx >= 2.18.1
 BuildRequires:    R-CRAN-psych >= 1.9.12
 BuildRequires:    R-CRAN-rootSolve >= 1.8.2
@@ -36,7 +36,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-methods 
 Requires:         R-CRAN-MBESS >= 4.6.0
 Requires:         R-CRAN-openxlsx >= 4.2.2
-Requires:         R-CRAN-ctsem >= 3.3.11
+Requires:         R-CRAN-ctsem >= 3.8.1
 Requires:         R-CRAN-OpenMx >= 2.18.1
 Requires:         R-CRAN-psych >= 1.9.12
 Requires:         R-CRAN-rootSolve >= 1.8.2

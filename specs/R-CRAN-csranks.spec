@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csranks
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Ranks
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Account for uncertainty when working with ranks. Estimate standard errors
@@ -34,7 +36,8 @@ consistently in linear regression with ranked variables. Construct
 confidence sets of various kinds for positions of populations in a ranking
 based on values of a certain feature and their estimation errors. Theory
 based on Mogstad, Romano, Shaikh, and Wilhelm
-(2023)<doi:10.1093/restud/rdad006>.
+(2023)<doi:10.1093/restud/rdad006> and Chetverikov and Wilhelm (2023)
+<arXiv:2310.15512>.
 
 %prep
 %setup -q -c -n %{packname}

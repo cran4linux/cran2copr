@@ -1,36 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  edgebundle
-%global packver   0.4.2
+%global packname  sfd
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Algorithms for Bundling Edges in Networks and Visualizing Flow and Metro Maps
+Summary:          Space-Filling Design Library
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-interp 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-interp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements several algorithms for bundling edges in networks and flow and
-metro map layouts. This includes force directed edge bundling
-<doi:10.1111/j.1467-8659.2009.01450.x>, a flow algorithm based on Steiner
-trees<doi:10.1080/15230406.2018.1437359> and a multicriteria optimization
-method for metro map layouts <doi:10.1109/TVCG.2010.24>.
+A collection of pre-optimized space-filling designs, for up to ten
+parameters, is contained here. Functions are provided to access designs
+described by Husslage et al (2011) <doi:10.1007/s11081-010-9129-8>. The
+design types included are Audze-Eglais and MaxiMin.
 
 %prep
 %setup -q -c -n %{packname}
