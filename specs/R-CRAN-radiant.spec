@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  radiant
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Business Analytics using R and Shiny
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.7.1
+BuildRequires:    R-CRAN-shiny >= 1.8.0
 BuildRequires:    R-CRAN-radiant.data >= 1.5.1
 BuildRequires:    R-CRAN-radiant.design >= 1.5.0
 BuildRequires:    R-CRAN-radiant.basics >= 1.5.0
 BuildRequires:    R-CRAN-radiant.model >= 1.5.0
 BuildRequires:    R-CRAN-radiant.multivariate >= 1.5.0
 BuildRequires:    R-CRAN-import >= 1.1.0
-Requires:         R-CRAN-shiny >= 1.7.1
+Requires:         R-CRAN-shiny >= 1.8.0
 Requires:         R-CRAN-radiant.data >= 1.5.1
 Requires:         R-CRAN-radiant.design >= 1.5.0
 Requires:         R-CRAN-radiant.basics >= 1.5.0

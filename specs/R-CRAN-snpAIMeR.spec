@@ -1,48 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PWEXP
-%global packver   0.4.3
+%global packname  snpAIMeR
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Piecewise Exponential Distribution Prediction Model
+Summary:          Assess the Diagnostic Power of Genomic Marker Combinations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-adegenet 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-segmented 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-adegenet 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-yaml 
 
 %description
-Build piecewise exponential survival model for study design (planning) and
-event/timeline prediction.
+Population genetics package for designing diagnostic panels. Candidate
+markers, marker combinations, and different panel sizes are assessed for
+how well they can predict the source population of known samples. Requires
+a genotype file of candidate markers in STRUCTURE format. Methods for
+population cross-validation are described in Jombart (2008)
+<doi:10.1093/bioinformatics/btn129>.
 
 %prep
 %setup -q -c -n %{packname}

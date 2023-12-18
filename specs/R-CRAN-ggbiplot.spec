@@ -1,29 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eodhd
-%global packver   1.0.3
+%global packname  ggbiplot
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Official 'eodhd' API R Financial Library
+Summary:          A Grammar of Graphics Implementation of Biplots
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 
 %description
-Official 'eodhd' API R Library. It helps to get and work with financial
-data, historical data and etc. API reference available at
-<https://eodhd.com/financial-apis/>.
+A 'ggplot2' based implementation of biplots, giving a representation of a
+dataset in a two dimensional space accounting for the greatest variance,
+together with variable vectors showing how the data variables relate to
+this space. It provides a replacement for stats::biplot(), but with many
+enhancements to control the analysis and graphical display. It implements
+biplot and scree plot methods which can be used with the results of
+prcomp(), princomp(), FactoMineR::PCA() or MASS::lda() and can be
+customized using 'ggplot2' techniques.
 
 %prep
 %setup -q -c -n %{packname}

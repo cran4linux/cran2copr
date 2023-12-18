@@ -1,48 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PWEXP
-%global packver   0.4.3
+%global packname  extBatchMarking
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Piecewise Exponential Distribution Prediction Model
+Summary:          Extended Batch Marking Models
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-optimbase 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-segmented 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-optimbase 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
 
 %description
-Build piecewise exponential survival model for study design (planning) and
-event/timeline prediction.
+A system for batch-marking data analysis to estimate survival
+probabilities, capture probabilities, and enumerate the population
+abundance for both marked and unmarked individuals. The estimation of only
+marked individuals can be achieved through the batchMarkOptim() function.
+Similarly, the combined marked and unmarked can be achieved through the
+batchMarkUnmarkOptim() function. The algorithm was also implemented for
+the hidden Markov model encapsulated in batchMarkUnmarkOptim() to estimate
+the abundance of both marked and unmarked individuals in the population.
+The package is based on the paper: "Hidden Markov Models for Extended
+Batch Data" of Cowen et al. (2017) <doi:10.1111/biom.12701>.
 
 %prep
 %setup -q -c -n %{packname}
