@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hexfont
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'GNU Unifont' Hex Fonts
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bittermelon >= 1.1.0
+BuildRequires:    R-CRAN-bittermelon >= 1.1.2
 BuildRequires:    R-utils 
-Requires:         R-CRAN-bittermelon >= 1.1.0
+Requires:         R-CRAN-bittermelon >= 1.1.2
 Requires:         R-utils 
 
 %description
-Contains all the hex font files from the 'GNU Unifont Project'
+Contains most of the hex font files from the 'GNU Unifont Project'
 <https://unifoundry.com/unifont/> compressed by 'xz'.  'GNU Unifont' is a
 duospaced bitmap font that attempts to cover all the official Unicode
 glyphs plus several of the artificial scripts in the '(Under-)ConScript

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mrds
-%global packver   2.3.0
+%global packname  lorad
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mark-Recapture Distance Sampling
+Summary:          Lowest Radial Distance Method of Marginal Likelihood Estimation
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimx >= 2013.8.6
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Rsolnp 
-Requires:         R-CRAN-optimx >= 2013.8.6
-Requires:         R-CRAN-mgcv 
-Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Rsolnp 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Animal abundance estimation via conventional, multiple covariate and
-mark-recapture distance sampling (CDS/MCDS/MRDS). Detection function
-fitting is performed via maximum likelihood. Also included are diagnostics
-and plotting for fitted detection functions. Abundance estimation is via a
-Horvitz-Thompson-like estimator.
+Estimates marginal likelihood from a posterior sample using the method
+described in Wang et al. (2023) <doi:10.1093/sysbio/syad007>, which does
+not require evaluation of any additional points and requires only the log
+of the unnormalized posterior density for each sampled parameter vector.
 
 %prep
 %setup -q -c -n %{packname}

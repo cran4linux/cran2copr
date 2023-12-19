@@ -1,31 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vipor
-%global packver   0.4.7
+%global packname  bayesSurv
+%global packver   3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          3.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Categorical Data Using Quasirandom Noise and Density Estimates
+Summary:          Bayesian Survival Regression with Flexible Error and Random Effects Distributions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-smoothSurv 
 BuildRequires:    R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-smoothSurv 
 Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Generate a violin point plot, a combination of a violin/histogram plot and
-a scatter plot by offsetting points within a category based on their
-density using quasirandom noise.
+Contains Bayesian implementations of the Mixed-Effects Accelerated Failure
+Time (MEAFT) models for censored data. Those can be not only
+right-censored but also interval-censored, doubly-interval-censored or
+misclassified interval-censored. The methods implemented in the package
+have been published in Komárek and Lesaffre (2006, Stat. Modelling)
+<doi:10.1191/1471082X06st107oa>, Komárek, Lesaffre and Legrand (2007,
+Stat. in Medicine) <doi:10.1002/sim.3083>, Komárek and Lesaffre (2007,
+Stat. Sinica)
+<https://www3.stat.sinica.edu.tw/statistica/oldpdf/A17n27.pdf>, Komárek
+and Lesaffre (2008, JASA) <doi:10.1198/016214507000000563>,
+García-Zattera, Jara and Komárek (2016, Biometrics)
+<doi:10.1111/biom.12424>.
 
 %prep
 %setup -q -c -n %{packname}

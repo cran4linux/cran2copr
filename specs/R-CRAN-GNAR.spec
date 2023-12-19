@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GNAR
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Fitting Network Time Series Models
 
@@ -14,22 +14,37 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-wordcloud 
 BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-wordcloud 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-grid 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-wordcloud 
 Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-wordcloud 
 
 %description
 Simulation of, and fitting models for, Generalised Network Autoregressive
 (GNAR) time series models which take account of network structure,
 potentially with exogenous variables.  Such models are described in Knight
 et al. (2020) <doi:10.18637/jss.v096.i05> and Nason and Wei (2021)
-<doi:10.1111/rssa.12875>.
+<doi:10.1111/rssa.12875>.  Diagnostic tools for GNAR(X) models can be
+found in Nason et al (2023) <arXiv:2312.00530>.
 
 %prep
 %setup -q -c -n %{packname}

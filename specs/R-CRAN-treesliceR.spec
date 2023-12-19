@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mrds
-%global packver   2.3.0
+%global packname  treesliceR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mark-Recapture Distance Sampling
+Summary:          To Slice Phylogenetic Trees and Infer Evolutionary Patterns Over Time
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimx >= 2013.8.6
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Rsolnp 
-Requires:         R-CRAN-optimx >= 2013.8.6
-Requires:         R-CRAN-mgcv 
-Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-ape >= 5.7.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
+BuildRequires:    R-CRAN-foreach >= 1.5.2
+BuildRequires:    R-CRAN-sf >= 1.0.9
+BuildRequires:    R-CRAN-doParallel >= 1.0.17
+Requires:         R-CRAN-ape >= 5.7.1
+Requires:         R-CRAN-ggplot2 >= 3.4.2
+Requires:         R-CRAN-foreach >= 1.5.2
+Requires:         R-CRAN-sf >= 1.0.9
+Requires:         R-CRAN-doParallel >= 1.0.17
 
 %description
-Animal abundance estimation via conventional, multiple covariate and
-mark-recapture distance sampling (CDS/MCDS/MRDS). Detection function
-fitting is performed via maximum likelihood. Also included are diagnostics
-and plotting for fitted detection functions. Abundance estimation is via a
-Horvitz-Thompson-like estimator.
+Provide a range of functions with multiple criteria for cutting
+phylogenetic trees at any evolutionary depth. It enables users to cut
+trees in any orientation, such as rootwardly (from root to tips) and
+tipwardly (from tips to its root), or allows users to define a specific
+time interval of interest. It can also be used to create multiple tree
+pieces of equal temporal width. Moreover, it allows the assessment of
+novel temporal rates for various phylogenetic indexes, which can be
+quickly displayed graphically.
 
 %prep
 %setup -q -c -n %{packname}

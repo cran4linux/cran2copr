@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mrds
-%global packver   2.3.0
+%global packname  PUlasso
+%global packver   3.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          3.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mark-Recapture Distance Sampling
+Summary:          High-Dimensional Variable Selection with Presence-Only Data
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-optimx >= 2013.8.6
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 0.12.8
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Rsolnp 
-Requires:         R-CRAN-optimx >= 2013.8.6
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.12.8
 Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Animal abundance estimation via conventional, multiple covariate and
-mark-recapture distance sampling (CDS/MCDS/MRDS). Detection function
-fitting is performed via maximum likelihood. Also included are diagnostics
-and plotting for fitted detection functions. Abundance estimation is via a
-Horvitz-Thompson-like estimator.
+Efficient algorithm for solving PU (Positive and Unlabeled) problem in low
+or high dimensional setting with lasso or group lasso penalty. The
+algorithm uses Maximization-Minorization and (block) coordinate descent.
+Sparse calculation and parallel computing are supported for the
+computational speed-up. See Hyebin Song, Garvesh Raskutti (2018)
+<arXiv:1711.08129>.
 
 %prep
 %setup -q -c -n %{packname}

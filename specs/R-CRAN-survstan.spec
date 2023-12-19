@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survstan
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Survival Regression Models via 'Stan'
 
@@ -62,9 +62,9 @@ approach via 'Stan'. Implemented regression models include accelerated
 failure time models, proportional hazards models, proportional odds
 models, accelerated hazard models, and Yang and Prentice models. Available
 baseline survival distributions include exponential, Weibull, log-normal,
-log-logistic, and fatigue (Birnbaum-Saunders) distributions. References:
-Lawless (2002) <ISBN:9780471372158>; Bennett (1982)
-<doi:10.1002/sim.4780020223>; Chen and Wang(2000)
+log-logistic, gamma, rayleigh and fatigue (Birnbaum-Saunders)
+distributions. References: Lawless (2002) <ISBN:9780471372158>; Bennett
+(1982) <doi:10.1002/sim.4780020223>; Chen and Wang(2000)
 <doi:10.1080/01621459.2000.10474236>; Demarqui and Mayrink (2021)
 <doi:10.1214/20-BJPS471>.
 

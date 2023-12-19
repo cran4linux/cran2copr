@@ -1,39 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mrds
-%global packver   2.3.0
+%global packname  geofi
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mark-Recapture Distance Sampling
+Summary:          Access Finnish Geospatial Data
 
-License:          GPL (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimx >= 2013.8.6
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-xml2 >= 1.2.0
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httpcache 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Rsolnp 
-Requires:         R-CRAN-optimx >= 2013.8.6
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-xml2 >= 1.2.0
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httpcache 
+Requires:         R-CRAN-httr 
 Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-yaml 
 
 %description
-Animal abundance estimation via conventional, multiple covariate and
-mark-recapture distance sampling (CDS/MCDS/MRDS). Detection function
-fitting is performed via maximum likelihood. Also included are diagnostics
-and plotting for fitted detection functions. Abundance estimation is via a
-Horvitz-Thompson-like estimator.
+Designed to simplify geospatial data access from the Statistics Finland
+Web Feature Service API <http://geo.stat.fi/geoserver/wfs>, the geofi
+package offers researchers and analysts a set of tools to obtain and
+harmonize administrative spatial data for a wide range of applications,
+from urban planning to environmental research. The package contains
+annually updated time series of municipality key datasets that can be used
+for data aggregation and language translations.
 
 %prep
 %setup -q -c -n %{packname}

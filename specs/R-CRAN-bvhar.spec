@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bvhar
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Vector Heterogeneous Autoregressive Modeling
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-optimParallel
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-lifecycle 
@@ -47,11 +46,10 @@ Requires:         R-CRAN-optimParallel
 Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-forcats 
 
 %description
 Tools to research Bayesian Vector heterogeneous autoregressive (VHAR)
-model, referring to Kim & Baek (2023+)
+model, referring to Kim & Baek (2023)
 (<doi:10.1080/00949655.2023.2281644>). 'bvhar' can model Vector
 Autoregressive (VAR), VHAR, Bayesian VAR (BVAR), and Bayesian VHAR (BVHAR)
 models.

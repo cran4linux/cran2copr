@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mrds
-%global packver   2.3.0
+%global packname  connections
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mark-Recapture Distance Sampling
+Summary:          Integrates with the 'RStudio' Connections Pane and 'pins'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimx >= 2013.8.6
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Rsolnp 
-Requires:         R-CRAN-optimx >= 2013.8.6
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-CRAN-pins 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-rscontract 
+Requires:         R-CRAN-DBI 
 Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-pins 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-rscontract 
 
 %description
-Animal abundance estimation via conventional, multiple covariate and
-mark-recapture distance sampling (CDS/MCDS/MRDS). Detection function
-fitting is performed via maximum likelihood. Also included are diagnostics
-and plotting for fitted detection functions. Abundance estimation is via a
-Horvitz-Thompson-like estimator.
+Enables 'DBI' compliant packages to integrate with the 'RStudio'
+connections pane, and the 'pins' package. It automates the display of
+schemata, tables, views, as well as the preview of the table's top 1000
+records.
 
 %prep
 %setup -q -c -n %{packname}

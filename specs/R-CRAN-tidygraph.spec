@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidygraph
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tidy API for Graph Manipulation
 
@@ -16,31 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-igraph >= 1.3.0
+BuildRequires:    R-CRAN-igraph >= 1.5.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-tools 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-igraph >= 1.3.0
+Requires:         R-CRAN-igraph >= 1.5.0
 Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-R6 
-Requires:         R-tools 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 A graph, while not "tidy" in itself, can be thought of as two tidy data

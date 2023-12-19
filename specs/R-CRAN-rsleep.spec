@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsleep
-%global packver   1.0.10
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Sleep Data
 
@@ -18,19 +18,25 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-edfReader 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-psd 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-xts 
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-edfReader 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-psd 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-xts 
 
 %description
 A toolbox for sleep data processing, visualization and analysis. Tools for

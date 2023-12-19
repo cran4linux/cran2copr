@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mrds
-%global packver   2.3.0
+%global packname  gdalBindings
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mark-Recapture Distance Sampling
+Summary:          GDAL Classes Wrapper for Reading and Writing Raster Blocks
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-optimx >= 2013.8.6
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Rsolnp 
-Requires:         R-CRAN-optimx >= 2013.8.6
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-data.table 
 Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Animal abundance estimation via conventional, multiple covariate and
-mark-recapture distance sampling (CDS/MCDS/MRDS). Detection function
-fitting is performed via maximum likelihood. Also included are diagnostics
-and plotting for fitted detection functions. Abundance estimation is via a
-Horvitz-Thompson-like estimator.
+Wraps around 'Geospatial' Data Abstraction Library (GDAL) raster and band
+classes for reading and writing directly from RasterBlock in R semantic
+`[[]]` and familiar syntax for accessing RasterBand and reading/writing to
+blocks (see <https://gdal.org/>).
 
 %prep
 %setup -q -c -n %{packname}
