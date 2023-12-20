@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmm.hp
-%global packver   0.1-1
+%global packname  DeBoinR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Partitioning of Marginal R2 for Generalized Mixed-Effect Models
+Summary:          Box-Plots and Outlier Detection for Probability Density Functions
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MuMIn 
+BuildRequires:    R-parallel >= 3.6.2
+BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-MuMIn 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-graphics 
+Requires:         R-parallel >= 3.6.2
+Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-graphics 
 
 %description
-Conducts hierarchical partitioning to calculate individual contributions
-of each predictor (fixed effects) towards marginal R2 for generalized
-linear mixed-effect model (including lm, glm and glmm) based on output of
-r.squaredGLMM() in 'MuMIn', applying the algorithm of Lai J.,Zou Y., Zhang
-S.,Zhang X.,Mao L.(2022)glmm.hp: an R package for computing individual
-effect of predictors in generalized linear mixed models.Journal of Plant
-Ecology,15(6)1302-1307<doi:10.1093/jpe/rtac096>.
+Orders a data-set consisting of an ensemble of probability density
+functions on the same x-grid.  Visualizes a box-plot of these functions
+based on the notion of distance determined by the user.  Reports outliers
+based on the distance chosen and the scaling factor for an interquartile
+range rule.  For further details, see: Alexander C. Murph et al. (2023).
+"Visualization and Outlier Detection for Probability Density Function
+Ensembles." <https://sirmurphalot.github.io/publications>.
 
 %prep
 %setup -q -c -n %{packname}

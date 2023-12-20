@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mixAR
-%global packver   0.22.7
+%global packver   0.22.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22.7
+Version:          0.22.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixture Autoregressive Models
 
@@ -17,7 +18,7 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rdpack >= 0.7
-BuildRequires:    R-CRAN-gbutils >= 0.3.1
+BuildRequires:    R-CRAN-gbutils >= 0.3
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -32,7 +33,7 @@ BuildRequires:    R-CRAN-e1071
 BuildRequires:    R-CRAN-permute 
 BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rdpack >= 0.7
-Requires:         R-CRAN-gbutils >= 0.3.1
+Requires:         R-CRAN-gbutils >= 0.3
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 

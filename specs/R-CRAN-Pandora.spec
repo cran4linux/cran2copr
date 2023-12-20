@@ -1,67 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eurostat
-%global packver   4.0.0
+%global packname  Pandora
+%global packver   23.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          23.12.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Eurostat Open Data
+Summary:          Retrieve Data using the API of the 'Pandora' Data Platform
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.14.8
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-httr2 >= 0.2.3
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-countrycode 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ISOweek 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-readODS 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-RefManageR 
-BuildRequires:    R-CRAN-regions 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table >= 1.14.8
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-httr2 >= 0.2.3
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-countrycode 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ISOweek 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-readODS 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-RefManageR 
-Requires:         R-CRAN-regions 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xml2 
+Requires:         R-stats 
+Requires:         R-CRAN-yaml 
 
 %description
-Tools to download data from the Eurostat database
-<https://ec.europa.eu/eurostat> together with search and manipulation
-utilities.
+API wrapper that contains functions to retrieve data from the 'Pandora'
+databases. Web services for API: <https://pandora.earth/>.
 
 %prep
 %setup -q -c -n %{packname}

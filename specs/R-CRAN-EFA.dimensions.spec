@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EFA.dimensions
-%global packver   0.1.7.9
+%global packver   0.1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7.9
+Version:          0.1.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Factor Analysis Functions for Assessing Dimensionality
 

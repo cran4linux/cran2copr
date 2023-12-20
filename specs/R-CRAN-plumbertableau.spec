@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  plumbertableau
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Turn 'Plumber' APIs into 'Tableau' Extensions
 
@@ -29,7 +30,6 @@ BuildRequires:    R-CRAN-debugme
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-knitr 
@@ -46,7 +46,6 @@ Requires:         R-CRAN-debugme
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-glue 
 Requires:         R-utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-knitr 

@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmm.hp
-%global packver   0.1-1
+%global packname  forceplate
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Partitioning of Marginal R2 for Generalized Mixed-Effect Models
+Summary:          Processing Force-Plate Data
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-signal 
+Requires:         R-stats 
+Requires:         R-CRAN-stringi 
 
 %description
-Conducts hierarchical partitioning to calculate individual contributions
-of each predictor (fixed effects) towards marginal R2 for generalized
-linear mixed-effect model (including lm, glm and glmm) based on output of
-r.squaredGLMM() in 'MuMIn', applying the algorithm of Lai J.,Zou Y., Zhang
-S.,Zhang X.,Mao L.(2022)glmm.hp: an R package for computing individual
-effect of predictors in generalized linear mixed models.Journal of Plant
-Ecology,15(6)1302-1307<doi:10.1093/jpe/rtac096>.
+Process raw force-plate data (txt-files) by segmenting them into trials
+and, if needed, calculating (user-defined) descriptive statistics of
+variables for user-defined time bins (relative to trigger onsets) for each
+trial. When segmenting the data a baseline correction, a filter, and a
+data imputation can be applied if needed. Experimental data can also be
+processed and combined with the segmented force-plate data. This procedure
+is suggested by Johannsen et al. (2023) <doi:10.6084/m9.figshare.22190155>
+and some of the options (e.g., choice of low-pass filter) are also
+suggested by Winter (2009) <doi:10.1002/9780470549148>.
 
 %prep
 %setup -q -c -n %{packname}

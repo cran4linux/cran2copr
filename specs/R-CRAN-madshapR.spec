@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  madshapR
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Support Technical Processes Following 'Maelstrom Research' Standards
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fabR >= 2.0.0
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-crayon 
@@ -40,7 +40,7 @@ BuildRequires:    R-CRAN-fs
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-fabR >= 2.0.0
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-crayon 

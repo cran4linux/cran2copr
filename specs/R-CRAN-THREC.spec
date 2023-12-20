@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmm.hp
-%global packver   0.1-1
+%global packname  THREC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Partitioning of Marginal R2 for Generalized Mixed-Effect Models
+Summary:          Tree Height Response Calibration for Swedish Forests
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-Deriv >= 1.0
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-magic 
+Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-Deriv >= 1.0
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-magic 
 
 %description
-Conducts hierarchical partitioning to calculate individual contributions
-of each predictor (fixed effects) towards marginal R2 for generalized
-linear mixed-effect model (including lm, glm and glmm) based on output of
-r.squaredGLMM() in 'MuMIn', applying the algorithm of Lai J.,Zou Y., Zhang
-S.,Zhang X.,Mao L.(2022)glmm.hp: an R package for computing individual
-effect of predictors in generalized linear mixed models.Journal of Plant
-Ecology,15(6)1302-1307<doi:10.1093/jpe/rtac096>.
+A tool that allows users to estimate tree height in the long-term forest
+experiments in Sweden. It utilizes the multilevel nonlinear mixed-effect
+height models developed for the forest experiments and consists of four
+functions for the main species, other conifer species, and other
+broadleaves. Each function within the system returns a data frame that
+includes the input data and the estimated heights for any missing values.
+Ogana et al. (2023) <doi:10.1016/j.foreco.2023.120843>n Arias-Rodil et
+al. (2015) <doi:10.1371/JOURNAL.PONE.0143521>.
 
 %prep
 %setup -q -c -n %{packname}

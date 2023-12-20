@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PubChemR
-%global packver   1.0.1
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'PubChem' Database for Chemical Data Retrieval
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-RJSONIO 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -35,7 +34,6 @@ BuildRequires:    R-CRAN-XML
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-RJSONIO 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

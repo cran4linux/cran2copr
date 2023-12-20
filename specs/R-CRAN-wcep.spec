@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wcep
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survival Analysis for Weighted Composite Endpoints
 
@@ -35,6 +35,8 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 %description
 Analyze given data frame with multiple endpoints and return Kaplan-Meier
 survival probabilities together with the specified confidence interval.
+See Nabipoor M, Westerhout CM, Rathwell S, and Bakal JA (2023)
+<doi:10.1186/s12874-023-01857-0>.
 
 %prep
 %setup -q -c -n %{packname}

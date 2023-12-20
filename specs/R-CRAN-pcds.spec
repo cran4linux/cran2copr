@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pcds
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Proximity Catch Digraphs and Their Applications
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-plotrix
 
 %description
 Contains the functions for construction and visualization of various
-families of the proximity catch digraphs (PCDs) (see (Ceyhan (2005)
+families of the proximity catch digraphs (PCDs), see (Ceyhan (2005)
 ISBN:978-3-639-19063-2), for computing the graph invariants for testing
 the patterns of segregation and association against complete spatial
 randomness (CSR) or uniformity in one, two and three dimensional cases.

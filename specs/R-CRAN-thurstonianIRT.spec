@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thurstonianIRT
-%global packver   0.12.3
+%global packver   0.12.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.3
+Version:          0.12.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Thurstonian IRT Models
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-BH >= 1.66.0.1
 BuildRequires:    R-CRAN-tibble >= 1.3.1
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-dplyr >= 0.6.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-rlang 
@@ -36,14 +35,13 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-tibble >= 1.3.1
 Requires:         R-CRAN-lavaan >= 0.6.1
 Requires:         R-CRAN-dplyr >= 0.6.0
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-methods 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-rlang 

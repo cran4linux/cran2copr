@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmm.hp
-%global packver   0.1-1
+%global packname  gptoolsStan
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Partitioning of Marginal R2 for Generalized Mixed-Effect Models
+Summary:          Gaussian Processes on Graphs and Lattices in 'Stan'
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-lme4 
 
 %description
-Conducts hierarchical partitioning to calculate individual contributions
-of each predictor (fixed effects) towards marginal R2 for generalized
-linear mixed-effect model (including lm, glm and glmm) based on output of
-r.squaredGLMM() in 'MuMIn', applying the algorithm of Lai J.,Zou Y., Zhang
-S.,Zhang X.,Mao L.(2022)glmm.hp: an R package for computing individual
-effect of predictors in generalized linear mixed models.Journal of Plant
-Ecology,15(6)1302-1307<doi:10.1093/jpe/rtac096>.
+Gaussian processes are flexible distributions to model functional data.
+Whilst theoretically appealing, they are computationally cumbersome except
+for small datasets. This package implements two methods for scaling
+Gaussian process inference in 'Stan'. First, a sparse approximation of the
+likelihood that is generally applicable and, second, an exact method for
+regularly spaced data modeled by stationary kernels using fast Fourier
+methods. Utility functions are provided to compile and fit 'Stan' models
+using the 'cmdstanr' interface. References: Hoffmann and Onnela (2022)
+<arXiv:2301.08836>.
 
 %prep
 %setup -q -c -n %{packname}
