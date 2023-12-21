@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.batchtools
-%global packver   0.12.1
+%global packname  CDCPLACES
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Future API for Parallel and Distributed Processing using 'batchtools'
+Summary:          Access the 'CDC PLACES' API
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.31.0
-BuildRequires:    R-CRAN-batchtools >= 0.9.16
-BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-future >= 1.31.0
-Requires:         R-CRAN-batchtools >= 0.9.16
-Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
-Implementation of the Future API on top of the 'batchtools' package. This
-allows you to process futures, as defined by the 'future' package, in
-parallel out of the box, not only on your local machine or ad-hoc cluster
-of machines, but also via high-performance compute ('HPC') job schedulers
-such as 'LSF', 'OpenLava', 'Slurm', 'SGE', and 'TORQUE' / 'PBS', e.g. 'y
-<- future.apply::future_lapply(files, FUN = process)'.
+Allows users to seamlessly query several 'CDC PLACES' APIs
+(<https://data.cdc.gov/browse?q=PLACES%%20&sortBy=relevance>) by geography,
+state, measure, and release year. This package also contains a function to
+explore the available measures for each release year.
 
 %prep
 %setup -q -c -n %{packname}

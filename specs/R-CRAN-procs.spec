@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  procs
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recreates Some 'SAS®' Procedures in 'R'
 
@@ -23,19 +23,21 @@ BuildRequires:    R-CRAN-fmtr
 BuildRequires:    R-CRAN-reporter 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-sasLM 
 Requires:         R-CRAN-common 
 Requires:         R-utils 
 Requires:         R-CRAN-fmtr 
 Requires:         R-CRAN-reporter 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-sasLM 
 
 %description
 Contains functions to simulate the most commonly used 'SAS®' procedures.
 Specifically, the package aims to simulate the functionality of 'proc
-freq', 'proc means', 'proc transpose', 'proc sort', and 'proc print'. The
-simulation will include recreating all statistics with the highest
-fidelity possible.
+freq', 'proc means', 'proc ttest', 'proc transpose', 'proc sort', and
+'proc print'. The simulation will include recreating all statistics with
+the highest fidelity possible.
 
 %prep
 %setup -q -c -n %{packname}

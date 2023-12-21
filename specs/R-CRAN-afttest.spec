@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  afttest
-%global packver   4.3.2
+%global packver   4.3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.2
+Version:          4.3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Diagnostics for Accelerated Failure Time Models
 
@@ -16,13 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-aftgee 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-aftgee 
 Requires:         R-CRAN-ggplot2 

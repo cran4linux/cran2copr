@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.batchtools
-%global packver   0.12.1
+%global packname  RFishBC
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Future API for Parallel and Distributed Processing using 'batchtools'
+Summary:          Back-Calculation of Fish Length
 
-License:          LGPL (>= 2.1)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.31.0
-BuildRequires:    R-CRAN-batchtools >= 0.9.16
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-future >= 1.31.0
-Requires:         R-CRAN-batchtools >= 0.9.16
-Requires:         R-CRAN-parallelly 
-Requires:         R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-readbitmap 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-settings 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-readbitmap 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-settings 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
 
 %description
-Implementation of the Future API on top of the 'batchtools' package. This
-allows you to process futures, as defined by the 'future' package, in
-parallel out of the box, not only on your local machine or ad-hoc cluster
-of machines, but also via high-performance compute ('HPC') job schedulers
-such as 'LSF', 'OpenLava', 'Slurm', 'SGE', and 'TORQUE' / 'PBS', e.g. 'y
-<- future.apply::future_lapply(files, FUN = process)'.
+Helps fisheries scientists collect measurements from calcified structures
+and back-calculate estimated lengths at previous ages using standard
+procedures and models. This is intended to replace much of the
+functionality provided by the now out-dated 'fishBC' software
+(<https://fisheries.org/bookstore/all-titles/software/70317/>).
 
 %prep
 %setup -q -c -n %{packname}

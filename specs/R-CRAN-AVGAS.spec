@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.batchtools
-%global packver   0.12.1
+%global packname  AVGAS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Future API for Parallel and Distributed Processing using 'batchtools'
+Summary:          A Variable Selection using Genetic Algorithms
 
-License:          LGPL (>= 2.1)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.31.0
-BuildRequires:    R-CRAN-batchtools >= 0.9.16
-BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-future >= 1.31.0
-Requires:         R-CRAN-batchtools >= 0.9.16
-Requires:         R-CRAN-parallelly 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-selectiveInference 
+BuildRequires:    R-CRAN-VariableScreening 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-selectiveInference 
+Requires:         R-CRAN-VariableScreening 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Implementation of the Future API on top of the 'batchtools' package. This
-allows you to process futures, as defined by the 'future' package, in
-parallel out of the box, not only on your local machine or ad-hoc cluster
-of machines, but also via high-performance compute ('HPC') job schedulers
-such as 'LSF', 'OpenLava', 'Slurm', 'SGE', and 'TORQUE' / 'PBS', e.g. 'y
-<- future.apply::future_lapply(files, FUN = process)'.
+We provide a stage-wise selection method using genetic algorithm which can
+perform fast interaction selection in high-dimensional linear regression
+models with two-way interaction effects under strong, weak, or no heredity
+condition. Ye, C.,and Yang,Y. (2019) <doi:10.1109/TIT.2019.2913417>.
 
 %prep
 %setup -q -c -n %{packname}

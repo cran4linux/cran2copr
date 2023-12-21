@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  REDCapCAST
-%global packver   23.12.1
+%global packname  BPrinStratTTE
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          23.12.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          REDCap Castellated Data Handling
+Summary:          Causal Effects in Principal Strata Defined by Antidrug Antibodies
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,35 +16,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-REDCapR 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-REDCapR 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rstantools
 
 %description
-Originally forked from the R part of 'REDCapRITS' by Paul Egeler. See
-<https://github.com/pegeler/REDCapRITS>. Handles castellated datasets from
-'REDCap' projects with repeating instruments. Assists in casting tidy
-tables from raw 'REDCap' data exports for each repeated instrument. Keeps
-a focused data export approach, by allowing to only export required data
-from the database. 'REDCap' (Research Electronic Data Capture) is a
-secure, web-based software platform designed to support data capture for
-research studies, providing 1) an intuitive interface for validated data
-capture; 2) audit trails for tracking data manipulation and export
-procedures; 3) automated export procedures for seamless data downloads to
-common statistical packages; and 4) procedures for data integration and
-interoperability with external sources (Harris et al (2009)
-<doi:10.1016/j.jbi.2008.08.010>; Harris et al (2019)
-<doi:10.1016/j.jbi.2019.103208>).
+Bayesian models to estimate causal effects of biological treatments on
+time-to-event endpoints in clinical trials with principal strata defined
+by the occurrence of antidrug antibodies. The methodology is based on
+Frangakis and Rubin (2002) <doi:10.1111/j.0006-341x.2002.00021.x> and
+Imbens and Rubin (1997) <doi:10.1214/aos/1034276631>, and intended to be
+applied to a specific time-to-event setting.
 
 %prep
 %setup -q -c -n %{packname}

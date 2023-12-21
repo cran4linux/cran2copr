@@ -1,50 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  REDCapCAST
-%global packver   23.12.1
+%global packname  diseasystore
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          23.12.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          REDCap Castellated Data Handling
+Summary:          Feature Stores for the 'diseasy' Framework
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-REDCapR 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lintr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-SCDB 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-REDCapR 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lintr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-SCDB 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-zoo 
 
 %description
-Originally forked from the R part of 'REDCapRITS' by Paul Egeler. See
-<https://github.com/pegeler/REDCapRITS>. Handles castellated datasets from
-'REDCap' projects with repeating instruments. Assists in casting tidy
-tables from raw 'REDCap' data exports for each repeated instrument. Keeps
-a focused data export approach, by allowing to only export required data
-from the database. 'REDCap' (Research Electronic Data Capture) is a
-secure, web-based software platform designed to support data capture for
-research studies, providing 1) an intuitive interface for validated data
-capture; 2) audit trails for tracking data manipulation and export
-procedures; 3) automated export procedures for seamless data downloads to
-common statistical packages; and 4) procedures for data integration and
-interoperability with external sources (Harris et al (2009)
-<doi:10.1016/j.jbi.2008.08.010>; Harris et al (2019)
-<doi:10.1016/j.jbi.2019.103208>).
+Simple feature stores and tools for creating personalised feature stores.
+'diseasystore' powers feature stores which can automatically link and
+aggregate features to a given stratification level. These feature stores
+are automatically time-versioned (powered by the 'SCDB' package) and
+allows you to easily and dynamically compute features as part of your
+continuous integration.
 
 %prep
 %setup -q -c -n %{packname}

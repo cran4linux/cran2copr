@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sbtools
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          USGS ScienceBase Tools
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-mime
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-httr >= 1.0.0
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-curl 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-mime
 Requires:         R-utils 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-keyring 
+Requires:         R-tools 
 
 %description
 Tools for interacting with U.S. Geological Survey ScienceBase

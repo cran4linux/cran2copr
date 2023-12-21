@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paleopop
-%global packver   2.1.5
+%global packname  bratteli
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pattern-Oriented Modeling Framework for Coupled Niche-Population Paleo-Climatic Models
+Summary:          Deal with Bratteli Graphs
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.5.0
-BuildRequires:    R-CRAN-trend >= 1.1.4
-BuildRequires:    R-CRAN-poems >= 1.0.0
-BuildRequires:    R-CRAN-sf >= 0.9
-Requires:         R-CRAN-R6 >= 2.5.0
-Requires:         R-CRAN-trend >= 1.1.4
-Requires:         R-CRAN-poems >= 1.0.0
-Requires:         R-CRAN-sf >= 0.9
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-diagram 
+BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-CRAN-kantorovich 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-diagram 
+Requires:         R-CRAN-gmp 
+Requires:         R-CRAN-kantorovich 
+Requires:         R-utils 
 
 %description
-This extension of the poems pattern-oriented modeling (POM) framework
-provides a collection of modules and functions customized for
-paleontological time-scales, and optimized for single-generation
-transitions and large populations, across multiple generations.
+Utilities for Bratteli graphs. A tree is an example of a Bratteli graph.
+The package provides a function which generates a 'LaTeX' file that
+renders the given Bratteli graph. It also provides functions to compute
+the dimensions of the vertices, the intrinsic kernels and the intrinsic
+distances. Intrinsic kernels and distances were introduced by Vershik
+(2014) <doi:10.1007/s10958-014-1958-0>.
 
 %prep
 %setup -q -c -n %{packname}

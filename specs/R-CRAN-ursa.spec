@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.batchtools
-%global packver   0.12.1
+%global packname  ursa
+%global packver   3.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          3.10.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Future API for Parallel and Distributed Processing using 'batchtools'
+Summary:          Non-Interactive Spatial Tools for Raster Processing and Visualization
 
-License:          LGPL (>= 2.1)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.31.0
-BuildRequires:    R-CRAN-batchtools >= 0.9.16
-BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-sf >= 0.6.1
 BuildRequires:    R-utils 
-Requires:         R-CRAN-future >= 1.31.0
-Requires:         R-CRAN-batchtools >= 0.9.16
-Requires:         R-CRAN-parallelly 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-png 
+Requires:         R-CRAN-sf >= 0.6.1
 Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-CRAN-png 
 
 %description
-Implementation of the Future API on top of the 'batchtools' package. This
-allows you to process futures, as defined by the 'future' package, in
-parallel out of the box, not only on your local machine or ad-hoc cluster
-of machines, but also via high-performance compute ('HPC') job schedulers
-such as 'LSF', 'OpenLava', 'Slurm', 'SGE', and 'TORQUE' / 'PBS', e.g. 'y
-<- future.apply::future_lapply(files, FUN = process)'.
+S3 classes and methods for manipulation with georeferenced raster data:
+reading/writing, processing, multi-panel visualization.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.batchtools
-%global packver   0.12.1
+%global packname  interpolation
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Future API for Parallel and Distributed Processing using 'batchtools'
+Summary:          Interpolation of Bivariate Functions
 
-License:          LGPL (>= 2.1)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.31.0
-BuildRequires:    R-CRAN-batchtools >= 0.9.16
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-future >= 1.31.0
-Requires:         R-CRAN-batchtools >= 0.9.16
-Requires:         R-CRAN-parallelly 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-RcppCGAL 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.10
 
 %description
-Implementation of the Future API on top of the 'batchtools' package. This
-allows you to process futures, as defined by the 'future' package, in
-parallel out of the box, not only on your local machine or ad-hoc cluster
-of machines, but also via high-performance compute ('HPC') job schedulers
-such as 'LSF', 'OpenLava', 'Slurm', 'SGE', and 'TORQUE' / 'PBS', e.g. 'y
-<- future.apply::future_lapply(files, FUN = process)'.
+Provides two different methods, linear and nonlinear, to interpolate a
+bivariate function, scalar-valued or vector-valued. The interpolated data
+are not necessarily gridded. The algorithms are performed by the 'C++'
+library 'CGAL' (<https://www.cgal.org/>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r2mlm
-%global packver   0.3.5
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          R-Squared Measures for Multilevel Models
 
@@ -48,7 +48,9 @@ for multilevel models as special cases of 5 measures from the framework,
 and it also includes several newly-developed measures. Measures in the
 framework can be used to compute R-squared differences when comparing
 multilevel models (following procedures in Rights & Sterba (2020)
-<doi:10.1080/00273171.2019.1660605>).
+<doi:10.1080/00273171.2019.1660605>). Bootstrapped confidence intervals
+can also be calculated. To use the confidence interval functionality,
+download bootmlm from <https://github.com/marklhc/bootmlm>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lavaan
-%global packver   0.6-17
+%global packname  erah
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.17
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Variable Analysis
+Summary:          Automated Spectral Deconvolution, Alignment, and Metabolite Identification in GC/MS-Based Untargeted Metabolomics
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,31 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
-BuildArch:        noarch
+BuildRequires:    R-CRAN-osd 
+BuildRequires:    R-CRAN-HiClimR 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-furrr 
+Requires:         R-CRAN-osd 
+Requires:         R-CRAN-HiClimR 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-quantreg 
 Requires:         R-methods 
-Requires:         R-stats4 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
 
 %description
-Fit a variety of latent variable models, including confirmatory factor
-analysis, structural equation modeling and latent growth curve models.
+Automated compound deconvolution, alignment across samples, and
+identification of metabolites by spectral library matching in Gas
+Chromatography - Mass spectrometry (GC-MS) untargeted metabolomics.
+Outputs a table with compound names, matching scores and the integrated
+area of the compound for each sample. Package implementation is described
+in Domingo-Almenara et al. (2016) <doi:10.1021/acs.analchem.6b02927>.
 
 %prep
 %setup -q -c -n %{packname}

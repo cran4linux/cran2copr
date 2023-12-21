@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OralOpioids
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieving Oral Opioid Information
 
@@ -18,14 +18,11 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-openxlsx 
@@ -34,14 +31,11 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-openxlsx 
@@ -53,13 +47,14 @@ Requires:         R-CRAN-rlang
 %description
 Provides details such as Morphine Equivalent Dose (MED), brand name and
 opioid content which are calculated of all oral opioids authorized for
-sale by Health Canada based on their Drug Identification Number (DIN).
-MEDs are calculated based on recommendations by Canadian Institute for
-Health Information (CIHI) and information obtained from Health Canada's
-Drug Product Database's monthly data dump. Please note in no way should
-output from this package be a substitute for medical advise. All
-medications should only be consumed on prescription from a licensed
-healthcare provider.
+sale by Health Canada and the FDA based on their Drug Identification
+Number (DIN) or National Drug Code (NDC). MEDs are calculated based on
+recommendations by Canadian Institute for Health Information (CIHI) and
+Von Korff et al (2008) and information obtained from Health Canada's Drug
+Product Database's monthly data dump or FDA Daily database for Canadian
+and US databases respectively. Please note in no way should output from
+this package be a substitute for medical advise. All medications should
+only be consumed on prescription from a licensed healthcare provider.
 
 %prep
 %setup -q -c -n %{packname}

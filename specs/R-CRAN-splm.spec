@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  splm
-%global packver   1.6-3
+%global packver   1.6-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Econometric Models for Spatial Panel Data
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-plm
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-bdsmatrix 
-BuildRequires:    R-CRAN-ibdreg 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-spam 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-plm
 Requires:         R-CRAN-maxLik 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-bdsmatrix 
-Requires:         R-CRAN-ibdreg 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-spam 

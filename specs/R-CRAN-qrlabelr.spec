@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qrlabelr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Machine- And Human-Readable Plot Labels for Experiments
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-desplot >= 1.10
 BuildRequires:    R-CRAN-dplyr >= 1.0.10
 BuildRequires:    R-CRAN-purrr >= 1.0.1
 BuildRequires:    R-CRAN-shinycssloaders >= 1.0.0
+BuildRequires:    R-CRAN-QBMS >= 0.9.1
 BuildRequires:    R-CRAN-shinyWidgets >= 0.7.6
 BuildRequires:    R-CRAN-shinyBS >= 0.61.1
 BuildRequires:    R-CRAN-reactable >= 0.4.3
@@ -46,6 +47,7 @@ Requires:         R-CRAN-desplot >= 1.10
 Requires:         R-CRAN-dplyr >= 1.0.10
 Requires:         R-CRAN-purrr >= 1.0.1
 Requires:         R-CRAN-shinycssloaders >= 1.0.0
+Requires:         R-CRAN-QBMS >= 0.9.1
 Requires:         R-CRAN-shinyWidgets >= 0.7.6
 Requires:         R-CRAN-shinyBS >= 0.61.1
 Requires:         R-CRAN-reactable >= 0.4.3
@@ -62,9 +64,9 @@ Requires:         R-CRAN-uuid
 
 %description
 A no-frills open-source solution for designing plot labels affixed with QR
-codes. It features 'EasyQrlabelr', a 'shiny' app that simplifies the
-process of plot label design for non-R users. This software builds on the
-methods described by Wu 'et al.' (2020) <doi:10.1111/2041-210X.13405>.
+codes. It features 'EasyQrlabelr', a 'BrAPI-compliant' 'shiny' app that
+simplifies the process of plot label design for non-R users. It builds on
+the methods described by Wu 'et al.' (2020) <doi:10.1111/2041-210X.13405>.
 
 %prep
 %setup -q -c -n %{packname}

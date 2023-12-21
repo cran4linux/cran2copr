@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mixsqp
-%global packver   0.3-48
+%global packver   0.3-54
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.48
+Version:          0.3.54
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Quadratic Programming for Fast Maximum-Likelihood Estimation of Mixture Proportions
 
