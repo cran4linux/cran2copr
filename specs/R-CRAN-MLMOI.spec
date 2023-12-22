@@ -1,41 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tiledb
-%global packver   0.23.0
+%global packname  MLMOI
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modern Database Engine for Multi-Modal Data via Sparse and Dense Multidimensional Arrays
+Summary:          Estimating Frequencies, Prevalence and Multiplicity of Infection
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tiledb-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nanotime 
-BuildRequires:    R-CRAN-spdl 
-BuildRequires:    R-CRAN-RcppInt64 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-methods 
-Requires:         R-CRAN-nanotime 
-Requires:         R-CRAN-spdl 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-openxlsx >= 4.2.5.2
+BuildRequires:    R-CRAN-Rdpack >= 2.6
+BuildRequires:    R-CRAN-Rmpfr >= 0.9.3
+Requires:         R-CRAN-openxlsx >= 4.2.5.2
+Requires:         R-CRAN-Rdpack >= 2.6
+Requires:         R-CRAN-Rmpfr >= 0.9.3
 
 %description
-The modern database 'TileDB' introduces a powerful on-disk format for
-multi-modal data based on dimensional arrays. It supports dense and sparse
-arrays, dataframes and key-values stores, cloud storage ('S3', 'GCS',
-'Azure'), chunked arrays, multiple compression, encryption and checksum
-filters, uses a fully multi-threaded implementation, supports parallel
-I/O, data versioning ('time travel'), metadata and groups. It is
-implemented as an embeddable cross-platform C++ library with APIs from
-several languages, and integrations.
+The implemented methods reach out to scientists that seek to estimate
+multiplicity of infection (MOI) and lineage (allele) frequencies and
+prevalences at molecular markers using the maximum-likelihood method
+described in Schneider (2018) <doi:10.1371/journal.pone.0194148>, and
+Schneider and Escalante (2014) <doi:10.1371/journal.pone.0097899>. Users
+can import data from Excel files in various formats, and perform
+maximum-likelihood estimation on the imported data by the package's
+moimle() function.
 
 %prep
 %setup -q -c -n %{packname}

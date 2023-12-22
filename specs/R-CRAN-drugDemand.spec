@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drugDemand
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Drug Demand Forecasting
 
@@ -26,15 +26,16 @@ BuildRequires:    R-CRAN-icenReg >= 2.0.15
 BuildRequires:    R-CRAN-doRNG >= 1.8.6
 BuildRequires:    R-CRAN-pscl >= 1.5.5
 BuildRequires:    R-CRAN-foreach >= 1.5.2
-BuildRequires:    R-CRAN-tictoc >= 1.2
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-tictoc >= 1.1
 BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-doParallel >= 1.0.17
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-L1pack >= 0.41.24
 BuildRequires:    R-CRAN-erify >= 0.4.0
-BuildRequires:    R-CRAN-eventPred >= 0.2.0
+BuildRequires:    R-CRAN-eventPred >= 0.2.3
 Requires:         R-CRAN-MASS >= 7.3.54
 Requires:         R-CRAN-plotly >= 4.10.1
 Requires:         R-parallel >= 4.1.2
@@ -45,15 +46,16 @@ Requires:         R-CRAN-icenReg >= 2.0.15
 Requires:         R-CRAN-doRNG >= 1.8.6
 Requires:         R-CRAN-pscl >= 1.5.5
 Requires:         R-CRAN-foreach >= 1.5.2
-Requires:         R-CRAN-tictoc >= 1.2
 Requires:         R-CRAN-mvtnorm >= 1.1.3
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-tictoc >= 1.1
 Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-doParallel >= 1.0.17
 Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-L1pack >= 0.41.24
 Requires:         R-CRAN-erify >= 0.4.0
-Requires:         R-CRAN-eventPred >= 0.2.0
+Requires:         R-CRAN-eventPred >= 0.2.3
 
 %description
 Performs drug demand forecasting by modeling drug dispensing data while
@@ -64,10 +66,11 @@ log-logistic, or log-normal distributions (Anderson-Bergman (2017)
 <doi:10.18637/jss.v081.i12>). The number of skipped visits is modeled
 using Poisson, zero-inflated Poisson, or negative binomial distributions
 (Zeileis, Kleiber & Jackman (2008) <doi:10.18637/jss.v027.i08>). The gap
-time between two consecutive drug dispensing visits is modeled using
-linear regression given the number of skipped visits. The number of
-dispensed doses is modeled using linear or linear mixed-effects models
-(McCulloch & Searle (2001, ISBN:0-471-19364-X)).
+time between two consecutive drug dispensing visits given the number of
+skipped visits is modeled using linear regression based on least squares
+or least absolute deviations (Birkes & Dodge (1993, ISBN:0-471-56881-3)).
+The number of dispensed doses is modeled using linear or linear
+mixed-effects models (McCulloch & Searle (2001, ISBN:0-471-19364-X)).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tiledb
-%global packver   0.23.0
+%global packname  bigrquerystorage
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modern Database Engine for Multi-Modal Data via Sparse and Dense Multidimensional Arrays
+Summary:          An Interface to Google's 'BigQuery Storage' API
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tiledb-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nanotime 
-BuildRequires:    R-CRAN-spdl 
-BuildRequires:    R-CRAN-RcppInt64 
-Requires:         R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-bigrquery 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-arrow 
 Requires:         R-methods 
-Requires:         R-CRAN-nanotime 
-Requires:         R-CRAN-spdl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-bigrquery 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-tibble 
 
 %description
-The modern database 'TileDB' introduces a powerful on-disk format for
-multi-modal data based on dimensional arrays. It supports dense and sparse
-arrays, dataframes and key-values stores, cloud storage ('S3', 'GCS',
-'Azure'), chunked arrays, multiple compression, encryption and checksum
-filters, uses a fully multi-threaded implementation, supports parallel
-I/O, data versioning ('time travel'), metadata and groups. It is
-implemented as an embeddable cross-platform C++ library with APIs from
-several languages, and integrations.
+Easily talk to Google's 'BigQuery Storage' API from R
+(<https://cloud.google.com/bigquery/docs/reference/storage/rpc>).
 
 %prep
 %setup -q -c -n %{packname}

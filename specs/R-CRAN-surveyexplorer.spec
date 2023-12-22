@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tiledb
-%global packver   0.23.0
+%global packname  surveyexplorer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modern Database Engine for Multi-Modal Data via Sparse and Dense Multidimensional Arrays
+Summary:          Quickly Explore Complex Survey Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tiledb-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nanotime 
-BuildRequires:    R-CRAN-spdl 
-BuildRequires:    R-CRAN-RcppInt64 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-methods 
-Requires:         R-CRAN-nanotime 
-Requires:         R-CRAN-spdl 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggupset 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggupset 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-The modern database 'TileDB' introduces a powerful on-disk format for
-multi-modal data based on dimensional arrays. It supports dense and sparse
-arrays, dataframes and key-values stores, cloud storage ('S3', 'GCS',
-'Azure'), chunked arrays, multiple compression, encryption and checksum
-filters, uses a fully multi-threaded implementation, supports parallel
-I/O, data versioning ('time travel'), metadata and groups. It is
-implemented as an embeddable cross-platform C++ library with APIs from
-several languages, and integrations.
+Visualize and tabulate single-choice, multiple-choice, matrix-style
+questions from survey data. Includes ability to group cross-tabulations,
+frequency distributions, and plots by categorical variables and to
+integrate survey weights. Ideal for quickly uncovering descriptive
+patterns in survey data.
 
 %prep
 %setup -q -c -n %{packname}

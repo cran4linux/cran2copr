@@ -1,53 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qgisprocess
-%global packver   0.2.0
+%global packname  FAST.R
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use 'QGIS' Processing Algorithms
+Summary:          Analyze and Visualize FAST-Generated Data
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-processx >= 3.5.2
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plater 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyFeedback 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-processx >= 3.5.2
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-waiter 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plater 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyFeedback 
+Requires:         R-CRAN-shinyjs 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-waiter 
+Requires:         R-CRAN-zip 
 
 %description
-Provides seamless access to the 'QGIS' (<https://qgis.org/en/site/>)
-processing toolbox using the standalone 'qgis_process' command-line
-utility.  Both native and third-party (plugin) processing providers are
-supported.  Beside referring data sources from file, also common objects
-from 'sf', 'terra' and 'stars' are supported. The native processing
-algorithms are documented by QGIS.org (2023)
-<https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/>.
+R 'shiny' app to perform data analysis and visualization for the Fully
+Automated Senescence Test (FAST) workflow.
 
 %prep
 %setup -q -c -n %{packname}

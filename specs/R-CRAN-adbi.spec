@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adbi
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DBI' Compliant Database Access Using 'ADBC'
 
@@ -14,14 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI >= 1.1.3
+BuildRequires:    R-CRAN-DBI >= 1.2.0
 BuildRequires:    R-CRAN-adbcdrivermanager >= 0.8.0
 BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
 BuildRequires:    R-methods 
-Requires:         R-CRAN-DBI >= 1.1.3
+Requires:         R-CRAN-DBI >= 1.2.0
 Requires:         R-CRAN-adbcdrivermanager >= 0.8.0
 Requires:         R-CRAN-nanoarrow >= 0.3.0
 Requires:         R-methods 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DBItest
-%global packver   1.7.3
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testing DBI Backends
 
@@ -19,32 +19,34 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-testthat >= 2.0.0
 BuildRequires:    R-CRAN-blob >= 1.2.0
-BuildRequires:    R-CRAN-DBI >= 1.1.3
+BuildRequires:    R-CRAN-DBI >= 1.2.0
 BuildRequires:    R-CRAN-hms >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nanoarrow 
 BuildRequires:    R-CRAN-palmerpenguins 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-testthat >= 2.0.0
 Requires:         R-CRAN-blob >= 1.2.0
-Requires:         R-CRAN-DBI >= 1.1.3
+Requires:         R-CRAN-DBI >= 1.2.0
 Requires:         R-CRAN-hms >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-nanoarrow 
 Requires:         R-CRAN-palmerpenguins 
-Requires:         R-CRAN-R6 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-withr 
 
 %description
 A helper that tests DBI back ends for conformity to the interface.

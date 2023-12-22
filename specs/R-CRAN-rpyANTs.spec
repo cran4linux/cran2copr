@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpyANTs
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Alternative Advanced Normalization Tools ('ANTs')
 
@@ -17,9 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-RNifti >= 1.5.0
 BuildRequires:    R-CRAN-reticulate >= 1.26
 BuildRequires:    R-CRAN-rpymat >= 0.1.6
 BuildRequires:    R-grDevices 
+Requires:         R-CRAN-RNifti >= 1.5.0
 Requires:         R-CRAN-reticulate >= 1.26
 Requires:         R-CRAN-rpymat >= 0.1.6
 Requires:         R-grDevices 

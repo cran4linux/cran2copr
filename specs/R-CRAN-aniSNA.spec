@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aniSNA
-%global packver   1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Network Analysis of Animal Social Networks
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-rlang 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
+Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-rlang 
@@ -47,8 +49,9 @@ Requires:         R-utils
 Obtain network structures from animal GPS telemetry observations and
 statistically analyse them to assess their adequacy for social network
 analysis. Methods include pre-network data permutations, bootstrapping
-techniques to obtain confidence intervals for global network metrics, and
-correlation and regression analysis of the local network metrics.
+techniques to obtain confidence intervals for global and node-level
+network metrics, and correlation and regression analysis of the local
+network metrics.
 
 %prep
 %setup -q -c -n %{packname}

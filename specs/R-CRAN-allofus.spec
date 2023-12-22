@@ -1,53 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qgisprocess
-%global packver   0.2.0
+%global packname  allofus
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use 'QGIS' Processing Algorithms
+Summary:          Interface for 'All of Us' Researcher Workbench
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-processx >= 3.5.2
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-bigrquery 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-processx >= 3.5.2
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-sessioninfo 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-bigrquery 
+Requires:         R-CRAN-purrr 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-withr 
+Requires:         R-utils 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-sessioninfo 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides seamless access to the 'QGIS' (<https://qgis.org/en/site/>)
-processing toolbox using the standalone 'qgis_process' command-line
-utility.  Both native and third-party (plugin) processing providers are
-supported.  Beside referring data sources from file, also common objects
-from 'sf', 'terra' and 'stars' are supported. The native processing
-algorithms are documented by QGIS.org (2023)
-<https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/>.
+Streamline use of the 'All of Us' Researcher Workbench
+(<https://www.researchallofus.org/data-tools/workbench/>)with tools to
+extract and manipulate data from the 'All of Us' database. Increase
+interoperability with the Observational Health Data Science and
+Informatics ('OHDSI') tool stack by decreasing reliance of 'All of Us'
+tools and allowing for cohort creation via 'Atlas'. Improve reproducible
+and transparent research using 'All of Us'.
 
 %prep
 %setup -q -c -n %{packname}

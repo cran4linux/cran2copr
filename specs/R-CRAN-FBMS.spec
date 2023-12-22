@@ -1,41 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tiledb
-%global packver   0.23.0
+%global packname  FBMS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modern Database Engine for Multi-Modal Data via Sparse and Dense Multidimensional Arrays
+Summary:          Flexible Bayesian Model Selection and Model Averaging
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tiledb-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nanotime 
-BuildRequires:    R-CRAN-spdl 
-BuildRequires:    R-CRAN-RcppInt64 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-methods 
-Requires:         R-CRAN-nanotime 
-Requires:         R-CRAN-spdl 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-fastglm 
+BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-fastglm 
+Requires:         R-CRAN-GenSA 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
 
 %description
-The modern database 'TileDB' introduces a powerful on-disk format for
-multi-modal data based on dimensional arrays. It supports dense and sparse
-arrays, dataframes and key-values stores, cloud storage ('S3', 'GCS',
-'Azure'), chunked arrays, multiple compression, encryption and checksum
-filters, uses a fully multi-threaded implementation, supports parallel
-I/O, data versioning ('time travel'), metadata and groups. It is
-implemented as an embeddable cross-platform C++ library with APIs from
-several languages, and integrations.
+Implements MJMCMC (mode jumping MCMC) described in Hubin and Storvik
+(2018) <doi:10.1016/j.csda.2018.05.020> and GMJMCMC (genetically modified
+MJMCMC) described in Hubin et al. (2021) <doi:10.1613/jair.1.13047>
+algorithms as well as the subsampling counterpart described in Lachmann et
+al. (2022) <doi:10.1016/j.ijar.2022.08.018> for flexible Bayesian model
+selection and model averaging.
 
 %prep
 %setup -q -c -n %{packname}

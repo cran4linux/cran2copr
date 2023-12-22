@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapDM
-%global packver   0.9.0
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'REDCap' Data Management
 
@@ -32,6 +32,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-forcats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-magrittr 
@@ -47,6 +48,7 @@ Requires:         R-utils
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-forcats 
 
 %description
 Access and manage 'REDCap' data. 'REDCap' (Research Electronic Data

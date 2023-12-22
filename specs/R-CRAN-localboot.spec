@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tiledb
-%global packver   0.23.0
+%global packname  localboot
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modern Database Engine for Multi-Modal Data via Sparse and Dense Multidimensional Arrays
+Summary:          Local Bootstrap Methods for Various Networks
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tiledb-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nanotime 
-BuildRequires:    R-CRAN-spdl 
-BuildRequires:    R-CRAN-RcppInt64 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-methods 
-Requires:         R-CRAN-nanotime 
-Requires:         R-CRAN-spdl 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.11
+Requires:         R-graphics 
+Requires:         R-CRAN-viridis 
 
 %description
-The modern database 'TileDB' introduces a powerful on-disk format for
-multi-modal data based on dimensional arrays. It supports dense and sparse
-arrays, dataframes and key-values stores, cloud storage ('S3', 'GCS',
-'Azure'), chunked arrays, multiple compression, encryption and checksum
-filters, uses a fully multi-threaded implementation, supports parallel
-I/O, data versioning ('time travel'), metadata and groups. It is
-implemented as an embeddable cross-platform C++ library with APIs from
-several languages, and integrations.
+Network analysis usually requires estimating the uncertainty of graph
+statistics. Through this package, we provide tools to bootstrap various
+networks via local bootstrap procedure. Additionally, it includes
+functions for generating probability matrices, creating network adjacency
+matrices from probability matrices, and plotting network structures. The
+reference will be updated soon.
 
 %prep
 %setup -q -c -n %{packname}

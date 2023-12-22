@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  startR
-%global packver   2.3.1
+%global packname  ARGOS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatically Retrieve Multidimensional Distributed Data Sets
+Summary:          Automatic Regression for Governing Equations (ARGOS)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,37 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiApply >= 2.1.0
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-bigmemory 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-easyNCDF 
-BuildRequires:    R-CRAN-s2dv 
-BuildRequires:    R-CRAN-ClimProjDiags 
-BuildRequires:    R-CRAN-PCICt 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-multiApply >= 2.1.0
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-bigmemory 
-Requires:         R-CRAN-future 
+BuildRequires:    R-CRAN-deSolve 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-signal 
 Requires:         R-parallel 
-Requires:         R-CRAN-easyNCDF 
-Requires:         R-CRAN-s2dv 
-Requires:         R-CRAN-ClimProjDiags 
-Requires:         R-CRAN-PCICt 
-Requires:         R-methods 
+Requires:         R-CRAN-deSolve 
 
 %description
-Tool to automatically fetch, transform and arrange subsets of multi-
-dimensional data sets (collections of files) stored in local and/or remote
-file systems or servers, using multicore capabilities where possible. The
-tool provides an interface to perceive a collection of data sets as a
-single large multidimensional data array, and enables the user to request
-for automatic retrieval, processing and arrangement of subsets of the
-large array. Wrapper functions to add support for custom file formats can
-be plugged in/out, making the tool suitable for any research field where
-large multidimensional data sets are involved.
+Comprehensive set of tools for performing system identification of both
+linear and nonlinear dynamical systems directly from data. The Automatic
+Regression for Governing Equations (ARGOS) simplifies the complex task of
+constructing mathematical models of dynamical systems from observed input
+and output data, supporting various types of systems, including those
+described by ordinary differential equations. It employs optimal numerical
+derivatives for enhanced accuracy and employs formal variable selection
+techniques to help identify the most relevant variables, thereby enabling
+the development of predictive models for system behavior analysis.
 
 %prep
 %setup -q -c -n %{packname}

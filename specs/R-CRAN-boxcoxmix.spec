@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tiledb
-%global packver   0.23.0
+%global packname  boxcoxmix
+%global packver   0.42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.0
+Version:          0.42
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modern Database Engine for Multi-Modal Data via Sparse and Dense Multidimensional Arrays
+Summary:          Box-Cox-Type Transformations for Linear and Logistic Models with Random Effects
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tiledb-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nanotime 
-BuildRequires:    R-CRAN-spdl 
-BuildRequires:    R-CRAN-RcppInt64 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-methods 
-Requires:         R-CRAN-nanotime 
-Requires:         R-CRAN-spdl 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-statmod >= 1.4.27
+BuildRequires:    R-CRAN-qicharts >= 0.5.4
+BuildRequires:    R-CRAN-npmlreg >= 0.46.1
+Requires:         R-CRAN-statmod >= 1.4.27
+Requires:         R-CRAN-qicharts >= 0.5.4
+Requires:         R-CRAN-npmlreg >= 0.46.1
 
 %description
-The modern database 'TileDB' introduces a powerful on-disk format for
-multi-modal data based on dimensional arrays. It supports dense and sparse
-arrays, dataframes and key-values stores, cloud storage ('S3', 'GCS',
-'Azure'), chunked arrays, multiple compression, encryption and checksum
-filters, uses a fully multi-threaded implementation, supports parallel
-I/O, data versioning ('time travel'), metadata and groups. It is
-implemented as an embeddable cross-platform C++ library with APIs from
-several languages, and integrations.
+Box-Cox-type transformations for linear and logistic models with random
+effects using non-parametric profile maximum likelihood estimation, as
+introduced in Almohaimeed (2018) <http://etheses.dur.ac.uk/12831/> and
+Almohaimeed and Einbeck (2022) <doi:10.1177/1471082X20966919>. The main
+functions are 'optim.boxcox()' for linear models with random effects and
+'boxcoxtype()' for logistic models with random effects.
 
 %prep
 %setup -q -c -n %{packname}

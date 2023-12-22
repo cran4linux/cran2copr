@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IsoplotRgui
-%global packver   5.6
+%global packver   6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.6
+Version:          6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Web Interface to 'IsoplotR'
 

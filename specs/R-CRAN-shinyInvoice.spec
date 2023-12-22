@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyInvoice
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny App - Generate a Pdf Invoice with 'Rmarkdown'
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-quantmod
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-quantmod 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-lubridate 
 
 %description
 Generate an invoice containing a header with invoice number and businesses

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dirttee
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributional Regression for Time to Event Data
 
@@ -18,25 +18,25 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-expectreg >= 0.5
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-provenance 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-expectreg >= 0.5
-Requires:         R-CRAN-mgcv 
-Requires:         R-splines 
 Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-provenance 
 Requires:         R-CRAN-rlang 
+Requires:         R-splines 
+Requires:         R-CRAN-survival 
 
 %description
 Semiparametric distributional regression methods (expectile, quantile and
@@ -44,10 +44,10 @@ mode regression) for time-to-event variables with right-censoring; uses
 inverse probability of censoring weights or accelerated failure time
 models with auxiliary likelihoods. Expectile regression using inverse
 probability of censoring weights has been introduced in Seipp et al.
-(2021) "Weighted Expectile Regression for Right-Censored Data"
+(2021) ``Weighted Expectile Regression for Right-Censored Data''
 <doi:10.1002/sim.9137>, mode regression for time-to-event variables has
-been introduced in Seipp et al. (2022) "Flexible Semiparametric Mode
-Regression for Time-to-Event Data" <doi:10.1177/09622802221122406>.
+been introduced in Seipp et al. (2022) ``Flexible Semiparametric Mode
+Regression for Time-to-Event Data'' <doi:10.1177/09622802221122406>.
 
 %prep
 %setup -q -c -n %{packname}

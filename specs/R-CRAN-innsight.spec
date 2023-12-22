@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  innsight
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get the Insights of your Neural Network
+Summary:          Get the Insights of Your Neural Network
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,12 +31,13 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-torch 
 
 %description
-Interpretability methods to analyze the behavior and individual
-predictions of modern neural networks. Implemented methods are:
-'Connection Weights' described by Olden et al. (2004)
-<doi:10.1016/j.ecolmodel.2004.03.013>, Layer-wise Relevance Propagation
-('LRP') described by Bach et al. (2015)
-<doi:10.1371/journal.pone.0130140>, Deep Learning Important Features
+Interpretation methods for analyzing the behavior and individual
+predictions of modern neural networks in a three-step procedure:
+Converting the model, running the interpretation method, and visualizing
+the results. Implemented methods are, e.g., 'Connection Weights' described
+by Olden et al. (2004) <doi:10.1016/j.ecolmodel.2004.03.013>, layer-wise
+relevance propagation ('LRP') described by Bach et al. (2015)
+<doi:10.1371/journal.pone.0130140>, deep learning important features
 ('DeepLIFT') described by Shrikumar et al.  (2017) <arXiv:1704.02685> and
 gradient-based methods like 'SmoothGrad' described by Smilkov et al.
 (2017) <arXiv:1706.03825>, 'Gradient x Input' described by Baehrens et al.
