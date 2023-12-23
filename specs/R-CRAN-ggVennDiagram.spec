@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggVennDiagram
-%global packver   1.2.3
+%global packver   1.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'ggplot2' Implement of Venn Diagram
 
@@ -14,42 +14,38 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-RVenn 
-BuildRequires:    R-CRAN-yulab.utils 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-aplot 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-RVenn 
-Requires:         R-CRAN-yulab.utils 
+Requires:         R-CRAN-aplot 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-tidyr 
 
 %description
-Easy-to-use functions to generate 2-7 sets Venn plot in publication
-quality. 'ggVennDiagram' plot Venn using well-defined geometry dataset and
-'ggplot2'. The shapes of 2-4 sets Venn use circles and ellipses, while the
-shapes of 4-7 sets Venn use irregular polygons (4 has both forms), which
-are developed and imported from another package 'venn', authored by Adrian
-Dusa. We provided internal functions to integrate shape data with user
-provided sets data, and calculated the geometry of every
-regions/intersections of them, then separately plot Venn in three
-components: set edges, set labels, and regions. From version 1.0, it is
-possible to customize these components as you demand in ordinary 'ggplot2'
-grammar.
+Easy-to-use functions to generate 2-7 sets Venn or upset plot in
+publication quality. 'ggVennDiagram' plot Venn or upset using well-defined
+geometry dataset and 'ggplot2'. The shapes of 2-4 sets Venn use circles
+and ellipses, while the shapes of 4-7 sets Venn use irregular polygons (4
+has both forms), which are developed and imported from another package
+'venn', authored by Adrian Dusa. We provided internal functions to
+integrate shape data with user provided sets data, and calculated the
+geometry of every regions/intersections of them, then separately plot Venn
+in four components: set edges/labels, and region edges/labels. From
+version 1.0, it is possible to customize these components as you demand in
+ordinary 'ggplot2' grammar. From version 1.4.4, it supports unlimited
+number of sets, as it can draw a plain upset plot automatically when
+number of sets is more than 7.
 
 %prep
 %setup -q -c -n %{packname}

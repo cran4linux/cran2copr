@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scitb
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides Some Useful Functions for Making Statistical Tables
 
@@ -17,9 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.50
 Requires:         R-core >= 3.50
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-stringi 
 
 %description
