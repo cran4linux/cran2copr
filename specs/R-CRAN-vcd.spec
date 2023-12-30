@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vcd
-%global packver   1.4-11
+%global packver   1.4-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.11
+Version:          1.4.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Categorical Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.4.0
+Requires:         R-core >= 2.4.0
 BuildArch:        noarch
 BuildRequires:    R-grid 
 BuildRequires:    R-stats 
