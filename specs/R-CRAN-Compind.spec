@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compind
-%global packver   2.9.1
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite Indicators Functions
 
@@ -29,6 +29,8 @@ BuildRequires:    R-CRAN-nonparaeff
 BuildRequires:    R-CRAN-smaa 
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-GWmodel 
+BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-Benchmarking 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-boot 
@@ -41,6 +43,8 @@ Requires:         R-CRAN-nonparaeff
 Requires:         R-CRAN-smaa 
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-GWmodel 
+Requires:         R-CRAN-sp 
 
 %description
 A collection of functions to calculate Composite Indicators methods,

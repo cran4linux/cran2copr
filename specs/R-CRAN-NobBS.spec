@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chisquare
-%global packver   0.9
+%global packname  NobBS
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chi-Square and G-Square Test of Independence, Power and Residual Analysis, Measures of Categorical Association
+Summary:          Nowcasting by Bayesian Smoothing
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-graphics >= 4.2.0
-BuildRequires:    R-stats >= 4.2.0
-BuildRequires:    R-CRAN-gt >= 0.3.1
-Requires:         R-graphics >= 4.2.0
-Requires:         R-stats >= 4.2.0
-Requires:         R-CRAN-gt >= 0.3.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-magrittr 
 
 %description
-Provides the facility to perform the chi-square and G-square test of
-independence, calculates the power of the traditional chi-square test,
-compute permutation and Monte Carlo p-value, and provides measures of
-association such as Phi, odds ratio with 95 percent CI and p-value,
-adjusted contingency coefficient, Cramer's V and 95 percent CI,
-bias-corrected Cramer's V, W, Cohen's w, Goodman-Kruskal's lambda, gamma
-and its p-value, and tau, Cohen's k and its 95 percent CI. It also
-calculates standardized, moment-corrected standardized, and adjusted
-standardized residuals, and their significance. Different outputs are
-returned in nicely formatted tables.
+A Bayesian approach to estimate the number of
+occurred-but-not-yet-reported cases from incomplete, time-stamped
+reporting data for disease outbreaks. 'NobBS' learns the reporting delay
+distribution and the time evolution of the epidemic curve to produce
+smoothed nowcasts in both stable and time-varying case reporting settings,
+as described in McGough et al. (2020) <doi:10.1371/journal.pcbi.1007735>.
 
 %prep
 %setup -q -c -n %{packname}

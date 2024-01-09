@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simPop
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Complex Synthetic Data Information
 
@@ -30,13 +30,13 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-VIM 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-party 
 BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-wrswoR 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-partykit 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-vcd 
@@ -51,13 +51,13 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-VIM 
 Requires:         R-methods 
-Requires:         R-CRAN-party 
 Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-wrswoR 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-partykit 
 
 %description
 Tools and methods to simulate populations for surveys based on auxiliary

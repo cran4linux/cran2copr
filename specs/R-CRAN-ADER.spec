@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ADER
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis in Ecology
 
@@ -18,7 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Data sets used in Cayuela and De la Cruz (2022, ISBN:978-84-8476-705-3).
+Data sets used in Cayuela and De la Cruz (2022, ISBN:978-84-8476-833-3).
 
 %prep
 %setup -q -c -n %{packname}

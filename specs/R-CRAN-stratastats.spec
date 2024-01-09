@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stratastats
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stratified Analysis of 2x2 Contingency Tables
 
@@ -27,11 +27,11 @@ Requires:         R-CRAN-gt >= 0.8.0
 %description
 Offers a comprehensive approach for analysing stratified 2x2 contingency
 tables. It facilitates the calculation of odds ratios, 95%% confidence
-intervals, and conducts chi-squared tests, Cochran-Mantel-Haenszel tests,
-and Breslow-Day-Tarone tests. The package is particularly useful in fields
-like epidemiology and social sciences where stratified analysis is
-essential. The package also provides interpretative insights into the
-results, aiding in the understanding of complex statistical outcomes.
+intervals, and conducts chi-squared, Cochran-Mantel-Haenszel,
+Mantel-Haenszel, and Breslow-Day-Tarone tests. The package is particularly
+useful in fields like epidemiology and social sciences where stratified
+analysis is essential. The package also provides interpretative insights
+into the results, aiding in the understanding of statistical outcomes.
 
 %prep
 %setup -q -c -n %{packname}

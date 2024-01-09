@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ADTSA
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Analysis
 
@@ -26,7 +26,8 @@ percentile, bias-corrected, and accelerated intervals and estimates
 partial autocorrelations using Durbin-Levinson. This package calculates
 the autocorrelation power spectrum, computes cross-correlations between
 two time series, computes bandwidth for any time series, and performs
-autocorrelation frequency analysis.
+autocorrelation frequency analysis. It also calculates the periodicity of
+a time series.
 
 %prep
 %setup -q -c -n %{packname}

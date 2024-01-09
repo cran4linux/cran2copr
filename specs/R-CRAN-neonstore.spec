@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  neonstore
-%global packver   0.4.4
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NEON Data Store
 
@@ -22,20 +23,24 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-thor 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-duckdbfs 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-vroom >= 1.5.1
 Requires:         R-CRAN-duckdb >= 0.2.3
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-R.utils 
-Requires:         R-tools 
 Requires:         R-CRAN-thor 
-Requires:         R-utils 
 Requires:         R-CRAN-zip 
+Requires:         R-CRAN-duckdbfs 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-glue 
 
 %description
 The National Ecological Observatory Network (NEON) provides access to its

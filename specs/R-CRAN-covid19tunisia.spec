@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chisquare
-%global packver   0.9
+%global packname  covid19tunisia
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chi-Square and G-Square Test of Independence, Power and Residual Analysis, Measures of Categorical Association
+Summary:          Cases of COVID-19 in Tunisia
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-graphics >= 4.2.0
-BuildRequires:    R-stats >= 4.2.0
-BuildRequires:    R-CRAN-gt >= 0.3.1
-Requires:         R-graphics >= 4.2.0
-Requires:         R-stats >= 4.2.0
-Requires:         R-CRAN-gt >= 0.3.1
+BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-knitr >= 1.7
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-glue >= 1.3.2
+BuildRequires:    R-CRAN-readr >= 1.3.1
+BuildRequires:    R-CRAN-tidyr >= 1.0.2
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-knitr >= 1.7
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-glue >= 1.3.2
+Requires:         R-CRAN-readr >= 1.3.1
+Requires:         R-CRAN-tidyr >= 1.0.2
+Requires:         R-CRAN-dplyr >= 0.8.5
 
 %description
-Provides the facility to perform the chi-square and G-square test of
-independence, calculates the power of the traditional chi-square test,
-compute permutation and Monte Carlo p-value, and provides measures of
-association such as Phi, odds ratio with 95 percent CI and p-value,
-adjusted contingency coefficient, Cramer's V and 95 percent CI,
-bias-corrected Cramer's V, W, Cohen's w, Goodman-Kruskal's lambda, gamma
-and its p-value, and tau, Cohen's k and its 95 percent CI. It also
-calculates standardized, moment-corrected standardized, and adjusted
-standardized residuals, and their significance. Different outputs are
-returned in nicely formatted tables.
+Data personally collected about the spread of COVID-19 (SARS-COV-2) in
+Tunisia <https://github.com/MounaBelaid/covid19datatunisia>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chisquare
-%global packver   0.9
+%global packname  TopKSignal
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chi-Square and G-Square Test of Independence, Power and Residual Analysis, Measures of Categorical Association
+Summary:          A Convex Optimization Tool for Signal Reconstruction from Multiple Ranked Lists
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-graphics >= 4.2.0
-BuildRequires:    R-stats >= 4.2.0
-BuildRequires:    R-CRAN-gt >= 0.3.1
-Requires:         R-graphics >= 4.2.0
-Requires:         R-stats >= 4.2.0
-Requires:         R-CRAN-gt >= 0.3.1
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
 
 %description
-Provides the facility to perform the chi-square and G-square test of
-independence, calculates the power of the traditional chi-square test,
-compute permutation and Monte Carlo p-value, and provides measures of
-association such as Phi, odds ratio with 95 percent CI and p-value,
-adjusted contingency coefficient, Cramer's V and 95 percent CI,
-bias-corrected Cramer's V, W, Cohen's w, Goodman-Kruskal's lambda, gamma
-and its p-value, and tau, Cohen's k and its 95 percent CI. It also
-calculates standardized, moment-corrected standardized, and adjusted
-standardized residuals, and their significance. Different outputs are
-returned in nicely formatted tables.
+A mathematical optimization procedure in combination with statistical
+bootstrap for the estimation of the latent signals (sometimes called
+scores) informing the global consensus ranking (often named aggregation
+ranking). To solve mid/large-scale problems, users should install the
+'gurobi' optimiser (available from <https://www.gurobi.com/>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aloom
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          All Leave-One-Out Models
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-randomForest 
 Requires:         R-stats 
+Requires:         R-parallel 
 
 %description
 Creates all leave-one-out models and produces predictions for test

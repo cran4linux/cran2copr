@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chisquare
-%global packver   0.9
+%global packname  sphereTessellation
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chi-Square and G-Square Test of Independence, Power and Residual Analysis, Measures of Categorical Association
+Summary:          Delaunay and Voronoï Tessellations on the Sphere
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-graphics >= 4.2.0
-BuildRequires:    R-stats >= 4.2.0
-BuildRequires:    R-CRAN-gt >= 0.3.1
-Requires:         R-graphics >= 4.2.0
-Requires:         R-stats >= 4.2.0
-Requires:         R-CRAN-gt >= 0.3.1
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-colorsGen 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Polychrome 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppCGAL 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-colorsGen 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Polychrome 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rgl 
 
 %description
-Provides the facility to perform the chi-square and G-square test of
-independence, calculates the power of the traditional chi-square test,
-compute permutation and Monte Carlo p-value, and provides measures of
-association such as Phi, odds ratio with 95 percent CI and p-value,
-adjusted contingency coefficient, Cramer's V and 95 percent CI,
-bias-corrected Cramer's V, W, Cohen's w, Goodman-Kruskal's lambda, gamma
-and its p-value, and tau, Cohen's k and its 95 percent CI. It also
-calculates standardized, moment-corrected standardized, and adjusted
-standardized residuals, and their significance. Different outputs are
-returned in nicely formatted tables.
+Performs Delaunay and Voronoï tessellations on spheres and provides some
+functions to plot them. The algorithms are mainly performed by the 'C++'
+library 'CGAL' (<https://www.cgal.org/>).
 
 %prep
 %setup -q -c -n %{packname}

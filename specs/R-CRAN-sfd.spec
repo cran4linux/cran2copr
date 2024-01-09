@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sfd
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Space-Filling Design Library
 
@@ -27,8 +27,9 @@ Requires:         R-CRAN-rlang
 %description
 A collection of pre-optimized space-filling designs, for up to ten
 parameters, is contained here. Functions are provided to access designs
-described by Husslage et al (2011) <doi:10.1007/s11081-010-9129-8>. The
-design types included are Audze-Eglais and MaxiMin.
+described by Husslage et al (2011) <doi:10.1007/s11081-010-9129-8> and
+Wang and Fang (2005) <doi:10.1142/9789812701190_0040>. The design types
+included are Audze-Eglais, MaxiMin, and uniform.
 
 %prep
 %setup -q -c -n %{packname}

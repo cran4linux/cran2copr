@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TraMineR
-%global packver   2.2-8
+%global packver   2.2-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.8
+Version:          2.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trajectory Miner: a Sequence Analysis Toolkit
 

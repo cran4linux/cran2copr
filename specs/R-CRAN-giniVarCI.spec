@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chisquare
-%global packver   0.9
+%global packname  giniVarCI
+%global packver   0.0.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chi-Square and G-Square Test of Independence, Power and Residual Analysis, Measures of Categorical Association
+Summary:          Gini Indices, Variances and Confidence Intervals for Finite and Infinite Populations
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-graphics >= 4.2.0
-BuildRequires:    R-stats >= 4.2.0
-BuildRequires:    R-CRAN-gt >= 0.3.1
-Requires:         R-graphics >= 4.2.0
-Requires:         R-stats >= 4.2.0
-Requires:         R-CRAN-gt >= 0.3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-stats 
 
 %description
-Provides the facility to perform the chi-square and G-square test of
-independence, calculates the power of the traditional chi-square test,
-compute permutation and Monte Carlo p-value, and provides measures of
-association such as Phi, odds ratio with 95 percent CI and p-value,
-adjusted contingency coefficient, Cramer's V and 95 percent CI,
-bias-corrected Cramer's V, W, Cohen's w, Goodman-Kruskal's lambda, gamma
-and its p-value, and tau, Cohen's k and its 95 percent CI. It also
-calculates standardized, moment-corrected standardized, and adjusted
-standardized residuals, and their significance. Different outputs are
-returned in nicely formatted tables.
+Estimates the Gini index and computes variances and confidence intervals
+for finite and infinite populations, using different methods; also
+computes Gini index for continuous probability distributions, draws
+samples from continuous probability distributions with Gini indices set by
+the user; uses 'Rcpp'. References: Muñoz et al. (2023)
+<doi:10.1177/00491241231176847>. Álvarez et al. (2021)
+<doi:10.3390/math9243252>. Giorgi and Gigliarano (2017)
+<doi:10.1111/joes.12185>. Langel and Tillé (2013)
+<doi:10.1111/j.1467-985X.2012.01048.x>.
 
 %prep
 %setup -q -c -n %{packname}

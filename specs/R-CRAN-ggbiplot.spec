@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggbiplot
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Grammar of Graphics Implementation of Biplots
 
@@ -29,8 +29,8 @@ together with variable vectors showing how the data variables relate to
 this space. It provides a replacement for stats::biplot(), but with many
 enhancements to control the analysis and graphical display. It implements
 biplot and scree plot methods which can be used with the results of
-prcomp(), princomp(), FactoMineR::PCA() or MASS::lda() and can be
-customized using 'ggplot2' techniques.
+prcomp(), princomp(), FactoMineR::PCA(), ade4::dudi.pca() or MASS::lda()
+and can be customized using 'ggplot2' techniques.
 
 %prep
 %setup -q -c -n %{packname}

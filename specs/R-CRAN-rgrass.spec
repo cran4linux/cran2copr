@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgrass
-%global packver   0.3-9
+%global packver   0.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface Between 'GRASS' Geographical Information System and 'R'
 
@@ -15,17 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Recommends:       grass
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
+Requires:         R-CRAN-xml2 
 
 %description
 An interface between the 'GRASS' geographical information system ('GIS')

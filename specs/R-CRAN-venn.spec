@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  venn
-%global packver   1.11
+%global packver   1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11
+Version:          1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Venn Diagrams
 
@@ -16,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-admisc >= 0.10
-Requires:         R-CRAN-admisc >= 0.10
+BuildRequires:    R-CRAN-admisc >= 0.33
+Requires:         R-CRAN-admisc >= 0.33
 
 %description
-Draws and displays Venn diagrams up to 7 sets, and any Boolean union of
-set intersections.
+A close to zero dependency package to draw and display Venn diagrams up to
+7 sets, and any Boolean union of set intersections.
 
 %prep
 %setup -q -c -n %{packname}

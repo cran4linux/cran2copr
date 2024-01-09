@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iotables
-%global packver   0.9.1
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Input-Output Economics Analysis, Economic and Environmental Impact Assessment with Empirical Data
 
@@ -29,10 +29,10 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-eurostat 
 Requires:         R-CRAN-magrittr 
@@ -45,10 +45,10 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang 
 
 %description
 Pre-processing and basic analytical tasks related to working with

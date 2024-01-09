@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  polyqtlR
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          QTL Analysis in Autopolyploid Bi-Parental F1 Populations
 
@@ -19,21 +20,29 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.19
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.19
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Quantitative trait loci (QTL) analysis and exploration of meiotic patterns

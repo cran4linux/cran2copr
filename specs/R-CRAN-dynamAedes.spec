@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dynamAedes
-%global packver   2.1.2
+%global packver   2.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Mechanistic Model for the Population Dynamics of Invasive Aedes Mosquitoes
 
@@ -17,24 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-drc 
-BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-slam 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-drc 
-Requires:         R-CRAN-fields 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-slam 
-Requires:         R-CRAN-sp 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-terra 
 
 %description
 Generalised model for population dynamics of invasive Aedes mosquitoes.

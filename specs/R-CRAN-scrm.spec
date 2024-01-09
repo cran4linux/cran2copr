@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  scrm
-%global packver   1.7.4-0
+%global packver   1.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4.0
+Version:          1.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulating the Evolution of Biological Sequences
 
@@ -20,12 +21,12 @@ Requires:         R-CRAN-Rcpp >= 0.11.2
 
 %description
 A coalescent simulator that allows the rapid simulation of biological
-sequences under neutral models of evolution. Different to other coalescent
-based simulations, it has an optional approximation parameter that allows
-for high accuracy while maintaining a linear run time cost for long
-sequences. It is optimized for simulating massive data sets as produced by
-Next- Generation Sequencing technologies for up to several thousand
-sequences.
+sequences under neutral models of evolution, see Staab et al. (2015)
+<doi:10.1093/bioinformatics/btu861>. Different to other coalescent based
+simulations, it has an optional approximation parameter that allows for
+high accuracy while maintaining a linear run time cost for long sequences.
+It is optimized for simulating massive data sets as produced by Next-
+Generation Sequencing technologies for up to several thousand sequences.
 
 %prep
 %setup -q -c -n %{packname}
