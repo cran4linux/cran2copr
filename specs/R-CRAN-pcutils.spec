@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pcutils
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Some Useful Functions for Statistics and Visualization
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
@@ -26,6 +26,8 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-agricolae 
+BuildRequires:    R-tools 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
@@ -35,6 +37,8 @@ Requires:         R-grDevices
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-agricolae 
+Requires:         R-tools 
+Requires:         R-graphics 
 
 %description
 Offers a range of utilities and functions for everyday programming tasks.

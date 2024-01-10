@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  transforEmotion
-%global packver   0.1.1
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sentiment Analysis for Text and Qualitative Data
+Summary:          Sentiment Analysis for Text, Image and Video using Transformer Models
 
 License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,30 +19,29 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-osfr 
+BuildRequires:    R-CRAN-googledrive 
 BuildRequires:    R-CRAN-LSAfun 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-osfr 
+Requires:         R-CRAN-googledrive 
 Requires:         R-CRAN-LSAfun 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-Matrix 
 
 %description
 Implements sentiment analysis using huggingface <https://huggingface.co>
-transformer zero-shot classification model pipelines. The default pipeline
-is Cross-Encoder's DistilRoBERTa
-<https://huggingface.co/cross-encoder/nli-distilroberta-base> trained on
-the Stanford Natural Language Inference
-<https://nlp.stanford.edu/projects/snli/> and Multi-Genre Natural Language
-Inference <https://huggingface.co/datasets/multi_nli> datasets. Using
-similar models, zero-shot classification transformers have demonstrated
-superior performance relative to other natural language processing models
-<arXiv:1909.00161>. All other zero-shot classification model pipelines can
-be implemented using their model name from
-<https://huggingface.co/models?pipeline_tag=zero-shot-classification>}.
+transformer zero-shot classification model pipelines for text and image
+data. The default text pipeline is Cross-Encoder's DistilRoBERTa
+<https://huggingface.co/cross-encoder/nli-distilroberta-base> and default
+image/video pipeline is Open AI's CLIP
+<https://huggingface.co/openai/clip-vit-base-patch32>. All other zero-shot
+classification model pipelines can be implemented using their model name
+from
+<https://huggingface.co/models?pipeline_tag=zero-shot-classification>.
 
 %prep
 %setup -q -c -n %{packname}

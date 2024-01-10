@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PRIMME
-%global packver   3.2-5
+%global packver   3.2-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.5
+Version:          3.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Eigenvalues and Singular Values and Vectors from Large Matrices
 
@@ -19,6 +19,7 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.11.4
 BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp >= 0.11.4
+Requires:         R-CRAN-Matrix 
 
 %description
 R interface to 'PRIMME' <https://www.cs.wm.edu/~andreas/software/>, a C

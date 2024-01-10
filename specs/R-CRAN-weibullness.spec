@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  weibullness
-%global packver   1.23.8
+%global packver   1.24.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23.8
+Version:          1.24.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit Test for Weibull Distribution (Weibullness)
 
@@ -14,19 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Performs a goodness-of-fit test for Weibull distribution (weibullness
-test) and provides the parameter estimates of the two- and three-parameter
-Weibull distributions. Note that the threshold parameter is estimated
-based on the correlation from the Weibull plot. For more details, see
-<doi:10.23055/ijietap.2017.24.4.2848>, <doi:10.1155/2018/6056975>, and
-<doi:10.3390/math11143156>. This work was supported by the National
-Research Foundation of Korea (NRF) grant funded by the Korea government
-(MSIT) (No. 2022R1A2C1091319, RS-2023-00242528).
+Conducts a goodness-of-fit test for the Weibull distribution (referred to
+as the weibullness test) and furnishes parameter estimations for both the
+two-parameter and three-parameter Weibull distributions. Notably, the
+threshold parameter is derived through correlation from the Weibull plot.
+Additionally, this package conducts goodness-of-fit assessments for the
+exponential, Gumbel, and inverse Weibull distributions, accompanied by
+parameter estimations. For more details, see Park (2017)
+<doi:10.23055/ijietap.2017.24.4.2848>, Park (2018)
+<doi:10.1155/2018/6056975>, and Park (2023) <doi:10.3390/math11143156>.
+This work was supported by the National Research Foundation of Korea (NRF)
+grants funded by the Korea government (MSIT) (No. 2022R1A2C1091319,
+RS-2023-00242528).
 
 %prep
 %setup -q -c -n %{packname}

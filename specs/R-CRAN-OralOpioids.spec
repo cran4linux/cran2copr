@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OralOpioids
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieving Oral Opioid Information
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-readr 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-rvest
 Requires:         R-CRAN-xml2 
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
 
 %description
 Provides details such as Morphine Equivalent Dose (MED), brand name and

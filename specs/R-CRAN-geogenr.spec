@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geogenr
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generator from American Community Survey Geodatabases
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geomultistar 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rolap 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geomultistar 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rolap 
@@ -46,7 +48,8 @@ The American Community Survey (ACS)
 geographic information and associated data of interest to researchers in
 the area. The goal of this package is to generate objects that allow us to
 access and consult the information available in various formats, such as
-in GeoPackage format or in multidimensional ROLAP star format.
+in 'GeoPackage' format or in multidimensional 'ROLAP' (Relational On-Line
+Analytical Processing) star format.
 
 %prep
 %setup -q -c -n %{packname}

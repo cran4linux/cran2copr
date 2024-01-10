@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  instantiate
-%global packver   0.0.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pre-Compiled 'CmdStan' Models in R Packages
 
@@ -17,11 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-pkglite 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-pkglite 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 
@@ -31,12 +29,10 @@ pre-compiled 'CmdStan' models into CRAN-ready statistical modeling R
 packages. The models compile once during installation, the executables
 live inside the file systems of their respective packages, and users have
 the full power and convenience of 'cmdstanr' without any additional
-compilation. This approach saves time, allows R package developers to
-migrate from 'rstan' to the more modern 'cmdstanr', and fits well with
-centrally maintained R installations where users have trouble installing
-their own packages, diagnosing compilation errors, and setting environment
-variables. Packages 'rstantools', 'cmdstanr', 'stannis', and 'stanapi' are
-similar Stan clients with different objectives.
+compilation after package installation. This approach saves time and helps
+R package developers migrate from 'rstan' to the more modern 'cmdstanr'.
+Packages 'rstantools', 'cmdstanr', 'stannis', and 'stanapi' are similar
+Stan clients with different objectives.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HomomorphicEncryption
-%global packver   0.3.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          BFV, BGV, CKKS Schema for Fully Homomorphic Encryption
 
@@ -29,7 +29,7 @@ Implements the Brakerski-Fan-Vercauteren (BFV, 2012)
 <https://eprint.iacr.org/2012/144>, Brakerski-Gentry-Vaikuntanathan (BGV,
 2014) <doi:10.1145/2633600>, and Cheon-Kim-Kim-Song (CKKS, 2016)
 <https://eprint.iacr.org/2016/421.pdf> schema for Fully Homomorphic
-Encryption, as well as several helper functions.
+Encryption. The included vignettes demonstrate the encryption procedures.
 
 %prep
 %setup -q -c -n %{packname}

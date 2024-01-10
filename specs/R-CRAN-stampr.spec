@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stampr
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Temporal Analysis of Moving Polygons
 
@@ -19,20 +19,20 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-geosphere 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-lwgeom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lwgeom 
+Requires:         R-CRAN-geosphere 
 
 %description
 Perform spatial temporal analysis of moving polygons; a longstanding

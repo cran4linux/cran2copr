@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CAST
-%global packver   0.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'caret' Applications for Spatial-Temporal Models
 
@@ -29,6 +29,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-forcats 
 Requires:         R-CRAN-caret 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -41,6 +43,8 @@ Requires:         R-methods
 Requires:         R-grDevices 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-forcats 
 
 %description
 Supporting functionality to run 'caret' with spatial or spatial-temporal
@@ -57,7 +61,8 @@ prediction models. Methods are described in Meyer et al. (2018)
 <doi:10.1016/j.ecolmodel.2019.108815>; Meyer and Pebesma (2021)
 <doi:10.1111/2041-210X.13650>; Milà et al. (2022)
 <doi:10.1111/2041-210X.13851>; Meyer and Pebesma (2022)
-<doi:10.1038/s41467-022-29838-9>.
+<doi:10.1038/s41467-022-29838-9>; Linnenbrink et al. (2023)
+<doi:10.5194/egusphere-2023-1308>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  miceadds
-%global packver   3.16-18
+%global packver   3.17-44
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.16.18
+Version:          3.17.44
 Release:          1%{?dist}%{?buildtag}
 Summary:          Some Additional Multiple Imputation Functions, Especially for 'mice'
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nhanesA
-%global packver   0.7.4
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NHANES Data Retrieval
 
@@ -14,19 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-plyr 
+Requires:         R-methods 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-plyr 
 

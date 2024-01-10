@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WorldFlora
-%global packver   1.13-2
+%global packver   1.14-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.2
+Version:          1.14.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standardize Plant Names According to World Flora Online Taxonomic Backbone
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 
 %description
 World Flora Online is an online flora of all known plants, available from
-<http://www.worldfloraonline.org/>. Methods are provided of matching a
+<https://www.worldfloraonline.org/>. Methods are provided of matching a
 list of plant names (scientific names, taxonomic names, botanical names)
 against a static copy of the World Flora Online Taxonomic Backbone data
 that can be downloaded from the World Flora Online website. The World

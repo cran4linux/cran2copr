@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cape
-%global packver   3.1.1
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combined Analysis of Pleiotropy and Epistasis for Diversity Outbred Mice
 

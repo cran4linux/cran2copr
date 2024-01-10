@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isopam
-%global packver   1.3.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Sites with Species Data
 
@@ -14,37 +14,40 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-progressr 
 Requires:         R-methods 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-proxy 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
 
 %description
 Clustering algorithm developed for use with plot inventories of species.
-It groups plots by subsets of species rather than overall species
-composition. There is an unsupervised and a supervised mode, the latter
-accepting suggestions for species with greater weight and cluster medoids.
+It groups plots by subsets of diagnostic species rather than overall
+species composition. There is an unsupervised and a supervised mode, the
+latter accepting suggestions for species with greater weight and cluster
+medoids.
 
 %prep
 %setup -q -c -n %{packname}

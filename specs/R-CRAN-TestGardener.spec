@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TestGardener
-%global packver   3.3.0
+%global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Information Analysis for Test and Rating Scale Data
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggpubr 
@@ -30,8 +30,8 @@ BuildRequires:    R-CRAN-utf8
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-fda 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggpubr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vDiveR
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of Viral Protein Sequence Diversity Dynamics
 
@@ -54,10 +54,11 @@ Requires:         R-CRAN-maps
 
 %description
 To ease the visualization of outputs from Diversity Motif Analyser
-('DiMA'; <https://github.com/PU-SDS/DiMA>). 'vDiveR' allows visualization
-of the diversity motifs (index and its variants – major, minor and unique)
-for elucidation of the underlying inherent dynamics. Please refer
-<https://vdiver-manual.readthedocs.io/en/latest/> for more information.
+('DiMA'; <https://github.com/BVU-BILSAB/DiMA>). 'vDiveR' allows
+visualization of the diversity motifs (index and its variants – major,
+minor and unique) for elucidation of the underlying inherent dynamics.
+Please refer <https://vdiver-manual.readthedocs.io/en/latest/> for more
+information.
 
 %prep
 %setup -q -c -n %{packname}

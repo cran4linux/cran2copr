@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dacc
-%global packver   0.0-2
+%global packver   0.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detection and Attribution Analysis of Climate Change
 
@@ -35,9 +35,11 @@ Requires:         R-CRAN-magrittr
 %description
 Conduct detection and attribution of climate change using methods
 including optimal fingerprinting via generalized total least squares or
-estimating equation. Provide shrinkage estimators for covariance matrix
-from Ledoit and Wolf (2004) <doi:10.1016/S0047-259X(03)00096-4>, and
-Ledoit and Wolf (2017) <doi:10.2139/ssrn.2383361>.
+estimating equation approach from Ma et al. (2023)
+<doi:10.1175/JCLI-D-22-0681.1>. Provide shrinkage estimators for
+covariance matrix from Ledoit and Wolf (2004)
+<doi:10.1016/S0047-259X(03)00096-4>, and Ledoit and Wolf (2017)
+<doi:10.2139/ssrn.2383361>.
 
 %prep
 %setup -q -c -n %{packname}

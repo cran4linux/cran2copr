@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tarchetypes
-%global packver   0.7.10
+%global packver   0.7.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.10
+Version:          0.7.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Archetypes for Targets
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.1
 BuildRequires:    R-CRAN-withr >= 2.1.2
 BuildRequires:    R-CRAN-fs >= 1.4.2
-BuildRequires:    R-CRAN-targets >= 1.3.2
+BuildRequires:    R-CRAN-targets >= 1.4.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-digest >= 0.6.25
@@ -31,7 +31,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-tibble >= 3.0.1
 Requires:         R-CRAN-withr >= 2.1.2
 Requires:         R-CRAN-fs >= 1.4.2
-Requires:         R-CRAN-targets >= 1.3.2
+Requires:         R-CRAN-targets >= 1.4.0
 Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-digest >= 0.6.25

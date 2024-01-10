@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3resampling
-%global packver   2023.12.20
+%global packver   2024.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.12.20
+Version:          2024.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling Algorithms for 'mlr3' Framework
 
@@ -46,7 +46,9 @@ have similar test accuracy for each group; other is usually somewhat less
 accurate than same; other can be just as bad as featureless baseline when
 the groups have different patterns). For more information,
 <https://tdhock.github.io/blog/2023/R-gen-new-subsets/> describes the
-method in depth.
+method in depth. How many train samples are required to get accurate
+predictions on a test set? Cross-validation can be used to answer this
+question, with variable size train sets.
 
 %prep
 %setup -q -c -n %{packname}

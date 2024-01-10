@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapCAST
-%global packver   23.12.1
+%global packver   24.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          23.12.1
+Version:          24.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          REDCap Castellated Data Handling
 

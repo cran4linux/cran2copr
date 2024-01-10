@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fanyi
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Translate Words or Sentences via Online Translators
 
@@ -17,19 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-yulab.utils >= 0.1.3
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-ggfun 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-rentrez 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-SSEparser 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-yulab.utils >= 0.1.3
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-ggfun 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-rentrez 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-SSEparser 
+Requires:         R-utils 
+Requires:         R-CRAN-uuid 
 
 %description
 Useful functions to translate text for multiple languages using online
 translators. For example, by translating error messages and descriptive
 analysis results into a language familiar to the user, it enables a better
 understanding of the information, thereby reducing the barriers caused by
-language.
+language. It offers several helper functions to query gene information to
+help interpretation of interested genes (e.g., marker genes, differential
+expression genes), and provides utilities to translate 'ggplot' graphics.
 
 %prep
 %setup -q -c -n %{packname}

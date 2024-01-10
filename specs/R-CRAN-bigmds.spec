@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bigmds
-%global packver   2.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Scaling for Big Data
 
@@ -13,29 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-svd 
+BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-parallel 
-Requires:         R-stats 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-svd 
+Requires:         R-CRAN-corpcor 
 Requires:         R-parallel 
+Requires:         R-stats 
 
 %description
 MDS is a statistic tool for reduction of dimensionality, using as input a
 distance matrix of dimensions n × n. When n is large, classical algorithms
 suffer from computational problems and MDS configuration can not be
-obtained. With this package, we address these problems by means of three
-algorithms: - Divide-and-conquer MDS proposed by Delicado P. and C.
-Pachón-García (2021) <arXiv:2007.11919>. - Interpolation MDS, also
-proposed by Delicado P. and C. Pachón-García (2021) <arXiv:2007.11919>,
-which uses Gower's interpolation formula as described in Gower, J. C. and
-D. J. Hand (1995). - Fast MDS, which is an implementation of the algorithm
-proposed by Yang, T., J. Liu, L. McMillan, and W. Wang (2006). The main
-idea of these algorithms is based on partitioning the data set into small
-pieces, where classical methods can work. In order to align all the
-solutions, Procrustes formula is used as described in Borg, I. and P.
-Groenen (2005).
+obtained. With this package, we address these problems by means of six
+algorithms, being two of them original proposals: - Landmark MDS proposed
+by De Silva V. and JB. Tenenbaum (2004). - Interpolation MDS proposed by
+Delicado P. and C. Pachón-García (2021) <arXiv:2007.11919> (original
+proposal). - Reduced MDS proposed by Paradis E (2018). - Pivot MDS
+proposed by Brandes U. and C. Pich (2007) - Divide-and-conquer MDS
+proposed by Delicado P. and C. Pachón-García (2021) <arXiv:2007.11919>
+(original proposal). - Fast MDS, proposed by Yang, T., J. Liu, L. McMillan
+and W. Wang (2006).
 
 %prep
 %setup -q -c -n %{packname}
