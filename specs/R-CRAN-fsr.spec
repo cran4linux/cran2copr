@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fsr
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Fuzzy Spatial Data
 
@@ -24,9 +24,8 @@ BuildRequires:    R-CRAN-e1071 >= 1.7.3
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.6
 BuildRequires:    R-CRAN-pso >= 1.0.3
-BuildRequires:    R-CRAN-sf >= 0.9.4
+BuildRequires:    R-CRAN-sf >= 1.0.15
 BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-lwgeom >= 0.2.6
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-tibble >= 3.0.1
 Requires:         R-methods >= 2.0.0
@@ -34,9 +33,8 @@ Requires:         R-CRAN-e1071 >= 1.7.3
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-dplyr >= 1.0.6
 Requires:         R-CRAN-pso >= 1.0.3
-Requires:         R-CRAN-sf >= 0.9.4
+Requires:         R-CRAN-sf >= 1.0.15
 Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-lwgeom >= 0.2.6
 
 %description
 Support for fuzzy spatial objects, their operations, and fuzzy spatial

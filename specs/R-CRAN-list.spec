@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  list
-%global packver   9.2.4
+%global packver   9.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.2.4
+Version:          9.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for the Item Count Technique and List Experiment
 

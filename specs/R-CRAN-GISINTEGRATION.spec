@@ -1,45 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TropFishR
-%global packver   1.6.3
+%global __requires_exclude ^libmpi
+%global packname  GISINTEGRATION
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tropical Fisheries Analysis
+Summary:          GIS Integration
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.0
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-GenSA 
-BuildRequires:    R-CRAN-GA 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-Requires:         R-CRAN-Matrix >= 1.0
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-GenSA 
-Requires:         R-CRAN-GA 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-CRAN-shapefiles 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-syn 
+BuildRequires:    R-CRAN-RecordLinkage 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-shapefiles 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-syn 
+Requires:         R-CRAN-RecordLinkage 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sf 
 
 %description
-A compilation of fish stock assessment methods for the analysis of
-length-frequency data in the context of data-poor fisheries. Includes
-methods and examples included in the FAO Manual by P. Sparre and S.C.
-Venema (1998), "Introduction to tropical fish stock assessment"
-(<http://www.fao.org/documents/card/en/c/9bb12a06-2f05-5dcb-a6ca-2d6dd3080f65/>),
-as well as other more recent methods.
+Designed to facilitate the preprocessing and linking of GIS (Geographic
+Information System) databases
+<https://www.sciencedirect.com/topics/computer-science/gis-database>, the
+R package 'GISINTEGRATION' offers a robust solution for efficiently
+preparing GIS data for advanced spatial analyses. This package excels in
+simplifying intrica procedures like data cleaning, normalization, and
+format conversion, ensuring that the data are optimally primed for precise
+and thorough analysis.
 
 %prep
 %setup -q -c -n %{packname}

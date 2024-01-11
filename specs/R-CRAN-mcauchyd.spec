@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcauchyd
-%global packver   1.0.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Cauchy Distribution; Kullback-Leibler Divergence
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Distance between multivariate Cauchy distributions, as presented by N.

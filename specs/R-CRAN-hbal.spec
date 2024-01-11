@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hbal
-%global packver   1.2.8
+%global packver   1.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchically Regularized Entropy Balancing
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-estimatr 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-generics 
 
 %description
 Implements hierarchically regularized entropy balancing proposed by Xu and

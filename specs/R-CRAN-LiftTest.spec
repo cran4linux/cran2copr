@@ -1,45 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  opensensmapr
-%global packver   0.6.0
+%global packname  LiftTest
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the Data API of 'openSenseMap.org'
+Summary:          A Bootstrap Proportion Test for Brand Lift Testing
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
 
 %description
-Download environmental measurements and sensor station metadata from the
-API of open data sensor web platform <https://opensensemap.org> for
-analysis in R. This platform provides real time data of more than 1500
-low-cost sensor stations for PM10, PM2.5, temperature, humidity, UV-A
-intensity and more phenomena. The package aims to be compatible with 'sf'
-and the 'Tidyverse', and provides several helper functions for data
-exploration and transformation.
+A bootstrap proportion test for Brand Lift Testing to quantify the
+effectiveness of online advertising. Methods of the bootstrap proportion
+test are presented in Liu, Yu, Mao, Wu, Dyer (2023)
+<doi:10.1145/3583780.3615021>.
 
 %prep
 %setup -q -c -n %{packname}

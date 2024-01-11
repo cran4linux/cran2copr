@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lmomco
-%global packver   2.4.11
+%global packver   2.4.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.11
+Version:          2.4.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          L-Moments, Censored L-Moments, Trimmed L-Moments, L-Comoments, and Many Distributions
 

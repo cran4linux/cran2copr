@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  esquisse
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore and Visualize Your Data Interactively
 
@@ -18,27 +18,31 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-datamods >= 1.2.0
+BuildRequires:    R-CRAN-datamods >= 1.4.0
 BuildRequires:    R-CRAN-shiny >= 1.1.0
 BuildRequires:    R-CRAN-shinyWidgets >= 0.6.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.3.1
+BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-phosphoricons 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-shinybusy 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-datamods >= 1.2.0
+Requires:         R-CRAN-datamods >= 1.4.0
 Requires:         R-CRAN-shiny >= 1.1.0
 Requires:         R-CRAN-shinyWidgets >= 0.6.0
 Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.3.1
+Requires:         R-CRAN-bslib 
 Requires:         R-grDevices 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-phosphoricons 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-shinybusy 
 
 %description
 A 'shiny' gadget to create 'ggplot2' figures interactively with

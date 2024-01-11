@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BH
-%global packver   1.81.0-1
+%global packver   1.84.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.81.0.1
+Version:          1.84.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Boost C++ Header Files
 
@@ -25,14 +25,14 @@ at compile-time without linking.  This package aims to provide the most
 useful subset of Boost libraries for template use among CRAN packages. By
 placing these libraries in this package, we offer a more efficient
 distribution system for CRAN as replication of this code in the sources of
-other packages is avoided. As of release 1.81.0-0, the following Boost
+other packages is avoided. As of release 1.84.0-0, the following Boost
 libraries are included: 'accumulators' 'algorithm' 'align' 'any' 'atomic'
 'beast' 'bimap' 'bind' 'circular_buffer' 'compute' 'concept' 'config'
 'container' 'date_time' 'detail' 'dynamic_bitset' 'exception' 'flyweight'
 'foreach' 'functional' 'fusion' 'geometry' 'graph' 'heap' 'icl' 'integer'
 'interprocess' 'intrusive' 'io' 'iostreams' 'iterator' 'lambda2' 'math'
 'move' 'mp11' 'mpl' 'multiprecision' 'numeric' 'pending' 'phoenix'
-'polygon' 'preprocessor' 'process' 'propery_tree' 'random' 'range'
+'polygon' 'preprocessor' 'process' 'propery_tree' 'qvm' 'random' 'range'
 'scope_exit' 'smart_ptr' 'sort' 'spirit' 'tuple' 'type_traits' 'typeof'
 'unordered' 'url' 'utility' 'uuid'.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NNS
-%global packver   10.4
+%global packver   10.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.4
+Version:          10.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Nonparametric Statistics
 
@@ -50,9 +50,10 @@ f(x).  These robust statistics provide the basis for nonlinear analysis
 while retaining linear equivalences.  NNS offers: Numerical integration,
 Numerical differentiation, Clustering, Correlation, Dependence, Causal
 analysis, ANOVA, Regression, Classification, Seasonality, Autoregressive
-modeling, Normalization and Stochastic dominance.  All routines based on:
-Viole, F. and Nawrocki, D. (2013), Nonlinear Nonparametric Statistics:
-Using Partial Moments (ISBN: 1490523995).
+modeling, Normalization, Stochastic dominance and Advanced Monte Carlo
+sampling.  All routines based on: Viole, F. and Nawrocki, D. (2013),
+Nonlinear Nonparametric Statistics: Using Partial Moments (ISBN:
+1490523995).
 
 %prep
 %setup -q -c -n %{packname}
