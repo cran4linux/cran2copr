@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MortalityLaws
-%global packver   2.0.3
+%global packname  Apoderoides
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametric Mortality Models, Life Tables and HMD
+Summary:          Prioritize and Delete Erroneous Taxa in a Large Phylogenetic Tree
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-RCurl >= 1.95
-BuildRequires:    R-CRAN-httr >= 1.4.5
-BuildRequires:    R-CRAN-pbapply >= 1.3.4
-BuildRequires:    R-CRAN-minpack.lm >= 1.2
-BuildRequires:    R-CRAN-rvest >= 1.0.3
-BuildRequires:    R-CRAN-tidyr >= 0.8.1
-Requires:         R-CRAN-RCurl >= 1.95
-Requires:         R-CRAN-httr >= 1.4.5
-Requires:         R-CRAN-pbapply >= 1.3.4
-Requires:         R-CRAN-minpack.lm >= 1.2
-Requires:         R-CRAN-rvest >= 1.0.3
-Requires:         R-CRAN-tidyr >= 0.8.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppProgress 
 
 %description
-Fit the most popular human mortality 'laws', and construct full and
-abridge life tables given various input indices. A mortality law is a
-parametric function that describes the dying-out process of individuals in
-a population during a significant portion of their life spans. For a
-comprehensive review of the most important mortality laws see Tabeau
-(2001) <doi:10.1007/0-306-47562-6_1>. Practical functions for downloading
-data from various human mortality databases are provided as well.
+Finds, prioritizes and deletes erroneous taxa in a phylogenetic tree. This
+package calculates scores for taxa in a tree. Higher score means the taxon
+is more erroneous. If the score is zero for a taxon, the taxon is not
+erroneous. This package also can remove all erroneous taxa automatically
+by iterating score calculation and pruning taxa with the highest score.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  exDE
-%global packver   1.0.0
+%global packname  rqlm
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extensible Differential Equations for Mosquito-Borne Pathogen Modeling
+Summary:          Modified Poisson and Least-Squares Regressions for Binary Outcome
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-expm 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-stats 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sandwich 
 
 %description
-Provides tools to set up modular ordinary and delay differential equation
-models for mosquito-borne pathogens, focusing on malaria. Modular design
-is achieved by S3 dispatch on parameter lists for each component which is
-used to compute the full set of differential equations which may be solved
-using any of the packages for numerical simulation of differential
-equations in R. The methods implemented by this package are described in
-Wu et al. (2022) <doi:10.1101/2022.11.07.22282044>.
+Modified Poisson and least-squares regression analyses for binary outcomes
+of Zou (2004) <doi:10.1093/aje/kwh090> and Cheung (2007)
+<doi:10.1093/aje/kwm223> have been standard multivariate analysis methods
+to estimate risk ratio and risk difference in clinical and epidemiological
+studies. This R package involves an easy-to-handle function to implement
+these analyses by simple commands. Also, recent studies have shown the
+ordinary robust variance estimator possibly has serious bias under small
+or moderate sample size situations for these methods. This package also
+provides computational tools to calculate alternative accurate confidence
+intervals (Noma et al. (2024) <Forthcoming>).
 
 %prep
 %setup -q -c -n %{packname}

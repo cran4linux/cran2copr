@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DLSSM
-%global packver   0.1.0
+%global packname  bscui
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Logistic State Space Prediction Model
+Summary:          Build SVG Custom User Interface
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.10
-Requires:         R-core >= 3.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-webshot2 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-webshot2 
 
 %description
-Implements the dynamic logistic state space model for binary outcome data
-proposed by Jiang et al. (2021) <doi:10.1111/biom.13593>. It provides a
-computationally efficient way to update the prediction whenever new data
-becomes available. It allows for both time-varying and time-invariant
-coefficients, and use cubic smoothing splines to model varying
-coefficients. The smoothing parameters are objectively chosen by maximum
-likelihood. The model is updated using batch data accumulated at
-pre-specified time intervals.
+Render SVG as interactive figures to display contextual information, with
+selectable and clickable user interface elements. These figures can be
+seamlessly integrated into 'rmarkdown' and 'Quarto' documents, as well as
+'shiny' applications, allowing manipulation of elements and reporting
+actions performed on them. Additional features include pan, zoom in/out
+functionality, and the ability to export the figures in SVG or PNG
+formats.
 
 %prep
 %setup -q -c -n %{packname}

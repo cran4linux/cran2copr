@@ -1,36 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  teal.code
-%global packver   0.5.0
+%global packname  SIRmcmc
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Code Storage and Execution Class for 'teal' Applications
+Summary:          Compartmental Susceptible-Infectious-Recovered (SIR) Model of Community and Household Infection
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.15
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
+Requires:         R-CRAN-Rcpp >= 0.12.15
 Requires:         R-methods 
-Requires:         R-grDevices 
 
 %description
-Introduction of 'qenv' S4 class, that facilitates code execution and
-reproducibility in 'teal' applications.
+We build an Susceptible-Infectious-Recovered (SIR) model where the rate of
+infection is the sum of the household rate and the community rate. We
+estimate the posterior distribution of the parameters using the Metropolis
+algorithm. Further details may be found in: F Scott Dahlgren, Ivo M Foppa,
+Melissa S Stockwell, Celibell Y Vargas, Philip LaRussa, Carrie Reed (2021)
+"Household transmission of influenza A and B within a prospective cohort
+during the 2013-2014 and 2014-2015 seasons" <doi:10.1002/sim.9181>.
 
 %prep
 %setup -q -c -n %{packname}

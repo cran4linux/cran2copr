@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nncc
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nearest Neighbors Matching of Case-Control Data
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.2
 Requires:         R-core >= 3.3.2
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-tidyr 
@@ -23,10 +24,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-mice 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-tidyr 
@@ -34,10 +32,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-mgcv 
 Requires:         R-stats 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-mice 
 
 %description
 Provides nearest-neighbors matching and analysis of case-control data.

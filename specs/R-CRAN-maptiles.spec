@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maptiles
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Display Map Tiles
 
@@ -19,24 +19,28 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf >= 0.9.5
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-slippymath 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-sf >= 0.9.5
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-digest 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-terra 
 Requires:         R-tools 
 Requires:         R-CRAN-slippymath 
+Requires:         R-utils 
 
 %description
 To create maps from tiles, 'maptiles' downloads, composes and displays
-tiles from a large number of providers (e.g. 'OpenStreetMap', 'Stamen',
+tiles from a large number of providers (e.g. 'OpenStreetMap', 'Stadia',
 'Esri', 'CARTO', or 'Thunderforest').
 
 %prep

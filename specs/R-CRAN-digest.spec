@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  digest
-%global packver   0.6.33
+%global packver   0.6.34
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.33
+Version:          0.6.34
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Compact Hash Digests of R Objects
 

@@ -1,62 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  convergEU
-%global packver   0.5.5
+%global packname  tidyMC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Monitoring Convergence of EU Countries
+Summary:          Monte Carlo Simulations Made Easy and Tidy
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-eurostat 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-caTools 
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-eurostat 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-caTools 
-Requires:         R-CRAN-broom 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Indicators and measures by country and time describe what happens at
-economic and social levels. This package provides functions to calculate
-several measures of convergence after imputing missing values. The
-automated downloading of Eurostat data, followed by the production of
-country fiches and indicator fiches, makes possible to produce automated
-reports. The Eurofound report (<doi:10.2806/68012>) "Upward convergence in
-the EU: Concepts, measurements and indicators", 2018, is a detailed
-presentation of convergence.
+Framework to run Monte Carlo simulations over a parameter grid. Allows to
+parallelize the simulations. Generates plots and 'LaTeX' tables
+summarizing the results from the simulation.
 
 %prep
 %setup -q -c -n %{packname}

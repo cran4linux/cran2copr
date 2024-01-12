@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  singleCellHaystack
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Universal Differential Expression Prediction Tool for Single-Cell and Spatial Genomics Data
 
@@ -43,7 +43,7 @@ subsets of cells that are non-randomly positioned inside an input space
 embeddings, etc). For the theoretical background of 'singleCellHaystack'
 we refer to our original paper Vandenbon and Diez (Nature Communications,
 2020) <doi:10.1038/s41467-020-17900-3> and our update Vandenbon and Diez
-(bioRxiv, 2022) <doi:10.1101/2022.11.13.516355>.
+(Scientific Reports, 2023) <doi:10.1038/s41598-023-38965-2>.
 
 %prep
 %setup -q -c -n %{packname}

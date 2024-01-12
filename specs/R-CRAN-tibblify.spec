@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tibblify
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rectangle Nested Lists
 
@@ -14,24 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-tibble >= 3.1.8
-BuildRequires:    R-CRAN-withr >= 2.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-cli >= 3.6.2
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-withr >= 2.5.2
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-rlang >= 1.0.4
-BuildRequires:    R-CRAN-lifecycle >= 1.0.1
-BuildRequires:    R-CRAN-vctrs >= 0.5.0
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-tibble >= 3.1.8
-Requires:         R-CRAN-withr >= 2.5.0
+BuildRequires:    R-CRAN-rlang >= 1.1.3
+BuildRequires:    R-CRAN-lifecycle >= 1.0.4
+BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-CRAN-vctrs >= 0.6.5
+Requires:         R-CRAN-cli >= 3.6.2
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-withr >= 2.5.2
 Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-rlang >= 1.0.4
-Requires:         R-CRAN-lifecycle >= 1.0.1
-Requires:         R-CRAN-vctrs >= 0.5.0
-Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-rlang >= 1.1.3
+Requires:         R-CRAN-lifecycle >= 1.0.4
+Requires:         R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-vctrs >= 0.6.5
 
 %description
 A tool to rectangle a nested list, that is to convert it into a tibble.

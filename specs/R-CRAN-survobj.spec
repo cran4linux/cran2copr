@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survobj
-%global packver   1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Objects to Simulate Survival Times
 
@@ -29,7 +29,8 @@ Requires:         R-CRAN-survival
 %description
 Generate objects that simulate survival times. Random values for the
 distributions are generated using the method described by Bender (2003)
-<https://epub.ub.uni-muenchen.de/id/eprint/1716>.
+<https://epub.ub.uni-muenchen.de/id/eprint/1716> and Leemis (1987) in
+Operations Research, 35(6), 892–894.
 
 %prep
 %setup -q -c -n %{packname}

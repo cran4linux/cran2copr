@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cols
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Constrained Ordinary Least Squares
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-Rfast2
 Constrained ordinary least squares is performed. One constraint is that
 all beta coefficients (including the constant) cannot be negative. They
 can be either 0 or strictly positive. Another constraint is that the sum
-ob the beta coefficients sum to a constant. References: Hansen, B. E.
+of the beta coefficients equals a constant. References: Hansen, B. E.
 (2022). Econometrics, Princeton University Press. <ISBN:9780691235899>.
 
 %prep

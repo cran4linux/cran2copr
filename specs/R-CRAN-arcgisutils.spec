@@ -1,30 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  milorGWAS
-%global packver   0.6
+%global packname  arcgisutils
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed Logistic Regression for Genome-Wide Analysis Studies (GWAS)
+Summary:          ArcGIS Utility Functions
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-gaston >= 1.6
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-gaston >= 1.6
-Requires:         R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonify 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppSimdJson 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonify 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppSimdJson 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-utils 
 
 %description
-Fast approximate methods for mixed logistic regression in genome-wide
-analysis studies (GWAS). Milet et al 2020 <doi:10.1101/2020.01.17.910109>.
+Developer oriented utility functions designed to be used as the building
+blocks of R packages that work with ArcGIS Location Services. It provides
+functionality for authorization, Esri JSON construction and parsing, as
+well as other utilities pertaining to geometry and Esri type conversions.
+To support 'ArcGIS Pro' users, authorization can done via 'arcgisbinding'.
+Installation instructions for 'arcgisbinding' can be found at
+<https://r.esri.com/r-bridge-site/arcgisbinding/installing-arcgisbinding.html>.
 
 %prep
 %setup -q -c -n %{packname}

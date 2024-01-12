@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  panstarrs
-%global packver   0.2.1
+%global packname  coil
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the Pan-STARRS API
+Summary:          Contextualization and Evaluation of COI-5P Barcode Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-aphid 
+BuildRequires:    R-CRAN-seqinr 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-aphid 
+Requires:         R-CRAN-seqinr 
 
 %description
-An interface to the API for 'Pan-STARRS1', a data archive of the PS1
-wide-field astronomical survey.  The package allows access to the PS1
-catalog and to the PS1 images.  (see
-<https://outerspace.stsci.edu/display/PANSTARRS/> for more information).
-You can use it to plan astronomical observations, make guidance pictures,
-find magnitudes in five broadband filters (g, r, i, z, y) and more.
+Designed for the cleaning, contextualization and assessment of cytochrome
+c oxidase I DNA barcode data (COI-5P, or the five prime portion of COI).
+It contains functions for placing COI-5P barcode sequences into a common
+reading frame, translating DNA sequences to amino acids and for assessing
+the likelihood that a given barcode sequence includes an insertion or
+deletion error. The error assessment relies on the comparison of input
+sequences against nucleotide and amino acid profile hidden Markov models
+(PHMMs) (for details see Durbin et al. 1998, ISBN: 9780521629713) trained
+on a taxonomically diverse set of reference sequences. The functions are
+provided as a complete pipeline and are also available individually for
+efficient and targeted analysis of barcode data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oldbailey
-%global packver   1.1.0
+%global packname  RITCH
+%global packver   0.1.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.24
 Release:          1%{?dist}%{?buildtag}
-Summary:          For Accessing the Old Bailey Open Data
+Summary:          R Parser for the ITCH-Protocol
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.4
-Requires:         R-core >= 3.4.4
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-bit64 >= 4.0.5
+BuildRequires:    R-CRAN-nanotime >= 0.3.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-bit64 >= 4.0.5
+Requires:         R-CRAN-nanotime >= 0.3.2
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-data.table 
 
 %description
-Fetch trial data from the Old Bailey Online API
-<https://www.oldbaileyonline.org/static/DocAPI.jsp>. Data is returned in
-an analysis-ready data frame with fields for metadata including (but not
-limited to) the names of the first person speakers, defendants, victims,
-their recorded genders, verdicts, punishments, crime locations, and dates.
-Optional parameters allow users to specify the number of results, whether
-these results contain key terms, and trial dates.
+Allows to efficiently parse, filter, and write binary ITCH Files (Version
+5.0) containing detailed financial transactions as distributed by NASDAQ
+to an R data.table.
 
 %prep
 %setup -q -c -n %{packname}

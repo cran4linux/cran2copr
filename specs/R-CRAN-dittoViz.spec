@@ -1,36 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  teal.code
-%global packver   0.5.0
+%global packname  dittoViz
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Code Storage and Execution Class for 'teal' Applications
+Summary:          User Friendly Data Visualization
 
-License:          Apache License 2.0
+License:          MIT + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-methods 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggridges 
+Requires:         R-stats 
 
 %description
-Introduction of 'qenv' S4 class, that facilitates code execution and
-reproducibility in 'teal' applications.
+A comprehensive visualization toolkit built with coders of all skill
+levels and color-vision impaired audiences in mind. It allows creation of
+finely-tuned, publication-quality figures from single function calls.
+Visualizations include scatter plots, compositional bar plots, violin,
+box, and ridge plots, and more. Customization ranges from size and title
+adjustments to discrete-group circling and labeling, hidden data overlay
+upon cursor hovering via ggplotly() conversion, and many more, all with
+simple, discrete inputs. Color blindness friendliness is powered by legend
+adjustments (enlarged keys), and by allowing the use of shapes or
+letter-overlay in addition to the carefully selected dittoColors().
 
 %prep
 %setup -q -c -n %{packname}

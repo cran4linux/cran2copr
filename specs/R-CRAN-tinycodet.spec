@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinycodet
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Help in your Coding Etiquette
 
@@ -16,19 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-stringi >= 1.7.12
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
 Requires:         R-CRAN-stringi >= 1.7.12
+Requires:         R-CRAN-Rcpp >= 1.0.11
 
 %description
 Adds some functions to help in your coding etiquette. 'tinycodet'
 primarily focuses on 4 aspects. 1) Safer decimal (in)equality testing,
 safer atomic conversions, and other functions for safer coding. 2) A new
 package import system, that attempts to combine the benefits of using a
-package without attaching, with the benefits of attaching a package. 3)
+package without attaching it, with the benefits of attaching a package. 3)
 Extending the string manipulation capabilities of the 'stringi' R package.
-4) Reducing repetitive code. 'tinycodet' has only one dependency, namely
-'stringi'.
+4) Reducing repetitive code. Besides linking to 'Rcpp', 'tinycodet' has
+only one other dependency, namely 'stringi'.
 
 %prep
 %setup -q -c -n %{packname}

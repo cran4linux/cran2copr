@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treeshap
-%global packver   0.3.0
+%global packname  demic
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute SHAP Values for Your Tree-Based Models Using the 'TreeSHAP' Algorithm
+Summary:          Dynamic Estimator of Microbial Communities
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix >= 1.6.2
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-Matrix >= 1.6.2
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-reshape2 
 
 %description
-An efficient implementation of the 'TreeSHAP' algorithm introduced by
-Lundberg et al., (2020) <doi:10.1038/s42256-019-0138-9>. It is capable of
-calculating SHAP (SHapley Additive exPlanations) values for tree-based
-models in polynomial time.  Currently supported models include 'gbm',
-'randomForest', 'ranger', 'xgboost', 'lightgbm'.
+Multi-sample algorithm based on contigs and coverage values, to infer the
+relative distances of contigs from the replication origin and to
+accurately compare bacterial growth rates between samples. Yuan Gao and
+Hongzhe Li (2018) <doi:10.1038/s41592-018-0182-0>.
 
 %prep
 %setup -q -c -n %{packname}

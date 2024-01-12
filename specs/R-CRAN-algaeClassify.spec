@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  algaeClassify
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Determine Phytoplankton Functional Groups Based on Functional Traits
+Summary:          Tools to Standardize Phytoplankton Taxonomic Data and Perform Functional Group Classifications
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-ritis
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RCurl 
 Requires:         R-CRAN-lubridate 
 Requires:         R-stats 
 Requires:         R-CRAN-taxize 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-ritis
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
+Requires:         R-CRAN-RCurl 
 
 %description
 Functions that facilitate the use of accepted taxonomic nomenclature,
