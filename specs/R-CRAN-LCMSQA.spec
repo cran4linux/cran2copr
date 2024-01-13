@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LCMSQA
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Liquid Chromatography/Mass Spectrometry (LC/MS) Quality Assessment
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-bsplus 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DT 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
-Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-bsplus 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DT 

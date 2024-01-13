@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ctmcd
-%global packver   1.4.3
+%global packname  VBTree
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating the Parameters of a Continuous-Time Markov Chain from Discrete-Time Data
+Summary:          Vector Binary Tree to Make Your Data Management More Efficient
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.17
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.17
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tensorA 
+Requires:         R-CRAN-tensorA 
 
 %description
-Estimation of Markov generator matrices from discrete-time observations.
-The implemented approaches comprise diagonal and weighted adjustment of
-matrix logarithm based candidate solutions as in Israel (2001)
-<doi:10.1111/1467-9965.00114> as well as a quasi-optimization approach.
-Moreover, the expectation-maximization algorithm and the Gibbs sampling
-approach of Bladt and Sorensen (2005)
-<doi:10.1111/j.1467-9868.2005.00508.x> are included.
+Vector binary tree provides a new data structure, to make your data
+visiting and management more efficient. If the data has structured column
+names, it can read these names and factorize them through specific split
+pattern, then build the mappings within double list, vector binary tree,
+array and tensor mutually, through which the batched data processing is
+achievable easily. The methods of array and tensor are also applicable.
+Detailed methods are described in Chen Zhang et al. (2020)
+<doi:10.35566/isdsa2019c8>.
 
 %prep
 %setup -q -c -n %{packname}

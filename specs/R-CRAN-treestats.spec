@@ -1,36 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epiworldR
-%global packver   0.0-3
+%global packname  treestats
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Agent-Based Epi Models
+Summary:          Phylogenetic Tree Statistics
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-Matrix 
 
 %description
-A flexible framework for Agent-Based Models (ABM), the 'epiworldR' package
-provides methods for prototyping disease outbreaks and transmission models
-using a 'C++' backend, making it very fast. It supports multiple
-epidemiological models, including the Susceptible-Infected-Susceptible
-(SIS), Susceptible-Infected-Removed (SIR),
-Susceptible-Exposed-Infected-Removed (SEIR), and others, involving
-arbitrary mitigation policies and multiple-disease models. Users can
-specify infectiousness/susceptibility rates as a function of agents'
-features, providing great complexity for the model dynamics. Furthermore,
-'epiworldR' is ideal for simulation studies featuring large populations.
+Collection of phylogenetic tree statistics, collected throughout the
+literature. All functions have been written to maximize computation speed.
+The package includes umbrella functions to calculate all statistics, all
+balance associated statistics, or all branching time related statistics.
+Furthermore, the 'treestats' package supports summary statistic
+calculations on Ltables, provides speed-improved coding of branching
+times, Ltable conversion and includes algorithms to create intermediately
+balanced trees.
 
 %prep
 %setup -q -c -n %{packname}

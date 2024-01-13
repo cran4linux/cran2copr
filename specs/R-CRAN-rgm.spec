@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openxlsx2
-%global packver   1.3
+%global packname  rgm
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read, Write and Edit 'xlsx' Files
+Summary:          Advanced Inference with Random Graphical Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,24 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-BDgraph 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-huge 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
-Requires:         R-utils 
-Requires:         R-CRAN-zip 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-BDgraph 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-huge 
 
 %description
-Simplifies the creation of 'xlsx' files by providing a high level
-interface to writing, styling and editing worksheets.
+Implements state-of-the-art Random Graphical Models (RGMs) for
+multivariate data analysis across multiple environments, offering tools
+for exploring network interactions and structural relationships.
+Capabilities include joint inference across environments, integration of
+external covariates, and a Bayesian framework for uncertainty
+quantification. Applicable in various fields, including microbiome
+analysis. Methods based on Vinciotti, V., Wit, E., & Richter, F. (2023).
+"Random Graphical Model of Microbiome Interactions in Related
+Environments." <arXiv:2304.01956>.
 
 %prep
 %setup -q -c -n %{packname}

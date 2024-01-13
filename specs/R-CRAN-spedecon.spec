@@ -1,31 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TDboost
-%global packver   1.4
+%global packname  spedecon
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Boosted Tweedie Compound Poisson Model
+Summary:          Smoothness-Penalized Deconvolution for Density Estimation Under Measurement Error
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
-BuildRequires:    R-CRAN-lattice 
-Requires:         R-CRAN-lattice 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-splines 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-quadprog 
+Requires:         R-splines 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-An implementation of a boosted Tweedie compound Poisson model proposed by
-Yang, Y., Qian, W. and Zou, H. (2018) <doi:10.1080/07350015.2016.1200981>.
-It is capable of fitting a flexible nonlinear Tweedie compound Poisson
-model (or a gamma model) and capturing high-order interactions among
-predictors. This package is based on the 'gbm' package originally
-developed by Greg Ridgeway.
+Implements the Smoothness-Penalized Deconvolution method for estimating a
+probability density under measurement error of Kent and Ruppert (2023)
+<doi:10.1080/01621459.2023.2259028>. The estimator is formed by computing
+a histogram of the error-contaminated data, and then finding an estimate
+that minimizes a reconstruction error plus a smoothness-inducing penalty
+term. The primary function, sped(), takes the data and error distribution,
+and returns the estimator as a function.
 
 %prep
 %setup -q -c -n %{packname}

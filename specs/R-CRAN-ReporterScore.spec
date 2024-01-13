@@ -1,48 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SFSI
-%global packver   1.3.1
+%global packname  ReporterScore
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Family and Selection Index
+Summary:          Generalized Reporter Score-Based Enrichment Analysis for Omics Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pcutils 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tensorEVD 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 >= 3.2.0
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
+Requires:         R-CRAN-pcutils 
+Requires:         R-utils 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tensorEVD 
-Requires:         R-parallel 
+Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-foreach 
 
 %description
-Here we provide tools for the estimation of coefficients in penalized
-regressions when the (co)variance matrix of predictors and the covariance
-vector between predictors and response, are provided. These methods are
-extended to the context of a Selection Index (commonly used for breeding
-value prediction). The approaches offer opportunities such as the
-integration of high-throughput traits in genetic evaluations ('Lopez-Cruz
-et al., 2020') <doi:10.1038/s41598-020-65011-2> and solutions for training
-set optimization in Genomic Prediction ('Lopez-Cruz & de los Campos,
-2021') <doi:10.1093/genetics/iyab030>.
+Inspired by the classic 'RSA', we developed the improved 'Generalized
+Reporter Score-based Analysis (GRSA)' method, implemented in the R package
+'ReporterScore', along with comprehensive visualization methods and
+pathway databases. 'GRSA' is a threshold-free method that works well with
+all types of biomedical features, such as genes, chemical compounds, and
+microbial species. Importantly, the 'GRSA' supports multi-group and
+longitudinal experimental designs, because of the included
+multi-group-compatible statistical methods.
 
 %prep
 %setup -q -c -n %{packname}

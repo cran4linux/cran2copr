@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ibdreg
-%global packver   0.3.8
+%global packname  GRCdesigns
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Methods for IBD Linkage with Covariates
+Summary:          Generalized Row-Column Designs
 
-License:          GPL-2 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.1
-Requires:         R-core >= 3.3.1
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Method to test genetic linkage with covariates by regression methods with
-response IBD sharing for relative pairs.  Account for correlations of IBD
-statistics and covariates for relative pairs within the same pedigree.
+When the number of treatments is large with limited experimental resources
+then Row-Column(RC) designs with multiple units per cell can be used.
+These designs are called Generalized Row-Column (GRC) designs and are
+defined as designs with v treatments in p rows and q columns such that the
+intersection of each row and column (cell) consists of k experimental
+units. For example (Bailey & Monod (2001)<doi:10.1111/1467-9469.00235>),
+to conduct an experiment for comparing 4 treatments using 4 plants with
+leaves at 2 different heights row-column design with two units per cell
+can be used. A GRC design is said to be structurally complete if
+corresponding to the intersection of each row and column, there appears at
+least two treatments. A GRC design is said to be structurally incomplete
+if corresponding to the intersection of any row and column, there is at
+least one cell which does not contain any treatment.
 
 %prep
 %setup -q -c -n %{packname}

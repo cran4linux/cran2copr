@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  OOI
+%global __requires_exclude ^libmpi
+%global packname  tsLSTMx
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Outside Option Index
+Summary:          Predict Time Series Using LSTM Model Including Exogenous Variable to Denote Zero Values
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,21 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-modi 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-modi 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tensorflow 
+BuildRequires:    R-CRAN-AllMetrics 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-tensorflow 
+Requires:         R-CRAN-AllMetrics 
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-reticulate 
 
 %description
-Calculates the Outside Option Index proposed by Caldwell and Danieli
-(2018)
-<https://drive.google.com/file/d/1j-uwD19S4gqgXIXeYch9jGBCaDhWZlRQ/view>.
-This index uses the cross- sectional concentration of similar workers
-across job types to quantify the availability of outside options as a
-function of workers’ characteristics (e.g. commuting costs, preferences,
-and skills.)
+It is a versatile tool for predicting time series data using Long
+Short-Term Memory (LSTM) models. It is specifically designed to handle
+time series with an exogenous variable, allowing users to denote whether
+data was available for a particular period or not. The package encompasses
+various functionalities, including hyperparameter tuning, custom loss
+function support, model evaluation, and one-step-ahead forecasting. With
+an emphasis on ease of use and flexibility, it empowers users to explore,
+evaluate, and deploy LSTM models for accurate time series predictions and
+forecasting in diverse applications. More details can be found in Garai
+and Paul (2023) <doi:10.1016/j.iswa.2023.200202>.
 
 %prep
 %setup -q -c -n %{packname}

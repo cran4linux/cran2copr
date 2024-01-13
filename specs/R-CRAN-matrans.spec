@@ -1,50 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ROptEst
-%global packver   1.3.1
+%global packname  matrans
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimally Robust Estimation
+Summary:          Model Averaging-Assisted Optimal Transfer Learning
 
-License:          LGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-distrMod >= 2.8.1
-BuildRequires:    R-CRAN-distr >= 2.8.0
-BuildRequires:    R-CRAN-distrEx >= 2.8.0
-BuildRequires:    R-CRAN-RandVar >= 1.2.0
-BuildRequires:    R-CRAN-RobAStBase >= 1.2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-startupmsg 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-formatR 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-splines 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-distrMod >= 2.8.1
-Requires:         R-CRAN-distr >= 2.8.0
-Requires:         R-CRAN-distrEx >= 2.8.0
-Requires:         R-CRAN-RandVar >= 1.2.0
-Requires:         R-CRAN-RobAStBase >= 1.2.0
-Requires:         R-methods 
-Requires:         R-CRAN-startupmsg 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-formatR 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-quadprog 
+Requires:         R-splines 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-grDevices 
 
 %description
-Optimally robust estimation in general smoothly parameterized models using
-S4 classes and methods.
+Transfer learning, as a prevailing technique in computer sciences, aims to
+improve the performance of a target model by leveraging auxiliary
+information from heterogeneous source data. We provide novel tools for
+multi-source transfer learning under statistical models based on model
+averaging strategies, including linear regression models, partially linear
+models. Unlike existing transfer learning approaches, this method
+integrates the auxiliary information through data-driven weight
+assignments to avoid negative transfer. This is the first package for
+transfer learning based on the optimal model averaging frameworks,
+providing efficient implementations for practitioners in multi-source data
+modeling. The details are described in Hu and Zhang (2023)
+<https://jmlr.org/papers/v24/23-0030.html>.
 
 %prep
 %setup -q -c -n %{packname}

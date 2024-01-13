@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HYPEtools
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Processing and Analyzing Files from the Hydrological Catchment Model HYPE
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.9.8
 BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-patchwork 
@@ -41,6 +43,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
@@ -48,6 +51,7 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-lubridate 
+Requires:         R-methods 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-parallel 
 Requires:         R-CRAN-patchwork 

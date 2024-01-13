@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  misty
-%global packver   0.5.4
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions 'T. Yanagida'
 
@@ -14,9 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-lavaan 
@@ -37,21 +36,23 @@ Requires:         R-CRAN-rstudioapi
 Requires:         R-CRAN-writexl 
 
 %description
-Miscellaneous functions for descriptive statistics (e.g., frequency table,
-cross tabulation, multilevel descriptive statistics, multilevel R-squared
-measures, within-group and between-group correlation matrix, various
-effect size measures), data management (e.g., grand-mean and group-mean
-centering, coding variables and reverse coding items, scale and group
-scores, reading and writing SPSS and Excel files), missing data (e.g.,
-descriptive statistics for missing data, missing data pattern, Little's
-test of Missing Completely at Random, and auxiliary variable analysis),
-item analysis (e.g., coefficient alpha and omega, multilevel confirmatory
-factor analysis, between-group and longitudinal measurement equivalence
-evaluation, cross-level measurement equivalence evaluation, and multilevel
-composite reliability), and statistical analysis (e.g., confidence
-intervals, collinearity and residual diagnostics, dominance analysis,
-between- and within-subject analysis of variance, latent class analysis,
-t-test, z-test, sample size determination).
+Miscellaneous functions for (1) data management (e.g., grand-mean and
+group-mean centering, coding variables and reverse coding items, scale and
+cluster scores, reading and writing Excel and SPSS files), (2) descriptive
+statistics (e.g., frequency table, cross tabulation, effect size
+measures), (3) missing data (e.g., descriptive statistics for missing
+data, missing data pattern, Little's test of Missing Completely at Random,
+and auxiliary variable analysis), (4) multilevel data (e.g., multilevel
+descriptive statistics, within-group and between-group correlation matrix,
+multilevel confirmatory factor analysis, level-specific fit indices,
+cross-level measurement equivalence evaluation, multilevel composite
+reliability, and multilevel R-squared measures), (5) item analysis (e.g.,
+confirmatory factor analysis, coefficient alpha and omega, between-group
+and longitudinal measurement equivalence evaluation), and (6) statistical
+analysis (e.g., confidence intervals, collinearity and residual
+diagnostics, dominance analysis, between- and within-subject analysis of
+variance, latent class analysis, t-test, z-test, sample size
+determination).
 
 %prep
 %setup -q -c -n %{packname}
