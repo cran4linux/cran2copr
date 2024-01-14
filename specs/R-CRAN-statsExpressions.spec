@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statsExpressions
-%global packver   1.5.2
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Dataframes and Expressions with Statistical Details
 
@@ -18,40 +18,40 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-PMCMRplus >= 1.9.7
 BuildRequires:    R-CRAN-afex >= 1.3.0
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.3
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-purrr >= 1.0.2
-BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.4
-BuildRequires:    R-CRAN-effectsize >= 0.8.5
+BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.6
+BuildRequires:    R-CRAN-datawizard >= 0.9.1
+BuildRequires:    R-CRAN-effectsize >= 0.8.6
 BuildRequires:    R-CRAN-correlation >= 0.8.4
-BuildRequires:    R-CRAN-datawizard >= 0.8.0
-BuildRequires:    R-CRAN-parameters >= 0.21.1
-BuildRequires:    R-CRAN-insight >= 0.19.4
-BuildRequires:    R-CRAN-performance >= 0.10.4
+BuildRequires:    R-CRAN-parameters >= 0.21.3
+BuildRequires:    R-CRAN-insight >= 0.19.7
+BuildRequires:    R-CRAN-performance >= 0.10.8
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-PMCMRplus 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-WRS2 
 BuildRequires:    R-CRAN-zeallot 
 Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-PMCMRplus >= 1.9.7
 Requires:         R-CRAN-afex >= 1.3.0
 Requires:         R-CRAN-tidyr >= 1.3.0
-Requires:         R-CRAN-dplyr >= 1.1.3
+Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-purrr >= 1.0.2
-Requires:         R-CRAN-BayesFactor >= 0.9.12.4.4
-Requires:         R-CRAN-effectsize >= 0.8.5
+Requires:         R-CRAN-BayesFactor >= 0.9.12.4.6
+Requires:         R-CRAN-datawizard >= 0.9.1
+Requires:         R-CRAN-effectsize >= 0.8.6
 Requires:         R-CRAN-correlation >= 0.8.4
-Requires:         R-CRAN-datawizard >= 0.8.0
-Requires:         R-CRAN-parameters >= 0.21.1
-Requires:         R-CRAN-insight >= 0.19.4
-Requires:         R-CRAN-performance >= 0.10.4
+Requires:         R-CRAN-parameters >= 0.21.3
+Requires:         R-CRAN-insight >= 0.19.7
+Requires:         R-CRAN-performance >= 0.10.8
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-PMCMRplus 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-withr 

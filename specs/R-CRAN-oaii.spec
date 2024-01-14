@@ -1,51 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cplm
-%global packver   0.7-12
+%global packname  oaii
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.12
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compound Poisson Linear Models
+Summary:          'OpenAI' API R Interface
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-splines 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-biglm 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-stats 
-BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-tweedie 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-Matrix 
-Requires:         R-splines 
-Requires:         R-methods 
-Requires:         R-CRAN-biglm 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-statmod 
-Requires:         R-stats 
-Requires:         R-stats4 
-Requires:         R-CRAN-tweedie 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-utils 
 
 %description
-Likelihood-based and Bayesian methods for various compound Poisson linear
-models based on Zhang, Yanwei (2013) <doi:10.1007/s11222-012-9343-7>.
+A comprehensive set of helpers that streamline data transmission and
+processing, making it effortless to interact with the 'OpenAI' API.
 
 %prep
 %setup -q -c -n %{packname}

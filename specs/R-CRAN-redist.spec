@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redist
-%global packver   4.1.1
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          4.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation Methods for Legislative Redistricting
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    gmp-devel
 BuildRequires:    libxml2-devel
-Requires:         python3
+Recommends:       python3
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-cli >= 3.1.0
@@ -62,9 +62,9 @@ constraints in the redistricting process such as geographic compactness
 and population parity requirements. Tools for analysis such as computation
 of various summary statistics and plotting functionality are also
 included. The package implements the SMC algorithm of McCartan and Imai
-(2020) <arXiv:2008.06131>, the enumeration algorithm of Fifield, Imai,
-Kawahara, and Kenny (2020) <doi:10.1080/2330443X.2020.1791773>, the Flip
-MCMC algorithm of Fifield, Higgins, Imai and Tarr (2020)
+(2023) <doi:10.1214/23-AOAS1763>, the enumeration algorithm of Fifield,
+Imai, Kawahara, and Kenny (2020) <doi:10.1080/2330443X.2020.1791773>, the
+Flip MCMC algorithm of Fifield, Higgins, Imai and Tarr (2020)
 <doi:10.1080/10618600.2020.1739532>, the Merge-split/Recombination
 algorithms of Carter et al. (2019) <arXiv:1911.01503> and DeFord et al.
 (2021) <doi:10.1162/99608f92.eb30390f>, and the Short-burst optimization

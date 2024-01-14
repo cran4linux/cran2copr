@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shorts
-%global packver   2.5.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Short Sprints
 
@@ -37,13 +37,15 @@ speed (MSS), relative acceleration (TAU), and other parameters such us
 maximal acceleration (MAC) and maximal relative power (PMAX). These
 parameters can be used to predict kinematic and kinetics variables and to
 compare individuals. The modeling method utilized in this package is based
-on the works of Chelly SM, Denis C. (2001) <doi:
+on the works of Furusawa K, Hill AV, Parkinson JL (1927) <doi:
+10.1098/rspb.1927.0035>, Greene PR. (1986) <doi:
+10.1016/0025-5564(86)90063-5>, Chelly SM, Denis C. (2001) <doi:
 10.1097/00005768-200102000-00024>, Clark KP, Rieger RH, Bruno RF, Stearne
-DJ. (2017) <doi: 10.1519/JSC.0000000000002081>, Furusawa K, Hill AV,
-Parkinson JL (1927) <doi: 10.1098/rspb.1927.0035>, Greene PR. (1986) <doi:
-10.1016/0025-5564(86)90063-5>, Samozino P. and Peyrot N., et al (2022)
-<doi: 10.1111/sms.14097>, and Samozino P. (2018) <doi:
-10.1007/978-3-319-05633-3_11>.
+DJ. (2017) <doi: 10.1519/JSC.0000000000002081>, Samozino P. (2018) <doi:
+10.1007/978-3-319-05633-3_11>, Samozino P. and Peyrot N., et al (2022)
+<doi: 10.1111/sms.14097>, Clavel, P., et al (2023) <doi:
+10.1016/j.jbiomech.2023.111602>, and Jovanovic M. (2023) <doi:
+10.1080/10255842.2023.2170713>.
 
 %prep
 %setup -q -c -n %{packname}

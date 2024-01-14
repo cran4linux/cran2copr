@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  freegroup
-%global packver   1.1-6
+%global packver   1.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Free Group
 
@@ -19,14 +19,14 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magic >= 1.5.9
 BuildRequires:    R-CRAN-freealg >= 1.0.4
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-magic >= 1.5.9
 Requires:         R-CRAN-freealg >= 1.0.4
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-magrittr 
 
 %description
 The free group in R; juxtaposition is represented by a plus.  Includes

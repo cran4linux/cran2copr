@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SMOTEWB
-%global packver   1.0.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
 
@@ -32,10 +32,10 @@ Requires:         R-CRAN-Rfast
 Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
 Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>. Also SMOTEWB provides
 faster versions of several resampling methods for imbalanced datasets,
-including SMOTE with Boosting (SMOTEWB), ADASYN, Borderline SMOTE
-(BLSMOTE), Random Over-Sampling (ROS), Random Under-Sampling (RUS),
-Safe-Level SMOTE (SLSMOTE), Relocating Safe-Level SMOTE (RSLSMOTE), and
-Random Over-Sampling Examples (ROSE).
+including SMOTE with Boosting (SMOTEWB), Random Walk Oversampling (RWO),
+ADASYN, Borderline SMOTE (BLSMOTE), Random Over-Sampling (ROS), Random
+Under-Sampling (RUS), Safe-Level SMOTE (SLSMOTE), Relocating Safe-Level
+SMOTE (RSLSMOTE), and Random Over-Sampling Examples (ROSE).
 
 %prep
 %setup -q -c -n %{packname}

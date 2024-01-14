@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggVennDiagram
-%global packver   1.4.9
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.9
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'ggplot2' Implement of Venn Diagram
 
@@ -18,19 +18,21 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-venn >= 1.12
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-aplot 
+BuildRequires:    R-CRAN-yulab.utils 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-venn >= 1.12
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-aplot 
+Requires:         R-CRAN-yulab.utils 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-tidyr 
 
 %description
 Easy-to-use functions to generate 2-7 sets Venn or upset plot in
@@ -41,7 +43,7 @@ has both forms), which are developed and imported from another package
 'venn', authored by Adrian Dusa. We provided internal functions to
 integrate shape data with user provided sets data, and calculated the
 geometry of every regions/intersections of them, then separately plot Venn
-in four components: set edges/labels, and region edges/labels. From
+in four components, set edges/labels, and region edges/labels. From
 version 1.0, it is possible to customize these components as you demand in
 ordinary 'ggplot2' grammar. From version 1.4.4, it supports unlimited
 number of sets, as it can draw a plain upset plot automatically when

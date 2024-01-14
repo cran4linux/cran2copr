@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pbdSLAP
-%global packver   0.3-4
+%global packver   0.3-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Programming with Big Data -- Scalable Linear Algebra Packages
 
@@ -15,15 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    openmpi-devel
-Requires:         openmpi%{_isa}
+Recommends:       openmpi%{_isa}
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-pbdMPI >= 0.3.1
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlecuyer 
 Requires:         R-CRAN-pbdMPI >= 0.3.1
 Requires:         R-methods 
-Requires:         R-CRAN-rlecuyer 
 
 %description
 Utilizing scalable linear algebra packages mainly including 'BLACS',

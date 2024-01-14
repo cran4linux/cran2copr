@@ -1,50 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NPflow
-%global packver   0.13.5
+%global packname  bayesianVARs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Nonparametrics for Automatic Gating of Flow-Cytometry Data
+Summary:          MCMC Estimation of Bayesian Vectorautoregressions
 
-License:          LGPL-3 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11
-BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-stochvol >= 3.0.2
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-factorstochvol 
+BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-CRAN-fastcluster 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pheatmap 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.11
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-stochvol >= 3.0.2
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-factorstochvol 
+Requires:         R-CRAN-GIGrvg 
 Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ellipse 
-Requires:         R-CRAN-fastcluster 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pheatmap 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-GGally 
+Requires:         R-utils 
 
 %description
-Dirichlet process mixture of multivariate normal, skew normal or skew
-t-distributions modeling oriented towards flow-cytometry data
-preprocessing applications. Method is detailed in: Hejblum, Alkhassimn,
-Gottardo, Caron & Thiebaut (2019) <doi: 10.1214/18-AOAS1209>.
+Efficient Markov Chain Monte Carlo (MCMC) algorithms for the fully
+Bayesian estimation of vectorautoregressions (VARs) featuring stochastic
+volatility (SV). Implements state-of-the-art shrinkage priors following
+Gruber & Kastner (2023) <arXiv:2206.04902>. Efficient
+equation-per-equation estimation following Kastner & Huber (2020)
+<doi:10.1002/for.2680> and Carrerio et al. (2021)
+<doi:10.1016/j.jeconom.2021.11.010>.
 
 %prep
 %setup -q -c -n %{packname}
