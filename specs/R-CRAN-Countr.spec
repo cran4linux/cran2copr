@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Countr
-%global packver   3.5.7
+%global packver   3.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.7
+Version:          3.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Univariate Count Models Based on Renewal Processes
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-lattice
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-standardize 
-BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -52,7 +51,6 @@ Requires:         R-CRAN-lattice
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-standardize 
-Requires:         R-CRAN-pscl 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-xtable 
 
@@ -61,7 +59,10 @@ Flexible univariate count models based on renewal processes. The models
 may include covariates and can be specified with familiar formula syntax
 as in glm() and package 'flexsurv'.  The methodology is described by
 Kharrat et all (2019) <doi:10.18637/jss.v090.i13> (included as vignette
-'Countr_guide' in the package).
+'Countr_guide' in the package). If the suggested package 'pscl' is not
+available from CRAN, it can be installed with
+'remotes::install_github("cran/pscl")'. It is no longer used by the
+functions in this package but is needed for some of the extended examples.
 
 %prep
 %setup -q -c -n %{packname}

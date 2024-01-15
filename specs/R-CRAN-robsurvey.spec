@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robsurvey
-%global packver   0.5-2
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Survey Statistics Estimation
 
@@ -18,12 +18,14 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-survey >= 3.35.1
 BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-survey >= 3.35.1
 Requires:         R-grDevices 
-Requires:         R-stats 
 Requires:         R-CRAN-KernSmooth 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Robust (outlier-resistant) estimators of finite population characteristics

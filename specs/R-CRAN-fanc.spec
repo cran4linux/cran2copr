@@ -1,43 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  filecacher
-%global packver   0.2.7
+%global packname  fanc
+%global packver   2.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          2.3.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          File Cacher
+Summary:          Penalized Likelihood Factor Analysis via Nonconvex Penalty
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cachem 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-cachem 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-tcltk 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ellipse 
+Requires:         R-tcltk 
 
 %description
-The main functions in this package are with_cache() and cached_read(). The
-former is a simple way to cache an R object into a file on disk, using
-'cachem'. The latter is a wrapper around any standard read function, but
-caches both the output and the file list info. If the input file list info
-hasn't changed, the cache is used; otherwise, the original files are
-re-read. This can save time if the original operation requires reading
-from many files, and/or involves lots of processing.
+Computes the penalized maximum likelihood estimates of factor loadings and
+unique variances for various tuning parameters. The pathwise coordinate
+descent along with EM algorithm is used.  This package also includes a new
+graphical tool which outputs path diagram, goodness-of-fit indices and
+model selection criteria for each regularization parameter. The user can
+change the regularization parameter by manipulating scrollbars, which is
+helpful to find a suitable value of regularization parameter.
 
 %prep
 %setup -q -c -n %{packname}

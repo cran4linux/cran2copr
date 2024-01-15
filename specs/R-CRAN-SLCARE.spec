@@ -1,44 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SLCARE
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semiparametric Latent Class Analysis for Recurrent Event
+Summary:          Semiparametric Latent Class Analysis of Recurrent Events
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reReg 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-reda 
+BuildRequires:    R-CRAN-reReg 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reReg 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-reda 
+Requires:         R-CRAN-reReg 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-An easy-to-use tool for latent class analysis for recurrent events. The
-modeling framework is based on the semiparametric multiplicative modeling
-in Zhao et al. (2022) <doi:10.1111/rssb.12499>. Our package provides an
-alternative method to define initial values in the estimation algorithm
-based on a joint frailty scale-change model described in Wang et al.
-(2001) <doi:10.1198/016214501753209031> and K-means. Users are also
-allowed to specify different initial values by themselves. Our package
-also provides an alternative algorithm to solving the estimating equation
-for unobservable latent class membership by fitting a "pseudo" weighted
-multinomial regression which speeds up the rate of convergence.
+Efficient R package for latent class analysis of recurrent events, based
+on the semiparametric multiplicative intensity model by Zhao et al. (2022)
+<doi:10.1111/rssb.12499>. SLCARE returns estimates for non-functional
+model parameters along with the associated variance estimates and
+p-values. Visualization tools are provided to depict the estimated
+functional model parameters and related functional quantities of interest.
+SLCARE also delivers a model checking plot to help assess the adequacy of
+the fitted model.
 
 %prep
 %setup -q -c -n %{packname}

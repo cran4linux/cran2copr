@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bzinb
-%global packver   1.0.6
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bivariate Zero-Inflated Negative Binomial Model Estimator
 

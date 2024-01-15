@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dgpsi
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'dgpsi' for Deep and Linked Gaussian Process Emulations
 
@@ -29,6 +29,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-CRAN-clhs 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-reticulate >= 1.26
 Requires:         R-CRAN-benchmarkme >= 1.0.8
 Requires:         R-utils 
@@ -41,6 +43,8 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-CRAN-bitops 
 Requires:         R-CRAN-clhs 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-uuid 
 
 %description
 Interface to the 'python' package 'dgpsi' for Gaussian process, deep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  complexlm
-%global packver   1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Fitting for Complex Valued Data
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-MASS 
 Requires:         R-grDevices 
 Requires:         R-CRAN-pracma 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-mathjaxr 
+Requires:         R-methods 
 
 %description
 Tools for linear fitting with complex variables. Includes ordinary

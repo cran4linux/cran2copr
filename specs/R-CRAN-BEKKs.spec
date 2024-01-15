@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BEKKs
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Conditional Volatility Modelling and Forecasting
 
@@ -27,7 +27,6 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-GAS 
 BuildRequires:    R-CRAN-ks 
@@ -48,7 +47,6 @@ Requires:         R-parallel
 Requires:         R-CRAN-xts 
 Requires:         R-stats 
 Requires:         R-CRAN-future 
-Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-GAS 
 Requires:         R-CRAN-ks 
