@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  novelforestSG
-%global packver   2.1.0
+%global packname  georefdatar
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dataset from the Novel Forests of Singapore
+Summary:          Geosciences Reference Datasets
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdpack 
 
 %description
-The raw dataset and model used in Lai et al. (2021) Decoupled responses of
-native and exotic tree diversities to distance from old-growth forest and
-soil phosphorous in novel secondary forests. Applied Vegetation Science,
-24, e12548.
+Reference datasets commonly used in the geosciences. These include
+standard atomic weights of the elements, a periodic table, a list of
+minerals including their abbreviations and chemistry, geochemical data of
+reservoirs (primitive mantle, continental crust, mantle, basalts, etc.),
+decay constants and isotopic ratios frequently used in geochronology,
+color codes of the chronostratigraphic chart. In addition, the package
+provides functions for basic queries of atomic weights, the list of
+minerals, and chronostratigraphic chart colors. All datasets are fully
+referenced, and a BibTeX file containing the references is included.
 
 %prep
 %setup -q -c -n %{packname}

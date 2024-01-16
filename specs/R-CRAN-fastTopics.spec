@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastTopics
-%global packver   0.6-142
+%global packver   0.6-163
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.142
+Version:          0.6.163
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Algorithms for Fitting Topic Models and Non-Negative Matrix Factorizations to Count Data
 
@@ -25,7 +25,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-dplyr 
@@ -48,7 +48,7 @@ Requires:         R-utils
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-irlba 
 Requires:         R-CRAN-dplyr 
@@ -70,7 +70,9 @@ multinomial topic model (also, "probabilistic latent semantic indexing")
 and Poisson non-negative matrix factorization. The package provides tools
 to compare, annotate and visualize model fits, including functions to
 efficiently create "structure plots" and identify key features in topics.
-The 'fastTopics' package is a successor to the 'CountClust' package.
+The 'fastTopics' package is a successor to the 'CountClust' package. Note
+that the 'fastTopicis' package on GitHub has more vignettes illustrating
+application to single-cell RNA-seq data.
 
 %prep
 %setup -q -c -n %{packname}

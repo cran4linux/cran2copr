@@ -1,53 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hydroloom
-%global packver   1.0.2
+%global packname  bossR
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities to Weave Hydrologic Fabrics
+Summary:          Biomarker Optimal Segmentation System
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-fastmap 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-units 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-survival 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-fastmap 
 
 %description
-A collection of utilities that support creation of network attributes for
-hydrologic networks. Methods and algorithms implemented are documented in
-Moore et al. (2019) <doi:10.3133/ofr20191096>), Cormen and Leiserson
-(2022) <ISBN:9780262046305> and Verdin and Verdin (1999)
-<doi:10.1016/S0022-1694(99)00011-6>.
+The Biomarker Optimal Segmentation System R package, 'bossR', is designed
+for precision medicine, helping to identify individual traits using
+biomarkers. It focuses on determining the most effective cutoff value for
+a continuous biomarker, which is crucial for categorizing patients into
+two groups with distinctly different clinical outcomes. The package
+simultaneously finds the optimal cutoff from given candidate values and
+tests its significance. Simulation studies demonstrate that 'bossR' offers
+statistical power and false positive control non-inferior to the
+permutation approach (considered the gold standard in this field), while
+being hundreds of times faster.
 
 %prep
 %setup -q -c -n %{packname}

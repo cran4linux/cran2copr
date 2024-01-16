@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ConcordanceTest
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Alternative to the Kruskal-Wallis Based on the Kendall Tau Distance
 
@@ -27,7 +28,9 @@ Requires:         R-graphics
 The Concordance Test is a non-parametric method for testing whether two o
 more samples originate from the same distribution. It extends the Kendall
 Tau correlation coefficient when there are only two groups. For details,
-see Monge (2020) <arXiv:1912.12880v2>.
+see Alcaraz J., Anton-Sanchez L., Monge J.F. (2022) The Concordance Test,
+an Alternative to Kruskal-Wallis Based on the Kendall-tau Distance: An R
+Package. The R Journal 14, 26–53 <doi:10.32614/RJ-2022-039>.
 
 %prep
 %setup -q -c -n %{packname}

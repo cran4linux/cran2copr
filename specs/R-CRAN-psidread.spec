@@ -1,53 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hydroloom
-%global packver   1.0.2
+%global packname  psidread
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities to Weave Hydrologic Fabrics
+Summary:          Streamline Building Panel Data from Panel Study of Income Dynamics ('PSID') Raw Files
 
-License:          CC0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-asciiSetupReader 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-fastmap 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-asciiSetupReader 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-units 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-fastmap 
+Requires:         R-utils 
 
 %description
-A collection of utilities that support creation of network attributes for
-hydrologic networks. Methods and algorithms implemented are documented in
-Moore et al. (2019) <doi:10.3133/ofr20191096>), Cormen and Leiserson
-(2022) <ISBN:9780262046305> and Verdin and Verdin (1999)
-<doi:10.1016/S0022-1694(99)00011-6>.
+Streamline the management, creation, and formatting of panel data from the
+Panel Study of Income Dynamics ('PSID') <https://psidonline.isr.umich.edu>
+using this user-friendly tool. Simply define variable names and input code
+book details directly from the 'PSID' official website, and this toolbox
+will efficiently facilitate the data preparation process, transforming raw
+'PSID' files into a well-organized format ready for further analysis.
 
 %prep
 %setup -q -c -n %{packname}

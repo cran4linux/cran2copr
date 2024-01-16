@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RITCH
-%global packver   0.1.25
+%global packver   0.1.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.25
+Version:          0.1.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Parser for the ITCH-Protocol
 

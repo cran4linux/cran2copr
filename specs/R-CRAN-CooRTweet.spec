@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CooRTweet
-%global packver   1.5.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Coordinated Networks Detection on Social Media
 
@@ -14,28 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-tidytable 
 BuildRequires:    R-CRAN-RcppSimdJson 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-textreuse 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-tidytable 
 Requires:         R-CRAN-RcppSimdJson 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-textreuse 
 
 %description
-Detects a variety of coordinated actions on Twitter and outputs the
+Detects a variety of coordinated actions on social media and outputs the
 network of coordinated users along with related information.
 
 %prep

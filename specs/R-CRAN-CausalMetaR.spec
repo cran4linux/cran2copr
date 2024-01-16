@@ -1,28 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  novelforestSG
-%global packver   2.1.0
+%global packname  CausalMetaR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dataset from the Novel Forests of Singapore
+Summary:          Causally Interpretable Meta-Analysis
 
-License:          CC BY 4.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-SuperLearner 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-SuperLearner 
 
 %description
-The raw dataset and model used in Lai et al. (2021) Decoupled responses of
-native and exotic tree diversities to distance from old-growth forest and
-soil phosphorous in novel secondary forests. Applied Vegetation Science,
-24, e12548.
+Provides robust and efficient methods for estimating causal effects in a
+target population using a multi-source dataset, including those of
+Dahabreh et al. (2019) <doi:10.1111/biom.13716> and Robertson et al.
+(2021) <arXiv:2104.05905>. The multi-source data can be a collection of
+trials, observational studies, or a combination of both, which have the
+same data structure (outcome, treatment, and covariates). The target
+population can be based on an internal dataset or an external dataset
+where only covariate information is available. The causal estimands
+available are average treatment effects and subgroup treatment effects.
 
 %prep
 %setup -q -c -n %{packname}

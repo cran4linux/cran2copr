@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csdata
-%global packver   2023.5.22
+%global packver   2023.12.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.5.22
+Version:          2023.12.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Data for Norway
 
@@ -27,7 +27,7 @@ Requires:         R-utils
 %description
 Datasets relating to population in municipalities, municipality/county
 matching, and how different municipalities have merged/redistricted over
-time from 2006 to 2020.
+time from 2006 to 2024.
 
 %prep
 %setup -q -c -n %{packname}

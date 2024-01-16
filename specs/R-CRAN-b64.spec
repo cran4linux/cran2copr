@@ -1,53 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hydroloom
-%global packver   1.0.2
+%global packname  b64
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities to Weave Hydrologic Fabrics
+Summary:          Fast and Vectorized Base 64 Engine
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-blob 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-fastmap 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-units 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-blob 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-fastmap 
 
 %description
-A collection of utilities that support creation of network attributes for
-hydrologic networks. Methods and algorithms implemented are documented in
-Moore et al. (2019) <doi:10.3133/ofr20191096>), Cormen and Leiserson
-(2022) <ISBN:9780262046305> and Verdin and Verdin (1999)
-<doi:10.1016/S0022-1694(99)00011-6>.
+Provides a fast, lightweight, and vectorized base 64 engine to encode and
+decode character and raw vectors as well as files stored on disk.  Common
+base 64 alphabets are supported out of the box including the standard,
+URL-safe, bcrypt, crypt, 'BinHex', and IMAP-modified UTF-7 alphabets.
+Custom engines can be created to support unique base 64 encoding and
+decoding needs.
 
 %prep
 %setup -q -c -n %{packname}

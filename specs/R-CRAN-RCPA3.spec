@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RCPA3
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data and Functions for R Companion to Political Analysis 3rd Ed
 
@@ -47,9 +48,8 @@ Requires:         R-CRAN-weights
 
 %description
 Bundles the datasets and functions featured in Philip H. Pollock and Barry
-C. Edwards (Forthcoming 2022)<https://edge.sagepub.com/pollock>, "An R
-Companion to Political Analysis, 3rd Edition," Thousand Oaks, CA: Sage
-Publications.
+C. Edwards<https://edge.sagepub.com/pollock>, "An R Companion to Political
+Analysis, 3rd Edition," Thousand Oaks, CA: Sage Publications.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glm.predict
-%global packver   4.2-0
+%global packver   4.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predicted Values and Discrete Changes for GLM
+Summary:          Predicted Values and Discrete Changes for Regression Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-mlogit
 BuildRequires:    R-CRAN-dfidx 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-VGAM 
 Requires:         R-stats 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-AER 
@@ -37,15 +38,17 @@ Requires:         R-CRAN-mlogit
 Requires:         R-CRAN-dfidx 
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-VGAM 
 
 %description
 Functions to calculate predicted values and the difference between the two
-cases with confidence interval for lm() [linear model], glm() [generalised
+cases with confidence interval for lm() [linear model], glm() [generalized
 linear model], glm.nb() [negative binomial model], polr() [ordinal
-logistic model], multinom() [multinomial model] and tobit() [tobit model],
-svyglm() [survey-weighted generalised linear models], lmer() [linear
-multilevel models] using Monte Carlo simulations or bootstrap. Reference:
-Bennet A. Zelner (2009) <doi:10.1002/smj.783>.
+logistic model], vglm() [generalized ordinal logistic model], multinom()
+[multinomial model], tobit() [tobit model], svyglm() [survey-weighted
+generalised linear models] and lmer() [linear multilevel models] using
+Monte Carlo simulations or bootstrap. Reference: Bennet A. Zelner (2009)
+<doi:10.1002/smj.783>.
 
 %prep
 %setup -q -c -n %{packname}

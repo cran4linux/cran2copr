@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggquickeda
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quickly Explore Your Data Using 'ggplot2' and 'table1' Summary Tables
 
@@ -14,23 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+Recommends:       pandoc
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-GGally >= 2.1.0
 BuildRequires:    R-CRAN-table1 >= 1.4.2
+BuildRequires:    R-CRAN-patchwork >= 1.2.0
 BuildRequires:    R-CRAN-shinyjs >= 1.1
 BuildRequires:    R-CRAN-shiny >= 1.0.4
 BuildRequires:    R-CRAN-ggrepel >= 0.7.0
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-ggbeeswarm 
+BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-ggpmisc 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggstance 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-markdown 
@@ -47,19 +52,28 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-RPostgres 
-Requires:         R-CRAN-ggplot2 >= 3.3.4
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-GGally >= 2.1.0
 Requires:         R-CRAN-table1 >= 1.4.2
+Requires:         R-CRAN-patchwork >= 1.2.0
 Requires:         R-CRAN-shinyjs >= 1.1
 Requires:         R-CRAN-shiny >= 1.0.4
 Requires:         R-CRAN-ggrepel >= 0.7.0
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-ggpmisc 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggstance 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-markdown 
@@ -76,6 +90,10 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-rms 
+Requires:         R-CRAN-tibble 
 
 %description
 Quickly and easily perform exploratory data analysis by uploading your
