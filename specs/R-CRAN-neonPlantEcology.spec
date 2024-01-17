@@ -1,43 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rr
-%global packver   1.4.2
+%global packname  neonPlantEcology
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods for the Randomized Response Technique
+Summary:          Process NEON Plant Data for Ecological Analysis
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-neonUtilities 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dtplyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-arm 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-magic 
+Requires:         R-CRAN-neonUtilities 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dtplyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-arm 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-magic 
 
 %description
-Enables researchers to conduct multivariate statistical analyses of survey
-data with randomized response technique items from several designs,
-including mirrored question, forced question, and unrelated question. This
-includes regression with the randomized response as the outcome and
-logistic regression with the randomized response item as a predictor. In
-addition, tools for conducting power analysis for designing randomized
-response items are included. The package implements methods described in
-Blair, Imai, and Zhou (2015) ''Design and Analysis of the Randomized
-Response Technique,'' Journal of the American Statistical Association
-<https://graemeblair.com/papers/randresp.pdf>.
+Downloading and organizing plant presence and percent cover data from the
+National Ecological Observatory Network <https://www.neonscience.org>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hypergate
-%global packver   0.8.5
+%global packname  vismeteor
+%global packver   1.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          1.8.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning of Hyperrectangular Gating Strategies for High-Dimensional Cytometry
+Summary:          Analysis of Visual Meteor Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-DBI 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-graphics 
+Requires:         R-CRAN-DBI 
 
 %description
-Given a high-dimensional dataset that typically represents a cytometry
-dataset, and a subset of the datapoints, this algorithm outputs an
-hyperrectangle so that datapoints within the hyperrectangle best
-correspond to the specified subset. In essence, this allows the conversion
-of clustering algorithms' outputs to gating strategies outputs.
+Provides a suite of analytical functionalities to process and analyze
+visual meteor observations from the Visual Meteor Database of the
+International Meteor Organization <https://www.imo.net/>.
 
 %prep
 %setup -q -c -n %{packname}

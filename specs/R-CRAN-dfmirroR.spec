@@ -1,37 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hypergate
-%global packver   0.8.5
+%global packname  dfmirroR
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning of Hyperrectangular Gating Strategies for High-Dimensional Cytometry
+Summary:          Simulate a Data Frame Mirroring an Input and Produce Shareable Simulation Code
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+Requires:         R-CRAN-fitdistrplus 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
-Given a high-dimensional dataset that typically represents a cytometry
-dataset, and a subset of the datapoints, this algorithm outputs an
-hyperrectangle so that datapoints within the hyperrectangle best
-correspond to the specified subset. In essence, this allows the conversion
-of clustering algorithms' outputs to gating strategies outputs.
+The 'dfmirroR' package allows users to input a data frame, simulate some
+number of observations based on specified columns of that data frame, and
+then outputs a string that contains the code to re-create the simulation.
+The goal is to both provide workable test data sets and provide users with
+the information they need to set up reproducible examples with team
+members. This package was created out of a need to share examples in cases
+where data are private and where a full data frame is not needed for
+testing or coordinating.
 
 %prep
 %setup -q -c -n %{packname}

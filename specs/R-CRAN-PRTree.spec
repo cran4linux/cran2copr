@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rr
-%global packver   1.4.2
+%global packname  PRTree
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods for the Randomized Response Technique
+Summary:          Probabilistic Regression Trees
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-arm 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-magic 
-Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-arm 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-magic 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 
 %description
-Enables researchers to conduct multivariate statistical analyses of survey
-data with randomized response technique items from several designs,
-including mirrored question, forced question, and unrelated question. This
-includes regression with the randomized response as the outcome and
-logistic regression with the randomized response item as a predictor. In
-addition, tools for conducting power analysis for designing randomized
-response items are included. The package implements methods described in
-Blair, Imai, and Zhou (2015) ''Design and Analysis of the Randomized
-Response Technique,'' Journal of the American Statistical Association
-<https://graemeblair.com/papers/randresp.pdf>.
+Probabilistic Regression Trees (PRTree). Functions for fitting and
+predicting PRTree models with some adaptations to handle missing values.
+The main calculations are performed in 'FORTRAN', resulting in highly
+efficient algorithms. This package's implementation is based on the PRTree
+methodology described in Alkhoury, S.; Devijver, E.; Clausel, M.; Tami,
+M.; Gaussier, E.; Oppenheim, G. (2020) - "Smooth And Consistent
+Probabilistic Regression Trees"
+<https://proceedings.neurips.cc/paper_files/paper/2020/file/8289889263db4a40463e3f358bb7c7a1-Paper.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

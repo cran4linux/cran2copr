@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hypergate
-%global packver   0.8.5
+%global packname  scientific
+%global packver   2024.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          2024.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning of Hyperrectangular Gating Strategies for High-Dimensional Cytometry
+Summary:          Elegant Scientific Themed Reporting for 'Markdown'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-xfun 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-xfun 
 
 %description
-Given a high-dimensional dataset that typically represents a cytometry
-dataset, and a subset of the datapoints, this algorithm outputs an
-hyperrectangle so that datapoints within the hyperrectangle best
-correspond to the specified subset. In essence, this allows the conversion
-of clustering algorithms' outputs to gating strategies outputs.
+Offers 'markdown' output formats designed with various scientific styles,
+allowing users to generate PDF and HTML outputs. The output has a
+contemporary appearance with vibrant visuals, providing numerous styles
+for effective highlighting. The package also includes additional features
+specifically tailored for front-page slides, enhancing the overall
+presentation and customization options. The package was created using the
+'tufte' R package code as a starting point.
 
 %prep
 %setup -q -c -n %{packname}

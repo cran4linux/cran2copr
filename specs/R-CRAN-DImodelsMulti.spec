@@ -1,37 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hypergate
-%global packver   0.8.5
+%global packname  DImodelsMulti
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning of Hyperrectangular Gating Strategies for High-Dimensional Cytometry
+Summary:          Fit Multivariate Diversity-Interactions Models with Repeated Measures
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DImodels 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-DImodels 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-nlme 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-graphics 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-Matrix 
 
 %description
-Given a high-dimensional dataset that typically represents a cytometry
-dataset, and a subset of the datapoints, this algorithm outputs an
-hyperrectangle so that datapoints within the hyperrectangle best
-correspond to the specified subset. In essence, this allows the conversion
-of clustering algorithms' outputs to gating strategies outputs.
+An add-on package to 'DImodels' for the fitting of biodiversity and
+ecosystem function relationship study data with multiple ecosystem
+function responses and/or time points. This package uses the multivariate
+and repeated measures Diversity-Interactions (DI) methods developed by
+Kirwan et al. (2009) <doi:10.1890/08-1684.1>, Finn et al. (2013)
+<doi:10.1111/1365-2664.12041>, and Dooley et al. (2015)
+<doi:10.1111/ele.12504>.
 
 %prep
 %setup -q -c -n %{packname}

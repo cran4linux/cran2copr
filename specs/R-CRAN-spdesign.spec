@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spdesign
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Designing Stated Preference Experiments
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-randtoolbox 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-randtoolbox 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 
 %description
 Contemporary software commonly used to design stated preference

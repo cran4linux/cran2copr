@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  afttest
-%global packver   4.3.2.3
+%global packname  robustmatrix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Diagnostics for Accelerated Failure Time Models
+Summary:          Robust Matrix-Variate Parameter Estimation
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-aftgee 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-aftgee 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A collection of model checking methods for semiparametric accelerated
-failure time (AFT) models under the rank-based approach. For the
-(computational) efficiency, Gehan's weight is used. It provides functions
-to verify whether the observed data fit the specific model assumptions
-such as a functional form of each covariate, a link function, and an
-omnibus test. The p-value offered in this package is based on the
-Kolmogorov-type supremum test and the variance of the proposed test
-statistics is estimated through the re-sampling method. Furthermore, a
-graphical technique to compare the shape of the observed residual to a
-number of the approximated realizations is provided.
+Robust covariance estimation for matrix-valued data and data with
+Kronecker-covariance structure using the Matrix Minimum Covariance
+Determinant (MMCD) estimators and outlier explanation using and Shapley
+values.
 
 %prep
 %setup -q -c -n %{packname}

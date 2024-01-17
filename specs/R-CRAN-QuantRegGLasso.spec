@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  afttest
-%global packver   4.3.2.3
+%global packname  QuantRegGLasso
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Diagnostics for Accelerated Failure Time Models
+Summary:          Adaptively Weighted Group Lasso for Semiparametric Quantile Regression Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-aftgee 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-aftgee 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
 
 %description
-A collection of model checking methods for semiparametric accelerated
-failure time (AFT) models under the rank-based approach. For the
-(computational) efficiency, Gehan's weight is used. It provides functions
-to verify whether the observed data fit the specific model assumptions
-such as a functional form of each covariate, a link function, and an
-omnibus test. The p-value offered in this package is based on the
-Kolmogorov-type supremum test and the variance of the proposed test
-statistics is estimated through the re-sampling method. Furthermore, a
-graphical technique to compare the shape of the observed residual to a
-number of the approximated realizations is provided.
+Implements an adaptively weighted group Lasso procedure for simultaneous
+variable selection and structure identification in varying coefficient
+quantile regression models and additive quantile regression models with
+ultra-high dimensional covariates. The methodology, grounded in a strong
+sparsity condition, establishes selection consistency under certain weight
+conditions. To address the challenge of tuning parameter selection in
+practice, a BIC-type criterion named high-dimensional information
+criterion (HDIC) is proposed. The Lasso procedure, guided by
+HDIC-determined tuning parameters, maintains selection consistency.
+Theoretical findings are strongly supported by simulation studies. (Toshio
+Honda, Ching-Kang Ing, Wei-Ying Wu, 2019, <DOI:10.3150/18-BEJ1091>).
 
 %prep
 %setup -q -c -n %{packname}

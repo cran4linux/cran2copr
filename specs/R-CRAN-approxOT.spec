@@ -1,37 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hypergate
-%global packver   0.8.5
+%global packname  approxOT
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning of Hyperrectangular Gating Strategies for High-Dimensional Cytometry
+Summary:          Approximate and Exact Optimal Transport Methods
 
-License:          GPL-3
+License:          GPL (== 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppCGAL 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
-Given a high-dimensional dataset that typically represents a cytometry
-dataset, and a subset of the datapoints, this algorithm outputs an
-hyperrectangle so that datapoints within the hyperrectangle best
-correspond to the specified subset. In essence, this allows the conversion
-of clustering algorithms' outputs to gating strategies outputs.
+R and C++ functions to perform exact and approximate optimal transport.
+All C++ methods can be linked to other R packages via their header files.
 
 %prep
 %setup -q -c -n %{packname}

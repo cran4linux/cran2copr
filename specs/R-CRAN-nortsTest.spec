@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nortsTest
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing Normality of Stationary Process
 
@@ -38,13 +39,15 @@ Requires:         R-CRAN-zoo
 %description
 Despite that several tests for normality in stationary processes have been
 proposed in the literature, consistent implementations of these tests in
-programming languages are limited. Four normality test are implemented.
-The Lobato and Velasco's, Epps, Psaradakis and Vavra, and the random
-projections tests for stationary process. Some other diagnostics such as,
-unit root test for stationarity, seasonal tests for seasonality, and arch
-effect test for volatility; are also performed. The package also offers
-residual diagnostic for linear time series models developed in several
-packages.
+programming languages are limited. Seven normality test are implemented.
+The asymptotic Lobato & Velasco's, asymptotic Epps, Psaradakis and Vávra,
+Lobato & Velasco's and Epps sieve bootstrap approximations, El bouch et
+al., and the random projections tests for univariate stationary process.
+Some other diagnostics such as, unit root test for stationarity, seasonal
+tests for seasonality, and arch effect test for volatility; are also
+performed. Additionally, the El bouch test performs normality tests for
+bivariate time series. The package also offers residual diagnostic for
+linear time series models developed in several packages.
 
 %prep
 %setup -q -c -n %{packname}

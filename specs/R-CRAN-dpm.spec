@@ -1,52 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tutorial.helpers
-%global packver   0.2.6
+%global packname  dpm
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Creating Tutorials
+Summary:          Dynamic Panel Models Fit with Maximum Likelihood
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-learnr 
-BuildRequires:    R-CRAN-parsermd 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-jtools >= 2.0.1
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-panelr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-learnr 
-Requires:         R-CRAN-parsermd 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-stats4 
+Requires:         R-CRAN-jtools >= 2.0.1
+Requires:         R-CRAN-lavaan 
+Requires:         R-methods 
+Requires:         R-CRAN-panelr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-Formula 
+Requires:         R-stats4 
 
 %description
-Helper functions for creating, editing, and testing tutorials created with
-the 'learnr' package. Provides a simple method for allowing students to
-download their answers to tutorial questions. For examples of its use, see
-the 'r4ds.tutorials' and 'primer.tutorials' packages.
+Implements the dynamic panel models described by Allison, Williams, and
+Moral-Benito (2017 <doi:10.1177/2378023117710578>) in R. This class of
+models uses structural equation modeling to specify dynamic (lagged
+dependent variable) models with fixed effects for panel data.
+Additionally, models may have predictors that are only weakly exogenous,
+i.e., are affected by prior values of the dependent variable. Options also
+allow for random effects, dropping the lagged dependent variable, and a
+number of other specification choices.
 
 %prep
 %setup -q -c -n %{packname}

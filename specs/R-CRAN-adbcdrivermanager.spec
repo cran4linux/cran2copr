@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adbcdrivermanager
-%global packver   0.8.0
+%global packver   0.9.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow 
-Requires:         R-CRAN-nanoarrow 
+BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
+Requires:         R-CRAN-nanoarrow >= 0.3.0
 
 %description
 Provides a developer-facing interface to 'Arrow' Database Connectivity

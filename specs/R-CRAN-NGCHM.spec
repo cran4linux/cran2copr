@@ -1,43 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rr
-%global packver   1.4.2
+%global packname  NGCHM
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods for the Randomized Response Technique
+Summary:          Next Generation Clustered Heat Maps
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-logger >= 0.2.0
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tsvio 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-arm 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-magic 
+Requires:         R-CRAN-logger >= 0.2.0
+Requires:         R-CRAN-digest 
+Requires:         R-grDevices 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-tsvio 
 Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-arm 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-magic 
 
 %description
-Enables researchers to conduct multivariate statistical analyses of survey
-data with randomized response technique items from several designs,
-including mirrored question, forced question, and unrelated question. This
-includes regression with the randomized response as the outcome and
-logistic regression with the randomized response item as a predictor. In
-addition, tools for conducting power analysis for designing randomized
-response items are included. The package implements methods described in
-Blair, Imai, and Zhou (2015) ''Design and Analysis of the Randomized
-Response Technique,'' Journal of the American Statistical Association
-<https://graemeblair.com/papers/randresp.pdf>.
+Next-Generation Clustered Heat Maps (NG-CHMs) allow for dynamic
+exploration of heat map data in a web browser. 'NGCHM' allows users to
+create both stand-alone HTML files containing a Next-Generation Clustered
+Heat Map, and .ngchm files to view in the NG-CHM viewer. See Ryan MC,
+Stucky M, et al (2020) <doi:10.12688/f1000research.20590.2> for more
+details.
 
 %prep
 %setup -q -c -n %{packname}

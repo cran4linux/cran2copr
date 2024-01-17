@@ -1,43 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rr
-%global packver   1.4.2
+%global packname  r2fireworks
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods for the Randomized Response Technique
+Summary:          Enhance Your 'Rmarkdown' and 'shiny' Apps with Dazzling Fireworks Celebrations
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel > 3.6
+Requires:         R-core > 3.6
+BuildArch:        noarch
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-arm 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-magic 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-arm 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-magic 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
 
 %description
-Enables researchers to conduct multivariate statistical analyses of survey
-data with randomized response technique items from several designs,
-including mirrored question, forced question, and unrelated question. This
-includes regression with the randomized response as the outcome and
-logistic regression with the randomized response item as a predictor. In
-addition, tools for conducting power analysis for designing randomized
-response items are included. The package implements methods described in
-Blair, Imai, and Zhou (2015) ''Design and Analysis of the Randomized
-Response Technique,'' Journal of the American Statistical Association
-<https://graemeblair.com/papers/randresp.pdf>.
+Implementation of 'JQuery' <https://jquery.com> and 'CSS' styles to allow
+the display of fireworks on a document. Toolkit to easily incorporate
+celebratory splashes in 'Rmarkdown' and 'shiny' apps.
 
 %prep
 %setup -q -c -n %{packname}
