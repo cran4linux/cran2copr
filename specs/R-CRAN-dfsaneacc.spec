@@ -1,29 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sfheaders
-%global packver   0.4.4
+%global packname  dfsaneacc
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converts Between R Objects and Simple Feature Objects
+Summary:          Accelerated Derivative-Free Method for Large-Scale Nonlinear Systems of Equations
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-geometries >= 0.2.4
-Requires:         R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Converts between R and Simple Feature 'sf' objects, without depending on
-the Simple Feature library. Conversion functions are available at both the
-R level, and through 'Rcpp'.
+Secant acceleration applied to derivative-free Spectral Residual Methods
+for solving large-scale nonlinear systems of equations. The main reference
+follows: E. G. Birgin and J. M. Martinez (2022) <doi:10.1137/20M1388024>.
 
 %prep
 %setup -q -c -n %{packname}

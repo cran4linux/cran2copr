@@ -1,46 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crunch
-%global packver   1.30.4
+%global packname  rPDBapi
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.30.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Crunch.io Data Tools
+Summary:          A Comprehensive Interface for Accessing the Protein Data Bank
 
-License:          LGPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.15
-BuildRequires:    R-CRAN-httpcache >= 0.1.4
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-bio3d 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 0.9.15
-Requires:         R-CRAN-httpcache >= 0.1.4
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-curl 
-Requires:         R-grDevices 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-bio3d 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 
 %description
-The Crunch.io service <https://crunch.io/> provides a cloud-based data
-store and analytic engine, as well as an intuitive web interface. Using
-this package, analysts can interact with and manipulate Crunch datasets
-from within R. Importantly, this allows technical researchers to
-collaborate naturally with team members, managers, and clients who prefer
-a point-and-click interface.
+Streamlines the interaction with the RCSB Protein Data Bank (PDB)
+<https://www.rcsb.org/>. This interface offers an intuitive and powerful
+tool for searching and retrieving a diverse range of data types from the
+PDB. It includes advanced functionalities like BLAST and sequence motif
+queries. Built upon the existing XML-based API of the PDB, it simplifies
+the creation of custom requests, thereby enhancing usability and
+flexibility for researchers.
 
 %prep
 %setup -q -c -n %{packname}

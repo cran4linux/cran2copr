@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  templateICAr
-%global packver   0.6.2
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Brain Networks and Connectivity with ICA and Empirical Priors
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-pesel
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-SQUAREM 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-fMRItools >= 0.2.2
 Requires:         R-CRAN-abind 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-pesel
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-SQUAREM 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Implements the template ICA (independent components analysis) model

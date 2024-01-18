@@ -1,29 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sfheaders
-%global packver   0.4.4
+%global packname  yyjsonr
+%global packver   0.1.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.1.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converts Between R Objects and Simple Feature Objects
+Summary:          Fast JSON Parser and Generator
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-geometries >= 0.2.4
-Requires:         R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Converts between R and Simple Feature 'sf' objects, without depending on
-the Simple Feature library. Conversion functions are available at both the
-R level, and through 'Rcpp'.
+A fast JSON parser, generator and validator which converts JSON data
+to/from R objects.  The standard R data types are supported (e.g. logical,
+numeric, integer) with configurable handling of NULL and NA values. Data
+frames, atomic vectors and lists are all supported as data containers
+translated to/from JSON. This implementation is a wrapper around the
+'yyjson' 'C' library which is available from
+<https://github.com/ibireme/yyjson>.
 
 %prep
 %setup -q -c -n %{packname}

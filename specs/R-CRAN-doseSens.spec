@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sfheaders
-%global packver   0.4.4
+%global packname  doseSens
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converts Between R Objects and Simple Feature Objects
+Summary:          Conduct Sensitivity Analysis with Continuous Exposures and Binary Outcomes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-geometries >= 0.2.4
-Requires:         R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gtools 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Converts between R and Simple Feature 'sf' objects, without depending on
-the Simple Feature library. Conversion functions are available at both the
-R level, and through 'Rcpp'.
+Performs sensitivity analysis for the sharp null and attributable effects
+in matched studies with continuous exposures and binary outcomes as
+described in Zhang, Small, Heng (2024) <arXiv:2401.06909>. Two of the
+functions require installation of the 'Gurobi' optimizer. Please see
+<https://www.gurobi.com/documentation/9.0/refman/ins_the_r_package.html>
+for guidance.
 
 %prep
 %setup -q -c -n %{packname}

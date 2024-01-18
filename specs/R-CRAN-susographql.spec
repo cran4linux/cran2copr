@@ -1,49 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hexFinder
-%global packver   0.8.2
+%global packname  susographql
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find Hex Logos for CRAN Packages
+Summary:          Comprehensive Interface to the Survey Solutions 'GraphQL' API
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hexSticker 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-curl >= 5.1.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pkgsearch 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-httr2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hexSticker 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-magick 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-curl >= 5.1.0
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pkgsearch 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-lubridate 
 
 %description
-Scavenge the web for possible hex logos for CRAN packages.
+Provides a complete suite of tools for interacting with the Survey
+Solutions 'GraphQL' API <https://demo.mysurvey.solutions/graphql/>. This
+package encompasses all currently available queries and mutations,
+including the latest features for map uploads. It is built on the modern
+'httr2' package, offering a streamlined and efficient interface without
+relying on external 'GraphQL' client packages. In addition to core API
+functionalities, the package includes a range of helper functions designed
+to facilitate the use of available query filters.
 
 %prep
 %setup -q -c -n %{packname}

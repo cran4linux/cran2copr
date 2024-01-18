@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  iNZightTS
-%global packver   1.5.9
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.9
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series for 'iNZight'
 
@@ -16,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggtext 
@@ -25,16 +26,22 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tsibble 
+BuildRequires:    R-CRAN-fable 
+BuildRequires:    R-CRAN-fabletools 
+BuildRequires:    R-CRAN-feasts 
+BuildRequires:    R-CRAN-evaluate 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-urca 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggtext 
@@ -42,14 +49,20 @@ Requires:         R-CRAN-glue
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-tsibble 
+Requires:         R-CRAN-fable 
+Requires:         R-CRAN-fabletools 
+Requires:         R-CRAN-feasts 
+Requires:         R-CRAN-evaluate 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-urca 
 
 %description
 Provides a collection of functions for working with time series data,

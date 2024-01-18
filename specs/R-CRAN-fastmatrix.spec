@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastmatrix
-%global packver   0.5-77
+%global packver   0.5-772
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.77
+Version:          0.5.772
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Computation of some Matrices Useful in Statistics
 
@@ -32,9 +32,9 @@ conjugate gradients methods), ridge regression (with optimal selection of
 the ridge parameter considering several procedures), omnibus tests for
 univariate normality, functions to compute the multivariate skewness,
 kurtosis, the Mahalanobis distance (checking the positive defineteness),
-and the Wilson-Hilferty transformation of chi squared variables.
-Furthermore, the package provides interfaces to C code callable by another
-C code from other R packages.
+and the Wilson-Hilferty transformation of gamma variables. Furthermore,
+the package provides interfaces to C code callable by another C code from
+other R packages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arcgisutils
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          ArcGIS Utility Functions
 
@@ -38,8 +38,9 @@ Developer oriented utility functions designed to be used as the building
 blocks of R packages that work with ArcGIS Location Services. It provides
 functionality for authorization, Esri JSON construction and parsing, as
 well as other utilities pertaining to geometry and Esri type conversions.
-To support 'ArcGIS Pro' users, authorization can done via 'arcgisbinding'.
-Installation instructions for 'arcgisbinding' can be found at
+To support 'ArcGIS Pro' users, authorization can be done via
+'arcgisbinding'. Installation instructions for 'arcgisbinding' can be
+found at
 <https://r.esri.com/r-bridge-site/arcgisbinding/installing-arcgisbinding.html>.
 
 %prep

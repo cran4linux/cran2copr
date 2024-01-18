@@ -1,46 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crunch
-%global packver   1.30.4
+%global packname  RStoolbox
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.30.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Crunch.io Data Tools
+Summary:          Remote Sensing Data Analysis
 
-License:          LGPL (>= 3)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.15
-BuildRequires:    R-CRAN-httpcache >= 0.1.4
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-caret >= 6.0.79
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-exactextractr 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 0.9.15
-Requires:         R-CRAN-httpcache >= 0.1.4
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-curl 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-caret >= 6.0.79
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-exactextractr 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
+Requires:         R-CRAN-magrittr 
 
 %description
-The Crunch.io service <https://crunch.io/> provides a cloud-based data
-store and analytic engine, as well as an intuitive web interface. Using
-this package, analysts can interact with and manipulate Crunch datasets
-from within R. Importantly, this allows technical researchers to
-collaborate naturally with team members, managers, and clients who prefer
-a point-and-click interface.
+Toolbox for remote sensing image processing and analysis such as
+calculating spectral indexes, principal component transformation,
+unsupervised and supervised classification or fractional cover analyses.
 
 %prep
 %setup -q -c -n %{packname}

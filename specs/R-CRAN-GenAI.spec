@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aorsf
-%global packver   0.1.2
+%global packname  GenAI
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accelerated Oblique Random Forests
+Summary:          'Generative Artificial Intelligence'
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-collapse 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-collapse 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-tools 
 
 %description
-Fit, interpret, and compute predictions with oblique random forests.
-Includes support for partial dependence, variable importance, passing
-customized functions for variable importance and identification of linear
-combinations of features. Methods for the oblique random survival forest
-are described in Jaeger et al., (2023)
-<DOI:10.1080/10618600.2023.2231048>.
+Utilizing 'Generative Artificial Intelligence' models like 'GPT-4' and
+'Gemini Pro' as coding and writing assistants for 'R' users. Through these
+models, 'GenAI' offers a variety of functions, encompassing text
+generation, code optimization, natural language processing, chat, and
+image interpretation. The goal is to aid 'R' users in streamlining
+laborious coding and language processing tasks.
 
 %prep
 %setup -q -c -n %{packname}

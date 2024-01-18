@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sfheaders
-%global packver   0.4.4
+%global packname  causalSLSE
+%global packver   0.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converts Between R Objects and Simple Feature Objects
+Summary:          Semiparametric Least Squares Inference for Causal Effects
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-geometries >= 0.2.4
-Requires:         R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-texreg 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-texreg 
+Requires:         R-methods 
 
 %description
-Converts between R and Simple Feature 'sf' objects, without depending on
-the Simple Feature library. Conversion functions are available at both the
-R level, and through 'Rcpp'.
+Several causal effects are measured using least squares regressions and
+basis function approximations. Backward and forward selection methods
+based on different criteria are used to select the basis functions.
 
 %prep
 %setup -q -c -n %{packname}

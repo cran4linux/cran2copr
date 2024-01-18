@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gt
-%global packver   0.10.0
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Create Presentation-Ready Display Tables
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-tibble >= 3.1.8
 BuildRequires:    R-CRAN-magrittr >= 2.0.2
 BuildRequires:    R-CRAN-commonmark >= 1.8.1
 BuildRequires:    R-CRAN-glue >= 1.6.2
@@ -37,8 +36,8 @@ BuildRequires:    R-CRAN-reactable >= 0.4.3
 BuildRequires:    R-CRAN-bigD >= 0.2
 BuildRequires:    R-CRAN-base64enc >= 0.1.3
 BuildRequires:    R-CRAN-juicyjuice >= 0.1.0
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-tibble >= 3.1.8
 Requires:         R-CRAN-magrittr >= 2.0.2
 Requires:         R-CRAN-commonmark >= 1.8.1
 Requires:         R-CRAN-glue >= 1.6.2
@@ -57,6 +56,7 @@ Requires:         R-CRAN-reactable >= 0.4.3
 Requires:         R-CRAN-bigD >= 0.2
 Requires:         R-CRAN-base64enc >= 0.1.3
 Requires:         R-CRAN-juicyjuice >= 0.1.0
+Requires:         R-CRAN-vctrs 
 
 %description
 Build display tables from tabular data with an easy-to-use set of

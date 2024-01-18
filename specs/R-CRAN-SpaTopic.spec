@@ -1,43 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DeclareDesign
-%global packver   1.0.6
+%global packname  SpaTopic
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Declare and Diagnose Research Designs
+Summary:          Topic Inference to Identify Tissue Architecture in Multiplexed Images
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-randomizr >= 0.20.0
-BuildRequires:    R-CRAN-estimatr >= 0.20.0
-BuildRequires:    R-CRAN-fabricatr >= 0.10.0
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-randomizr >= 0.20.0
-Requires:         R-CRAN-estimatr >= 0.20.0
-Requires:         R-CRAN-fabricatr >= 0.10.0
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-generics 
-Requires:         R-methods 
+BuildRequires:    R-methods >= 3.4
+BuildRequires:    R-CRAN-RANN >= 2.6.0
+BuildRequires:    R-CRAN-foreach >= 1.5.0
+BuildRequires:    R-CRAN-sf >= 1.0.12
+BuildRequires:    R-CRAN-iterators >= 1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-methods >= 3.4
+Requires:         R-CRAN-RANN >= 2.6.0
+Requires:         R-CRAN-foreach >= 1.5.0
+Requires:         R-CRAN-sf >= 1.0.12
+Requires:         R-CRAN-iterators >= 1.0
+Requires:         R-CRAN-Rcpp >= 0.12.0
 
 %description
-Researchers can characterize and learn about the properties of research
-designs before implementation using `DeclareDesign`. Ex ante declaration
-and diagnosis of designs can help researchers clarify the strengths and
-limitations of their designs and to improve their properties, and can help
-readers evaluate a research strategy prior to implementation and without
-access to results. It can also make it easier for designs to be shared,
-replicated, and critiqued.
+A novel spatial topic model to integrate both cell type and spatial
+information to identify the complex spatial tissue architecture on
+multiplexed tissue images without human intervention. The Package
+implements a Collapsed Gibbs sampling algorithm for inference. 'SpaTopic'
+is scalable to large-scale image datasets without extracting neighborhood
+information for every single cell. For more details on the methodology,
+see <https://xiyupeng.github.io/SpaTopic/>.
 
 %prep
 %setup -q -c -n %{packname}

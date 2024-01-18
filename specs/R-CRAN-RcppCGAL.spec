@@ -1,24 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppCGAL
-%global packver   5.6.0
+%global packver   5.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.6.0
+Version:          5.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for 'CGAL'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
-Source1:          https://github.com/CGAL/cgal/releases/download/v5.6.0/CGAL-5.6.0-library.tar.xz
+
 
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-utils 
 
 %description
 Creates a header only package to link to the 'CGAL' (Computational
