@@ -1,28 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  antiword
-%global packver   1.3.2
+%global packname  NVAR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Text from Microsoft Word Documents
+Summary:          Nonlinear Vector Autoregression Models
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-sys >= 2.0
-Requires:         R-CRAN-sys >= 2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Wraps the 'AntiWord' utility to extract text from Microsoft Word
-documents. The utility only supports the old 'doc' format, not the new xml
-based 'docx' format. Use the 'xml2' package to read the latter.
+Estimate nonlinear vector autoregression models (also known as the next
+generation reservoir computing) for nonlinear dynamic systems. The
+algorithm was described by Gauthier et al. (2021)
+<doi:10.1038/s41467-021-25801-2>.
 
 %prep
 %setup -q -c -n %{packname}

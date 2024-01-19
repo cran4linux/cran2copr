@@ -1,28 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  antiword
-%global packver   1.3.2
+%global packname  tidyDenovix
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Text from Microsoft Word Documents
+Summary:          Cleans Spectrophotometry Data Obtained from the Denovix DS-11 Instrument
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-sys >= 2.0
-Requires:         R-CRAN-sys >= 2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Wraps the 'AntiWord' utility to extract text from Microsoft Word
-documents. The utility only supports the old 'doc' format, not the new xml
-based 'docx' format. Use the 'xml2' package to read the latter.
+Cleans spectrophotometry data obtained from the Denovix instrument. The
+package also provides an option to normalize the data in order to compare
+the quality of the samples obtained.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  antiword
-%global packver   1.3.2
+%global packname  Rphylopars
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.3.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Text from Microsoft Word Documents
+Summary:          Phylogenetic Comparative Tools for Missing Data and Within-Species Variation
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-sys >= 2.0
-Requires:         R-CRAN-sys >= 2.0
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-doBy 
+BuildRequires:    R-CRAN-phylolm 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-doBy 
+Requires:         R-CRAN-phylolm 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Wraps the 'AntiWord' utility to extract text from Microsoft Word
-documents. The utility only supports the old 'doc' format, not the new xml
-based 'docx' format. Use the 'xml2' package to read the latter.
+Tools for performing phylogenetic comparative methods for datasets with
+with multiple observations per species (intraspecific variation or
+measurement error) and/or missing data (Goolsby et al. 2017). Performs
+ancestral state reconstruction and missing data imputation on the
+estimated evolutionary model, which can be specified as Brownian Motion,
+Ornstein-Uhlenbeck, Early-Burst, Pagel's lambda, kappa, or delta, or a
+star phylogeny.
 
 %prep
 %setup -q -c -n %{packname}

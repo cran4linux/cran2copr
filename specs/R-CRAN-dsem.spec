@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsem
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Dynamic Structural Equation Models
 
@@ -31,7 +31,7 @@ Requires:         R-methods
 %description
 Applies dynamic structural equation models to time-series data with
 generic and simplified specification for simultaneous and lagged effects.
-Methods are described in Thorson et al. (In revision) "Dynamic structural
+Methods are described in Thorson et al. (In press) "Dynamic structural
 equation models synthesize ecosystem dynamics constrained by ecological
 mechanisms."
 

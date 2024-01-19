@@ -1,28 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  antiword
-%global packver   1.3.2
+%global packname  mnreadR
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Text from Microsoft Word Documents
+Summary:          MNREAD Parameters Estimation and Curve Plotting
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-sys >= 2.0
-Requires:         R-CRAN-sys >= 2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-tibble 
 
 %description
-Wraps the 'AntiWord' utility to extract text from Microsoft Word
-documents. The utility only supports the old 'doc' format, not the new xml
-based 'docx' format. Use the 'xml2' package to read the latter.
+Allows to analyze the reading data obtained with the MNREAD Acuity Chart,
+a continuous-text reading acuity chart for normal and low vision. Provides
+the necessary functions to plot the MNREAD curve and estimate
+automatically the four MNREAD parameters: Maximum Reading Speed, Critical
+Print Size, Reading Acuity and Reading Accessibility Index. Parameters can
+be estimated either with the standard method or with a nonlinear
+mixed-effects (NLME) modeling. See Calabrese et al. 2018 for more details
+<doi:10.1167/18.1.8>.
 
 %prep
 %setup -q -c -n %{packname}

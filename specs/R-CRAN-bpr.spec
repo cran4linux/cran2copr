@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bpr
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Bayesian Poisson Regression
 
@@ -17,12 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-MASS 
 
@@ -30,7 +29,7 @@ Requires:         R-CRAN-MASS
 Posterior sampling and inference for Bayesian Poisson regression models.
 The model specification makes use of Gaussian (or conditionally Gaussian)
 prior distributions on the regression coefficients. Details on the
-algorithm are found in D'Angelo and Canale (2022)
+algorithm are found in D'Angelo and Canale (2023)
 <doi:10.1080/10618600.2022.2123337>.
 
 %prep

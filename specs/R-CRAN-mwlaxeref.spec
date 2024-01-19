@@ -1,28 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  antiword
-%global packver   1.3.2
+%global packname  mwlaxeref
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Text from Microsoft Word Documents
+Summary:          Cross-References Lake Identifiers Between Different Data Sets
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-sys >= 2.0
-Requires:         R-CRAN-sys >= 2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.3
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.1.3
+Requires:         R-CRAN-rlang >= 1.1.1
 
 %description
-Wraps the 'AntiWord' utility to extract text from Microsoft Word
-documents. The utility only supports the old 'doc' format, not the new xml
-based 'docx' format. Use the 'xml2' package to read the latter.
+Handy helper package for cross-referencing lake identifiers among
+different data sets in the Midwestern United States. There are multiple
+different state, regional, and federal agencies that have different
+identifiers on lakes. This package helps you to go between them.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survstan
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Survival Regression Models via 'Stan'
 
@@ -25,8 +25,13 @@ BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-MASS 
@@ -43,8 +48,13 @@ Requires:         R-CRAN-rstantools >= 2.3.1
 Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-MASS 
@@ -60,13 +70,13 @@ Requires:         R-CRAN-rstantools
 Parametric survival regression models under the maximum likelihood
 approach via 'Stan'. Implemented regression models include accelerated
 failure time models, proportional hazards models, proportional odds
-models, accelerated hazard models, and Yang and Prentice models. Available
-baseline survival distributions include exponential, Weibull, log-normal,
-log-logistic, gamma, rayleigh and fatigue (Birnbaum-Saunders)
-distributions. References: Lawless (2002) <ISBN:9780471372158>; Bennett
-(1982) <doi:10.1002/sim.4780020223>; Chen and Wang(2000)
-<doi:10.1080/01621459.2000.10474236>; Demarqui and Mayrink (2021)
-<doi:10.1214/20-BJPS471>.
+models, accelerated hazard models, Yang and Prentice models, and extended
+hazard models. Available baseline survival distributions include
+exponential, Weibull, log-normal, log-logistic, gamma, rayleigh and
+fatigue (Birnbaum-Saunders) distributions. References: Lawless (2002)
+<ISBN:9780471372158>; Bennett (1982) <doi:10.1002/sim.4780020223>; Chen
+and Wang(2000) <doi:10.1080/01621459.2000.10474236>; Demarqui and Mayrink
+(2021) <doi:10.1214/20-BJPS471>.
 
 %prep
 %setup -q -c -n %{packname}

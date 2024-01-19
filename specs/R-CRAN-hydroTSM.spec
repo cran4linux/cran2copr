@@ -1,51 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MCMCpack
-%global packver   1.7-0
+%global packname  hydroTSM
+%global packver   0.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Markov Chain Monte Carlo (MCMC) Package
+Summary:          Time Series Management and Analysis for Hydrological Modelling
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-coda >= 0.11.3
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-zoo >= 1.7.2
+BuildRequires:    R-CRAN-xts >= 0.9.7
+BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mcmc 
-BuildRequires:    R-CRAN-quantreg 
-Requires:         R-CRAN-coda >= 0.11.3
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-classInt 
+Requires:         R-CRAN-zoo >= 1.7.2
+Requires:         R-CRAN-xts >= 0.9.7
+Requires:         R-CRAN-e1071 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lattice 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-mcmc 
-Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-classInt 
 
 %description
-Contains functions to perform Bayesian inference using posterior
-simulation for a number of statistical models. Most simulation is done in
-compiled C++ written in the Scythe Statistical Library Version 1.0.3. All
-models return 'coda' mcmc objects that can then be summarized using the
-'coda' package. Some useful utility functions such as density functions,
-pseudo-random number generators for statistical distributions, a general
-purpose Metropolis sampling algorithm, and tools for visualization are
-provided.
+S3 functions for management, analysis, interpolation and plotting of time
+series used in hydrology and related environmental sciences. In
+particular, this package is highly oriented to hydrological modelling
+tasks. The focus of this package has been put in providing a collection of
+tools useful for the daily work of hydrologists (although an effort was
+made to optimise each function as much as possible, functionality has had
+priority over speed). Bugs / comments / questions / collaboration of any
+kind are very welcomed, and in particular, datasets that can be included
+in this package for academic purposes.
 
 %prep
 %setup -q -c -n %{packname}

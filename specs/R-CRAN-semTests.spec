@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  antiword
-%global packver   1.3.2
+%global packname  semTests
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Text from Microsoft Word Documents
+Summary:          Goodness-of-Fit Testing for Structural Equation Models
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-sys >= 2.0
-Requires:         R-CRAN-sys >= 2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lavaan >= 0.6.16
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-future.apply 
+Requires:         R-CRAN-lavaan >= 0.6.16
+Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-future.apply 
 
 %description
-Wraps the 'AntiWord' utility to extract text from Microsoft Word
-documents. The utility only supports the old 'doc' format, not the new xml
-based 'docx' format. Use the 'xml2' package to read the latter.
+Supports eigenvalue block-averaging p-values (Foldnes, Grønneberg, 2018)
+<doi:10.1080/10705511.2017.1373021>, penalized eigenvalue block-averaging
+p-values (Foldnes, Moss, Grønneberg, WIP), penalized regression p-values
+(Foldnes, Moss, Grønneberg, WIP), as well as traditional p-values such as
+Satorra-Bentler. All p-values can be calculated using unbiased or biased
+gamma estimates (Du, Bentler, 2022) <doi:10.1080/10705511.2022.2063870>
+and two choices of chi square statistics.
 
 %prep
 %setup -q -c -n %{packname}

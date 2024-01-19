@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  antiword
-%global packver   1.3.2
+%global packname  surveytable
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Text from Microsoft Word Documents
+Summary:          Formatted Survey Estimates
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-sys >= 2.0
-Requires:         R-CRAN-sys >= 2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-huxtable 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-survey 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-huxtable 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-survey 
 
 %description
-Wraps the 'AntiWord' utility to extract text from Microsoft Word
-documents. The utility only supports the old 'doc' format, not the new xml
-based 'docx' format. Use the 'xml2' package to read the latter.
+Short and understandable commands that generate tabulated, formatted, and
+rounded survey estimates. Mostly a wrapper for the 'survey' package
+(Lumley (2004) <doi:10.18637/jss.v009.i08>
+<https://CRAN.R-project.org/package=survey>) that implements the National
+Center for Health Statistics (NCHS) presentation standards (Parker et al.
+(2017) <https://www.cdc.gov/nchs/data/series/sr_02/sr02_175.pdf>, Parker
+et al. (2023) <doi:10.15620/cdc:124368>).
 
 %prep
 %setup -q -c -n %{packname}

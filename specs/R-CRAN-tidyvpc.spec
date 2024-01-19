@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  csdata
-%global packver   2024.1.17
+%global packname  tidyvpc
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.1.17
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Structural Data for Norway
+Summary:          VPC Percentiles and Prediction Intervals
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-quantreg >= 5.51
+BuildRequires:    R-CRAN-data.table >= 1.9.8
+BuildRequires:    R-CRAN-rlang >= 0.3.0
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-egg 
+Requires:         R-CRAN-quantreg >= 5.51
+Requires:         R-CRAN-data.table >= 1.9.8
+Requires:         R-CRAN-rlang >= 0.3.0
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-CRAN-fastDummies 
 Requires:         R-utils 
+Requires:         R-CRAN-egg 
 
 %description
-Datasets relating to population in municipalities, municipality/county
-matching, and how different municipalities have merged/redistricted over
-time from 2006 to 2024.
+Perform a Visual Predictive Check (VPC), while accounting for
+stratification, censoring, and prediction correction. Using piping from
+'magrittr', the intuitive syntax gives users a flexible and powerful
+method to generate VPCs using both traditional binning and a new binless
+approach Jamsen et al. (2018) <doi:10.1002/psp4.12319> with Additive
+Quantile Regression (AQR) and Locally Estimated Scatterplot Smoothing
+(LOESS) prediction correction.
 
 %prep
 %setup -q -c -n %{packname}

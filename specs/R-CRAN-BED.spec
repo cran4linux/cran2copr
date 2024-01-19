@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BED
-%global packver   1.4.13
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.13
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biological Entity Dictionary (BED)
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-neo2R >= 2.1.0
+BuildRequires:    R-CRAN-neo2R >= 2.4.1
 BuildRequires:    R-CRAN-rstudioapi >= 0.5
 BuildRequires:    R-CRAN-shiny >= 0.13
 BuildRequires:    R-CRAN-miniUI >= 0.1.1
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-neo2R >= 2.1.0
+Requires:         R-CRAN-neo2R >= 2.4.1
 Requires:         R-CRAN-rstudioapi >= 0.5
 Requires:         R-CRAN-shiny >= 0.13
 Requires:         R-CRAN-miniUI >= 0.1.1
@@ -58,10 +58,8 @@ process according to the relationships between the biological entities of
 interest. Indeed, mapping between gene and protein ID scopes should not be
 done the same way than between two scopes regarding gene ID. Also,
 converting identifiers from different organisms should be possible using
-gene orthologs information. A ready to use database is provided as a
-'Docker' image <https://hub.docker.com/r/patzaw/bed-ucb-human/>. The
-method has been published by Godard and van Eyll (2018)
-<doi:10.12688/f1000research.13925.3>.
+gene orthologs information. The method has been published by Godard and
+van Eyll (2018) <doi:10.12688/f1000research.13925.3>.
 
 %prep
 %setup -q -c -n %{packname}
