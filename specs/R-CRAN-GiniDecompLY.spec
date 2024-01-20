@@ -1,37 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ASV
-%global packver   1.1.2
+%global packname  GiniDecompLY
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stochastic Volatility Models with or without Leverage
+Summary:          Gini Decomposition by Income Sources
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-freqdom 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-freqdom 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-The efficient Markov chain Monte Carlo estimation of stochastic volatility
-models with and without leverage (asymmetric and symmetric stochastic
-volatility models). Further, it computes the logarithm of the likelihood
-given parameters using particle filters.
+Estimation of the effect of each income source on income inequalities
+based on the decomposition of Lerman and Yitzhaki (1985)
+<doi:10.2307/1928447>.
 
 %prep
 %setup -q -c -n %{packname}

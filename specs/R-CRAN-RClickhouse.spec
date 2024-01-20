@@ -1,37 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ASV
-%global packver   1.1.2
+%global packname  RClickhouse
+%global packver   0.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.6.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stochastic Volatility Models with or without Leverage
+Summary:          'Yandex Clickhouse' Interface for R with Basic 'dplyr' Support
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-freqdom 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-freqdom 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.6.2
+Requires:         R-core >= 3.6.2
+BuildRequires:    R-methods >= 3.3.2
+BuildRequires:    R-CRAN-dbplyr >= 2.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-DBI >= 1.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-methods >= 3.3.2
+Requires:         R-CRAN-dbplyr >= 2.0.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-DBI >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-cli 
 
 %description
-The efficient Markov chain Monte Carlo estimation of stochastic volatility
-models with and without leverage (asymmetric and symmetric stochastic
-volatility models). Further, it computes the logarithm of the likelihood
-given parameters using particle filters.
+'Yandex Clickhouse' (<https://clickhouse.com/>) is a high-performance
+relational column-store database to enable big data exploration and
+'analytics' scaling to petabytes of data. Methods are provided that enable
+working with 'Yandex Clickhouse' databases via 'DBI' methods and using
+'dplyr'/'dbplyr' idioms.
 
 %prep
 %setup -q -c -n %{packname}

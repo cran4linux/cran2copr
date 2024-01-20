@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rqlm
-%global packver   1.2-1
+%global packname  eCV
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modified Poisson and Least-Squares Regressions for Binary Outcome
+Summary:          Enhanced Coefficient of Variation and IDR Extensions for Reproducibility Assessment
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-future.apply >= 1.9.0
+BuildRequires:    R-CRAN-future >= 1.4.0
+BuildRequires:    R-CRAN-idr >= 1.3
+BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-future.apply >= 1.9.0
+Requires:         R-CRAN-future >= 1.4.0
+Requires:         R-CRAN-idr >= 1.3
+Requires:         R-CRAN-mvtnorm >= 1.1.3
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-sandwich 
+Requires:         R-utils 
 
 %description
-Modified Poisson and least-squares regression analyses for binary outcomes
-of Zou (2004) <doi:10.1093/aje/kwh090> and Cheung (2007)
-<doi:10.1093/aje/kwm223> have been standard multivariate analysis methods
-to estimate risk ratio and risk difference in clinical and epidemiological
-studies. This R package involves an easy-to-handle function to implement
-these analyses by simple commands. Also, recent studies have shown the
-ordinary robust variance estimator possibly has serious bias under small
-or moderate sample size situations for these methods. This package also
-provides computational tools to calculate alternative accurate confidence
-intervals (Noma and Gosho (2024) <Forthcoming>).
+Reproducibility assessment is essential in extracting reliable scientific
+insights from high-throughput experiments.  While the Irreproducibility
+Discovery Rate (IDR) method has been instrumental in assessing
+reproducibility, its standard implementation is constrained to handling
+only two replicates. Package 'eCV' introduces an enhanced Coefficient of
+Variation (eCV) metric to assess the likelihood of omic features being
+reproducible. Additionally, it offers alternatives to the Irreproducible
+Discovery Rate (IDR) calculations for multi-replicate experiments. These
+tools are valuable for analyzing high-throughput data in genomics and
+other omics fields. The methods implemented in 'eCV' are described in
+Gonzalez-Reymundez et al., (2023) <doi:10.1101/2023.12.18.572208>.
 
 %prep
 %setup -q -c -n %{packname}

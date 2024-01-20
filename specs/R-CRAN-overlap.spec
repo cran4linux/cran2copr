@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ASV
-%global packver   1.1.2
+%global packname  overlap
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stochastic Volatility Models with or without Leverage
+Summary:          Estimates of Coefficient of Overlapping for Animal Activity Patterns
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-freqdom 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-freqdom 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-suntools 
+Requires:         R-CRAN-suntools 
 
 %description
-The efficient Markov chain Monte Carlo estimation of stochastic volatility
-models with and without leverage (asymmetric and symmetric stochastic
-volatility models). Further, it computes the logarithm of the likelihood
-given parameters using particle filters.
+Provides functions to fit kernel density functions to data on temporal
+activity patterns of animals; estimate coefficients of overlapping of
+densities for two species; and calculate bootstrap estimates of confidence
+intervals. As in Ridout and Linkie (2009) <doi:10.1198/jabes.2009.08038>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  HLSM
-%global packver   0.9.0
+%global __requires_exclude ^libmpi
+%global packname  openscoring
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Latent Space Network Model
+Summary:          Open Scoring API Client
 
-License:          GPL (> 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-igraph 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-abind 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 
 %description
-Implements Hierarchical Latent Space Network Model (HLSM) for ensemble of
-networks as described in Sweet, Thomas & Junker (2013).
-<DOI:10.3102/1076998612458702>.
+Creativity research involves the need to score open-ended problems.
+Usually done by humans, automatic scoring using AI becomes more and more
+accurate. This package provides a simple interface to the 'Open Scoring'
+API <https://openscoring.du.edu/docs>, leading creativity scoring
+technology by Organiscak et al. (2023) <doi:10.1016/j.tsc.2023.101356>.
+With it, you can score your own data directly from an R script.
 
 %prep
 %setup -q -c -n %{packname}

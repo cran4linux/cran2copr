@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modEvA
-%global packver   3.11
+%global packver   3.13.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11
+Version:          3.13.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Evaluation and Analysis
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-terra > 1.5.50
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-terra > 1.5.50
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-terra 
 
 %description
 Analyses species distribution models and evaluates their performance. It

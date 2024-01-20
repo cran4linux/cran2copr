@@ -1,37 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ASV
-%global packver   1.1.2
+%global packname  phenopix
+%global packver   2.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          2.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stochastic Volatility Models with or without Leverage
+Summary:          Process Digital Images of a Vegetation Cover
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-freqdom 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-freqdom 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 2.15.3
+Requires:         R-core >= 2.15.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr >= 1.0.0
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-strucchange 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-stringr >= 1.0.0
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-strucchange 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
 
 %description
-The efficient Markov chain Monte Carlo estimation of stochastic volatility
-models with and without leverage (asymmetric and symmetric stochastic
-volatility models). Further, it computes the logarithm of the likelihood
-given parameters using particle filters.
+A collection of functions to process digital images, depict greenness
+index trajectories and extract relevant phenological stages.
 
 %prep
 %setup -q -c -n %{packname}

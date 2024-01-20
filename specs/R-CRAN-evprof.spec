@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  QuantBondCurves
-%global packver   0.2.0
+%global packname  evprof
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculates Bond Values and Interest Rate Curves for Finance
+Summary:          Electric Vehicle Charging Sessions Profiling and Modelling
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-quantdates 
-BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-quantdates 
-Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Values different types of assets and calibrates discount curves for
-quantitative financial analysis. It covers fixed coupon assets, floating
-note assets, interest and cross currency swaps with different payment
-frequencies. Enables the calibration of spot, instantaneous forward and
-basis curves, making it a powerful tool for accurate and flexible bond
-valuation and curve generation. The valuation and calibration techniques
-presented here are consistent with industry standards and incorporates
-author's own calculations. Tuckman, B., Serrat, A. (2022, ISBN:
-978-1-119-83555-4).
+Tools for modelling electric vehicle charging sessions into generic groups
+with similar connection patterns called "user profiles", using Gaussian
+Mixture Models clustering. The clustering and profiling methodology is
+described in Cañigueral and Meléndez (2021, ISBN:0142-0615)
+<doi:10.1016/j.ijepes.2021.107195>.
 
 %prep
 %setup -q -c -n %{packname}

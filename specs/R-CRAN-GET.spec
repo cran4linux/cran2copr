@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GET
-%global packver   0.5
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Envelopes
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-viridisLite
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-parallel 
 Requires:         R-stats 
@@ -48,9 +50,9 @@ test of correspondence of distribution functions), for central regions of
 functional or multivariate data (e.g. outlier detection, functional
 boxplot) and for global confidence and prediction bands (e.g. confidence
 band in polynomial regression, Bayesian posterior prediction). See
-Myllymäki and Mrkvička (2020) <arXiv:1911.06583>, Myllymäki et al. (2017)
-<doi: 10.1111/rssb.12172>, Mrkvička and Myllymäki (2022)
-<arXiv:2008.10108>, Mrkvička et al. (2017) <doi:
+Myllymäki and Mrkvička (2023) <arXiv:1911.06583>, Myllymäki et al. (2017)
+<doi: 10.1111/rssb.12172>, Mrkvička and Myllymäki (2023) <doi:
+10.1007/s11222-023-10275-7>, Mrkvička et al. (2017) <doi:
 10.1007/s11222-016-9683-9>, Mrkvička et al. (2020) <doi:
 10.14736/kyb-2020-3-0432>, Mrkvička et al. (2021) <doi:
 10.1007/s11009-019-09756-y>, Mrkvička et al. (2022) <doi:

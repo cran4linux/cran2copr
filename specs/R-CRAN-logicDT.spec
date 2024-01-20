@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  logicDT
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identifying Interactions Between Binary Predictors
 
@@ -26,13 +26,15 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-A global statistical learning method which tries to find the best set of
+A statistical learning method that tries to find the best set of
 predictors and interactions between predictors for modeling binary or
-quantitative response data. Several search algorithms and ensembling
-techniques are implemented allowing for finetuning the method to the
-specific problem. Interactions with single quantitative covariables can be
-properly taken into account by also splitting after those or by fitting
-local four parameter logistic models.
+quantitative response data in a decision tree. Several search algorithms
+and ensembling techniques are implemented allowing for finetuning the
+method to the specific problem. Interactions with quantitative covariables
+can be properly taken into account by fitting local regression models.
+Moreover, a variable importance measure for assessing marginal and
+interaction effects is provided. Implements the procedures proposed by Lau
+et al. (2024, <doi:10.1007/s10994-023-06488-6>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ASV
-%global packver   1.1.2
+%global packname  filecacher
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.2.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stochastic Volatility Models with or without Leverage
+Summary:          File Cacher
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-freqdom 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-freqdom 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
-The efficient Markov chain Monte Carlo estimation of stochastic volatility
-models with and without leverage (asymmetric and symmetric stochastic
-volatility models). Further, it computes the logarithm of the likelihood
-given parameters using particle filters.
+The main functions in this package are with_cache() and cached_read(). The
+former is a simple way to cache an R object into a file on disk, using
+'cachem'. The latter is a wrapper around any standard read function, but
+caches both the output and the file list info. If the input file list info
+hasn't changed, the cache is used; otherwise, the original files are
+re-read. This can save time if the original operation requires reading
+from many files, and/or involves lots of processing.
 
 %prep
 %setup -q -c -n %{packname}

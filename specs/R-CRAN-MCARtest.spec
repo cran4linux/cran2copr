@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MCARtest
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Nonparametric Testing of Missing Completely at Random
 
@@ -22,16 +22,30 @@ BuildRequires:    R-CRAN-gtools
 BuildRequires:    R-CRAN-Epi 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-highs 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcsdp 
+BuildRequires:    R-CRAN-misty 
+BuildRequires:    R-CRAN-norm 
+BuildRequires:    R-CRAN-missMethods 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-rcdd 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-Epi 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-highs 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcsdp 
+Requires:         R-CRAN-misty 
+Requires:         R-CRAN-norm 
+Requires:         R-CRAN-missMethods 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-MASS 
 
 %description
 Provides functions for carrying out nonparametric hypothesis tests of the
