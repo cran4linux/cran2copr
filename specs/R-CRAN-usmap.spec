@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  usmap
-%global packver   0.6.4
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          US Maps Including Alaska and Hawaii
 
@@ -17,17 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-usmapdata >= 0.1.2
+BuildRequires:    R-CRAN-usmapdata >= 0.2.0
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-usmapdata >= 0.1.2
+Requires:         R-CRAN-usmapdata >= 0.2.0
 Requires:         R-CRAN-rlang 
 
 %description
 Obtain United States map data frames of varying region types (e.g. county,
 state). The map data frames include Alaska and Hawaii conveniently placed
 to the bottom left, as they appear in most maps of the US. Convenience
-functions for plotting choropleths and working with FIPS codes are also
-provided.
+functions for plotting choropleths, visualizing spatial data, and working
+with FIPS codes are also provided.
 
 %prep
 %setup -q -c -n %{packname}

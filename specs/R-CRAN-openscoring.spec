@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openscoring
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Scoring API Client
+Summary:          'Open Scoring' API Client
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HDMFA
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Matrix Factor Analysis
 
@@ -23,7 +23,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-RSpectra 
 
 %description
-Hign-dimensional matrix factor models have drawn much attention in view of
+High-dimensional matrix factor models have drawn much attention in view of
 the fact that observations are usually well structured to be an array such
 as in macroeconomics and finance. In addition, data often exhibit
 heavy-tails and thus it is also important to develop robust procedures. We
@@ -35,11 +35,12 @@ iterative projection approach to compute and learn the parameters and
 thereby named as Robust-Matrix-Factor-Analysis (RMFA), see the details in
 He et al. (2023)<doi:10.1080/07350015.2023.2191676>. The other one is
 based on minimizing the element-wise Huber loss, which can be solved by an
-iterative Huber regression algorithm (IHR). In this package, we also
-provide the algorithm for alpha-PCA by Chen & Fan (2021)
-<doi:10.1080/01621459.2021.1970569>, the Projected estimation (PE) method
-by Yu et al. (2022)<doi:10.1016/j.jeconom.2021.04.001>. In addition, the
-methods for determining the pair of factor numbers are also given.
+iterative Huber regression algorithm (IHR), see the details in He et al.
+(2023) <arXiv:2306.03317>. In this package, we also provide the algorithm
+for alpha-PCA by Chen & Fan (2021) <doi:10.1080/01621459.2021.1970569>,
+the Projected estimation (PE) method by Yu et al.
+(2022)<doi:10.1016/j.jeconom.2021.04.001>. In addition, the methods for
+determining the pair of factor numbers are also given.
 
 %prep
 %setup -q -c -n %{packname}

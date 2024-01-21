@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesianVARs
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          MCMC Estimation of Bayesian Vectorautoregressions
 
@@ -16,27 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-stochvol >= 3.0.2
+BuildRequires:    R-CRAN-stochvol >= 3.0.3
+BuildRequires:    R-CRAN-factorstochvol >= 1.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-GIGrvg >= 0.7
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-factorstochvol 
-BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-stochvol >= 3.0.2
+Requires:         R-CRAN-stochvol >= 3.0.3
+Requires:         R-CRAN-factorstochvol >= 1.1.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-GIGrvg >= 0.7
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-factorstochvol 
-Requires:         R-CRAN-GIGrvg 
 Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-utils 
