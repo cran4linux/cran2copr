@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  colorhex
-%global packver   0.1.4
+%global packname  hydroGOF
+%global packver   0.5-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Colors and Palettes from Color-Hex
+Summary:          Goodness-of-Fit Functions for Comparison of Simulated and Observed Hydrological Time Series
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-CRAN-zoo >= 1.7.2
+BuildRequires:    R-CRAN-xts >= 0.8.2
+BuildRequires:    R-CRAN-hydroTSM >= 0.5.0
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-zoo >= 1.7.2
+Requires:         R-CRAN-xts >= 0.8.2
+Requires:         R-CRAN-hydroTSM >= 0.5.0
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-The website <https://www.color-hex.com> is a great resource of hex colour
-codes and palettes. This package allows you to retrieve palettes and
-colour information from the website directly from R. There are also custom
-scale-functions for 'ggplot2'.
+S3 functions implementing both statistical and graphical goodness-of-fit
+measures between observed and simulated values, mainly oriented to be used
+during the calibration, validation, and application of hydrological
+models. Missing values in observed and/or simulated values can be removed
+before computations. Comments / questions / collaboration of any kind are
+very welcomed.
 
 %prep
 %setup -q -c -n %{packname}

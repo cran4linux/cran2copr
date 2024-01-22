@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  viralx
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explainers for Regression Models in HIV Research
 
@@ -14,14 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DALEX 
 BuildRequires:    R-CRAN-DALEXtra 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-earth 
 BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-kknn 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-plotmo 
 BuildRequires:    R-CRAN-plotrix 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-DALEXtra
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-earth 
 Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-kknn 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-plotmo 
 Requires:         R-CRAN-plotrix 

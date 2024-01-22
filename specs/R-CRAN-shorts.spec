@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shorts
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Short Sprints
 
@@ -31,14 +31,12 @@ Requires:         R-CRAN-minpack.lm
 Requires:         R-CRAN-purrr 
 
 %description
-Create short sprint (<6sec) profiles using the split times or the radar
-gun data. Mono-exponential equation is used to estimate maximal sprinting
-speed (MSS), relative acceleration (TAU), and other parameters such us
-maximal acceleration (MAC) and maximal relative power (PMAX). These
-parameters can be used to predict kinematic and kinetics variables and to
-compare individuals. The modeling method utilized in this package is based
-on the works of Furusawa K, Hill AV, Parkinson JL (1927) <doi:
-10.1098/rspb.1927.0035>, Greene PR. (1986) <doi:
+Create short sprint acceleration-velocity (AVP) and force-velocity (FVP)
+profiles and predict kinematic and kinetic variables using the timing-gate
+split times, laser or radar gun data, tether devices data, as well as the
+data provided by the GPS and LPS monitoring systems. The modeling method
+utilized in this package is based on the works of Furusawa K, Hill AV,
+Parkinson JL (1927) <doi: 10.1098/rspb.1927.0035>, Greene PR. (1986) <doi:
 10.1016/0025-5564(86)90063-5>, Chelly SM, Denis C. (2001) <doi:
 10.1097/00005768-200102000-00024>, Clark KP, Rieger RH, Bruno RF, Stearne
 DJ. (2017) <doi: 10.1519/JSC.0000000000002081>, Samozino P. (2018) <doi:

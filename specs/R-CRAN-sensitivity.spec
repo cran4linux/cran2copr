@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sensitivity
-%global packver   1.29.0
+%global packver   1.30.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.29.0
+Version:          1.30.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Sensitivity Analysis of Model Outputs
+Summary:          Global Sensitivity Analysis of Model Outputs and Importance Measures
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -35,9 +35,9 @@ Requires:         R-CRAN-dtwclust
 %description
 A collection of functions for sensitivity analysis of model outputs
 (factor screening, global sensitivity analysis and robustness analysis),
-as well as for interpretability of machine learning models. Most of the
-functions have to be applied on scalar output, but several functions
-support multi-dimensional outputs.
+for variable importance measures of data, as well as for interpretability
+of machine learning models. Most of the functions have to be applied on
+scalar output, but several functions support multi-dimensional outputs.
 
 %prep
 %setup -q -c -n %{packname}

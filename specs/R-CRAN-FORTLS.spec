@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FORTLS
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Processing of Terrestrial-Based Technologies Point Cloud Data for Forestry Purposes
 
@@ -14,10 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-Distance 
@@ -25,10 +24,12 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-lidR 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-RCSF 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
@@ -36,7 +37,6 @@ BuildRequires:    R-CRAN-VoxR
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-circular 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-Distance 
@@ -44,10 +44,12 @@ Requires:         R-CRAN-htmlwidgets
 Requires:         R-CRAN-lidR 
 Requires:         R-methods 
 Requires:         R-CRAN-moments 
+Requires:         R-parallel 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-RCSF 
+Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 
@@ -56,11 +58,11 @@ Requires:         R-CRAN-vroom
 
 %description
 Process automation of point cloud data derived from terrestrial-based
-technologies such as Terrestrial Laser Scanner (TLS) or Simultaneous
-Localization and Mapping (SLAM). 'FORTLS' enables (i) detection of trees
-and estimation of tree-level attributes (e.g. diameters and heights), (ii)
-estimation of stand-level variables (e.g. density, basal area, mean and
-dominant height), (iii) computation of metrics related to important forest
+technologies such as Terrestrial Laser Scanner (TLS) or Mobile Laser
+Scanner. 'FORTLS' enables (i) detection of trees and estimation of
+tree-level attributes (e.g. diameters and heights), (ii) estimation of
+stand-level variables (e.g. density, basal area, mean and dominant
+height), (iii) computation of metrics related to important forest
 attributes estimated in Forest Inventories at stand-level, and (iv)
 optimization of plot design for combining TLS data and field measured
 data. Documentation about 'FORTLS' is described in Molina-Valero et al.

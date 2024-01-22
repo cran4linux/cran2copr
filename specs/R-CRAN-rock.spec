@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rock
-%global packver   0.6.7
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Open Coding Kit
 
@@ -23,9 +23,9 @@ BuildRequires:    R-graphics >= 3.0.0
 BuildRequires:    R-stats >= 3.0.0
 BuildRequires:    R-CRAN-yaml >= 2.2.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
+BuildRequires:    R-CRAN-data.tree >= 1.1.0
 BuildRequires:    R-CRAN-markdown >= 1.1
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
-BuildRequires:    R-CRAN-data.tree >= 0.7.8
 BuildRequires:    R-CRAN-dplyr >= 0.7.8
 BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-purrr >= 0.2.5
@@ -37,9 +37,9 @@ Requires:         R-graphics >= 3.0.0
 Requires:         R-stats >= 3.0.0
 Requires:         R-CRAN-yaml >= 2.2.0
 Requires:         R-CRAN-glue >= 1.3.0
+Requires:         R-CRAN-data.tree >= 1.1.0
 Requires:         R-CRAN-markdown >= 1.1
 Requires:         R-CRAN-DiagrammeR >= 1.0.0
-Requires:         R-CRAN-data.tree >= 0.7.8
 Requires:         R-CRAN-dplyr >= 0.7.8
 Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-purrr >= 0.2.5
@@ -55,7 +55,8 @@ an interface to the 'rENA' package that implements Epistemic Network
 Analysis ('ENA'), means to process notes from Cognitive Interviews
 ('CIs'), and means to work with decentralized construct taxonomies
 ('DCTs'). The 'ROCK' and this 'rock' package are described in the ROCK
-book <https:rockbook.org>.
+book <https://rockbook.org> and more information, such as tutorials, is
+available at <https://rock.science>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  precommit
-%global packver   0.4.0
+%global packname  sqlhelper
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pre-Commit Hooks
+Summary:          Easier 'SQL' Integration
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       git
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R.cache 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R.cache 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-pool 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-pool 
+Requires:         R-methods 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rlang 
 
 %description
-Useful git hooks for R building on top of the multi-language framework
-'pre-commit' for hook management. This package provides git hooks for
-common tasks like formatting files with 'styler' or spell checking as well
-as wrapper functions to access the 'pre-commit' executable.
+Execute files of 'SQL' and manage database connections. 'SQL' statements
+and queries may be interpolated with string literals. Execution of
+individual statements and queries may be controlled with keywords.
+Multiple connections may be defined with 'YAML' and accessed by name.
 
 %prep
 %setup -q -c -n %{packname}

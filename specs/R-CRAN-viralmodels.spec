@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  viralmodels
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Viral Load and CD4 Lymphocytes Regression Models
 
@@ -19,7 +19,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-earth 
-BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-kknn 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-recipes 
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-workflows
 BuildRequires:    R-CRAN-workflowsets 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-earth 
-Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-kknn 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-recipes 

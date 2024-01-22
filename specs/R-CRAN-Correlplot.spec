@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Correlplot
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Functions for Graphing Correlation Matrices
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-corrplot
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-lsei 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-calibrate 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lsei 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Routines for the graphical representation of correlation matrices by means

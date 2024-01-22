@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSQLite
-%global packver   2.3.4
+%global packver   2.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          SQLite Interface for R
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-blob >= 1.2.0
-BuildRequires:    R-CRAN-DBI >= 1.1.0
+BuildRequires:    R-CRAN-DBI >= 1.2.0
 BuildRequires:    R-CRAN-cpp11 >= 0.4.0
 BuildRequires:    R-CRAN-plogr >= 0.2.0
 BuildRequires:    R-CRAN-bit64 
@@ -26,7 +26,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-pkgconfig 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-blob >= 1.2.0
-Requires:         R-CRAN-DBI >= 1.1.0
+Requires:         R-CRAN-DBI >= 1.2.0
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-memoise 
 Requires:         R-methods 

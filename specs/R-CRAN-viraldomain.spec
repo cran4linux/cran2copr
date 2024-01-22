@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  viraldomain
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Applicability Domain Methods of Viral Load and CD4 Lymphocytes
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-applicable
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-earth 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-kknn 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-recipes 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-applicable
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-earth 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-kknn 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-recipes 
