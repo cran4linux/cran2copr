@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FIESTA
-%global packver   3.6.0
+%global packver   3.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.0
+Version:          3.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Inventory Estimation and Analysis
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FIESTAutils >= 1.2.0
+BuildRequires:    R-CRAN-FIESTAutils >= 1.2.1
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-gdalraster 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-RSQLite
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sqldf 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-FIESTAutils >= 1.2.0
+Requires:         R-CRAN-FIESTAutils >= 1.2.1
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-gdalraster 

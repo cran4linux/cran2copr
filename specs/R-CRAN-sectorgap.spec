@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gghdx
-%global packver   0.1.2
+%global packname  sectorgap
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          HDX Theme, Scales, and Other Conveniences for 'ggplot2'
+Summary:          Consistent Economic Trend Cycle Decomposition
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-KFAS 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-showtext 
-BuildRequires:    R-CRAN-sysfonts 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tempdisagg 
+Requires:         R-stats 
+Requires:         R-CRAN-KFAS 
+Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-showtext 
-Requires:         R-CRAN-sysfonts 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tempdisagg 
 
 %description
-A Humanitarian Data Exchange (HDX) theme, color palettes, and scales for
-'ggplot2' to allow users to easily follow the HDX visual design guide,
-including convenience functions for for loading and using the Source Sans
-3 font.
+Determining potential output and the output gap - two inherently
+unobservable variables - is a major challenge for macroeconomists.
+'sectorgap' features a flexible modeling and estimation framework for a
+multivariate Bayesian state space model identifying economic output
+fluctuations consistent with subsectors of the economy. The proposed model
+is able to capture various correlations between output and a set of
+aggregate as well as subsector indicators. Estimation of the latent states
+and parameters is achieved using a simple Gibbs sampling procedure and
+various plotting options facilitate the assessment of the results. For
+details on the methodology and an illustrative example, see Streicher
+(2024)
+<https://www.research-collection.ethz.ch/handle/20.500.11850/653682>.
 
 %prep
 %setup -q -c -n %{packname}

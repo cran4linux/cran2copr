@@ -1,46 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geoknife
-%global packver   1.6.11
+%global packname  ConconiAnaerobicThresholdTest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.11
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web-Processing of Large Gridded Datasets
+Summary:          Conconi Estimate of Anaerobic Threshold from a TCX File
 
-License:          CC0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-progress >= 1.1.2
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-whisker 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-trackeR 
+BuildRequires:    R-CRAN-SiZer 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-progress >= 1.1.2
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-whisker 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-trackeR 
+Requires:         R-CRAN-SiZer 
 Requires:         R-methods 
-Requires:         R-CRAN-curl 
-Requires:         R-utils 
-Requires:         R-CRAN-sf 
 
 %description
-Processes gridded datasets found on the U.S. Geological Survey Geo Data
-Portal web application or elsewhere, using a web-enabled workflow that
-eliminates the need to download and store large datasets that are reliably
-hosted on the Internet. The package provides access to several data subset
-and summarization algorithms that are available on remote web processing
-servers (Read et al. (2015) <doi:10.1111/ecog.01880>).
+Analyzes data from a Conconi et al. (1996) <doi:10.1055/s-2007-972887>
+treadmill fitness test where speed is augmented by a constant amount every
+set number of seconds to estimate the anaerobic (lactate) threshold speed
+and heart rate. It reads a TCX file, allows optional removal observations
+from before and after the actual test, fits a change-point linear model
+where the change-point is the estimate of the lactate threshold, and plots
+the data points and fit model. Details of administering the fitness test
+are provided in the package vignette. Functions work by default for Garmin
+Connect TCX exports but may require additional data preparation for heart
+rate, time, and speed data from other sources.
 
 %prep
 %setup -q -c -n %{packname}

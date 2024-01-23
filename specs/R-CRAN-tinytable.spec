@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ptf
+%global __requires_exclude ^libmpi
+%global packname  tinytable
 %global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probit Tensor Factorization
+Summary:          Simple and Configurable Tables in 'HTML', 'LaTeX', 'Markdown', 'Word', and 'PNG' Formats
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-Matrix >= 1.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.9
-BuildRequires:    R-CRAN-rARPACK >= 0.11
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-Matrix >= 1.2
-Requires:         R-CRAN-Rcpp >= 0.12.9
-Requires:         R-CRAN-rARPACK >= 0.11
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 
 %description
-Efficient algorithms to implement Probit Tensor Factorization (PTF) model
-for statistical relational learning, which not only inherits the
-computation efficiency from the classic tensor factorization model but
-also accounts for the binary nature of relational data. The methodology is
-based on Ye Liu (2021)
-<https://repository.lib.ncsu.edu/bitstream/handle/1840.20/37507/etd.pdf?sequence=1>
-"Computational Methods for Complex Models with Latent Structure".
+Create highly customized tables with this simple and dependency-free
+package. Data frames can be converted to 'HTML', 'LaTeX', 'Markdown',
+'Word' or 'PNG' tables. The user interface is minimalist and the syntax
+concise. 'HTML' tables can be customized using the flexible 'Bootstrap'
+framework, and 'LaTeX' code with the 'tabularray' package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

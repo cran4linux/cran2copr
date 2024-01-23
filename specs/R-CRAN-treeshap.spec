@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cat2cat
-%global packver   0.4.7
+%global packname  treeshap
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling an Inconsistently Coded Categorical Variable in a Longitudinal Dataset
+Summary:          Compute SHAP Values for Your Tree-Based Models Using the 'TreeSHAP' Algorithm
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Unifying an inconsistently coded categorical variable between two
-different time points in accordance with a mapping table. The main rule is
-to replicate the observation if it could be assigned to a few categories.
-Then using frequencies or statistical methods to approximate the
-probabilities of being assigned to each of them. This procedure was
-invented and implemented in the paper by Nasinski, Majchrowska, and
-Broniatowska (2020) <doi:10.24425/cejeme.2020.134747>.
+An efficient implementation of the 'TreeSHAP' algorithm introduced by
+Lundberg et al., (2020) <doi:10.1038/s42256-019-0138-9>. It is capable of
+calculating SHAP (SHapley Additive exPlanations) values for tree-based
+models in polynomial time.  Currently supported models include 'gbm',
+'randomForest', 'ranger', 'xgboost', 'lightgbm'.
 
 %prep
 %setup -q -c -n %{packname}

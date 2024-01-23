@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sharp
-%global packver   1.4.4
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stability-enHanced Approaches using Resampling Procedures
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-fake >= 1.4.0
 BuildRequires:    R-CRAN-glassoFast >= 1.0.0
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-beepr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-withr >= 2.4.0
@@ -34,11 +36,13 @@ Requires:         R-CRAN-fake >= 1.4.0
 Requires:         R-CRAN-glassoFast >= 1.0.0
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-beepr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-glmnet 
 Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-mclust 
-Requires:         R-parallel 
+Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-Rdpack 
 
@@ -49,11 +53,13 @@ et al (2003) <doi:10.1023/A:1023949509487>), resampling techniques are
 used to enhance the reliability of the results. In this package,
 hyper-parameters are calibrated by maximising model stability, which is
 measured under the null hypothesis that all selection (or co-membership)
-probabilities are identical (B Bodinier et al (2023)
-<doi:10.1093/jrsssc/qlad058>). Functions are readily implemented for the
-use of LASSO regression, sparse PCA, sparse (group) PLS or graphical LASSO
-in stability selection, and hierarchical clustering, partitioning around
-medoids, K means or Gaussian mixture models in consensus clustering.
+probabilities are identical (B Bodinier et al (2023a)
+<doi:10.1093/jrsssc/qlad058> and B Bodinier et al (2023b)
+<doi:10.1093/bioinformatics/btad635>). Functions are readily implemented
+for the use of LASSO regression, sparse PCA, sparse (group) PLS or
+graphical LASSO in stability selection, and hierarchical clustering,
+partitioning around medoids, K means or Gaussian mixture models in
+consensus clustering.
 
 %prep
 %setup -q -c -n %{packname}

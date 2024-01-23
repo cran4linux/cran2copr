@@ -1,33 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cat2cat
-%global packver   0.4.7
+%global packname  ionet
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling an Inconsistently Coded Categorical Variable in a Longitudinal Dataset
+Summary:          Network Analysis for Input-Output Tables
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
+Requires:         R-CRAN-Rcpp >= 1.0.8.3
 
 %description
-Unifying an inconsistently coded categorical variable between two
-different time points in accordance with a mapping table. The main rule is
-to replicate the observation if it could be assigned to a few categories.
-Then using frequencies or statistical methods to approximate the
-probabilities of being assigned to each of them. This procedure was
-invented and implemented in the paper by Nasinski, Majchrowska, and
-Broniatowska (2020) <doi:10.24425/cejeme.2020.134747>.
+Network functionalities specialized for data generated from input-output
+tables.
 
 %prep
 %setup -q -c -n %{packname}

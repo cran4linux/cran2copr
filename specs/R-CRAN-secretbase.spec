@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  defm
-%global packver   0.1-1
+%global packname  secretbase
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation and Simulation of Multi-Binary Response Models
+Summary:          Cryptographic Hash and Extendable-Output Functions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-Requires:         R-stats4 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 
 %description
-Multi-binary response models are a class of models that allow for the
-estimation of multiple binary outcomes simultaneously. This package
-provides functions to estimate and simulate these models using the
-Discrete Exponential-Family Models [DEFM] framework. In it, we implement
-the models described in Vega Yon, Valente, and Pugh (2023)
-<doi:10.48550/arXiv.2211.00627>. DEFMs include Exponential-Family Random
-Graph Models [ERGMs], which characterize graphs using sufficient
-statistics, which is also the core of DEFMs. Using sufficient statistics,
-we can describe the data through meaningful motifs, for example,
-transitions between different states, joint distribution of the outcomes,
-etc.
+SHA-3 cryptographic hash and SHAKE256 extendable-output functions (XOF).
+The SHA-3 Secure Hash Standard was published by the National Institute of
+Standards and Technology (NIST) in 2015 at <doi:10.6028/NIST.FIPS.202>.
+Fast and memory-efficient implementation using the core algorithm from
+'Mbed TLS' under the Trusted Firmware Project
+<https://www.trustedfirmware.org/projects/mbed-tls/>.
 
 %prep
 %setup -q -c -n %{packname}

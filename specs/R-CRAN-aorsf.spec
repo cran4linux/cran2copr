@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BartMixVs
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  aorsf
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Selection Using Bayesian Additive Regression Trees
+Summary:          Accelerated Oblique Random Forests
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-loo 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-utils 
 
 %description
-Bayesian additive regression trees (BART) provides flexible non-parametric
-modeling of mixed-type predictors for continuous and binary responses.
-This package is built upon CRAN R package 'BART', version 2.7
-(<https://github.com/cran/BART>). It implements the three proposed
-variable selection approaches in the paper: Luo, C and Daniels, M. J.
-(2021), "Variable Selection Using Bayesian Additive Regression Trees."
-<arXiv:2112.13998>, and other three existing BART-based variable selection
-approaches.
+Fit, interpret, and compute predictions with oblique random forests.
+Includes support for partial dependence, variable importance, passing
+customized functions for variable importance and identification of linear
+combinations of features. Methods for the oblique random survival forest
+are described in Jaeger et al., (2023)
+<DOI:10.1080/10618600.2023.2231048>.
 
 %prep
 %setup -q -c -n %{packname}

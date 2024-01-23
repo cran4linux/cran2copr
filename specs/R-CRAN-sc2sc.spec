@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sc2sc
-%global packver   0.0.1-7
+%global packver   0.0.1-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.7
+Version:          0.0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Transfer of Statistics among Spanish Census Sections
 
@@ -22,7 +22,7 @@ Requires:         R-stats
 
 %description
 Transfers/imputes statistics among Spanish spatial polygons (census
-sections or postal code areas) from different moments in time (2001-2022)
+sections or postal code areas) from different moments in time (2001-202)3
 without need of spatial files, just linking statistics to the ID codes of
 the spatial units. The data available in the census sections of a
 partition/division (cartography) into force in a moment of time is
@@ -30,7 +30,10 @@ transferred to the census sections of another partition/division employing
 the geometric approach (also known as areal weighting or polygon overlay).
 References: Goerlich (2022) <doi:10.12842/WPIVIE_0322>. Pavía and
 Cantarino (2017a, b) <doi:10.1111/gean.12112>,
-<doi:10.1016/j.apgeog.2017.06.021>.
+<doi:10.1016/j.apgeog.2017.06.021>. Acknowledgements: The authors wish to
+thank Consellería de Educación, Universidades y Empleo, Generalitat
+Valenciana (grant AICO/2021/257) and Ministerio de Economía e Innovación
+(grant PID2021-128228NB-I00) for supporting this research.
 
 %prep
 %setup -q -c -n %{packname}

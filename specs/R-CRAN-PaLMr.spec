@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PaLMr
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface for 'Google Pathways Language Model (PaLM)'
+Summary:          Interface for 'Google Pathways Language Model 2 (PaLM 2)'
 
 License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,11 +23,10 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-jsonlite 
 
 %description
-'Google's 'PaLM' <https://developers.generativeai.google/> as a coding and
-writing assistant designed for 'R' and 'RStudio.' With a range of
-functions, including natural language processing and coding optimization,
-to assist R developers in simplifying tedious coding tasks and content
-searching.
+'Google Pathways Language Model 2 (PaLM 2)' as a coding and writing
+assistant designed for 'R'. With a range of functions, including natural
+language processing and coding optimization, to assist 'R' developers in
+simplifying tedious coding tasks and content searching.
 
 %prep
 %setup -q -c -n %{packname}

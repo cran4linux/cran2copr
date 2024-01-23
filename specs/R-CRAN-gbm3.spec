@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cat2cat
-%global packver   0.4.7
+%global packname  gbm3
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling an Inconsistently Coded Categorical Variable in a Longitudinal Dataset
+Summary:          Generalized Boosted Regression Models
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-splines 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-lattice 
+Requires:         R-splines 
 
 %description
-Unifying an inconsistently coded categorical variable between two
-different time points in accordance with a mapping table. The main rule is
-to replicate the observation if it could be assigned to a few categories.
-Then using frequencies or statistical methods to approximate the
-probabilities of being assigned to each of them. This procedure was
-invented and implemented in the paper by Nasinski, Majchrowska, and
-Broniatowska (2020) <doi:10.24425/cejeme.2020.134747>.
+Extensions to Freund and Schapire's AdaBoost algorithm, Y. Freund and R.
+Schapire (1997) <doi:10.1006/jcss.1997.1504> and Friedman's gradient
+boosting machine, J.H. Friedman (2001) <doi:10.1214/aos/1013203451>.
+Includes regression methods for least squares, absolute loss,
+t-distribution loss, quantile regression, logistic, Poisson, Cox
+proportional hazards partial likelihood, AdaBoost exponential loss,
+Huberized hinge loss, and Learning to Rank measures (LambdaMART).
 
 %prep
 %setup -q -c -n %{packname}

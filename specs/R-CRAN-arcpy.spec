@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cat2cat
-%global packver   0.4.7
+%global packname  arcpy
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling an Inconsistently Coded Categorical Variable in a Longitudinal Dataset
+Summary:          Interface to 'ArcGIS' 'Python' Modules
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-reticulate >= 1.31
+BuildRequires:    R-stats 
+Requires:         R-CRAN-reticulate >= 1.31
+Requires:         R-stats 
 
 %description
-Unifying an inconsistently coded categorical variable between two
-different time points in accordance with a mapping table. The main rule is
-to replicate the observation if it could be assigned to a few categories.
-Then using frequencies or statistical methods to approximate the
-probabilities of being assigned to each of them. This procedure was
-invented and implemented in the paper by Nasinski, Majchrowska, and
-Broniatowska (2020) <doi:10.24425/cejeme.2020.134747>.
+An interface to the 'ArcGIS' 'arcpy' and 'arcgis' 'python' API
+<https://pro.arcgis.com/en/pro-app/latest/arcpy/get-started/arcgis-api-for-python.htm>.
+Provides various tools for installing and configuring a 'Conda'
+environment for accessing 'ArcGIS' geoprocessing functions. Helper
+functions for manipulating and converting 'ArcGIS' objects from R are also
+provided.
 
 %prep
 %setup -q -c -n %{packname}
