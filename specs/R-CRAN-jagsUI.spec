@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jagsUI
-%global packver   1.5.2
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper Around 'rjags' to Streamline 'JAGS' Analyses
 
@@ -18,17 +19,17 @@ Requires:         R-core >= 2.14.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rjags >= 3.13
 BuildRequires:    R-CRAN-coda >= 0.13
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-rjags >= 3.13
 Requires:         R-CRAN-coda >= 0.13
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-utils 
 
 %description
@@ -51,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

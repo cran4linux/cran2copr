@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ModTools
-%global packver   0.9.4
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Building Regression and Classification Models
 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-C50
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-relaimpo 
 BuildRequires:    R-CRAN-rpart.plot 
@@ -47,7 +47,6 @@ Requires:         R-CRAN-C50
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-pscl 
 Requires:         R-methods 
 Requires:         R-CRAN-relaimpo 
 Requires:         R-CRAN-rpart.plot 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TTAinterfaceTrendAnalysis
-%global packver   1.5.9
+%global packver   1.5.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.9
+Version:          1.5.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Temporal Trend Analysis Graphical Interface
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-base 
 BuildRequires:    R-stats 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-wql 
 Requires:         R-base 
 Requires:         R-stats 
 Requires:         R-grDevices 
@@ -52,6 +53,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-zoo 
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-wql 
 
 %description
 This interface was created to develop a standard procedure to analyse

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  riverconn
-%global packver   0.3.28
+%global packver   0.3.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.28
+Version:          0.3.31
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fragmentation and Connectivity Indices for Riverscapes
 

@@ -1,47 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggh4x
-%global packver   0.2.8
+%global packname  labeleR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hacks for 'ggplot2'
+Summary:          Automate the Production of Custom Labels, Badges, Certificates, and Other Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.5.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 >= 3.4.2
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.5.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-stats 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-A 'ggplot2' extension that does a variety of little helpful things.  The
-package extends 'ggplot2' facets through customisation, by setting
-individual scales per panel, resizing panels and providing nested facets.
-Also allows multiple colour and fill scales per plot. Also hosts a smaller
-collection of stats, geoms and axis guides.
+Create custom labels, badges, certificates and other documents. Automate
+the production of potentially large numbers of accreditation badges,
+attendance and participation certificates, herbarium and collection
+labels, etc. Documents are generated in PDF format, which requires a
+working installation of 'LaTeX', such as 'TinyTeX'.
 
 %prep
 %setup -q -c -n %{packname}

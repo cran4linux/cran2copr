@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BuyseTest
-%global packver   2.4.0
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Pairwise Comparisons
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
@@ -27,13 +27,14 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-prodlim 
 BuildRequires:    R-CRAN-riskRegression 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-stats4 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
@@ -42,6 +43,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-prodlim 
 Requires:         R-CRAN-riskRegression 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-stats4 
 Requires:         R-utils 

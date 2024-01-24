@@ -1,46 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtComb
-%global packver   1.0.0
+%global packname  ifpd
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Combination of Diagnostic Tests
+Summary:          Indonesia Food Prices Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pROC >= 1.18.0
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-epiR 
-BuildRequires:    R-CRAN-gam 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-OptimalCutpoints 
-Requires:         R-CRAN-pROC >= 1.18.0
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-epiR 
-Requires:         R-CRAN-gam 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-OptimalCutpoints 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-readxl 
 
 %description
-A system for combining two diagnostic tests using various approaches that
-include statistical and machine-learning-based methodologies. These
-approaches are divided into four groups: linear combination methods,
-non-linear combination methods, mathematical operators, and machine
-learning algorithms. See the <http://biosoft.erciyes.edu.tr/app/dtComb>
-website for more information, documentation, and examples.
+Imputation of missing values using the last observation carried forward
+technique on Indonesia food prices data that is time series data. Also,
+this technique applies imputation to data whose dates do not appear
+directly. So that the series assumptions in the time series data are met.
 
 %prep
 %setup -q -c -n %{packname}

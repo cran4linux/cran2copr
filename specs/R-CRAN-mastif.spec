@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mastif
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mast Inference and Forecasting
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 0.11.5
 BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-repmis 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.11.5
 Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-repmis 

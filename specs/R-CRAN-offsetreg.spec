@@ -1,47 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggh4x
-%global packver   0.2.8
+%global packname  offsetreg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hacks for 'ggplot2'
+Summary:          An Extension of 'Tidymodels' Supporting Offset Terms
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.5.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-poissonreg 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 >= 3.4.2
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.5.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-poissonreg 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-cli 
 
 %description
-A 'ggplot2' extension that does a variety of little helpful things.  The
-package extends 'ggplot2' facets through customisation, by setting
-individual scales per panel, resizing panels and providing nested facets.
-Also allows multiple colour and fill scales per plot. Also hosts a smaller
-collection of stats, geoms and axis guides.
+Extend the 'tidymodels' ecosystem <https://www.tidymodels.org/> to enable
+the creation of predictive models with offset terms. Models with offsets
+are most useful when working with count data or when fitting an adjustment
+model on top of an existing model with a prior expectation. The former
+situation is common in insurance where data is often weighted by
+exposures. The latter is common in life insurance where industry mortality
+tables are often used as a starting point for setting assumptions.
 
 %prep
 %setup -q -c -n %{packname}

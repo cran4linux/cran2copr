@@ -1,41 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidytags
-%global packver   1.1.1
+%global packname  distops
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Importing and Analyzing 'Twitter' Data Collected with 'Twitter Archiving Google Sheets'
+Summary:          Usual Operations for Distance Matrices in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr >= 1.4
-BuildRequires:    R-CRAN-rtweet >= 1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-googlesheets4 >= 1.0
-BuildRequires:    R-CRAN-rlang >= 1.0
-Requires:         R-CRAN-stringr >= 1.4
-Requires:         R-CRAN-rtweet >= 1.1
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-googlesheets4 >= 1.0
-Requires:         R-CRAN-rlang >= 1.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-usethis 
 
 %description
-The 'tidytags' package coordinates the simplicity of collecting tweets
-over time with a 'Twitter Archiving Google Sheet' (TAGS;
-<https://tags.hawksey.info/>) and the utility of the 'rtweet' package
-(<https://docs.ropensci.org/rtweet/>) for processing and preparing
-additional 'Twitter' metadata. 'tidytags' also introduces functions
-developed to facilitate systematic yet flexible analyses of data from
-'Twitter'.
+It provides the subset operator for dist objects and a function to compute
+medoid(s) that are fully parallelized leveraging the 'RcppParallel'
+package. It also provides functions for package developers to easily
+implement their own parallelized dist() function using a custom
+'C++'-based distance function.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  msSPChelpR
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Second Primary Cancer Analyses
 
@@ -18,22 +19,22 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-tidytable >= 0.7.2
+BuildRequires:    R-CRAN-tidytable >= 0.9.0
 BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-sjlabelled 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-tidytable >= 0.7.2
+Requires:         R-CRAN-tidytable >= 0.9.0
 Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-sjlabelled 
 Requires:         R-CRAN-stringr 

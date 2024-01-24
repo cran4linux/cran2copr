@@ -1,47 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggh4x
-%global packver   0.2.8
+%global packname  labelr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hacks for 'ggplot2'
+Summary:          Label Data Frames, Variables, and Values
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.5.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 >= 3.4.2
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.5.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-cli 
+Requires:         R-utils 
 
 %description
-A 'ggplot2' extension that does a variety of little helpful things.  The
-package extends 'ggplot2' facets through customisation, by setting
-individual scales per panel, resizing panels and providing nested facets.
-Also allows multiple colour and fill scales per plot. Also hosts a smaller
-collection of stats, geoms and axis guides.
+Create and use data frame labels for data frame objects (frame labels),
+their columns (name labels), and individual values of a column (value
+labels). Value labels include one-to-one and many-to-one labels for
+nominal and ordinal variables, as well as numerical range-based value
+labels for continuous variables. Convert value-labeled variables so each
+value is replaced by its corresponding value label. Add
+values-converted-to-labels columns to a value-labeled data frame while
+preserving parent columns. Filter and subset a value-labeled data frame
+using labels, while returning results in terms of values. Overlay labels
+in place of values in common R commands to increase interpretability.
+Generate tables of value frequencies, with categories expressed as raw
+values or as labels. Access data frames that show value-to-label mappings
+for easy reference.
 
 %prep
 %setup -q -c -n %{packname}

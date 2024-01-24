@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggh4x
-%global packver   0.2.8
+%global packname  evsim
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hacks for 'ggplot2'
+Summary:          Electric Vehicle Charging Sessions Simulation
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.5.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 >= 3.4.2
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.5.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-stats 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-A 'ggplot2' extension that does a variety of little helpful things.  The
-package extends 'ggplot2' facets through customisation, by setting
-individual scales per panel, resizing panels and providing nested facets.
-Also allows multiple colour and fill scales per plot. Also hosts a smaller
-collection of stats, geoms and axis guides.
+Simulation of Electric Vehicles charging sessions using Gaussian models,
+together with time-series power demand calculations. The simulation
+methodology is published in Cañigueral et al. (2023, ISBN:0957-4174)
+<doi:10.1016/j.eswa.2023.120318>.
 
 %prep
 %setup -q -c -n %{packname}

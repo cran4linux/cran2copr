@@ -1,47 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggh4x
-%global packver   0.2.8
+%global packname  MissMech
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hacks for 'ggplot2'
+Summary:          Testing Homoscedasticity, Multivariate Normality, and Missing Completely at Random
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.5.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 >= 3.4.2
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.5.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-cli 
 
 %description
-A 'ggplot2' extension that does a variety of little helpful things.  The
-package extends 'ggplot2' facets through customisation, by setting
-individual scales per panel, resizing panels and providing nested facets.
-Also allows multiple colour and fill scales per plot. Also hosts a smaller
-collection of stats, geoms and axis guides.
+To test whether the missing data mechanism, in a set of incompletely
+observed data, is one of missing completely at random (MCAR). For detailed
+description see Jamshidian, M. Jalal, S., and Jansen, C. (2014).
+"MissMech: An R Package for Testing Homoscedasticity, Multivariate
+Normality, and Missing Completely at Random (MCAR)", Journal of
+Statistical Software, 56(6), 1-31. <https://www.jstatsoft.org/v56/i06/>
+<doi:10.18637/jss.v056.i06>.
 
 %prep
 %setup -q -c -n %{packname}

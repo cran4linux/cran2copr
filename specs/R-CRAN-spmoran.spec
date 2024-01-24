@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spmoran
-%global packver   0.2.2.9
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2.9
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Spatial Regression using Moran Eigenvectors
 
@@ -47,10 +47,10 @@ Requires:         R-methods
 %description
 Functions for estimating spatial varying coefficient models, mixed models,
 and other spatial regression models for Gaussian and non-Gaussian data.
-Moran eigenvectors are used to an approximate Gaussian process modeling
-which is interpretable in terms of the Moran coefficient. The GP is used
-for modeling the spatial processes in residuals and regression
-coefficients. For details see Murakami (2021) <arXiv:1703.04467>.
+Moran eigenvectors are used to an approximate spatial Gaussian processes.
+These processes are used for modeling the spatial processes in residuals
+and regression coefficients. For details see Murakami (2021)
+<arXiv:1703.04467>.
 
 %prep
 %setup -q -c -n %{packname}

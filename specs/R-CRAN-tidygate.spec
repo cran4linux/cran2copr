@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tidygate
-%global packver   0.4.9
+%global packver   0.4.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.4.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add Gate Information to Your Tibble
 

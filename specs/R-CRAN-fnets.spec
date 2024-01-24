@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fnets
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor-Adjusted Network Estimation and Forecasting for High-Dimensional Time Series
 
@@ -38,9 +38,9 @@ Requires:         R-CRAN-RColorBrewer
 Implements methods for network estimation and forecasting of
 high-dimensional time series exhibiting strong serial and cross-sectional
 correlations under a factor-adjusted vector autoregressive model. See
-Barigozzi, Cho and Owens (2022) <arXiv:2201.06110> for further
-descriptions of FNETS methodology and Owens, Cho and Barigozzi (2023)
-<arXiv:2301.11675> accompanying the R package.
+Barigozzi, Cho and Owens (2024+) <doi:10.1080/07350015.2023.2257270> for
+further descriptions of FNETS methodology and Owens, Cho and Barigozzi
+(2024+) <arXiv:2301.11675> accompanying the R package.
 
 %prep
 %setup -q -c -n %{packname}

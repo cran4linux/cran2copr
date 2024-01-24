@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emmeans
-%global packver   1.10.0
+%global packname  AutoPlots
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimated Marginal Means, aka Least-Squares Means
+Summary:          Creating Echarts Visualizations as Easy as Possible
 
-License:          GPL-2 | GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-estimability >= 1.4.1
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-echarts4r 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-quanteda.textstats 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-estimability >= 1.4.1
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-echarts4r 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-quanteda.textstats 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-mvtnorm 
 
 %description
-Obtain estimated marginal means (EMMs) for many linear, generalized
-linear, and mixed models. Compute contrasts or linear functions of EMMs,
-trends, and comparisons of slopes. Plots and other displays. Least-squares
-means are discussed, and the term "estimated marginal means" is suggested,
-in Searle, Speed, and Milliken (1980) Population marginal means in the
-linear model: An alternative to least squares means, The American
-Statistician 34(4), 216-221 <doi:10.1080/00031305.1980.10483031>.
+Create beautiful and interactive visualizations in a single function call.
+The 'data.table' package is utilized to perform the data wrangling
+necessary to prepare your data for the plot types you wish to build, along
+with allowing fast processing for big data. There are two broad classes of
+plots available: standard plots and machine learning evaluation plots.
+There are lots of parameters available in each plot type function for
+customizing the plots (such as faceting) and data wrangling (such as
+variable transformations and aggregation).
 
 %prep
 %setup -q -c -n %{packname}
