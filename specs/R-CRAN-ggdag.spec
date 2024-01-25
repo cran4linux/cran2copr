@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggdag
-%global packver   0.2.10
+%global packver   0.2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.2.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze and Create Elegant Directed Acyclic Graphs
 
@@ -49,7 +49,7 @@ Requires:         R-CRAN-tidygraph
 %description
 Tidy, analyze, and plot directed acyclic graphs (DAGs). 'ggdag' is built
 on top of 'dagitty', an R package that uses the 'DAGitty' web tool
-(<http://dagitty.net>) for creating and analyzing DAGs. 'ggdag' makes it
+(<https://dagitty.net/>) for creating and analyzing DAGs. 'ggdag' makes it
 easy to tidy and plot 'dagitty' objects using 'ggplot2' and 'ggraph', as
 well as common analytic and graphical functions, such as determining
 adjustment sets and node relationships.

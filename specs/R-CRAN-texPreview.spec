@@ -1,34 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oaii
-%global packver   0.4.0
+%global packname  texPreview
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'OpenAI' API R Interface
+Summary:          Compile and Preview Snippets of 'LaTeX'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+Recommends:       tex(standalone.cls)
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-details 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-rematch2 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-svgPanZoom 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-tinytex 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-details 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-rematch2 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-svgPanZoom 
 Requires:         R-utils 
+Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tinytex 
 
 %description
-A comprehensive set of helpers that streamline data transmission and
-processing, making it effortless to interact with the 'OpenAI' API.
+Compile snippets of 'LaTeX' directly into images from the R console to
+view in the 'RStudio' viewer pane, Shiny apps and 'RMarkdown' documents.
 
 %prep
 %setup -q -c -n %{packname}

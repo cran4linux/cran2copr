@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CSIndicators
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Climate Services' Indicators Based on Sub-Seasonal to Decadal Predictions
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-SPEI
 BuildRequires:    R-CRAN-lmom 
 BuildRequires:    R-CRAN-lmomco 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-s2dv 
 Requires:         R-CRAN-multiApply >= 2.1.1
 Requires:         R-stats 
 Requires:         R-CRAN-ClimProjDiags 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-SPEI
 Requires:         R-CRAN-lmom 
 Requires:         R-CRAN-lmomco 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-s2dv 
 
 %description
 Set of generalised tools for the flexible computation of climate related

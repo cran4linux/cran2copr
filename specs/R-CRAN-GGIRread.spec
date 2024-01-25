@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GGIRread
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wearable Accelerometer Data File Readers
 
@@ -30,10 +30,10 @@ Requires:         R-CRAN-bitops
 %description
 Reads data collected from wearable acceleratometers as used in sleep and
 physical activity research. Currently supports file formats: binary data
-from 'GENEActiv' <https://activinsights.com/>, binary data from GENEA
-devices (not for sale), and .cwa-format and .wav-format data from
-'Axivity' <https://axivity.com>. Primarily designed to complement R
-package GGIR <https://CRAN.R-project.org/package=GGIR>.
+from 'GENEActiv' <https://activinsights.com/>, .bin-format from GENEA
+devices (not for sale), and .cwa-format from 'Axivity'
+<https://axivity.com>. Primarily designed to complement R package GGIR
+<https://CRAN.R-project.org/package=GGIR>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geofi
-%global packver   1.0.11
+%global packver   1.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.0.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Finnish Geospatial Data
 
@@ -40,8 +40,8 @@ Requires:         R-CRAN-yaml
 
 %description
 Designed to simplify geospatial data access from the Statistics Finland
-Web Feature Service API <http://geo.stat.fi/geoserver/wfs>, the geofi
-package offers researchers and analysts a set of tools to obtain and
+Web Feature Service API <https://geo.stat.fi/geoserver/index.html>, the
+geofi package offers researchers and analysts a set of tools to obtain and
 harmonize administrative spatial data for a wide range of applications,
 from urban planning to environmental research. The package contains
 annually updated time series of municipality key datasets that can be used

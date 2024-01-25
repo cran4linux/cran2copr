@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LEGIT
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Environmental & Genetic InTeraction (LEGIT) Model
 
@@ -31,6 +32,7 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-formula.tools 
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -46,6 +48,7 @@ Requires:         R-CRAN-boot
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-lme4 
+Requires:         R-methods 
 
 %description
 Constructs genotype x environment interaction (GxE) models where G is a

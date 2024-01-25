@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  longpower
-%global packver   1.0.24
+%global packver   1.0.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.24
+Version:          1.0.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Size Calculations for Longitudinal Data
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lme4 >= 1.0
 BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-lme4 >= 1.0
 Requires:         R-CRAN-nlme 
+Requires:         R-methods 
 
 %description
 Compute power and sample size for linear models of longitudinal data.

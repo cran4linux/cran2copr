@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arf
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adversarial Random Forests
 
@@ -21,12 +21,10 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-matrixStats 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-matrixStats 
 
 %description
 Adversarial random forests (ARFs) recursively partition data into fully

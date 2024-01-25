@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  breathtestcore
-%global packver   0.8.6
+%global packver   0.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6
+Version:          0.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Functions to Read and Fit 13c Time Series from Breath Tests
 
@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
+Recommends:       pandoc
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch

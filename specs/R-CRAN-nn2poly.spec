@@ -1,45 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TrialEmulation
-%global packver   0.0.3.8
+%global packname  nn2poly
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Analysis of Observational Time-to-Event Data
+Summary:          Neural Network Weights Transformation into Polynomial Coefficients
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-data.table >= 1.9.8
-BuildRequires:    R-CRAN-broom >= 0.7.10
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-parglm 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-data.table >= 1.9.8
-Requires:         R-CRAN-broom >= 0.7.10
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-parglm 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-pracma 
 
 %description
-Implements target trial emulation methods to apply randomized clinical
-trial design and analysis in an observational setting. Using marginal
-structural models, it can estimate intention-to-treat and per-protocol
-effects in emulated trials using electronic health records. A description
-and application of the method can be found in Danaei et al (2013)
-<doi:10.1177/0962280211403603>.
+Implements a method that builds the coefficients of a polynomial model
+that performs almost equivalently as a given neural network (densely
+connected). This is achieved using Taylor expansion at the activation
+functions.  The obtained polynomial coefficients can be used to explain
+features (and their interactions) importance in the neural network,
+therefore working as a tool for interpretability or eXplainable Artificial
+Intelligence (XAI). See Morala et al. 2021
+<doi:10.1016/j.neunet.2021.04.036>, and 2023
+<doi:10.1109/TNNLS.2023.3330328>.
 
 %prep
 %setup -q -c -n %{packname}

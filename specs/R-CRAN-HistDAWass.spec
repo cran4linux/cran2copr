@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HistDAWass
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Histogram-Valued Data Analysis
 
@@ -28,7 +28,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-methods 
 Requires:         R-graphics 
@@ -42,7 +41,6 @@ Requires:         R-grDevices
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-plyr 
 
 %description
 In the framework of Symbolic Data Analysis, a relatively new approach to

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cauchypca
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Principal Component Analysis Using the Cauchy Distribution
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
 Requires:         R-stats 
 
 %description
@@ -33,9 +35,9 @@ A new robust principal component analysis algorithm is implemented that
 relies upon the Cauchy Distribution. The algorithm is suitable for high
 dimensional data even if the sample size is less than the number of
 variables. The methodology is described in this paper: Fayomi A., Pantazis
-Y., Tsagris M. and Wood A.T.A. (2022). "Cauchy robust principal component
+Y., Tsagris M. and Wood A.T.A. (2024). "Cauchy robust principal component
 analysis with applications to high-dimensional data sets". Statistics and
-Computing (Accepted for publication). <arXiv:2211.03181>.
+Computing, 34: 26. <doi:10.1007/s11222-023-10328-x>.
 
 %prep
 %setup -q -c -n %{packname}

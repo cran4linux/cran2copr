@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  R.filesets
-%global packver   2.15.0
+%global packver   2.15.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.15.0
+Version:          2.15.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Handling of and Access to Files Organized in Structured Directories
 

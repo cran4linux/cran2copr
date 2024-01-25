@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multinma
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Meta-Analysis of Individual and Aggregate Data
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-rstan >= 2.19.2
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-ggdist >= 2.1.1
 BuildRequires:    R-CRAN-rstantools >= 2.0.0
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-forcats 
@@ -47,7 +48,7 @@ BuildRequires:    R-CRAN-bayesplot
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-rstan >= 2.19.2
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-ggdist >= 2.1.1
 Requires:         R-CRAN-rstantools >= 2.0.0
@@ -58,6 +59,7 @@ Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-forcats 

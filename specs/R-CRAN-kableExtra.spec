@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  kableExtra
-%global packver   1.3.4
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Complex Table with 'kable' and Pipe Syntax
 
@@ -17,38 +18,32 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 1.6
-BuildRequires:    R-CRAN-knitr >= 1.16
+BuildRequires:    R-CRAN-knitr >= 1.33
 BuildRequires:    R-CRAN-xml2 >= 1.1.1
 BuildRequires:    R-CRAN-stringr >= 1.0
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-webshot 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-svglite 
 Requires:         R-CRAN-rmarkdown >= 1.6
-Requires:         R-CRAN-knitr >= 1.16
+Requires:         R-CRAN-knitr >= 1.33
 Requires:         R-CRAN-xml2 >= 1.1.1
 Requires:         R-CRAN-stringr >= 1.0
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-glue 
 Requires:         R-tools 
-Requires:         R-CRAN-webshot 
 Requires:         R-CRAN-digest 
 Requires:         R-graphics 
 Requires:         R-CRAN-svglite 
@@ -69,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

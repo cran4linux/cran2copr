@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pxweb
-%global packver   0.16.2
+%global packname  CDCPLACES
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.2
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to PXWEB APIs
+Summary:          Access the 'CDC PLACES' API
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.1
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr >= 1.1
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tidyr 
 
 %description
-Generic interface for the PX-Web/PC-Axis API. The PX-Web/PC-Axis API is
-used by organizations such as Statistics Sweden and Statistics Finland to
-disseminate data. The R package can interact with all PX-Web/PC-Axis APIs
-to fetch information about the data hierarchy, extract metadata and
-extract and parse statistics to R data.frame format. PX-Web is a solution
-to disseminate PC-Axis data files in dynamic tables on the web.  Since
-2013 PX-Web contains an API to disseminate PC-Axis files.
+Allows users to seamlessly query several 'CDC PLACES' APIs
+(<https://data.cdc.gov/browse?q=PLACES%%20&sortBy=relevance>) by geography,
+state, measure, and release year. This package also contains a function to
+explore the available measures for each release year.
 
 %prep
 %setup -q -c -n %{packname}

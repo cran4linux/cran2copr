@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  backbone
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracts the Backbone from Graphs
 
@@ -32,7 +32,7 @@ Requires:         R-utils
 %description
 An implementation of methods for extracting an unweighted unipartite graph
 (i.e. a backbone) from an unweighted unipartite graph, a weighted
-unipartite graph, the projection of an unweighted bipartite graph , or the
+unipartite graph, the projection of an unweighted bipartite graph, or the
 projection of a weighted bipartite graph (Neal, 2022
 <doi:10.1371/journal.pone.0269137>).
 

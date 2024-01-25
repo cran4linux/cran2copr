@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TrialEmulation
-%global packver   0.0.3.8
+%global packname  dtComb
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3.8
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Analysis of Observational Time-to-Event Data
+Summary:          Statistical Combination of Diagnostic Tests
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-data.table >= 1.9.8
-BuildRequires:    R-CRAN-broom >= 0.7.10
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-parglm 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-data.table >= 1.9.8
-Requires:         R-CRAN-broom >= 0.7.10
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-parglm 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sandwich 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pROC >= 1.18.0
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-epiR 
+BuildRequires:    R-CRAN-gam 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-OptimalCutpoints 
+Requires:         R-CRAN-pROC >= 1.18.0
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-epiR 
+Requires:         R-CRAN-gam 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-OptimalCutpoints 
 
 %description
-Implements target trial emulation methods to apply randomized clinical
-trial design and analysis in an observational setting. Using marginal
-structural models, it can estimate intention-to-treat and per-protocol
-effects in emulated trials using electronic health records. A description
-and application of the method can be found in Danaei et al (2013)
-<doi:10.1177/0962280211403603>.
+A system for combining two diagnostic tests using various approaches that
+include statistical and machine-learning-based methodologies. These
+approaches are divided into four groups: linear combination methods,
+non-linear combination methods, mathematical operators, and machine
+learning algorithms. See the <http://biosoft.erciyes.edu.tr/app/dtComb>
+website for more information, documentation, and examples.
 
 %prep
 %setup -q -c -n %{packname}

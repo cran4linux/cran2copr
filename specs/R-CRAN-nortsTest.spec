@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nortsTest
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing Normality of Stationary Process
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-forecast
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-CRAN-uroot 
 BuildRequires:    R-CRAN-MASS 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-forecast
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-tseries 
 Requires:         R-CRAN-uroot 
 Requires:         R-CRAN-MASS 

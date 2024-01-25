@@ -1,45 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TrialEmulation
-%global packver   0.0.3.8
+%global packname  kisopenapi
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3.8
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Analysis of Observational Time-to-Event Data
+Summary:          Korea Investment & Securities (KIS) Open Trading API
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-data.table >= 1.9.8
-BuildRequires:    R-CRAN-broom >= 0.7.10
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-parglm 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-data.table >= 1.9.8
-Requires:         R-CRAN-broom >= 0.7.10
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-parglm 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sandwich 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.3.0
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-data.table >= 1.14.2
+BuildRequires:    R-CRAN-httr2 >= 0.2.2
+Requires:         R-CRAN-cli >= 3.3.0
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-data.table >= 1.14.2
+Requires:         R-CRAN-httr2 >= 0.2.2
 
 %description
-Implements target trial emulation methods to apply randomized clinical
-trial design and analysis in an observational setting. Using marginal
-structural models, it can estimate intention-to-treat and per-protocol
-effects in emulated trials using electronic health records. A description
-and application of the method can be found in Danaei et al (2013)
-<doi:10.1177/0962280211403603>.
+API Wrapper to use Korea Investment & Securities (KIS) trading system that
+provides various financial services like stock price check, orders and
+balance check <https://apiportal.koreainvestment.com/>.
 
 %prep
 %setup -q -c -n %{packname}

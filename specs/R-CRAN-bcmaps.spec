@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bcmaps
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Map Layers and Spatial Utilities for British Columbia
 
@@ -43,13 +43,13 @@ Requires:         R-CRAN-xml2
 %description
 Various layers of B.C., including administrative boundaries, natural
 resource management boundaries, census boundaries etc. All layers are
-available in BC Albers
-(<https://spatialreference.org/ref/epsg/nad83-bc-albers/>) equal-area
-projection, which is the B.C. government standard. The layers are sourced
-from the British Columbia and Canadian government under open licenses,
-including B.C. Data Catalogue (<https://data.gov.bc.ca>), the Government
-of Canada Open Data Portal (<https://open.canada.ca/en/using-open-data>),
-and Statistics Canada (<https://www.statcan.gc.ca/en/reference/licence>).
+available in BC Albers (<https://spatialreference.org/ref/epsg/3005/>)
+equal-area projection, which is the B.C. government standard. The layers
+are sourced from the British Columbia and Canadian government under open
+licenses, including B.C. Data Catalogue (<https://data.gov.bc.ca>), the
+Government of Canada Open Data Portal
+(<https://open.canada.ca/en/using-open-data>), and Statistics Canada
+(<https://www.statcan.gc.ca/en/reference/licence>).
 
 %prep
 %setup -q -c -n %{packname}

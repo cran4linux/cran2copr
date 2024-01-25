@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  weird
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Data Sets for "That's Weird: Anomaly Detection Using R" by Rob J Hyndman
 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-interpolation 
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-robustbase 
@@ -46,7 +46,7 @@ Requires:         R-CRAN-broom
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-evd 
 Requires:         R-grDevices 
-Requires:         R-CRAN-interp 
+Requires:         R-CRAN-interpolation 
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-robustbase 

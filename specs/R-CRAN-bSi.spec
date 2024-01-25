@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PxWebApiData
-%global packver   0.8.0
+%global packname  bSi
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          PX-Web Data by API
+Summary:          Modeling and Computing Biogenic Silica ('bSi') from Inland and Pelagic Sediments
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rjstat 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pxweb 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rjstat 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pxweb 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 
 %description
-Function to read PX-Web data into R via API. The example code reads data
-from the three national statistical institutes, Statistics Norway,
-Statistics Sweden and Statistics Finland.
+A collection of integrated tools designed to seamlessly interact with each
+other for the analysis of biogenic silica 'bSi' in inland and marine
+sediments. These tools share common data representations and follow a
+consistent 'API' design. The primary goal of the 'bSi' package is to
+simplify the installation process, facilitate data loading, and enable the
+analysis of multiple samples for biogenic silica fluxes. This package is
+designed to enhance the efficiency and coherence of the entire 'bSi'
+analytic workflow, from data loading to model construction and
+visualization tailored towards reconstructing productivity in aquatic
+ecosystems.
 
 %prep
 %setup -q -c -n %{packname}

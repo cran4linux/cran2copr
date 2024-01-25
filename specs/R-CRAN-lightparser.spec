@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httpgd
-%global packver   1.3.1
+%global packname  lightparser
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'HTTP' Server Graphics Device
+Summary:          From 'Rmarkdown' and 'Quarto' Files to Tibble and Back
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    libpng-devel
-BuildRequires:    cairo-devel
-BuildRequires:    freetype-devel
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-BH >= 1.75.0
-BuildRequires:    R-CRAN-later >= 1.1.0
-BuildRequires:    R-CRAN-systemfonts >= 1.0.0
-BuildRequires:    R-CRAN-cpp11 >= 0.2.4
-Requires:         R-CRAN-later >= 1.1.0
-Requires:         R-CRAN-systemfonts >= 1.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-knitr >= 1.35
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-knitr >= 1.35
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
-A graphics device for R that is accessible via network protocols. This
-package was created to make it easier to embed live R graphics in
-integrated development environments and other applications. The included
-'HTML/JavaScript' client (plot viewer) aims to provide a better overall
-user experience when dealing with R graphics. The device asynchronously
-serves graphics via 'HTTP' and 'WebSockets'.
+Split your 'rmarkdown' or 'quarto' files by sections into a tibble:
+titles, text, chunks. Rebuild the file from the tibble.
 
 %prep
 %setup -q -c -n %{packname}

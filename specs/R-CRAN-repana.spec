@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  repana
-%global packver   1.23.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Repeatable Analysis in R
 
@@ -27,6 +28,9 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-pool 
 BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-DBI >= 1.0
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-dplyr 
@@ -38,12 +42,15 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-pool 
 Requires:         R-CRAN-openxlsx 
+Requires:         R-tools 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-digest 
 
 %description
 Set of utilities to facilitate the reproduction of analysis in R. It allow
 to make_structure(), clean_structure(), and run and log programs in a
 predefined order to allow secondary files, analysis and reports be
-constructed in an ordered form.
+constructed in an ordered and reproducible form.
 
 %prep
 %setup -q -c -n %{packname}

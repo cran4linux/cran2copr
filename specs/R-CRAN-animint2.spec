@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  animint2
-%global packver   2023.11.21
+%global packver   2024.1.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.11.21
+Version:          2024.1.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Animated Interactive Grammar of Graphics
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-plyr >= 1.7.1
 BuildRequires:    R-CRAN-knitr >= 1.5
 BuildRequires:    R-CRAN-scales >= 0.4.1
 BuildRequires:    R-CRAN-gtable >= 0.1.1
+BuildRequires:    R-CRAN-servr 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-grid 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-plyr >= 1.7.1
 Requires:         R-CRAN-knitr >= 1.5
 Requires:         R-CRAN-scales >= 0.4.1
 Requires:         R-CRAN-gtable >= 0.1.1
+Requires:         R-CRAN-servr 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-RJSONIO 
 Requires:         R-grid 

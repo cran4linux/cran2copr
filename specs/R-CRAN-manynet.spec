@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manynet
-%global packver   0.3.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Many Ways to Make, Modify, and Map Myriad Networks
+Summary:          Many Ways to Make, Modify, Mark, and Map Myriad Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,21 +22,23 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-tidygraph 
 Requires:         R-CRAN-igraph >= 1.6.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-network 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-tidygraph 
 
 %description
-A set of tools for making, modifying, and mapping many different types of
-networks. All functions operate with matrices, edge lists, and 'igraph',
-'network', and 'tidygraph' objects, and on one-mode, two-mode (bipartite),
-and sometimes three-mode networks. The package includes functions for
-importing and exporting, creating and generating networks, molding and
-manipulating networks and node and tie attributes, and describing and
+A set of tools for making, modifying, marking, and mapping many different
+types of networks. All functions operate with matrices, edge lists, and
+'igraph', 'network', and 'tidygraph' objects, and on one-mode, two-mode
+(bipartite), and sometimes three-mode networks. The package includes
+functions for importing and exporting, creating and generating networks,
+modifying networks and node and tie attributes, and describing and
 visualizing networks with sensible defaults.
 
 %prep

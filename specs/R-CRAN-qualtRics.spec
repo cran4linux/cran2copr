@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qualtRics
-%global packver   3.1.7
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.7
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download 'Qualtrics' Survey Data
 
@@ -19,6 +19,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -31,8 +32,10 @@ BuildRequires:    R-CRAN-sjlabelled
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -45,6 +48,7 @@ Requires:         R-CRAN-sjlabelled
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
 
 %description
 Provides functions to access survey results directly into R using the

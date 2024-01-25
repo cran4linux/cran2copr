@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  partition
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Agglomerative Partitioning Framework for Dimension Reduction
 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-infotheo
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
@@ -39,6 +41,7 @@ Requires:         R-CRAN-infotheo
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
@@ -52,9 +55,9 @@ maintain the user-specified minimum level of information. Each reduced
 variable is also interpretable: the original variables map to one and only
 one variable in the reduced data set. 'partition' is flexible, as well:
 how variables are selected to reduce, how information loss is measured,
-and the way data is reduced can all be customized. 'partition' is based on
-the Partition framework discussed in Millstein et al. (2020) <doi:
-10.1093/bioinformatics/btz661>.
+and the way data is reduced can all be customized.  'partition' is based
+on the Partition framework discussed in Millstein et al. (2020)
+<doi:10.1093/bioinformatics/btz661>.
 
 %prep
 %setup -q -c -n %{packname}
