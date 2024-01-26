@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BayesPPDSurv
-%global packver   1.0.0
+%global packname  SNVLFDR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Power Prior Design for Survival Data
+Summary:          Empirical Bayes Single Nucleotide Variant Calling
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+BuildArch:        noarch
 
 %description
-Bayesian power/type I error calculation and model fitting using the power
-prior and the normalized power prior for proportional hazards models with
-piecewise constant hazard. The Bayesian clinical trial design methodology
-is described in Chen et al. (2011) <doi:10.1111/j.1541-0420.2011.01561.x>,
-and Psioda and Ibrahim (2019) <doi:10.1093/biostatistics/kxy009>. The
-proportional hazards model with piecewise constant hazard is detailed in
-Ibrahim et al. (2001) <doi:10.1007/978-1-4757-3447-8>.
+Identifies single nucleotide variants in next-generation sequencing data
+by estimating their local false discovery rates. For more details, see
+Karimnezhad, A. and Perkins, T. J. (2024)
+<doi:10.1038/s41598-024-51958-z>.
 
 %prep
 %setup -q -c -n %{packname}

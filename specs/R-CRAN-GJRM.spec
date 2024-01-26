@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GJRM
-%global packver   0.2-6.4
+%global packver   0.2-6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6.4
+Version:          0.2.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalised Joint Regression Modelling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-magic 
@@ -36,7 +36,6 @@ BuildRequires:    R-CRAN-scam
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-distrEx 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-CRAN-ismev 
@@ -60,7 +59,6 @@ Requires:         R-CRAN-scam
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-copula 
-Requires:         R-CRAN-distrEx 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-ismev 

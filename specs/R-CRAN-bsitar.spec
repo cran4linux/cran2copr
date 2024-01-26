@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bsitar
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Super Imposition by Translation and Rotation Growth Curve Analysis
 
@@ -43,19 +43,27 @@ Requires:         R-CRAN-rstantools
 %description
 The Super Imposition by Translation and Rotation (SITAR) model is a
 shape-invariant nonlinear mixed effect model that fits a natural cubic
-spline mean curve and and then aligns individual-specific growth curves to
-the mean curve via a set of random effects on both effects. For more
-details, please see Cole (2010) <doi:10.1093/ije/dyq115>. The non Bayesian
-version of the SITAR model can be fit by using an already available R
-package 'sitar'. However, the 'sitar' package allows modelling of a single
-outcome only. The 'bsitar' package, in addition to fitting SITAR to a
-single outcome, offers a great flexibility in fitting models of varying
-complexities that include joint modelling of multiple outcomes
-(multivariate model) such as height and weight, and to fit separate models
-defined by sub group such as gender when analyzing a single outcome.
-Furthermore, since the 'bsitar' package is a front-end to the R package
-'brms', it offers an excellent support for post-processing of posterior
-draws which is available from the 'brms' package.
+spline mean curve to the growth data, and aligns individual-specific
+growth curves to the underlying mean curve via a set of random effects
+(see Cole (2010) <doi:10.1093/ije/dyq115> for further details). The
+non-Bayesian version of the SITAR model can be fit by using an already
+available R package 'sitar'. While 'sitar' package allows modelling of a
+single outcome only, the 'bsitar' package offers a great flexibility in
+fitting models of varying complexities that include joint modelling of
+multiple outcomes such as height and weight (multivariate model). Also,
+the 'bsitar' package allows simultaneous analysis of a single outcome
+separately for sub groups defined by a factor variable such as gender.
+This is achieved by fitting separate models for each sub group (such as
+males and females for gender variable). An advantage of such approach is
+that posterior draws for each sub group are part of a single model object
+that makes it possible to compare coefficients across groups and test
+hypotheses. As 'bsitar' package is a front-end to the R package 'brms', it
+offers an excellent support for post-processing of posterior draws via
+various functions that are directly available from the 'brms' package. In
+addition, the the 'bsitar' package include various customized functions
+that allow estimation and visualization of various growth curves such as
+distance (increase in size with age) and velocity (change in rate of
+growth as a function of age).
 
 %prep
 %setup -q -c -n %{packname}

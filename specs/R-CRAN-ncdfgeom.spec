@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ncdfgeom
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'NetCDF' Geometry and Time Series
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-areal 
 Requires:         R-CRAN-RNetCDF 
 Requires:         R-CRAN-ncmeta 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-stars 
+Requires:         R-CRAN-areal 
 
 %description
 Tools to create time series and geometry 'NetCDF' files.

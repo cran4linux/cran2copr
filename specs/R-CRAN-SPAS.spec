@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SPAS
-%global packver   2023.3.31
+%global packver   2024.1.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.3.31
+Version:          2024.1.31
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stratified-Petersen Analysis System
 
@@ -39,15 +39,14 @@ and recaptures are stratified. This is a generalization of the simple
 Lincoln-Petersen estimator. Strata may be defined in time or in space or
 both, and the s strata in which marking takes place may differ from the t
 strata in which recoveries take place. When s=t, SPAS reduces to the
-method described by Darroch (1961) <https://www.jstor.org/stable/2332748>.
-When s<t, SPAS implements the methods described in Plante, Rivest, and
-Tremblay (1988) <https://www.jstor.org/stable/2533994>. Schwarz and Taylor
-(1998) <https://cdnsciencepub.com/doi/10.1139/f97-238> describe the use of
-SPAS in estimating return of salmon stratified by time and geography. A
-related package, BTSPAS, deals with temporal stratification where a spline
-is used to model the distribution of the population over time as it passes
-the second capture location. This is the R-version of the (now obsolete)
-standalone Windows program available at
+method described by Darroch (1961) <doi:10.2307/2332748>. When s<t, SPAS
+implements the methods described in Plante, Rivest, and Tremblay (1988)
+<doi:10.2307/2533994>. Schwarz and Taylor (1998) <doi:10.1139/f97-238>
+describe the use of SPAS in estimating return of salmon stratified by time
+and geography. A related package, BTSPAS, deals with temporal
+stratification where a spline is used to model the distribution of the
+population over time as it passes the second capture location. This is the
+R-version of the (now obsolete) standalone Windows program available at
 <https://home.cs.umanitoba.ca/~popan/spas/spas_home.html>.
 
 %prep

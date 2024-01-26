@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hbamr
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Bayesian Aldrich-McKelvey Scaling via 'Stan'
 
@@ -24,13 +24,15 @@ BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.1
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbmcapply 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
@@ -41,13 +43,15 @@ Requires:         R-CRAN-rstan >= 2.26.1
 Requires:         R-CRAN-rstantools >= 2.2.0
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-loo 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-pbmcapply 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

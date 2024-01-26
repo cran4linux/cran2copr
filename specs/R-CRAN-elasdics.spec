@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  elasdics
-%global packver   1.1.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elastic Analysis of Sparse, Dense and Irregular Curves
 
@@ -29,7 +29,8 @@ Provides functions to align curves and to compute mean curves based on the
 elastic distance defined in the square-root-velocity framework. For more
 details on this framework see Srivastava and Klassen (2016,
 <doi:10.1007/978-1-4939-4020-2>). For more theoretical details on our
-methods and algorithms see Steyer et al. (2021, <arXiv:2104.11039>).
+methods and algorithms see Steyer et al. (2023, <doi:10.1111/biom.13706>)
+and Steyer et al. (2023, <arXiv:2305.02075>).
 
 %prep
 %setup -q -c -n %{packname}

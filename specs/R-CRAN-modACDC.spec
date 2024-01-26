@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modACDC
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Association of Covariance for Detecting Differential Co-Expression
 
@@ -17,28 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CCA 
 BuildRequires:    R-CRAN-CCP 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-genieclust 
+BuildRequires:    R-CRAN-genio 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-partition 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-CCA 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-CCP 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-genieclust 
+Requires:         R-CRAN-genio 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-partition 
-Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
-Requires:         R-utils 
-Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 A series of functions to implement association of covariance for detecting
@@ -48,11 +52,11 @@ phenotypes or exposures with binary, ordinal, or continuous data types.
 Users can use the default method which identifies modules by Partition or
 may supply their own modules. Also included are functions to choose an
 information loss criterion (ILC) for Partition using OmicS-data-based
-Complex trait Analysis (OSCA). The manuscript describing these methods is
-as follows: Queen K, Nguyen MN, Gilliland F, Chun S, Raby BA, Millstein J.
-"ACDC: a general approach for detecting phenotype or exposure associated
-co-expression" (2023)
-<https://www.frontiersin.org/articles/10.3389/fmed.2023.1118824/abstract>.
+Complex trait Analysis (OSCA) and Genome-wide Complex trait Analysis
+(GCTA). The manuscript describing these methods is as follows: Queen K,
+Nguyen MN, Gilliland F, Chun S, Raby BA, Millstein J. "ACDC: a general
+approach for detecting phenotype or exposure associated co-expression"
+(2023) <doi:10.3389/fmed.2023.1118824>.
 
 %prep
 %setup -q -c -n %{packname}

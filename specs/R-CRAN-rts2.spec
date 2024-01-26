@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rts2
-%global packver   0.5
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Real-Time Disease Surveillance
 
@@ -14,22 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.32.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-sf >= 1.0.5
+BuildRequires:    R-CRAN-glmmrBase >= 0.6.1
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-SparseChol >= 0.2.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-sf >= 1.0.5
 Requires:         R-CRAN-Rcpp >= 0.12.0
@@ -40,18 +42,18 @@ Requires:         R-CRAN-rstantools
 
 %description
 Supports modelling real-time case data to facilitate the real-time
-surveillance of infectious disease. A simple grid class structure is
-provided to generate a computational grid over an area of interest with
-methods to map covariates between geographies. An approximate log-Gaussian
-Cox Process model is fit using 'rstan' or 'cmdstanr' and provides output
-and analysis as 'sf' objects for simple visualisation. 'cmdstanr' can be
-downloaded at <https://mc-stan.org/cmdstanr/>. Log-Gaussian Cox Processes
-are described by Diggle et al. (2013) <doi:10.1214/13-STS441> and we
-provide both the low-rank approximation for Gaussian processes described
-by Solin and Särkkä (2020) <doi:10.1007/s11222-019-09886-w> and
-Riutort-Mayol et al (2020) <arXiv:2004.11408> and the nearest neighbour
-Gaussian process described by Datta et al (2016)
-<doi:10.1080/01621459.2015.1044091>.
+surveillance of infectious diseases and other point phenomena. The package
+provides automated computational grid generation over an area of interest
+with methods to map covariates between geographies, model fitting
+including spatially aggregated case counts, and predictions and
+visualisation. Both Bayesian and maximum likelihood methods are provided.
+Log-Gaussian Cox Processes are described by Diggle et al. (2013)
+<doi:10.1214/13-STS441> and we provide both the low-rank approximation for
+Gaussian processes described by Solin and Särkkä (2020)
+<doi:10.1007/s11222-019-09886-w> and Riutort-Mayol et al (2020)
+<arXiv:2004.11408> and the nearest neighbour Gaussian process described by
+Datta et al (2016) <doi:10.1080/01621459.2015.1044091>. 'cmdstanr' can be
+downloaded at <https://mc-stan.org/cmdstanr/>.
 
 %prep
 %setup -q -c -n %{packname}

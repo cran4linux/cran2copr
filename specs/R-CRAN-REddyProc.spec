@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  REddyProc
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Post Processing of (Half-)Hourly Eddy-Covariance Measurements
 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-solartime 
+BuildRequires:    R-CRAN-mlegp 
 Requires:         R-CRAN-bigleaf >= 0.7
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
@@ -35,6 +37,7 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-solartime 
+Requires:         R-CRAN-mlegp 
 
 %description
 Standard and extensible Eddy-Covariance data post-processing (Wutzler et

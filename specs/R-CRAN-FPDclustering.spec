@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FPDclustering
-%global packver   2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          PD-Clustering and Factor PD-Clustering
+Summary:          PD-Clustering and Related Methods
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-klaR 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggeasy 
 Requires:         R-CRAN-ThreeWay 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ExPosition 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-klaR 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggeasy 
 
 %description
 Probabilistic distance clustering (PD-clustering) is an iterative,

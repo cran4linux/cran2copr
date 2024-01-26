@@ -1,43 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgeoboundaries
-%global packver   1.2.9
+%global packname  unigd
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Client to 'geoBoundaries', a Political Administrative Boundaries Dataset
+Summary:          Universal Graphics Device
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-crul >= 1.4.0
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-hoardr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-crul >= 1.4.0
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-hoardr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-systemfonts >= 1.0.0
+BuildRequires:    R-CRAN-cpp11 >= 0.2.4
+Requires:         R-CRAN-systemfonts >= 1.0.0
 
 %description
-Client the access data from the 'geoBoundaries' API
-<https://www.geoboundaries.org/api/current/> who provides country
-political administrative boundaries dataset.
+A unified R graphics backend. Render R graphics fast and easy to many
+common file formats. Provides a thread safe 'C' interface for asynchronous
+rendering of R graphics.
 
 %prep
 %setup -q -c -n %{packname}
