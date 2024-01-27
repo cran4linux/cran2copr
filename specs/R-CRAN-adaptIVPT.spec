@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adaptIVPT
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Bioequivalence Design for In-Vitro Permeation Tests
 
@@ -29,9 +29,10 @@ approach to establish bioequivalence for in-vitro permeation test (IVPT)
 data. Currently, the package provides procedures based on parallel
 replicate design and balanced data, according to the U.S. Food and Drug
 Administration's "Draft Guidance on Acyclovir"
-<https:www.accessdata.fda.gov/drugsatfda_docs/psg/Acyclovir_topical
-cream_RLD 21478_RV12-16.pdf>. Potvin et al. (2008) <doi:10.1002/pst.294>
-provides the basis for our adaptive design (see Method B). This package
+<https://www.accessdata.fda.gov/drugsatfda_docs/psg/Acyclovir_topical%%20cream_RLD%%2021478_RV12-16.pdf>.
+Potvin et al. (2008) <doi:10.1002/pst.294> provides the basis for our
+adaptive design (see Method B). For a comprehensive overview of the
+method, refer to Lim et al. (2023) <doi:10.1002/pst.2333>. This package
 reflects the views of the authors and should not be construed to represent
 the views or policies of the U.S. Food and Drug Administration.
 

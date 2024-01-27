@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dfmirroR
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate a Data Frame Mirroring an Input and Produce Shareable Simulation Code
 
@@ -19,8 +19,12 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-e1071 
 Requires:         R-CRAN-fitdistrplus 
 Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-e1071 
 
 %description
 The 'dfmirroR' package allows users to input a data frame, simulate some

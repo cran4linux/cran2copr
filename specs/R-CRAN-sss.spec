@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sss
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import Files in the Triple-s (Standard Survey Structure) Format
 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-assertthat
 Tools to import survey files in the '.sss' (triple-s) format. The package
 provides the function 'read.sss()' that reads the '.asc' (or '.csv') and
 '.sss' files of a triple-s survey data file. See also
-<https://www.triple-s.org/>.
+<https://triple-s.org/>.
 
 %prep
 %setup -q -c -n %{packname}

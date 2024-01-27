@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClimProjDiags
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Set of Tools to Compute Various Climate Indices
 
@@ -19,11 +19,9 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-multiApply >= 2.0.0
 BuildRequires:    R-CRAN-PCICt 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-multiApply >= 2.0.0
 Requires:         R-CRAN-PCICt 
-Requires:         R-CRAN-plyr 
 Requires:         R-stats 
 
 %description

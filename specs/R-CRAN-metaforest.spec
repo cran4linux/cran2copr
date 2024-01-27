@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  metaforest
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
-Release:          3%{?dist}%{?buildtag}
+Version:          0.1.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Exploring Heterogeneity in Meta-Analysis using Random Forests
 
 License:          GPL-3
@@ -41,17 +42,25 @@ However, in many fields, there is substantial heterogeneity between
 studies on the same topic. Classic meta-analysis lacks the power to assess
 more than a handful of univariate moderators. MetaForest, by contrast, has
 substantial power to explore heterogeneity in meta-analysis. It can
-identify important moderators from a larger set of potential candidates,
-even with as little as 20 studies (Van Lissa, in preparation). This is an
-appealing quality, because many meta-analyses have small sample sizes.
-Moreover, MetaForest yields a measure of variable importance which can be
-used to identify important moderators, and offers partial prediction plots
-to explore the shape of the marginal relationship between moderators and
-effect size.
+identify important moderators from a larger set of potential candidates
+(Van Lissa, 2020). This is an appealing quality, because many
+meta-analyses have small sample sizes. Moreover, MetaForest yields a
+measure of variable importance which can be used to identify important
+moderators, and offers partial prediction plots to explore the shape of
+the marginal relationship between moderators and effect size.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -59,9 +68,10 @@ effect size.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

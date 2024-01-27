@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tigers
-%global packver   0.1-1
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integration of Geography, Environment, and Remote Sensing
 
@@ -21,12 +21,12 @@ Requires:         R-stats
 
 %description
 Handling and manipulation polygons, coordinates, and other geographical
-objects. The tools include: polygon areas (Chamberlain and Duquette, 2007,
-<doi:2014/41271>), barycentric and trilinear coordinates (Hormann and
-Floater, 2006, <doi:10.1145/1183287.1183295>), convex hull for polygons
-(Graham and Yao, 1983, <doi:10.1016/0196-6774(83)90013-5>), polygon
-triangulation (Toussaint, 1991, <doi:10.1007/BF01905693>), great circle
-and geodesic distances, Hausdorff distance, and reduced major axis.
+objects. The tools include: polygon areas, barycentric and trilinear
+coordinates (Hormann and Floater, 2006, <doi:10.1145/1183287.1183295>),
+convex hull for polygons (Graham and Yao, 1983,
+<doi:10.1016/0196-6774(83)90013-5>), polygon triangulation (Toussaint,
+1991, <doi:10.1007/BF01905693>), great circle and geodesic distances,
+Hausdorff distance, and reduced major axis.
 
 %prep
 %setup -q -c -n %{packname}

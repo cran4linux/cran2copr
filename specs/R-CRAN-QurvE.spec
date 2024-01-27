@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QurvE
-%global packver   1.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust and User-Friendly Analysis of Growth and Fluorescence Curves
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-labeling
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -60,6 +61,7 @@ Requires:         R-CRAN-labeling
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rmarkdown 

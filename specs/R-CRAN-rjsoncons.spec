@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rjsoncons
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'C++' Header-Only 'jsoncons' Library for 'JSON' Queries
 
@@ -16,16 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cpp11 
+Requires:         R-utils 
 
 %description
 The 'jsoncons' <https://danielaparker.github.io/jsoncons/> 'C++'
 header-only library constructs representations from a 'JSON' character
 vector, and provides extensions for flexible queries and other operations
-on 'JSON' objects. This package has simple 'R' wrappers to support
-'JSONpath' and 'JMESpath' queries into 'JSON' strings or 'R' objects. The
-'jsoncons' library is also be easily linked to other packages for direct
-access to 'C++' functionality.
+on 'JSON' objects. This package provides 'R' functions to query (filter or
+transform) and pivot (convert from array-of-objects to object-of-arrays,
+for easy import into 'R') 'JSON' or 'NDJSON' strings or files using
+'JSONpointer', 'JSONpath' or 'JMESpath' expression. The 'jsoncons' library
+is also be easily linked to other packages for direct access to 'C++'
+functionality.
 
 %prep
 %setup -q -c -n %{packname}

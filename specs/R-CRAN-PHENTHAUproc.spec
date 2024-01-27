@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PHENTHAUproc
-%global packver   0.9.9
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling Phenology of Oak Processionary Moth
+Summary:          Phenology Modelling of Thaumetopoea Processionea
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -35,10 +35,11 @@ Requires:         R-utils
 %description
 Methods to calculate and present 'PHENTHAUproc', an early warning and
 decision support system for hazard assessment and control of oak
-processionary moth (Thaumetopoea processionea) using local and spatial
-temperature data. It was created by Halbig et al. 2023 (in submission) at
-the FVA (<https://www.fva-bw.de>) a forest research institute in
-Baden-Wuerttemberg, Germany.
+processionary moth (OPM) using local and spatial temperature data. It was
+created by Halbig et al. 2024 (<doi:10.1016/j.foreco.2023.121525>) at FVA
+(<https://www.fva-bw.de/en/homepage/>) Forest Research Institute
+Baden-Wuerttemberg, Germany and at BOKU - University of Natural Ressources
+and Life Sciences, Vienna, Austria.
 
 %prep
 %setup -q -c -n %{packname}
