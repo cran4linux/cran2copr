@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesWatch
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Change-Point Detection for Process Monitoring with Fault Detection
 
@@ -30,6 +30,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-ess 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-parallel >= 3.6.2
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-gridExtra >= 0.9

@@ -1,45 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CEGO
-%global packver   2.4.3
+%global packname  AnalysisLin
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combinatorial Efficient Global Optimization
+Summary:          Exploratory Data Analysis
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DEoptim 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ParamHelpers 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-anticlust 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RANN 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 Requires:         R-stats 
-Requires:         R-CRAN-DEoptim 
-Requires:         R-graphics 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-ParamHelpers 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-anticlust 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-RANN 
 
 %description
-Model building, surrogate model based optimization and Efficient Global
-Optimization in combinatorial or mixed search spaces.
+A quick and effective data exploration toolkit. It provides essential
+features, including a descriptive statistics table for a quick overview of
+your dataset, interactive distribution plots to visualize variable
+patterns, Principal Component Analysis for dimensionality reduction and
+feature analysis, missing value imputation methods, and correlation
+analysis.
 
 %prep
 %setup -q -c -n %{packname}
