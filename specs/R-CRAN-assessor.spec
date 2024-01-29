@@ -1,45 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  graphseg
-%global packver   0.1.1
+%global packname  assessor
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Segmentation of Graph-Based Signals
+Summary:          Assessment Tools for Regression Models with Discrete and Semicontinuous Outcomes
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-flsa 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-flsa 
+BuildRequires:    R-CRAN-tweedie 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-tweedie 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-VGAM 
 
 %description
-Perform segmentation of graph-based signals. Assume a noisy observation of
-a signal two values correspond to vertices on a graph. Assume the true
-value of the signal is piece-wise constant (where each 'piece' is a
-connected subgraph). The main function, agraph(), computes the
-segmentation of the signal. The package also includes a wrapper around the
-competing method flsa() (from package 'flsa'). More information about this
-method in Goepp and van de Kassteele (2022) "Graph-Based Spatial
-Segmentation of Health-Related Areal Data"
-<doi:10.48550/arXiv.2206.06752>.
+Provides assessment tools for regression models with discrete and
+semicontinuous outcomes proposed in Yang (2023)
+<doi:10.48550/arXiv.2308.15596>. It calculates the double probability
+integral transform (DPIT) residuals, constructs QQ plots of residuals and
+the ordered curve for assessing mean structures.
 
 %prep
 %setup -q -c -n %{packname}

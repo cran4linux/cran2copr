@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GA
-%global packver   3.2.3
+%global packver   3.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          3.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Algorithms
 
@@ -49,7 +49,8 @@ operators and easily evaluate their performances. Local search using
 general-purpose optimisation algorithms can be applied stochastically to
 exploit interesting regions. GAs can be run sequentially or in parallel,
 using an explicit master-slave parallelisation or a coarse-grain islands
-approach.
+approach. For more details see Scrucca (2013) <doi:10.18637/jss.v053.i04>
+and Scrucca (2017) <doi:10.32614/RJ-2017-008>.
 
 %prep
 %setup -q -c -n %{packname}

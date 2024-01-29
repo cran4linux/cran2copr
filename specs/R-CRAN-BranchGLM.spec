@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BranchGLM
-%global packver   2.1.3
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Branch and Bound Variable Selection for GLMs using 'RcppArmadillo'
+Summary:          Efficient Best Subset Selection for GLMs via Branch and Bound Algorithms
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
