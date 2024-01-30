@@ -1,40 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treePlotArea
-%global packver   2.0.0
+%global packname  apsimx
+%global packver   2.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correction Factors for Tree Plot Areas Intersected by Stand Boundaries
+Summary:          Inspect, Read, Edit and Run 'APSIM' "Next Generation" and 'APSIM' Classic
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fritools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-fritools 
-Requires:         R-graphics 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-The German national forest inventory uses angle count sampling, a sampling
-method first published as `Bitterlich, W.: Die Winkelzählmessung.
-Allgemeine Forst- und Holzwirtschaftliche Zeitung, 58. Jahrg., Folge 11/12
-vom Juni 1947` and extended by Grosenbaugh
-(<https://academic.oup.com/jof/article-abstract/50/1/32/4684174>) as
-probability proportional to size sampling. When plots are located near
-stand boundaries, their sizes and hence their probabilities need to be
-corrected.
+The functions in this package inspect, read, edit and run files for
+'APSIM' "Next Generation" ('JSON') and 'APSIM' "Classic" ('XML'). The
+files with an 'apsim' extension correspond to 'APSIM' Classic (7.x) -
+Windows only - and the ones with an 'apsimx' extension correspond to
+'APSIM' "Next Generation". For more information about 'APSIM' see
+(<https://www.apsim.info/>) and for 'APSIM' next generation
+(<https://apsimnextgeneration.netlify.app/>).
 
 %prep
 %setup -q -c -n %{packname}

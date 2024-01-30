@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spinifex
-%global packver   0.3.6
+%global packver   0.3.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manual Tours, Manual Control of Dynamic Projections of Numeric Multivariate Data
 
@@ -22,7 +23,6 @@ BuildRequires:    R-CRAN-gganimate
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-Rdimtools 
-BuildRequires:    R-CRAN-transformr 
 BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-tourr 
 Requires:         R-CRAN-ggplot2 
@@ -30,7 +30,6 @@ Requires:         R-CRAN-gganimate
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-Rdimtools 
-Requires:         R-CRAN-transformr 
 Requires:         R-CRAN-magrittr 
 
 %description

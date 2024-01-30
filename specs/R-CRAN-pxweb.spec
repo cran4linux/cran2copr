@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treePlotArea
-%global packver   2.0.0
+%global packname  pxweb
+%global packver   0.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.17.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correction Factors for Tree Plot Areas Intersected by Stand Boundaries
+Summary:          R Interface to PXWEB APIs
 
 License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fritools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-fritools 
-Requires:         R-graphics 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-httr >= 1.1
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr >= 1.1
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
 
 %description
-The German national forest inventory uses angle count sampling, a sampling
-method first published as `Bitterlich, W.: Die Winkelzählmessung.
-Allgemeine Forst- und Holzwirtschaftliche Zeitung, 58. Jahrg., Folge 11/12
-vom Juni 1947` and extended by Grosenbaugh
-(<https://academic.oup.com/jof/article-abstract/50/1/32/4684174>) as
-probability proportional to size sampling. When plots are located near
-stand boundaries, their sizes and hence their probabilities need to be
-corrected.
+Generic interface for the PX-Web/PC-Axis API. The PX-Web/PC-Axis API is
+used by organizations such as Statistics Sweden and Statistics Finland to
+disseminate data. The R package can interact with all PX-Web/PC-Axis APIs
+to fetch information about the data hierarchy, extract metadata and
+extract and parse statistics to R data.frame format. PX-Web is a solution
+to disseminate PC-Axis data files in dynamic tables on the web.  Since
+2013 PX-Web contains an API to disseminate PC-Axis files.
 
 %prep
 %setup -q -c -n %{packname}

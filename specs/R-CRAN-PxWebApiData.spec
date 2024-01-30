@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treePlotArea
-%global packver   2.0.0
+%global packname  PxWebApiData
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correction Factors for Tree Plot Areas Intersected by Stand Boundaries
+Summary:          PX-Web Data by API
 
-License:          BSD_2_clause + file LICENSE
+License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fritools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-fritools 
-Requires:         R-graphics 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rjstat 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pxweb 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rjstat 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-pxweb 
 
 %description
-The German national forest inventory uses angle count sampling, a sampling
-method first published as `Bitterlich, W.: Die Winkelzählmessung.
-Allgemeine Forst- und Holzwirtschaftliche Zeitung, 58. Jahrg., Folge 11/12
-vom Juni 1947` and extended by Grosenbaugh
-(<https://academic.oup.com/jof/article-abstract/50/1/32/4684174>) as
-probability proportional to size sampling. When plots are located near
-stand boundaries, their sizes and hence their probabilities need to be
-corrected.
+Function to read PX-Web data into R via API. The example code reads data
+from the three national statistical institutes, Statistics Norway,
+Statistics Sweden and Statistics Finland.
 
 %prep
 %setup -q -c -n %{packname}

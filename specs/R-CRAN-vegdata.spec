@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vegdata
-%global packver   0.9.11.4
+%global packver   0.9.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.11.4
+Version:          0.9.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Vegetation Databases and Treat Taxonomy
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-DBI >= 0.6.1
 BuildRequires:    R-CRAN-hoardr >= 0.1.0
 BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-indicspecies 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-httr 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-DBI >= 0.6.1
 Requires:         R-CRAN-hoardr >= 0.1.0
 Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-indicspecies 
 Requires:         R-utils 
 Requires:         R-CRAN-httr 

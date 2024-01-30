@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  comf
-%global packver   0.1.11
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Models and Equations for Human Comfort Research
 
@@ -19,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-plyr 
 Requires:         R-graphics 
 Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Calculation of various common and less common comfort indices such as

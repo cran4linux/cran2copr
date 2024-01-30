@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ASRgenomics
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          'ASReml-R' Genomics Tools
+Summary:          Complementary Genomic Functions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

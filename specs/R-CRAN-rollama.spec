@@ -1,40 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treePlotArea
-%global packver   2.0.0
+%global packname  rollama
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correction Factors for Tree Plot Areas Intersected by Stand Boundaries
+Summary:          Communicate with 'Ollama'
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fritools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-fritools 
-Requires:         R-graphics 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-prettyunits 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-CRAN-prettyunits 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-The German national forest inventory uses angle count sampling, a sampling
-method first published as `Bitterlich, W.: Die Winkelzählmessung.
-Allgemeine Forst- und Holzwirtschaftliche Zeitung, 58. Jahrg., Folge 11/12
-vom Juni 1947` and extended by Grosenbaugh
-(<https://academic.oup.com/jof/article-abstract/50/1/32/4684174>) as
-probability proportional to size sampling. When plots are located near
-stand boundaries, their sizes and hence their probabilities need to be
-corrected.
+Wraps the 'Ollama' <https://ollama.ai> API, which can be used to
+communicate with generative large language models locally.
 
 %prep
 %setup -q -c -n %{packname}

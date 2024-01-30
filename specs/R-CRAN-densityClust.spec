@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  densityClust
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering by Fast Search and Find of Density Peaks
 
@@ -15,30 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-grDevices 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rtsne 
 
 %description
 An improved implementation (based on k-nearest neighbors) of the density
 peak clustering algorithm, originally described by Alex Rodriguez and
-Alessandro Laio (Science, 2014 vol. 344) <DOI: 10.1126/science.1242072>.
-It can handle large datasets (> 100, 000 samples) very efficiently. It was
-initially implemented by Thomas Lin Pedersen, with inputs from Sean Hughes
-and later improved by Xiaojie Qiu to handle large datasets with kNNs.
+Alessandro Laio (Science, 2014 vol. 344). It can handle large datasets (>
+100,000 samples) very efficiently. It was initially implemented by Thomas
+Lin Pedersen, with inputs from Sean Hughes and later improved by Xiaojie
+Qiu to handle large datasets with kNNs.
 
 %prep
 %setup -q -c -n %{packname}

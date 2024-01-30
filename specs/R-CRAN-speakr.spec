@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  speakr
-%global packver   3.2.1
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper for the Phonetic Software 'Praat'
 
@@ -17,13 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-quarto 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-quarto 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 

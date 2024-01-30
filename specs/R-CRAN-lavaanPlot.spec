@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lavaanPlot
-%global packver   0.6.2
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Path Diagrams for 'Lavaan' Models via 'DiagrammeR'
 
@@ -20,10 +21,16 @@ BuildRequires:    R-CRAN-lavaan
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 
 %description
 Plots path diagrams from models in 'lavaan' using the plotting

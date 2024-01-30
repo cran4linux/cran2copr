@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diagL1
-%global packver   0.0.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Routines for Fit, Inference and Diagnostics in Linear L1 Models
+Summary:          Routines for Fit, Inference and Diagnostics in Linear L1 and LAD Models
 
-License:          GPL (>= 3.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,21 +18,29 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-quantreg >= 5.97
-BuildRequires:    R-CRAN-greekLetters 
+BuildRequires:    R-CRAN-greekLetters >= 1.0.2
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-conquer 
 BuildRequires:    R-CRAN-lawstat 
 BuildRequires:    R-CRAN-MatrixModels 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-quantreg >= 5.97
-Requires:         R-CRAN-greekLetters 
+Requires:         R-CRAN-greekLetters >= 1.0.2
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-conquer 
 Requires:         R-CRAN-lawstat 
 Requires:         R-CRAN-MatrixModels 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
 Diagnostics for linear L1 regression (also known as LAD - Least Absolute

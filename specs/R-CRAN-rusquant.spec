@@ -1,40 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treePlotArea
-%global packver   2.0.0
+%global packname  rusquant
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correction Factors for Tree Plot Areas Intersected by Stand Boundaries
+Summary:          Quantitative Trading Framework
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fritools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-quantmod 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jose 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-fritools 
-Requires:         R-graphics 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-quantmod 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jose 
 Requires:         R-stats 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-base64enc 
 
 %description
-The German national forest inventory uses angle count sampling, a sampling
-method first published as `Bitterlich, W.: Die Winkelzählmessung.
-Allgemeine Forst- und Holzwirtschaftliche Zeitung, 58. Jahrg., Folge 11/12
-vom Juni 1947` and extended by Grosenbaugh
-(<https://academic.oup.com/jof/article-abstract/50/1/32/4684174>) as
-probability proportional to size sampling. When plots are located near
-stand boundaries, their sizes and hence their probabilities need to be
-corrected.
+Collection of functions to retrieve financial data from various sources,
+including brokerage and exchange platforms, financial websites, and data
+providers. Includes functions to retrieve account information, portfolio
+information, and place/cancel orders from different brokers. Additionally,
+allows users to download historical data such as earnings, dividends,
+stock splits.
 
 %prep
 %setup -q -c -n %{packname}
