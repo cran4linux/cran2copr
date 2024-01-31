@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  toxEval
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploring Biological Relevance of Environmental Chemistry Observations
 
@@ -55,7 +55,8 @@ environmental chemistry data. Results can be used to prioritize which
 chemicals at which sites may be of greatest concern. These methods are
 meant to be used as a screening technique to predict potential for
 biological influence from chemicals that ultimately need to be validated
-with direct biological assays.
+with direct biological assays. A description of the analysis can be found
+in Blackwell (2017) <doi:10.1021/acs.est.7b01613>.
 
 %prep
 %setup -q -c -n %{packname}

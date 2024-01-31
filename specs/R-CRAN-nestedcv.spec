@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nestedcv
-%global packver   0.7.3
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Cross-Validation with 'glmnet' and 'caret'
 
@@ -30,6 +30,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-RhpcBLASctl 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-data.table 
@@ -44,6 +45,7 @@ Requires:         R-methods
 Requires:         R-parallel 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-RhpcBLASctl 
 Requires:         R-CRAN-rlang 
 
 %description

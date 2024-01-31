@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  catmaply
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heatmap for Categorical Data using 'plotly'
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
 Methods and plotting functions for displaying categorical data on an

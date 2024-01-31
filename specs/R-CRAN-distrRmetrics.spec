@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  approxOT
-%global packver   1.1.1
+%global packname  distrRmetrics
+%global packver   2.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate and Exact Optimal Transport Methods
+Summary:          Distribution Classes for Distributions from Rmetrics
 
-License:          GPL (== 3.0)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fBasics >= 270
+BuildRequires:    R-CRAN-fGarch >= 270
+BuildRequires:    R-CRAN-distr >= 2.4
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-startupmsg 
+Requires:         R-CRAN-fBasics >= 270
+Requires:         R-CRAN-fGarch >= 270
+Requires:         R-CRAN-distr >= 2.4
+Requires:         R-methods 
+Requires:         R-CRAN-startupmsg 
 
 %description
-R and C++ functions to perform exact and approximate optimal transport.
-All C++ methods can be linked to other R packages via their header files.
+S4-distribution classes based on package distr for distributions from
+packages 'fBasics' and 'fGarch'.
 
 %prep
 %setup -q -c -n %{packname}

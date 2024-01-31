@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidygraph
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tidy API for Graph Manipulation
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-igraph >= 1.5.0
+BuildRequires:    R-CRAN-igraph >= 2.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-lifecycle 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-igraph >= 1.5.0
+Requires:         R-CRAN-igraph >= 2.0.0
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-lifecycle 

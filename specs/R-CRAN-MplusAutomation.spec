@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MplusAutomation
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package for Facilitating Large-Scale Latent Variable Analyses in Mplus
 
@@ -30,7 +31,6 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-CRAN-checkmate 
 Requires:         R-methods 
@@ -47,7 +47,6 @@ Requires:         R-CRAN-digest
 Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-fastDummies 
 Requires:         R-CRAN-checkmate 
 

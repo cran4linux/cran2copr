@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gcplyr
-%global packver   1.7.1
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate and Analyze Growth Curve Data
 
@@ -29,10 +29,10 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Easy import, manipulation, and model-free analysis of microbial growth
-curve data, as commonly output by plate readers. Tools for reshaping
-common plate reader outputs into 'tidy' formats and merging them with
-design information, making data easy to work with using 'gcplyr' and other
+Easy import, reshaping, and model-free analysis of microbial growth curve
+data, as commonly output by plate readers. Tools for reshaping common
+plate reader outputs into 'tidy' formats and merging them with design
+information, making data easy to work with using 'gcplyr' and other
 packages. Also streamlines common growth curve processing steps, like
 smoothing and calculating derivatives, and facilitates model-free
 characterization and analysis of growth data. See methods at

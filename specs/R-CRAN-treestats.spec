@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  treestats
-%global packver   1.0.3
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Tree Statistics
 
@@ -35,7 +35,8 @@ balance associated statistics, or all branching time related statistics.
 Furthermore, the 'treestats' package supports summary statistic
 calculations on Ltables, provides speed-improved coding of branching
 times, Ltable conversion and includes algorithms to create intermediately
-balanced trees.
+balanced trees. Full description can be found in Janzen (2023)
+<doi:10.1101/2024.01.24.576848>.
 
 %prep
 %setup -q -c -n %{packname}

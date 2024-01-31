@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  approxOT
-%global packver   1.1.1
+%global packname  RandVar
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate and Exact Optimal Transport Methods
+Summary:          Implementation of Random Variables
 
-License:          GPL (== 3.0)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-distr >= 2.8.0
+BuildRequires:    R-CRAN-distrEx >= 2.8.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-startupmsg 
+Requires:         R-CRAN-distr >= 2.8.0
+Requires:         R-CRAN-distrEx >= 2.8.0
+Requires:         R-methods 
+Requires:         R-CRAN-startupmsg 
 
 %description
-R and C++ functions to perform exact and approximate optimal transport.
-All C++ methods can be linked to other R packages via their header files.
+Implements random variables by means of S4 classes and methods.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ardl.nardl
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear and Nonlinear Autoregressive Distributed Lag Models: General-to-Specific Approach
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gets 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-nardl 
@@ -27,7 +28,10 @@ BuildRequires:    R-CRAN-texreg
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-gets 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-nardl 
@@ -37,6 +41,8 @@ Requires:         R-CRAN-texreg
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tseries 
 Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Estimate the linear and nonlinear autoregressive distributed lag (ARDL &

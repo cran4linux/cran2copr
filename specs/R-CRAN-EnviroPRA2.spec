@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  approxOT
-%global packver   1.1.1
+%global packname  EnviroPRA2
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate and Exact Optimal Transport Methods
+Summary:          Environmental Probabilistic Risk Assessment Tools
 
-License:          GPL (== 3.0)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-kSamples 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-truncdist 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-kSamples 
 Requires:         R-stats 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-truncdist 
 
 %description
-R and C++ functions to perform exact and approximate optimal transport.
-All C++ methods can be linked to other R packages via their header files.
+It contains functions for dose calculation for different routes, fitting
+data to probability distributions, random number generation (Monte Carlo
+simulation) and calculation of systemic and carcinogenic risks. For more
+information see the publication: Barrio-Parra et al. (2019) "Human-health
+probabilistic risk assessment: the role of exposure factors in an urban
+garden scenario" <doi:10.1016/j.landurbplan.2019.02.005>.
 
 %prep
 %setup -q -c -n %{packname}

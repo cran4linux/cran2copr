@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dtComb
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Combination of Diagnostic Tests
 
@@ -39,7 +39,7 @@ A system for combining two diagnostic tests using various approaches that
 include statistical and machine-learning-based methodologies. These
 approaches are divided into four groups: linear combination methods,
 non-linear combination methods, mathematical operators, and machine
-learning algorithms. See the <http://biosoft.erciyes.edu.tr/app/dtComb>
+learning algorithms. See the <https://biotools.erciyes.edu.tr/dtComb/>
 website for more information, documentation, and examples.
 
 %prep

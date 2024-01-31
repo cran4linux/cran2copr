@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesplot
-%global packver   1.10.0
+%global packver   1.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.0
+Version:          1.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting for Bayesian Models
 
@@ -14,26 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
+Recommends:       pandoc
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
+BuildRequires:    R-CRAN-ggridges >= 0.5.5
 BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
+Requires:         R-CRAN-ggridges >= 0.5.5
 Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-reshape2 

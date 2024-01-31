@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autoMrP
-%global packver   1.0.3
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Improving MrP with Ensemble Learning
 
@@ -24,9 +24,11 @@ BuildRequires:    R-CRAN-doRNG >= 1.8.2
 BuildRequires:    R-CRAN-e1071 >= 1.7.3
 BuildRequires:    R-CRAN-glmmLasso >= 1.5.1
 BuildRequires:    R-CRAN-foreach >= 1.5.0
+BuildRequires:    R-CRAN-stringr >= 1.5.0
 BuildRequires:    R-CRAN-knitr >= 1.29
 BuildRequires:    R-CRAN-tidyr >= 1.1.2
 BuildRequires:    R-CRAN-lme4 >= 1.1
+BuildRequires:    R-CRAN-vglmer >= 1.0.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-doParallel >= 1.0.15
 BuildRequires:    R-CRAN-EBMAforecast >= 1.0.0
@@ -40,9 +42,11 @@ Requires:         R-CRAN-doRNG >= 1.8.2
 Requires:         R-CRAN-e1071 >= 1.7.3
 Requires:         R-CRAN-glmmLasso >= 1.5.1
 Requires:         R-CRAN-foreach >= 1.5.0
+Requires:         R-CRAN-stringr >= 1.5.0
 Requires:         R-CRAN-knitr >= 1.29
 Requires:         R-CRAN-tidyr >= 1.1.2
 Requires:         R-CRAN-lme4 >= 1.1
+Requires:         R-CRAN-vglmer >= 1.0.3
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-doParallel >= 1.0.15
 Requires:         R-CRAN-EBMAforecast >= 1.0.0
@@ -55,8 +59,8 @@ A tool that improves the prediction performance of multilevel regression
 with post-stratification (MrP) by combining a number of machine learning
 methods. For information on the method, please refer to Broniecki, Wüest,
 Leemann (2020) ''Improving Multilevel Regression with Post-Stratification
-Through Machine Learning (autoMrP)'' forthcoming in 'Journal of Politics'.
-Final pre-print version:
+Through Machine Learning (autoMrP)'' in the 'Journal of Politics'. Final
+pre-print version:
 <https://lucasleemann.files.wordpress.com/2020/07/automrp-r2pa.pdf>.
 
 %prep

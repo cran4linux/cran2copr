@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  approxOT
-%global packver   1.1.1
+%global packname  distrSim
+%global packver   2.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate and Exact Optimal Transport Methods
+Summary:          Simulation Classes Based on Package 'distr'
 
-License:          GPL (== 3.0)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-setRNG >= 2006.2.1
+BuildRequires:    R-CRAN-distr >= 2.5.2
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-startupmsg 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-setRNG >= 2006.2.1
+Requires:         R-CRAN-distr >= 2.5.2
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-CRAN-startupmsg 
 Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
-R and C++ functions to perform exact and approximate optimal transport.
-All C++ methods can be linked to other R packages via their header files.
+S4-classes for setting up a coherent framework for simulation within the
+distr family of packages.
 
 %prep
 %setup -q -c -n %{packname}
