@@ -1,44 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiStatM
-%global packver   1.2.1
+%global packname  modelfactory
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Statistical Methods
+Summary:          Combine Statistical Models into a Tibble for Comparison
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-tibble 
 
 %description
-Algorithms to build set partitions and commutator matrices and their use
-in the construction of multivariate d-Hermite polynomials; estimation and
-derivation of theoretical vector moments and vector cumulants of
-multivariate distributions; conversion formulae for multivariate moments
-and cumulants. Applications to estimation and derivation of multivariate
-measures of skewness and kurtosis; estimation and derivation of asymptotic
-covariances for d-variate Hermite polynomials, multivariate moments and
-cumulants and measures of skewness and kurtosis. The formulae implemented
-are discussed in Terdik (2021, ISBN:9783030813925), "Multivariate
-Statistical Methods".
+Statisticians often want to compare the fit of different models on the
+same data set. However, this usually involves a lot of manual code to fish
+items out of summary() or plain model objects. 'modelfactory' offers the
+capability to pass multiple models in and get out metrics or coefficients
+for quick comparison with easy-to-remember syntax.
 
 %prep
 %setup -q -c -n %{packname}

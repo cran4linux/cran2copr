@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  strex
-%global packver   1.6.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra String Manipulation Functions
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-stringi >= 1.7.8
 BuildRequires:    R-CRAN-stringr >= 1.5
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-rlang >= 1.0
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate >= 1.9.3
@@ -28,6 +29,7 @@ Requires:         R-CRAN-stringi >= 1.7.8
 Requires:         R-CRAN-stringr >= 1.5
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-rlang >= 1.0
+Requires:         R-CRAN-lifecycle 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -37,7 +39,7 @@ There are some things that I wish were easier with the 'stringr' or
 from strings. 'stringr' and 'stringi' make you figure out the regular
 expression for yourself; 'strex' takes care of this for you. There are
 many other handy functionalities in 'strex'. Contributions to this package
-are encouraged: it is intended as a miscellany of string manipulation
+are encouraged; it is intended as a miscellany of string manipulation
 functions that cannot be found in 'stringi' or 'stringr'.
 
 %prep

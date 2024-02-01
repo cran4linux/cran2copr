@@ -1,36 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ChemoSpecUtils
-%global packver   1.0.4
+%global packname  FactoClass
+%global packver   1.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.2.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions Supporting Packages ChemoSpec and ChemoSpec2D
+Summary:          Combination of Factorial Methods and Cluster Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-KernSmooth 
+Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-KernSmooth 
 
 %description
-Functions supporting the common needs of packages 'ChemoSpec' and
-'ChemoSpec2D'.
+Some functions of 'ade4' and 'stats' are combined in order to obtain a
+partition of the rows of a data table, with columns representing variables
+of scales: quantitative, qualitative or frequency. First, a principal axes
+method is performed and then, a combination of Ward agglomerative
+hierarchical classification and K-means is performed, using some of the
+first coordinates obtained from the previous principal axes method. In
+order to permit different weights of the elements to be clustered, the
+function 'kmeansW', programmed in C++, is included. It is a modification
+of 'kmeans'. Some graphical functions include the option: 'gg=FALSE'.
+When 'gg=TRUE', they use the 'ggplot2' and 'ggrepel' packages to avoid the
+super-position of the labels.
 
 %prep
 %setup -q -c -n %{packname}

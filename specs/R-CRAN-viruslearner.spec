@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shinymodels
-%global packver   0.1.1
+%global packname  viruslearner
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Assessments of Models
+Summary:          Ensemble Learning for HIV-Related Metrics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,49 +17,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-generics >= 0.1.0
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-hardhat 
 BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-stacks 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tune 
+BuildRequires:    R-CRAN-workflows 
+BuildRequires:    R-CRAN-workflowsets 
 BuildRequires:    R-CRAN-yardstick 
-Requires:         R-CRAN-generics >= 0.1.0
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-hardhat 
 Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-recipes 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-stacks 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tune 
+Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-workflowsets 
 Requires:         R-CRAN-yardstick 
 
 %description
-Launch a 'shiny' application for 'tidymodels' results. For classification
-or regression models, the app can be used to determine if there is lack of
-fit or poorly predicted points.
+Advanced statistical modeling techniques for ensemble learning,
+specifically tailored to the analysis of lymphocyte counts and viral load
+data in the context of HIV research. Empowering researchers and
+practitioners, this tool provides a comprehensive solution for tasks such
+as analysis, prediction and risk calculation related to key viral metrics.
+The package incorporates cutting-edge ensemble learning principles,
+inspired by model stacking techniques of Simon P. Couch and Max Kuhn
+(2022) <doi:10.21105/joss.04471> and adhering to tidy data principles,
+offering a robust and reproducible framework for HIV research.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eq5d
-%global packver   0.15.1
+%global packver   0.15.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.1
+Version:          0.15.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Analysing 'EQ-5D' Data and Calculating 'EQ-5D' Index Scores
 
@@ -26,14 +26,15 @@ health state description and evaluation. For the description component a
 subject self-rates their health in terms of five dimensions; mobility,
 self-care, usual activities, pain/discomfort, and anxiety/depression using
 either a three-level (EQ-5D-3L,
-<https://euroqol.org/eq-5d-instruments/eq-5d-3l-about/>) or a five-level
-(EQ-5D-5L, <https://euroqol.org/eq-5d-instruments/eq-5d-5l-about/>) scale.
-Frequently the scores on these five dimensions are converted to a single
-utility index using country specific value sets, which can be used in the
-clinical and economic evaluation of health care as well as in population
-health surveys. The eq5d package provides methods to calculate index
-scores from a subject's dimension scores. 30 TTO and 11 VAS EQ-5D-3L value
-sets including those for countries in Szende et al (2007)
+<https://euroqol.org/information-and-support/euroqol-instruments/eq-5d-3l/>)
+or a five-level (EQ-5D-5L,
+<https://euroqol.org/information-and-support/euroqol-instruments/eq-5d-5l/>)
+scale. Frequently the scores on these five dimensions are converted to a
+single utility index using country specific value sets, which can be used
+in the clinical and economic evaluation of health care as well as in
+population health surveys. The eq5d package provides methods to calculate
+index scores from a subject's dimension scores. 30 TTO and 11 VAS EQ-5D-3L
+value sets including those for countries in Szende et al (2007)
 <doi:10.1007/1-4020-5511-0> and Szende et al (2014)
 <doi:10.1007/978-94-007-7596-1>, 40 EQ-5D-5L EQ-VT value sets, the
 EQ-5D-5L crosswalk value sets developed by van Hout et al. (2012)

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gimme
-%global packver   0.7-15
+%global packver   0.7-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.15
+Version:          0.7.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Iterative Multiple Model Estimation
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-imputeTS >= 3.0
 BuildRequires:    R-CRAN-igraph >= 1.0.0
-BuildRequires:    R-CRAN-lavaan >= 0.6.9
+BuildRequires:    R-CRAN-lavaan >= 0.6.17
 BuildRequires:    R-CRAN-MIIVsem >= 0.5.4
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-data.tree 
@@ -27,10 +27,10 @@ BuildRequires:    R-CRAN-nloptr
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-aTSA 
+BuildRequires:    R-CRAN-tseries 
 Requires:         R-CRAN-imputeTS >= 3.0
 Requires:         R-CRAN-igraph >= 1.0.0
-Requires:         R-CRAN-lavaan >= 0.6.9
+Requires:         R-CRAN-lavaan >= 0.6.17
 Requires:         R-CRAN-MIIVsem >= 0.5.4
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-data.tree 
@@ -38,7 +38,7 @@ Requires:         R-CRAN-nloptr
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-aTSA 
+Requires:         R-CRAN-tseries 
 
 %description
 Data-driven approach for arriving at person-specific time series models.

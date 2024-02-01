@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pscl
-%global packver   1.5.5.1
+%global packver   1.5.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5.1
+Version:          1.5.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Political Science Computational Laboratory
 
@@ -33,8 +33,8 @@ Requires:         R-utils
 Bayesian analysis of item-response theory (IRT) models, roll call
 analysis; computing highest density regions; maximum likelihood estimation
 of zero-inflated and hurdle models for count data; goodness-of-fit
-measures for GLMs; data sets used in writing and teaching at the Political
-Science Computational Laboratory; seats-votes curves.
+measures for GLMs; data sets used in writing and teaching; seats-votes
+curves.
 
 %prep
 %setup -q -c -n %{packname}

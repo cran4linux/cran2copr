@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dtts
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'data.table' Time-Series
 
@@ -16,17 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-data.table >= 1.5.0
 BuildRequires:    R-CRAN-RcppCCTZ >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.5
 BuildRequires:    R-CRAN-nanotime 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-RcppDate 
+Requires:         R-CRAN-data.table >= 1.5.0
 Requires:         R-CRAN-RcppCCTZ >= 0.2.0
 Requires:         R-CRAN-Rcpp >= 0.11.5
 Requires:         R-CRAN-nanotime 
-Requires:         R-CRAN-data.table 
 Requires:         R-methods 
 Requires:         R-CRAN-bit64 
 

@@ -1,44 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiStatM
-%global packver   1.2.1
+%global packname  magicaxis
+%global packver   2.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Statistical Methods
+Summary:          Pretty Scientific Plotting with Minor-Tick and Log Minor-Tick Support
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-celestial >= 1.4.1
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-sm 
+BuildRequires:    R-CRAN-mapproj 
+BuildRequires:    R-CRAN-RANN 
+Requires:         R-CRAN-celestial >= 1.4.1
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-sm 
+Requires:         R-CRAN-mapproj 
+Requires:         R-CRAN-RANN 
 
 %description
-Algorithms to build set partitions and commutator matrices and their use
-in the construction of multivariate d-Hermite polynomials; estimation and
-derivation of theoretical vector moments and vector cumulants of
-multivariate distributions; conversion formulae for multivariate moments
-and cumulants. Applications to estimation and derivation of multivariate
-measures of skewness and kurtosis; estimation and derivation of asymptotic
-covariances for d-variate Hermite polynomials, multivariate moments and
-cumulants and measures of skewness and kurtosis. The formulae implemented
-are discussed in Terdik (2021, ISBN:9783030813925), "Multivariate
-Statistical Methods".
+Functions to make useful (and pretty) plots for scientific plotting.
+Additional plotting features are added for base plotting, with particular
+emphasis on making attractive log axis plots.
 
 %prep
 %setup -q -c -n %{packname}

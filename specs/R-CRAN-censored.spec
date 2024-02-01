@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  infer
-%global packver   1.0.6
+%global packname  censored
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Statistical Inference
+Summary:          'parsnip' Engines for Survival Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,40 +17,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-rlang >= 0.2.0
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-survival >= 3.3.1
+BuildRequires:    R-CRAN-tibble >= 3.1.3
+BuildRequires:    R-CRAN-prodlim >= 2023.03.31
+BuildRequires:    R-CRAN-parsnip >= 1.1.0
+BuildRequires:    R-CRAN-hardhat >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-mboost 
+BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-rlang >= 0.2.0
-Requires:         R-CRAN-broom 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-survival >= 3.3.1
+Requires:         R-CRAN-tibble >= 3.1.3
+Requires:         R-CRAN-prodlim >= 2023.03.31
+Requires:         R-CRAN-parsnip >= 1.1.0
+Requires:         R-CRAN-hardhat >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.0.1
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-mboost 
+Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
+Requires:         R-stats 
 
 %description
-The objective of this package is to perform inference using an expressive
-statistical grammar that coheres with the tidy design framework.
+Engines for survival models from the 'parsnip' package. These include
+parametric models (e.g., Jackson (2016) <doi:10.18637/jss.v070.i08>),
+semi-parametric (e.g., Simon et al (2011) <doi:10.18637/jss.v039.i05>),
+and tree-based models (e.g., Buehlmann and Hothorn (2007)
+<doi:10.1214/07-STS242>).
 
 %prep
 %setup -q -c -n %{packname}

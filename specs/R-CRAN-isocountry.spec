@@ -1,44 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiStatM
-%global packver   1.2.1
+%global packname  isocountry
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Statistical Methods
+Summary:          ISO 3166-1 Country Codes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-Algorithms to build set partitions and commutator matrices and their use
-in the construction of multivariate d-Hermite polynomials; estimation and
-derivation of theoretical vector moments and vector cumulants of
-multivariate distributions; conversion formulae for multivariate moments
-and cumulants. Applications to estimation and derivation of multivariate
-measures of skewness and kurtosis; estimation and derivation of asymptotic
-covariances for d-variate Hermite polynomials, multivariate moments and
-cumulants and measures of skewness and kurtosis. The formulae implemented
-are discussed in Terdik (2021, ISBN:9783030813925), "Multivariate
-Statistical Methods".
+ISO 3166-1 country codes provided by the International Organization for
+Standardization.
 
 %prep
 %setup -q -c -n %{packname}

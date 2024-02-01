@@ -1,44 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiStatM
-%global packver   1.2.1
+%global packname  teal.data
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Statistical Methods
+Summary:          Data Model for 'teal' Applications
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-teal.code >= 0.5.0
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-teal.code >= 0.5.0
+Requires:         R-CRAN-lifecycle >= 0.2.0
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-utils 
 
 %description
-Algorithms to build set partitions and commutator matrices and their use
-in the construction of multivariate d-Hermite polynomials; estimation and
-derivation of theoretical vector moments and vector cumulants of
-multivariate distributions; conversion formulae for multivariate moments
-and cumulants. Applications to estimation and derivation of multivariate
-measures of skewness and kurtosis; estimation and derivation of asymptotic
-covariances for d-variate Hermite polynomials, multivariate moments and
-cumulants and measures of skewness and kurtosis. The formulae implemented
-are discussed in Terdik (2021, ISBN:9783030813925), "Multivariate
-Statistical Methods".
+Provides a 'teal_data' class as a unified data model for 'teal'
+applications focusing on reproducibility and relational data.
 
 %prep
 %setup -q -c -n %{packname}

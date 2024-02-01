@@ -1,26 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  luajr
-%global packver   0.1.2
+%global packname  apex
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LuaJIT' Scripting
+Summary:          Phylogenetic Methods for Multiple Gene Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.3
+Requires:         R-core >= 3.1.3
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-adegenet 
+Requires:         R-methods 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-phangorn 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-adegenet 
 
 %description
-An interface to 'LuaJIT' (<https://luajit.org>), a just-in-time compiler
-for the 'Lua' scripting language (<https://www.lua.org>). Allows users to
-run 'Lua' code from 'R'.
+Toolkit for the analysis of multiple gene data (Jombart et al. 2017)
+<doi:10.1111/1755-0998.12567>. 'apex' implements the new S4 classes
+'multidna', 'multiphyDat' and associated methods to handle aligned DNA
+sequences from multiple genes.
 
 %prep
 %setup -q -c -n %{packname}

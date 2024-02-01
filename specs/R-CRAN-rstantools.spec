@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rstantools
-%global packver   2.3.1.1
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1.1
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Developing R Packages Interfacing with 'Stan'
 
@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
+Recommends:       pandoc
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch

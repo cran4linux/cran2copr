@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  archeoViz
-%global packver   1.3.2
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualisation, Exploration, and Web Communication of Archaeological Spatial Data
 
@@ -42,10 +42,13 @@ Requires:         R-CRAN-knitr
 An R 'Shiny' application for the visualisation, interactive exploration,
 and web communication of archaeological spatial data. It includes
 interactive 3D and 2D visualisations, generation of cross sections and
-maps of the remains, basic spatial analysis methods (convex hull,
-regression surfaces, 2D kernel density estimation), and excavation
-timeline visualisation. 'archeoViz' can be used locally or deployed on a
-server, either with interactive input of data or with a static data set.
+maps of the remains, and display an interactive timeline of the work made
+in a site. Simple spatial statistics can be performed (convex hull,
+regression surfaces, 2D kernel density estimation), as well as exporting
+data to other online applications for more complex methods. 'archeoViz'
+can be used locally or deployed on a server, either with interactive input
+of data or with a static data set. Example is provided at
+<https://analytics.huma-num.fr/archeoviz/en>.
 
 %prep
 %setup -q -c -n %{packname}

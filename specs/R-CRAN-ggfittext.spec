@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfittext
-%global packver   0.10.1
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Text Inside a Box in 'ggplot2'
 
@@ -17,11 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.1
 BuildRequires:    R-grid >= 3.1
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-shades >= 1.3.1
 BuildRequires:    R-CRAN-stringi >= 1.1.2
 BuildRequires:    R-CRAN-gridtext >= 0.1.4
+Requires:         R-CRAN-cli >= 3.6.1
 Requires:         R-grid >= 3.1
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-shades >= 1.3.1

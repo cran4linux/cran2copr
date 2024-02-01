@@ -1,44 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiStatM
-%global packver   1.2.1
+%global packname  stressor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Statistical Methods
+Summary:          Algorithms for Testing Models under Stress
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-reticulate 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-dplyr 
 
 %description
-Algorithms to build set partitions and commutator matrices and their use
-in the construction of multivariate d-Hermite polynomials; estimation and
-derivation of theoretical vector moments and vector cumulants of
-multivariate distributions; conversion formulae for multivariate moments
-and cumulants. Applications to estimation and derivation of multivariate
-measures of skewness and kurtosis; estimation and derivation of asymptotic
-covariances for d-variate Hermite polynomials, multivariate moments and
-cumulants and measures of skewness and kurtosis. The formulae implemented
-are discussed in Terdik (2021, ISBN:9783030813925), "Multivariate
-Statistical Methods".
+Traditional model evaluation metrics fail to capture model performance
+under less than ideal conditions. This package employs techniques to
+evaluate models "under-stress". This includes testing models'
+extrapolation ability, or testing accuracy on specific sub-samples of the
+overall model space. Details describing stress-testing methods in this
+package are provided in Haycock (2023) <doi:10.26076/2am5-9f67>. The other
+primary contribution of this package is provided to R users access to the
+'Python' library 'PyCaret' <https://pycaret.org/> for quick and easy
+access to auto-tuned machine learning models.
 
 %prep
 %setup -q -c -n %{packname}

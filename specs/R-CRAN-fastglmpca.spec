@@ -1,44 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiStatM
-%global packver   1.2.1
+%global packname  fastglmpca
+%global packver   0.1-103
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.103
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Statistical Methods
+Summary:          Fast Algorithms for Generalized Principal Component Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-arrangements 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MatrixExtra 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-arrangements 
+BuildRequires:    R-CRAN-distr 
+BuildRequires:    R-CRAN-daarem 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-RcppParallel >= 5.1.5
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MatrixExtra 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-distr 
+Requires:         R-CRAN-daarem 
 
 %description
-Algorithms to build set partitions and commutator matrices and their use
-in the construction of multivariate d-Hermite polynomials; estimation and
-derivation of theoretical vector moments and vector cumulants of
-multivariate distributions; conversion formulae for multivariate moments
-and cumulants. Applications to estimation and derivation of multivariate
-measures of skewness and kurtosis; estimation and derivation of asymptotic
-covariances for d-variate Hermite polynomials, multivariate moments and
-cumulants and measures of skewness and kurtosis. The formulae implemented
-are discussed in Terdik (2021, ISBN:9783030813925), "Multivariate
-Statistical Methods".
+Implements fast, scalable optimization algorithms for fitting generalized
+principal components analysis (GLM-PCA) models, as described in "A
+Generalization of Principal Components Analysis to the Exponential Family"
+Collins M, Dasgupta S, Schapire RE (2002, ISBN:9780262271738), and
+subsequently "Feature Selection and Dimension Reduction for Single-Cell
+RNA-Seq Based on a Multinomial Model" Townes FW, Hicks SC, Aryee MJ,
+Irizarry RA (2019) <doi:10.1186/s13059-019-1861-6>.
 
 %prep
 %setup -q -c -n %{packname}

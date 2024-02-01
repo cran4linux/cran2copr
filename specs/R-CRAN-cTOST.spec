@@ -1,44 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MultiStatM
-%global packver   1.2.1
+%global packname  cTOST
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Statistical Methods
+Summary:          Finite Sample Correction of the Two One-Sided Tests in the Univariate Framework
 
-License:          GPL-3
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-PowerTOST 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-OwenQ 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-PowerTOST 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-OwenQ 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Algorithms to build set partitions and commutator matrices and their use
-in the construction of multivariate d-Hermite polynomials; estimation and
-derivation of theoretical vector moments and vector cumulants of
-multivariate distributions; conversion formulae for multivariate moments
-and cumulants. Applications to estimation and derivation of multivariate
-measures of skewness and kurtosis; estimation and derivation of asymptotic
-covariances for d-variate Hermite polynomials, multivariate moments and
-cumulants and measures of skewness and kurtosis. The formulae implemented
-are discussed in Terdik (2021, ISBN:9783030813925), "Multivariate
-Statistical Methods".
+A system containing easy-to-use tools to compute the bioequivalence
+assessment in the univariate framework using the methods proposed in
+Boulaguiem et al. (2023) <doi:10.1101/2023.03.11.532179>.
 
 %prep
 %setup -q -c -n %{packname}
