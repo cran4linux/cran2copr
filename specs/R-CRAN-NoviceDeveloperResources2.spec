@@ -1,48 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PWEXP
-%global packver   0.4.4
+%global packname  NoviceDeveloperResources2
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Piecewise Exponential Distribution Prediction Model
+Summary:          Further Resources to Assist Novice Developers
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-segmented 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-packrat 
+BuildRequires:    R-CRAN-NoviceDeveloperResources 
+Requires:         R-CRAN-packrat 
+Requires:         R-CRAN-NoviceDeveloperResources 
 
 %description
-Build piecewise exponential survival model for study design (planning) and
-event/timeline prediction.
+Assist novice developers when preparing a single package or a set of
+integrated packages to submit to CRAN. Provide additional resources to
+facilitate the automation of the following individual or batch processing:
+check local source packages; build local .tar.gz source files; install
+packages from local .tar.gz files; detect conflicts between function names
+in the environment. The additional resources include determining the
+identity and ordering of the packages to process when updating an imported
+package.
 
 %prep
 %setup -q -c -n %{packname}

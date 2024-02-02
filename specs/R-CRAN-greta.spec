@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  greta
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple and Scalable Statistical Modelling in R
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-glue >= 1.5.1
 BuildRequires:    R-CRAN-parallelly >= 1.29.0
 BuildRequires:    R-CRAN-future >= 1.22.1
 BuildRequires:    R-CRAN-progress >= 1.2.0
-BuildRequires:    R-CRAN-reticulate >= 1.19
+BuildRequires:    R-CRAN-reticulate >= 1.19.0
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-coda 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-glue >= 1.5.1
 Requires:         R-CRAN-parallelly >= 1.29.0
 Requires:         R-CRAN-future >= 1.22.1
 Requires:         R-CRAN-progress >= 1.2.0
-Requires:         R-CRAN-reticulate >= 1.19
+Requires:         R-CRAN-reticulate >= 1.19.0
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-coda 

@@ -1,48 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PWEXP
-%global packver   0.4.4
+%global packname  rbbnp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Piecewise Exponential Distribution Prediction Model
+Summary:          A Bias Bound Approach to Non-Parametric Inference
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-segmented 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Build piecewise exponential survival model for study design (planning) and
-event/timeline prediction.
+A novel bias-bound approach for non-parametric inference is introduced,
+focusing on both density and conditional expectation estimation. It
+constructs valid confidence intervals that account for the presence of a
+non-negligible bias and thus make it possible to perform inference with
+optimal mean squared error minimizing bandwidths. This package is based on
+Schennach (2020) <doi:10.1093/restud/rdz065>.
 
 %prep
 %setup -q -c -n %{packname}

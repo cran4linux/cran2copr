@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinytable
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple and Configurable Tables in 'HTML', 'LaTeX', 'Markdown', 'Word', and 'PNG' Formats
+Summary:          Simple and Configurable Tables in 'HTML', 'LaTeX', 'Markdown', 'Word', 'PNG', 'PDF', and 'Typst' Formats
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,9 +21,10 @@ BuildArch:        noarch
 %description
 Create highly customized tables with this simple and dependency-free
 package. Data frames can be converted to 'HTML', 'LaTeX', 'Markdown',
-'Word' or 'PNG' tables. The user interface is minimalist and the syntax
-concise. 'HTML' tables can be customized using the flexible 'Bootstrap'
-framework, and 'LaTeX' code with the 'tabularray' package.
+'Word', 'PNG', 'PDF', or 'Typst' tables. The user interface is minimalist
+and easy to learn. The syntax concise. 'HTML' tables can be customized
+using the flexible 'Bootstrap' framework, and 'LaTeX' code with the
+'tabularray' package.
 
 %prep
 %setup -q -c -n %{packname}

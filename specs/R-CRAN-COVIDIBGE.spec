@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  COVIDIBGE
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Downloading, Reading and Analyzing PNAD COVID19 Microdata
 
@@ -41,11 +41,11 @@ Requires:         R-CRAN-timeDate
 Requires:         R-utils 
 
 %description
-Provides tools for downloading, reading and analyzing the PNAD COVID19, a
-household survey from Brazilian Institute of Geography and Statistics -
-IBGE. The data must be downloaded from the official website
-<https://www.ibge.gov.br/>. Further analysis must be made using package
-'survey'.
+Provides tools for downloading, reading and analyzing the COVID19 National
+Household Sample Survey - PNAD COVID19, a household survey from Brazilian
+Institute of Geography and Statistics - IBGE. The data must be downloaded
+from the official website <https://www.ibge.gov.br/>. Further analysis
+must be made using package 'survey'.
 
 %prep
 %setup -q -c -n %{packname}

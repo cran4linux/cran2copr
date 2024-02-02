@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesPO
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference for Presence-Only Data
 
@@ -36,8 +36,9 @@ Requires:         R-tools
 
 %description
 Presence-Only data is best modelled with a Point Process Model. The work
-of Moreira (2020) provides a way to use exact Bayesian inference to model
-this type of data, which is implemented in this package.
+of Moreira and Gamerman (2022) <doi:10.1214/21-AOAS1569> provides a way to
+use exact Bayesian inference to model this type of data, which is
+implemented in this package.
 
 %prep
 %setup -q -c -n %{packname}

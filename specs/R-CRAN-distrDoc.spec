@@ -1,48 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PWEXP
-%global packver   0.4.4
+%global packname  distrDoc
+%global packver   2.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          2.8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Piecewise Exponential Distribution Prediction Model
+Summary:          Documentation for 'distr' Family of R Packages
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-distr >= 2.2.0
+BuildRequires:    R-CRAN-distrEx >= 2.2.0
+BuildRequires:    R-CRAN-distrSim >= 2.2.0
+BuildRequires:    R-CRAN-distrTEst >= 2.2.0
+BuildRequires:    R-CRAN-distrTeach >= 2.2.0
+BuildRequires:    R-CRAN-distrMod >= 2.2.0
+BuildRequires:    R-CRAN-RandVar >= 0.7
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-startupmsg 
+Requires:         R-CRAN-distr >= 2.2.0
+Requires:         R-CRAN-distrEx >= 2.2.0
+Requires:         R-CRAN-distrSim >= 2.2.0
+Requires:         R-CRAN-distrTEst >= 2.2.0
+Requires:         R-CRAN-distrTeach >= 2.2.0
+Requires:         R-CRAN-distrMod >= 2.2.0
+Requires:         R-CRAN-RandVar >= 0.7
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-segmented 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-parallel 
+Requires:         R-CRAN-startupmsg 
 
 %description
-Build piecewise exponential survival model for study design (planning) and
-event/timeline prediction.
+Provides documentation in form of a common vignette to packages 'distr',
+'distrEx', 'distrMod', 'distrSim', 'distrTEst', 'distrTeach', and
+'distrEllipse'.
 
 %prep
 %setup -q -c -n %{packname}

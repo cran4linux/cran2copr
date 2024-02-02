@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GrFA
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Factor Analysis
 
@@ -26,8 +26,7 @@ Canonical Correlation-based Estimation by Choi et al. (2021)
 <doi:10.1016/j.jeconom.2021.09.008> , Generalised Canonical Correlation
 Estimation by Lin and Shin (2022) <doi:10.2139/ssrn.4295429>, Circularly
 Projected Estimation by Chen (2022) <doi:10.1080/07350015.2022.2051520>,
-and the approach we recently proposed, named Weighted Projection
-Estimation.
+and the approach we recently proposed, named Aggregated Projection Method.
 
 %prep
 %setup -q -c -n %{packname}

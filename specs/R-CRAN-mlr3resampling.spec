@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3resampling
-%global packver   2024.1.8
+%global packver   2024.1.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.1.8
+Version:          2024.1.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling Algorithms for 'mlr3' Framework
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tsDyn
-%global packver   11.0.4
+%global packver   11.0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.0.4
+Version:          11.0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Time Series Models with Regime Switching
 

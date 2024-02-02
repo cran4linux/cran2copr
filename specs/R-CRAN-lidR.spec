@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lidR
-%global packver   4.0.4
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.4
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Airborne LiDAR Data Manipulation and Visualization for Forestry Applications
 
@@ -26,10 +26,8 @@ BuildRequires:    R-CRAN-classInt
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-tools 
@@ -44,10 +42,8 @@ Requires:         R-CRAN-classInt
 Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
 Requires:         R-stats 
 Requires:         R-CRAN-stars 
 Requires:         R-tools 

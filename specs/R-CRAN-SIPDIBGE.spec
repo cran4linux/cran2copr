@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIPDIBGE
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Household Survey Packages Conducted by IBGE
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-PNADcIBGE >= 0.6.0
 BuildRequires:    R-CRAN-COVIDIBGE >= 0.1.0
+BuildRequires:    R-CRAN-PNDSIBGE >= 0.1.0
 BuildRequires:    R-CRAN-PNSIBGE >= 0.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-graphics 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-utils 
 Requires:         R-CRAN-PNADcIBGE >= 0.6.0
 Requires:         R-CRAN-COVIDIBGE >= 0.1.0
+Requires:         R-CRAN-PNDSIBGE >= 0.1.0
 Requires:         R-CRAN-PNSIBGE >= 0.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-graphics 
@@ -42,9 +44,10 @@ Requires:         R-utils
 
 %description
 Provides access to packages developed for downloading, reading and
-analyzing microdata from household surveys conducted by Brazilian
-Institute of Geography and Statistics - IBGE. More information can be
-obtained from the official website <https://www.ibge.gov.br/>.
+analyzing microdata from household surveys in Integrated System of
+Household Surveys - SIPD conducted by Brazilian Institute of Geography and
+Statistics - IBGE. More information can be obtained from the official
+website <https://www.ibge.gov.br/>.
 
 %prep
 %setup -q -c -n %{packname}

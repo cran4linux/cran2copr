@@ -1,42 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  subtee
-%global packver   1.0.1
+%global __requires_exclude ^libmpi
+%global packname  kedd
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Subgroup Treatment Effect Estimation in Clinical Trials
+Summary:          Kernel Estimator and Bandwidth Selection for Density and Its Derivatives
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.15.0
+Requires:         R-core >= 2.15.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-matrixStats 
 
 %description
-Naive and adjusted treatment effect estimation for subgroups. Model
-averaging (Bornkamp et.al, 2016 <doi:10.1002/pst.1796>) and bagging
-(Rosenkranz, 2016 <doi:10.1002/bimj.201500147>) are proposed to address
-the problem of selection bias in treatment effect estimates for subgroups.
-The package can be used for all commonly encountered type of outcomes in
-clinical trials (continuous, binary, survival, count). Additional
-functions are provided to build the subgroup variables to be used and to
-plot the results using forest plots. For details, see Ballarini et.al.
-(2021) <doi:10.18637/jss.v099.i14>.
+Smoothing techniques and computing bandwidth selectors of the nth
+derivative of a probability density for one-dimensional data (described in
+Arsalane Chouaib Guidoum (2020) <arXiv:2012.06102> [stat.CO]).
 
 %prep
 %setup -q -c -n %{packname}

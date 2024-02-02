@@ -1,48 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PWEXP
-%global packver   0.4.4
+%global packname  SurrogateBMA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Piecewise Exponential Distribution Prediction Model
+Summary:          Flexible Evaluation of Surrogate Markers with Bayesian Model Averaging
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-segmented 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rsurrogate 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppNumerical 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rsurrogate 
 
 %description
-Build piecewise exponential survival model for study design (planning) and
-event/timeline prediction.
+Provides functions to estimate the proportion of treatment effect
+explained by the surrogate marker using a Bayesian Model Averaging
+approach. Duan and Parast (2023) <doi:10.1002/sim.9986>.
 
 %prep
 %setup -q -c -n %{packname}

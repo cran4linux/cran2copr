@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nc
-%global packver   2023.8.24
+%global packver   2024.1.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.8.24
+Version:          2024.1.31
 Release:          1%{?dist}%{?buildtag}
 Summary:          Named Capture to Data Tables
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.14
 Requires:         R-core >= 2.14
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.14.8
-Requires:         R-CRAN-data.table >= 1.14.8
+BuildRequires:    R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-data.table >= 1.15.0
 
 %description
 User-friendly functions for extracting a data table (row for each match,

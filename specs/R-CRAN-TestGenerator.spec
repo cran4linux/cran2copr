@@ -1,48 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PWEXP
-%global packver   0.4.4
+%global packname  TestGenerator
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Piecewise Exponential Distribution Prediction Model
+Summary:          Integration Unit Tests for Pharmacoepidemiological Studies
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-segmented 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-CDMConnector 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-duckdb 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-CDMConnector 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-duckdb 
 
 %description
-Build piecewise exponential survival model for study design (planning) and
-event/timeline prediction.
+Push a sample population for unit testing on data mapped to the
+Observational Medical Outcomes Partnership (OMOP) Common Data Model.
 
 %prep
 %setup -q -c -n %{packname}
